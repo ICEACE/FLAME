@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['p_5fnode_5finfo',['p_node_info',['../header_8h.html#a8f64c83b5e900b83fe5f592046275800',1,'header.h']]],
+  ['partition_5fdata',['partition_data',['../structnode__information.html#aab31a97e80e9a8d0eb194b25990fb27e',1,'node_information']]],
+  ['period',['period',['../struct_f_l_a_m_e__output.html#a486233493fc0e05fe1bdbe7b7e5d0f1e',1,'FLAME_output']]],
+  ['phase',['phase',['../struct_f_l_a_m_e__output.html#accf3aec63bc20b3c99ab4881cb07c05b',1,'FLAME_output']]],
+  ['point',['point',['../structlocation.html#af2ceef1d6f81ca77347445f65467e50a',1,'location']]],
+  ['position_5fno',['position_no',['../structm__vacancy.html#a70f809eb2699340df4887479f70febce',1,'m_vacancy::position_no()'],['../structm__job__application.html#a70f809eb2699340df4887479f70febce',1,'m_job_application::position_no()'],['../structm__job__offer.html#a70f809eb2699340df4887479f70febce',1,'m_job_offer::position_no()'],['../structm__job__change.html#a70f809eb2699340df4887479f70febce',1,'m_job_change::position_no()']]],
+  ['prev',['prev',['../structxmachine__memory___firm__holder.html#a19069dd243172f0a11723c9eed69ff9d',1,'xmachine_memory_Firm_holder::prev()'],['../structxmachine__memory___household__holder.html#a6c3450c17bdadaa3bc2e0d0fb6fb0ab1',1,'xmachine_memory_Household_holder::prev()'],['../structxmachine__memory___bank__holder.html#af9f28a25c99fc534e3ff8f2488acfbfa',1,'xmachine_memory_Bank_holder::prev()'],['../structxmachine__memory___government__holder.html#aac164d1eafb937d4e9dd4fbc6f404ad0',1,'xmachine_memory_Government_holder::prev()'],['../structxmachine__memory___central_bank__holder.html#a53f476e0ac7018bd0787b7392010c69f',1,'xmachine_memory_CentralBank_holder::prev()']]],
+  ['ptr',['ptr',['../unionpu__vacancy.html#a5860f6d2664ba2860f64c97344c0b2cb',1,'pu_vacancy::ptr()'],['../unionpu__job__application.html#a2f409b0297c988ab29cc3af3d31e3f31',1,'pu_job_application::ptr()'],['../unionpu__job__offer.html#acc9c4fede558ec72f0cc43ebf90de558',1,'pu_job_offer::ptr()'],['../unionpu__job__change.html#a98a88fc5126bd9de0c1a92b4f333dcfa',1,'pu_job_change::ptr()']]],
+  ['ptr_5fanon',['ptr_anon',['../unionpu__vacancy.html#a7121d94e682f8f7d824b89dbcf40364d',1,'pu_vacancy::ptr_anon()'],['../unionpu__job__application.html#a7121d94e682f8f7d824b89dbcf40364d',1,'pu_job_application::ptr_anon()'],['../unionpu__job__offer.html#a7121d94e682f8f7d824b89dbcf40364d',1,'pu_job_offer::ptr_anon()'],['../unionpu__job__change.html#a7121d94e682f8f7d824b89dbcf40364d',1,'pu_job_change::ptr_anon()']]]
+];
