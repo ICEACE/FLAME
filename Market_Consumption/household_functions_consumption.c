@@ -1,5 +1,5 @@
 #include "../header.h"
-#include "../Household_agent_header.h"
+#include "../household_agent_header.h"
 
 /*
  * \fn: int dummy function

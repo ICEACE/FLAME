@@ -1,5 +1,5 @@
 #include "../header.h"
-#include "../CentralBank_agent_header.h"
+#include "../centralbank_agent_header.h"
 
 /*
  * \fn: int dummy function

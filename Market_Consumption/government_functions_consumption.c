@@ -1,5 +1,5 @@
 #include "../header.h"
-#include "../Government_agent_header.h"
+#include "../government_agent_header.h"
 
 /*
  * \fn: int dummy function

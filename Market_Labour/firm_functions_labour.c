@@ -1,5 +1,5 @@
 #include "../header.h"
-#include "../Firm_agent_header.h"
+#include "../firm_agent_header.h"
 
 /*
  * \fn: int random_number(int a, int b)
