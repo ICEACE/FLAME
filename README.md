@@ -1,4 +1,4 @@
 FLAME
 =====
 
-FLAME Implementation of ICEACE Model
+A Multi-agent Implementation of ICEACE Model in FLAME. 
