@@ -1,0 +1,5 @@
+
+== 2013, March 07== 
+"This version includes a generic and simple labour market. It will serve to elaborate upon while developing actual ICEACE Labour Market.
+
+Firm agents do may hire up to a fixed number of employers. Market starts when a firm has a vacant position to fill. When there is a vacancy, the firm does a job announcement. The job announcements are posting a position and a corresponding wage. Households watch job announcements. Unemployed households apply for the positions. Already employed households can apply a new job when there is a chance of earning a higher salary. All applicants have equal chance of being hired."

@@ -1,0 +1,96 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 0.1, 26/02/2012</version>
+    <description> Consumption Market. It is very first ICEACE prototype model</description>
+    <environment>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>household_functions_consumption.c</file>
+            <file>firm_functions_consumption.c</file>
+            <file>bank_functions_consumption.c</file>
+            <file>centralbank_functions_consumption.c</file>
+            <file>government_functions_consumption.c</file>
+        </functionFiles>
+    </environment>
+
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>Household</name>
+            <description>A simple consumer and labourer agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>household_consumption_dummy</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>01</currentState>
+                    <nextState>02</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>Firm</name>
+            <description>A simple production firm agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>firm_consumption_dummy</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>01</currentState>
+                    <nextState>02</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>Bank</name>
+            <description>A simple bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>bank_consumption_dummy</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>01</currentState>
+                    <nextState>02</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>CentralBank</name>
+            <description>A simple central bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>centralbank_consumption_dummy</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>01</currentState>
+                    <nextState>02</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>Government</name>
+            <description>A simple government agent</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                <name>government_consumption_dummy</name>
+                <description>A dummy stub function.</description>
+                <currentState>01</currentState>
+                <nextState>02</nextState>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+</xmodel>

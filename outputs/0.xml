@@ -1,0 +1,110 @@
+<states>
+<itno>0</itno>
+<environment>
+    <beta>0.5</beta>
+</environment>
+<xagent>
+    <name>Government</name>
+    <id>1</id>
+</xagent>
+<xagent>
+    <name>CentralBank</name>
+    <id>2</id>
+</xagent>
+<xagent>
+    <name>Bank</name>
+    <id>10</id>
+</xagent>
+<xagent>
+    <name>Firm</name>
+    <id>101</id>
+    <bank_id>10</bank_id>
+    <employee_list>{{1001,2000},{1002,1000},{0,0},{0,0}}</employee_list>
+</xagent>
+<xagent>
+    <name>Firm</name>
+    <id>102</id>
+    <bank_id>10</bank_id>
+    <employee_list>{{1003,1500},{0,0},{0,0},{0,0}}</employee_list>
+    </xagent>
+<xagent>
+    <name>Household</name>
+    <id>1001</id>
+    <my_employer_id>101</my_employer_id>
+    <wage>2000</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1002</id>
+    <my_employer_id>101</my_employer_id>
+    <wage>1000</wage>
+    <my_job_position>1</my_job_position>
+    <bank_id>10</bank_id>
+    </xagent>
+<xagent>
+    <name>Household</name>
+    <id>1003</id>
+    <my_employer_id>102</my_employer_id>
+    <wage>1500</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1004</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1005</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1006</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1007</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1008</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1009</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+<xagent>
+    <name>Household</name>
+    <id>1010</id>
+    <my_employer_id>0</my_employer_id>
+    <wage>0</wage>
+    <my_job_position>0</my_job_position>
+    <bank_id>10</bank_id>
+</xagent>
+</states>

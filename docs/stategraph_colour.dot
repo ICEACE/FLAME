@@ -1,0 +1,111 @@
+digraph state_graph {
+	rankdir=TB;
+	size="8,5;"
+	layer_0 [shape=plaintext, label="layer 0"];
+	layer_1 [shape=plaintext, label="layer 1"];
+	layer_0 -> layer_1 [style=invis];
+	layer_2 [shape=plaintext, label="layer 2"];
+	layer_1 -> layer_2 [style=invis];
+	layer_3 [shape=plaintext, label="layer 3"];
+	layer_2 -> layer_3 [style=invis];
+	layer_4 [shape=plaintext, label="layer 4"];
+	layer_3 -> layer_4 [style=invis];
+	layer_5 [shape=plaintext, label="layer 5"];
+	layer_4 -> layer_5 [style=invis];
+	layer_6 [shape=plaintext, label="layer 6"];
+	layer_5 -> layer_6 [style=invis];
+	
+	/* States */
+	Firm_end [label = "end"]
+	Firm_04 [label = "04"]
+	Firm_03 [label = "03"]
+	Firm_02 [label = "02"]
+	Firm_01 [label = "01"]
+	Firm_start [label = "start"]
+	Household_end [label = "end"]
+	Household_03 [label = "03"]
+	Household_02 [label = "02"]
+	Household_01 [label = "01"]
+	Household_start [label = "start"]
+	Bank_end [label = "end"]
+	Bank_02 [label = "02"]
+	Bank_01 [label = "01"]
+	Bank_start [label = "start"]
+	Government_end [label = "end"]
+	Government_02 [label = "02"]
+	Government_01 [label = "01"]
+	Government_start [label = "start"]
+	CentralBank_end [label = "end"]
+	CentralBank_02 [label = "02"]
+	CentralBank_01 [label = "01"]
+	CentralBank_start [label = "start"]
+	Firm_firm_notifier_start_01 [label = "firm_notifier", shape = box,style=filled,color=antiquewhite];
+	Firm_firm_consumption_dummy_01_02 [label = "firm_consumption_dummy", shape = box,style=filled,color=aquamarine];
+	Firm_firm_labour_job_announcement_02_03 [label = "firm_labour_job_announcement", shape = box,style=filled,color=azure3];
+	Firm_firm_labour_job_offer_03_04 [label = "firm_labour_job_offer", shape = box,style=filled,color=azure3];
+	Firm_firm_labour_update_04_end [label = "firm_labour_update", shape = box,style=filled,color=azure3];
+	Household_household_notifier_start_01 [label = "household_notifier", shape = box,style=filled,color=antiquewhite];
+	Household_household_consumption_dummy_01_02 [label = "household_consumption_dummy", shape = box,style=filled,color=aquamarine];
+	Household_household_labour_job_application_02_03 [label = "household_labour_job_application", shape = box,style=filled,color=azure3];
+	Household_household_labour_job_update_03_end [label = "household_labour_job_update", shape = box,style=filled,color=azure3];
+	Bank_bank_notifier_start_01 [label = "bank_notifier", shape = box,style=filled,color=antiquewhite];
+	Bank_bank_consumption_dummy_01_02 [label = "bank_consumption_dummy", shape = box,style=filled,color=aquamarine];
+	Bank_bank_labour_dummy_02_end [label = "bank_labour_dummy", shape = box,style=filled,color=azure3];
+	Government_government_notifier_start_01 [label = "government_notifier", shape = box,style=filled,color=antiquewhite];
+	Government_government_consumption_dummy_01_02 [label = "government_consumption_dummy", shape = box,style=filled,color=aquamarine];
+	Government_government_labour_dummy_02_end [label = "government_labour_dummy", shape = box,style=filled,color=azure3];
+	CentralBank_centralbank_notifier_start_01 [label = "centralbank_notifier", shape = box,style=filled,color=antiquewhite];
+	CentralBank_centralbank_consumption_dummy_01_02 [label = "centralbank_consumption_dummy", shape = box,style=filled,color=aquamarine];
+	CentralBank_centralbank_labour_dummy_02_end [label = "centralbank_labour_dummy", shape = box,style=filled,color=azure3];
+	
+	/* Transitions */
+	Firm_start -> Firm_firm_notifier_start_01;
+	Firm_firm_notifier_start_01 -> Firm_01;
+	Firm_01 -> Firm_firm_consumption_dummy_01_02;
+	Firm_firm_consumption_dummy_01_02 -> Firm_02;
+	Firm_02 -> Firm_firm_labour_job_announcement_02_03;
+	Firm_firm_labour_job_announcement_02_03 -> Firm_03;
+	Firm_03 -> Firm_firm_labour_job_offer_03_04;
+	Firm_firm_labour_job_offer_03_04 -> Firm_04;
+	Firm_04 -> Firm_firm_labour_update_04_end;
+	Firm_firm_labour_update_04_end -> Firm_end;
+	Household_start -> Household_household_notifier_start_01;
+	Household_household_notifier_start_01 -> Household_01;
+	Household_01 -> Household_household_consumption_dummy_01_02;
+	Household_household_consumption_dummy_01_02 -> Household_02;
+	Household_02 -> Household_household_labour_job_application_02_03;
+	Household_household_labour_job_application_02_03 -> Household_03;
+	Household_03 -> Household_household_labour_job_update_03_end;
+	Household_household_labour_job_update_03_end -> Household_end;
+	Bank_start -> Bank_bank_notifier_start_01;
+	Bank_bank_notifier_start_01 -> Bank_01;
+	Bank_01 -> Bank_bank_consumption_dummy_01_02;
+	Bank_bank_consumption_dummy_01_02 -> Bank_02;
+	Bank_02 -> Bank_bank_labour_dummy_02_end;
+	Bank_bank_labour_dummy_02_end -> Bank_end;
+	Government_start -> Government_government_notifier_start_01;
+	Government_government_notifier_start_01 -> Government_01;
+	Government_01 -> Government_government_consumption_dummy_01_02;
+	Government_government_consumption_dummy_01_02 -> Government_02;
+	Government_02 -> Government_government_labour_dummy_02_end;
+	Government_government_labour_dummy_02_end -> Government_end;
+	CentralBank_start -> CentralBank_centralbank_notifier_start_01;
+	CentralBank_centralbank_notifier_start_01 -> CentralBank_01;
+	CentralBank_01 -> CentralBank_centralbank_consumption_dummy_01_02;
+	CentralBank_centralbank_consumption_dummy_01_02 -> CentralBank_02;
+	CentralBank_02 -> CentralBank_centralbank_labour_dummy_02_end;
+	CentralBank_centralbank_labour_dummy_02_end -> CentralBank_end;
+	
+	/* Communications */
+	Firm_firm_labour_job_offer_03_04 -> Household_household_labour_job_update_03_end [ label = "job_offer" color="#00ff00" constraint=false];
+	Firm_firm_labour_job_announcement_02_03 -> Household_household_labour_job_application_02_03 [ label = "vacancy" color="#00ff00" constraint=false];
+	Household_household_labour_job_update_03_end -> Firm_firm_labour_update_04_end [ label = "job_change" color="#00ff00" constraint=false];
+	Household_household_labour_job_application_02_03 -> Firm_firm_labour_job_offer_03_04 [ label = "job_application" color="#00ff00" constraint=false];
+	{ rank=same; layer_0;  Firm_firm_notifier_start_01;  Household_household_notifier_start_01;  Bank_bank_notifier_start_01;  Government_government_notifier_start_01;  CentralBank_centralbank_notifier_start_01; }
+	{ rank=same; layer_1;  Firm_firm_consumption_dummy_01_02;  Household_household_consumption_dummy_01_02;  Bank_bank_consumption_dummy_01_02;  Government_government_consumption_dummy_01_02;  CentralBank_centralbank_consumption_dummy_01_02; }
+	{ rank=same; layer_2;  Firm_firm_labour_job_announcement_02_03;  Bank_bank_labour_dummy_02_end;  Government_government_labour_dummy_02_end;  CentralBank_centralbank_labour_dummy_02_end; }
+	{ rank=same; layer_3;  Household_household_labour_job_application_02_03; }
+	{ rank=same; layer_4;  Firm_firm_labour_job_offer_03_04; }
+	{ rank=same; layer_5;  Household_household_labour_job_update_03_end; }
+	{ rank=same; layer_6;  Firm_firm_labour_update_04_end; }
+}

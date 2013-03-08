@@ -1,0 +1,742 @@
+[libmboard] Version        : 0.3.0 (SERIAL)
+[libmboard] Build date     : Wed Feb 20 06:12:19 EET 2013
+[libmboard] Config options :  '--disable-parallel' '--disable-tests'
+
+[libmboard] +++ This is a DEBUG version +++
+[libmboard] <settings> MBOARD_MEMPOOL_RECYCLE = 0 (default)
+[libmboard] <settings> MBOARD_MEMPOOL_BLOCKSIZE = 512 (default)
+FLAME Application: ICEACE 
+Debug mode enabled 
+Iterations: 20
+Using output frequency of: 5
+xml: Geometric partitioning
+Reading initial data file: ./its/0.xml
+Reading environment data from: ./its/0.xml
+Reading agent data from: ./its/0.xml
+output: type='snapshot' format='xml' location='./its/' period='1' phase='0'
+xdiv=0 ydiv=1
+Iteration - 1
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1008
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1007
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1006
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Vacant Position Id: 1
+    Vacant Position Id: 2
+    Vacant Position Id: 3
+Firm Id: 101
+    Employee Id: 1001 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Vacant Position Id: 2
+    Vacant Position Id: 3
+job announcement @=102 job=1 wage =1500.000000
+job announcement @=102 job=2 wage =1894.000000
+job announcement @=102 job=3 wage =3766.000000
+job announcement @=101 job=2 wage =2875.000000
+job announcement @=101 job=3 wage =3098.000000
+Household 1010 applies to Firm 102 for position no 3
+Household 1009 applies to Firm 102 for position no 3
+Household 1008 applies to Firm 102 for position no 3
+Household 1007 applies to Firm 101 for position no 2
+Household 1006 applies to Firm 101 for position no 3
+Household 1005 applies to Firm 101 for position no 3
+Household 1004 applies to Firm 101 for position no 2
+Household 1003 applies to Firm 101 for position no 2
+Household 1002 applies to Firm 101 for position no 2
+Household 1001 applies to Firm 101 for position no 2
+Firm No=101 offers Household No=1001 a wage =2875.000000
+Firm No=101 offers Household No=1006 a wage =3098.000000
+Firm No=102 offers Household No=1009 a wage =3766.000000
+Household 1001 has left Employer 101 Position 0
+Household 1001 is employed at Firm 101 with a wage 2875.000000
+Household 1006 is employed at Firm 101 with a wage 3098.000000
+Household 1009 is employed at Firm 102 with a wage 3766.000000
+Position No=0 at Firm =101 is empty
+Iteration - 2
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1008
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Vacant Position Id: 1
+    Vacant Position Id: 2
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Vacant Position Id: 0
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+job announcement @=102 job=1 wage =1500.000000
+job announcement @=102 job=2 wage =1894.000000
+job announcement @=101 job=0 wage =2000.000000
+Household 1002 applies to Firm 101 for position no 0
+Household 1003 applies to Firm 101 for position no 0
+Household 1004 applies to Firm 102 for position no 2
+Household 1005 applies to Firm 102 for position no 2
+Household 1007 applies to Firm 101 for position no 0
+Household 1008 applies to Firm 102 for position no 2
+Household 1010 applies to Firm 101 for position no 0
+Firm No=101 offers Household No=1007 a wage =2000.000000
+Firm No=102 offers Household No=1005 a wage =1894.000000
+Household 1007 is employed at Firm 101 with a wage 2000.000000
+Household 1005 is employed at Firm 102 with a wage 1894.000000
+Iteration - 3
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Vacant Position Id: 1
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+job announcement @=102 job=1 wage =1500.000000
+Household 1010 applies to Firm 102 for position no 1
+Household 1008 applies to Firm 102 for position no 1
+Household 1004 applies to Firm 102 for position no 1
+Household 1002 applies to Firm 102 for position no 1
+Firm No=102 offers Household No=1008 a wage =1500.000000
+Household 1008 is employed at Firm 102 with a wage 1500.000000
+Iteration - 4
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 5
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 6
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 7
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 8
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 9
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 10
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 11
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 12
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 13
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 14
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 15
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 16
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 17
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 18
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 19
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Iteration - 20
+Central Bank Id = 2
+Government Id = 1
+Bank Id = 10
+Household Id: 1001
+    Bank = 10 Employer= 101 Position=2 Wage 2875.000000
+Household Id: 1002
+    Bank = 10 Employer= 101 Position=1 Wage 1000.000000
+Household Id: 1003
+    Bank = 10 Employer= 102 Position=0 Wage 1500.000000
+Household Id: 1004
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Household Id: 1005
+    Bank = 10 Employer= 102 Position=2 Wage 1894.000000
+Household Id: 1006
+    Bank = 10 Employer= 101 Position=3 Wage 3098.000000
+Household Id: 1007
+    Bank = 10 Employer= 101 Position=0 Wage 2000.000000
+Household Id: 1008
+    Bank = 10 Employer= 102 Position=1 Wage 1500.000000
+Household Id: 1009
+    Bank = 10 Employer= 102 Position=3 Wage 3766.000000
+Household Id: 1010
+    Bank = 10 Employer= 0 Position=0 Wage 0.000000
+Firm Id: 102
+    Employee Id: 1003 Wage: 1500.000000
+    Employee Id: 1008 Wage: 1500.000000
+    Employee Id: 1005 Wage: 1894.000000
+    Employee Id: 1009 Wage: 3766.000000
+Firm Id: 101
+    Employee Id: 1007 Wage: 2000.000000
+    Employee Id: 1002 Wage: 1000.000000
+    Employee Id: 1001 Wage: 2875.000000
+    Employee Id: 1006 Wage: 3098.000000
+Execution time - 0:00:015 [mins:secs:msecs]

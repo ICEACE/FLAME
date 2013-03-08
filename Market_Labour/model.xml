@@ -1,0 +1,287 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 0.1, 26/02/2012</version>
+    <description> Labour Market. It is very first ICEACE prototype model</description>
+    <environment>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>household_functions_labour.c</file>
+            <file>firm_functions_labour.c</file>
+            <file>bank_functions_labour.c</file>
+            <file>centralbank_functions_labour.c</file>
+            <file>government_functions_labour.c</file>
+        </functionFiles>
+    </environment>
+
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>Household</name>
+            <description>A simple consumer and labourer agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>my_employer_id</name>
+                    <description>Employer ID of an household. A 0 means unemployed.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Current wage earned.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>my_job_position</name>
+                    <description>Position of an household within a firm</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>household_labour_job_application</name>
+                    <description>Receive job anouncements.</description>
+                    <currentState>02</currentState>
+                    <nextState>03</nextState>
+                    <inputs> <!-- job announcement messages -->
+                        <input>
+                            <messageName>vacancy</messageName>
+                            <filter>
+                            <!-- checks higher wage announcements -->
+                                <lhs><value>a.wage</value></lhs>
+                                <op>LT</op>
+                                <rhs><value>m.wage</value></rhs>
+                            </filter>
+                            <random>true</random>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>job_application</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>household_labour_job_update</name>
+                    <description>A job employment or a turnover.</description>
+                    <currentState>03</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>job_offer</messageName>
+                            <filter>
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.employee_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>job_change</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>Firm</name>
+            <description>A simple production firm agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>firm_labour_job_announcement</name>
+                    <description>The agent posts available positions.</description>
+                    <currentState>02</currentState>
+                    <nextState>03</nextState>
+                    <outputs>
+                    <!-- List of possible messages sent out-->
+                        <output>
+                            <messageName>vacancy</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_labour_job_offer</name>
+                    <description>The agent takes applications and makes offer.</description>
+                    <currentState>03</currentState>
+                    <nextState>04</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>job_application</messageName>
+                            <filter>
+                            <!-- checks applications sent to the firm. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.employer_id</value></rhs>
+                            </filter>
+                            <random>true</random>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>job_offer</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_labour_update</name>
+                    <description>The agent updates labour status.</description>
+                        <currentState>04</currentState>
+                        <nextState>end</nextState>
+                        <inputs>
+                            <input>
+                                <messageName>job_change</messageName>
+                                <filter>
+                                <!-- Checks worker resignation. -->
+                                <lhs><value>a.id</value></lhs>
+                                    <op>EQ</op>
+                                <rhs><value>m.employer_id</value></rhs>
+                                </filter>
+                            </input>
+                        </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>Bank</name>
+            <description>A simple bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>bank_labour_dummy</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>02</currentState>
+                    <nextState>end</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>CentralBank</name>
+            <description>A simple central bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>centralbank_labour_dummy</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>02</currentState>
+                    <nextState>end</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>Government</name>
+            <description>A simple government agent</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                <name>government_labour_dummy</name>
+                <description>A dummy stub function.</description>
+                <currentState>02</currentState>
+                <nextState>end</nextState>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>vacancy</name>
+            <description>Sent by a Firm to  post a vacancy.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>employer_id</name>
+                    <description>Firm agent ID who posts a new position.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>position_no</name>
+                    <description>Identifier of a post within a Firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Amount of salary to be offered.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>job_application</name>
+            <description>Sent by an household to apply a posted vacancy.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>employee_id</name>
+                    <description>Household agent ID who applies a new job.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>employer_id</name>
+                    <description>Firm agent ID who has announced the position.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>position_no</name>
+                    <description>Identifier to refer a postion within a Firm.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>job_offer</name>
+            <description>Sent by a firm posting a filled position.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>employer_id</name>
+                    <description>Firm agent ID that has filled a post.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>employee_id</name>
+                    <description>Household agent ID who has been offered a position.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Amount of salary that is offered.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>position_no</name>
+                    <description>Position offered by a firm.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>job_change</name>
+            <description>Sent by a worket to notify a resigned position.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>employer_id</name>
+                    <description>Firm agent ID of the position held.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>employee_id</name>
+                    <description>Household aent ID who is changing the job.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>position_no</name>
+                    <description>The position resigned by an household.</description>
+                </variable>
+            </variables>
+        </message>
+    </messages>
+</xmodel>

@@ -1,0 +1,93 @@
+digraph communication_graph {
+	rankdir=BT;
+	size="8,5;"
+	layer_0 [ color="#ff0000" label="layer 0"];
+	CentralBank_centralbank_notifier_start_01 [ shape = rect label="CentralBank_centralbank_notifier_start_01 [0]" ];
+	CentralBank_centralbank_notifier_start_01 -> layer_0;
+	Government_government_notifier_start_01 [ shape = rect label="Government_government_notifier_start_01 [0]" ];
+	Government_government_notifier_start_01 -> CentralBank_centralbank_notifier_start_01;
+	Bank_bank_notifier_start_01 [ shape = rect label="Bank_bank_notifier_start_01 [0]" ];
+	Bank_bank_notifier_start_01 -> Government_government_notifier_start_01;
+	Household_household_notifier_start_01 [ shape = rect label="Household_household_notifier_start_01 [0]" ];
+	Household_household_notifier_start_01 -> Bank_bank_notifier_start_01;
+	Firm_firm_notifier_start_01 [ shape = rect label="Firm_firm_notifier_start_01 [0]" ];
+	Firm_firm_notifier_start_01 -> Household_household_notifier_start_01;
+	layer_1 [ color="#ff0000" label="layer 1"];
+	layer_1 ->Firm_firm_notifier_start_01;
+	CentralBank_centralbank_consumption_dummy_01_02 [ shape = rect label="CentralBank_centralbank_consumption_dummy_01_02 [0]" ];
+	CentralBank_centralbank_consumption_dummy_01_02 -> layer_1;
+	Government_government_consumption_dummy_01_02 [ shape = rect label="Government_government_consumption_dummy_01_02 [0]" ];
+	Government_government_consumption_dummy_01_02 -> CentralBank_centralbank_consumption_dummy_01_02;
+	Bank_bank_consumption_dummy_01_02 [ shape = rect label="Bank_bank_consumption_dummy_01_02 [0]" ];
+	Bank_bank_consumption_dummy_01_02 -> Government_government_consumption_dummy_01_02;
+	Household_household_consumption_dummy_01_02 [ shape = rect label="Household_household_consumption_dummy_01_02 [0]" ];
+	Household_household_consumption_dummy_01_02 -> Bank_bank_consumption_dummy_01_02;
+	Firm_firm_consumption_dummy_01_02 [ shape = rect label="Firm_firm_consumption_dummy_01_02 [0]" ];
+	Firm_firm_consumption_dummy_01_02 -> Household_household_consumption_dummy_01_02;
+	layer_2 [ color="#ff0000" label="layer 2"];
+	layer_2 ->Firm_firm_consumption_dummy_01_02;
+	Firm_firm_labour_job_announcement_02_03 [ shape = rect label="Firm_firm_labour_job_announcement_02_03 [-1]" ];
+	Firm_firm_labour_job_announcement_02_03 -> layer_2;
+	CentralBank_centralbank_labour_dummy_02_end [ shape = rect label="CentralBank_centralbank_labour_dummy_02_end [0]" ];
+	CentralBank_centralbank_labour_dummy_02_end -> Firm_firm_labour_job_announcement_02_03;
+	Government_government_labour_dummy_02_end [ shape = rect label="Government_government_labour_dummy_02_end [0]" ];
+	Government_government_labour_dummy_02_end -> CentralBank_centralbank_labour_dummy_02_end;
+	Bank_bank_labour_dummy_02_end [ shape = rect label="Bank_bank_labour_dummy_02_end [0]" ];
+	Bank_bank_labour_dummy_02_end -> Government_government_labour_dummy_02_end;
+	layer_3 [ color="#ff0000" label="layer 3"];
+	layer_3 ->Bank_bank_labour_dummy_02_end;
+	Household_household_labour_job_application_02_03 [ shape = rect label="Household_household_labour_job_application_02_03 [0]" ];
+	Household_household_labour_job_application_02_03 -> layer_3;
+	layer_4 [ color="#ff0000" label="layer 4"];
+	layer_4 ->Household_household_labour_job_application_02_03;
+	Firm_firm_labour_job_offer_03_04 [ shape = rect label="Firm_firm_labour_job_offer_03_04 [0]" ];
+	Firm_firm_labour_job_offer_03_04 -> layer_4;
+	layer_5 [ color="#ff0000" label="layer 5"];
+	layer_5 ->Firm_firm_labour_job_offer_03_04;
+	Household_household_labour_job_update_03_end [ shape = rect label="Household_household_labour_job_update_03_end [0]" ];
+	Household_household_labour_job_update_03_end -> layer_5;
+	layer_6 [ color="#ff0000" label="layer 6"];
+	layer_6 ->Household_household_labour_job_update_03_end;
+	Firm_firm_labour_update_04_end [ shape = rect label="Firm_firm_labour_update_04_end [1]" ];
+	Firm_firm_labour_update_04_end -> layer_6;
+	vacancy_message [ label = "vacancy" color="#00ff00" shape = parallelogram];
+	vacancy_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	vacancy_message_sync_start_0 -> vacancy_message [ color="#00ff00" label="vacancy_3"];
+	{ rank=same; Firm_firm_labour_job_announcement_02_03; vacancy_message_sync_start_0; }
+	vacancy_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	vacancy_message_sync_end_0 -> vacancy_message_sync_start_0 [ color="#00ff00" ];
+	vacancy_message_sync_end_0 -> Household_household_labour_job_application_02_03 [ color="#00ff00" constraint=false ];
+	vacancy_message_sync_start_0 -> Firm_firm_labour_job_announcement_02_03 [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; Household_household_labour_job_application_02_03; vacancy_message_sync_end_0; }
+	job_application_message [ label = "job_application" color="#00ff00" shape = parallelogram];
+	job_application_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	job_application_message_sync_start_0 -> job_application_message [ color="#00ff00" label="job_application_4"];
+	{ rank=same; Household_household_labour_job_application_02_03; job_application_message_sync_start_0; }
+	job_application_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	job_application_message_sync_end_0 -> job_application_message_sync_start_0 [ color="#00ff00" ];
+	job_application_message_sync_end_0 -> Firm_firm_labour_job_offer_03_04 [ color="#00ff00" constraint=false ];
+	job_application_message_sync_start_0 -> Household_household_labour_job_application_02_03 [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; Firm_firm_labour_job_offer_03_04; job_application_message_sync_end_0; }
+	job_offer_message [ label = "job_offer" color="#00ff00" shape = parallelogram];
+	job_offer_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	job_offer_message_sync_start_0 -> job_offer_message [ color="#00ff00" label="job_offer_5"];
+	{ rank=same; Firm_firm_labour_job_offer_03_04; job_offer_message_sync_start_0; }
+	job_offer_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	job_offer_message_sync_end_0 -> job_offer_message_sync_start_0 [ color="#00ff00" ];
+	job_offer_message_sync_end_0 -> Household_household_labour_job_update_03_end [ color="#00ff00" constraint=false ];
+	job_offer_message_sync_start_0 -> Firm_firm_labour_job_offer_03_04 [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; Household_household_labour_job_update_03_end; job_offer_message_sync_end_0; }
+	job_change_message [ label = "job_change" color="#00ff00" shape = parallelogram];
+	job_change_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	job_change_message_sync_start_0 -> job_change_message [ color="#00ff00" label="job_change_6"];
+	{ rank=same; Household_household_labour_job_update_03_end; job_change_message_sync_start_0; }
+	job_change_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	job_change_message_sync_end_0 -> job_change_message_sync_start_0 [ color="#00ff00" ];
+	job_change_message_sync_end_0 -> Firm_firm_labour_update_04_end [ color="#00ff00" constraint=false ];
+	job_change_message_sync_start_0 -> Household_household_labour_job_update_03_end [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; Firm_firm_labour_update_04_end; job_change_message_sync_end_0; }
+	Firm_firm_labour_job_announcement_02_03 -> vacancy_message [ color="#00ff00" constraint=false ];
+	Firm_firm_labour_job_offer_03_04 -> job_offer_message [ color="#00ff00" constraint=false ];
+	Household_household_labour_job_application_02_03 -> job_application_message [ color="#00ff00" constraint=false ];
+	Household_household_labour_job_update_03_end -> job_change_message [ color="#00ff00" constraint=false ];
+}
