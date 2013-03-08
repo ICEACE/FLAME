@@ -10,10 +10,10 @@ Debug mode enabled
 Iterations: 20
 Using output frequency of: 5
 xml: Geometric partitioning
-Reading initial data file: ./its/0.xml
-Reading environment data from: ./its/0.xml
-Reading agent data from: ./its/0.xml
-output: type='snapshot' format='xml' location='./its/' period='1' phase='0'
+Reading initial data file: ./outputs/0.xml
+Reading environment data from: ./outputs/0.xml
+Reading agent data from: ./outputs/0.xml
+output: type='snapshot' format='xml' location='./outputs/' period='1' phase='0'
 xdiv=0 ydiv=1
 Iteration - 1
 Central Bank Id = 2
@@ -739,4 +739,4 @@ Firm Id: 101
     Employee Id: 1002 Wage: 1000.000000
     Employee Id: 1001 Wage: 2875.000000
     Employee Id: 1006 Wage: 3098.000000
-Execution time - 0:00:015 [mins:secs:msecs]
+Execution time - 0:00:006 [mins:secs:msecs]

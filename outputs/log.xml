@@ -15,7 +15,7 @@
 <iteration><no>9</no><time>0</time></iteration>
 <iteration><no>10</no><time>0</time></iteration>
 <iteration><no>11</no><time>0</time></iteration>
-<iteration><no>12</no><time>2</time></iteration>
+<iteration><no>12</no><time>0</time></iteration>
 <iteration><no>13</no><time>0</time></iteration>
 <iteration><no>14</no><time>0</time></iteration>
 <iteration><no>15</no><time>0</time></iteration>
@@ -25,5 +25,5 @@
 <iteration><no>19</no><time>0</time></iteration>
 <iteration><no>20</no><time>0</time></iteration>
 <!-- <totaltime> unit: seconds -->
-<totaltime>0.016</totaltime>
+<totaltime>0.007</totaltime>
 </model_run>
