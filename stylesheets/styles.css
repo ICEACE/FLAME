@@ -148,7 +148,7 @@ header ul li.single {
   border: none;
 }
 header ul li + li {
-  width: 78px;
+  width: 130px;
   border-left: 1px solid #8BBEF3;
 }
 header ul li + li + li {
