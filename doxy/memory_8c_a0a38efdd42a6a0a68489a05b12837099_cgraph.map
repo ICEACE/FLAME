@@ -1,0 +1,8 @@
+<map id="initialise_unit_testing" name="initialise_unit_testing">
+<area shape="rect" id="node2" href="$header_8h.html#aa1a4e741bea75258a174c11e5f17b994" title="Initialises pointers to xmachine, message, and node lists." alt="" coords="198,109,322,137"/>
+<area shape="rect" id="node3" href="$header_8h.html#a22ac615be2e6e0070adc2d9990845481" title="init_Firm_state" alt="" coords="395,5,504,33"/>
+<area shape="rect" id="node4" href="$header_8h.html#a2ae0ebc01a45685f94e4239b6c492034" title="init_Household_state" alt="" coords="376,57,522,85"/>
+<area shape="rect" id="node5" href="$header_8h.html#acf5717c6cefd3f7b3ad12d97366d9542" title="init_Bank_state" alt="" coords="393,109,506,137"/>
+<area shape="rect" id="node6" href="$header_8h.html#a92c6ea5e2614eeb06cbab810619c1042" title="init_Government_state" alt="" coords="372,161,527,189"/>
+<area shape="rect" id="node7" href="$header_8h.html#a402f6e366ca1e653c81dd3c129dcea49" title="init_CentralBank_state" alt="" coords="372,213,527,241"/>
+</map>

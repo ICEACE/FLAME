@@ -1,0 +1,6 @@
+<map id="init_Government_agent" name="init_Government_agent">
+<area shape="rect" id="node2" href="$memory_8c.html#a2325f1ee03df4dd608cad09df4379f71" title="Add Government X&#45;machine to the current being used X&#45;machine list." alt="" coords="213,5,379,33"/>
+<area shape="rect" id="node3" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="241,57,351,85"/>
+<area shape="rect" id="node4" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="427,57,541,85"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="590,57,640,85"/>
+</map>
