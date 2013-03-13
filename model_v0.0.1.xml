@@ -2,7 +2,7 @@
     xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.1, 26/02/2012</version>
+    <version>Version 0.0.1, 26/02/2012</version>
     <description>It is very first ICEACE prototype model</description>
     <models>
         <model>
