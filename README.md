@@ -30,15 +30,18 @@ Repository Files
 This root folder holds model description (model_vn.n.n.xml file) and agent functions.
 It needs to parsed with xparser and compiled afterwards in order to run the model on a local machine.
 
-
 model_vn.n.n.xml: model descriptions.
 
 agentname_functions_context.c : Describes an agent behaviour within a context, i.e., market.
 
 changelog.txt: holds information on major changes.
 
+./Market_amarketname: folder containing market model and market specific agent functions at amarketname.
+
 ./docs: a folder containing implementation related documents.
 
 ./outputs: holds sample outputs of latest version.
 
 ./outputs/0.xml : holds initial states of described model.
+
+
