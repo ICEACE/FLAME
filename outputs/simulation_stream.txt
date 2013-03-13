@@ -739,4 +739,4 @@ Firm Id: 101
     Employee Id: 1002 Wage: 1000.000000
     Employee Id: 1001 Wage: 2875.000000
     Employee Id: 1006 Wage: 3098.000000
-Execution time - 0:00:007 [mins:secs:msecs]
+Execution time - 0:00:008 [mins:secs:msecs]
