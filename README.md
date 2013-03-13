@@ -36,7 +36,7 @@ agentname_functions_context.c : Describes an agent behaviour within a context, i
 
 changelog.txt: holds information on major changes.
 
-./Market_amarketname: folder containing market model and market specific agent functions at amarketname.
+./Market_Amarketname: folder containing market model and market specific agent functions at Amarketname.
 
 ./docs: a folder containing implementation related documents.
 
