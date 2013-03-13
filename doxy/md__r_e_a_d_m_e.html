@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>ICEACE: FLAME</title>
+<title>ICEACE: Simulation Documents</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
    <div id="projectname">ICEACE
    &#160;<span id="projectnumber">0.0.1</span>
    </div>
-   <div id="projectbrief">Design Documentation of ICEACE in FLAME Multi-agent Simulation Platform</div>
+   <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
  </tr>
  </tbody>
@@ -77,14 +77,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">FLAME </div>  </div>
+<div class="title">Simulation Documents </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A Multi-agent Implementation of ICEACE Model in FLAME. </p>
+<div class="textblock"><p>summary.pdf: A summary of implemntation of agent memory and behaviours</p>
+<p>stategraph.pdf: An overall view of state transitions.</p>
+<p>stategraph_colour.pdf: A detailed view of state transitions.</p>
+<p>process_order_graph.pdf: Serialization of agent functions and messages.</p>
+<p>0.xml: initial states.</p>
+<p>k.xml: snapshot kth iteration.</p>
+<p>simulation_stream.txt: log of simulation run.</p>
+<p>A Multi-agent Implementation of ICEACE Model in FLAME.</p>
+<h1>Project Summary</h1>
+<p>ICEACE (Financial instability, credit rationing and business cycles in an agent-based model: the case of Iceland) is funded by The Icelandic Research Fund 2011.</p>
+<p>The project has a twofold goal. From a scientific perspective, it aims to understand the endogenous sources of instability in the financial system and to devise the relationship between credit supply, assets bubble and macroeconomic activity. In order to achieve this goal, the project foresees the development of an agent-based model and a simulator of a credit network economy. From a more practical and societal perspective, the second objective of the project is the calibration and validation of the simulator on the Icelandic economy so to make it an innovative and powerful computational facility for the assessment of economic scenarios and the design of policy measures. Particularly for macroeconomic policy and systemic risk assessment. The project aims to fully adopt the agent-based approach in order to overcome the limitations that usually affect the large scale macro-econometric models as well as the dynamic stochastic general equilibrium models, which are now employed at policy institutions.</p>
+<p>FLAME (Flexible Large-scale Agent Modelling Environment) is an agent-based modelling system. It serves as the major multi-agent platform for the implementation of ICEACE model.</p>
+<h1>Repository Files</h1>
+<p>This root folder holds model description (model_vn.n.n.xml file) and agent functions. It needs to parsed with xparser and compiled afterwards in order to run the model on a local machine.</p>
+<p>model_vn.n.n.xml: model descriptions.</p>
+<p>agentname_functions_context.c : Describes an agent behaviour within a context, i.e., market.</p>
+<p>changelog.txt: holds information on major changes.</p>
+<p>./Market_Amarketname: folder containing market model and market specific agent functions at Amarketname.</p>
+<p>./docs: a folder containing implementation related documents.</p>
+<p>./outputs: holds sample outputs of latest version.</p>
+<p>./outputs/0.xml : holds initial states of described model. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 04:55:29 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 13 2013 14:50:32 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

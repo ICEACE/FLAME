@@ -71,6 +71,5 @@ var searchData=
   ['freejob_5foffermessages',['freejob_offermessages',['../header_8h.html#a43605fb7b57e5db0c137e17888537a76',1,'header.h']]],
   ['freelocations',['freelocations',['../header_8h.html#a692f2a9d154984d33bc78bfdaca6b8a8',1,'freelocations(location **p_location):&#160;memory.c'],['../memory_8c.html#a692f2a9d154984d33bc78bfdaca6b8a8',1,'freelocations(location **p_location):&#160;memory.c']]],
   ['freevacancymessages',['freevacancymessages',['../header_8h.html#aa79bfbfec13058c7d1cb6d994fe42218',1,'header.h']]],
-  ['freexmachines',['freexmachines',['../header_8h.html#abd1d15d90e38b8c38ba26fa8fca1c972',1,'freexmachines(void):&#160;memory.c'],['../memory_8c.html#a71a58d5746770621880907688097afef',1,'freexmachines():&#160;memory.c']]],
-  ['flame',['FLAME',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['freexmachines',['freexmachines',['../header_8h.html#abd1d15d90e38b8c38ba26fa8fca1c972',1,'freexmachines(void):&#160;memory.c'],['../memory_8c.html#a71a58d5746770621880907688097afef',1,'freexmachines():&#160;memory.c']]]
 ];

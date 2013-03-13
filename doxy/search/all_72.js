@@ -15,6 +15,8 @@ var searchData=
   ['readagentxml',['readAgentXML',['../xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe',1,'xml.c']]],
   ['readenvironmentxml',['readEnvironmentXML',['../xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34',1,'xml.c']]],
   ['readinitialstates',['readinitialstates',['../header_8h.html#acdf3e0e87f4574e3f9a3e9ede6841849',1,'readinitialstates(char *filename, char *filelocation, int *itno, double cloud_data[], int partition_method, int flag):&#160;xml.c'],['../xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849',1,'readinitialstates(char *filename, char *filelocation, int *itno, double cloud_data[], int partition_method, int flag):&#160;xml.c']]],
+  ['readme_2emd',['README.md',['../docs_2_r_e_a_d_m_e_8md.html',1,'']]],
+  ['readme_2emd',['README.md',['../outputs_2_r_e_a_d_m_e_8md.html',1,'']]],
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['release',['RELEASE',['../header_8h.html#a5bd9a30fc22d9a737ee060d41a4ec479',1,'header.h']]],
   ['remove_5fchar',['remove_char',['../header_8h.html#a5a082eadd69848c1dbf046380d2034c6',1,'remove_char(char_array *array, int index):&#160;memory.c'],['../memory_8c.html#a5a082eadd69848c1dbf046380d2034c6',1,'remove_char(char_array *array, int index):&#160;memory.c']]],
