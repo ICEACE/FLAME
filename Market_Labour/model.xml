@@ -37,6 +37,11 @@
                     <name>my_job_position</name>
                     <description>Position of an household within a firm</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>The day of the month to act</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -45,6 +50,12 @@
                     <description>Receive job anouncements.</description>
                     <currentState>02</currentState>
                     <nextState>03</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
                     <inputs> <!-- job announcement messages -->
                         <input>
                             <messageName>vacancy</messageName>
@@ -68,6 +79,12 @@
                     <description>A job employment or a turnover.</description>
                     <currentState>03</currentState>
                     <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
                     <inputs>
                         <input>
                             <messageName>job_offer</messageName>
@@ -90,7 +107,13 @@
             <name>Firm</name>
             <description>A simple production firm agent.</description>
             <!-- Agent memory holding a list of variables -->
-            <memory></memory>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>The day of the month to act</description>
+                </variable>
+            </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
@@ -98,6 +121,13 @@
                     <description>The agent posts available positions.</description>
                     <currentState>02</currentState>
                     <nextState>03</nextState>
+                    <!-- This condition must be met for the function to be executed. -->
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
                     <outputs>
                     <!-- List of possible messages sent out-->
                         <output>
@@ -110,6 +140,12 @@
                     <description>The agent takes applications and makes offer.</description>
                     <currentState>03</currentState>
                     <nextState>04</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
                     <inputs>
                         <input>
                             <messageName>job_application</messageName>
@@ -133,6 +169,12 @@
                     <description>The agent updates labour status.</description>
                         <currentState>04</currentState>
                         <nextState>end</nextState>
+                        <condition>
+                            <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                            </time>
+                        </condition>
                         <inputs>
                             <input>
                                 <messageName>job_change</messageName>

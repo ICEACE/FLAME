@@ -20,12 +20,14 @@
     <id>101</id>
     <bank_id>10</bank_id>
     <employee_list>{{1001,2000},{1002,1000},{0,0},{0,0}}</employee_list>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Firm</name>
     <id>102</id>
     <bank_id>10</bank_id>
     <employee_list>{{1003,1500},{0,0},{0,0},{0,0}}</employee_list>
+    <day_of_month_to_act>1</day_of_month_to_act>
     </xagent>
 <xagent>
     <name>Household</name>
@@ -34,6 +36,7 @@
     <wage>2000</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -42,6 +45,7 @@
     <wage>1000</wage>
     <my_job_position>1</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
     </xagent>
 <xagent>
     <name>Household</name>
@@ -50,6 +54,7 @@
     <wage>1500</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -58,6 +63,7 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -66,6 +72,7 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -74,6 +81,7 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -82,6 +90,7 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -90,6 +99,7 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -98,6 +108,7 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 <xagent>
     <name>Household</name>
@@ -106,5 +117,6 @@
     <wage>0</wage>
     <my_job_position>0</my_job_position>
     <bank_id>10</bank_id>
+    <day_of_month_to_act>1</day_of_month_to_act>
 </xagent>
 </states>
