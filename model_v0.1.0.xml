@@ -2,15 +2,15 @@
     xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.0.1, 26/02/2012</version>
-    <description>It is very first ICEACE prototype model</description>
+    <version>Version 0.1.0, 29/03/2012</version>
+    <description>ICEACE - Labour Market </description>
     <models>
         <model>
             <file>Market_Consumption/model.xml</file>
             <enabled>true</enabled>
         </model>
         <model>
-            <file>Market_Labour/model.xml</file>
+            <file>Market_Labour/model_labour.xml</file>
             <enabled>true</enabled>
         </model>
     </models>
@@ -33,23 +33,6 @@
     
         <dataTypes>
         <!-- List of model data types -->
-            <dataType>
-            <!-- Datatype employee which holds employee data.-->
-                <name>employee</name>
-                <description>Employee data.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>id</name>
-                        <description>Agent id of the employee.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>wage</name>
-                        <description>Monthly wage paid.</description>
-                    </variable>
-                </variables>
-            </dataType>
         </dataTypes>
         <timeUnits>
             <timeUnit>
@@ -97,9 +80,29 @@
                     <description>Bank ID at which the agent maintains its payment account.</description>
                 </variable>
                 <variable>
-                    <type>employee</type>
-                    <name>employee_list[4]</name>
-                    <description>Employee data.</description>
+                    <type>int_array</type>
+                    <name>employees</name>
+                    <description>Holds employee ids</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage_offer</name>
+                    <description>Monthly wage offer.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>no_employees</name>
+                    <description>Number of employees</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>vacancies</name>
+                    <description>Number of vacancies</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>employees_needed</name>
+                    <description>Number of workers a firm needs for next production</description>
                 </variable>
             </memory>
             <functions>
