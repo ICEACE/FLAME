@@ -1,8 +1,0 @@
-<map id="write_employee" name="write_employee">
-<area shape="rect" id="node2" href="$xml_8c.html#a081bf5bdaa33d6151497a162c1590f6d" title="write_employee_static\l_array" alt="" coords="178,5,331,49"/>
-<area shape="rect" id="node7" href="$xml_8c.html#ad96f7a6385c3790984e72e5520fecd01" title="write_employee_dynamic\l_array" alt="" coords="169,73,341,117"/>
-<area shape="rect" id="node3" href="$xml_8c.html#a7862f23067364880e4021e28fed502df" title="write_Firm_agent" alt="" coords="390,13,514,41"/>
-<area shape="rect" id="node4" href="$xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="563,13,693,41"/>
-<area shape="rect" id="node5" href="$xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="741,13,864,41"/>
-<area shape="rect" id="node6" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="912,13,962,41"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="add_Firm_agent" name="add_Firm_agent">
-<area shape="rect" id="node2" href="$header_8h.html#afa4edd1298d7629b51babb67679359ce" title="init_Firm_agent" alt="" coords="202,13,315,41"/>
-<area shape="rect" id="node5" href="$header_8h.html#ad794bb5fa39723d916c33c046c1cd6e1" title="add_Firm_agent_internal" alt="" coords="174,65,343,93"/>
-<area shape="rect" id="node6" href="$header_8h.html#a06d1e5925f687c79a1ce8bd0bb07a802" title="copy_employee_static\l_array" alt="" coords="182,117,335,161"/>
-<area shape="rect" id="node3" href="$header_8h.html#a1c1eb737fe6bf9b101bd3ae91e5163b3" title="init_employee_static\l_array" alt="" coords="393,5,535,49"/>
-<area shape="rect" id="node4" href="$header_8h.html#a3c939eeccdc808cbe89a3b4c5fc1ecef" title="init_employee" alt="" coords="584,13,688,41"/>
-<area shape="rect" id="node7" href="$header_8h.html#afa75efa0b532dbaf82c7b5d8596a2c9a" title="copy_employee" alt="" coords="407,125,521,153"/>
-</map>
