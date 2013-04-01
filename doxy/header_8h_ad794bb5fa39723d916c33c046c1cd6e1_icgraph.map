@@ -1,6 +1,6 @@
 <map id="add_Firm_agent_internal" name="add_Firm_agent_internal">
 <area shape="rect" id="node2" href="$memory_8c.html#acb97b5d532aade49da18190bced2684f" title="transition_Firm_agent" alt="" coords="393,5,543,33"/>
-<area shape="rect" id="node4" href="$memory_8c.html#aa1edb6acef51d8c08a319e3c0bb47133" title="add_Firm_agent" alt="" coords="225,43,343,71"/>
+<area shape="rect" id="node4" href="$memory_8c.html#a2cb1c75c8bb6258e5eab305c80605b96" title="Add Firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="225,43,343,71"/>
 <area shape="rect" id="node5" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="229,95,339,123"/>
 <area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="592,38,642,66"/>
 <area shape="rect" id="node6" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="411,70,525,98"/>

@@ -1,10 +1,10 @@
 <map id="FLAME_write_xml" name="FLAME_write_xml">
 <area shape="rect" id="node2" href="$header_8h.html#ace08d4a662468d469a9b78b10a6ad85f" title="Returns 1 if an integer is a member of an integer array, else 0." alt="" coords="185,5,354,33"/>
 <area shape="rect" id="node3" href="$xml_8c.html#a7862f23067364880e4021e28fed502df" title="write_Firm_agent" alt="" coords="207,57,332,85"/>
-<area shape="rect" id="node6" href="$xml_8c.html#af7f5662ddd867f0c834456f440b0158f" title="write_Household_agent" alt="" coords="189,109,350,137"/>
+<area shape="rect" id="node5" href="$xml_8c.html#af7f5662ddd867f0c834456f440b0158f" title="write_Household_agent" alt="" coords="189,109,350,137"/>
 <area shape="rect" id="node7" href="$xml_8c.html#a2d7b899d4e855675ca90787a3e5dd51f" title="write_Bank_agent" alt="" coords="205,161,333,189"/>
 <area shape="rect" id="node8" href="$xml_8c.html#a13305d980bded092351f75983fba1438" title="write_Government_agent" alt="" coords="184,213,355,241"/>
 <area shape="rect" id="node9" href="$xml_8c.html#af5fdc998ba697da49d013cb8edca9ca2" title="write_CentralBank_agent" alt="" coords="184,265,355,293"/>
-<area shape="rect" id="node4" href="$header_8h.html#a081bf5bdaa33d6151497a162c1590f6d" title="write_employee_static\l_array" alt="" coords="403,49,557,93"/>
-<area shape="rect" id="node5" href="$header_8h.html#a1ff53879ecde885bcbdfd503ab188d53" title="Writes employee datatype." alt="" coords="605,57,720,85"/>
+<area shape="rect" id="node4" href="$xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="402,57,568,85"/>
+<area shape="rect" id="node6" href="$xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="412,109,559,137"/>
 </map>

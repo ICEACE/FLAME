@@ -1,8 +1,8 @@
 <map id="xmachine" name="xmachine">
-<area shape="rect" id="node2" href="$structxmachine__memory___firm.html" title="Holds memory of xmachine Firm." alt="" coords="243,7,411,35"/>
-<area shape="rect" id="node3" href="$structemployee.html" title="employee" alt="" coords="6,7,85,35"/>
-<area shape="rect" id="node4" href="$structxmachine__memory___household.html" title="Holds memory of xmachine Household." alt="" coords="224,59,429,87"/>
-<area shape="rect" id="node5" href="$structxmachine__memory___central_bank.html" title="Holds memory of xmachine CentralBank." alt="" coords="219,111,434,139"/>
-<area shape="rect" id="node6" href="$structxmachine__memory___government.html" title="Holds memory of xmachine Government." alt="" coords="219,163,434,191"/>
-<area shape="rect" id="node7" href="$structxmachine__memory___bank.html" title="Holds memory of xmachine Bank." alt="" coords="241,215,413,243"/>
+<area shape="rect" id="node2" href="$structxmachine__memory___firm.html" title="Holds memory of xmachine Firm." alt="" coords="221,7,389,35"/>
+<area shape="rect" id="node3" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="6,7,79,35"/>
+<area shape="rect" id="node4" href="$structxmachine__memory___household.html" title="Holds memory of xmachine Household." alt="" coords="203,59,408,87"/>
+<area shape="rect" id="node5" href="$structxmachine__memory___central_bank.html" title="Holds memory of xmachine CentralBank." alt="" coords="198,111,413,139"/>
+<area shape="rect" id="node6" href="$structxmachine__memory___government.html" title="Holds memory of xmachine Government." alt="" coords="198,163,413,191"/>
+<area shape="rect" id="node7" href="$structxmachine__memory___bank.html" title="Holds memory of xmachine Bank." alt="" coords="219,215,391,243"/>
 </map>

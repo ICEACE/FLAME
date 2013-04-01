@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -105,6 +105,8 @@ Include dependency graph for messageboards.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__fired.html">pu_fired</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__vacancy.html">pu_vacancy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__job__application.html">pu_job_application</a></td></tr>
@@ -113,48 +115,121 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__job__change.html">pu_job_change</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__vacancy__stage2.html">pu_vacancy_stage2</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__job__application__stage2.html">pu_job_application_stage2</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__job__offer__stage2.html">pu_job_offer_stage2</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0978d4d3c5190fec7a048bda7eeef61d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a0978d4d3c5190fec7a048bda7eeef61d">add_vacancy_message</a> (int employer_id, int position_no, double wage)</td></tr>
-<tr class="memdesc:a0978d4d3c5190fec7a048bda7eeef61d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add vacancy message by calling internal and processing.  <a href="#a0978d4d3c5190fec7a048bda7eeef61d">More...</a><br/></td></tr>
-<tr class="separator:a0978d4d3c5190fec7a048bda7eeef61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b21a7d7ac948da2b4baa274898107b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a7b21a7d7ac948da2b4baa274898107b9">add_fired_message</a> (int employee_id)</td></tr>
+<tr class="memdesc:a7b21a7d7ac948da2b4baa274898107b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add fired message by calling internal and processing.  <a href="#a7b21a7d7ac948da2b4baa274898107b9">More...</a><br/></td></tr>
+<tr class="separator:a7b21a7d7ac948da2b4baa274898107b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadbebc660dc99d9d8676b8ba087564c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__fired.html">m_fired</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aadbebc660dc99d9d8676b8ba087564c6">get_first_fired_message</a> ()</td></tr>
+<tr class="memdesc:aadbebc660dc99d9d8676b8ba087564c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first fired message in the fired message list.  <a href="#aadbebc660dc99d9d8676b8ba087564c6">More...</a><br/></td></tr>
+<tr class="separator:aadbebc660dc99d9d8676b8ba087564c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d24649634ba1698142573a0ab764353"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__fired.html">m_fired</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a4d24649634ba1698142573a0ab764353">get_next_fired_message</a> (<a class="el" href="structm__fired.html">m_fired</a> *current)</td></tr>
+<tr class="separator:a4d24649634ba1698142573a0ab764353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64eed3a81b919d0fdbc8b78f99b6e643"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a64eed3a81b919d0fdbc8b78f99b6e643">add_vacancy_message</a> (int employer_id, double wage)</td></tr>
+<tr class="memdesc:a64eed3a81b919d0fdbc8b78f99b6e643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add vacancy message by calling internal and processing.  <a href="#a64eed3a81b919d0fdbc8b78f99b6e643">More...</a><br/></td></tr>
+<tr class="separator:a64eed3a81b919d0fdbc8b78f99b6e643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4ed7e0f6c7b5c3417d138b33d443e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__vacancy.html">m_vacancy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a0d4ed7e0f6c7b5c3417d138b33d443e0">get_first_vacancy_message</a> ()</td></tr>
 <tr class="memdesc:a0d4ed7e0f6c7b5c3417d138b33d443e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first vacancy message in the vacancy message list.  <a href="#a0d4ed7e0f6c7b5c3417d138b33d443e0">More...</a><br/></td></tr>
 <tr class="separator:a0d4ed7e0f6c7b5c3417d138b33d443e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a75567019b492aada2945b7ec389a7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__vacancy.html">m_vacancy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a3a75567019b492aada2945b7ec389a7e">get_next_vacancy_message</a> (<a class="el" href="structm__vacancy.html">m_vacancy</a> *current)</td></tr>
 <tr class="separator:a3a75567019b492aada2945b7ec389a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef2219474f1fb865522a941aeb8bafb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aef2219474f1fb865522a941aeb8bafb4">add_job_application_message</a> (int employee_id, int employer_id, int position_no)</td></tr>
-<tr class="memdesc:aef2219474f1fb865522a941aeb8bafb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_application message by calling internal and processing.  <a href="#aef2219474f1fb865522a941aeb8bafb4">More...</a><br/></td></tr>
-<tr class="separator:aef2219474f1fb865522a941aeb8bafb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf1fece2255e75449f47994a20913da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aacf1fece2255e75449f47994a20913da">add_job_application_message</a> (int employee_id, int employer_id)</td></tr>
+<tr class="memdesc:aacf1fece2255e75449f47994a20913da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_application message by calling internal and processing.  <a href="#aacf1fece2255e75449f47994a20913da">More...</a><br/></td></tr>
+<tr class="separator:aacf1fece2255e75449f47994a20913da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a393b3e23e66f048c30e623115a4916bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__application.html">m_job_application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a393b3e23e66f048c30e623115a4916bb">get_first_job_application_message</a> ()</td></tr>
 <tr class="memdesc:a393b3e23e66f048c30e623115a4916bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first job_application message in the job_application message list.  <a href="#a393b3e23e66f048c30e623115a4916bb">More...</a><br/></td></tr>
 <tr class="separator:a393b3e23e66f048c30e623115a4916bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0327d8db5f43d9b9804a71a8144ec6e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__application.html">m_job_application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a0327d8db5f43d9b9804a71a8144ec6e1">get_next_job_application_message</a> (<a class="el" href="structm__job__application.html">m_job_application</a> *current)</td></tr>
 <tr class="separator:a0327d8db5f43d9b9804a71a8144ec6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03c96b88be9f6784a4c69950a714f62a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a03c96b88be9f6784a4c69950a714f62a">add_job_offer_message</a> (int employer_id, int employee_id, double wage, int position_no)</td></tr>
-<tr class="memdesc:a03c96b88be9f6784a4c69950a714f62a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_offer message by calling internal and processing.  <a href="#a03c96b88be9f6784a4c69950a714f62a">More...</a><br/></td></tr>
-<tr class="separator:a03c96b88be9f6784a4c69950a714f62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d08b9501b9971b968468ac0b8905c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1d08b9501b9971b968468ac0b8905c59">add_job_offer_message</a> (int employer_id, int employee_id, double wage)</td></tr>
+<tr class="memdesc:a1d08b9501b9971b968468ac0b8905c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_offer message by calling internal and processing.  <a href="#a1d08b9501b9971b968468ac0b8905c59">More...</a><br/></td></tr>
+<tr class="separator:a1d08b9501b9971b968468ac0b8905c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9479f23221c0e0e75d91c986e81a812"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__offer.html">m_job_offer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#ae9479f23221c0e0e75d91c986e81a812">get_first_job_offer_message</a> ()</td></tr>
 <tr class="memdesc:ae9479f23221c0e0e75d91c986e81a812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first job_offer message in the job_offer message list.  <a href="#ae9479f23221c0e0e75d91c986e81a812">More...</a><br/></td></tr>
 <tr class="separator:ae9479f23221c0e0e75d91c986e81a812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d9e344b8c30a89dcb3cf6b9910933ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__offer.html">m_job_offer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1d9e344b8c30a89dcb3cf6b9910933ac">get_next_job_offer_message</a> (<a class="el" href="structm__job__offer.html">m_job_offer</a> *current)</td></tr>
 <tr class="separator:a1d9e344b8c30a89dcb3cf6b9910933ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f4b5690ec281004ff9974d98339db16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a6f4b5690ec281004ff9974d98339db16">add_job_change_message</a> (int employer_id, int employee_id, int position_no)</td></tr>
-<tr class="memdesc:a6f4b5690ec281004ff9974d98339db16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_change message by calling internal and processing.  <a href="#a6f4b5690ec281004ff9974d98339db16">More...</a><br/></td></tr>
-<tr class="separator:a6f4b5690ec281004ff9974d98339db16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92213dcd1bdee4b21ebc15e6ac3daa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#af92213dcd1bdee4b21ebc15e6ac3daa5">add_job_change_message</a> (int employer_id, int employee_id)</td></tr>
+<tr class="memdesc:af92213dcd1bdee4b21ebc15e6ac3daa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_change message by calling internal and processing.  <a href="#af92213dcd1bdee4b21ebc15e6ac3daa5">More...</a><br/></td></tr>
+<tr class="separator:af92213dcd1bdee4b21ebc15e6ac3daa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e1d1007455c067d7767b77d60c6863d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__change.html">m_job_change</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1e1d1007455c067d7767b77d60c6863d">get_first_job_change_message</a> ()</td></tr>
 <tr class="memdesc:a1e1d1007455c067d7767b77d60c6863d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first job_change message in the job_change message list.  <a href="#a1e1d1007455c067d7767b77d60c6863d">More...</a><br/></td></tr>
 <tr class="separator:a1e1d1007455c067d7767b77d60c6863d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a6a6a3c22fe0cb759fb18e9e0edf7e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__change.html">m_job_change</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a6a6a6a3c22fe0cb759fb18e9e0edf7e7">get_next_job_change_message</a> (<a class="el" href="structm__job__change.html">m_job_change</a> *current)</td></tr>
 <tr class="separator:a6a6a6a3c22fe0cb759fb18e9e0edf7e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa58fdca2ef190384f3e339b5aec42292"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aa58fdca2ef190384f3e339b5aec42292">add_vacancy_stage2_message</a> (int employer_id, double wage)</td></tr>
+<tr class="memdesc:aa58fdca2ef190384f3e339b5aec42292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add vacancy_stage2 message by calling internal and processing.  <a href="#aa58fdca2ef190384f3e339b5aec42292">More...</a><br/></td></tr>
+<tr class="separator:aa58fdca2ef190384f3e339b5aec42292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dba12cd0faa60eda99fda51c64c3ab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__vacancy__stage2.html">m_vacancy_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a9dba12cd0faa60eda99fda51c64c3ab9">get_first_vacancy_stage2_message</a> ()</td></tr>
+<tr class="memdesc:a9dba12cd0faa60eda99fda51c64c3ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first vacancy_stage2 message in the vacancy_stage2 message list.  <a href="#a9dba12cd0faa60eda99fda51c64c3ab9">More...</a><br/></td></tr>
+<tr class="separator:a9dba12cd0faa60eda99fda51c64c3ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8111465ad120a00609f221c6ef6ab951"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__vacancy__stage2.html">m_vacancy_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a8111465ad120a00609f221c6ef6ab951">get_next_vacancy_stage2_message</a> (<a class="el" href="structm__vacancy__stage2.html">m_vacancy_stage2</a> *current)</td></tr>
+<tr class="separator:a8111465ad120a00609f221c6ef6ab951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a479521f435a7aeba35c7245c9c39b1f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a479521f435a7aeba35c7245c9c39b1f1">add_job_application_stage2_message</a> (int employee_id, int employer_id)</td></tr>
+<tr class="memdesc:a479521f435a7aeba35c7245c9c39b1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_application_stage2 message by calling internal and processing.  <a href="#a479521f435a7aeba35c7245c9c39b1f1">More...</a><br/></td></tr>
+<tr class="separator:a479521f435a7aeba35c7245c9c39b1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb128b3e5e80178d7500a71a6c8d71f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__application__stage2.html">m_job_application_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#acfb128b3e5e80178d7500a71a6c8d71f">get_first_job_application_stage2_message</a> ()</td></tr>
+<tr class="memdesc:acfb128b3e5e80178d7500a71a6c8d71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first job_application_stage2 message in the job_application_stage2 message list.  <a href="#acfb128b3e5e80178d7500a71a6c8d71f">More...</a><br/></td></tr>
+<tr class="separator:acfb128b3e5e80178d7500a71a6c8d71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e20ad1b8aa131820e0408af73fa8ea8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__application__stage2.html">m_job_application_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1e20ad1b8aa131820e0408af73fa8ea8">get_next_job_application_stage2_message</a> (<a class="el" href="structm__job__application__stage2.html">m_job_application_stage2</a> *current)</td></tr>
+<tr class="separator:a1e20ad1b8aa131820e0408af73fa8ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932e18398bf75fe3d951a79ec8749603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a932e18398bf75fe3d951a79ec8749603">add_job_offer_stage2_message</a> (int employer_id, int employee_id, double wage)</td></tr>
+<tr class="memdesc:a932e18398bf75fe3d951a79ec8749603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add job_offer_stage2 message by calling internal and processing.  <a href="#a932e18398bf75fe3d951a79ec8749603">More...</a><br/></td></tr>
+<tr class="separator:a932e18398bf75fe3d951a79ec8749603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76df7c9dd00759e4717af83bf16ffaf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__offer__stage2.html">m_job_offer_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a76df7c9dd00759e4717af83bf16ffaf0">get_first_job_offer_stage2_message</a> ()</td></tr>
+<tr class="memdesc:a76df7c9dd00759e4717af83bf16ffaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first job_offer_stage2 message in the job_offer_stage2 message list.  <a href="#a76df7c9dd00759e4717af83bf16ffaf0">More...</a><br/></td></tr>
+<tr class="separator:a76df7c9dd00759e4717af83bf16ffaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aae508ca363cb8e13e44f249a5967fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__offer__stage2.html">m_job_offer_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a0aae508ca363cb8e13e44f249a5967fd">get_next_job_offer_stage2_message</a> (<a class="el" href="structm__job__offer__stage2.html">m_job_offer_stage2</a> *current)</td></tr>
+<tr class="separator:a0aae508ca363cb8e13e44f249a5967fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds message board functions. </p>
 
 <p>Definition in file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aef2219474f1fb865522a941aeb8bafb4"></a>
+<a class="anchor" id="a7b21a7d7ac948da2b4baa274898107b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_fired_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>employee_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add fired message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">employee_id</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00025">25</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a7b21a7d7ac948da2b4baa274898107b9_icgraph.png" border="0" usemap="#messageboards_8c_a7b21a7d7ac948da2b4baa274898107b9_icgraph" alt=""/></div>
+<map name="messageboards_8c_a7b21a7d7ac948da2b4baa274898107b9_icgraph" id="messageboards_8c_a7b21a7d7ac948da2b4baa274898107b9_icgraph">
+<area shape="rect" id="node2" href="firm__functions__labour_8c.html#aaf3efd006748307dd8acacef4b2c9bfb" title="firm_labour_fire" alt="" coords="192,5,306,33"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="355,5,405,33"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aacf1fece2255e75449f47994a20913da"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -168,13 +243,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>employer_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>position_no</em>&#160;</td>
+          <td class="paramname"><em>employer_id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -189,25 +258,70 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">employee_id</td><td>Message variable. </td></tr>
     <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
-    <tr><td class="paramname">position_no</td><td>Message variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00165">165</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00296">296</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="messageboards_8c_aef2219474f1fb865522a941aeb8bafb4_icgraph.png" border="0" usemap="#messageboards_8c_aef2219474f1fb865522a941aeb8bafb4_icgraph" alt=""/></div>
-<map name="messageboards_8c_aef2219474f1fb865522a941aeb8bafb4_icgraph" id="messageboards_8c_aef2219474f1fb865522a941aeb8bafb4_icgraph">
-<area shape="rect" id="node2" href="household__functions__labour_8c.html#af2b1afe17e520bd952086180417f9114" title="household_labour_job\l_application" alt="" coords="194,5,347,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="395,13,445,41"/></map>
+<div class="center"><img src="messageboards_8c_aacf1fece2255e75449f47994a20913da_icgraph.png" border="0" usemap="#messageboards_8c_aacf1fece2255e75449f47994a20913da_icgraph" alt=""/></div>
+<map name="messageboards_8c_aacf1fece2255e75449f47994a20913da_icgraph" id="messageboards_8c_aacf1fece2255e75449f47994a20913da_icgraph">
+<area shape="rect" id="node2" href="household__functions__labour_8c.html#a5e993b9ad38efeb835011125dbb8c3d5" title="household_labour_reemployment\l_application" alt="" coords="194,5,414,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="462,13,512,41"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a6f4b5690ec281004ff9974d98339db16"></a>
+<a class="anchor" id="a479521f435a7aeba35c7245c9c39b1f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_job_application_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>employee_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>employer_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add job_application_stage2 message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">employee_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00842">842</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a479521f435a7aeba35c7245c9c39b1f1_icgraph.png" border="0" usemap="#messageboards_8c_a479521f435a7aeba35c7245c9c39b1f1_icgraph" alt=""/></div>
+<map name="messageboards_8c_a479521f435a7aeba35c7245c9c39b1f1_icgraph" id="messageboards_8c_a479521f435a7aeba35c7245c9c39b1f1_icgraph">
+<area shape="rect" id="node2" href="household__functions__labour_8c.html#affb57119e351ec1826b4f0ccef9ddaf7" title="household_labour_employment\l_application" alt="" coords="195,5,402,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="451,13,501,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af92213dcd1bdee4b21ebc15e6ac3daa5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -221,13 +335,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>employee_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>position_no</em>&#160;</td>
+          <td class="paramname"><em>employee_id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -242,25 +350,24 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
     <tr><td class="paramname">employee_id</td><td>Message variable. </td></tr>
-    <tr><td class="paramname">position_no</td><td>Message variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00443">443</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00570">570</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="messageboards_8c_a6f4b5690ec281004ff9974d98339db16_icgraph.png" border="0" usemap="#messageboards_8c_a6f4b5690ec281004ff9974d98339db16_icgraph" alt=""/></div>
-<map name="messageboards_8c_a6f4b5690ec281004ff9974d98339db16_icgraph" id="messageboards_8c_a6f4b5690ec281004ff9974d98339db16_icgraph">
-<area shape="rect" id="node2" href="household__functions__labour_8c.html#ac9a377cd51c003550693452fe475be89" title="household_labour_job\l_update" alt="" coords="234,5,387,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="435,13,485,41"/></map>
+<div class="center"><img src="messageboards_8c_af92213dcd1bdee4b21ebc15e6ac3daa5_icgraph.png" border="0" usemap="#messageboards_8c_af92213dcd1bdee4b21ebc15e6ac3daa5_icgraph" alt=""/></div>
+<map name="messageboards_8c_af92213dcd1bdee4b21ebc15e6ac3daa5_icgraph" id="messageboards_8c_af92213dcd1bdee4b21ebc15e6ac3daa5_icgraph">
+<area shape="rect" id="node2" href="household__functions__labour_8c.html#a2a06bb7e1dc906293ac8afdd232b5ae4" title="household_labour_turnover" alt="" coords="235,5,419,33"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="467,5,517,33"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a03c96b88be9f6784a4c69950a714f62a"></a>
+<a class="anchor" id="a1d08b9501b9971b968468ac0b8905c59"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -280,13 +387,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>wage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>position_no</em>&#160;</td>
+          <td class="paramname"><em>wage</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -302,30 +403,29 @@ Here is the caller graph for this function:</div>
     <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
     <tr><td class="paramname">employee_id</td><td>Message variable. </td></tr>
     <tr><td class="paramname">wage</td><td>Message variable. </td></tr>
-    <tr><td class="paramname">position_no</td><td>Message variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00304">304</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00433">433</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="messageboards_8c_a03c96b88be9f6784a4c69950a714f62a_icgraph.png" border="0" usemap="#messageboards_8c_a03c96b88be9f6784a4c69950a714f62a_icgraph" alt=""/></div>
-<map name="messageboards_8c_a03c96b88be9f6784a4c69950a714f62a_icgraph" id="messageboards_8c_a03c96b88be9f6784a4c69950a714f62a_icgraph">
+<div class="center"><img src="messageboards_8c_a1d08b9501b9971b968468ac0b8905c59_icgraph.png" border="0" usemap="#messageboards_8c_a1d08b9501b9971b968468ac0b8905c59_icgraph" alt=""/></div>
+<map name="messageboards_8c_a1d08b9501b9971b968468ac0b8905c59_icgraph" id="messageboards_8c_a1d08b9501b9971b968468ac0b8905c59_icgraph">
 <area shape="rect" id="node2" href="firm__functions__labour_8c.html#aae924857ede441c5c21bb16886a7c0ae" title="firm_labour_job_offer" alt="" coords="218,5,366,33"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="414,5,464,33"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a0978d4d3c5190fec7a048bda7eeef61d"></a>
+<a class="anchor" id="a932e18398bf75fe3d951a79ec8749603"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void add_vacancy_message </td>
+          <td class="memname">void add_job_offer_stage2_message </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>employer_id</em>, </td>
@@ -334,7 +434,54 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>position_no</em>, </td>
+          <td class="paramname"><em>employee_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add job_offer_stage2 message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">employee_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">wage</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00979">979</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a932e18398bf75fe3d951a79ec8749603_icgraph.png" border="0" usemap="#messageboards_8c_a932e18398bf75fe3d951a79ec8749603_icgraph" alt=""/></div>
+<map name="messageboards_8c_a932e18398bf75fe3d951a79ec8749603_icgraph" id="messageboards_8c_a932e18398bf75fe3d951a79ec8749603_icgraph">
+<area shape="rect" id="node2" href="firm__functions__labour_8c.html#ae0de0d67681d84162b6a3426bad43607" title="firm_labour_job_offer\l_stage2" alt="" coords="205,5,352,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="400,13,450,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a64eed3a81b919d0fdbc8b78f99b6e643"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_vacancy_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>employer_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -354,22 +501,88 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
-    <tr><td class="paramname">position_no</td><td>Message variable. </td></tr>
     <tr><td class="paramname">wage</td><td>Message variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00027">27</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00160">160</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="messageboards_8c_a0978d4d3c5190fec7a048bda7eeef61d_icgraph.png" border="0" usemap="#messageboards_8c_a0978d4d3c5190fec7a048bda7eeef61d_icgraph" alt=""/></div>
-<map name="messageboards_8c_a0978d4d3c5190fec7a048bda7eeef61d_icgraph" id="messageboards_8c_a0978d4d3c5190fec7a048bda7eeef61d_icgraph">
+<div class="center"><img src="messageboards_8c_a64eed3a81b919d0fdbc8b78f99b6e643_icgraph.png" border="0" usemap="#messageboards_8c_a64eed3a81b919d0fdbc8b78f99b6e643_icgraph" alt=""/></div>
+<map name="messageboards_8c_a64eed3a81b919d0fdbc8b78f99b6e643_icgraph" id="messageboards_8c_a64eed3a81b919d0fdbc8b78f99b6e643_icgraph">
 <area shape="rect" id="node2" href="firm__functions__labour_8c.html#a6ac597998419c829554223789477f51e" title="firm_labour_job_announcement" alt="" coords="217,5,426,33"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="475,5,525,33"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="aa58fdca2ef190384f3e339b5aec42292"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_vacancy_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>employer_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add vacancy_stage2 message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">wage</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00706">706</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_aa58fdca2ef190384f3e339b5aec42292_icgraph.png" border="0" usemap="#messageboards_8c_aa58fdca2ef190384f3e339b5aec42292_icgraph" alt=""/></div>
+<map name="messageboards_8c_aa58fdca2ef190384f3e339b5aec42292_icgraph" id="messageboards_8c_aa58fdca2ef190384f3e339b5aec42292_icgraph">
+<area shape="rect" id="node2" href="firm__functions__labour_8c.html#a39b24cb86b521c3b886fe339fe4c70c4" title="firm_labour_job_announcement\l_stage2" alt="" coords="204,5,412,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="462,13,512,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aadbebc660dc99d9d8676b8ba087564c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__fired.html">m_fired</a>* get_first_fired_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first fired message in the fired message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00128">128</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -390,7 +603,28 @@ Here is the caller graph for this function:</div>
 <p>Get the first job_application message in the job_application message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00270">270</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00400">400</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acfb128b3e5e80178d7500a71a6c8d71f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__job__application__stage2.html">m_job_application_stage2</a>* get_first_job_application_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first job_application_stage2 message in the job_application_stage2 message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00946">946</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -411,7 +645,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first job_change message in the job_change message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00548">548</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00674">674</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -432,7 +666,28 @@ Here is the caller graph for this function:</div>
 <p>Get the first job_offer message in the job_offer message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00410">410</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00538">538</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76df7c9dd00759e4717af83bf16ffaf0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__job__offer__stage2.html">m_job_offer_stage2</a>* get_first_job_offer_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first job_offer_stage2 message in the job_offer_stage2 message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l01084">1084</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -453,7 +708,46 @@ Here is the caller graph for this function:</div>
 <p>Get the first vacancy message in the vacancy message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00132">132</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00264">264</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9dba12cd0faa60eda99fda51c64c3ab9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__vacancy__stage2.html">m_vacancy_stage2</a>* get_first_vacancy_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first vacancy_stage2 message in the vacancy_stage2 message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00810">810</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d24649634ba1698142573a0ab764353"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__fired.html">m_fired</a>* get_next_fired_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__fired.html">m_fired</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00138">138</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -471,7 +765,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00280">280</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00410">410</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e20ad1b8aa131820e0408af73fa8ea8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__job__application__stage2.html">m_job_application_stage2</a>* get_next_job_application_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__job__application__stage2.html">m_job_application_stage2</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00956">956</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -489,7 +801,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00558">558</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00684">684</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -507,7 +819,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00420">420</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00548">548</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0aae508ca363cb8e13e44f249a5967fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__job__offer__stage2.html">m_job_offer_stage2</a>* get_next_job_offer_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__job__offer__stage2.html">m_job_offer_stage2</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l01094">1094</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -525,14 +855,32 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00142">142</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00274">274</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8111465ad120a00609f221c6ef6ab951"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__vacancy__stage2.html">m_vacancy_stage2</a>* get_next_vacancy_stage2_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__vacancy__stage2.html">m_vacancy_stage2</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l00820">820</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 28 2013 03:12:50 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 1 2013 20:30:32 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

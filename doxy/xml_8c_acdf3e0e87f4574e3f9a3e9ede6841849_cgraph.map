@@ -1,8 +1,8 @@
 <map id="readinitialstates" name="readinitialstates">
-<area shape="rect" id="node2" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="189,335,299,363"/>
-<area shape="rect" id="node18" href="$xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34" title="readEnvironmentXML" alt="" coords="169,387,319,415"/>
-<area shape="rect" id="node19" href="$header_8h.html#a830d01a8fcc3028182baf9675a486e6b" title="add_FLAME_output" alt="" coords="174,439,314,467"/>
-<area shape="rect" id="node20" href="$xml_8c.html#ad6bd93c47fa8ca72ec882cceb268ccdd" title="Check that a directory exists." alt="" coords="168,491,320,519"/>
+<area shape="rect" id="node2" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="189,365,299,393"/>
+<area shape="rect" id="node19" href="$xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34" title="readEnvironmentXML" alt="" coords="169,417,319,445"/>
+<area shape="rect" id="node20" href="$header_8h.html#a830d01a8fcc3028182baf9675a486e6b" title="add_FLAME_output" alt="" coords="174,469,314,497"/>
+<area shape="rect" id="node21" href="$xml_8c.html#ad6bd93c47fa8ca72ec882cceb268ccdd" title="Check that a directory exists." alt="" coords="168,521,320,549"/>
 <area shape="rect" id="node3" href="$header_8h.html#ad794bb5fa39723d916c33c046c1cd6e1" title="add_Firm_agent_internal" alt="" coords="370,5,539,33"/>
 <area shape="rect" id="node4" href="$header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="404,57,506,85"/>
 <area shape="rect" id="node5" href="$header_8h.html#a4aa1ad44d9ba47aa47ab1b2a9e0d85f8" title="add_Household_agent\l_internal" alt="" coords="377,109,532,153"/>
@@ -10,12 +10,13 @@
 <area shape="rect" id="node7" href="$header_8h.html#a20eef3709143235dd7915b6c320bdfdc" title="add_Government_agent\l_internal" alt="" coords="372,229,537,273"/>
 <area shape="rect" id="node8" href="$header_8h.html#af317a750dc6144003729f8d96334ba3a" title="add_CentralBank_agent\l_internal" alt="" coords="372,297,537,341"/>
 <area shape="rect" id="node9" href="$header_8h.html#afa4edd1298d7629b51babb67679359ce" title="init_Firm_agent" alt="" coords="398,365,511,393"/>
-<area shape="rect" id="node12" href="$header_8h.html#a1a95ee3e41b34216233f9c933896986b" title="init_Household_agent" alt="" coords="380,417,530,445"/>
+<area shape="rect" id="node11" href="$header_8h.html#a1a95ee3e41b34216233f9c933896986b" title="init_Household_agent" alt="" coords="380,417,530,445"/>
 <area shape="rect" id="node13" href="$header_8h.html#a6947ed3559225b859997ae500826bfb2" title="init_Bank_agent" alt="" coords="396,469,513,497"/>
 <area shape="rect" id="node14" href="$header_8h.html#a0896c007b6a1b0a8daca419106855483" title="init_Government_agent" alt="" coords="375,521,535,549"/>
 <area shape="rect" id="node15" href="$header_8h.html#aa78f3d5651a39aa9e90677dd5e7bbb20" title="init_CentralBank_agent" alt="" coords="375,573,535,601"/>
-<area shape="rect" id="node16" href="$header_8h.html#ad6f656b139caf879d8d8df6333aff1d3" title="read_employee_static\l_array" alt="" coords="379,625,531,669"/>
-<area shape="rect" id="node10" href="$header_8h.html#a1c1eb737fe6bf9b101bd3ae91e5163b3" title="init_employee_static\l_array" alt="" coords="590,357,732,401"/>
-<area shape="rect" id="node11" href="$header_8h.html#a3c939eeccdc808cbe89a3b4c5fc1ecef" title="init_employee" alt="" coords="782,365,885,393"/>
-<area shape="rect" id="node17" href="$header_8h.html#aaf49d5da2166675419e0a72ded4d9c90" title="read_employee" alt="" coords="605,633,718,661"/>
+<area shape="rect" id="node16" href="$header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="372,625,537,653"/>
+<area shape="rect" id="node18" href="$header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="382,677,528,705"/>
+<area shape="rect" id="node10" href="$header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="608,365,706,393"/>
+<area shape="rect" id="node12" href="$header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="589,417,725,445"/>
+<area shape="rect" id="node17" href="$header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="625,625,690,653"/>
 </map>
