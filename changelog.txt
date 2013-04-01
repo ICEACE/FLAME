@@ -1,5 +1,16 @@
+== 2013, April 01, model_v0.1.0.xml== 
+"This version implements ICEACE Labour Market.
 
-== 2013, March 07== 
+The current version is not 1 to 1 implementation of the model. It differentiates from the model. Hiring, and firing is implemented in a deterministic sampling manner. However, firms and households does not have full knowledge of the market. An household applies a position one at a time. Firms collects applications and give priority to lower indexed applicants. With current limited knowledge, it is possible to observe that there are still infilled vacancies even if there is still unemployed households in the market.
+
+The population size is scaled up to Icelandic economy. 8000 Households, 150 Firms exist. Each firm starts with 40 employed positions. At the start of each month, there is %50 percent chance of change with number of employees needed. Firms may shrink and expand with equal probability, down to 0 number of employees or up to double number of employees.
+
+When market opens, with a turnover probability of 0.5 already employed households seek for better paid job. In the second phase of the market all unemployed households applies to new positions.
+
+Given above initialization and behavioral settings. On the average it takes around 65 seconds for the simulation to be completed for 1200 iterations (10 years) on MacBook Pro OSX 10.8.3 cpu 2.26GHz Intel Core 2 Duo - RAM 4GB 1067 MHz DDR3."
+
+== 2013, March 07, model_v0.0.1.xml==
+ 
 "This version includes a generic and simple labour market. It will serve to elaborate upon while developing actual ICEACE Labour Market.
 
 Firm agents do may hire up to a fixed number of employers. Market starts when a firm has a vacant position to fill. When there is a vacancy, the firm does a job announcement. The job announcements are posting a position and a corresponding wage. Households watch job announcements. Unemployed households apply for the positions. Already employed households can apply a new job when there is a chance of earning a higher salary. All applicants have equal chance of being hired."

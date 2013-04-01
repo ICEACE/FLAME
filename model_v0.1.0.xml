@@ -24,16 +24,14 @@
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
+            <file>library_functions.c</file>
             <file>firm_functions_top.c</file>
             <file>household_functions_top.c</file>
             <file>bank_functions_top.c</file>
             <file>government_functions_top.c</file>
             <file>centralbank_functions_top.c</file>
         </functionFiles>
-    
-        <dataTypes>
-        <!-- List of model data types -->
-        </dataTypes>
+        <dataTypes/>
         <timeUnits>
             <timeUnit>
                 <name>daily</name>
@@ -78,31 +76,6 @@
                     <type>int</type>
                     <name>bank_id</name>
                     <description>Bank ID at which the agent maintains its payment account.</description>
-                </variable>
-                <variable>
-                    <type>int_array</type>
-                    <name>employees</name>
-                    <description>Holds employee ids</description>
-                </variable>
-                <variable>
-                    <type>double</type>
-                    <name>wage_offer</name>
-                    <description>Monthly wage offer.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>no_employees</name>
-                    <description>Number of employees</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>vacancies</name>
-                    <description>Number of vacancies</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>employees_needed</name>
-                    <description>Number of workers a firm needs for next production</description>
                 </variable>
             </memory>
             <functions>
