@@ -12,13 +12,103 @@
             <file>bank_functions_labour.c</file>
             <file>centralbank_functions_labour.c</file>
             <file>government_functions_labour.c</file>
+            <file>jpoffice_functions_labour.c</file>
         </functionFiles>
     </environment>
 
 	<!-- List of agents -->
     <agents>
         <xagent>
-            <name>Household</name>
+            <name>jpoffice</name>
+            <description>Job Placement Office, an institutional agent. The agent performs job placement work in labour market.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>The day of mont to perform job matching.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Job matching is not active.</description>
+                    <currentState>JPOLabourStage1</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                        <period>monthly</period>
+                        <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>jpoffice_labour_stage1</name>
+                    <description>Collecting vacancies and job applications. Vacancies and turnover applications are matched.</description>
+                    <currentState>JPOLabourStage1</currentState>
+                    <nextState>JPOLabourStage2</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                        <!-- job announcement messages -->
+                            <messageName>vacancy_stage1</messageName>
+                            <sort>
+                                <key>wage</key>
+                                <order>descend</order>
+                            </sort>
+                        </input>
+                        <input>
+                            <messageName>job_application_stage1</messageName>
+                            <sort>
+                                <key>employee_id</key>
+                                <order>ascend</order>
+                            </sort>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>job_match_stage1</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>jpoffice_labour_stage2</name>
+                    <description>Second stage job matching.</description>
+                    <currentState>JPOLabourStage2</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                        <!-- job announcement messages -->
+                            <messageName>vacancy_stage2</messageName>
+                            <sort>
+                                <key>wage</key>
+                                <order>descend</order>
+                            </sort>
+                        </input>
+                        <input>
+                            <messageName>job_application_stage2</messageName>
+                            <sort>
+                                <key>employee_id</key>
+                                <order>ascend</order>
+                            </sort>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>job_match_stage2</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>household</name>
             <description>A simple consumer and labourer agent.</description>
             <!-- Agent memory holding a list of variables -->
             <memory>
@@ -53,8 +143,8 @@
                 <function>
                     <name>idle</name>
                     <description>Job searching is not active.</description>
-                    <currentState>02</currentState>
-                    <nextState>07</nextState>
+                    <currentState>HHLabourStart</currentState>
+                    <nextState>HHLabourPayroll</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -65,8 +155,8 @@
                 <function>
                     <name>household_labour_check_fired</name>
                     <description>Household checks layout status.</description>
-                    <currentState>02</currentState>
-                    <nextState>03a</nextState>
+                    <currentState>HHLabourStart</currentState>
+                    <nextState>HHLabourStage1</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -88,8 +178,8 @@
                 <function>
                     <name>household_labour_reemployment_application</name>
                     <description>Stage 01 of job applications. Already employed households apply with a turnover probability</description>
-                    <currentState>03a</currentState>
-                    <nextState>04</nextState>
+                    <currentState>HHLabourStage1</currentState>
+                    <nextState>HHLabourStage2</nextState>
                     <condition>
                         <lhs>
                             <value>a.my_employer_id</value>
@@ -99,29 +189,17 @@
                             <value>0</value>
                         </rhs>
                     </condition>
-                    <inputs> <!-- job announcement messages -->
-                        <input>
-                            <messageName>vacancy</messageName>
-                            <filter>
-                            <!-- checks higher wage announcements -->
-                                <lhs><value>a.wage</value></lhs>
-                                <op>LT</op>
-                                <rhs><value>m.wage</value></rhs>
-                            </filter>
-                            <random>true</random>
-                        </input>
-                    </inputs>
                     <outputs>
                         <output>
-                            <messageName>job_application</messageName>
+                            <messageName>job_application_stage1</messageName>
                         </output>
                     </outputs>
                 </function>
                 <function>
                     <name>idle</name>
                     <description>Stage 01 of job applications. Unemployed households skip this stage</description>
-                    <currentState>03a</currentState>
-                    <nextState>05</nextState>
+                    <currentState>HHLabourStage1</currentState>
+                    <nextState>HHLabourStage1Applications</nextState>
                     <condition>
                         <not>
                             <lhs><value>a.my_employer_id</value></lhs>
@@ -133,11 +211,11 @@
                 <function>
                     <name>household_labour_turnover</name>
                     <description>A job turnover.</description>
-                    <currentState>04</currentState>
-                    <nextState>07</nextState>
+                    <currentState>HHLabourStage2</currentState>
+                    <nextState>HHLabourPayroll</nextState>
                     <inputs>
                         <input>
-                            <messageName>job_offer</messageName>
+                            <messageName>job_match_stage1</messageName>
                             <filter>
                                 <lhs><value>a.id</value></lhs>
                                 <op>EQ</op>
@@ -154,14 +232,8 @@
                 <function>
                     <name>household_labour_employment_application</name>
                     <description>Stage 02 of job market. Unemployed households apply.</description>
-                    <currentState>05</currentState>
-                    <nextState>06</nextState>
-                    <inputs> <!-- job announcement messages -->
-                        <input>
-                            <messageName>vacancy_stage2</messageName>
-                            <random>true</random>
-                        </input>
-                    </inputs>
+                    <currentState>HHLabourStage1Applications</currentState>
+                    <nextState>HHLabourStage1Placement</nextState>
                     <outputs>
                         <output>
                             <messageName>job_application_stage2</messageName>
@@ -171,11 +243,11 @@
                 <function>
                     <name>household_labour_employment</name>
                     <description>A new employment.</description>
-                    <currentState>06</currentState>
-                    <nextState>07</nextState>                                  
+                    <currentState>HHLabourStage1Placement</currentState>
+                    <nextState>HHLabourPayroll</nextState>                                  
                     <inputs>
                         <input>
-                        <messageName>job_offer_stage2</messageName>
+                        <messageName>job_match_stage2</messageName>
                             <filter>
                                 <lhs><value>a.id</value></lhs>
                                 <op>EQ</op>
@@ -187,7 +259,7 @@
                 <function>
                     <name>idle</name>
                     <description>Does nothing at the point when it is not last day of the month.</description>
-                        <currentState>07</currentState>
+                        <currentState>HHLabourPayroll</currentState>
                         <nextState>end</nextState>
                         <condition>
                             <not><time>
@@ -199,7 +271,7 @@
                 <function>
                     <name>household_labour_recieve_wage</name>
                     <description>Recieves payment and update wage history.</description>
-                    <currentState>07</currentState>
+                    <currentState>HHLabourPayroll</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <time>
@@ -211,7 +283,7 @@
             </functions>
         </xagent>
         <xagent>
-            <name>Firm</name>
+            <name>firm</name>
             <description>A simple production firm agent.</description>
             <!-- Agent memory holding a list of variables -->
             <memory>
@@ -251,7 +323,7 @@
                 <function>
                     <name>idle</name>
                     <description>Labour market is not active.</description>
-                    <currentState>02</currentState>
+                    <currentState>FirmLabourStart</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not>
@@ -265,8 +337,8 @@
                 <function>
                     <name>firm_labour_workforce_needed</name>
                     <description>The firm computes required number of employees needed for incoming month.</description>
-                    <currentState>02</currentState>
-                    <nextState>03</nextState>
+                    <currentState>FirmLabourStart</currentState>
+                    <nextState>FirmLabourStage1</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -277,8 +349,8 @@
                 <function>
                     <name>idle</name>
                     <description>Firm does nothing</description>
-                    <currentState>03</currentState>
-                    <nextState>05</nextState>
+                    <currentState>FirmLabourStage1</currentState>
+                    <nextState>FirmLabourStage1End</nextState>
                     <condition>
                         <lhs>
                             <value>a.no_employees</value>
@@ -294,8 +366,8 @@
                 <function>
                     <name>firm_labour_fire</name>
                     <description>The firm decides to fire if employee needed is below number of employees it does have.</description>
-                    <currentState>03</currentState>
-                    <nextState>05</nextState>
+                    <currentState>FirmLabourStage1</currentState>
+                    <nextState>FirmLabourStage1End</nextState>
                     <condition>
                         <lhs>
                             <value>a.no_employees</value>
@@ -313,10 +385,10 @@
                     </outputs>
                 </function>
                 <function>
-                    <name>firm_labour_job_announcement</name>
+                    <name>firm_labour_job_announcement_stage1</name>
                     <description>The agent posts available positions.</description>
-                    <currentState>03</currentState>
-                    <nextState>04</nextState>
+                    <currentState>FirmLabourStage1</currentState>
+                    <nextState>FirmLabourStage1Application</nextState>
                     <condition>
                         <lhs>
                             <value>a.no_employees</value>
@@ -329,41 +401,32 @@
                     <outputs>
                     <!-- List of possible messages sent out-->
                         <output>
-                            <messageName>vacancy</messageName>
+                            <messageName>vacancy_stage1</messageName>
                         </output>
                     </outputs>
                 </function>
                 <function>
-                    <name>firm_labour_job_offer</name>
-                    <description>The agent takes applications and makes offer.</description>
-                    <currentState>04</currentState>
-                    <nextState>05</nextState>
+                    <name>firm_labour_job_offer_stage1</name>
+                    <description>The agent takes job matches done by jpoffice.</description>
+                    <currentState>FirmLabourStage1Application</currentState>
+                    <nextState>FirmLabourStage1End</nextState>
                     <inputs>
                         <input>
-                            <messageName>job_application</messageName>
+                            <messageName>job_match_stage1</messageName>
                             <filter>
                             <!-- checks applications sent to the firm. -->
                                 <lhs><value>a.id</value></lhs>
                                 <op>EQ</op>
                                 <rhs><value>m.employer_id</value></rhs>
                             </filter>
-                            <sort>
-                                <key>employee_id</key>
-                                <order>ascend</order>
-                            </sort>
                         </input>
                     </inputs>
-                    <outputs>
-                        <output>
-                            <messageName>job_offer</messageName>
-                        </output>
-                    </outputs>
                 </function>
                 <function>
                     <name>firm_labour_update</name>
                     <description>The agent updates labour status. In case of resignments.</description>
-                        <currentState>05</currentState>
-                        <nextState>06</nextState>
+                        <currentState>FirmLabourStage1End</currentState>
+                        <nextState>FirmLabourStage2</nextState>
                         <inputs>
                             <input>
                                 <messageName>job_change</messageName>
@@ -379,8 +442,8 @@
                 <function>
                     <name>firm_labour_job_announcement_stage2</name>
                     <description>The agent posts unfilled positions.</description>
-                    <currentState>06</currentState>
-                    <nextState>07</nextState>
+                    <currentState>FirmLabourStage2</currentState>
+                    <nextState>FirmLabourStage2End</nextState>
                     <condition>
                         <lhs>
                             <value>a.no_employees</value>
@@ -399,7 +462,7 @@
                 <function>
                     <name>idle</name>
                     <description>The agent has no vacant positions</description>
-                    <currentState>06</currentState>
+                    <currentState>FirmLabourStage2</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <lhs>
@@ -413,34 +476,25 @@
                 </function>
                 <function>
                     <name>firm_labour_job_offer_stage2</name>
-                    <description>The agent takes applications and makes offer.</description>
-                    <currentState>07</currentState>
+                    <description>The agent completes the job placement.</description>
+                    <currentState>FirmLabourStage2End</currentState>
                     <nextState>end</nextState>
                     <inputs>
                         <input>
-                            <messageName>job_application_stage2</messageName>
+                            <messageName>job_match_stage2</messageName>
                             <filter>
                             <!-- checks applications sent to the firm. -->
                                 <lhs><value>a.id</value></lhs>
                                 <op>EQ</op>
                                 <rhs><value>m.employer_id</value></rhs>
                             </filter>
-                            <sort>
-                                <key>employee_id</key>
-                                <order>ascend</order>
-                            </sort>
                         </input>
                     </inputs>
-                    <outputs>
-                        <output>
-                            <messageName>job_offer_stage2</messageName>
-                        </output>
-                    </outputs>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>Bank</name>
+            <name>bank</name>
             <description>A simple bank agent.</description>
             <!-- Agent memory holding a list of variables -->
             <memory></memory>
@@ -449,13 +503,13 @@
                 <function>
                     <name>bank_labour_dummy</name>
                     <description>A dummy stub function.</description>
-                    <currentState>02</currentState>
+                    <currentState>BankLabourStart</currentState>
                     <nextState>end</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>CentralBank</name>
+            <name>centralbank</name>
             <description>A simple central bank agent.</description>
             <!-- Agent memory holding a list of variables -->
             <memory></memory>
@@ -464,13 +518,13 @@
                 <function>
                     <name>centralbank_labour_dummy</name>
                     <description>A dummy stub function.</description>
-                    <currentState>02</currentState>
+                    <currentState>CBLabourStart</currentState>
                     <nextState>end</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>Government</name>
+            <name>government</name>
             <description>A simple government agent</description>
             <!-- Agent memory holding a list of variables -->
             <memory></memory>
@@ -479,7 +533,7 @@
                 <function>
                 <name>government_labour_dummy</name>
                 <description>A dummy stub function.</description>
-                <currentState>02</currentState>
+                <currentState>GovLabourStart</currentState>
                 <nextState>end</nextState>
                 </function>
             </functions>
@@ -498,8 +552,8 @@
             </variables>
         </message>
         <message>
-            <name>vacancy</name>
-            <description>Sent by a Firm to  post a vacancy.</description>
+            <name>vacancy_stage1</name>
+            <description>Sent by a Firm to post a vacancy.</description>
             <variables>
                 <variable>
                     <type>int</type>
@@ -514,23 +568,34 @@
             </variables>
         </message>
         <message>
-            <name>job_application</name>
+            <name>job_application_stage2</name>
             <description>Sent by an household to apply a posted vacancy.</description>
             <variables>
                 <variable>
                     <type>int</type>
                     <name>employee_id</name>
-                    <description>Household agent ID who applies a new job.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>employer_id</name>
-                    <description>Firm agent ID who has announced the position.</description>
+                    <description>Household agent ID who seeks employment.</description>
                 </variable>
             </variables>
         </message>
         <message>
-            <name>job_offer</name>
+            <name>job_application_stage1</name>
+            <description>Sent by an household to notifie jpoffice</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>employee_id</name>
+                    <description>Household agent ID who applies for a new job.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Current amount of wage earned by the applicant.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>job_match_stage1</name>
             <description>Sent by a firm informing a filled position.</description>
             <variables>
                 <variable>
@@ -583,23 +648,7 @@
             </variables>
         </message>
         <message>
-            <name>job_application_stage2</name>
-            <description>Sent by an unemployed household to apply a posted vacancy.</description>
-            <variables>
-                <variable>
-                    <type>int</type>
-                    <name>employee_id</name>
-                    <description>Household agent ID who applies to a job.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>employer_id</name>
-                    <description>Firm agent ID who has re-announced the position.</description>
-                </variable>
-            </variables>
-        </message>
-        <message>
-            <name>job_offer_stage2</name>
+            <name>job_match_stage2</name>
             <description>Sent by a firm informing a filled position.</description>
             <variables>
                 <variable>

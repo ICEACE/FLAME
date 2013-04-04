@@ -13,23 +13,26 @@ int firm_labour_workforce_needed()
     // Determine number of employees needed.
     // To be computed with the input from consumption goods market.
     
-    //printf("Firm No=%d computing workforce needed. \n", ID);
-    // There is a 0.90 chance that a firm keeps its employee size.
+    printf("Firm Id = %d is computing workforce it needs along with current size = %d \n", ID, NO_EMPLOYEES);
+    // There is a 0.50 chance that a firm keeps its employee size.
     if (random_int(0,99) < 50) {
-        EMPLOYEES_NEEDED = NO_EMPLOYEES;
-        VACANCIES = 0;
+        printf("    goes with existing vacancy = %d!\n", VACANCIES);
     }
     else {
         if (random_int(0,99) > 50) {
             // hire
-            EMPLOYEES_NEEDED =  NO_EMPLOYEES + random_int(0, NO_EMPLOYEES) + 1;
-            VACANCIES = EMPLOYEES_NEEDED - NO_EMPLOYEES;
+            VACANCIES += random_int(0, NO_EMPLOYEES);
+            EMPLOYEES_NEEDED =  NO_EMPLOYEES +  VACANCIES;
+            printf("    needs to fill in vacancies = %d!!\n", VACANCIES);
         } else {
             // fire
             EMPLOYEES_NEEDED =  NO_EMPLOYEES - random_int(0, NO_EMPLOYEES);
             VACANCIES = 0;
+            printf("    will fire a number of employees = %d!!!\n", NO_EMPLOYEES - EMPLOYEES_NEEDED);
         }
     }
+    
+    
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -50,29 +53,32 @@ int firm_labour_fire()
     
     n_to_fire = NO_EMPLOYEES - EMPLOYEES_NEEDED;
     
-    //printf("Firm No=%d laying off %d employees. \n", ID, n_to_fire);
     for (i = 0; i < n_to_fire; i++) {
         index = EMPLOYEES.size - 1;
         add_fired_message(EMPLOYEES.array[index]);
         remove_int(&EMPLOYEES, index);
     }
     
+    printf("Firm Id = %d has layed off %d employees. \n", ID, n_to_fire);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
- * \fn: int firm_labour_job_announcement()
+ * \fn: int firm_labour_job_announcement_stage1()
  * \brief: a firm announces a number of vacancies.
  * a vacancy message holds firm id and wage to be paid.
  */
-int firm_labour_job_announcement()
+int firm_labour_job_announcement_stage1()
 {
     int i;
     
-    //printf("Firm No=%d hiring %d new employees. \n", ID, VACANCIES);
-    for (int i = 0; i < VACANCIES; i++) {
-        add_vacancy_message(ID,WAGE_OFFER);
+    for (i = 0; i < VACANCIES; i++) {
+        add_vacancy_stage1_message(ID,WAGE_OFFER);
     }
+    
+    printf("Stage 1: Firm Id = %d is attempting to hire %d new employees. \n", ID, VACANCIES);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -83,26 +89,22 @@ int firm_labour_job_announcement()
  * This leads to a type of deterministic sampling. An employee applies to a
  * post one at a time.
  */
-int firm_labour_job_offer()
+int firm_labour_job_offer_stage1()
 {
     int n_hired, candidate;
 
     // Recieve job application messages.
     n_hired = 0;
     
-    START_JOB_APPLICATION_MESSAGE_LOOP
-    if (n_hired < VACANCIES) {
-        candidate = job_application_message->employee_id;
-        add_job_offer_message(ID, candidate, WAGE_OFFER);
-        add_int(&EMPLOYEES, candidate);
-        n_hired +=1;
-        //printf("Firm No=%d hired Household No=%d \n", ID, candidate);
-    }
-	FINISH_JOB_APPLICATION_MESSAGE_LOOP
+    START_JOB_MATCH_STAGE1_MESSAGE_LOOP
+    candidate = job_match_stage1_message->employee_id;
+    add_int(&EMPLOYEES, candidate);
+    n_hired +=1;
+    printf("Stage 1: Firm Id = %d has hired Household Id = %d \n", ID, candidate);
+	FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP
     
     //It is possible that few applications was recieved.
     VACANCIES = VACANCIES - n_hired;
-    
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -130,7 +132,7 @@ int firm_labour_update()
         }
     }
     remove_int(&EMPLOYEES, index);
-    //printf("Household= %d resigned from Firm =%d\n", id_resigned, ID);
+    printf("Stage 1: Household Id = %d has resigned from Firm Id = %d\n", id_resigned, ID);
 	FINISH_JOB_CHANGE_MESSAGE_LOOP
     
     NO_EMPLOYEES = EMPLOYEES.size;
@@ -149,10 +151,10 @@ int firm_labour_job_announcement_stage2()
 {
     int i;
     
-    for (int i = 0; i < VACANCIES; i++) {
+    for (i = 0; i < VACANCIES; i++) {
         add_vacancy_stage2_message(ID,WAGE_OFFER);
     }
-    //printf("Stage 2: Firm = %d posted %d unfilled positions.\n", ID, VACANCIES);
+    printf("Stage 2: Firm Id = %d has posted: %d positions it still needs. \n", ID, VACANCIES);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -172,18 +174,18 @@ int firm_labour_job_offer_stage2()
     // Recieve job application messages.
     n_hired = 0;
     
-    START_JOB_APPLICATION_STAGE2_MESSAGE_LOOP
-    if (n_hired < VACANCIES) {
-        candidate = job_application_stage2_message->employee_id;
-        add_job_offer_stage2_message(ID, candidate, WAGE_OFFER);
-        add_int(&EMPLOYEES, candidate);
-        n_hired +=1;
-        //printf("Firm No=%d hired Household No=%d \n", ID, candidate);
-    }
-	FINISH_JOB_APPLICATION_STAGE2_MESSAGE_LOOP
+    START_JOB_MATCH_STAGE2_MESSAGE_LOOP
+    candidate = job_match_stage2_message->employee_id;
+    add_int(&EMPLOYEES, candidate);
+    n_hired++;
+    printf("Stage 2: Firm Id = %d hired Household Id = %d \n", ID, candidate);
+	FINISH_JOB_MATCH_STAGE2_MESSAGE_LOOP
     
     //It is possible that few applications was recieved.
-    VACANCIES = VACANCIES - n_hired;
+    VACANCIES -= n_hired;
+    NO_EMPLOYEES = EMPLOYEES.size;
+    
+    printf("Stage 2: Firm Id = %d, Size = %d, Vacancy = %d, Needed: %d Hired: %d \n", ID, NO_EMPLOYEES, VACANCIES, EMPLOYEES_NEEDED, n_hired);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

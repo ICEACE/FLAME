@@ -30,8 +30,42 @@
             <file>bank_functions_top.c</file>
             <file>government_functions_top.c</file>
             <file>centralbank_functions_top.c</file>
+            <file>jpoffice_functions_top.c</file>
         </functionFiles>
-        <dataTypes/>
+        <dataTypes>
+            <dataType>
+                <name>vacancy</name>
+                <description>Firm vacancy information.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the firm agent.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>wage</name>
+                        <description>Wage offered by the firm that holds the vacancy.</description>
+                    </variable>
+                </variables>
+            </dataType>
+            <dataType>
+                <name>employee</name>
+                <description>Job applicant data.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the household agent.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>wage</name>
+                        <description>Current wage of the job applicant.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
         <timeUnits>
             <timeUnit>
                 <name>daily</name>
@@ -64,7 +98,7 @@
 	<!-- List of agents -->
     <agents>
         <xagent>
-            <name>Firm</name>
+            <name>firm</name>
             <description>A simple firm agent.</description>
             <memory>
                 <variable>
@@ -83,12 +117,12 @@
                     <name>firm_notifier</name>
                     <description>Notifies its id by printf.</description>
                     <currentState>start</currentState>
-                    <nextState>01</nextState>
+                    <nextState>FirmConsumption</nextState>
                 </function>
              </functions>
         </xagent>
         <xagent>
-            <name>Household</name>
+            <name>household</name>
             <description>A simple consumer and labourer agent.</description>
             <memory>
                 <variable>
@@ -107,12 +141,31 @@
                     <name>household_notifier</name>
                     <description>Notifies its id by printf.</description>
                     <currentState>start</currentState>
-                    <nextState>01</nextState>
+                    <nextState>HHConsumption</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>Bank</name>
+            <name>jpoffice</name>
+            <description>An institutional agent acting in labour market.</description>
+            <memory>
+            <variable>
+                <type>int</type>
+                <name>id</name>
+                <description>Agent ID.</description>
+            </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>jpoffice_notifier</name>
+                    <description>Notifies its id by printf.</description>
+                    <currentState>start</currentState>
+                    <nextState>JPOLabourStage1</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>bank</name>
             <description>A simple bank agent.</description>
             <memory>
                 <variable>
@@ -126,12 +179,12 @@
                     <name>bank_notifier</name>
                     <description>Notifies its id by printf.</description>
                     <currentState>start</currentState>
-                    <nextState>01</nextState>
+                    <nextState>BankConsumption</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>Government</name>
+            <name>government</name>
             <description>A simple government agent</description>
             <memory>
                 <variable>
@@ -145,12 +198,12 @@
                     <name>government_notifier</name>
                     <description>Notifies its id by printf.</description>
                     <currentState>start</currentState>
-                    <nextState>01</nextState>
+                    <nextState>GovConsumption</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>CentralBank</name>
+            <name>centralbank</name>
             <description>A simple central bank agent.</description>
             <memory>
                 <variable>
@@ -164,7 +217,7 @@
                 <name>centralbank_notifier</name>
                 <description>Notifies its id by printf.</description>
                 <currentState>start</currentState>
-                <nextState>01</nextState>
+                <nextState>CBConsumption</nextState>
                 </function>
             </functions>
         </xagent>

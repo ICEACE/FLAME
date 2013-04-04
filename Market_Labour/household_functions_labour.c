@@ -11,7 +11,7 @@ int household_labour_check_fired()
 {
     START_FIRED_MESSAGE_LOOP
     // Recieving announced fired messages.
-    //printf("Household %d is fired now! \n", ID);
+    printf("Household %d is fired now! \n", ID);
     // resetting wage and employment status.
     WAGE = 0;
     MY_EMPLOYER_ID = 0;
@@ -29,27 +29,11 @@ int household_labour_check_fired()
  */
 int household_labour_reemployment_application()
 {
-    int applied = 0;
-    int employer_id;
-    
-	START_VACANCY_MESSAGE_LOOP
-    // Checking announced positions by reading in vacancy messages.
-    // The first randomly received higher paid job is applied.
-    // Household decides to change his job for a better paid one,
-    // given by a chance of turover probability.
-    
     if (random_int(0,99) < BETA * 100){
-        applied = 1;
+        add_job_application_stage1_message(ID, WAGE);
+        printf("Stage 1: Household %d sends application (current wage: %d) \n", ID, (int)WAGE);
     }
-    
-    if (!applied) {
-        employer_id = vacancy_message->employer_id;
-        add_job_application_message(ID, employer_id);
-        //printf("Household %d applies to Firm %d \n", ID, employer_id);
-        applied = 1;
-    }
-	FINISH_VACANCY_MESSAGE_LOOP
-
+ 
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -61,19 +45,20 @@ int household_labour_reemployment_application()
  */
 int household_labour_turnover()
 {
-    int previous_employer;
-    int new_employer;
+    int previous_employer, new_employer;
+    double pre_wage;
     
     previous_employer = MY_EMPLOYER_ID;
+    pre_wage = WAGE;
     
-	START_JOB_OFFER_MESSAGE_LOOP
+	START_JOB_MATCH_STAGE1_MESSAGE_LOOP
     // Checking if recently applied position is offered.
-    new_employer = job_offer_message->employer_id;
-    WAGE = job_offer_message->wage;
+    new_employer = job_match_stage1_message->employer_id;
+    WAGE = job_match_stage1_message->wage;
     MY_EMPLOYER_ID  = new_employer;
     add_job_change_message(previous_employer, ID);
-    //printf("Household %d has moved from Firm %d to Firm %d for a new wage amounted: %f\n",ID, previous_employer, MY_EMPLOYER_ID,WAGE);
-    FINISH_JOB_OFFER_MESSAGE_LOOP
+    printf("Stage 1: Household %d job change: %d --> %d wage change %f --> %f\n",ID, previous_employer, MY_EMPLOYER_ID,pre_wage, WAGE);
+    FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -84,22 +69,11 @@ int household_labour_turnover()
  * This behviour activated in the second stage of labour market.
  */
 int household_labour_employment_application()
-{
-    int applied = 0;
-    int employer_id;
+{  
+    add_job_application_stage2_message(ID);
+    printf("Stage 2: Unemployed Household %d sends an application. \n", ID);
     
-	START_VACANCY_STAGE2_MESSAGE_LOOP
-    // Checking announced positions by reading in vacancy messages.
-    // The first randomly received job is applied.
-    if (!applied) {
-        employer_id = vacancy_stage2_message->employer_id;
-        add_job_application_stage2_message(ID, employer_id);
-        //printf("Previously unemployed Household %d applies to Firm %d \n", ID, employer_id);
-        applied = 1;
-    }
-	FINISH_VACANCY_STAGE2_MESSAGE_LOOP
-    
-	return 0; /* Returning zero means the agent is not removed */
+    return 0; /* Returning zero means the agent is not removed */
 }
 
 
@@ -110,12 +84,12 @@ int household_labour_employment_application()
  */
 int household_labour_employment()
 {    
-	START_JOB_OFFER_STAGE2_MESSAGE_LOOP
+	START_JOB_MATCH_STAGE2_MESSAGE_LOOP
     // Checking if recently applied position is offered.
-    MY_EMPLOYER_ID = job_offer_stage2_message->employer_id;
-    WAGE = job_offer_stage2_message->wage;
-    //printf("Previously unemployed Household %d is now employed at Firm %d with a wage %f\n",ID,MY_EMPLOYER_ID,WAGE);
-    FINISH_JOB_OFFER_STAGE2_MESSAGE_LOOP
+    MY_EMPLOYER_ID = job_match_stage2_message->employer_id;
+    WAGE = job_match_stage2_message->wage;
+    printf("Stage 2: Unemployed Household %d is now employed at Firm %d with a wage %f\n",ID,MY_EMPLOYER_ID,WAGE);
+    FINISH_JOB_MATCH_STAGE2_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -138,10 +112,9 @@ int household_labour_recieve_wage()
     w2 = (int)PREVIOUS_WAGES[2];
     wage_total = w0 + w1 + w2;
     
-    //printf("Household %d total income for last 3 months:  %d\n",ID, wage_total);
+    printf("Household Id = %d income for last 3 months sums up to  %d\n",ID, wage_total);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
-
 
 
