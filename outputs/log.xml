@@ -13,7 +13,7 @@
 <iteration><no>7</no><time>0</time></iteration>
 <iteration><no>8</no><time>0</time></iteration>
 <iteration><no>9</no><time>0</time></iteration>
-<iteration><no>10</no><time>1</time></iteration>
+<iteration><no>10</no><time>0</time></iteration>
 <iteration><no>11</no><time>0</time></iteration>
 <iteration><no>12</no><time>0</time></iteration>
 <iteration><no>13</no><time>0</time></iteration>
@@ -44,7 +44,7 @@
 <iteration><no>38</no><time>0</time></iteration>
 <iteration><no>39</no><time>0</time></iteration>
 <iteration><no>40</no><time>0</time></iteration>
-<iteration><no>41</no><time>0</time></iteration>
+<iteration><no>41</no><time>1</time></iteration>
 <iteration><no>42</no><time>0</time></iteration>
 <iteration><no>43</no><time>0</time></iteration>
 <iteration><no>44</no><time>0</time></iteration>
@@ -53,7 +53,7 @@
 <iteration><no>47</no><time>0</time></iteration>
 <iteration><no>48</no><time>0</time></iteration>
 <iteration><no>49</no><time>0</time></iteration>
-<iteration><no>50</no><time>0</time></iteration>
+<iteration><no>50</no><time>1</time></iteration>
 <iteration><no>51</no><time>0</time></iteration>
 <iteration><no>52</no><time>0</time></iteration>
 <iteration><no>53</no><time>0</time></iteration>
@@ -73,7 +73,7 @@
 <iteration><no>67</no><time>0</time></iteration>
 <iteration><no>68</no><time>0</time></iteration>
 <iteration><no>69</no><time>0</time></iteration>
-<iteration><no>70</no><time>0</time></iteration>
+<iteration><no>70</no><time>1</time></iteration>
 <iteration><no>71</no><time>0</time></iteration>
 <iteration><no>72</no><time>0</time></iteration>
 <iteration><no>73</no><time>0</time></iteration>
@@ -89,13 +89,13 @@
 <iteration><no>83</no><time>0</time></iteration>
 <iteration><no>84</no><time>0</time></iteration>
 <iteration><no>85</no><time>0</time></iteration>
-<iteration><no>86</no><time>0</time></iteration>
+<iteration><no>86</no><time>1</time></iteration>
 <iteration><no>87</no><time>0</time></iteration>
 <iteration><no>88</no><time>0</time></iteration>
 <iteration><no>89</no><time>0</time></iteration>
 <iteration><no>90</no><time>0</time></iteration>
-<iteration><no>91</no><time>0</time></iteration>
-<iteration><no>92</no><time>0</time></iteration>
+<iteration><no>91</no><time>1</time></iteration>
+<iteration><no>92</no><time>1</time></iteration>
 <iteration><no>93</no><time>0</time></iteration>
 <iteration><no>94</no><time>0</time></iteration>
 <iteration><no>95</no><time>0</time></iteration>
@@ -147,9 +147,9 @@
 <iteration><no>141</no><time>0</time></iteration>
 <iteration><no>142</no><time>0</time></iteration>
 <iteration><no>143</no><time>0</time></iteration>
-<iteration><no>144</no><time>1</time></iteration>
+<iteration><no>144</no><time>0</time></iteration>
 <iteration><no>145</no><time>0</time></iteration>
-<iteration><no>146</no><time>0</time></iteration>
+<iteration><no>146</no><time>42</time></iteration>
 <iteration><no>147</no><time>0</time></iteration>
 <iteration><no>148</no><time>0</time></iteration>
 <iteration><no>149</no><time>0</time></iteration>
@@ -160,14 +160,14 @@
 <iteration><no>154</no><time>0</time></iteration>
 <iteration><no>155</no><time>0</time></iteration>
 <iteration><no>156</no><time>0</time></iteration>
-<iteration><no>157</no><time>0</time></iteration>
+<iteration><no>157</no><time>1</time></iteration>
 <iteration><no>158</no><time>0</time></iteration>
 <iteration><no>159</no><time>0</time></iteration>
 <iteration><no>160</no><time>0</time></iteration>
 <iteration><no>161</no><time>0</time></iteration>
 <iteration><no>162</no><time>0</time></iteration>
 <iteration><no>163</no><time>0</time></iteration>
-<iteration><no>164</no><time>0</time></iteration>
+<iteration><no>164</no><time>1</time></iteration>
 <iteration><no>165</no><time>0</time></iteration>
 <iteration><no>166</no><time>0</time></iteration>
 <iteration><no>167</no><time>0</time></iteration>
@@ -250,5 +250,5 @@
 <iteration><no>244</no><time>0</time></iteration>
 <iteration><no>245</no><time>0</time></iteration>
 <!-- <totaltime> unit: seconds -->
-<totaltime>0.159</totaltime>
+<totaltime>1.588</totaltime>
 </model_run>
