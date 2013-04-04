@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['government_5f01_5fstate',['Government_01_state',['../header_8h.html#a900cc1e22398302fdd074a3256d76a3d',1,'header.h']]],
-  ['government_5f02_5fstate',['Government_02_state',['../header_8h.html#a4b08546b64bcd33512f6f420f3ae9d48',1,'header.h']]],
-  ['government_5fend_5fstate',['Government_end_state',['../header_8h.html#a4b5e86b708098faa4f4d1ebff26074d0',1,'header.h']]],
-  ['government_5fstart_5fstate',['Government_start_state',['../header_8h.html#a39c3ec3f19d15f69f0cfbce872757e40',1,'header.h']]]
+  ['government_5fend_5fstate',['government_end_state',['../header_8h.html#af283ee1181413bb38bd7ac7153f26d68',1,'header.h']]],
+  ['government_5fgovconsumption_5fstate',['government_GovConsumption_state',['../header_8h.html#a76ce4499f7d9b1f9d93ec92a996860d8',1,'header.h']]],
+  ['government_5fgovlabourstart_5fstate',['government_GovLabourStart_state',['../header_8h.html#aad3e43335cd685999501db029e951fff',1,'header.h']]],
+  ['government_5fstart_5fstate',['government_start_state',['../header_8h.html#aef4a0530954df0bdcdeb762991197519',1,'header.h']]]
 ];

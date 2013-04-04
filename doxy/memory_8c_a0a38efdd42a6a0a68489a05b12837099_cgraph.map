@@ -1,8 +1,9 @@
 <map id="initialise_unit_testing" name="initialise_unit_testing">
-<area shape="rect" id="node2" href="$header_8h.html#aa1a4e741bea75258a174c11e5f17b994" title="Initialises pointers to xmachine, message, and node lists." alt="" coords="198,109,322,137"/>
-<area shape="rect" id="node3" href="$header_8h.html#a22ac615be2e6e0070adc2d9990845481" title="init_Firm_state" alt="" coords="395,5,504,33"/>
-<area shape="rect" id="node4" href="$header_8h.html#a2ae0ebc01a45685f94e4239b6c492034" title="init_Household_state" alt="" coords="376,57,522,85"/>
-<area shape="rect" id="node5" href="$header_8h.html#acf5717c6cefd3f7b3ad12d97366d9542" title="init_Bank_state" alt="" coords="393,109,506,137"/>
-<area shape="rect" id="node6" href="$header_8h.html#a92c6ea5e2614eeb06cbab810619c1042" title="init_Government_state" alt="" coords="372,161,527,189"/>
-<area shape="rect" id="node7" href="$header_8h.html#a402f6e366ca1e653c81dd3c129dcea49" title="init_CentralBank_state" alt="" coords="372,213,527,241"/>
+<area shape="rect" id="node2" href="$header_8h.html#aa1a4e741bea75258a174c11e5f17b994" title="Initialises pointers to xmachine, message, and node lists." alt="" coords="198,135,322,163"/>
+<area shape="rect" id="node3" href="$header_8h.html#a8cdc093e0ba8ff163382ef772ed48371" title="init_firm_state" alt="" coords="395,5,499,33"/>
+<area shape="rect" id="node4" href="$header_8h.html#ab20cf530859299e3f37cc1a2e53ac5d4" title="init_household_state" alt="" coords="375,57,518,85"/>
+<area shape="rect" id="node5" href="$header_8h.html#a5fa376339c05e667fda9c97742163866" title="init_jpoffice_state" alt="" coords="384,109,509,137"/>
+<area shape="rect" id="node6" href="$header_8h.html#a97c254b73d88b160096babdafe759ee7" title="init_bank_state" alt="" coords="391,161,502,189"/>
+<area shape="rect" id="node7" href="$header_8h.html#a626bcb87cf1879a98e37f47793973827" title="init_government_state" alt="" coords="370,213,523,241"/>
+<area shape="rect" id="node8" href="$header_8h.html#a55b2b7b2b22772bafae94e9ae2d4e44f" title="init_centralbank_state" alt="" coords="371,265,522,293"/>
 </map>

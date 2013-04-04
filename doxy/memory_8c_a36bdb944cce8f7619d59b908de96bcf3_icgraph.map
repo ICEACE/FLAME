@@ -1,0 +1,6 @@
+<map id="init_centralbank_agent" name="init_centralbank_agent">
+<area shape="rect" id="node2" href="$memory_8c.html#a63298239fbc17e0aa184056ec79847b9" title="Add centralbank X&#45;machine to the current being used X&#45;machine list." alt="" coords="212,5,372,33"/>
+<area shape="rect" id="node3" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="237,57,347,85"/>
+<area shape="rect" id="node4" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="422,57,536,85"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="584,57,634,85"/>
+</map>

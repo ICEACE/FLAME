@@ -1,19 +1,19 @@
 var searchData=
 [
   ['header_2eh',['header.h',['../header_8h.html',1,'']]],
-  ['household_5f01_5fstate',['Household_01_state',['../header_8h.html#a41c2cdb86e931668fb5f5ab66ef01890',1,'header.h']]],
-  ['household_5f02_5fstate',['Household_02_state',['../header_8h.html#a07c47123aaac0154721c2e2c33e76c2f',1,'header.h']]],
-  ['household_5f03a_5fstate',['Household_03a_state',['../header_8h.html#ac8fa07a91b99abd0554f68d7fb972ec9',1,'header.h']]],
-  ['household_5f04_5fstate',['Household_04_state',['../header_8h.html#ae0ba3bd7aeb34eb6f4529eb3ad211145',1,'header.h']]],
-  ['household_5f05_5fstate',['Household_05_state',['../header_8h.html#a18d35cf37e08af0052da4e6672dd7cd0',1,'header.h']]],
-  ['household_5f06_5fstate',['Household_06_state',['../header_8h.html#af8bf9541c7dfa2beedad8536c491a09d',1,'header.h']]],
-  ['household_5f07_5fstate',['Household_07_state',['../header_8h.html#a5dc3908474b6c28f65e5ab2cd7ed03e1',1,'header.h']]],
-  ['household_5fagent_5fheader_2eh',['Household_agent_header.h',['../_household__agent__header_8h.html',1,'']]],
+  ['household_5fagent_5fheader_2eh',['household_agent_header.h',['../household__agent__header_8h.html',1,'']]],
   ['household_5fconsumption_5fdummy',['household_consumption_dummy',['../header_8h.html#a959cbf3d4cf49cc2629e41bf806a1b7a',1,'household_consumption_dummy(void):&#160;household_functions_consumption.c'],['../household__functions__consumption_8c.html#a7cca0440fc9713d0c04abe1cb212b0f9',1,'household_consumption_dummy():&#160;household_functions_consumption.c']]],
-  ['household_5fend_5fstate',['Household_end_state',['../header_8h.html#a0eb86f6e19d9f2372210bf062c515eab',1,'header.h']]],
+  ['household_5fend_5fstate',['household_end_state',['../header_8h.html#a1ce99b061a4ee16a3ed5bd72c92637f5',1,'header.h']]],
   ['household_5ffunctions_5fconsumption_2ec',['household_functions_consumption.c',['../household__functions__consumption_8c.html',1,'']]],
   ['household_5ffunctions_5flabour_2ec',['household_functions_labour.c',['../household__functions__labour_8c.html',1,'']]],
   ['household_5ffunctions_5ftop_2ec',['household_functions_top.c',['../household__functions__top_8c.html',1,'']]],
+  ['household_5fhhconsumption_5fstate',['household_HHConsumption_state',['../header_8h.html#ac4a34d97aac6d4e72ae64f98be0477c2',1,'header.h']]],
+  ['household_5fhhlabourpayroll_5fstate',['household_HHLabourPayroll_state',['../header_8h.html#a48c6f2321690f7b8210f3ce471b8d00a',1,'header.h']]],
+  ['household_5fhhlabourstage1_5fstate',['household_HHLabourStage1_state',['../header_8h.html#adc53cf9162570e0621605e4837ce7d01',1,'header.h']]],
+  ['household_5fhhlabourstage1applications_5fstate',['household_HHLabourStage1Applications_state',['../header_8h.html#ababcbeef2f3434f6cc699b285cc65d41',1,'header.h']]],
+  ['household_5fhhlabourstage1placement_5fstate',['household_HHLabourStage1Placement_state',['../header_8h.html#a46abd62b72e1dbac82feb57cc802b8ad',1,'header.h']]],
+  ['household_5fhhlabourstage2_5fstate',['household_HHLabourStage2_state',['../header_8h.html#ab0f789e4b71e8519cbd35e2c0efeaff1',1,'header.h']]],
+  ['household_5fhhlabourstart_5fstate',['household_HHLabourStart_state',['../header_8h.html#a7d63e81bb6016ffba6cd43324c653cd6',1,'header.h']]],
   ['household_5flabour_5fcheck_5ffired',['household_labour_check_fired',['../header_8h.html#ac250a056bc2535f43bd001b6f0193427',1,'household_labour_check_fired(void):&#160;household_functions_labour.c'],['../household__functions__labour_8c.html#a6b7d4663c64149f0c54bfbabc3c546a9',1,'household_labour_check_fired():&#160;household_functions_labour.c']]],
   ['household_5flabour_5femployment',['household_labour_employment',['../header_8h.html#a80cf7a65baa4715d4ee3c5e41fad9787',1,'household_labour_employment(void):&#160;household_functions_labour.c'],['../household__functions__labour_8c.html#af808c01e2cdb0e05cbac4fd56f5b5d02',1,'household_labour_employment():&#160;household_functions_labour.c']]],
   ['household_5flabour_5femployment_5fapplication',['household_labour_employment_application',['../header_8h.html#a46425156e3bf2684f19fbd11ef443128',1,'household_labour_employment_application(void):&#160;household_functions_labour.c'],['../household__functions__labour_8c.html#affb57119e351ec1826b4f0ccef9ddaf7',1,'household_labour_employment_application():&#160;household_functions_labour.c']]],
@@ -21,5 +21,5 @@ var searchData=
   ['household_5flabour_5freemployment_5fapplication',['household_labour_reemployment_application',['../header_8h.html#ae23a9e93c0376d58f9e26f1e4208bb98',1,'household_labour_reemployment_application(void):&#160;household_functions_labour.c'],['../household__functions__labour_8c.html#a5e993b9ad38efeb835011125dbb8c3d5',1,'household_labour_reemployment_application():&#160;household_functions_labour.c']]],
   ['household_5flabour_5fturnover',['household_labour_turnover',['../header_8h.html#a9ba8b8672d2e97149e439c4bf62d9e5a',1,'household_labour_turnover(void):&#160;household_functions_labour.c'],['../household__functions__labour_8c.html#a2a06bb7e1dc906293ac8afdd232b5ae4',1,'household_labour_turnover():&#160;household_functions_labour.c']]],
   ['household_5fnotifier',['household_notifier',['../header_8h.html#a48beee8e293c24d31ea04c164c02eb54',1,'household_notifier(void):&#160;household_functions_top.c'],['../household__functions__top_8c.html#a5099c5831f27143153c1c6c31003b28c',1,'household_notifier():&#160;household_functions_top.c']]],
-  ['household_5fstart_5fstate',['Household_start_state',['../header_8h.html#af8b75271a67afdc9117a06623020acbf',1,'header.h']]]
+  ['household_5fstart_5fstate',['household_start_state',['../header_8h.html#aad713441c4bf767521c2bf57b78dca65',1,'header.h']]]
 ];

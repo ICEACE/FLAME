@@ -120,6 +120,18 @@ Functions</h2></td></tr>
 <tr class="separator:ab8ff4ca7aa09bd9c21439ba7d8d0cc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf56fe339eb8dd2f56e1ea723fa6b289"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#abf56fe339eb8dd2f56e1ea723fa6b289">read_char_dynamic_array</a> (char *buffer, intbuffer_size, int *j, <a class="el" href="structchar__array.html">char_array</a> *char_dynamic_array)</td></tr>
 <tr class="separator:abf56fe339eb8dd2f56e1ea723fa6b289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31eb8b38d78f2d1089c5e773bd488dff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a31eb8b38d78f2d1089c5e773bd488dff">read_vacancy</a> (char *buffer, intbuffer_size, int *j, <a class="el" href="structvacancy.html">vacancy</a> *temp_datatype)</td></tr>
+<tr class="separator:a31eb8b38d78f2d1089c5e773bd488dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4122d80060b6c5d15d6ab7acb0c0d854"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a4122d80060b6c5d15d6ab7acb0c0d854">read_vacancy_dynamic_array</a> (char *buffer, int buffer_size, int *j, <a class="el" href="structvacancy__array.html">vacancy_array</a> *temp_datatype_array)</td></tr>
+<tr class="separator:a4122d80060b6c5d15d6ab7acb0c0d854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd6a0648aef4d30cfef68012460ae90"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a2dd6a0648aef4d30cfef68012460ae90">read_vacancy_static_array</a> (char *buffer, int buffer_size, int *j, <a class="el" href="structvacancy.html">vacancy</a> *temp_datatype_array, int size)</td></tr>
+<tr class="separator:a2dd6a0648aef4d30cfef68012460ae90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a5a83f8c744ce7c16f660c61d989293"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a7a5a83f8c744ce7c16f660c61d989293">read_employee</a> (char *buffer, intbuffer_size, int *j, <a class="el" href="structemployee.html">employee</a> *temp_datatype)</td></tr>
+<tr class="separator:a7a5a83f8c744ce7c16f660c61d989293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a3eaf0e39c9add9e085af8c7a0024e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a88a3eaf0e39c9add9e085af8c7a0024e">read_employee_dynamic_array</a> (char *buffer, int buffer_size, int *j, <a class="el" href="structemployee__array.html">employee_array</a> *temp_datatype_array)</td></tr>
+<tr class="separator:a88a3eaf0e39c9add9e085af8c7a0024e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f656b139caf879d8d8df6333aff1d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#ad6f656b139caf879d8d8df6333aff1d3">read_employee_static_array</a> (char *buffer, int buffer_size, int *j, <a class="el" href="structemployee.html">employee</a> *temp_datatype_array, int size)</td></tr>
+<tr class="separator:ad6f656b139caf879d8d8df6333aff1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a919e919f850b5b5c7ebae3dfafe3eb34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34">readEnvironmentXML</a> (char *<a class="el" href="structlocation.html">location</a>)</td></tr>
 <tr class="separator:a919e919f850b5b5c7ebae3dfafe3eb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26da9dc7d094c644db6e44b9f183f7fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe">readAgentXML</a> (char *<a class="el" href="structlocation.html">location</a>, double cloud_data[], int partition_method, int flag, int number_partitions, int agent_count, int *itno)</td></tr>
@@ -149,16 +161,32 @@ Functions</h2></td></tr>
 <tr class="memitem:a383d5ecfbe1f5cab43146455694e710c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a383d5ecfbe1f5cab43146455694e710c">write_char_dynamic_array</a> (FILE *file, <a class="el" href="structchar__array.html">char_array</a> *temp)</td></tr>
 <tr class="memdesc:a383d5ecfbe1f5cab43146455694e710c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes char.  <a href="#a383d5ecfbe1f5cab43146455694e710c">More...</a><br/></td></tr>
 <tr class="separator:a383d5ecfbe1f5cab43146455694e710c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7862f23067364880e4021e28fed502df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a7862f23067364880e4021e28fed502df">write_Firm_agent</a> (FILE *file, <a class="el" href="structxmachine__memory___firm.html">xmachine_memory_Firm</a> *current)</td></tr>
-<tr class="separator:a7862f23067364880e4021e28fed502df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7f5662ddd867f0c834456f440b0158f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#af7f5662ddd867f0c834456f440b0158f">write_Household_agent</a> (FILE *file, <a class="el" href="structxmachine__memory___household.html">xmachine_memory_Household</a> *current)</td></tr>
-<tr class="separator:af7f5662ddd867f0c834456f440b0158f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d7b899d4e855675ca90787a3e5dd51f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a2d7b899d4e855675ca90787a3e5dd51f">write_Bank_agent</a> (FILE *file, <a class="el" href="structxmachine__memory___bank.html">xmachine_memory_Bank</a> *current)</td></tr>
-<tr class="separator:a2d7b899d4e855675ca90787a3e5dd51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13305d980bded092351f75983fba1438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a13305d980bded092351f75983fba1438">write_Government_agent</a> (FILE *file, <a class="el" href="structxmachine__memory___government.html">xmachine_memory_Government</a> *current)</td></tr>
-<tr class="separator:a13305d980bded092351f75983fba1438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5fdc998ba697da49d013cb8edca9ca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#af5fdc998ba697da49d013cb8edca9ca2">write_CentralBank_agent</a> (FILE *file, <a class="el" href="structxmachine__memory___central_bank.html">xmachine_memory_CentralBank</a> *current)</td></tr>
-<tr class="separator:af5fdc998ba697da49d013cb8edca9ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68cfa8760b101c4b13f11127e312a98a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a68cfa8760b101c4b13f11127e312a98a">write_vacancy</a> (FILE *file, <a class="el" href="structvacancy.html">vacancy</a> *temp_datatype)</td></tr>
+<tr class="memdesc:a68cfa8760b101c4b13f11127e312a98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes vacancy datatype.  <a href="#a68cfa8760b101c4b13f11127e312a98a">More...</a><br/></td></tr>
+<tr class="separator:a68cfa8760b101c4b13f11127e312a98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430d50a2b2df7d655f265152388c4994"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a430d50a2b2df7d655f265152388c4994">write_vacancy_static_array</a> (FILE *file, <a class="el" href="structvacancy.html">vacancy</a> *temp_datatype, int size)</td></tr>
+<tr class="separator:a430d50a2b2df7d655f265152388c4994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b40f8262cd85922a64965196bc11e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#aa8b40f8262cd85922a64965196bc11e6">write_vacancy_dynamic_array</a> (FILE *file, <a class="el" href="structvacancy__array.html">vacancy_array</a> *temp_datatype)</td></tr>
+<tr class="separator:aa8b40f8262cd85922a64965196bc11e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff53879ecde885bcbdfd503ab188d53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a1ff53879ecde885bcbdfd503ab188d53">write_employee</a> (FILE *file, <a class="el" href="structemployee.html">employee</a> *temp_datatype)</td></tr>
+<tr class="memdesc:a1ff53879ecde885bcbdfd503ab188d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes employee datatype.  <a href="#a1ff53879ecde885bcbdfd503ab188d53">More...</a><br/></td></tr>
+<tr class="separator:a1ff53879ecde885bcbdfd503ab188d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081bf5bdaa33d6151497a162c1590f6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a081bf5bdaa33d6151497a162c1590f6d">write_employee_static_array</a> (FILE *file, <a class="el" href="structemployee.html">employee</a> *temp_datatype, int size)</td></tr>
+<tr class="separator:a081bf5bdaa33d6151497a162c1590f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad96f7a6385c3790984e72e5520fecd01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#ad96f7a6385c3790984e72e5520fecd01">write_employee_dynamic_array</a> (FILE *file, <a class="el" href="structemployee__array.html">employee_array</a> *temp_datatype)</td></tr>
+<tr class="separator:ad96f7a6385c3790984e72e5520fecd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5d1f8e6f217c7e5fd38626251843d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a0c5d1f8e6f217c7e5fd38626251843d7">write_firm_agent</a> (FILE *file, <a class="el" href="structxmachine__memory__firm.html">xmachine_memory_firm</a> *current)</td></tr>
+<tr class="separator:a0c5d1f8e6f217c7e5fd38626251843d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320eb6bafdc27dcd76cbc9dfa8d9d749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a320eb6bafdc27dcd76cbc9dfa8d9d749">write_household_agent</a> (FILE *file, <a class="el" href="structxmachine__memory__household.html">xmachine_memory_household</a> *current)</td></tr>
+<tr class="separator:a320eb6bafdc27dcd76cbc9dfa8d9d749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c36451c81e6f8cac9f53cede2aea42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a93c36451c81e6f8cac9f53cede2aea42">write_jpoffice_agent</a> (FILE *file, <a class="el" href="structxmachine__memory__jpoffice.html">xmachine_memory_jpoffice</a> *current)</td></tr>
+<tr class="separator:a93c36451c81e6f8cac9f53cede2aea42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c12cb61b6c6e02f7f1454df5cea1e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#ab3c12cb61b6c6e02f7f1454df5cea1e9">write_bank_agent</a> (FILE *file, <a class="el" href="structxmachine__memory__bank.html">xmachine_memory_bank</a> *current)</td></tr>
+<tr class="separator:ab3c12cb61b6c6e02f7f1454df5cea1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b51267daf52419b76ed29c302245009"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#a8b51267daf52419b76ed29c302245009">write_government_agent</a> (FILE *file, <a class="el" href="structxmachine__memory__government.html">xmachine_memory_government</a> *current)</td></tr>
+<tr class="separator:a8b51267daf52419b76ed29c302245009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba67b260465ab67722f269c3e2c982a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#aba67b260465ab67722f269c3e2c982a8">write_centralbank_agent</a> (FILE *file, <a class="el" href="structxmachine__memory__centralbank.html">xmachine_memory_centralbank</a> *current)</td></tr>
+<tr class="separator:aba67b260465ab67722f269c3e2c982a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad48628bfc281002883a57dbd39954214"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#ad48628bfc281002883a57dbd39954214">FLAME_write_xml</a> (char *<a class="el" href="structlocation.html">location</a>, int iteration_number, int *output_types, int output_type_size)</td></tr>
 <tr class="separator:ad48628bfc281002883a57dbd39954214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac00089b686fe85d1e8211100ae0b8cf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2">saveiterationdata</a> (int iteration_number)</td></tr>
@@ -192,7 +220,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l00823">823</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01090">1090</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -241,14 +269,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01458">1458</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01830">1830</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="xml_8c_ad48628bfc281002883a57dbd39954214_cgraph.png" border="0" usemap="#xml_8c_ad48628bfc281002883a57dbd39954214_cgraph" alt=""/></div>
 <map name="xml_8c_ad48628bfc281002883a57dbd39954214_cgraph" id="xml_8c_ad48628bfc281002883a57dbd39954214_cgraph">
-<area shape="rect" id="node2" href="header_8h.html#ace08d4a662468d469a9b78b10a6ad85f" title="Returns 1 if an integer is a member of an integer array, else 0." alt="" coords="185,5,354,33"/><area shape="rect" id="node3" href="xml_8c.html#a7862f23067364880e4021e28fed502df" title="write_Firm_agent" alt="" coords="207,57,332,85"/><area shape="rect" id="node5" href="xml_8c.html#af7f5662ddd867f0c834456f440b0158f" title="write_Household_agent" alt="" coords="189,109,350,137"/><area shape="rect" id="node7" href="xml_8c.html#a2d7b899d4e855675ca90787a3e5dd51f" title="write_Bank_agent" alt="" coords="205,161,333,189"/><area shape="rect" id="node8" href="xml_8c.html#a13305d980bded092351f75983fba1438" title="write_Government_agent" alt="" coords="184,213,355,241"/><area shape="rect" id="node9" href="xml_8c.html#af5fdc998ba697da49d013cb8edca9ca2" title="write_CentralBank_agent" alt="" coords="184,265,355,293"/><area shape="rect" id="node4" href="xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="402,57,568,85"/><area shape="rect" id="node6" href="xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="412,109,559,137"/></map>
+<area shape="rect" id="node2" href="header_8h.html#ace08d4a662468d469a9b78b10a6ad85f" title="Returns 1 if an integer is a member of an integer array, else 0." alt="" coords="185,5,354,33"/><area shape="rect" id="node3" href="xml_8c.html#a0c5d1f8e6f217c7e5fd38626251843d7" title="write_firm_agent" alt="" coords="209,57,329,85"/><area shape="rect" id="node5" href="xml_8c.html#a320eb6bafdc27dcd76cbc9dfa8d9d749" title="write_household_agent" alt="" coords="190,109,349,137"/><area shape="rect" id="node7" href="xml_8c.html#a93c36451c81e6f8cac9f53cede2aea42" title="write_jpoffice_agent" alt="" coords="199,161,339,189"/><area shape="rect" id="node8" href="xml_8c.html#ab3c12cb61b6c6e02f7f1454df5cea1e9" title="write_bank_agent" alt="" coords="206,213,333,241"/><area shape="rect" id="node9" href="xml_8c.html#a8b51267daf52419b76ed29c302245009" title="write_government_agent" alt="" coords="185,265,353,293"/><area shape="rect" id="node10" href="xml_8c.html#aba67b260465ab67722f269c3e2c982a8" title="write_centralbank_agent" alt="" coords="186,317,353,345"/><area shape="rect" id="node4" href="xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="402,57,568,85"/><area shape="rect" id="node6" href="xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="412,109,559,137"/></map>
 </div>
 </p>
 
@@ -450,6 +478,159 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="xml_8c_source.html#l00097">97</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a5a83f8c744ce7c16f660c61d989293"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_employee </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemployee.html">employee</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00398">398</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a7a5a83f8c744ce7c16f660c61d989293_icgraph.png" border="0" usemap="#xml_8c_a7a5a83f8c744ce7c16f660c61d989293_icgraph" alt=""/></div>
+<map name="xml_8c_a7a5a83f8c744ce7c16f660c61d989293_icgraph" id="xml_8c_a7a5a83f8c744ce7c16f660c61d989293_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#a88a3eaf0e39c9add9e085af8c7a0024e" title="read_employee_dynamic\l_array" alt="" coords="168,5,338,49"/><area shape="rect" id="node3" href="xml_8c.html#ad6f656b139caf879d8d8df6333aff1d3" title="read_employee_static\l_array" alt="" coords="177,73,329,117"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a88a3eaf0e39c9add9e085af8c7a0024e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_employee_dynamic_array </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemployee__array.html">employee_array</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype_array</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00440">440</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a88a3eaf0e39c9add9e085af8c7a0024e_cgraph.png" border="0" usemap="#xml_8c_a88a3eaf0e39c9add9e085af8c7a0024e_cgraph" alt=""/></div>
+<map name="xml_8c_a88a3eaf0e39c9add9e085af8c7a0024e_cgraph" id="xml_8c_a88a3eaf0e39c9add9e085af8c7a0024e_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#a470fa7ca06acc4dab9da261bd23bce89" title="Add an employee to the dynamic employee array." alt="" coords="227,5,336,33"/><area shape="rect" id="node4" href="header_8h.html#aaf49d5da2166675419e0a72ded4d9c90" title="read_employee" alt="" coords="225,57,338,85"/><area shape="rect" id="node3" href="header_8h.html#a3c939eeccdc808cbe89a3b4c5fc1ecef" title="init_employee" alt="" coords="387,5,490,33"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6f656b139caf879d8d8df6333aff1d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_employee_static_array </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemployee.html">employee</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00474">474</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_ad6f656b139caf879d8d8df6333aff1d3_cgraph.png" border="0" usemap="#xml_8c_ad6f656b139caf879d8d8df6333aff1d3_cgraph" alt=""/></div>
+<map name="xml_8c_ad6f656b139caf879d8d8df6333aff1d3_cgraph" id="xml_8c_ad6f656b139caf879d8d8df6333aff1d3_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#aaf49d5da2166675419e0a72ded4d9c90" title="read_employee" alt="" coords="206,13,319,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -661,6 +842,159 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a31eb8b38d78f2d1089c5e773bd488dff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_vacancy </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvacancy.html">vacancy</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00295">295</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a31eb8b38d78f2d1089c5e773bd488dff_icgraph.png" border="0" usemap="#xml_8c_a31eb8b38d78f2d1089c5e773bd488dff_icgraph" alt=""/></div>
+<map name="xml_8c_a31eb8b38d78f2d1089c5e773bd488dff_icgraph" id="xml_8c_a31eb8b38d78f2d1089c5e773bd488dff_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#a4122d80060b6c5d15d6ab7acb0c0d854" title="read_vacancy_dynamic\l_array" alt="" coords="158,5,319,49"/><area shape="rect" id="node3" href="xml_8c.html#a2dd6a0648aef4d30cfef68012460ae90" title="read_vacancy_static\l_array" alt="" coords="167,73,310,117"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4122d80060b6c5d15d6ab7acb0c0d854"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_vacancy_dynamic_array </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvacancy__array.html">vacancy_array</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype_array</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00337">337</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a4122d80060b6c5d15d6ab7acb0c0d854_cgraph.png" border="0" usemap="#xml_8c_a4122d80060b6c5d15d6ab7acb0c0d854_cgraph" alt=""/></div>
+<map name="xml_8c_a4122d80060b6c5d15d6ab7acb0c0d854_cgraph" id="xml_8c_a4122d80060b6c5d15d6ab7acb0c0d854_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#a42f66e8bcc79967a5e63a70486662285" title="Add an vacancy to the dynamic vacancy array." alt="" coords="218,5,318,33"/><area shape="rect" id="node4" href="header_8h.html#afbbcb4abfa38f22d8b26334860792798" title="read_vacancy" alt="" coords="216,57,320,85"/><area shape="rect" id="node3" href="header_8h.html#a829ba1aae12d7c76f346a5baeca4b3d1" title="init_vacancy" alt="" coords="369,5,463,33"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2dd6a0648aef4d30cfef68012460ae90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_vacancy_static_array </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvacancy.html">vacancy</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00371">371</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a2dd6a0648aef4d30cfef68012460ae90_cgraph.png" border="0" usemap="#xml_8c_a2dd6a0648aef4d30cfef68012460ae90_cgraph" alt=""/></div>
+<map name="xml_8c_a2dd6a0648aef4d30cfef68012460ae90_cgraph" id="xml_8c_a2dd6a0648aef4d30cfef68012460ae90_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#afbbcb4abfa38f22d8b26334860792798" title="read_vacancy" alt="" coords="197,13,302,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a26da9dc7d094c644db6e44b9f183f7fe"></a>
 <div class="memitem">
 <div class="memproto">
@@ -715,14 +1049,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l00352">352</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00558">558</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="xml_8c_a26da9dc7d094c644db6e44b9f183f7fe_cgraph.png" border="0" usemap="#xml_8c_a26da9dc7d094c644db6e44b9f183f7fe_cgraph" alt=""/></div>
 <map name="xml_8c_a26da9dc7d094c644db6e44b9f183f7fe_cgraph" id="xml_8c_a26da9dc7d094c644db6e44b9f183f7fe_cgraph">
-<area shape="rect" id="node2" href="header_8h.html#ad794bb5fa39723d916c33c046c1cd6e1" title="add_Firm_agent_internal" alt="" coords="167,5,337,33"/><area shape="rect" id="node3" href="header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="201,57,303,85"/><area shape="rect" id="node4" href="header_8h.html#a4aa1ad44d9ba47aa47ab1b2a9e0d85f8" title="add_Household_agent\l_internal" alt="" coords="174,109,330,153"/><area shape="rect" id="node5" href="header_8h.html#ab1c0f558ebc0884455270fe63a7a588f" title="add_Bank_agent_internal" alt="" coords="165,177,339,205"/><area shape="rect" id="node6" href="header_8h.html#a20eef3709143235dd7915b6c320bdfdc" title="add_Government_agent\l_internal" alt="" coords="169,229,335,273"/><area shape="rect" id="node7" href="header_8h.html#af317a750dc6144003729f8d96334ba3a" title="add_CentralBank_agent\l_internal" alt="" coords="169,297,335,341"/><area shape="rect" id="node8" href="header_8h.html#afa4edd1298d7629b51babb67679359ce" title="init_Firm_agent" alt="" coords="195,365,309,393"/><area shape="rect" id="node10" href="header_8h.html#a1a95ee3e41b34216233f9c933896986b" title="init_Household_agent" alt="" coords="177,417,327,445"/><area shape="rect" id="node12" href="header_8h.html#a6947ed3559225b859997ae500826bfb2" title="init_Bank_agent" alt="" coords="194,469,310,497"/><area shape="rect" id="node13" href="header_8h.html#a0896c007b6a1b0a8daca419106855483" title="init_Government_agent" alt="" coords="172,521,332,549"/><area shape="rect" id="node14" href="header_8h.html#aa78f3d5651a39aa9e90677dd5e7bbb20" title="init_CentralBank_agent" alt="" coords="172,573,332,601"/><area shape="rect" id="node15" href="header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="170,625,334,653"/><area shape="rect" id="node17" href="header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="179,677,325,705"/><area shape="rect" id="node9" href="header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="406,365,504,393"/><area shape="rect" id="node11" href="header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="387,417,523,445"/><area shape="rect" id="node16" href="header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="422,625,487,653"/></map>
+<area shape="rect" id="node2" href="header_8h.html#a66b0c9326af4d5ee129f59e787f32801" title="add_firm_agent_internal" alt="" coords="169,5,335,33"/><area shape="rect" id="node3" href="header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="201,57,303,85"/><area shape="rect" id="node4" href="header_8h.html#a3a0d3544ade8d4b945f113069be33f7b" title="add_household_agent\l_internal" alt="" coords="175,109,329,153"/><area shape="rect" id="node5" href="header_8h.html#ae45d5af77ecb5f71bf064b5e80b97982" title="add_jpoffice_agent\l_internal" alt="" coords="185,177,319,221"/><area shape="rect" id="node6" href="header_8h.html#a40b8de66bb1090312eb94112a367282e" title="add_bank_agent_internal" alt="" coords="166,245,338,273"/><area shape="rect" id="node7" href="header_8h.html#af81893da3c728571add52dfb9a4375f4" title="add_government_agent\l_internal" alt="" coords="171,297,333,341"/><area shape="rect" id="node8" href="header_8h.html#ab88a9e7ed5fffd0da747e1d948fc2095" title="add_centralbank_agent\l_internal" alt="" coords="172,365,332,409"/><area shape="rect" id="node9" href="header_8h.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="198,433,306,461"/><area shape="rect" id="node11" href="header_8h.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="178,485,326,513"/><area shape="rect" id="node13" href="header_8h.html#aeec7d7d9f891fea208f5987822ad1188" title="init_jpoffice_agent" alt="" coords="188,537,316,565"/><area shape="rect" id="node14" href="header_8h.html#a976482fde08b57c104de6108a5f95d96" title="init_bank_agent" alt="" coords="194,589,310,617"/><area shape="rect" id="node15" href="header_8h.html#a6269d28b1db3c47c9fb83d6697bab849" title="init_government_agent" alt="" coords="174,641,330,669"/><area shape="rect" id="node16" href="header_8h.html#a36bdb944cce8f7619d59b908de96bcf3" title="init_centralbank_agent" alt="" coords="174,693,330,721"/><area shape="rect" id="node17" href="header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="170,745,334,773"/><area shape="rect" id="node19" href="header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="179,797,325,825"/><area shape="rect" id="node10" href="header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="406,433,504,461"/><area shape="rect" id="node12" href="header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="387,485,523,513"/><area shape="rect" id="node18" href="header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="422,745,487,773"/></map>
 </div>
 </p>
 
@@ -751,7 +1085,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l00294">294</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l00500">500</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -812,14 +1146,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l00854">854</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01121">1121</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="xml_8c_acdf3e0e87f4574e3f9a3e9ede6841849_cgraph.png" border="0" usemap="#xml_8c_acdf3e0e87f4574e3f9a3e9ede6841849_cgraph" alt=""/></div>
 <map name="xml_8c_acdf3e0e87f4574e3f9a3e9ede6841849_cgraph" id="xml_8c_acdf3e0e87f4574e3f9a3e9ede6841849_cgraph">
-<area shape="rect" id="node2" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="189,365,299,393"/><area shape="rect" id="node19" href="xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34" title="readEnvironmentXML" alt="" coords="169,417,319,445"/><area shape="rect" id="node20" href="header_8h.html#a830d01a8fcc3028182baf9675a486e6b" title="add_FLAME_output" alt="" coords="174,469,314,497"/><area shape="rect" id="node21" href="xml_8c.html#ad6bd93c47fa8ca72ec882cceb268ccdd" title="Check that a directory exists." alt="" coords="168,521,320,549"/><area shape="rect" id="node3" href="header_8h.html#ad794bb5fa39723d916c33c046c1cd6e1" title="add_Firm_agent_internal" alt="" coords="370,5,539,33"/><area shape="rect" id="node4" href="header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="404,57,506,85"/><area shape="rect" id="node5" href="header_8h.html#a4aa1ad44d9ba47aa47ab1b2a9e0d85f8" title="add_Household_agent\l_internal" alt="" coords="377,109,532,153"/><area shape="rect" id="node6" href="header_8h.html#ab1c0f558ebc0884455270fe63a7a588f" title="add_Bank_agent_internal" alt="" coords="368,177,541,205"/><area shape="rect" id="node7" href="header_8h.html#a20eef3709143235dd7915b6c320bdfdc" title="add_Government_agent\l_internal" alt="" coords="372,229,537,273"/><area shape="rect" id="node8" href="header_8h.html#af317a750dc6144003729f8d96334ba3a" title="add_CentralBank_agent\l_internal" alt="" coords="372,297,537,341"/><area shape="rect" id="node9" href="header_8h.html#afa4edd1298d7629b51babb67679359ce" title="init_Firm_agent" alt="" coords="398,365,511,393"/><area shape="rect" id="node11" href="header_8h.html#a1a95ee3e41b34216233f9c933896986b" title="init_Household_agent" alt="" coords="380,417,530,445"/><area shape="rect" id="node13" href="header_8h.html#a6947ed3559225b859997ae500826bfb2" title="init_Bank_agent" alt="" coords="396,469,513,497"/><area shape="rect" id="node14" href="header_8h.html#a0896c007b6a1b0a8daca419106855483" title="init_Government_agent" alt="" coords="375,521,535,549"/><area shape="rect" id="node15" href="header_8h.html#aa78f3d5651a39aa9e90677dd5e7bbb20" title="init_CentralBank_agent" alt="" coords="375,573,535,601"/><area shape="rect" id="node16" href="header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="372,625,537,653"/><area shape="rect" id="node18" href="header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="382,677,528,705"/><area shape="rect" id="node10" href="header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="608,365,706,393"/><area shape="rect" id="node12" href="header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="589,417,725,445"/><area shape="rect" id="node17" href="header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="625,625,690,653"/></map>
+<area shape="rect" id="node2" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="189,433,299,461"/><area shape="rect" id="node21" href="xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34" title="readEnvironmentXML" alt="" coords="169,485,319,513"/><area shape="rect" id="node22" href="header_8h.html#a830d01a8fcc3028182baf9675a486e6b" title="add_FLAME_output" alt="" coords="174,537,314,565"/><area shape="rect" id="node23" href="xml_8c.html#ad6bd93c47fa8ca72ec882cceb268ccdd" title="Check that a directory exists." alt="" coords="168,589,320,617"/><area shape="rect" id="node3" href="header_8h.html#a66b0c9326af4d5ee129f59e787f32801" title="add_firm_agent_internal" alt="" coords="372,5,537,33"/><area shape="rect" id="node4" href="header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="404,57,506,85"/><area shape="rect" id="node5" href="header_8h.html#a3a0d3544ade8d4b945f113069be33f7b" title="add_household_agent\l_internal" alt="" coords="378,109,531,153"/><area shape="rect" id="node6" href="header_8h.html#ae45d5af77ecb5f71bf064b5e80b97982" title="add_jpoffice_agent\l_internal" alt="" coords="388,177,522,221"/><area shape="rect" id="node7" href="header_8h.html#a40b8de66bb1090312eb94112a367282e" title="add_bank_agent_internal" alt="" coords="369,245,541,273"/><area shape="rect" id="node8" href="header_8h.html#af81893da3c728571add52dfb9a4375f4" title="add_government_agent\l_internal" alt="" coords="374,297,536,341"/><area shape="rect" id="node9" href="header_8h.html#ab88a9e7ed5fffd0da747e1d948fc2095" title="add_centralbank_agent\l_internal" alt="" coords="374,365,535,409"/><area shape="rect" id="node10" href="header_8h.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="400,433,509,461"/><area shape="rect" id="node12" href="header_8h.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="381,485,529,513"/><area shape="rect" id="node14" href="header_8h.html#aeec7d7d9f891fea208f5987822ad1188" title="init_jpoffice_agent" alt="" coords="390,537,519,565"/><area shape="rect" id="node15" href="header_8h.html#a976482fde08b57c104de6108a5f95d96" title="init_bank_agent" alt="" coords="397,589,512,617"/><area shape="rect" id="node16" href="header_8h.html#a6269d28b1db3c47c9fb83d6697bab849" title="init_government_agent" alt="" coords="376,641,533,669"/><area shape="rect" id="node17" href="header_8h.html#a36bdb944cce8f7619d59b908de96bcf3" title="init_centralbank_agent" alt="" coords="377,693,532,721"/><area shape="rect" id="node18" href="header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="372,745,537,773"/><area shape="rect" id="node20" href="header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="382,797,528,825"/><area shape="rect" id="node11" href="header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="608,433,706,461"/><area shape="rect" id="node13" href="header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="589,485,725,513"/><area shape="rect" id="node19" href="header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="625,745,690,773"/></map>
 </div>
 </p>
 
@@ -856,14 +1190,14 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01554">1554</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01937">1937</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="xml_8c_ac00089b686fe85d1e8211100ae0b8cf2_cgraph.png" border="0" usemap="#xml_8c_ac00089b686fe85d1e8211100ae0b8cf2_cgraph" alt=""/></div>
 <map name="xml_8c_ac00089b686fe85d1e8211100ae0b8cf2_cgraph" id="xml_8c_ac00089b686fe85d1e8211100ae0b8cf2_cgraph">
-<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="177,135,306,163"/><area shape="rect" id="node3" href="header_8h.html#ace08d4a662468d469a9b78b10a6ad85f" title="Returns 1 if an integer is a member of an integer array, else 0." alt="" coords="355,5,525,33"/><area shape="rect" id="node4" href="xml_8c.html#a7862f23067364880e4021e28fed502df" title="write_Firm_agent" alt="" coords="378,57,502,85"/><area shape="rect" id="node6" href="xml_8c.html#af7f5662ddd867f0c834456f440b0158f" title="write_Household_agent" alt="" coords="359,109,521,137"/><area shape="rect" id="node8" href="xml_8c.html#a2d7b899d4e855675ca90787a3e5dd51f" title="write_Bank_agent" alt="" coords="376,161,504,189"/><area shape="rect" id="node9" href="xml_8c.html#a13305d980bded092351f75983fba1438" title="write_Government_agent" alt="" coords="354,213,526,241"/><area shape="rect" id="node10" href="xml_8c.html#af5fdc998ba697da49d013cb8edca9ca2" title="write_CentralBank_agent" alt="" coords="354,265,526,293"/><area shape="rect" id="node5" href="xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="573,57,739,85"/><area shape="rect" id="node7" href="xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="582,109,730,137"/></map>
+<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="177,161,306,189"/><area shape="rect" id="node3" href="header_8h.html#ace08d4a662468d469a9b78b10a6ad85f" title="Returns 1 if an integer is a member of an integer array, else 0." alt="" coords="355,5,525,33"/><area shape="rect" id="node4" href="xml_8c.html#a0c5d1f8e6f217c7e5fd38626251843d7" title="write_firm_agent" alt="" coords="380,57,500,85"/><area shape="rect" id="node6" href="xml_8c.html#a320eb6bafdc27dcd76cbc9dfa8d9d749" title="write_household_agent" alt="" coords="360,109,520,137"/><area shape="rect" id="node8" href="xml_8c.html#a93c36451c81e6f8cac9f53cede2aea42" title="write_jpoffice_agent" alt="" coords="370,161,510,189"/><area shape="rect" id="node9" href="xml_8c.html#ab3c12cb61b6c6e02f7f1454df5cea1e9" title="write_bank_agent" alt="" coords="377,213,503,241"/><area shape="rect" id="node10" href="xml_8c.html#a8b51267daf52419b76ed29c302245009" title="write_government_agent" alt="" coords="356,265,524,293"/><area shape="rect" id="node11" href="xml_8c.html#aba67b260465ab67722f269c3e2c982a8" title="write_centralbank_agent" alt="" coords="357,317,523,345"/><area shape="rect" id="node5" href="xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="573,57,739,85"/><area shape="rect" id="node7" href="xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="582,109,730,137"/></map>
 </div>
 </p>
 
@@ -878,12 +1212,12 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a2d7b899d4e855675ca90787a3e5dd51f"></a>
+<a class="anchor" id="ab3c12cb61b6c6e02f7f1454df5cea1e9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void write_Bank_agent </td>
+          <td class="memname">void write_bank_agent </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>file</em>, </td>
@@ -891,7 +1225,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structxmachine__memory___bank.html">xmachine_memory_Bank</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structxmachine__memory__bank.html">xmachine_memory_bank</a> *&#160;</td>
           <td class="paramname"><em>current</em>&#160;</td>
         </tr>
         <tr>
@@ -902,25 +1236,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01418">1418</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01790">1790</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_a2d7b899d4e855675ca90787a3e5dd51f_icgraph.png" border="0" usemap="#xml_8c_a2d7b899d4e855675ca90787a3e5dd51f_icgraph" alt=""/></div>
-<map name="xml_8c_a2d7b899d4e855675ca90787a3e5dd51f_icgraph" id="xml_8c_a2d7b899d4e855675ca90787a3e5dd51f_icgraph">
+<div class="center"><img src="xml_8c_ab3c12cb61b6c6e02f7f1454df5cea1e9_icgraph.png" border="0" usemap="#xml_8c_ab3c12cb61b6c6e02f7f1454df5cea1e9_icgraph" alt=""/></div>
+<map name="xml_8c_ab3c12cb61b6c6e02f7f1454df5cea1e9_icgraph" id="xml_8c_ab3c12cb61b6c6e02f7f1454df5cea1e9_icgraph">
 <area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="182,5,311,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="360,5,483,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="531,5,581,33"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="af5fdc998ba697da49d013cb8edca9ca2"></a>
+<a class="anchor" id="aba67b260465ab67722f269c3e2c982a8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void write_CentralBank_agent </td>
+          <td class="memname">void write_centralbank_agent </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>file</em>, </td>
@@ -928,7 +1262,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structxmachine__memory___central_bank.html">xmachine_memory_CentralBank</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structxmachine__memory__centralbank.html">xmachine_memory_centralbank</a> *&#160;</td>
           <td class="paramname"><em>current</em>&#160;</td>
         </tr>
         <tr>
@@ -939,14 +1273,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01444">1444</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01816">1816</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_af5fdc998ba697da49d013cb8edca9ca2_icgraph.png" border="0" usemap="#xml_8c_af5fdc998ba697da49d013cb8edca9ca2_icgraph" alt=""/></div>
-<map name="xml_8c_af5fdc998ba697da49d013cb8edca9ca2_icgraph" id="xml_8c_af5fdc998ba697da49d013cb8edca9ca2_icgraph">
-<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="225,5,354,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="403,5,525,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="574,5,624,33"/></map>
+<div class="center"><img src="xml_8c_aba67b260465ab67722f269c3e2c982a8_icgraph.png" border="0" usemap="#xml_8c_aba67b260465ab67722f269c3e2c982a8_icgraph" alt=""/></div>
+<map name="xml_8c_aba67b260465ab67722f269c3e2c982a8_icgraph" id="xml_8c_aba67b260465ab67722f269c3e2c982a8_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="222,5,351,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="400,5,523,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="571,5,621,33"/></map>
 </div>
 </p>
 
@@ -978,7 +1312,7 @@ Here is the caller graph for this function:</div>
 
 <p>Writes char. </p>
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01328">1328</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01597">1597</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1346,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01256">1256</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01525">1525</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 </div>
 </div>
@@ -1042,7 +1376,7 @@ Here is the caller graph for this function:</div>
 
 <p>Writes double. </p>
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01310">1310</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01579">1579</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 </div>
 </div>
@@ -1076,16 +1410,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01238">1238</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01507">1507</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7862f23067364880e4021e28fed502df"></a>
+<a class="anchor" id="a1ff53879ecde885bcbdfd503ab188d53"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void write_Firm_agent </td>
+          <td class="memname">void write_employee </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>file</em>, </td>
@@ -1093,7 +1427,126 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structxmachine__memory___firm.html">xmachine_memory_Firm</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structemployee.html">employee</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes employee datatype. </p>
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01655">1655</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a1ff53879ecde885bcbdfd503ab188d53_icgraph.png" border="0" usemap="#xml_8c_a1ff53879ecde885bcbdfd503ab188d53_icgraph" alt=""/></div>
+<map name="xml_8c_a1ff53879ecde885bcbdfd503ab188d53_icgraph" id="xml_8c_a1ff53879ecde885bcbdfd503ab188d53_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#a081bf5bdaa33d6151497a162c1590f6d" title="write_employee_static\l_array" alt="" coords="178,5,331,49"/><area shape="rect" id="node3" href="xml_8c.html#ad96f7a6385c3790984e72e5520fecd01" title="write_employee_dynamic\l_array" alt="" coords="169,73,341,117"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad96f7a6385c3790984e72e5520fecd01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_employee_dynamic_array </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemployee__array.html">employee_array</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01681">1681</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_ad96f7a6385c3790984e72e5520fecd01_cgraph.png" border="0" usemap="#xml_8c_ad96f7a6385c3790984e72e5520fecd01_cgraph" alt=""/></div>
+<map name="xml_8c_ad96f7a6385c3790984e72e5520fecd01_cgraph" id="xml_8c_ad96f7a6385c3790984e72e5520fecd01_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#a1ff53879ecde885bcbdfd503ab188d53" title="Writes employee datatype." alt="" coords="227,13,341,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a081bf5bdaa33d6151497a162c1590f6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_employee_static_array </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemployee.html">employee</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01667">1667</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a081bf5bdaa33d6151497a162c1590f6d_cgraph.png" border="0" usemap="#xml_8c_a081bf5bdaa33d6151497a162c1590f6d_cgraph" alt=""/></div>
+<map name="xml_8c_a081bf5bdaa33d6151497a162c1590f6d_cgraph" id="xml_8c_a081bf5bdaa33d6151497a162c1590f6d_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#a1ff53879ecde885bcbdfd503ab188d53" title="Writes employee datatype." alt="" coords="208,13,323,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c5d1f8e6f217c7e5fd38626251843d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_firm_agent </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structxmachine__memory__firm.html">xmachine_memory_firm</a> *&#160;</td>
           <td class="paramname"><em>current</em>&#160;</td>
         </tr>
         <tr>
@@ -1104,23 +1557,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01342">1342</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01697">1697</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_a7862f23067364880e4021e28fed502df_cgraph.png" border="0" usemap="#xml_8c_a7862f23067364880e4021e28fed502df_cgraph" alt=""/></div>
-<map name="xml_8c_a7862f23067364880e4021e28fed502df_cgraph" id="xml_8c_a7862f23067364880e4021e28fed502df_cgraph">
-<area shape="rect" id="node2" href="xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="178,5,344,33"/></map>
+<div class="center"><img src="xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_cgraph.png" border="0" usemap="#xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_cgraph" alt=""/></div>
+<map name="xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_cgraph" id="xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_cgraph">
+<area shape="rect" id="node2" href="xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="173,5,339,33"/></map>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_a7862f23067364880e4021e28fed502df_icgraph.png" border="0" usemap="#xml_8c_a7862f23067364880e4021e28fed502df_icgraph" alt=""/></div>
-<map name="xml_8c_a7862f23067364880e4021e28fed502df_icgraph" id="xml_8c_a7862f23067364880e4021e28fed502df_icgraph">
-<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="179,5,309,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="357,5,480,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="528,5,578,33"/></map>
+<div class="center"><img src="xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_icgraph.png" border="0" usemap="#xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_icgraph" alt=""/></div>
+<map name="xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_icgraph" id="xml_8c_a0c5d1f8e6f217c7e5fd38626251843d7_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="174,5,303,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="352,5,475,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="523,5,573,33"/></map>
 </div>
 </p>
 
@@ -1152,7 +1605,7 @@ Here is the caller graph for this function:</div>
 
 <p>Writes float. </p>
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01292">1292</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01561">1561</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 </div>
 </div>
@@ -1186,16 +1639,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01220">1220</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01489">1489</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a13305d980bded092351f75983fba1438"></a>
+<a class="anchor" id="a8b51267daf52419b76ed29c302245009"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void write_Government_agent </td>
+          <td class="memname">void write_government_agent </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>file</em>, </td>
@@ -1203,7 +1656,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structxmachine__memory___government.html">xmachine_memory_Government</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structxmachine__memory__government.html">xmachine_memory_government</a> *&#160;</td>
           <td class="paramname"><em>current</em>&#160;</td>
         </tr>
         <tr>
@@ -1214,25 +1667,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01431">1431</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01803">1803</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_a13305d980bded092351f75983fba1438_icgraph.png" border="0" usemap="#xml_8c_a13305d980bded092351f75983fba1438_icgraph" alt=""/></div>
-<map name="xml_8c_a13305d980bded092351f75983fba1438_icgraph" id="xml_8c_a13305d980bded092351f75983fba1438_icgraph">
-<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="225,5,354,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="403,5,525,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="574,5,624,33"/></map>
+<div class="center"><img src="xml_8c_a8b51267daf52419b76ed29c302245009_icgraph.png" border="0" usemap="#xml_8c_a8b51267daf52419b76ed29c302245009_icgraph" alt=""/></div>
+<map name="xml_8c_a8b51267daf52419b76ed29c302245009_icgraph" id="xml_8c_a8b51267daf52419b76ed29c302245009_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="222,5,351,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="400,5,523,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="571,5,621,33"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="af7f5662ddd867f0c834456f440b0158f"></a>
+<a class="anchor" id="a320eb6bafdc27dcd76cbc9dfa8d9d749"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void write_Household_agent </td>
+          <td class="memname">void write_household_agent </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>file</em>, </td>
@@ -1240,7 +1693,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structxmachine__memory___household.html">xmachine_memory_Household</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structxmachine__memory__household.html">xmachine_memory_household</a> *&#160;</td>
           <td class="paramname"><em>current</em>&#160;</td>
         </tr>
         <tr>
@@ -1251,23 +1704,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01382">1382</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01737">1737</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_af7f5662ddd867f0c834456f440b0158f_cgraph.png" border="0" usemap="#xml_8c_af7f5662ddd867f0c834456f440b0158f_cgraph" alt=""/></div>
-<map name="xml_8c_af7f5662ddd867f0c834456f440b0158f_cgraph" id="xml_8c_af7f5662ddd867f0c834456f440b0158f_cgraph">
-<area shape="rect" id="node2" href="xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="216,5,363,33"/></map>
+<div class="center"><img src="xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_cgraph.png" border="0" usemap="#xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_cgraph" alt=""/></div>
+<map name="xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_cgraph" id="xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_cgraph">
+<area shape="rect" id="node2" href="xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="213,5,360,33"/></map>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="xml_8c_af7f5662ddd867f0c834456f440b0158f_icgraph.png" border="0" usemap="#xml_8c_af7f5662ddd867f0c834456f440b0158f_icgraph" alt=""/></div>
-<map name="xml_8c_af7f5662ddd867f0c834456f440b0158f_icgraph" id="xml_8c_af7f5662ddd867f0c834456f440b0158f_icgraph">
-<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="217,5,346,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="395,5,517,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="566,5,616,33"/></map>
+<div class="center"><img src="xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_icgraph.png" border="0" usemap="#xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_icgraph" alt=""/></div>
+<map name="xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_icgraph" id="xml_8c_a320eb6bafdc27dcd76cbc9dfa8d9d749_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="214,5,343,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="392,5,515,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="563,5,613,33"/></map>
 </div>
 </p>
 
@@ -1299,14 +1752,14 @@ Here is the caller graph for this function:</div>
 
 <p>Writes int. </p>
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01274">1274</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01543">1543</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="xml_8c_a89b59dc1f2e521c21941b0104755049e_icgraph.png" border="0" usemap="#xml_8c_a89b59dc1f2e521c21941b0104755049e_icgraph" alt=""/></div>
 <map name="xml_8c_a89b59dc1f2e521c21941b0104755049e_icgraph" id="xml_8c_a89b59dc1f2e521c21941b0104755049e_icgraph">
-<area shape="rect" id="node2" href="xml_8c.html#a7862f23067364880e4021e28fed502df" title="write_Firm_agent" alt="" coords="219,5,344,33"/><area shape="rect" id="node3" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="393,5,522,33"/><area shape="rect" id="node4" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="571,5,693,33"/><area shape="rect" id="node5" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="742,5,792,33"/></map>
+<area shape="rect" id="node2" href="xml_8c.html#a0c5d1f8e6f217c7e5fd38626251843d7" title="write_firm_agent" alt="" coords="219,5,339,33"/><area shape="rect" id="node3" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="387,5,517,33"/><area shape="rect" id="node4" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="565,5,688,33"/><area shape="rect" id="node5" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="736,5,786,33"/></map>
 </div>
 </p>
 
@@ -1342,14 +1795,170 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="xml_8c_source.html#l01202">1202</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01471">1471</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="xml_8c_a96daa68becc097e62a4bbb6a9dab94f1_icgraph.png" border="0" usemap="#xml_8c_a96daa68becc097e62a4bbb6a9dab94f1_icgraph" alt=""/></div>
 <map name="xml_8c_a96daa68becc097e62a4bbb6a9dab94f1_icgraph" id="xml_8c_a96daa68becc097e62a4bbb6a9dab94f1_icgraph">
-<area shape="rect" id="node2" href="xml_8c.html#af7f5662ddd867f0c834456f440b0158f" title="write_Household_agent" alt="" coords="201,5,362,33"/><area shape="rect" id="node3" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="411,5,541,33"/><area shape="rect" id="node4" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="589,5,712,33"/><area shape="rect" id="node5" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="760,5,810,33"/></map>
+<area shape="rect" id="node2" href="xml_8c.html#a320eb6bafdc27dcd76cbc9dfa8d9d749" title="write_household_agent" alt="" coords="200,5,360,33"/><area shape="rect" id="node3" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="409,5,538,33"/><area shape="rect" id="node4" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="587,5,709,33"/><area shape="rect" id="node5" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="758,5,808,33"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a93c36451c81e6f8cac9f53cede2aea42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_jpoffice_agent </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structxmachine__memory__jpoffice.html">xmachine_memory_jpoffice</a> *&#160;</td>
+          <td class="paramname"><em>current</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01773">1773</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a93c36451c81e6f8cac9f53cede2aea42_icgraph.png" border="0" usemap="#xml_8c_a93c36451c81e6f8cac9f53cede2aea42_icgraph" alt=""/></div>
+<map name="xml_8c_a93c36451c81e6f8cac9f53cede2aea42_icgraph" id="xml_8c_a93c36451c81e6f8cac9f53cede2aea42_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="195,5,325,33"/><area shape="rect" id="node3" href="xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="373,5,496,33"/><area shape="rect" id="node4" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="544,5,594,33"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a68cfa8760b101c4b13f11127e312a98a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_vacancy </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvacancy.html">vacancy</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes vacancy datatype. </p>
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01612">1612</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a68cfa8760b101c4b13f11127e312a98a_icgraph.png" border="0" usemap="#xml_8c_a68cfa8760b101c4b13f11127e312a98a_icgraph" alt=""/></div>
+<map name="xml_8c_a68cfa8760b101c4b13f11127e312a98a_icgraph" id="xml_8c_a68cfa8760b101c4b13f11127e312a98a_icgraph">
+<area shape="rect" id="node2" href="xml_8c.html#a430d50a2b2df7d655f265152388c4994" title="write_vacancy_static\l_array" alt="" coords="169,5,314,49"/><area shape="rect" id="node3" href="xml_8c.html#aa8b40f8262cd85922a64965196bc11e6" title="write_vacancy_dynamic\l_array" alt="" coords="160,73,323,117"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8b40f8262cd85922a64965196bc11e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_vacancy_dynamic_array </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvacancy__array.html">vacancy_array</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01638">1638</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_aa8b40f8262cd85922a64965196bc11e6_cgraph.png" border="0" usemap="#xml_8c_aa8b40f8262cd85922a64965196bc11e6_cgraph" alt=""/></div>
+<map name="xml_8c_aa8b40f8262cd85922a64965196bc11e6_cgraph" id="xml_8c_aa8b40f8262cd85922a64965196bc11e6_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#a68cfa8760b101c4b13f11127e312a98a" title="Writes vacancy datatype." alt="" coords="216,13,322,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a430d50a2b2df7d655f265152388c4994"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_vacancy_static_array </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvacancy.html">vacancy</a> *&#160;</td>
+          <td class="paramname"><em>temp_datatype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xml_8c_source.html#l01624">1624</a> of file <a class="el" href="xml_8c_source.html">xml.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="xml_8c_a430d50a2b2df7d655f265152388c4994_cgraph.png" border="0" usemap="#xml_8c_a430d50a2b2df7d655f265152388c4994_cgraph" alt=""/></div>
+<map name="xml_8c_a430d50a2b2df7d655f265152388c4994_cgraph" id="xml_8c_a430d50a2b2df7d655f265152388c4994_cgraph">
+<area shape="rect" id="node2" href="header_8h.html#a68cfa8760b101c4b13f11127e312a98a" title="Writes vacancy datatype." alt="" coords="198,13,304,41"/></map>
 </div>
 </p>
 
@@ -1358,7 +1967,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 1 2013 20:30:33 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 4 2013 16:52:38 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
