@@ -1,0 +1,95 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 0.1.2, 26/02/2012</version>
+    <description> Production Market. The market has regular firms as well as sepcialized construction firms.</description>
+    <environment>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>household_functions_production.c</file>
+            <file>firm_functions_production.c</file>
+            <file>bank_functions_production.c</file>
+            <file>centralbank_functions_production.c</file>
+            <file>government_functions_production.c</file>
+        </functionFiles>
+    </environment>
+
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>household</name>
+            <description>Households role at production.</description>
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Household stays idle in production market.</description>
+                    <currentState>HHProduction</currentState>
+                    <nextState>HHLabourStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>firm</name>
+            <description>A simple production firm agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>A dummy stub function.</description>
+                    <currentState>FirmProductionStart</currentState>
+                    <nextState>FirmLabourStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>bank</name>
+            <description>A simple bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Bank stays idle in production market.</description>
+                    <currentState>BankProduction</currentState>
+                    <nextState>BankLabour</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A simple central bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Central Bank stays idle in production market.</description>
+                    <currentState>CBProduction</currentState>
+                    <nextState>CBLabour</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>government</name>
+            <description>A simple government agent</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory></memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                <name>idle</name>
+                <description>Government stays idle in production market.</description>
+                <currentState>GovProduction</currentState>
+                <nextState>GovLabour</nextState>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+</xmodel>
