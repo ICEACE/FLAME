@@ -13,6 +13,10 @@
             <file>Market_Labour/model_labour.xml</file>
             <enabled>true</enabled>
         </model>
+        <model>
+            <file>Market_Production/model_production.xml</file>
+            <enabled>true</enabled>
+        </model>
     </models>
     <environment>
         <constants>

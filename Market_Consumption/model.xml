@@ -28,7 +28,7 @@
                     <name>household_consumption_dummy</name>
                     <description>A dummy stub function.</description>
                     <currentState>HHConsumption</currentState>
-                    <nextState>HHLabourStart</nextState>
+                    <nextState>HHProduction</nextState>
                 </function>
             </functions>
         </xagent>
@@ -43,7 +43,7 @@
                     <name>firm_consumption_dummy</name>
                     <description>A dummy stub function.</description>
                     <currentState>FirmConsumption</currentState>
-                    <nextState>FirmLabourStart</nextState>
+                    <nextState>FirmProductionStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -58,7 +58,7 @@
                     <name>bank_consumption_dummy</name>
                     <description>A dummy stub function.</description>
                     <currentState>BankConsumption</currentState>
-                    <nextState>BankLabourStart</nextState>
+                    <nextState>BankProduction</nextState>
                 </function>
             </functions>
         </xagent>
@@ -73,7 +73,7 @@
                     <name>centralbank_consumption_dummy</name>
                     <description>A dummy stub function.</description>
                     <currentState>CBConsumption</currentState>
-                    <nextState>CBLabourStart</nextState>
+                    <nextState>CBProduction</nextState>
                 </function>
             </functions>
         </xagent>
@@ -88,7 +88,7 @@
                 <name>government_consumption_dummy</name>
                 <description>A dummy stub function.</description>
                 <currentState>GovConsumption</currentState>
-                <nextState>GovLabourStart</nextState>
+                <nextState>GovProduction</nextState>
                 </function>
             </functions>
         </xagent>

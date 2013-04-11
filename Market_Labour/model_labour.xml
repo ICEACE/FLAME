@@ -9,9 +9,6 @@
         <!-- List of C files that hold agent functions -->
             <file>household_functions_labour.c</file>
             <file>firm_functions_labour.c</file>
-            <file>bank_functions_labour.c</file>
-            <file>centralbank_functions_labour.c</file>
-            <file>government_functions_labour.c</file>
             <file>jpoffice_functions_labour.c</file>
         </functionFiles>
     </environment>
@@ -501,9 +498,9 @@
             <!-- List of agent functions -->
             <functions>
                 <function>
-                    <name>bank_labour_dummy</name>
-                    <description>A dummy stub function.</description>
-                    <currentState>BankLabourStart</currentState>
+                    <name>idle</name>
+                    <description>Bank stays idle in labour market.</description>
+                    <currentState>BankLabour</currentState>
                     <nextState>end</nextState>
                 </function>
             </functions>
@@ -516,9 +513,9 @@
             <!-- List of agent functions -->
             <functions>
                 <function>
-                    <name>centralbank_labour_dummy</name>
-                    <description>A dummy stub function.</description>
-                    <currentState>CBLabourStart</currentState>
+                    <name>idle</name>
+                    <description>Central Bank stays idle in labour market.</description>
+                    <currentState>CBLabour</currentState>
                     <nextState>end</nextState>
                 </function>
             </functions>
@@ -531,9 +528,9 @@
             <!-- List of agent functions -->
             <functions>
                 <function>
-                <name>government_labour_dummy</name>
-                <description>A dummy stub function.</description>
-                <currentState>GovLabourStart</currentState>
+                <name>idle</name>
+                <description>Government stays idle in labour market.</description>
+                <currentState>GovLabour</currentState>
                 <nextState>end</nextState>
                 </function>
             </functions>

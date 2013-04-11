@@ -84,7 +84,7 @@ int jpoffice_labour_stage1()
     
 // Finish
     
-    printf("Stage 1 Employment Summary: Applicants: %d, Vacancy: %d, Placement: %d \n", applicant_list.size, vacancy_list.size, j);
+    //printf("Stage 1 Employment Summary: Applicants: %d, Vacancy: %d, Placement: %d \n", applicant_list.size, vacancy_list.size, j);
     
     /* Free vacancies */
     free_vacancy_array(&vacancy_list);
@@ -167,7 +167,7 @@ int jpoffice_labour_stage2()
     } while (1 == 1);
     
 // Finish
-    printf("Stage 2 Employment Summary: Applicants: %d, Vacancy: %d, Placement: %d \n", applicant_list.size, vacancy_list.size, j);
+    //printf("Stage 2 Employment Summary: Applicants: %d, Vacancy: %d, Placement: %d \n", applicant_list.size, vacancy_list.size, j);
     
     /* Free vacancies */
     free_vacancy_array(&vacancy_list);
