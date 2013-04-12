@@ -1,9 +1,12 @@
 var searchData=
 [
+  ['capital_5fproductivity_5fconstruction',['capital_productivity_construction',['../structxmachine__memory__firm.html#ac8a21b6d02baf3563f36a936b2dc52bc',1,'xmachine_memory_firm']]],
   ['centralbank_5fcbconsumption_5fstate',['centralbank_CBConsumption_state',['../header_8h.html#a46404ab0f44f76f46fafe5160ac936f1',1,'header.h']]],
-  ['centralbank_5fcblabourstart_5fstate',['centralbank_CBLabourStart_state',['../header_8h.html#aaa8f0450dc0425b176b739f272425948',1,'header.h']]],
+  ['centralbank_5fcblabour_5fstate',['centralbank_CBLabour_state',['../header_8h.html#a636209aabf67d6d6f9bafbe0fbc9b4c2',1,'header.h']]],
+  ['centralbank_5fcbproduction_5fstate',['centralbank_CBProduction_state',['../header_8h.html#a9cf4cbb65736eda63990e68b0a60b15c',1,'header.h']]],
   ['centralbank_5fend_5fstate',['centralbank_end_state',['../header_8h.html#a54c91d84189897b344de19131c3112ce',1,'header.h']]],
   ['centralbank_5fstart_5fstate',['centralbank_start_state',['../header_8h.html#afefdab41264ccc7c777beaae085b97b8',1,'header.h']]],
+  ['construction_5fcapital',['construction_capital',['../structxmachine__memory__firm.html#af7286a16d2916ba4bbc0280ea6985312',1,'xmachine_memory_firm']]],
   ['count',['count',['../structxmachine__memory__firm__state.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'xmachine_memory_firm_state::count()'],['../structxmachine__memory__household__state.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'xmachine_memory_household_state::count()'],['../structxmachine__memory__jpoffice__state.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'xmachine_memory_jpoffice_state::count()'],['../structxmachine__memory__bank__state.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'xmachine_memory_bank_state::count()'],['../structxmachine__memory__government__state.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'xmachine_memory_government_state::count()'],['../structxmachine__memory__centralbank__state.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'xmachine_memory_centralbank_state::count()']]],
   ['current_5fnode',['current_node',['../header_8h.html#a228e28f9ec0429907fadfa9c3fb8d48b',1,'header.h']]],
   ['current_5fxmachine',['current_xmachine',['../header_8h.html#aeae4107181f1a8d82212c523899e03b7',1,'header.h']]],

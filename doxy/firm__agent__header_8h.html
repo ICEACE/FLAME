@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.1.1</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -96,7 +96,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="firm__agent__header_8h__dep__incl.png" border="0" usemap="#_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2firm__agent__header_8hdep" alt=""/></div>
 <map name="_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2firm__agent__header_8hdep" id="_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2firm__agent__header_8hdep">
-<area shape="rect" id="node2" href="firm__functions__top_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/firm_functions_top.c" alt="" coords="5,123,184,183"/><area shape="rect" id="node3" href="firm__functions__consumption_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Consumption/firm\l_functions_consumption.c" alt="" coords="208,115,387,191"/><area shape="rect" id="node4" href="firm__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/firm_functions\l_labour.c" alt="" coords="411,115,612,191"/></map>
+<area shape="rect" id="node2" href="firm__functions__top_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/firm_functions_top.c" alt="" coords="5,123,184,183"/><area shape="rect" id="node3" href="firm__functions__consumption_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Consumption/firm\l_functions_consumption.c" alt="" coords="208,115,387,191"/><area shape="rect" id="node4" href="firm__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/firm_functions\l_labour.c" alt="" coords="411,115,612,191"/><area shape="rect" id="node5" href="firm__functions__production_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Production/firm\l_functions_production.c" alt="" coords="637,115,816,191"/></map>
 </div>
 </div>
 <p><a href="firm__agent__header_8h_source.html">Go to the source code of this file.</a></p>
@@ -109,6 +109,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a35c1d174c8e48ec46028cfc2ad690a7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a35c1d174c8e48ec46028cfc2ad690a7a">BANK_ID</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;bank_id)</td></tr>
 <tr class="memdesc:a35c1d174c8e48ec46028cfc2ad690a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to bank_id of firm agent memory variable.  <a href="#a35c1d174c8e48ec46028cfc2ad690a7a">More...</a><br/></td></tr>
 <tr class="separator:a35c1d174c8e48ec46028cfc2ad690a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a327bb6f4ccc83ad3356f6ef8d36c9e13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13">ISCONSTRUCTOR</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;isconstructor)</td></tr>
+<tr class="memdesc:a327bb6f4ccc83ad3356f6ef8d36c9e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to isconstructor of firm agent memory variable.  <a href="#a327bb6f4ccc83ad3356f6ef8d36c9e13">More...</a><br/></td></tr>
+<tr class="separator:a327bb6f4ccc83ad3356f6ef8d36c9e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63743176ded5f32097e918f29e60f925"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a63743176ded5f32097e918f29e60f925">DAY_OF_MONTH_TO_ACT</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;day_of_month_to_act)</td></tr>
 <tr class="memdesc:a63743176ded5f32097e918f29e60f925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to day_of_month_to_act of firm agent memory variable.  <a href="#a63743176ded5f32097e918f29e60f925">More...</a><br/></td></tr>
 <tr class="separator:a63743176ded5f32097e918f29e60f925"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +130,45 @@ Macros</h2></td></tr>
 <tr class="memitem:a0f2b627621c7989dde85c78c1ec3ee1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a0f2b627621c7989dde85c78c1ec3ee1f">EMPLOYEES_NEEDED</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;employees_needed)</td></tr>
 <tr class="memdesc:a0f2b627621c7989dde85c78c1ec3ee1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to employees_needed of firm agent memory variable.  <a href="#a0f2b627621c7989dde85c78c1ec3ee1f">More...</a><br/></td></tr>
 <tr class="separator:a0f2b627621c7989dde85c78c1ec3ee1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976c699380fcece8f09855c96b06e728"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a976c699380fcece8f09855c96b06e728">LABOUR_PRODUCTIVITY</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;labour_productivity)</td></tr>
+<tr class="memdesc:a976c699380fcece8f09855c96b06e728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to labour_productivity of firm agent memory variable.  <a href="#a976c699380fcece8f09855c96b06e728">More...</a><br/></td></tr>
+<tr class="separator:a976c699380fcece8f09855c96b06e728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a195c61250aa26776a59fc2b07738d1c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6">DEBT</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;debt)</td></tr>
+<tr class="memdesc:a195c61250aa26776a59fc2b07738d1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to debt of firm agent memory variable.  <a href="#a195c61250aa26776a59fc2b07738d1c6">More...</a><br/></td></tr>
+<tr class="separator:a195c61250aa26776a59fc2b07738d1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a97c9955ee8d197d21d7210a7bf015"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a51a97c9955ee8d197d21d7210a7bf015">INVENTORIES</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;inventories)</td></tr>
+<tr class="memdesc:a51a97c9955ee8d197d21d7210a7bf015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to inventories of firm agent memory variable.  <a href="#a51a97c9955ee8d197d21d7210a7bf015">More...</a><br/></td></tr>
+<tr class="separator:a51a97c9955ee8d197d21d7210a7bf015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d99f22c9b753d1692ac7fa4a22beed4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a4d99f22c9b753d1692ac7fa4a22beed4">PRODUCTION_CURRENT</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;production_current)</td></tr>
+<tr class="memdesc:a4d99f22c9b753d1692ac7fa4a22beed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to production_current of firm agent memory variable.  <a href="#a4d99f22c9b753d1692ac7fa4a22beed4">More...</a><br/></td></tr>
+<tr class="separator:a4d99f22c9b753d1692ac7fa4a22beed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d6a22a6625c64e4a0864c910cf10567"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a1d6a22a6625c64e4a0864c910cf10567">PRODUCTION_ESTIMATE</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;production_estimate)</td></tr>
+<tr class="memdesc:a1d6a22a6625c64e4a0864c910cf10567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to production_estimate of firm agent memory variable.  <a href="#a1d6a22a6625c64e4a0864c910cf10567">More...</a><br/></td></tr>
+<tr class="separator:a1d6a22a6625c64e4a0864c910cf10567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1574cc427c04e66265531240ec2e5dc1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a1574cc427c04e66265531240ec2e5dc1">PRODUCTION_PLAN</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;production_plan)</td></tr>
+<tr class="memdesc:a1574cc427c04e66265531240ec2e5dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to production_plan of firm agent memory variable.  <a href="#a1574cc427c04e66265531240ec2e5dc1">More...</a><br/></td></tr>
+<tr class="separator:a1574cc427c04e66265531240ec2e5dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c369960d7010d50cd16ca43c00c466"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466">UNIT_GOODS_PRICE</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;unit_goods_price)</td></tr>
+<tr class="memdesc:ad0c369960d7010d50cd16ca43c00c466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to unit_goods_price of firm agent memory variable.  <a href="#ad0c369960d7010d50cd16ca43c00c466">More...</a><br/></td></tr>
+<tr class="separator:ad0c369960d7010d50cd16ca43c00c466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ead7131c4e3a0cd407cb05decc0f309"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a9ead7131c4e3a0cd407cb05decc0f309">DAY_OF_MONTH_PRODUCTION_AUDITED</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;day_of_month_production_audited)</td></tr>
+<tr class="memdesc:a9ead7131c4e3a0cd407cb05decc0f309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to day_of_month_production_audited of firm agent memory variable.  <a href="#a9ead7131c4e3a0cd407cb05decc0f309">More...</a><br/></td></tr>
+<tr class="separator:a9ead7131c4e3a0cd407cb05decc0f309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcd5712573e5598199afb57d50f9487"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#adfcd5712573e5598199afb57d50f9487">UNIT_HOUSE_PRICE</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;unit_house_price)</td></tr>
+<tr class="memdesc:adfcd5712573e5598199afb57d50f9487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to unit_house_price of firm agent memory variable.  <a href="#adfcd5712573e5598199afb57d50f9487">More...</a><br/></td></tr>
+<tr class="separator:adfcd5712573e5598199afb57d50f9487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273e5628dbc16aaea402d116ce76c297"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a273e5628dbc16aaea402d116ce76c297">LABOUR_PRODUCTIVITY_CONSTRUCTION</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;labour_productivity_construction)</td></tr>
+<tr class="memdesc:a273e5628dbc16aaea402d116ce76c297"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to labour_productivity_construction of firm agent memory variable.  <a href="#a273e5628dbc16aaea402d116ce76c297">More...</a><br/></td></tr>
+<tr class="separator:a273e5628dbc16aaea402d116ce76c297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224fb52cdebb918cb69a50dbd02200c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#a224fb52cdebb918cb69a50dbd02200c9">CAPITAL_PRODUCTIVITY_CONSTRUCTION</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;capital_productivity_construction)</td></tr>
+<tr class="memdesc:a224fb52cdebb918cb69a50dbd02200c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to capital_productivity_construction of firm agent memory variable.  <a href="#a224fb52cdebb918cb69a50dbd02200c9">More...</a><br/></td></tr>
+<tr class="separator:a224fb52cdebb918cb69a50dbd02200c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3819d61bf2116ad784bfdc191c4268f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#ab3819d61bf2116ad784bfdc191c4268f">CONSTRUCTION_CAPITAL</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;construction_capital)</td></tr>
+<tr class="memdesc:ab3819d61bf2116ad784bfdc191c4268f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to construction_capital of firm agent memory variable.  <a href="#ab3819d61bf2116ad784bfdc191c4268f">More...</a><br/></td></tr>
+<tr class="separator:ab3819d61bf2116ad784bfdc191c4268f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f1ed4408f80170505ae51032ff58d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="firm__agent__header_8h.html#aa7f1ed4408f80170505ae51032ff58d1">PROJECTS</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;projects)</td></tr>
+<tr class="memdesc:aa7f1ed4408f80170505ae51032ff58d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to projects of firm agent memory variable.  <a href="#aa7f1ed4408f80170505ae51032ff58d1">More...</a><br/></td></tr>
+<tr class="separator:aa7f1ed4408f80170505ae51032ff58d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for agent type memory access. </p>
@@ -149,6 +191,54 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a224fb52cdebb918cb69a50dbd02200c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAPITAL_PRODUCTIVITY_CONSTRUCTION&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;capital_productivity_construction)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to capital_productivity_construction of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00065">65</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3819d61bf2116ad784bfdc191c4268f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONSTRUCTION_CAPITAL&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;construction_capital)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to construction_capital of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00068">68</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ead7131c4e3a0cd407cb05decc0f309"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAY_OF_MONTH_PRODUCTION_AUDITED&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;day_of_month_production_audited)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to day_of_month_production_audited of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00056">56</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a63743176ded5f32097e918f29e60f925"></a>
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +251,23 @@ Macros</h2></td></tr>
 
 <p>Direct access to day_of_month_to_act of firm agent memory variable. </p>
 
-<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00014">14</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00017">17</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a195c61250aa26776a59fc2b07738d1c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBT&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;debt)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to debt of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00038">38</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
 
 </div>
 </div>
@@ -177,7 +283,7 @@ Macros</h2></td></tr>
 
 <p>Direct access to employees of firm agent memory variable. </p>
 
-<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00017">17</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00020">20</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +299,7 @@ Macros</h2></td></tr>
 
 <p>Direct access to employees_needed of firm agent memory variable. </p>
 
-<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00029">29</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00032">32</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
 
 </div>
 </div>
@@ -213,6 +319,70 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a51a97c9955ee8d197d21d7210a7bf015"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INVENTORIES&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;inventories)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to inventories of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00041">41</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a327bb6f4ccc83ad3356f6ef8d36c9e13"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ISCONSTRUCTOR&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;isconstructor)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to isconstructor of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00014">14</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a976c699380fcece8f09855c96b06e728"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LABOUR_PRODUCTIVITY&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;labour_productivity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to labour_productivity of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00035">35</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a273e5628dbc16aaea402d116ce76c297"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LABOUR_PRODUCTIVITY_CONSTRUCTION&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;labour_productivity_construction)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to labour_productivity_construction of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00062">62</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a267946001b4c4a04b1689cbe32cb8919"></a>
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +395,103 @@ Macros</h2></td></tr>
 
 <p>Direct access to no_employees of firm agent memory variable. </p>
 
-<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00023">23</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00026">26</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d99f22c9b753d1692ac7fa4a22beed4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRODUCTION_CURRENT&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;production_current)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to production_current of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00044">44</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d6a22a6625c64e4a0864c910cf10567"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRODUCTION_ESTIMATE&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;production_estimate)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to production_estimate of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00047">47</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1574cc427c04e66265531240ec2e5dc1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRODUCTION_PLAN&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;production_plan)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to production_plan of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00050">50</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa7f1ed4408f80170505ae51032ff58d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROJECTS&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;projects)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to projects of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00071">71</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0c369960d7010d50cd16ca43c00c466"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNIT_GOODS_PRICE&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;unit_goods_price)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to unit_goods_price of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00053">53</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfcd5712573e5598199afb57d50f9487"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNIT_HOUSE_PRICE&#160;&#160;&#160;(<a class="el" href="header_8h.html#a1ebe2216f870525a581965a0bf908463">current_xmachine_firm</a>-&gt;unit_house_price)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to unit_house_price of firm agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00059">59</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
 
 </div>
 </div>
@@ -241,7 +507,7 @@ Macros</h2></td></tr>
 
 <p>Direct access to vacancies of firm agent memory variable. </p>
 
-<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00026">26</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00029">29</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
 
 </div>
 </div>
@@ -257,14 +523,14 @@ Macros</h2></td></tr>
 
 <p>Direct access to wage_offer of firm agent memory variable. </p>
 
-<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00020">20</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
+<p>Definition at line <a class="el" href="firm__agent__header_8h_source.html#l00023">23</a> of file <a class="el" href="firm__agent__header_8h_source.html">firm_agent_header.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 4 2013 16:52:35 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 16:33:25 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

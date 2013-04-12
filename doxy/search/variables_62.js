@@ -9,7 +9,8 @@ var searchData=
   ['b_5fvacancy_5fstage1',['b_vacancy_stage1',['../header_8h.html#a3b079e7845d9bd68c0e10942f5e491da',1,'header.h']]],
   ['b_5fvacancy_5fstage2',['b_vacancy_stage2',['../header_8h.html#a1f36a93b0cf9f5b6b3d98a493d16c843',1,'header.h']]],
   ['bank_5fbankconsumption_5fstate',['bank_BankConsumption_state',['../header_8h.html#a2a2833446c459844b89a8f7cfecd2634',1,'header.h']]],
-  ['bank_5fbanklabourstart_5fstate',['bank_BankLabourStart_state',['../header_8h.html#aaeebdca8d59b5491d5acc977c20bda18',1,'header.h']]],
+  ['bank_5fbanklabour_5fstate',['bank_BankLabour_state',['../header_8h.html#a7796dade1ac26ce2e9bbb640fb2f816a',1,'header.h']]],
+  ['bank_5fbankproduction_5fstate',['bank_BankProduction_state',['../header_8h.html#a512461b8ba7220161358380947f4fe8c',1,'header.h']]],
   ['bank_5fend_5fstate',['bank_end_state',['../header_8h.html#ac97a0298d38c95a3161c1f799bcc187a',1,'header.h']]],
   ['bank_5fid',['bank_id',['../structxmachine__memory__firm.html#afe6f24d1772ca29128329436279b3853',1,'xmachine_memory_firm::bank_id()'],['../structxmachine__memory__household.html#afe6f24d1772ca29128329436279b3853',1,'xmachine_memory_household::bank_id()']]],
   ['bank_5fstart_5fstate',['bank_start_state',['../header_8h.html#aed8953a18fbe429092782cdec5a29797',1,'header.h']]]

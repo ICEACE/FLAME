@@ -9,5 +9,7 @@ var searchData=
   ['i_5fvacancy_5fstage1',['i_vacancy_stage1',['../header_8h.html#add8a8dbde8455bfe488e679a0df2042c',1,'header.h']]],
   ['i_5fvacancy_5fstage2',['i_vacancy_stage2',['../header_8h.html#af1b0ec1f21fe7a12c390abab083fe5fa',1,'header.h']]],
   ['id',['id',['../structvacancy.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'vacancy::id()'],['../structemployee.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'employee::id()'],['../structxmachine__memory__firm.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'xmachine_memory_firm::id()'],['../structxmachine__memory__household.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'xmachine_memory_household::id()'],['../structxmachine__memory__jpoffice.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'xmachine_memory_jpoffice::id()'],['../structxmachine__memory__bank.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'xmachine_memory_bank::id()'],['../structxmachine__memory__government.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'xmachine_memory_government::id()'],['../structxmachine__memory__centralbank.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'xmachine_memory_centralbank::id()']]],
+  ['inventories',['inventories',['../structxmachine__memory__firm.html#a94a78a8ed7bf0f3989bd2d007f3285a5',1,'xmachine_memory_firm']]],
+  ['isconstructor',['isconstructor',['../structxmachine__memory__firm.html#afc869528d3869404bff961f824aa461a',1,'xmachine_memory_firm']]],
   ['iteration_5floop',['iteration_loop',['../header_8h.html#a3a60cb0d46abce346840ea0c2d4b130d',1,'header.h']]]
 ];

@@ -39,5 +39,7 @@ var searchData=
   ['initialise_5fpointers',['initialise_pointers',['../header_8h.html#aa1a4e741bea75258a174c11e5f17b994',1,'initialise_pointers(void):&#160;memory.c'],['../memory_8c.html#a38faaa510471e36d92c54c69d44e1e3f',1,'initialise_pointers():&#160;memory.c']]],
   ['initialise_5funit_5ftesting',['initialise_unit_testing',['../header_8h.html#a11585425880f42a6d8a15d0744ea950b',1,'initialise_unit_testing(void):&#160;memory.c'],['../memory_8c.html#a0a38efdd42a6a0a68489a05b12837099',1,'initialise_unit_testing():&#160;memory.c']]],
   ['int_5farray',['int_array',['../structint__array.html',1,'int_array'],['../header_8h.html#ad10adac24dc00043eadff5dbe13fb3f8',1,'int_array():&#160;header.h']]],
+  ['inventories',['inventories',['../structxmachine__memory__firm.html#a94a78a8ed7bf0f3989bd2d007f3285a5',1,'xmachine_memory_firm::inventories()'],['../firm__agent__header_8h.html#a51a97c9955ee8d197d21d7210a7bf015',1,'INVENTORIES():&#160;firm_agent_header.h']]],
+  ['isconstructor',['isconstructor',['../structxmachine__memory__firm.html#afc869528d3869404bff961f824aa461a',1,'xmachine_memory_firm::isconstructor()'],['../firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13',1,'ISCONSTRUCTOR():&#160;firm_agent_header.h']]],
   ['iteration_5floop',['iteration_loop',['../header_8h.html#a3a60cb0d46abce346840ea0c2d4b130d',1,'header.h']]]
 ];

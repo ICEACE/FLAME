@@ -1,8 +1,8 @@
 var searchData=
 [
   ['centralbank_5fconsumption_5fdummy',['centralbank_consumption_dummy',['../header_8h.html#a748e81d852795c6e237083a421c58817',1,'centralbank_consumption_dummy(void):&#160;centralbank_functions_consumption.c'],['../centralbank__functions__consumption_8c.html#a749d7e27efbb211df2e7e658b2a1c71a',1,'centralbank_consumption_dummy():&#160;centralbank_functions_consumption.c']]],
-  ['centralbank_5flabour_5fdummy',['centralbank_labour_dummy',['../header_8h.html#a8352bbbc17fb19e06bb53323504c6732',1,'centralbank_labour_dummy(void):&#160;centralBank_functions_labour.c'],['../central_bank__functions__labour_8c.html#a9bf1e782b43ca8ce7f200eb25ee9cc31',1,'centralbank_labour_dummy():&#160;centralBank_functions_labour.c']]],
   ['centralbank_5fnotifier',['centralbank_notifier',['../centralbank__functions__top_8c.html#a7cc99462e5d8587293504cd87edbad01',1,'centralbank_notifier():&#160;centralbank_functions_top.c'],['../header_8h.html#a976fb5ae23f22fd3a0852a87f926953d',1,'centralbank_notifier(void):&#160;centralbank_functions_top.c']]],
+  ['centralbank_5fproduction_5fdummy',['centralbank_production_dummy',['../centralbank__functions__production_8c.html#a5fe98711d12a9b73ca6f8e36d4bc4d5a',1,'centralbank_functions_production.c']]],
   ['check_5flocation_5fexists',['check_location_exists',['../xml_8c.html#ad6bd93c47fa8ca72ec882cceb268ccdd',1,'xml.c']]],
   ['clean_5fup',['clean_up',['../header_8h.html#a43fbd55a657aed5abc0320648ddd92f7',1,'clean_up(int code):&#160;memory.c'],['../memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7',1,'clean_up(int code):&#160;memory.c']]],
   ['copy_5farray_5fto_5fstr',['copy_array_to_str',['../header_8h.html#a80ef479d7c8e2f9312c100492dd62387',1,'copy_array_to_str(char_array *array):&#160;memory.c'],['../memory_8c.html#abf2692b019343ca0b8b1baf99f473f64',1,'copy_array_to_str(char_array *array):&#160;memory.c']]],

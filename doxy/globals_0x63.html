@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.1.1</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="globals_0x77.html#index_w"><span>w</span></a></li>
       <li><a href="globals_0x78.html#index_x"><span>x</span></a></li>
+      <li><a href="globals_0x7a.html#index_z"><span>z</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -121,26 +122,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>CAPITAL_PRODUCTIVITY_CONSTRUCTION
+: <a class="el" href="firm__agent__header_8h.html#a224fb52cdebb918cb69a50dbd02200c9">firm_agent_header.h</a>
+</li>
 <li>centralbank_CBConsumption_state
 : <a class="el" href="header_8h.html#a46404ab0f44f76f46fafe5160ac936f1">header.h</a>
 </li>
-<li>centralbank_CBLabourStart_state
-: <a class="el" href="header_8h.html#aaa8f0450dc0425b176b739f272425948">header.h</a>
+<li>centralbank_CBLabour_state
+: <a class="el" href="header_8h.html#a636209aabf67d6d6f9bafbe0fbc9b4c2">header.h</a>
+</li>
+<li>centralbank_CBProduction_state
+: <a class="el" href="header_8h.html#a9cf4cbb65736eda63990e68b0a60b15c">header.h</a>
 </li>
 <li>centralbank_consumption_dummy()
-: <a class="el" href="centralbank__functions__consumption_8c.html#a749d7e27efbb211df2e7e658b2a1c71a">centralbank_functions_consumption.c</a>
-, <a class="el" href="header_8h.html#a748e81d852795c6e237083a421c58817">header.h</a>
+: <a class="el" href="header_8h.html#a748e81d852795c6e237083a421c58817">header.h</a>
+, <a class="el" href="centralbank__functions__consumption_8c.html#a749d7e27efbb211df2e7e658b2a1c71a">centralbank_functions_consumption.c</a>
 </li>
 <li>centralbank_end_state
 : <a class="el" href="header_8h.html#a54c91d84189897b344de19131c3112ce">header.h</a>
 </li>
-<li>centralbank_labour_dummy()
-: <a class="el" href="header_8h.html#a8352bbbc17fb19e06bb53323504c6732">header.h</a>
-, <a class="el" href="central_bank__functions__labour_8c.html#a9bf1e782b43ca8ce7f200eb25ee9cc31">centralBank_functions_labour.c</a>
-</li>
 <li>centralbank_notifier()
 : <a class="el" href="centralbank__functions__top_8c.html#a7cc99462e5d8587293504cd87edbad01">centralbank_functions_top.c</a>
 , <a class="el" href="header_8h.html#a976fb5ae23f22fd3a0852a87f926953d">header.h</a>
+</li>
+<li>centralbank_production_dummy()
+: <a class="el" href="centralbank__functions__production_8c.html#a5fe98711d12a9b73ca6f8e36d4bc4d5a">centralbank_functions_production.c</a>
 </li>
 <li>centralbank_start_state
 : <a class="el" href="header_8h.html#afefdab41264ccc7c777beaae085b97b8">header.h</a>
@@ -155,11 +161,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#a27a6eb0a2007b01dbcbb21ebb0e0eb18">header.h</a>
 </li>
 <li>clean_up()
-: <a class="el" href="header_8h.html#a43fbd55a657aed5abc0320648ddd92f7">header.h</a>
-, <a class="el" href="memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7">memory.c</a>
+: <a class="el" href="memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7">memory.c</a>
+, <a class="el" href="header_8h.html#a43fbd55a657aed5abc0320648ddd92f7">header.h</a>
 </li>
 <li>COMPACT_PRINTOUT_P_THRESHOLD
 : <a class="el" href="main_8c.html#a5caa19733791b031eb60cf3777488187">main.c</a>
+</li>
+<li>CONSTRUCTION_CAPITAL
+: <a class="el" href="firm__agent__header_8h.html#ab3819d61bf2116ad784bfdc191c4268f">firm_agent_header.h</a>
 </li>
 <li>copy_array_to_str()
 : <a class="el" href="header_8h.html#a80ef479d7c8e2f9312c100492dd62387">header.h</a>
@@ -186,12 +195,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#a06d1e5925f687c79a1ce8bd0bb07a802">memory.c</a>
 </li>
 <li>copy_float_array()
-: <a class="el" href="header_8h.html#aea47f6a5380548f4aa7041434ef28134">header.h</a>
-, <a class="el" href="memory_8c.html#aea47f6a5380548f4aa7041434ef28134">memory.c</a>
+: <a class="el" href="memory_8c.html#aea47f6a5380548f4aa7041434ef28134">memory.c</a>
+, <a class="el" href="header_8h.html#aea47f6a5380548f4aa7041434ef28134">header.h</a>
 </li>
 <li>copy_int_array()
-: <a class="el" href="memory_8c.html#ade418f9ad6a0b5f62b81677981e59f1f">memory.c</a>
-, <a class="el" href="header_8h.html#ade418f9ad6a0b5f62b81677981e59f1f">header.h</a>
+: <a class="el" href="header_8h.html#ade418f9ad6a0b5f62b81677981e59f1f">header.h</a>
+, <a class="el" href="memory_8c.html#ade418f9ad6a0b5f62b81677981e59f1f">memory.c</a>
 </li>
 <li>copy_vacancy()
 : <a class="el" href="header_8h.html#aa8ba6e0eedbc1cd71138667c00da6189">header.h</a>
@@ -202,8 +211,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#a5d0ace6774dc87798f906ceb42909e50">memory.c</a>
 </li>
 <li>copy_vacancy_static_array()
-: <a class="el" href="header_8h.html#aece6c0bccfc7e9ed2b6a77263d147771">header.h</a>
-, <a class="el" href="memory_8c.html#aece6c0bccfc7e9ed2b6a77263d147771">memory.c</a>
+: <a class="el" href="memory_8c.html#aece6c0bccfc7e9ed2b6a77263d147771">memory.c</a>
+, <a class="el" href="header_8h.html#aece6c0bccfc7e9ed2b6a77263d147771">header.h</a>
 </li>
 <li>cparams_create()
 : <a class="el" href="rules_8c.html#a38a3f882a9d76e1790bf5387cc9f91bd">rules.c</a>
@@ -275,7 +284,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 4 2013 16:52:38 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 16:33:26 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
