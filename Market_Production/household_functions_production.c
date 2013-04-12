@@ -5,7 +5,7 @@
  * \fn: int dummy function
  * \brief:
  */
-int household_consumption_dummy()
+int household_production_dummy()
 {
 
 

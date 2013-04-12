@@ -9,7 +9,8 @@
  */
 int firm_labour_workforce_needed()
 {
-    // Algorithm:
+    /*
+    // Algorithm (for standalone use):
     // Determine number of employees needed.
     // To be computed with the input from consumption goods market.
     
@@ -32,7 +33,7 @@ int firm_labour_workforce_needed()
         }
     }
     
-    
+    */
     
 	return 0; /* Returning zero means the agent is not removed */
 }

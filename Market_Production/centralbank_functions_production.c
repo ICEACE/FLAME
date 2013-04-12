@@ -5,7 +5,7 @@
  * \fn: int dummy function
  * \brief:
  */
-int centralbank_consumption_dummy()
+int centralbank_production_dummy()
 {
 
 

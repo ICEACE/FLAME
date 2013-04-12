@@ -22,8 +22,28 @@
         <constants>
             <variable>
                 <type>double</type>
-                <name>beta</name>
-                <description> A threshold value denoting expenditure on housing, as a proportion of total income</description>
+                <name>zeta_turnover_probability</name>
+                <description>A probability of a uniform distribution that determines turnover rate.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>beta_housing_expenditure</name>
+                <description>A threshold value denoting expenditure on housing, as a proportion of total income</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>ratio_debt_firm</name>
+                <description>Ratio of debt to be paid by a firm.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>mu_production_markup</name>
+                <description>Rate of increase in production in a sold-out case.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>eta_firm_memory_persistance</name>
+                <description>A paramter holding to what extend firms previous sale history play on final production decision.</description>
             </variable>
         </constants>
         <functionFiles>
@@ -114,6 +134,11 @@
                     <type>int</type>
                     <name>bank_id</name>
                     <description>Bank ID at which the agent maintains its payment account.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isconstructor</name>
+                    <description>Identifies if the firm is a constractor firm or not.</description>
                 </variable>
             </memory>
             <functions>
