@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['sales',['SALES',['../firm__agent__header_8h.html#ac539b77732ee6290b294dac3ba9c2ad9',1,'firm_agent_header.h']]],
   ['spinf',['SPINF',['../header_8h.html#abc4330e2835117aaf83377741686c718',1,'header.h']]],
   ['start_5ffired_5fmessage_5floop',['START_FIRED_MESSAGE_LOOP',['../header_8h.html#a9706221101df04cb4f9351abd1c1a014',1,'header.h']]],
   ['start_5fjob_5fapplication_5fstage1_5fmessage_5floop',['START_JOB_APPLICATION_STAGE1_MESSAGE_LOOP',['../header_8h.html#a6e345183971e2f313b48673f7309beaa',1,'header.h']]],

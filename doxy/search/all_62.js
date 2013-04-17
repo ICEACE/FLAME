@@ -20,6 +20,5 @@ var searchData=
   ['bank_5fid',['bank_id',['../structxmachine__memory__firm.html#afe6f24d1772ca29128329436279b3853',1,'xmachine_memory_firm::bank_id()'],['../structxmachine__memory__household.html#afe6f24d1772ca29128329436279b3853',1,'xmachine_memory_household::bank_id()'],['../firm__agent__header_8h.html#a35c1d174c8e48ec46028cfc2ad690a7a',1,'BANK_ID():&#160;firm_agent_header.h'],['../household__agent__header_8h.html#a35c1d174c8e48ec46028cfc2ad690a7a',1,'BANK_ID():&#160;household_agent_header.h']]],
   ['bank_5fnotifier',['bank_notifier',['../bank__functions__top_8c.html#afb9faebd99f0bc970c6fdd6f6787896c',1,'bank_notifier():&#160;bank_functions_top.c'],['../header_8h.html#a4d7eab8285da5191a75dd16dc7908d6d',1,'bank_notifier(void):&#160;bank_functions_top.c']]],
   ['bank_5fproduction_5fdummy',['bank_production_dummy',['../bank__functions__production_8c.html#a2474d541481d2567b5d4ad5c91866e97',1,'bank_functions_production.c']]],
-  ['bank_5fstart_5fstate',['bank_start_state',['../header_8h.html#aed8953a18fbe429092782cdec5a29797',1,'header.h']]],
-  ['beta_5fhousing_5fexpenditure',['BETA_HOUSING_EXPENDITURE',['../header_8h.html#a5dd5ea3bcfcb69a79bba8bda072c539f',1,'header.h']]]
+  ['bank_5fstart_5fstate',['bank_start_state',['../header_8h.html#aed8953a18fbe429092782cdec5a29797',1,'header.h']]]
 ];

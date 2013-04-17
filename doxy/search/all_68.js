@@ -24,5 +24,6 @@ var searchData=
   ['household_5flabour_5fturnover',['household_labour_turnover',['../header_8h.html#a9ba8b8672d2e97149e439c4bf62d9e5a',1,'household_labour_turnover(void):&#160;household_functions_labour.c'],['../household__functions__labour_8c.html#a2a06bb7e1dc906293ac8afdd232b5ae4',1,'household_labour_turnover():&#160;household_functions_labour.c']]],
   ['household_5fnotifier',['household_notifier',['../header_8h.html#a48beee8e293c24d31ea04c164c02eb54',1,'household_notifier(void):&#160;household_functions_top.c'],['../household__functions__top_8c.html#a5099c5831f27143153c1c6c31003b28c',1,'household_notifier():&#160;household_functions_top.c']]],
   ['household_5fproduction_5fdummy',['household_production_dummy',['../household__functions__production_8c.html#ae6ca0647a8e537d353ad3057b42d52de',1,'household_functions_production.c']]],
-  ['household_5fstart_5fstate',['household_start_state',['../header_8h.html#aad713441c4bf767521c2bf57b78dca65',1,'header.h']]]
+  ['household_5fstart_5fstate',['household_start_state',['../header_8h.html#aad713441c4bf767521c2bf57b78dca65',1,'header.h']]],
+  ['housing_5fexpenditure',['HOUSING_EXPENDITURE',['../header_8h.html#a5ce911f1f96832138bc862bf218d37cf',1,'header.h']]]
 ];

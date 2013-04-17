@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="household__functions__labour_8c.html#a5e993b9ad38efeb835011125dbb8c3d5">   30</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#ae23a9e93c0376d58f9e26f1e4208bb98">household_labour_reemployment_application</a>()</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="library__functions_8c.html#ad7954e6a1b9ea073c7bc894dc5af85a9" title="Returns an integer between and including min and max.">random_int</a>(0,99) &lt; <a class="code" href="header_8h.html#a209e1b02764ce19618dab62214e6cfd7" title="Provide access to environment variables in uppercase.">ZETA_TURNOVER_PROBABILITY</a> * 100){</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="library__functions_8c.html#ad7954e6a1b9ea073c7bc894dc5af85a9" title="Returns an integer between and including min and max.">random_int</a>(0,99) &lt; <a class="code" href="header_8h.html#ad9a765b8ae3c899ab493bcbb4fc5f29e" title="Provide access to environment variables in uppercase.">TURNOVER_PROBABILITY</a> * 100){</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="header_8h.html#acd2cfd18cb85d1e64158ba812e013c0d" title="Add job_application_stage1 message by calling internal and processing.">add_job_application_stage1_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="household__agent__header_8h.html#aef0e7f90715aa83183820734dd69241c" title="Direct access to wage of household agent memory variable.">WAGE</a>);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">//printf(&quot;Stage 1: Household %d sends application (current wage: %d) \n&quot;, ID, (int)WAGE);</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
@@ -213,7 +213,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 16:33:25 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 17 2013 05:25:54 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

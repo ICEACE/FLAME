@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['capital_5fconstruction',['capital_construction',['../structxmachine__memory__firm.html#a164ac31ee64d0b6f4cea9bd738e7592c',1,'xmachine_memory_firm::capital_construction()'],['../firm__agent__header_8h.html#af15dc7101e02c13761cda1ddacc1448d',1,'CAPITAL_CONSTRUCTION():&#160;firm_agent_header.h']]],
   ['capital_5fproductivity_5fconstruction',['capital_productivity_construction',['../structxmachine__memory__firm.html#ac8a21b6d02baf3563f36a936b2dc52bc',1,'xmachine_memory_firm::capital_productivity_construction()'],['../firm__agent__header_8h.html#a224fb52cdebb918cb69a50dbd02200c9',1,'CAPITAL_PRODUCTIVITY_CONSTRUCTION():&#160;firm_agent_header.h']]],
   ['centralbank_5fagent_5fheader_2eh',['centralbank_agent_header.h',['../centralbank__agent__header_8h.html',1,'']]],
   ['centralbank_5fcbconsumption_5fstate',['centralbank_CBConsumption_state',['../header_8h.html#a46404ab0f44f76f46fafe5160ac936f1',1,'header.h']]],
@@ -18,7 +19,6 @@ var searchData=
   ['check_5fpointer',['CHECK_POINTER',['../header_8h.html#a27a6eb0a2007b01dbcbb21ebb0e0eb18',1,'header.h']]],
   ['clean_5fup',['clean_up',['../header_8h.html#a43fbd55a657aed5abc0320648ddd92f7',1,'clean_up(int code):&#160;memory.c'],['../memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7',1,'clean_up(int code):&#160;memory.c']]],
   ['compact_5fprintout_5fp_5fthreshold',['COMPACT_PRINTOUT_P_THRESHOLD',['../main_8c.html#a5caa19733791b031eb60cf3777488187',1,'main.c']]],
-  ['construction_5fcapital',['construction_capital',['../structxmachine__memory__firm.html#af7286a16d2916ba4bbc0280ea6985312',1,'xmachine_memory_firm::construction_capital()'],['../firm__agent__header_8h.html#ab3819d61bf2116ad784bfdc191c4268f',1,'CONSTRUCTION_CAPITAL():&#160;firm_agent_header.h']]],
   ['copy_5farray_5fto_5fstr',['copy_array_to_str',['../header_8h.html#a80ef479d7c8e2f9312c100492dd62387',1,'copy_array_to_str(char_array *array):&#160;memory.c'],['../memory_8c.html#abf2692b019343ca0b8b1baf99f473f64',1,'copy_array_to_str(char_array *array):&#160;memory.c']]],
   ['copy_5fchar_5farray',['copy_char_array',['../header_8h.html#ae8c4bddf33f8fb94d409f5f32f62a96e',1,'copy_char_array(char_array *from, char_array *to):&#160;memory.c'],['../memory_8c.html#ae8c4bddf33f8fb94d409f5f32f62a96e',1,'copy_char_array(char_array *from, char_array *to):&#160;memory.c']]],
   ['copy_5fdouble_5farray',['copy_double_array',['../header_8h.html#ad59a8a73d0f457b9e4abc742149e6780',1,'copy_double_array(double_array *from, double_array *to):&#160;memory.c'],['../memory_8c.html#ad59a8a73d0f457b9e4abc742149e6780',1,'copy_double_array(double_array *from, double_array *to):&#160;memory.c']]],

@@ -274,9 +274,9 @@ Functions</h2></td></tr>
 <tr class="separator:a58c748aa58c732276e7b120a23730b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66b0c9326af4d5ee129f59e787f32801"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a66b0c9326af4d5ee129f59e787f32801">add_firm_agent_internal</a> (<a class="el" href="structxmachine__memory__firm.html">xmachine_memory_firm</a> *agent, <a class="el" href="structxmachine__memory__firm__state.html">xmachine_memory_firm_state</a> *state)</td></tr>
 <tr class="separator:a66b0c9326af4d5ee129f59e787f32801"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abac15e83e8f97d7ba1428e4501242804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804">add_firm_agent</a> (int id, int bank_id, int isconstructor, int day_of_month_to_act, <a class="el" href="structint__array.html">int_array</a> *employees, double wage_offer, int no_employees, int vacancies, int employees_needed, double labour_productivity, double debt, int inventories, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_audited, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double construction_capital, int projects[])</td></tr>
-<tr class="memdesc:abac15e83e8f97d7ba1428e4501242804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add firm X-machine to the current being used X-machine list.  <a href="#abac15e83e8f97d7ba1428e4501242804">More...</a><br/></td></tr>
-<tr class="separator:abac15e83e8f97d7ba1428e4501242804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ccf3f5114a3d0645afa2a729cc84064"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064">add_firm_agent</a> (int id, int bank_id, int isconstructor, int day_of_month_to_act, <a class="el" href="structint__array.html">int_array</a> *employees, double wage_offer, int no_employees, int vacancies, int employees_needed, double labour_productivity, double debt, int inventories, int sales, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, int projects[])</td></tr>
+<tr class="memdesc:a8ccf3f5114a3d0645afa2a729cc84064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add firm X-machine to the current being used X-machine list.  <a href="#a8ccf3f5114a3d0645afa2a729cc84064">More...</a><br/></td></tr>
+<tr class="separator:a8ccf3f5114a3d0645afa2a729cc84064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab20cf530859299e3f37cc1a2e53ac5d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structxmachine__memory__household__state.html">xmachine_memory_household_state</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#ab20cf530859299e3f37cc1a2e53ac5d4">init_household_state</a> ()</td></tr>
 <tr class="separator:ab20cf530859299e3f37cc1a2e53ac5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21f30ed8179c46c537a9337a27a76585"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structxmachine__memory__household.html">xmachine_memory_household</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a21f30ed8179c46c537a9337a27a76585">init_household_agent</a> ()</td></tr>
@@ -454,6 +454,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a99075e466ffae82c797f8795d87a1a36"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a99075e466ffae82c797f8795d87a1a36">get_inventories</a> ()</td></tr>
 <tr class="memdesc:a99075e466ffae82c797f8795d87a1a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get inventories memory variable from current X-machine.  <a href="#a99075e466ffae82c797f8795d87a1a36">More...</a><br/></td></tr>
 <tr class="separator:a99075e466ffae82c797f8795d87a1a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa86e8de2804868e0452e043dc8118693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#aa86e8de2804868e0452e043dc8118693">set_sales</a> (int sales)</td></tr>
+<tr class="memdesc:aa86e8de2804868e0452e043dc8118693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set sales memory variable for current X-machine.  <a href="#aa86e8de2804868e0452e043dc8118693">More...</a><br/></td></tr>
+<tr class="separator:aa86e8de2804868e0452e043dc8118693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d69a88c8d1b25f5589a8d83d280f1a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a8d69a88c8d1b25f5589a8d83d280f1a5">get_sales</a> ()</td></tr>
+<tr class="memdesc:a8d69a88c8d1b25f5589a8d83d280f1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get sales memory variable from current X-machine.  <a href="#a8d69a88c8d1b25f5589a8d83d280f1a5">More...</a><br/></td></tr>
+<tr class="separator:a8d69a88c8d1b25f5589a8d83d280f1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcec102a66d26002c8f0360118504765"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#afcec102a66d26002c8f0360118504765">set_production_current</a> (int production_current)</td></tr>
 <tr class="memdesc:afcec102a66d26002c8f0360118504765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set production_current memory variable for current X-machine.  <a href="#afcec102a66d26002c8f0360118504765">More...</a><br/></td></tr>
 <tr class="separator:afcec102a66d26002c8f0360118504765"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -478,12 +484,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a0de1b5e6fa380f31ac03b83f135b03a1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a0de1b5e6fa380f31ac03b83f135b03a1">get_unit_goods_price</a> ()</td></tr>
 <tr class="memdesc:a0de1b5e6fa380f31ac03b83f135b03a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get unit_goods_price memory variable from current X-machine.  <a href="#a0de1b5e6fa380f31ac03b83f135b03a1">More...</a><br/></td></tr>
 <tr class="separator:a0de1b5e6fa380f31ac03b83f135b03a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acadadbb862847008e25f3081d1a8ee35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#acadadbb862847008e25f3081d1a8ee35">set_day_of_month_production_audited</a> (int day_of_month_production_audited)</td></tr>
-<tr class="memdesc:acadadbb862847008e25f3081d1a8ee35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set day_of_month_production_audited memory variable for current X-machine.  <a href="#acadadbb862847008e25f3081d1a8ee35">More...</a><br/></td></tr>
-<tr class="separator:acadadbb862847008e25f3081d1a8ee35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dc16454a6392fac1b7c222ccaefd82c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a0dc16454a6392fac1b7c222ccaefd82c">get_day_of_month_production_audited</a> ()</td></tr>
-<tr class="memdesc:a0dc16454a6392fac1b7c222ccaefd82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get day_of_month_production_audited memory variable from current X-machine.  <a href="#a0dc16454a6392fac1b7c222ccaefd82c">More...</a><br/></td></tr>
-<tr class="separator:a0dc16454a6392fac1b7c222ccaefd82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99598f8a7cd427ba9dce7392e94ece3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a99598f8a7cd427ba9dce7392e94ece3b">set_day_of_month_production_completed</a> (int day_of_month_production_completed)</td></tr>
+<tr class="memdesc:a99598f8a7cd427ba9dce7392e94ece3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set day_of_month_production_completed memory variable for current X-machine.  <a href="#a99598f8a7cd427ba9dce7392e94ece3b">More...</a><br/></td></tr>
+<tr class="separator:a99598f8a7cd427ba9dce7392e94ece3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7ae4230405072a97b1aea6b6c9d471"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a8d7ae4230405072a97b1aea6b6c9d471">get_day_of_month_production_completed</a> ()</td></tr>
+<tr class="memdesc:a8d7ae4230405072a97b1aea6b6c9d471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get day_of_month_production_completed memory variable from current X-machine.  <a href="#a8d7ae4230405072a97b1aea6b6c9d471">More...</a><br/></td></tr>
+<tr class="separator:a8d7ae4230405072a97b1aea6b6c9d471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dbcbd47ff40d067492f523b5f7a368f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a0dbcbd47ff40d067492f523b5f7a368f">set_unit_house_price</a> (double unit_house_price)</td></tr>
 <tr class="memdesc:a0dbcbd47ff40d067492f523b5f7a368f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set unit_house_price memory variable for current X-machine.  <a href="#a0dbcbd47ff40d067492f523b5f7a368f">More...</a><br/></td></tr>
 <tr class="separator:a0dbcbd47ff40d067492f523b5f7a368f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -502,12 +508,12 @@ Functions</h2></td></tr>
 <tr class="memitem:acec27b6390bd5866c8226134e6935097"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#acec27b6390bd5866c8226134e6935097">get_capital_productivity_construction</a> ()</td></tr>
 <tr class="memdesc:acec27b6390bd5866c8226134e6935097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get capital_productivity_construction memory variable from current X-machine.  <a href="#acec27b6390bd5866c8226134e6935097">More...</a><br/></td></tr>
 <tr class="separator:acec27b6390bd5866c8226134e6935097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae52216694cf81a5e045dd78b75c894"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a8ae52216694cf81a5e045dd78b75c894">set_construction_capital</a> (double construction_capital)</td></tr>
-<tr class="memdesc:a8ae52216694cf81a5e045dd78b75c894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set construction_capital memory variable for current X-machine.  <a href="#a8ae52216694cf81a5e045dd78b75c894">More...</a><br/></td></tr>
-<tr class="separator:a8ae52216694cf81a5e045dd78b75c894"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a797ea9c4f8568a23933c1516a2c448b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a797ea9c4f8568a23933c1516a2c448b8">get_construction_capital</a> ()</td></tr>
-<tr class="memdesc:a797ea9c4f8568a23933c1516a2c448b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get construction_capital memory variable from current X-machine.  <a href="#a797ea9c4f8568a23933c1516a2c448b8">More...</a><br/></td></tr>
-<tr class="separator:a797ea9c4f8568a23933c1516a2c448b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f17ab1cec060e977966456e12145738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a8f17ab1cec060e977966456e12145738">set_capital_construction</a> (double capital_construction)</td></tr>
+<tr class="memdesc:a8f17ab1cec060e977966456e12145738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set capital_construction memory variable for current X-machine.  <a href="#a8f17ab1cec060e977966456e12145738">More...</a><br/></td></tr>
+<tr class="separator:a8f17ab1cec060e977966456e12145738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a09d29fa5a2bb5313509ebcda79ceb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a32a09d29fa5a2bb5313509ebcda79ceb">get_capital_construction</a> ()</td></tr>
+<tr class="memdesc:a32a09d29fa5a2bb5313509ebcda79ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get capital_construction memory variable from current X-machine.  <a href="#a32a09d29fa5a2bb5313509ebcda79ceb">More...</a><br/></td></tr>
+<tr class="separator:a32a09d29fa5a2bb5313509ebcda79ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca7eb870d8cfd995915b736cdc975c9d"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#aca7eb870d8cfd995915b736cdc975c9d">get_projects</a> ()</td></tr>
 <tr class="memdesc:aca7eb870d8cfd995915b736cdc975c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get projects memory variable from current X-machine.  <a href="#aca7eb870d8cfd995915b736cdc975c9d">More...</a><br/></td></tr>
 <tr class="separator:aca7eb870d8cfd995915b736cdc975c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -673,16 +679,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ae732ab34575e66bc0a7bb16e51da07be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#ae732ab34575e66bc0a7bb16e51da07be">idle</a> ()</td></tr>
 <tr class="memdesc:ae732ab34575e66bc0a7bb16e51da07be"><td class="mdescLeft">&#160;</td><td class="mdescRight">an idle function for use by agents.  <a href="#ae732ab34575e66bc0a7bb16e51da07be">More...</a><br/></td></tr>
 <tr class="separator:ae732ab34575e66bc0a7bb16e51da07be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b5a3d6b127efada38e6921e77784d3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#af8b5a3d6b127efada38e6921e77784d3">FLAME_get_environment_variable_zeta_turnover_probability</a> ()</td></tr>
-<tr class="separator:af8b5a3d6b127efada38e6921e77784d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96cc476801dfaec17761e1daa6d49119"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a96cc476801dfaec17761e1daa6d49119">FLAME_get_environment_variable_beta_housing_expenditure</a> ()</td></tr>
-<tr class="separator:a96cc476801dfaec17761e1daa6d49119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e77448cd3549b9c1ad5d08bd364c0a3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a4e77448cd3549b9c1ad5d08bd364c0a3">FLAME_get_environment_variable_turnover_probability</a> ()</td></tr>
+<tr class="separator:a4e77448cd3549b9c1ad5d08bd364c0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d08e5d3ca87bbd9e473e5aa9a2a3c7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#ab4d08e5d3ca87bbd9e473e5aa9a2a3c7">FLAME_get_environment_variable_housing_expenditure</a> ()</td></tr>
+<tr class="separator:ab4d08e5d3ca87bbd9e473e5aa9a2a3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a302878b26fb26626997fe5255db9f993"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a302878b26fb26626997fe5255db9f993">FLAME_get_environment_variable_ratio_debt_firm</a> ()</td></tr>
 <tr class="separator:a302878b26fb26626997fe5255db9f993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74a32cc37607a5565c1e4558c438d51c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a74a32cc37607a5565c1e4558c438d51c">FLAME_get_environment_variable_mu_production_markup</a> ()</td></tr>
-<tr class="separator:a74a32cc37607a5565c1e4558c438d51c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a499633f3a27282e813992ba3bd155086"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a499633f3a27282e813992ba3bd155086">FLAME_get_environment_variable_eta_firm_memory_persistance</a> ()</td></tr>
-<tr class="separator:a499633f3a27282e813992ba3bd155086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b30b006c61343ccba0aed91b0ee9cf9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a5b30b006c61343ccba0aed91b0ee9cf9">FLAME_get_environment_variable_production_markup</a> ()</td></tr>
+<tr class="separator:a5b30b006c61343ccba0aed91b0ee9cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab269537b8aa6d1950efb87328dbc3ab8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#ab269537b8aa6d1950efb87328dbc3ab8">FLAME_get_environment_variable_price_markup</a> ()</td></tr>
+<tr class="separator:ab269537b8aa6d1950efb87328dbc3ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd17e38682c7aec0d26d7b5f5f59216"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8c.html#a2bd17e38682c7aec0d26d7b5f5f59216">FLAME_get_environment_variable_firm_memory_persistance</a> ()</td></tr>
+<tr class="separator:a2bd17e38682c7aec0d26d7b5f5f59216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds memory functions. </p>
@@ -711,7 +719,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02176">2176</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02180">2180</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -748,7 +756,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02157">2157</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02161">2161</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -783,7 +791,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02460">2460</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02464">2464</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -820,7 +828,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02441">2441</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02445">2445</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -866,7 +874,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04075">4075</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04101">4101</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -912,7 +920,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03985">3985</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04011">4011</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -964,7 +972,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04273">4273</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04299">4299</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -986,7 +994,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="abac15e83e8f97d7ba1428e4501242804"></a>
+<a class="anchor" id="a8ccf3f5114a3d0645afa2a729cc84064"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1066,6 +1074,12 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sales</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>production_current</em>, </td>
         </tr>
         <tr>
@@ -1090,7 +1104,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>day_of_month_production_audited</em>, </td>
+          <td class="paramname"><em>day_of_month_production_completed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1114,7 +1128,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>construction_capital</em>, </td>
+          <td class="paramname"><em>capital_construction</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1145,27 +1159,28 @@ Here is the caller graph for this function:</div>
     <tr><td class="paramname">labour_productivity</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">debt</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">inventories</td><td>Variable for the X-machine memory. </td></tr>
+    <tr><td class="paramname">sales</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">production_current</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">production_estimate</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">production_plan</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">unit_goods_price</td><td>Variable for the X-machine memory. </td></tr>
-    <tr><td class="paramname">day_of_month_production_audited</td><td>Variable for the X-machine memory. </td></tr>
+    <tr><td class="paramname">day_of_month_production_completed</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">unit_house_price</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">labour_productivity_construction</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">capital_productivity_construction</td><td>Variable for the X-machine memory. </td></tr>
-    <tr><td class="paramname">construction_capital</td><td>Variable for the X-machine memory. </td></tr>
+    <tr><td class="paramname">capital_construction</td><td>Variable for the X-machine memory. </td></tr>
     <tr><td class="paramname">projects</td><td>Variable for the X-machine memory. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01665">1665</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01668">1668</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="memory_8c_abac15e83e8f97d7ba1428e4501242804_cgraph.png" border="0" usemap="#memory_8c_abac15e83e8f97d7ba1428e4501242804_cgraph" alt=""/></div>
-<map name="memory_8c_abac15e83e8f97d7ba1428e4501242804_cgraph" id="memory_8c_abac15e83e8f97d7ba1428e4501242804_cgraph">
+<div class="center"><img src="memory_8c_a8ccf3f5114a3d0645afa2a729cc84064_cgraph.png" border="0" usemap="#memory_8c_a8ccf3f5114a3d0645afa2a729cc84064_cgraph" alt=""/></div>
+<map name="memory_8c_a8ccf3f5114a3d0645afa2a729cc84064_cgraph" id="memory_8c_a8ccf3f5114a3d0645afa2a729cc84064_cgraph">
 <area shape="rect" id="node2" href="header_8h.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="196,30,305,58"/><area shape="rect" id="node5" href="header_8h.html#a66b0c9326af4d5ee129f59e787f32801" title="add_firm_agent_internal" alt="" coords="168,82,333,110"/><area shape="rect" id="node6" href="header_8h.html#ade418f9ad6a0b5f62b81677981e59f1f" title="copy_int_array" alt="" coords="196,134,305,162"/><area shape="rect" id="node3" href="header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="400,5,498,33"/><area shape="rect" id="node4" href="header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="381,57,517,85"/><area shape="rect" id="node7" href="header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="417,134,482,162"/></map>
 </div>
 </p>
@@ -1196,14 +1211,14 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01625">1625</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01627">1627</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="memory_8c_a66b0c9326af4d5ee129f59e787f32801_icgraph.png" border="0" usemap="#memory_8c_a66b0c9326af4d5ee129f59e787f32801_icgraph" alt=""/></div>
 <map name="memory_8c_a66b0c9326af4d5ee129f59e787f32801_icgraph" id="memory_8c_a66b0c9326af4d5ee129f59e787f32801_icgraph">
-<area shape="rect" id="node2" href="memory_8c.html#a58c748aa58c732276e7b120a23730b07" title="transition_firm_agent" alt="" coords="382,5,528,33"/><area shape="rect" id="node4" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="219,43,333,71"/><area shape="rect" id="node5" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="221,95,331,123"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="576,38,626,66"/><area shape="rect" id="node6" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="398,70,512,98"/></map>
+<area shape="rect" id="node2" href="memory_8c.html#a58c748aa58c732276e7b120a23730b07" title="transition_firm_agent" alt="" coords="382,5,528,33"/><area shape="rect" id="node4" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="219,43,333,71"/><area shape="rect" id="node5" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="221,95,331,123"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="576,38,626,66"/><area shape="rect" id="node6" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="398,70,512,98"/></map>
 </div>
 </p>
 
@@ -1269,7 +1284,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03830">3830</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03856">3856</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1304,7 +1319,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02318">2318</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02322">2322</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1341,7 +1356,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02299">2299</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02303">2303</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1422,7 +1437,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01891">1891</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01895">1895</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1459,7 +1474,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01866">1866</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01870">1870</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1505,14 +1520,14 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03676">3676</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03702">3702</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="memory_8c_ad1b44fa492c208202cb8ea61603aa72b_icgraph.png" border="0" usemap="#memory_8c_ad1b44fa492c208202cb8ea61603aa72b_icgraph" alt=""/></div>
 <map name="memory_8c_ad1b44fa492c208202cb8ea61603aa72b_icgraph" id="memory_8c_ad1b44fa492c208202cb8ea61603aa72b_icgraph">
-<area shape="rect" id="node2" href="firm__functions__labour_8c.html#afda0accd83cfdc8f43c1e36fde1cfe27" title="firm_labour_job_offer\l_stage1" alt="" coords="533,5,680,49"/><area shape="rect" id="node4" href="firm__functions__labour_8c.html#ae0de0d67681d84162b6a3426bad43607" title="firm_labour_job_offer\l_stage2" alt="" coords="333,63,480,107"/><area shape="rect" id="node5" href="jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="529,130,684,158"/><area shape="rect" id="node6" href="memory_8c.html#ade418f9ad6a0b5f62b81677981e59f1f" title="copy_int_array" alt="" coords="148,183,257,211"/><area shape="rect" id="node8" href="xml_8c.html#ad9cd102b48cfa6002cc3d98f766f24d4" title="read_int_dynamic_array" alt="" coords="120,235,285,263"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="734,102,784,130"/><area shape="rect" id="node7" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="350,183,464,211"/><area shape="rect" id="node9" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="352,235,462,263"/><area shape="rect" id="node10" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="550,207,664,235"/></map>
+<area shape="rect" id="node2" href="firm__functions__labour_8c.html#afda0accd83cfdc8f43c1e36fde1cfe27" title="firm_labour_job_offer\l_stage1" alt="" coords="533,5,680,49"/><area shape="rect" id="node4" href="firm__functions__labour_8c.html#ae0de0d67681d84162b6a3426bad43607" title="firm_labour_job_offer\l_stage2" alt="" coords="333,63,480,107"/><area shape="rect" id="node5" href="jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="529,130,684,158"/><area shape="rect" id="node6" href="memory_8c.html#ade418f9ad6a0b5f62b81677981e59f1f" title="copy_int_array" alt="" coords="148,183,257,211"/><area shape="rect" id="node8" href="xml_8c.html#ad9cd102b48cfa6002cc3d98f766f24d4" title="read_int_dynamic_array" alt="" coords="120,235,285,263"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="734,102,784,130"/><area shape="rect" id="node7" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="350,183,464,211"/><area shape="rect" id="node9" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="352,235,462,263"/><area shape="rect" id="node10" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="550,207,664,235"/></map>
 </div>
 </p>
 
@@ -1551,7 +1566,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02033">2033</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02037">2037</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1588,7 +1603,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02013">2013</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02017">2017</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1706,7 +1721,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03138">3138</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03164">3164</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1758,7 +1773,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04182">4182</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04208">4208</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1797,7 +1812,7 @@ Here is the caller graph for this function:</div>
 <p>Fixed routine to get the id for the current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value of agent id </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03072">3072</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03098">3098</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -1817,7 +1832,7 @@ Here is the caller graph for this function:</div>
 <p>Fixed routine to get the range from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value of range </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03055">3055</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03081">3081</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -1838,7 +1853,7 @@ Here is the caller graph for this function:</div>
 <p>Fixed routine to get the x coordinate from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value of x coordinate </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03089">3089</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03115">3115</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -1859,7 +1874,7 @@ Here is the caller graph for this function:</div>
 <p>Fixed routine to get the y coordinate from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value of y coordinate </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03105">3105</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03131">3131</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -1880,7 +1895,7 @@ Here is the caller graph for this function:</div>
 <p>Fixed routine to get the z coordinate from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value of z coordinate </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03121">3121</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03147">3147</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -1906,7 +1921,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03206">3206</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03232">3232</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1951,7 +1966,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char Pointer to the new string. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04111">4111</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04137">4137</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -1979,7 +1994,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04060">4060</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04086">4086</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2016,7 +2031,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03905">3905</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03931">3931</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2090,7 +2105,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04256">4256</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04282">4282</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2170,7 +2185,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03751">3751</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03777">3777</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2207,7 +2222,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03601">3601</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03627">3627</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2223,7 +2238,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="memory_8c_ade418f9ad6a0b5f62b81677981e59f1f_icgraph.png" border="0" usemap="#memory_8c_ade418f9ad6a0b5f62b81677981e59f1f_icgraph" alt=""/></div>
 <map name="memory_8c_ade418f9ad6a0b5f62b81677981e59f1f_icgraph" id="memory_8c_ade418f9ad6a0b5f62b81677981e59f1f_icgraph">
-<area shape="rect" id="node2" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="163,5,277,33"/></map>
+<area shape="rect" id="node2" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="163,5,277,33"/></map>
 </div>
 </p>
 
@@ -2290,7 +2305,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04165">4165</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04191">4191</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2346,12 +2361,12 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a96cc476801dfaec17761e1daa6d49119"></a>
+<a class="anchor" id="a2bd17e38682c7aec0d26d7b5f5f59216"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double FLAME_get_environment_variable_beta_housing_expenditure </td>
+          <td class="memname">double FLAME_get_environment_variable_firm_memory_persistance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2359,16 +2374,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04322">4322</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04364">4364</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a499633f3a27282e813992ba3bd155086"></a>
+<a class="anchor" id="ab4d08e5d3ca87bbd9e473e5aa9a2a3c7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double FLAME_get_environment_variable_eta_firm_memory_persistance </td>
+          <td class="memname">double FLAME_get_environment_variable_housing_expenditure </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2376,16 +2391,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04334">4334</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04348">4348</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a74a32cc37607a5565c1e4558c438d51c"></a>
+<a class="anchor" id="ab269537b8aa6d1950efb87328dbc3ab8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double FLAME_get_environment_variable_mu_production_markup </td>
+          <td class="memname">double FLAME_get_environment_variable_price_markup </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2393,7 +2408,24 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04330">4330</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04360">4360</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b30b006c61343ccba0aed91b0ee9cf9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double FLAME_get_environment_variable_production_markup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04356">4356</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -2410,16 +2442,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04326">4326</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04352">4352</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af8b5a3d6b127efada38e6921e77784d3"></a>
+<a class="anchor" id="a4e77448cd3549b9c1ad5d08bd364c0a3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double FLAME_get_environment_variable_zeta_turnover_probability </td>
+          <td class="memname">double FLAME_get_environment_variable_turnover_probability </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2427,7 +2459,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04318">4318</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04344">4344</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -2455,7 +2487,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02067">2067</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02071">2071</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2481,7 +2513,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02094">2094</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02098">2098</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2516,7 +2548,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02138">2138</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02142">2142</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2553,7 +2585,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02351">2351</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02355">2355</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2579,7 +2611,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02378">2378</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02382">2382</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2614,7 +2646,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02422">2422</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02426">2426</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2649,7 +2681,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04055">4055</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04081">4081</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -2675,7 +2707,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03900">3900</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03926">3926</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -2728,7 +2760,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04244">4244</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04270">4270</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2811,7 +2843,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01413">1413</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01414">1414</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2846,7 +2878,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01463">1463</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01465">1465</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -2881,7 +2913,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01595">1595</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01597">1597</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2943,7 +2975,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03746">3746</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03772">3772</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -2971,7 +3003,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02209">2209</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02213">2213</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2997,7 +3029,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02236">2236</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02240">2240</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -3032,7 +3064,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02280">2280</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02284">2284</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3069,7 +3101,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01725">1725</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01729">1729</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3095,7 +3127,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01758">1758</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01762">1762</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -3130,7 +3162,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01842">1842</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01846">1846</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3165,7 +3197,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03596">3596</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03622">3622</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3202,7 +3234,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01931">1931</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01935">1935</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3228,7 +3260,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01959">1959</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01963">1963</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -3263,7 +3295,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01995">1995</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01999">1999</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3309,7 +3341,7 @@ Here is the caller graph for this function:</div>
 
 <p>Free the node list. </p>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03187">3187</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03213">3213</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3371,7 +3403,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04153">4153</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04179">4179</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -3472,7 +3504,7 @@ Here is the call graph for this function:</div>
 
 <p>Free the currently being used X-machine list. </p>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02477">2477</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02481">2481</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -3510,7 +3542,27 @@ Here is the caller graph for this function:</div>
 <p>Get bank_id memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02535">2535</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02539">2539</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a32a09d29fa5a2bb5313509ebcda79ceb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double get_capital_construction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get capital_construction memory variable from current X-machine. </p>
+<dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
+
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02975">2975</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3530,16 +3582,16 @@ Here is the caller graph for this function:</div>
 <p>Get capital_productivity_construction memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02927">2927</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02953">2953</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a797ea9c4f8568a23933c1516a2c448b8"></a>
+<a class="anchor" id="a8d7ae4230405072a97b1aea6b6c9d471"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double get_construction_capital </td>
+          <td class="memname">int get_day_of_month_production_completed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3547,30 +3599,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Get construction_capital memory variable from current X-machine. </p>
+<p>Get day_of_month_production_completed memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02949">2949</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0dc16454a6392fac1b7c222ccaefd82c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int get_day_of_month_production_audited </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get day_of_month_production_audited memory variable from current X-machine. </p>
-<dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
-
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02861">2861</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02887">2887</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3590,7 +3622,7 @@ Here is the caller graph for this function:</div>
 <p>Get day_of_month_to_act memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02582">2582</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02586">2586</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3610,7 +3642,7 @@ Here is the caller graph for this function:</div>
 <p>Get day_of_month_wage_recieved memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03028">3028</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03054">3054</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3630,7 +3662,7 @@ Here is the caller graph for this function:</div>
 <p>Get debt memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02729">2729</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02733">2733</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3650,7 +3682,7 @@ Here is the caller graph for this function:</div>
 <p>Get employees memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02597">2597</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02601">2601</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3670,7 +3702,7 @@ Here is the caller graph for this function:</div>
 <p>Get employees_needed memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02685">2685</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02689">2689</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3690,7 +3722,7 @@ Here is the caller graph for this function:</div>
 <p>Get id memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02507">2507</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02511">2511</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3710,7 +3742,7 @@ Here is the caller graph for this function:</div>
 <p>Get inventories memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02751">2751</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02755">2755</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3730,7 +3762,7 @@ Here is the caller graph for this function:</div>
 <p>Get isconstructor memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02558">2558</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02562">2562</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3750,7 +3782,7 @@ Here is the caller graph for this function:</div>
 <p>Get labour_productivity memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02707">2707</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02711">2711</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3770,7 +3802,7 @@ Here is the caller graph for this function:</div>
 <p>Get labour_productivity_construction memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02905">2905</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02931">2931</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3790,7 +3822,7 @@ Here is the caller graph for this function:</div>
 <p>Get my_employer_id memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02984">2984</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03010">3010</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3810,7 +3842,7 @@ Here is the caller graph for this function:</div>
 <p>Get no_employees memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02641">2641</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02645">2645</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3830,7 +3862,7 @@ Here is the caller graph for this function:</div>
 <p>Get previous_wages memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03041">3041</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03067">3067</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3850,7 +3882,7 @@ Here is the caller graph for this function:</div>
 <p>Get production_current memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02773">2773</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02799">2799</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3870,7 +3902,7 @@ Here is the caller graph for this function:</div>
 <p>Get production_estimate memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02795">2795</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02821">2821</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3890,7 +3922,7 @@ Here is the caller graph for this function:</div>
 <p>Get production_plan memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02817">2817</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02843">2843</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3910,7 +3942,27 @@ Here is the caller graph for this function:</div>
 <p>Get projects memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02962">2962</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02988">2988</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d69a88c8d1b25f5589a8d83d280f1a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_sales </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get sales memory variable from current X-machine. </p>
+<dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
+
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02777">2777</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3930,7 +3982,7 @@ Here is the caller graph for this function:</div>
 <p>Get unit_goods_price memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02839">2839</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02865">2865</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3950,7 +4002,7 @@ Here is the caller graph for this function:</div>
 <p>Get unit_house_price memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02883">2883</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02909">2909</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3970,7 +4022,7 @@ Here is the caller graph for this function:</div>
 <p>Get vacancies memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02663">2663</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02667">2667</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -3990,7 +4042,7 @@ Here is the caller graph for this function:</div>
 <p>Get wage memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03006">3006</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03032">3032</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4010,7 +4062,7 @@ Here is the caller graph for this function:</div>
 <p>Get wage_offer memory variable from current X-machine. </p>
 <dl class="section return"><dt>Returns</dt><dd>Value for variable. </dd></dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02619">2619</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02623">2623</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4030,7 +4082,7 @@ Here is the caller graph for this function:</div>
 
 <p>an idle function for use by agents. </p>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04313">4313</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04339">4339</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4056,7 +4108,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02057">2057</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02061">2061</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4082,7 +4134,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02046">2046</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02050">2050</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4108,7 +4160,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02341">2341</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02345">2345</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4134,7 +4186,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02330">2330</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02334">2334</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4161,7 +4213,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04033">4033</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04059">4059</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4207,7 +4259,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03879">3879</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03905">3905</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4280,7 +4332,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04223">4223</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04249">4249</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4359,7 +4411,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="memory_8c_a29595c6c09343768a304ffb7842421ad_icgraph.png" border="0" usemap="#memory_8c_a29595c6c09343768a304ffb7842421ad_icgraph" alt=""/></div>
 <map name="memory_8c_a29595c6c09343768a304ffb7842421ad_icgraph" id="memory_8c_a29595c6c09343768a304ffb7842421ad_icgraph">
-<area shape="rect" id="node2" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="163,5,277,33"/><area shape="rect" id="node3" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="165,57,275,85"/><area shape="rect" id="node4" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="326,57,440,85"/><area shape="rect" id="node5" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="488,57,538,85"/></map>
+<area shape="rect" id="node2" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="163,5,277,33"/><area shape="rect" id="node3" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="165,57,275,85"/><area shape="rect" id="node4" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="326,57,440,85"/><area shape="rect" id="node5" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="488,57,538,85"/></map>
 </div>
 </p>
 
@@ -4405,7 +4457,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03725">3725</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03751">3751</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4450,7 +4502,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02199">2199</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02203">2203</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4476,7 +4528,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02188">2188</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02192">2192</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4502,7 +4554,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01709">1709</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01713">1713</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -4537,7 +4589,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01698">1698</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01702">1702</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4564,14 +4616,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03575">3575</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03601">3601</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="memory_8c_a3ebb74a8988faa8c99c644ad2ef31b76_icgraph.png" border="0" usemap="#memory_8c_a3ebb74a8988faa8c99c644ad2ef31b76_icgraph" alt=""/></div>
 <map name="memory_8c_a3ebb74a8988faa8c99c644ad2ef31b76_icgraph" id="memory_8c_a3ebb74a8988faa8c99c644ad2ef31b76_icgraph">
-<area shape="rect" id="node2" href="jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="484,5,639,33"/><area shape="rect" id="node4" href="memory_8c.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="158,43,266,71"/><area shape="rect" id="node8" href="memory_8c.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c" title="unittest_init_firm\l_agent" alt="" coords="153,95,271,139"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="688,38,738,66"/><area shape="rect" id="node5" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="320,43,434,71"/><area shape="rect" id="node6" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="322,95,432,123"/><area shape="rect" id="node7" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="504,70,618,98"/></map>
+<area shape="rect" id="node2" href="jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="484,5,639,33"/><area shape="rect" id="node4" href="memory_8c.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="158,43,266,71"/><area shape="rect" id="node8" href="memory_8c.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c" title="unittest_init_firm\l_agent" alt="" coords="153,95,271,139"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="688,38,738,66"/><area shape="rect" id="node5" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="320,43,434,71"/><area shape="rect" id="node6" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="322,95,432,123"/><area shape="rect" id="node7" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="504,70,618,98"/></map>
 </div>
 </p>
 
@@ -4608,7 +4660,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="memory_8c_ab34a53adeefe5f404ed168c88cb5e641_icgraph.png" border="0" usemap="#memory_8c_ab34a53adeefe5f404ed168c88cb5e641_icgraph" alt=""/></div>
 <map name="memory_8c_ab34a53adeefe5f404ed168c88cb5e641_icgraph" id="memory_8c_ab34a53adeefe5f404ed168c88cb5e641_icgraph">
-<area shape="rect" id="node2" href="memory_8c.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="214,5,322,33"/><area shape="rect" id="node7" href="memory_8c.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c" title="unittest_init_firm\l_agent" alt="" coords="209,57,327,101"/><area shape="rect" id="node8" href="memory_8c.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="194,125,342,153"/><area shape="rect" id="node10" href="memory_8c.html#ae2d784be8cf6510207b091539a8daf39" title="unittest_init_household\l_agent" alt="" coords="189,177,347,221"/><area shape="rect" id="node3" href="memory_8c.html#abac15e83e8f97d7ba1428e4501242804" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="415,5,529,33"/><area shape="rect" id="node4" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="417,65,527,93"/><area shape="rect" id="node5" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="598,65,712,93"/><area shape="rect" id="node6" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="760,65,810,93"/><area shape="rect" id="node9" href="memory_8c.html#a66ebfcb37e30e76dcf85206456f75f6d" title="Add household X&#45;machine to the current being used X&#45;machine list." alt="" coords="395,125,549,153"/></map>
+<area shape="rect" id="node2" href="memory_8c.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="214,5,322,33"/><area shape="rect" id="node7" href="memory_8c.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c" title="unittest_init_firm\l_agent" alt="" coords="209,57,327,101"/><area shape="rect" id="node8" href="memory_8c.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="194,125,342,153"/><area shape="rect" id="node10" href="memory_8c.html#ae2d784be8cf6510207b091539a8daf39" title="unittest_init_household\l_agent" alt="" coords="189,177,347,221"/><area shape="rect" id="node3" href="memory_8c.html#a8ccf3f5114a3d0645afa2a729cc84064" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="415,5,529,33"/><area shape="rect" id="node4" href="xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="417,65,527,93"/><area shape="rect" id="node5" href="xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="598,65,712,93"/><area shape="rect" id="node6" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="760,65,810,93"/><area shape="rect" id="node9" href="memory_8c.html#a66ebfcb37e30e76dcf85206456f75f6d" title="Add household X&#45;machine to the current being used X&#45;machine list." alt="" coords="395,125,549,153"/></map>
 </div>
 </p>
 
@@ -4627,7 +4679,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01920">1920</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01924">1924</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4653,7 +4705,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01909">1909</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01913">1913</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4707,7 +4759,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04132">4132</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04158">4158</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4846,7 +4898,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04122">4122</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04148">4148</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4872,7 +4924,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04019">4019</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04045">4045</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4898,7 +4950,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03865">3865</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03891">3891</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4924,7 +4976,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03711">3711</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03737">3737</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4944,7 +4996,7 @@ Here is the call graph for this function:</div>
 
 <p>Check agent positions to see if any need to be moved to a another node. </p>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03486">3486</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03512">3512</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -4981,7 +5033,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04092">4092</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04118">4118</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5018,7 +5070,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04001">4001</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04027">4027</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5055,7 +5107,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04292">4292</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04318">4318</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -5101,7 +5153,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03846">3846</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03872">3872</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5138,7 +5190,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03692">3692</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03718">3718</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -5184,7 +5236,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04201">4201</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04227">4227</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -5219,7 +5271,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04046">4046</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04072">4072</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5245,7 +5297,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03891">3891</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03917">3917</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5271,7 +5323,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04235">4235</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04261">4261</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5297,7 +5349,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03737">3737</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03763">3763</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5323,7 +5375,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03587">3587</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03613">3613</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5349,7 +5401,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l04144">4144</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l04170">4170</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5375,7 +5427,33 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02525">2525</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02529">2529</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f17ab1cec060e977966456e12145738"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_capital_construction </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>capital_construction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set capital_construction memory variable for current X-machine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">capital_construction</td><td>New value for variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02966">2966</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5401,59 +5479,33 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02918">2918</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02944">2944</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8ae52216694cf81a5e045dd78b75c894"></a>
+<a class="anchor" id="a99598f8a7cd427ba9dce7392e94ece3b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void set_construction_capital </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>construction_capital</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set construction_capital memory variable for current X-machine. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">construction_capital</td><td>New value for variable. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02940">2940</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acadadbb862847008e25f3081d1a8ee35"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void set_day_of_month_production_audited </td>
+          <td class="memname">void set_day_of_month_production_completed </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>day_of_month_production_audited</em></td><td>)</td>
+          <td class="paramname"><em>day_of_month_production_completed</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set day_of_month_production_audited memory variable for current X-machine. </p>
+<p>Set day_of_month_production_completed memory variable for current X-machine. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">day_of_month_production_audited</td><td>New value for variable. </td></tr>
+    <tr><td class="paramname">day_of_month_production_completed</td><td>New value for variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02852">2852</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02878">2878</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5479,7 +5531,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02571">2571</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02575">2575</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5505,7 +5557,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l03019">3019</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03045">3045</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5531,7 +5583,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02720">2720</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02724">2724</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5557,7 +5609,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02676">2676</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02680">2680</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5583,7 +5635,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02493">2493</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02497">2497</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5609,7 +5661,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02742">2742</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02746">2746</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5635,7 +5687,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02549">2549</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02553">2553</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5661,7 +5713,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02698">2698</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02702">2702</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5687,7 +5739,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02896">2896</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02922">2922</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5713,7 +5765,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02975">2975</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03001">3001</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5739,7 +5791,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02632">2632</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02636">2636</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5765,7 +5817,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02764">2764</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02790">2790</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5791,7 +5843,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02786">2786</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02812">2812</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5817,7 +5869,33 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02808">2808</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02834">2834</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa86e8de2804868e0452e043dc8118693"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_sales </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sales</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set sales memory variable for current X-machine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sales</td><td>New value for variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02768">2768</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5843,7 +5921,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02830">2830</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02856">2856</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5869,7 +5947,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02874">2874</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02900">2900</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5895,7 +5973,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02654">2654</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02658">2658</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5921,7 +5999,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02997">2997</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l03023">3023</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5947,7 +6025,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02610">2610</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02614">2614</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -5981,7 +6059,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02147">2147</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02151">2151</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6033,7 +6111,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02431">2431</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02435">2435</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6085,7 +6163,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01615">1615</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01617">1617</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6137,7 +6215,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02289">2289</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02293">2293</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6189,7 +6267,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01856">1856</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01860">1860</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6241,7 +6319,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02003">2003</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02007">2007</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6643,7 +6721,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02088">2088</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02092">2092</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -6660,7 +6738,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02372">2372</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02376">2376</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -6677,7 +6755,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01456">1456</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01458">1458</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -6703,7 +6781,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02230">2230</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02234">2234</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -6720,7 +6798,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01752">1752</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01756">1756</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -6737,7 +6815,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01953">1953</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01957">1957</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -7257,7 +7335,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02079">2079</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02083">2083</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -7274,7 +7352,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02363">2363</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02367">2367</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -7291,7 +7369,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01426">1426</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01427">1427</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -7317,7 +7395,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l02221">2221</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l02225">2225</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -7334,7 +7412,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01737">1737</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01741">1741</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -7360,7 +7438,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="memory_8c_source.html#l01943">1943</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
+<p>Definition at line <a class="el" href="memory_8c_source.html#l01947">1947</a> of file <a class="el" href="memory_8c_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -7418,7 +7496,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 16:33:26 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 17 2013 05:25:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
