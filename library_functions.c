@@ -27,6 +27,16 @@ double min(double a, double b)
     return (a <= b) ? a : b;
 }
 
+int max_int(int a, int b)
+{
+    return (a >= b) ? a : b;
+}
+
+int min_int(int a, int b)
+{
+    return (a <= b) ? a : b;
+}
+
 /*
  * \fn: int random_number(int a, int b)
  * \brief: Return a random interger between a and b inclusive.

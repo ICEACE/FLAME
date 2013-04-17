@@ -22,12 +22,12 @@
         <constants>
             <variable>
                 <type>double</type>
-                <name>zeta_turnover_probability</name>
+                <name>turnover_probability</name>
                 <description>A probability of a uniform distribution that determines turnover rate.</description>
             </variable>
             <variable>
                 <type>double</type>
-                <name>beta_housing_expenditure</name>
+                <name>housing_expenditure</name>
                 <description>A threshold value denoting expenditure on housing, as a proportion of total income</description>
             </variable>
             <variable>
@@ -37,12 +37,17 @@
             </variable>
             <variable>
                 <type>double</type>
-                <name>mu_production_markup</name>
-                <description>Rate of increase in production in a sold-out case.</description>
+                <name>production_markup</name>
+                <description>Rate of increase in production by firms.</description>
             </variable>
             <variable>
                 <type>double</type>
-                <name>eta_firm_memory_persistance</name>
+                <name>price_markup</name>
+                <description>Rate of increase set by firms on prices.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>firm_memory_persistance</name>
                 <description>A paramter holding to what extend firms previous sale history play on final production decision.</description>
             </variable>
         </constants>

@@ -29,7 +29,7 @@ int household_labour_check_fired()
  */
 int household_labour_reemployment_application()
 {
-    if (random_int(0,99) < ZETA_TURNOVER_PROBABILITY * 100){
+    if (random_int(0,99) < TURNOVER_PROBABILITY * 100){
         add_job_application_stage1_message(ID, WAGE);
         //printf("Stage 1: Household %d sends application (current wage: %d) \n", ID, (int)WAGE);
     }

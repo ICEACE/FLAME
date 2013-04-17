@@ -1,128 +1,231 @@
 <states>
 <itno>0</itno>
 <environment>
-<zeta_turnover_probability>0.1</zeta_turnover_probability>
-<beta_housing_expenditure>0.1</beta_housing_expenditure>
-<ratio_debt_firm>0.1</ratio_debt_firm>
-<mu_production_markup>0.1</mu_production_markup>
-<eta_firm_memory_persistance>0.1</eta_firm_memory_persistance>
+<turnover_probability>0.1</turnover_probability>
+<housing_expenditure>0.1</housing_expenditure>
+<ratio_debt_firm>0.01</ratio_debt_firm>
+<production_markup>0.1</production_markup>
+<price_markup>0.1</price_markup>
+<firm_memory_persistance>0.5</firm_memory_persistance>
 </environment>
 <xagent>
 <name>firm</name>
   <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{5,6,7,8}</employees>
+  <employees>{8,9,10,11}</employees>
   <wage_offer>1500.0</wage_offer>
   <no_employees>4</no_employees>
   <vacancies>0</vacancies>
   <employees_needed>4</employees_needed>
-  <labour_productivity>2.0</labour_productivity>
+  <labour_productivity>1.0</labour_productivity>
   <debt>0.0</debt>
   <inventories>0</inventories>
-  <production_current>8</production_current>
-  <production_estimate>8</production_estimate>
-  <production_plan>8</production_plan>
-  <unit_goods_price>2.0</unit_goods_price>
-  <day_of_month_production_audited>0</day_of_month_production_audited>
+  <sales>4</sales>
+  <production_current>4</production_current>
+  <production_estimate>0</production_estimate>
+  <production_plan>0</production_plan>
+  <unit_goods_price>1.0</unit_goods_price>
+  <day_of_month_production_completed>0</day_of_month_production_completed>
+  <unit_house_price>100.0</unit_house_price>
+  <labour_productivity_construction>1.0</labour_productivity_construction>
+  <capital_productivity_construction>1.0</capital_productivity_construction>
+  <capital_construction>300.0</capital_construction>
+  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
   <id>1</id>
-  <bank_id>0</bank_id>
+  <bank_id>34</bank_id>
+  <isconstructor>1</isconstructor>
 </xagent>
 <xagent>
 <name>firm</name>
   <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{9,10,11,12}</employees>
+  <employees>{12,13,14,15}</employees>
   <wage_offer>2000.0</wage_offer>
   <no_employees>4</no_employees>
   <vacancies>0</vacancies>
   <employees_needed>4</employees_needed>
-  <labour_productivity>2.0</labour_productivity>
+  <labour_productivity>10.0</labour_productivity>
   <debt>0.0</debt>
   <inventories>0</inventories>
-  <production_current>8</production_current>
-  <production_estimate>8</production_estimate>
-  <production_plan>8</production_plan>
-  <unit_goods_price>2.0</unit_goods_price>
-  <day_of_month_production_audited>0</day_of_month_production_audited>
+  <sales>40</sales>
+  <production_current>40</production_current>
+  <production_estimate>0</production_estimate>
+  <production_plan>0</production_plan>
+  <unit_goods_price>1.0</unit_goods_price>
+  <day_of_month_production_completed>0</day_of_month_production_completed>
+  <unit_house_price>100.0</unit_house_price>
+  <labour_productivity_construction>1.0</labour_productivity_construction>
+  <capital_productivity_construction>1.0</capital_productivity_construction>
+  <capital_construction>300.0</capital_construction>
+  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
   <id>2</id>
-  <bank_id>0</bank_id>
+  <bank_id>34</bank_id>
+  <isconstructor>0</isconstructor>
+</xagent>
+<xagent>
+<name>firm</name>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <employees>{16,17,18,19}</employees>
+  <wage_offer>2500.0</wage_offer>
+  <no_employees>4</no_employees>
+  <vacancies>0</vacancies>
+  <employees_needed>4</employees_needed>
+  <labour_productivity>10.0</labour_productivity>
+  <debt>0.0</debt>
+  <inventories>0</inventories>
+  <sales>40</sales>
+  <production_current>40</production_current>
+  <production_estimate>0</production_estimate>
+  <production_plan>0</production_plan>
+  <unit_goods_price>1.0</unit_goods_price>
+  <day_of_month_production_completed>0</day_of_month_production_completed>
+  <unit_house_price>100.0</unit_house_price>
+  <labour_productivity_construction>1.0</labour_productivity_construction>
+  <capital_productivity_construction>1.0</capital_productivity_construction>
+  <capital_construction>300.0</capital_construction>
+  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <id>3</id>
+  <bank_id>34</bank_id>
+  <isconstructor>0</isconstructor>
+</xagent>
+<xagent>
+<name>firm</name>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <employees>{20,21,22,23}</employees>
+  <wage_offer>3000.0</wage_offer>
+  <no_employees>4</no_employees>
+  <vacancies>0</vacancies>
+  <employees_needed>4</employees_needed>
+  <labour_productivity>10.0</labour_productivity>
+  <debt>0.0</debt>
+  <inventories>0</inventories>
+  <sales>40</sales>
+  <production_current>40</production_current>
+  <production_estimate>0</production_estimate>
+  <production_plan>0</production_plan>
+  <unit_goods_price>1.0</unit_goods_price>
+  <day_of_month_production_completed>0</day_of_month_production_completed>
+  <unit_house_price>100.0</unit_house_price>
+  <labour_productivity_construction>1.0</labour_productivity_construction>
+  <capital_productivity_construction>1.0</capital_productivity_construction>
+  <capital_construction>300.0</capital_construction>
+  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <id>4</id>
+  <bank_id>34</bank_id>
+  <isconstructor>0</isconstructor>
+</xagent>
+<xagent>
+<name>firm</name>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <employees>{24,25,26,27}</employees>
+  <wage_offer>3500.0</wage_offer>
+  <no_employees>4</no_employees>
+  <vacancies>0</vacancies>
+  <employees_needed>4</employees_needed>
+  <labour_productivity>10.0</labour_productivity>
+  <debt>0.0</debt>
+  <inventories>0</inventories>
+  <sales>40</sales>
+  <production_current>40</production_current>
+  <production_estimate>0</production_estimate>
+  <production_plan>0</production_plan>
+  <unit_goods_price>1.0</unit_goods_price>
+  <day_of_month_production_completed>0</day_of_month_production_completed>
+  <unit_house_price>100.0</unit_house_price>
+  <labour_productivity_construction>1.0</labour_productivity_construction>
+  <capital_productivity_construction>1.0</capital_productivity_construction>
+  <capital_construction>300.0</capital_construction>
+  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <id>5</id>
+  <bank_id>34</bank_id>
+  <isconstructor>0</isconstructor>
 </xagent>
 <xagent>
 <name>jpoffice</name>
   <day_of_month_to_act>1</day_of_month_to_act>
-  <id>3</id>
+  <id>6</id>
 </xagent>
 <xagent>
 <name>government</name>
-  <id>4</id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>5</id>
-  <bank_id>16</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>6</id>
-  <bank_id>16</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
   <id>7</id>
-  <bank_id>16</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
   <id>8</id>
-  <bank_id>16</bank_id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
   <id>9</id>
-  <bank_id>16</bank_id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
   <id>10</id>
-  <bank_id>16</bank_id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
   <id>11</id>
-  <bank_id>16</bank_id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>1</my_employer_id>
+  <wage>1500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>12</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>1</my_employer_id>
+  <wage>1500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>13</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>1</my_employer_id>
+  <wage>1500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>14</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>1</my_employer_id>
+  <wage>1500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>15</id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
@@ -131,8 +234,118 @@
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
-  <id>12</id>
-  <bank_id>16</bank_id>
+  <id>16</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>2</my_employer_id>
+  <wage>2000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>17</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>2</my_employer_id>
+  <wage>2000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>18</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>2</my_employer_id>
+  <wage>2000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>19</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>3</my_employer_id>
+  <wage>2500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>20</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>3</my_employer_id>
+  <wage>2500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>21</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>3</my_employer_id>
+  <wage>2500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>22</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>3</my_employer_id>
+  <wage>2500.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>23</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>4</my_employer_id>
+  <wage>3000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>24</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>4</my_employer_id>
+  <wage>3000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>25</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>4</my_employer_id>
+  <wage>3000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>26</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>4</my_employer_id>
+  <wage>3000.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>27</id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
@@ -141,8 +354,8 @@
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
-  <id>13</id>
-  <bank_id>16</bank_id>
+  <id>28</id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>household</name>
@@ -151,15 +364,45 @@
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
   <previous_wages>{0,0,0}</previous_wages>
-  <id>14</id>
-  <bank_id>16</bank_id>
+  <id>29</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>30</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>31</id>
+  <bank_id>34</bank_id>
+</xagent>
+<xagent>
+<name>household</name>
+  <my_employer_id>0</my_employer_id>
+  <wage>0.0</wage>
+  <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
+  <previous_wages>{0,0,0}</previous_wages>
+  <id>32</id>
+  <bank_id>34</bank_id>
 </xagent>
 <xagent>
 <name>centralbank</name>
-  <id>15</id>
+  <id>33</id>
 </xagent>
 <xagent>
 <name>bank</name>
-  <id>16</id>
+  <id>34</id>
 </xagent>
 </states>
