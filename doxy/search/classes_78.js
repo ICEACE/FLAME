@@ -7,6 +7,9 @@ var searchData=
   ['xmachine_5fmemory_5fcentralbank',['xmachine_memory_centralbank',['../structxmachine__memory__centralbank.html',1,'']]],
   ['xmachine_5fmemory_5fcentralbank_5fholder',['xmachine_memory_centralbank_holder',['../structxmachine__memory__centralbank__holder.html',1,'']]],
   ['xmachine_5fmemory_5fcentralbank_5fstate',['xmachine_memory_centralbank_state',['../structxmachine__memory__centralbank__state.html',1,'']]],
+  ['xmachine_5fmemory_5fequityfund',['xmachine_memory_equityfund',['../structxmachine__memory__equityfund.html',1,'']]],
+  ['xmachine_5fmemory_5fequityfund_5fholder',['xmachine_memory_equityfund_holder',['../structxmachine__memory__equityfund__holder.html',1,'']]],
+  ['xmachine_5fmemory_5fequityfund_5fstate',['xmachine_memory_equityfund_state',['../structxmachine__memory__equityfund__state.html',1,'']]],
   ['xmachine_5fmemory_5ffirm',['xmachine_memory_firm',['../structxmachine__memory__firm.html',1,'']]],
   ['xmachine_5fmemory_5ffirm_5fholder',['xmachine_memory_firm_holder',['../structxmachine__memory__firm__holder.html',1,'']]],
   ['xmachine_5fmemory_5ffirm_5fstate',['xmachine_memory_firm_state',['../structxmachine__memory__firm__state.html',1,'']]],
@@ -18,5 +21,8 @@ var searchData=
   ['xmachine_5fmemory_5fhousehold_5fstate',['xmachine_memory_household_state',['../structxmachine__memory__household__state.html',1,'']]],
   ['xmachine_5fmemory_5fjpoffice',['xmachine_memory_jpoffice',['../structxmachine__memory__jpoffice.html',1,'']]],
   ['xmachine_5fmemory_5fjpoffice_5fholder',['xmachine_memory_jpoffice_holder',['../structxmachine__memory__jpoffice__holder.html',1,'']]],
-  ['xmachine_5fmemory_5fjpoffice_5fstate',['xmachine_memory_jpoffice_state',['../structxmachine__memory__jpoffice__state.html',1,'']]]
+  ['xmachine_5fmemory_5fjpoffice_5fstate',['xmachine_memory_jpoffice_state',['../structxmachine__memory__jpoffice__state.html',1,'']]],
+  ['xmachine_5fmemory_5fmall',['xmachine_memory_mall',['../structxmachine__memory__mall.html',1,'']]],
+  ['xmachine_5fmemory_5fmall_5fholder',['xmachine_memory_mall_holder',['../structxmachine__memory__mall__holder.html',1,'']]],
+  ['xmachine_5fmemory_5fmall_5fstate',['xmachine_memory_mall_state',['../structxmachine__memory__mall__state.html',1,'']]]
 ];

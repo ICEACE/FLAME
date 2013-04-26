@@ -94,20 +94,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../household_agent_header.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * \fn: int dummy function</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * \fn: int household_consumption_demand()</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \brief:</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="household__functions__consumption_8c.html#a7cca0440fc9713d0c04abe1cb212b0f9">    8</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a959cbf3d4cf49cc2629e41bf806a1b7a">household_consumption_dummy</a>()</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="household__functions__consumption_8c.html#aa19219576db422954ee6e5444103415d">    8</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#ab4ded42ff3d2a0bcff16963ce9955385">household_consumption_demand</a>()</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="household__agent__header_8h.html#a4cb419c3b5502451dc2f18e87a580690" title="Direct access to weekly_consumption_budget of household agent memory variable.">WEEKLY_CONSUMPTION_BUDGET</a> &gt; 0) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="header_8h.html#accdd2c2ec73351ada7c02f731c346946" title="Add buy message by calling internal and processing.">add_buy_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="household__agent__header_8h.html#a4cb419c3b5502451dc2f18e87a580690" title="Direct access to weekly_consumption_budget of household agent memory variable.">WEEKLY_CONSUMPTION_BUDGET</a>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * \fn: int household_consumption_recieve_goods()</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * \brief:</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="household__functions__consumption_8c.html#a11b363a8534f967944a3e60e44a34cb2">   22</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a8f6f92de5f95015d366481a97d397abe">household_consumption_recieve_goods</a>()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> money_spent = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> quantity_bought = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="header_8h.html#a439a0f81c99fdf68997e18b87aefcd4c" title="Start of loop to process bought messages.">START_BOUGHT_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// household recieves this only when she went shopping with a budget.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    money_spent = <a class="code" href="household__agent__header_8h.html#a4cb419c3b5502451dc2f18e87a580690" title="Direct access to weekly_consumption_budget of household agent memory variable.">WEEKLY_CONSUMPTION_BUDGET</a> - <a class="code" href="header_8h.html#aa39be04e72ffffdab91db4971f43ba91" title="Pointer to message struct for looping through bought message list.">bought_message</a>-&gt;<a class="code" href="structm__bought.html#a8b7aa2801e0aa64305b31e9386eeeddf">money_left</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    quantity_bought = <a class="code" href="header_8h.html#aa39be04e72ffffdab91db4971f43ba91" title="Pointer to message struct for looping through bought message list.">bought_message</a>-&gt;<a class="code" href="structm__bought.html#add049617d3867d8f7206df9852ccea18">recieved_quantity</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//update liquidity.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a>  -= money_spent;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="header_8h.html#a9daa2862ff60ff191c0101d6f414f67d" title="Finish of loop to process bought messages.">FINISH_BOUGHT_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    printf(<span class="stringliteral">&quot;Household Id = %d Weakly Spenditure = %f\n&quot;</span>, <a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, money_spent);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 17 2013 05:25:54 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 26 2013 17:24:48 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

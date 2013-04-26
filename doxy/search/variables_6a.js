@@ -11,7 +11,6 @@ var searchData=
   ['job_5fmatch_5fstage2_5fmessage',['job_match_stage2_message',['../header_8h.html#a56681127bd2caaec4164c16fda488057',1,'header.h']]],
   ['job_5fmatch_5fstage2_5fmessages',['job_match_stage2_messages',['../structnode__information.html#ae9840943dde71b974c7622fec8b8491f',1,'node_information']]],
   ['jpoffice_5fend_5fstate',['jpoffice_end_state',['../header_8h.html#a539d1c73049bd173ec927fe599e49bc2',1,'header.h']]],
-  ['jpoffice_5fjpolabourstage1_5fstate',['jpoffice_JPOLabourStage1_state',['../header_8h.html#a0fc2795cbbeb196f9e7c8b26945cc688',1,'header.h']]],
   ['jpoffice_5fjpolabourstage2_5fstate',['jpoffice_JPOLabourStage2_state',['../header_8h.html#a44f257dfd357a4ea71796e5353691b80',1,'header.h']]],
   ['jpoffice_5fstart_5fstate',['jpoffice_start_state',['../header_8h.html#ad22367612de6315ff26dc132a4472e91',1,'header.h']]]
 ];

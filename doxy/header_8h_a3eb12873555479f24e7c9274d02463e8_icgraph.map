@@ -1,0 +1,6 @@
+<map id="init_mall_agent" name="init_mall_agent">
+<area shape="rect" id="node2" href="$memory_8c.html#ad94b2fb96c253b673a9269c88886bfe3" title="Add mall X&#45;machine to the current being used X&#45;machine list." alt="" coords="166,5,282,33"/>
+<area shape="rect" id="node3" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="169,57,279,85"/>
+<area shape="rect" id="node4" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="331,57,445,85"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="494,57,544,85"/>
+</map>

@@ -2,19 +2,23 @@
 <area shape="rect" id="node2" href="$header_8h.html#a66b0c9326af4d5ee129f59e787f32801" title="add_firm_agent_internal" alt="" coords="169,5,335,33"/>
 <area shape="rect" id="node3" href="$header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="201,57,303,85"/>
 <area shape="rect" id="node4" href="$header_8h.html#a3a0d3544ade8d4b945f113069be33f7b" title="add_household_agent\l_internal" alt="" coords="175,109,329,153"/>
-<area shape="rect" id="node5" href="$header_8h.html#ae45d5af77ecb5f71bf064b5e80b97982" title="add_jpoffice_agent\l_internal" alt="" coords="185,177,319,221"/>
+<area shape="rect" id="node5" href="$header_8h.html#a97c7b4f3c2e26062caad9df9a6a333d2" title="add_equityfund_agent\l_internal" alt="" coords="175,177,329,221"/>
 <area shape="rect" id="node6" href="$header_8h.html#a40b8de66bb1090312eb94112a367282e" title="add_bank_agent_internal" alt="" coords="166,245,338,273"/>
 <area shape="rect" id="node7" href="$header_8h.html#af81893da3c728571add52dfb9a4375f4" title="add_government_agent\l_internal" alt="" coords="171,297,333,341"/>
 <area shape="rect" id="node8" href="$header_8h.html#ab88a9e7ed5fffd0da747e1d948fc2095" title="add_centralbank_agent\l_internal" alt="" coords="172,365,332,409"/>
-<area shape="rect" id="node9" href="$header_8h.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="198,433,306,461"/>
-<area shape="rect" id="node12" href="$header_8h.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="178,485,326,513"/>
-<area shape="rect" id="node13" href="$header_8h.html#aeec7d7d9f891fea208f5987822ad1188" title="init_jpoffice_agent" alt="" coords="188,537,316,565"/>
-<area shape="rect" id="node14" href="$header_8h.html#a976482fde08b57c104de6108a5f95d96" title="init_bank_agent" alt="" coords="194,589,310,617"/>
-<area shape="rect" id="node15" href="$header_8h.html#a6269d28b1db3c47c9fb83d6697bab849" title="init_government_agent" alt="" coords="174,641,330,669"/>
-<area shape="rect" id="node16" href="$header_8h.html#a36bdb944cce8f7619d59b908de96bcf3" title="init_centralbank_agent" alt="" coords="174,693,330,721"/>
-<area shape="rect" id="node17" href="$header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="170,745,334,773"/>
-<area shape="rect" id="node19" href="$header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="179,797,325,825"/>
-<area shape="rect" id="node10" href="$header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="406,433,504,461"/>
-<area shape="rect" id="node11" href="$header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="387,485,523,513"/>
-<area shape="rect" id="node18" href="$header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="422,745,487,773"/>
+<area shape="rect" id="node9" href="$header_8h.html#a08347b7c1d882e2222f47d9177f605c2" title="add_mall_agent_internal" alt="" coords="168,433,336,461"/>
+<area shape="rect" id="node10" href="$header_8h.html#ae45d5af77ecb5f71bf064b5e80b97982" title="add_jpoffice_agent\l_internal" alt="" coords="185,485,319,529"/>
+<area shape="rect" id="node11" href="$header_8h.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="198,553,306,581"/>
+<area shape="rect" id="node14" href="$header_8h.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="178,605,326,633"/>
+<area shape="rect" id="node15" href="$header_8h.html#ababcb65f8bd00140a627c050563e1041" title="init_equityfund_agent" alt="" coords="178,657,326,685"/>
+<area shape="rect" id="node16" href="$header_8h.html#a976482fde08b57c104de6108a5f95d96" title="init_bank_agent" alt="" coords="194,709,310,737"/>
+<area shape="rect" id="node17" href="$header_8h.html#a6269d28b1db3c47c9fb83d6697bab849" title="init_government_agent" alt="" coords="174,761,330,789"/>
+<area shape="rect" id="node18" href="$header_8h.html#a36bdb944cce8f7619d59b908de96bcf3" title="init_centralbank_agent" alt="" coords="174,813,330,841"/>
+<area shape="rect" id="node19" href="$header_8h.html#a3eb12873555479f24e7c9274d02463e8" title="init_mall_agent" alt="" coords="196,865,308,893"/>
+<area shape="rect" id="node20" href="$header_8h.html#aeec7d7d9f891fea208f5987822ad1188" title="init_jpoffice_agent" alt="" coords="188,917,316,945"/>
+<area shape="rect" id="node21" href="$header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="170,969,334,997"/>
+<area shape="rect" id="node23" href="$header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="179,1021,325,1049"/>
+<area shape="rect" id="node12" href="$header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="406,553,504,581"/>
+<area shape="rect" id="node13" href="$header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="387,605,523,633"/>
+<area shape="rect" id="node22" href="$header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="422,969,487,997"/>
 </map>

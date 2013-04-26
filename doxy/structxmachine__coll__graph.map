@@ -1,9 +1,11 @@
 <map id="xmachine" name="xmachine">
-<area shape="rect" id="node2" href="$structxmachine__memory__bank.html" title="Holds memory of xmachine bank." alt="" coords="219,7,389,35"/>
-<area shape="rect" id="node3" href="$structxmachine__memory__jpoffice.html" title="Holds memory of xmachine jpoffice." alt="" coords="212,59,396,87"/>
-<area shape="rect" id="node4" href="$structxmachine__memory__government.html" title="Holds memory of xmachine government." alt="" coords="198,111,410,139"/>
-<area shape="rect" id="node5" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="222,163,386,191"/>
-<area shape="rect" id="node6" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="6,163,79,191"/>
-<area shape="rect" id="node7" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="203,215,405,243"/>
-<area shape="rect" id="node8" href="$structxmachine__memory__centralbank.html" title="Holds memory of xmachine centralbank." alt="" coords="199,267,409,295"/>
+<area shape="rect" id="node2" href="$structxmachine__memory__equityfund.html" title="Holds memory of xmachine equityfund." alt="" coords="203,17,405,45"/>
+<area shape="rect" id="node3" href="$structxmachine__memory__bank.html" title="Holds memory of xmachine bank." alt="" coords="219,69,389,97"/>
+<area shape="rect" id="node4" href="$structxmachine__memory__jpoffice.html" title="Holds memory of xmachine jpoffice." alt="" coords="212,121,396,149"/>
+<area shape="rect" id="node5" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="221,173,387,201"/>
+<area shape="rect" id="node6" href="$structxmachine__memory__government.html" title="Holds memory of xmachine government." alt="" coords="198,225,410,253"/>
+<area shape="rect" id="node7" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="222,277,386,305"/>
+<area shape="rect" id="node8" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="6,277,79,305"/>
+<area shape="rect" id="node9" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="203,329,405,357"/>
+<area shape="rect" id="node10" href="$structxmachine__memory__centralbank.html" title="Holds memory of xmachine centralbank." alt="" coords="199,381,409,409"/>
 </map>

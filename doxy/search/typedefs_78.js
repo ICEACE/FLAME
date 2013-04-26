@@ -7,6 +7,9 @@ var searchData=
   ['xmachine_5fmemory_5fcentralbank',['xmachine_memory_centralbank',['../header_8h.html#a0b3627ed955ebfda9bffd59d3f94aca9',1,'header.h']]],
   ['xmachine_5fmemory_5fcentralbank_5fholder',['xmachine_memory_centralbank_holder',['../header_8h.html#ad7e4934af10029256873e3c1c328c797',1,'header.h']]],
   ['xmachine_5fmemory_5fcentralbank_5fstate',['xmachine_memory_centralbank_state',['../header_8h.html#abea3fb1f44014f6279931877ceba5b1c',1,'header.h']]],
+  ['xmachine_5fmemory_5fequityfund',['xmachine_memory_equityfund',['../header_8h.html#aedfee86a2b50b86b23f260b740158331',1,'header.h']]],
+  ['xmachine_5fmemory_5fequityfund_5fholder',['xmachine_memory_equityfund_holder',['../header_8h.html#acb7c17a40a7c5b926575a2f33fa27d78',1,'header.h']]],
+  ['xmachine_5fmemory_5fequityfund_5fstate',['xmachine_memory_equityfund_state',['../header_8h.html#a165173978a3cde49d58a057ebf1953e3',1,'header.h']]],
   ['xmachine_5fmemory_5ffirm',['xmachine_memory_firm',['../header_8h.html#a82ec1a46374fb11ea2d0fc248dc4366d',1,'header.h']]],
   ['xmachine_5fmemory_5ffirm_5fholder',['xmachine_memory_firm_holder',['../header_8h.html#ab1b9eeac63ab0d205b01bf6900dfaf55',1,'header.h']]],
   ['xmachine_5fmemory_5ffirm_5fstate',['xmachine_memory_firm_state',['../header_8h.html#ae60298679b45687fa07ebb9a68821104',1,'header.h']]],
@@ -18,5 +21,8 @@ var searchData=
   ['xmachine_5fmemory_5fhousehold_5fstate',['xmachine_memory_household_state',['../header_8h.html#a8a1cf2a530ceac44c679952c281d6af4',1,'header.h']]],
   ['xmachine_5fmemory_5fjpoffice',['xmachine_memory_jpoffice',['../header_8h.html#aa015aacd04d5a0a37d7188db66b97363',1,'header.h']]],
   ['xmachine_5fmemory_5fjpoffice_5fholder',['xmachine_memory_jpoffice_holder',['../header_8h.html#acbf7cdf85126c23f2aa72a099775107a',1,'header.h']]],
-  ['xmachine_5fmemory_5fjpoffice_5fstate',['xmachine_memory_jpoffice_state',['../header_8h.html#ab1ed1a3f6b2cb7695788d4584a7d7f0a',1,'header.h']]]
+  ['xmachine_5fmemory_5fjpoffice_5fstate',['xmachine_memory_jpoffice_state',['../header_8h.html#ab1ed1a3f6b2cb7695788d4584a7d7f0a',1,'header.h']]],
+  ['xmachine_5fmemory_5fmall',['xmachine_memory_mall',['../header_8h.html#af71d0971f12a0633c838eb0376bcf4a9',1,'header.h']]],
+  ['xmachine_5fmemory_5fmall_5fholder',['xmachine_memory_mall_holder',['../header_8h.html#a67118e245483c6529faa397614cc480a',1,'header.h']]],
+  ['xmachine_5fmemory_5fmall_5fstate',['xmachine_memory_mall_state',['../header_8h.html#a9b471e581e8884bfcd96c733046ed0ff',1,'header.h']]]
 ];

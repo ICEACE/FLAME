@@ -96,7 +96,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="centralbank__agent__header_8h__dep__incl.png" border="0" usemap="#_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2centralbank__agent__header_8hdep" alt=""/></div>
 <map name="_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2centralbank__agent__header_8hdep" id="_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2centralbank__agent__header_8hdep">
-<area shape="rect" id="node2" href="centralbank__functions__top_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/centralbank_functions_top.c" alt="" coords="4,123,195,183"/><area shape="rect" id="node3" href="centralbank__functions__consumption_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Consumption/centralbank\l_functions_consumption.c" alt="" coords="220,115,444,191"/><area shape="rect" id="node4" href="centralbank__functions__production_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Production/centralbank\l_functions_production.c" alt="" coords="469,115,677,191"/></map>
+<area shape="rect" id="node2" href="centralbank__functions__accounting_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Accounting/centralbank\l_functions_accounting.c" alt="" coords="5,115,184,191"/><area shape="rect" id="node3" href="centralbank__functions__top_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/centralbank_functions_top.c" alt="" coords="208,123,399,183"/><area shape="rect" id="node4" href="centralbank__functions__production_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Production/centralbank\l_functions_production.c" alt="" coords="423,115,632,191"/></map>
 </div>
 </div>
 <p><a href="centralbank__agent__header_8h_source.html">Go to the source code of this file.</a></p>
@@ -106,12 +106,65 @@ Macros</h2></td></tr>
 <tr class="memitem:a77ceac8d6af195fe72f95f6afd87c45e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e">ID</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;id)</td></tr>
 <tr class="memdesc:a77ceac8d6af195fe72f95f6afd87c45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to id of centralbank agent memory variable.  <a href="#a77ceac8d6af195fe72f95f6afd87c45e">More...</a><br/></td></tr>
 <tr class="separator:a77ceac8d6af195fe72f95f6afd87c45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4bfffebbdc8c83d0cace0e0f160a4c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2">LIQUIDITY</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;liquidity)</td></tr>
+<tr class="memdesc:ac4bfffebbdc8c83d0cace0e0f160a4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to liquidity of centralbank agent memory variable.  <a href="#ac4bfffebbdc8c83d0cace0e0f160a4c2">More...</a><br/></td></tr>
+<tr class="separator:ac4bfffebbdc8c83d0cace0e0f160a4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca71f979f74f9695a89383a7d99f2a59"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#aca71f979f74f9695a89383a7d99f2a59">LOANS_BANKS</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;loans_banks)</td></tr>
+<tr class="memdesc:aca71f979f74f9695a89383a7d99f2a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to loans_banks of centralbank agent memory variable.  <a href="#aca71f979f74f9695a89383a7d99f2a59">More...</a><br/></td></tr>
+<tr class="separator:aca71f979f74f9695a89383a7d99f2a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee924cd39c441a1c83c6bcffda1dab4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#a8ee924cd39c441a1c83c6bcffda1dab4">LOANS_GOVERNMENT</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;loans_government)</td></tr>
+<tr class="memdesc:a8ee924cd39c441a1c83c6bcffda1dab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to loans_government of centralbank agent memory variable.  <a href="#a8ee924cd39c441a1c83c6bcffda1dab4">More...</a><br/></td></tr>
+<tr class="separator:a8ee924cd39c441a1c83c6bcffda1dab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffb262cb95d32b710825a48b9e372a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#a5ffb262cb95d32b710825a48b9e372a8">FIAT_MONEY</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;fiat_money)</td></tr>
+<tr class="memdesc:a5ffb262cb95d32b710825a48b9e372a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to fiat_money of centralbank agent memory variable.  <a href="#a5ffb262cb95d32b710825a48b9e372a8">More...</a><br/></td></tr>
+<tr class="separator:a5ffb262cb95d32b710825a48b9e372a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3a5765c91aa83a60992d558735e4ca2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">EQUITY</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;equity)</td></tr>
+<tr class="memdesc:ab3a5765c91aa83a60992d558735e4ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to equity of centralbank agent memory variable.  <a href="#ab3a5765c91aa83a60992d558735e4ca2">More...</a><br/></td></tr>
+<tr class="separator:ab3a5765c91aa83a60992d558735e4ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32d7ca217139c83aaf8da5a015558e58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#a32d7ca217139c83aaf8da5a015558e58">LIQUIDITY_BANKS</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;liquidity_banks)</td></tr>
+<tr class="memdesc:a32d7ca217139c83aaf8da5a015558e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to liquidity_banks of centralbank agent memory variable.  <a href="#a32d7ca217139c83aaf8da5a015558e58">More...</a><br/></td></tr>
+<tr class="separator:a32d7ca217139c83aaf8da5a015558e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b525fe06881de575be4aa182898e34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="centralbank__agent__header_8h.html#a79b525fe06881de575be4aa182898e34">LIQUIDITY_GOVERNMENT</a>&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;liquidity_government)</td></tr>
+<tr class="memdesc:a79b525fe06881de575be4aa182898e34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to liquidity_government of centralbank agent memory variable.  <a href="#a79b525fe06881de575be4aa182898e34">More...</a><br/></td></tr>
+<tr class="separator:a79b525fe06881de575be4aa182898e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for agent type memory access. </p>
 
 <p>Definition in file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ab3a5765c91aa83a60992d558735e4ca2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EQUITY&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;equity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to equity of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00023">23</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ffb262cb95d32b710825a48b9e372a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIAT_MONEY&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;fiat_money)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to fiat_money of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00020">20</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a77ceac8d6af195fe72f95f6afd87c45e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -128,10 +181,90 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac4bfffebbdc8c83d0cace0e0f160a4c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIQUIDITY&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;liquidity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to liquidity of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00011">11</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a32d7ca217139c83aaf8da5a015558e58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIQUIDITY_BANKS&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;liquidity_banks)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to liquidity_banks of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00026">26</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a79b525fe06881de575be4aa182898e34"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIQUIDITY_GOVERNMENT&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;liquidity_government)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to liquidity_government of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00029">29</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aca71f979f74f9695a89383a7d99f2a59"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOANS_BANKS&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;loans_banks)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to loans_banks of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00014">14</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ee924cd39c441a1c83c6bcffda1dab4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOANS_GOVERNMENT&#160;&#160;&#160;(<a class="el" href="header_8h.html#a0121eea465e14d7647c84aae5ca9f567">current_xmachine_centralbank</a>-&gt;loans_government)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct access to loans_government of centralbank agent memory variable. </p>
+
+<p>Definition at line <a class="el" href="centralbank__agent__header_8h_source.html#l00017">17</a> of file <a class="el" href="centralbank__agent__header_8h_source.html">centralbank_agent_header.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 17 2013 05:25:54 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 26 2013 17:24:48 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

@@ -1,7 +1,8 @@
 <map id="/Users/bulent/Documents/workspace/iceace/FLAME/library_header.h" name="/Users/bulent/Documents/workspace/iceace/FLAME/library_header.h">
 <area shape="rect" id="node2" href="$library__functions_8c.html" title="Holds user created library functions." alt="" coords="5,123,184,183"/>
-<area shape="rect" id="node3" href="$firm__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/firm_functions\l_labour.c" alt="" coords="209,115,409,191"/>
-<area shape="rect" id="node4" href="$household__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/household\l_functions_labour.c" alt="" coords="434,115,613,191"/>
-<area shape="rect" id="node5" href="$jpoffice__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/jpoffice\l_functions_labour.c" alt="" coords="638,115,817,191"/>
-<area shape="rect" id="node6" href="$firm__functions__production_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Production/firm\l_functions_production.c" alt="" coords="841,115,1020,191"/>
+<area shape="rect" id="node3" href="$mall__functions__consumption_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Consumption/mall\l_functions_consumption.c" alt="" coords="209,115,388,191"/>
+<area shape="rect" id="node4" href="$firm__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/firm_functions\l_labour.c" alt="" coords="413,115,613,191"/>
+<area shape="rect" id="node5" href="$household__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/household\l_functions_labour.c" alt="" coords="638,115,817,191"/>
+<area shape="rect" id="node6" href="$jpoffice__functions__labour_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Labour/jpoffice\l_functions_labour.c" alt="" coords="842,115,1021,191"/>
+<area shape="rect" id="node7" href="$firm__functions__production_8c.html" title="/Users/bulent/Documents\l/workspace/iceace/FLAME\l/Market_Production/firm\l_functions_production.c" alt="" coords="1045,115,1224,191"/>
 </map>
