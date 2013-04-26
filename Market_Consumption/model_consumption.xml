@@ -1,0 +1,326 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 0.1.4, 17/04/2012</version>
+    <description> Consumption Market. ICEACE consuming activities.</description>
+    <environment>
+        <constants/>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>household_functions_consumption.c</file>
+            <file>firm_functions_consumption.c</file>
+            <file>mall_functions_consumption.c</file>
+        </functionFiles>
+        <dataTypes>
+            <dataType>
+                <name>buyer</name>
+                <description>Consumer data.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the household agent.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>budget</name>
+                        <description>Consumption budget to go.</description>
+                    </variable>
+                    <variable>
+                        <type>int</type>
+                        <name>recieved_quantity</name>
+                        <description>Number of items bought.</description>
+                    </variable>
+                </variables>
+            </dataType>
+            <dataType>
+                <name>seller</name>
+                <description>Seller data.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the firm agent.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>price</name>
+                        <description>Unit price of goods to be sold.</description>
+                    </variable>
+                    <variable>
+                        <type>int</type>
+                        <name>inventory</name>
+                        <description>Number of items available for sale.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
+    </environment>
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>mall</name>
+            <description>A fictitious mall agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act for consumption.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the week to shop.</description>
+                    <currentState>start</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                        <period>weekly</period>
+                        <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>mall_consumption_shopping</name>
+                    <description>Mall collecting supplies from the firms, demands from the households.</description>
+                    <currentState>start</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>sell</messageName>
+                            <sort>
+                                <key>price</key>
+                                <order>ascend</order>
+                            </sort>
+                        </input>
+                        <input>
+                            <messageName>buy</messageName>
+                            <random>true</random>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>sold</messageName>
+                        </output>
+                        <output>
+                            <messageName>bought</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>household</name>
+            <description>A simple consumer and labourer agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act for consumption.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the week to shop.</description>
+                    <currentState>HHConsumptionStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_consumption_demand</name>
+                    <description>A household demands a consumption amounted to the available budget he/she has.</description>
+                    <currentState>HHConsumptionStart</currentState>
+                    <nextState>HHRecieveGoods</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>buy</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>household_consumption_recieve_goods</name>
+                    <description>A household recieves goods bought from the mall.</description>
+                    <currentState>HHRecieveGoods</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>bought</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>firm</name>
+            <description>A simple production firm agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act for consumption.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the week to sell.</description>
+                    <currentState>FirmConsumptionStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_consumption_supply</name>
+                    <description>A firm ships its goods to malls.</description>
+                    <currentState>FirmConsumptionStart</currentState>
+                    <nextState>FirmRecieveSales</nextState>
+                        <condition>
+                            <time>
+                                <period>weekly</period>
+                                <phase>a.day_of_week_to_act</phase>
+                            </time>
+                        </condition>
+                    <outputs>
+                        <output>
+                            <messageName>sell</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_consumption_recieve_sales</name>
+                    <description>A firm recieves goods unsold and sales liquidity from the mall.</description>
+                    <currentState>FirmRecieveSales</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>sold</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>buy</name>
+            <description>Weekly household consumption information.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Household agent ID.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>budget</name>
+                    <description>Amount of liquid money to spend.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>bought</name>
+            <description>Consumption summary.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Household agent ID.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>money_left</name>
+                    <description>Amount of liquid money that was not spent.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>recieved_quantity</name>
+                    <description>Number of goods bought.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>sell</name>
+            <description>Information on items to be sold at the mall.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>price</name>
+                    <description>Unit price of goods to be sold.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>inventory</name>
+                    <description>Number of items to be sold.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>sold</name>
+            <description>Sales summary.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>unsold_quantities</name>
+                    <description>Number of unsold quantities.</description>
+                </variable>
+            </variables>
+        </message>
+    </messages>
+</xmodel>
