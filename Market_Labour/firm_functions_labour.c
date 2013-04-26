@@ -190,3 +190,15 @@ int firm_labour_job_offer_stage2()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+
+/*
+ * \fn: int firm_labour_pay_wages()
+ * \brief: a firm pays wages.
+ */
+int firm_labour_pay_wages()
+{
+    LIQUIDITY -= WAGE_OFFER * (double)NO_EMPLOYEES;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}

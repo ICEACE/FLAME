@@ -2,10 +2,10 @@
 #include "bank_agent_header.h"
 
 /*
- * \fn: int notifier
+ * \fn: int bank_init()
  * \brief: notifies its id by printing out agent id.
  */
-int bank_notifier()
+int bank_init()
 {
 	// Read from memory
 	//printf("Bank Id = %d\n", ID);

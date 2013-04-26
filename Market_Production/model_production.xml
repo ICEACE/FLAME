@@ -5,32 +5,31 @@
     <version>Version 0.1.2, 26/02/2012</version>
     <description> Production Market. The market has regular firms as well as sepcialized construction firms.</description>
     <environment>
+        <constants>
+            <variable>
+                <type>double</type>
+                <name>production_markup</name>
+                <description>Rate of increase in production by firms.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>price_markup</name>
+                <description>Rate of increase set by firms on prices.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>firm_memory_persistance</name>
+                <description>A parameter holding to what extend firms previous sale history play on final production decision.</description>
+            </variable>
+        </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
-            <file>household_functions_production.c</file>
             <file>firm_functions_production.c</file>
-            <file>bank_functions_production.c</file>
-            <file>centralbank_functions_production.c</file>
-            <file>government_functions_production.c</file>
         </functionFiles>
     </environment>
 
 	<!-- List of agents -->
     <agents>
-        <xagent>
-            <name>household</name>
-            <description>Households role at production.</description>
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
-                <function>
-                    <name>idle</name>
-                    <description>Household stays idle in production market.</description>
-                    <currentState>HHProduction</currentState>
-                    <nextState>HHLabourStart</nextState>
-                </function>
-            </functions>
-        </xagent>
         <xagent>
             <name>firm</name>
             <description>A simple production firm agent.</description>
@@ -40,21 +39,6 @@
                     <type>double</type>
                     <name>labour_productivity</name>
                     <description>Productivity of a unit labour.</description>
-                </variable>
-                <variable>
-                    <type>double</type>
-                    <name>debt</name>
-                    <description>Total debt of the firm.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>inventories</name>
-                    <description>Unsold inventories from previous month.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>sales</name>
-                    <description>Total number of sales within the month.</description>
                 </variable>
                 <variable>
                     <type>int</type>
@@ -233,51 +217,6 @@
                     <description>Firm determines required number of labourers for current construction plan.</description>
                     <currentState>FirmConstructionLabourDemand</currentState>
                     <nextState>FirmLabourStart</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>bank</name>
-            <description>A simple bank agent.</description>
-            <!-- Agent memory holding a list of variables -->
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
-                <function>
-                    <name>idle</name>
-                    <description>Bank stays idle in production market.</description>
-                    <currentState>BankProduction</currentState>
-                    <nextState>BankLabour</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>centralbank</name>
-            <description>A simple central bank agent.</description>
-            <!-- Agent memory holding a list of variables -->
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
-                <function>
-                    <name>idle</name>
-                    <description>Central Bank stays idle in production market.</description>
-                    <currentState>CBProduction</currentState>
-                    <nextState>CBLabour</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>government</name>
-            <description>A simple government agent</description>
-            <!-- Agent memory holding a list of variables -->
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
-                <function>
-                <name>idle</name>
-                <description>Government stays idle in production market.</description>
-                <currentState>GovProduction</currentState>
-                <nextState>GovLabour</nextState>
                 </function>
             </functions>
         </xagent>

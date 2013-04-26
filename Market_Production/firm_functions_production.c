@@ -8,13 +8,7 @@
  */
 int firm_production_produce_goods()
 {
-    int sold;
-    printf("Firm ID = %d\n", ID);
-    //Later to be set as an endogenous input from consumption market.
-    SALES = random_int(0,INVENTORIES);
-    
-    printf("    Goods not sold = %d\n", SALES);
-    INVENTORIES -= SALES;
+    printf("Firm ID = %d\n", ID);   
     /*
      Production amount based on Lentoif production function.
      Capital productivity is set to inf. This results in a production solely based on availability
@@ -36,8 +30,8 @@ int firm_production_set_price()
     double costs = 0;
     double unit_cost;
     
-    goods_to_sale = INVENTORIES + PRODUCTION_CURRENT;
-    costs = UNIT_GOODS_PRICE * (double)INVENTORIES;
+    goods_to_sale = INVENTORY + PRODUCTION_CURRENT;
+    costs = UNIT_GOODS_PRICE * (double)INVENTORY;
     costs += WAGE_OFFER * (double)NO_EMPLOYEES;
     costs += DEBT * RATIO_DEBT_FIRM;
     
@@ -62,15 +56,15 @@ int firm_production_plan()
 
     
     // Estimate the production for next period.
-    if (INVENTORIES == 0) {
+    if (INVENTORY == 0) {
         PRODUCTION_ESTIMATE = (int)(1.0 + PRODUCTION_MARKUP) * SALES;
     }
-    else if (INVENTORIES < PRODUCTION_CURRENT) {
+    else if (INVENTORY < PRODUCTION_CURRENT) {
         PRODUCTION_ESTIMATE = SALES;
 
     }
-    else if ((PRODUCTION_CURRENT <= INVENTORIES) && (INVENTORIES <= (2 * PRODUCTION_CURRENT))) {
-        PRODUCTION_ESTIMATE = 2 * SALES - INVENTORIES;
+    else if ((PRODUCTION_CURRENT <= INVENTORY) && (INVENTORY <= (2 * PRODUCTION_CURRENT))) {
+        PRODUCTION_ESTIMATE = 2 * SALES - INVENTORY;
     }
     // This case added to the model, needs to be checked!
     else {
@@ -85,10 +79,12 @@ int firm_production_plan()
     
     printf("    Production Plan = %d\n", PRODUCTION_PLAN);
     
-    // inventories available for sell is updated.
-    INVENTORIES += PRODUCTION_CURRENT;
+    // INVENTORY available for sell is updated.
+    INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
-    printf("    Total inventories available for sale = %d\n", INVENTORIES);
+    printf("    Total INVENTORY available for sale = %d\n", INVENTORY);
+    
+    SALES = 0;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -120,7 +116,7 @@ int firm_production_construct_houses()
 {
     int capital, labour, units_produced;
     printf("Constructor Firm ID = %d\n", ID);
-    printf("    Houses not sold = %d\n", INVENTORIES);
+    printf("    Houses not sold = %d\n", INVENTORY);
     
     labour = NO_EMPLOYEES * LABOUR_PRODUCTIVITY;
     capital = CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION;
@@ -166,11 +162,11 @@ int firm_production_construction_plan()
 
     // New housing units produced in previous month
     // is made available for sale at the start of current month.
-    INVENTORIES += PRODUCTION_CURRENT;
+    INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
     
     printf("Constructor Firm ID = %d\n", ID);
-    printf("    Total inventories available for sale = %d\n", INVENTORIES);
+    printf("    Total inventories available for sale = %d\n", INVENTORY);
     
     //Estimate the production for next period.
     old_price = UNIT_HOUSE_PRICE;

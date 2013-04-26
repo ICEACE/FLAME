@@ -6,7 +6,7 @@
     <description>ICEACE - Labour Market </description>
     <models>
         <model>
-            <file>Market_Consumption/model.xml</file>
+            <file>Market_Consumption/model_consumption.xml</file>
             <enabled>true</enabled>
         </model>
         <model>
@@ -17,40 +17,13 @@
             <file>Market_Production/model_production.xml</file>
             <enabled>true</enabled>
         </model>
+        <model>
+            <file>Accounting/model_accounting.xml</file>
+            <enabled>true</enabled>
+        </model>
     </models>
     <environment>
-        <constants>
-            <variable>
-                <type>double</type>
-                <name>turnover_probability</name>
-                <description>A probability of a uniform distribution that determines turnover rate.</description>
-            </variable>
-            <variable>
-                <type>double</type>
-                <name>housing_expenditure</name>
-                <description>A threshold value denoting expenditure on housing, as a proportion of total income</description>
-            </variable>
-            <variable>
-                <type>double</type>
-                <name>ratio_debt_firm</name>
-                <description>Ratio of debt to be paid by a firm.</description>
-            </variable>
-            <variable>
-                <type>double</type>
-                <name>production_markup</name>
-                <description>Rate of increase in production by firms.</description>
-            </variable>
-            <variable>
-                <type>double</type>
-                <name>price_markup</name>
-                <description>Rate of increase set by firms on prices.</description>
-            </variable>
-            <variable>
-                <type>double</type>
-                <name>firm_memory_persistance</name>
-                <description>A paramter holding to what extend firms previous sale history play on final production decision.</description>
-            </variable>
-        </constants>
+        <constants/>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
             <file>library_functions.c</file>
@@ -59,42 +32,9 @@
             <file>bank_functions_top.c</file>
             <file>government_functions_top.c</file>
             <file>centralbank_functions_top.c</file>
-            <file>jpoffice_functions_top.c</file>
+            <file>equityfund_functions_top.c</file>
         </functionFiles>
-        <dataTypes>
-            <dataType>
-                <name>vacancy</name>
-                <description>Firm vacancy information.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>id</name>
-                        <description>Id of the firm agent.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>wage</name>
-                        <description>Wage offered by the firm that holds the vacancy.</description>
-                    </variable>
-                </variables>
-            </dataType>
-            <dataType>
-                <name>employee</name>
-                <description>Job applicant data.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>id</name>
-                        <description>Id of the household agent.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>wage</name>
-                        <description>Current wage of the job applicant.</description>
-                    </variable>
-                </variables>
-            </dataType>
-        </dataTypes>
+        <dataTypes/>
         <timeUnits>
             <timeUnit>
                 <name>daily</name>
@@ -128,73 +68,68 @@
     <agents>
         <xagent>
             <name>firm</name>
-            <description>A simple firm agent.</description>
+            <description>Firm agent.</description>
             <memory>
                 <variable>
                     <type>int</type>
                     <name>id</name>
                     <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>bank_id</name>
-                    <description>Bank ID at which the agent maintains its payment account.</description>
                 </variable>
                 <variable>
                     <type>int</type>
                     <name>isconstructor</name>
                     <description>Identifies if the firm is a constractor firm or not.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>The day of the month to act at production and labour.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
-                    <name>firm_notifier</name>
-                    <description>Notifies its id by printf.</description>
+                    <name>firm_init</name>
+                    <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>FirmConsumption</nextState>
+                    <nextState>FirmAccountingStart</nextState>
                 </function>
              </functions>
         </xagent>
         <xagent>
             <name>household</name>
-            <description>A simple consumer and labourer agent.</description>
+            <description>A consumer and labourer agent.</description>
             <memory>
                 <variable>
                     <type>int</type>
                     <name>id</name>
                     <description>Agent ID.</description>
                 </variable>
-                <variable>
-                    <type>int</type>
-                    <name>bank_id</name>
-                    <description>Bank ID at which the agent maintains its payment account.</description>
-                </variable>
             </memory>
             <functions>
                 <function>
-                    <name>household_notifier</name>
-                    <description>Notifies its id by printf.</description>
+                    <name>household_init</name>
+                    <description>Notifies its id..</description>
                     <currentState>start</currentState>
-                    <nextState>HHConsumption</nextState>
+                    <nextState>HHAccountingStart</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
-            <name>jpoffice</name>
-            <description>An institutional agent acting in labour market.</description>
+            <name>equityfund</name>
+            <description>Equity Fund agency.</description>
             <memory>
-            <variable>
-                <type>int</type>
-                <name>id</name>
-                <description>Agent ID.</description>
-            </variable>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
-                    <name>jpoffice_notifier</name>
-                    <description>Notifies its id by printf.</description>
+                    <name>equityfund_init</name>
+                    <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>JPOLabourStage1</nextState>
+                    <nextState>EFAccountingStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -210,16 +145,16 @@
             </memory>
             <functions>
                 <function>
-                    <name>bank_notifier</name>
-                    <description>Notifies its id by printf.</description>
+                    <name>bank_init</name>
+                    <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>BankConsumption</nextState>
+                    <nextState>BankAccountingStart</nextState>
                 </function>
             </functions>
         </xagent>
         <xagent>
             <name>government</name>
-            <description>A simple government agent</description>
+            <description>A simple government agent.</description>
             <memory>
                 <variable>
                     <type>int</type>
@@ -229,10 +164,10 @@
             </memory>
             <functions>
                 <function>
-                    <name>government_notifier</name>
-                    <description>Notifies its id by printf.</description>
+                    <name>government_init</name>
+                    <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>GovConsumption</nextState>
+                    <nextState>GovAccountingStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -248,30 +183,13 @@
             </memory>
             <functions>
                 <function>
-                <name>centralbank_notifier</name>
-                <description>Notifies its id by printf.</description>
-                <currentState>start</currentState>
-                <nextState>CBConsumption</nextState>
+                    <name>centralbank_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>CBAccountingStart</nextState>
                 </function>
             </functions>
         </xagent>
     </agents>
-    <messages>
-        <message>
-            <name>id_notification</name>
-            <description>Sent by an agent to declare its id.</description>
-            <variables>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>the agent ID.</description>
-                </variable>
-                <variable>
-                    <type>char</type>
-                    <name>agent_label</name>
-                    <description>the agent name</description>
-                </variable>
-            </variables>
-        </message>
-    </messages>
+    <messages/>
 </xmodel>

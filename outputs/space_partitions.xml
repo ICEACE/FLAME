@@ -1,5 +1,14 @@
 <spacepartitions>
 <partitions>
-<number>0</number>
+<number>1</number>
+<node>
+<nodeid>0</nodeid>
+<xmin>-SPINF</xmin>
+<xmax>SPINF</xmax>
+<ymin>-SPINF</ymin>
+<ymax>SPINF</ymax>
+<zmin>-SPINF</zmin>
+<zmax>SPINF</zmax>
+</node>
 </partitions>
 </spacepartitions>

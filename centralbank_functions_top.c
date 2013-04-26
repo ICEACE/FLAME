@@ -2,10 +2,10 @@
 #include "centralbank_agent_header.h"
 
 /*
- * \fn: int notifier
+ * \fn: int centralbank_init()
  * \brief: notifies its id by printing out agent id.
  */
-int centralbank_notifier()
+int centralbank_init()
 {
 	// Read from memory
 	//printf("Central Bank Id = %d\n", ID);

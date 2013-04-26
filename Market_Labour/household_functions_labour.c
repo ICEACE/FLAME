@@ -96,12 +96,14 @@ int household_labour_employment()
 
 /*
  * \fn: int household_labour_recieve_wage()
- * \brief: An household updates its wage history at the end
+ * \brief: An household updates its wage history and liquidity at the end
  * of the month.
  */
 int household_labour_recieve_wage()
 {
     int wage_total, w0, w1, w2;
+    
+    LIQUIDITY += WAGE;
     
     PREVIOUS_WAGES[2] = PREVIOUS_WAGES[1];
     PREVIOUS_WAGES[1] = PREVIOUS_WAGES[0];

@@ -5,14 +5,54 @@
     <version>Version 0.1.0, 29/03/2012</version>
     <description> Labour Market.</description>
     <environment>
+        <constants>
+            <variable>
+                <type>double</type>
+                <name>turnover_probability</name>
+                <description>A probability of a uniform distribution that determines turnover rate.</description>
+            </variable>
+        </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
             <file>household_functions_labour.c</file>
             <file>firm_functions_labour.c</file>
             <file>jpoffice_functions_labour.c</file>
         </functionFiles>
+        <dataTypes>
+            <dataType>
+                <name>vacancy</name>
+                <description>Firm vacancy information.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the firm agent.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>wage</name>
+                        <description>Wage offered by the firm that holds the vacancy.</description>
+                    </variable>
+                </variables>
+            </dataType>
+            <dataType>
+                <name>employee</name>
+                <description>Job applicant data.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the household agent.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>wage</name>
+                        <description>Current wage of the job applicant.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
     </environment>
-
 	<!-- List of agents -->
     <agents>
         <xagent>
@@ -20,6 +60,11 @@
             <description>Job Placement Office, an institutional agent. The agent performs job placement work in labour market.</description>
             <!-- Agent memory holding a list of variables -->
             <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
                 <variable>
                     <type>int</type>
                     <name>day_of_month_to_act</name>
@@ -31,7 +76,7 @@
                 <function>
                     <name>idle</name>
                     <description>Job matching is not active.</description>
-                    <currentState>JPOLabourStage1</currentState>
+                    <currentState>start</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
@@ -43,7 +88,7 @@
                 <function>
                     <name>jpoffice_labour_stage1</name>
                     <description>Collecting vacancies and job applications. Vacancies and turnover applications are matched.</description>
-                    <currentState>JPOLabourStage1</currentState>
+                    <currentState>start</currentState>
                     <nextState>JPOLabourStage2</nextState>
                     <condition>
                         <time>
@@ -128,11 +173,6 @@
                     <type>int</type>
                     <name>day_of_month_wage_recieved</name>
                     <description>The day of the month to wage recieved.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>previous_wages[3]</name>
-                    <description>Holds wages earned in three previous months.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->
@@ -257,7 +297,7 @@
                     <name>idle</name>
                     <description>Does nothing at the point when it is not last day of the month.</description>
                         <currentState>HHLabourPayroll</currentState>
-                        <nextState>end</nextState>
+                        <nextState>HHConsumptionStart</nextState>
                         <condition>
                             <not><time>
                                 <period>monthly</period>
@@ -269,7 +309,7 @@
                     <name>household_labour_recieve_wage</name>
                     <description>Recieves payment and update wage history.</description>
                     <currentState>HHLabourPayroll</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HHConsumptionStart</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -284,11 +324,6 @@
             <description>A simple production firm agent.</description>
             <!-- Agent memory holding a list of variables -->
             <memory>
-                <variable>
-                    <type>int</type>
-                    <name>day_of_month_to_act</name>
-                    <description>The day of the month to act</description>
-                </variable>
                 <variable>
                     <type>int_array</type>
                     <name>employees</name>
@@ -314,14 +349,19 @@
                     <name>employees_needed</name>
                     <description>Number of workers a firm needs for next production</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_wages_paid</name>
+                    <description>The day of the month wages paid.</description>
+                </variable>
             </memory>
             <!-- List of firm functions -->
             <functions>
                 <function>
                     <name>idle</name>
-                    <description>Labour market is not active.</description>
+                    <description>Labour hiring is not active.</description>
                     <currentState>FirmLabourStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmLabourPayWages</nextState>
                     <condition>
                         <not>
                             <time>
@@ -460,7 +500,7 @@
                     <name>idle</name>
                     <description>The agent has no vacant positions</description>
                     <currentState>FirmLabourStage2</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmLabourPayWages</nextState>
                     <condition>
                         <lhs>
                             <value>a.no_employees</value>
@@ -475,7 +515,7 @@
                     <name>firm_labour_job_offer_stage2</name>
                     <description>The agent completes the job placement.</description>
                     <currentState>FirmLabourStage2End</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmLabourPayWages</nextState>
                     <inputs>
                         <input>
                             <messageName>job_match_stage2</messageName>
@@ -488,50 +528,29 @@
                         </input>
                     </inputs>
                 </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>bank</name>
-            <description>A simple bank agent.</description>
-            <!-- Agent memory holding a list of variables -->
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
                 <function>
                     <name>idle</name>
-                    <description>Bank stays idle in labour market.</description>
-                    <currentState>BankLabour</currentState>
-                    <nextState>end</nextState>
+                    <description>Does nothing at the point when it is not last day of the month.</description>
+                    <currentState>FirmLabourPayWages</currentState>
+                    <nextState>FirmConsumptionStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_wages_paid</phase>
+                        </time></not>
+                    </condition>
                 </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>centralbank</name>
-            <description>A simple central bank agent.</description>
-            <!-- Agent memory holding a list of variables -->
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
                 <function>
-                    <name>idle</name>
-                    <description>Central Bank stays idle in labour market.</description>
-                    <currentState>CBLabour</currentState>
-                    <nextState>end</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>government</name>
-            <description>A simple government agent</description>
-            <!-- Agent memory holding a list of variables -->
-            <memory></memory>
-            <!-- List of agent functions -->
-            <functions>
-                <function>
-                <name>idle</name>
-                <description>Government stays idle in labour market.</description>
-                <currentState>GovLabour</currentState>
-                <nextState>end</nextState>
+                    <name>firm_labour_pay_wages</name>
+                    <description>Pay wages and update liquidity.</description>
+                    <currentState>FirmLabourPayWages</currentState>
+                    <nextState>FirmConsumptionStart</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_wages_paid</phase>
+                        </time>
+                    </condition>
                 </function>
             </functions>
         </xagent>

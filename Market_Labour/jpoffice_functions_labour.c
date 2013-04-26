@@ -80,7 +80,7 @@ int jpoffice_labour_stage1()
             i++;
         }
                 
-    } while (0 == 0);
+    } while (1);
     
 // Finish
     

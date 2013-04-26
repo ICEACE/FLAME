@@ -1,408 +1,521 @@
 <states>
 <itno>0</itno>
 <environment>
-<turnover_probability>0.1</turnover_probability>
 <housing_expenditure>0.1</housing_expenditure>
-<ratio_debt_firm>0.01</ratio_debt_firm>
-<production_markup>0.1</production_markup>
-<price_markup>0.1</price_markup>
-<firm_memory_persistance>0.5</firm_memory_persistance>
+<ratio_debt_firm>0.1</ratio_debt_firm>
+<wealth_effect>0.07</wealth_effect>
 </environment>
 <xagent>
 <name>firm</name>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{8,9,10,11}</employees>
-  <wage_offer>1500.0</wage_offer>
-  <no_employees>4</no_employees>
-  <vacancies>0</vacancies>
-  <employees_needed>4</employees_needed>
-  <labour_productivity>1.0</labour_productivity>
-  <debt>0.0</debt>
-  <inventories>0</inventories>
-  <sales>4</sales>
-  <production_current>4</production_current>
-  <production_estimate>0</production_estimate>
-  <production_plan>0</production_plan>
-  <unit_goods_price>1.0</unit_goods_price>
-  <day_of_month_production_completed>0</day_of_month_production_completed>
-  <unit_house_price>100.0</unit_house_price>
-  <labour_productivity_construction>1.0</labour_productivity_construction>
-  <capital_productivity_construction>1.0</capital_productivity_construction>
-  <capital_construction>300.0</capital_construction>
-  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <debt>10.0</debt>
+  <inventory>10</inventory>
+  <sales>5.0</sales>
+  <costs>20.0</costs>
+  <equity>0.0</equity>
+  <liquidity>100.0</liquidity>
+  <capital_goods>100.0</capital_goods>
+  <price_unit_product>6.0</price_unit_product>
   <id>1</id>
-  <bank_id>34</bank_id>
   <isconstructor>1</isconstructor>
 </xagent>
 <xagent>
 <name>firm</name>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{12,13,14,15}</employees>
-  <wage_offer>2000.0</wage_offer>
-  <no_employees>4</no_employees>
-  <vacancies>0</vacancies>
-  <employees_needed>4</employees_needed>
-  <labour_productivity>10.0</labour_productivity>
-  <debt>0.0</debt>
-  <inventories>0</inventories>
-  <sales>40</sales>
-  <production_current>40</production_current>
-  <production_estimate>0</production_estimate>
-  <production_plan>0</production_plan>
-  <unit_goods_price>1.0</unit_goods_price>
-  <day_of_month_production_completed>0</day_of_month_production_completed>
-  <unit_house_price>100.0</unit_house_price>
-  <labour_productivity_construction>1.0</labour_productivity_construction>
-  <capital_productivity_construction>1.0</capital_productivity_construction>
-  <capital_construction>300.0</capital_construction>
-  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <debt>10.0</debt>
+  <inventory>10</inventory>
+  <sales>5.0</sales>
+  <costs>20.0</costs>
+  <equity>0.0</equity>
+  <liquidity>100.0</liquidity>
+  <capital_goods>100.0</capital_goods>
+  <price_unit_product>11.0</price_unit_product>
   <id>2</id>
-  <bank_id>34</bank_id>
   <isconstructor>0</isconstructor>
 </xagent>
 <xagent>
 <name>firm</name>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{16,17,18,19}</employees>
-  <wage_offer>2500.0</wage_offer>
-  <no_employees>4</no_employees>
-  <vacancies>0</vacancies>
-  <employees_needed>4</employees_needed>
-  <labour_productivity>10.0</labour_productivity>
-  <debt>0.0</debt>
-  <inventories>0</inventories>
-  <sales>40</sales>
-  <production_current>40</production_current>
-  <production_estimate>0</production_estimate>
-  <production_plan>0</production_plan>
-  <unit_goods_price>1.0</unit_goods_price>
-  <day_of_month_production_completed>0</day_of_month_production_completed>
-  <unit_house_price>100.0</unit_house_price>
-  <labour_productivity_construction>1.0</labour_productivity_construction>
-  <capital_productivity_construction>1.0</capital_productivity_construction>
-  <capital_construction>300.0</capital_construction>
-  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <debt>10.0</debt>
+  <inventory>10</inventory>
+  <sales>5.0</sales>
+  <costs>20.0</costs>
+  <equity>0.0</equity>
+  <liquidity>100.0</liquidity>
+  <capital_goods>100.0</capital_goods>
+  <price_unit_product>16.0</price_unit_product>
   <id>3</id>
-  <bank_id>34</bank_id>
   <isconstructor>0</isconstructor>
 </xagent>
 <xagent>
 <name>firm</name>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{20,21,22,23}</employees>
-  <wage_offer>3000.0</wage_offer>
-  <no_employees>4</no_employees>
-  <vacancies>0</vacancies>
-  <employees_needed>4</employees_needed>
-  <labour_productivity>10.0</labour_productivity>
-  <debt>0.0</debt>
-  <inventories>0</inventories>
-  <sales>40</sales>
-  <production_current>40</production_current>
-  <production_estimate>0</production_estimate>
-  <production_plan>0</production_plan>
-  <unit_goods_price>1.0</unit_goods_price>
-  <day_of_month_production_completed>0</day_of_month_production_completed>
-  <unit_house_price>100.0</unit_house_price>
-  <labour_productivity_construction>1.0</labour_productivity_construction>
-  <capital_productivity_construction>1.0</capital_productivity_construction>
-  <capital_construction>300.0</capital_construction>
-  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <debt>10.0</debt>
+  <inventory>10</inventory>
+  <sales>5.0</sales>
+  <costs>20.0</costs>
+  <equity>0.0</equity>
+  <liquidity>100.0</liquidity>
+  <capital_goods>100.0</capital_goods>
+  <price_unit_product>21.0</price_unit_product>
   <id>4</id>
-  <bank_id>34</bank_id>
   <isconstructor>0</isconstructor>
 </xagent>
 <xagent>
 <name>firm</name>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <employees>{24,25,26,27}</employees>
-  <wage_offer>3500.0</wage_offer>
-  <no_employees>4</no_employees>
-  <vacancies>0</vacancies>
-  <employees_needed>4</employees_needed>
-  <labour_productivity>10.0</labour_productivity>
-  <debt>0.0</debt>
-  <inventories>0</inventories>
-  <sales>40</sales>
-  <production_current>40</production_current>
-  <production_estimate>0</production_estimate>
-  <production_plan>0</production_plan>
-  <unit_goods_price>1.0</unit_goods_price>
-  <day_of_month_production_completed>0</day_of_month_production_completed>
-  <unit_house_price>100.0</unit_house_price>
-  <labour_productivity_construction>1.0</labour_productivity_construction>
-  <capital_productivity_construction>1.0</capital_productivity_construction>
-  <capital_construction>300.0</capital_construction>
-  <projects>{0,0,0,0,0,0,0,0,0,0,0,0,0}</projects>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <debt>10.0</debt>
+  <inventory>10</inventory>
+  <sales>5.0</sales>
+  <costs>20.0</costs>
+  <equity>0.0</equity>
+  <liquidity>100.0</liquidity>
+  <capital_goods>100.0</capital_goods>
+  <price_unit_product>26.0</price_unit_product>
   <id>5</id>
-  <bank_id>34</bank_id>
   <isconstructor>0</isconstructor>
-</xagent>
-<xagent>
-<name>jpoffice</name>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <id>6</id>
 </xagent>
 <xagent>
 <name>government</name>
-  <id>7</id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>8</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>9</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>10</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>11</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>12</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>13</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>14</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>1</my_employer_id>
-  <wage>1500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>15</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>16</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>17</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>18</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>2</my_employer_id>
-  <wage>2000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>19</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>3</my_employer_id>
-  <wage>2500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>20</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>3</my_employer_id>
-  <wage>2500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>21</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>3</my_employer_id>
-  <wage>2500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>22</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>3</my_employer_id>
-  <wage>2500.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>23</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>4</my_employer_id>
-  <wage>3000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>24</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>4</my_employer_id>
-  <wage>3000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>25</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>4</my_employer_id>
-  <wage>3000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>26</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>4</my_employer_id>
-  <wage>3000.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>27</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>28</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>29</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>30</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>31</id>
-  <bank_id>34</bank_id>
-</xagent>
-<xagent>
-<name>household</name>
-  <my_employer_id>0</my_employer_id>
-  <wage>0.0</wage>
-  <day_of_month_to_act>1</day_of_month_to_act>
-  <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
-  <previous_wages>{0,0,0}</previous_wages>
-  <id>32</id>
-  <bank_id>34</bank_id>
+  <debt>0.0</debt>
+  <equity>0.0</equity>
+  <liquidity>0.0</liquidity>
+  <id>6</id>
 </xagent>
 <xagent>
 <name>centralbank</name>
-  <id>33</id>
+  <liquidity>0.0</liquidity>
+  <loans_banks>0.0</loans_banks>
+  <loans_government>0.0</loans_government>
+  <fiat_money>0.0</fiat_money>
+  <equity>0.0</equity>
+  <liquidity_banks>0.0</liquidity_banks>
+  <liquidity_government>0.0</liquidity_government>
+  <id>7</id>
+</xagent>
+<xagent>
+<name>mall</name>
+  <id>8</id>
+  <day_of_week_to_act>2</day_of_week_to_act>
 </xagent>
 <xagent>
 <name>bank</name>
+  <loans>0.0</loans>
+  <mortgages>0.0</mortgages>
+  <deposits>0.0</deposits>
+  <debt>0.0</debt>
+  <equity>0.0</equity>
+  <liquidity>0.0</liquidity>
+  <id>9</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>10.0</weekly_consumption_budget>
+  <id>10</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>11.0</weekly_consumption_budget>
+  <id>11</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>12.0</weekly_consumption_budget>
+  <id>12</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>13.0</weekly_consumption_budget>
+  <id>13</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>14.0</weekly_consumption_budget>
+  <id>14</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>15.0</weekly_consumption_budget>
+  <id>15</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>16.0</weekly_consumption_budget>
+  <id>16</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>17.0</weekly_consumption_budget>
+  <id>17</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>18.0</weekly_consumption_budget>
+  <id>18</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>19.0</weekly_consumption_budget>
+  <id>19</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>20.0</weekly_consumption_budget>
+  <id>20</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>21.0</weekly_consumption_budget>
+  <id>21</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>22.0</weekly_consumption_budget>
+  <id>22</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>23.0</weekly_consumption_budget>
+  <id>23</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>24.0</weekly_consumption_budget>
+  <id>24</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>25.0</weekly_consumption_budget>
+  <id>25</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>26.0</weekly_consumption_budget>
+  <id>26</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>27.0</weekly_consumption_budget>
+  <id>27</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>28.0</weekly_consumption_budget>
+  <id>28</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>29.0</weekly_consumption_budget>
+  <id>29</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>30.0</weekly_consumption_budget>
+  <id>30</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>31.0</weekly_consumption_budget>
+  <id>31</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>32.0</weekly_consumption_budget>
+  <id>32</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>33.0</weekly_consumption_budget>
+  <id>33</id>
+</xagent>
+<xagent>
+<name>household</name>
+  <day_of_week_to_act>2</day_of_week_to_act>
+  <total_assets>20.0</total_assets>
+  <mortgages>100.0</mortgages>
+  <housing_payment>0.0</housing_payment>
+  <equity>0.0</equity>
+  <housing_price>100.0</housing_price>
+  <housing_units>1</housing_units>
+  <liquidity>120.0</liquidity>
+  <fund_shares>10.0</fund_shares>
+  <previous_wages>{0,0,0}</previous_wages>
+  <net_income>10.0</net_income>
+  <weekly_consumption_budget>34.0</weekly_consumption_budget>
   <id>34</id>
+</xagent>
+<xagent>
+<name>equityfund</name>
+  <share_firms>0.0</share_firms>
+  <share_construction_firms>0.0</share_construction_firms>
+  <share_banks>0.0</share_banks>
+  <equity>0.0</equity>
+  <liquidity>0.0</liquidity>
+  <n_households>25</n_households>
+  <id>35</id>
 </xagent>
 </states>
