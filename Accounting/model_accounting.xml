@@ -1,0 +1,538 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 0.1.4, 17/04/2012</version>
+    <description> Balance sheet accounting model.</description>
+    <environment>
+        <constants>
+            <variable>
+                <type>double</type>
+                <name>housing_expenditure</name>
+                <description>A threshold value denoting expenditure on housing as a proportion of total income. Used by Household agents.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>ratio_debt_firm</name>
+                <description>Ratio of debt to be paid by a firm.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>wealth_effect</name>
+                <description>A rate of influence from housing market to regular economy. Used by Household Agents.</description>
+            </variable>
+        </constants>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>household_functions_accounting.c</file>
+            <file>firm_functions_accounting.c</file>
+            <file>bank_functions_accounting.c</file>
+            <file>centralbank_functions_accounting.c</file>
+            <file>government_functions_accounting.c</file>
+            <file>equityfund_functions_accounting.c</file>
+        </functionFiles>
+        <dataTypes/>
+    </environment>
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>household</name>
+            <description>Household in ICEACE model.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>total_assets</name>
+                    <description>Total assets.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>mortgages</name>
+                    <description>Total mortgage.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>housing_payment</name>
+                    <description>Holds total mortgage payment done within the last quarter.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                <description>Household equity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>housing_price</name>
+                    <description>Market value of a unit housing.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>housing_units</name>
+                    <description>Number of housing units owned by a household.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Liquidity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>fund_shares</name>
+                    <description>Equity fund shares.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>previous_wages[3]</name>
+                    <description>Holds wages earned in three previous months.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>net_income</name>
+                    <description>Holds net income within last quarter.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>weekly_consumption_budget</name>
+                    <description>Weakly consumption budget for next quarter.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end/start of a quarter.</description>
+                    <currentState>HHAccountingStart</currentState>
+                    <nextState>HHLabourStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_accounting_collect_shares</name>
+                    <description>At the end of a quarter household recieves shares from the firms via Equity Fund.</description>
+                    <currentState>HHAccountingStart</currentState>
+                    <nextState>HHAccountingNetIncome</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>household_share</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>household_accounting_compute_net_income</name>
+                    <description>Computing quarterly net income.</description>
+                    <currentState>HHAccountingNetIncome</currentState>
+                    <nextState>HHAccountingWealthEffect</nextState>
+                </function>
+                <function>
+                    <name>household_accounting_wealth_effect</name>
+                    <description>Computing calculating the wealth effect.</description>
+                    <currentState>HHAccountingWealthEffect</currentState>
+                    <nextState>HHAccountingBalanceSheet</nextState>
+                </function>
+                <function>
+                    <name>household_accounting_do_balance_sheet</name>
+                    <description>Computing the balance sheet.</description>
+                    <currentState>HHAccountingBalanceSheet</currentState>
+                    <nextState>HHLabourStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>firm</name>
+            <description>A production or constructor agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>debt</name>
+                    <description>Total debt of the firm.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>inventory</name>
+                    <description>Unsold inventory from previous month.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>sales</name>
+                    <description>Total number of sales within a month.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>costs</name>
+                    <description>Total production and operation costs.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                    <description>Firm equity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Liquidity.</description>
+                </variable>
+                <variable>
+                <type>double</type>
+                    <name>capital_goods</name>
+                    <description>Capital Goods.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>price_unit_product</name>
+                    <description>Unit price of the product made by the firm.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end/start of a quarter.</description>
+                    <currentState>FirmAccountingStart</currentState>
+                    <nextState>FirmProductionStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_accounting_distribute_net_income</name>
+                    <description>At the end of a quarter sends net income to the fund.</description>
+                    <currentState>FirmAccountingStart</currentState>
+                    <nextState>FirmAccountingBalanceSheet</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>firm_net_income</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_accounting_do_balance_sheet</name>
+                    <description>Updating the balance sheet.</description>
+                    <currentState>FirmAccountingBalanceSheet</currentState>
+                    <nextState>FirmProductionStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>equityfund</name>
+            <description>The Equity Fund agency.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>share_firms</name>
+                    <description>Shares owned by regular firms.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>share_construction_firms</name>
+                    <description>Shares owned by constructor firms.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>share_banks</name>
+                    <description>Shares owned by banks.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                    <description>Firm equity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Liquidity.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>n_households</name>
+                    <description>Number of households to recieve liquid shares from firm net income.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end/start of a quarter.</description>
+                    <currentState>EFAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>equityfund_accounting_collect_firm_shares</name>
+                    <description>At the end of a quarter collect net income from the firms in the market.</description>
+                    <currentState>EFAccountingStart</currentState>
+                    <nextState>EFAccountingDistributeShares</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>firm_net_income</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>equityfund_accounting_distribute_shares</name>
+                    <description>At the end of a quarter net income per household is distributed.</description>
+                    <currentState>EFAccountingDistributeShares</currentState>
+                    <nextState>EFAccountingBalanceSheet</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>household_share</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>equityfund_accounting_do_balance_sheet</name>
+                    <description>Equity fund balance sheet accounting activities.</description>
+                    <currentState>EFAccountingBalanceSheet</currentState>
+                    <nextState>end</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>bank</name>
+            <description>A bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>loans</name>
+                    <description>loans to firms.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>mortgages</name>
+                    <description>Mortgages to households.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>deposits</name>
+                    <description>Deposits recieved from private sector.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>debt</name>
+                    <description>Debt to central bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                    <description>Firm equity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Liquidity.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end/start of a quarter.</description>
+                    <currentState>BankAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>bank_accounting_do_balance_sheet</name>
+                    <description>Bank balance sheet accounting activities.</description>
+                    <currentState>BankAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A simple central bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Central Bank liquidity</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>loans_banks</name>
+                    <description>loans to firms.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>loans_government</name>
+                    <description>loans to the government.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>fiat_money</name>
+                    <description>Outstanding fiat money.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                    <description>Firm equity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity_banks</name>
+                    <description>Liquidity kept for banks.</description>
+                </variable>
+                    <variable>
+                    <type>double</type>
+                    <name>liquidity_government</name>
+                    <description>Liquidity kept for the government.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end/start of a quarter.</description>
+                    <currentState>CBAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_accounting_do_balance_sheet</name>
+                    <description>Central Bank balance sheet accounting activities.</description>
+                    <currentState>CBAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>government</name>
+            <description>A simple government agent</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>debt</name>
+                    <description>Debt to central bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                    <description>Government equity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Government liquidity.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end/start of a quarter.</description>
+                    <currentState>GovAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>government_accounting_do_balance_sheet</name>
+                    <description>Government balance sheet accounting activities.</description>
+                    <currentState>GovAccountingStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>firm_net_income</name>
+            <description>Net income send to Equity Fund.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isconstructor</name>
+                    <description>Flag to label whether the income is recieved from a constructor firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>net_income</name>
+                    <description>Net income to be distributed.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>household_share</name>
+            <description>Shares are sent to households.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Share per household.</description>
+                </variable>
+            </variables>
+        </message>
+    </messages>
+</xmodel>
