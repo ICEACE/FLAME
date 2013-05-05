@@ -1,4 +1,9 @@
-== 2013, April 01, model_v0.1.0.xml== 
+== 2013, May 02, model_v0.1.0.xml== 
+
+"This version implements Labour Market, Consumption Goods Market, Consumption Goods Production and Balance Sheet Accounting."
+
+== 2013, April 01, model_v0.0.5.xml== 
+
 "This version implements ICEACE Labour Market.
 
 The current version is not 1 to 1 implementation of the model. It differentiates from the model. Hiring, and firing is implemented in a deterministic sampling manner. However, firms and households does not have full knowledge of the market. An household applies a position one at a time. Firms collects applications and give priority to lower indexed applicants. With current limited knowledge, it is possible to observe that there are still infilled vacancies even if there is still unemployed households in the market.

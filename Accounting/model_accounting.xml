@@ -8,18 +8,13 @@
         <constants>
             <variable>
                 <type>double</type>
-                <name>housing_expenditure</name>
-                <description>A threshold value denoting expenditure on housing as a proportion of total income. Used by Household agents.</description>
-            </variable>
-            <variable>
-                <type>double</type>
                 <name>ratio_debt_firm</name>
                 <description>Ratio of debt to be paid by a firm.</description>
             </variable>
             <variable>
                 <type>double</type>
-                <name>wealth_effect</name>
-                <description>A rate of influence from housing market to regular economy. Used by Household Agents.</description>
+                <name>ratio_capitalist_households</name>
+                <description>It is the rate of households owning firm shares.</description>
             </variable>
         </constants>
         <functionFiles>
@@ -40,11 +35,6 @@
             <description>Household in ICEACE model.</description>
             <!-- Agent memory holding a list of variables -->
             <memory>
-                <variable>
-                    <type>double</type>
-                    <name>total_assets</name>
-                    <description>Total assets.</description>
-                </variable>
                 <variable>
                     <type>double</type>
                     <name>mortgages</name>
@@ -71,6 +61,11 @@
                     <description>Number of housing units owned by a household.</description>
                 </variable>
                 <variable>
+                    <type>int</type>
+                    <name>dividends</name>
+                    <description>Number of dividends an household owns.</description>
+                </variable>
+                <variable>
                     <type>double</type>
                     <name>liquidity</name>
                     <description>Liquidity.</description>
@@ -85,59 +80,59 @@
                     <name>previous_wages[3]</name>
                     <description>Holds wages earned in three previous months.</description>
                 </variable>
-                <variable>
-                    <type>double</type>
-                    <name>net_income</name>
-                    <description>Holds net income within last quarter.</description>
-                </variable>
-                <variable>
-                    <type>double</type>
-                    <name>weekly_consumption_budget</name>
-                    <description>Weakly consumption budget for next quarter.</description>
-                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
                     <name>idle</name>
-                    <description>It is not the end/start of a quarter.</description>
+                    <description>It is not the start of a new quarter.</description>
                     <currentState>HHAccountingStart</currentState>
                     <nextState>HHLabourStart</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is the start of a new quarter.</description>
+                    <currentState>HHAccountingStart</currentState>
+                    <nextState>HHAccountingIsCapitalist</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>The household does not own any shares of firms.</description>
+                    <currentState>HHAccountingIsCapitalist</currentState>
+                    <nextState>HHAccountingBalanceSheet</nextState>
+                    <condition>
+                        <lhs><value>a.dividends</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
                     </condition>
                 </function>
                 <function>
                     <name>household_accounting_collect_shares</name>
                     <description>At the end of a quarter household recieves shares from the firms via Equity Fund.</description>
-                    <currentState>HHAccountingStart</currentState>
-                    <nextState>HHAccountingNetIncome</nextState>
+                    <currentState>HHAccountingIsCapitalist</currentState>
+                    <nextState>HHAccountingBalanceSheet</nextState>
                     <condition>
-                        <time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time>
+                        <lhs><value>a.dividends</value></lhs>
+                        <op>GT</op>
+                        <rhs><value>0</value></rhs>
                     </condition>
                     <inputs>
                         <input>
                             <messageName>household_share</messageName>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>household_accounting_compute_net_income</name>
-                    <description>Computing quarterly net income.</description>
-                    <currentState>HHAccountingNetIncome</currentState>
-                    <nextState>HHAccountingWealthEffect</nextState>
-                </function>
-                <function>
-                    <name>household_accounting_wealth_effect</name>
-                    <description>Computing calculating the wealth effect.</description>
-                    <currentState>HHAccountingWealthEffect</currentState>
-                    <nextState>HHAccountingBalanceSheet</nextState>
                 </function>
                 <function>
                     <name>household_accounting_do_balance_sheet</name>
@@ -169,6 +164,11 @@
                 </variable>
                 <variable>
                     <type>double</type>
+                    <name>revenue</name>
+                    <description>Total revenue from sales. It is offset quarterly.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
                     <name>costs</name>
                     <description>Total production and operation costs.</description>
                 </variable>
@@ -187,11 +187,6 @@
                     <name>capital_goods</name>
                     <description>Capital Goods.</description>
                 </variable>
-                <variable>
-                    <type>double</type>
-                    <name>price_unit_product</name>
-                    <description>Unit price of the product made by the firm.</description>
-                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -203,24 +198,24 @@
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></not>
                     </condition>
                 </function>
                 <function>
-                    <name>firm_accounting_distribute_net_income</name>
-                    <description>At the end of a quarter sends net income to the fund.</description>
+                    <name>firm_accounting_distribute_net_profit</name>
+                    <description>At the end of a quarter, a firm sends net profit to the equity fund.</description>
                     <currentState>FirmAccountingStart</currentState>
                     <nextState>FirmAccountingBalanceSheet</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time>
                     </condition>
                     <outputs>
                         <output>
-                            <messageName>firm_net_income</messageName>
+                            <messageName>firm_net_profit</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -264,7 +259,7 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>n_households</name>
+                    <name>n_dividends</name>
                     <description>Number of households to recieve liquid shares from firm net income.</description>
                 </variable>
             </memory>
@@ -278,7 +273,7 @@
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -290,12 +285,12 @@
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time>
                     </condition>
                     <inputs>
                         <input>
-                            <messageName>firm_net_income</messageName>
+                            <messageName>firm_net_profit</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -364,7 +359,7 @@
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -376,7 +371,7 @@
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time>
                     </condition>
                 </function>
@@ -433,7 +428,7 @@
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -445,7 +440,7 @@
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time>
                     </condition>
                 </function>
@@ -482,7 +477,7 @@
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -494,7 +489,7 @@
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time>
                     </condition>
                 </function>
@@ -503,7 +498,7 @@
     </agents>
     <messages>
         <message>
-            <name>firm_net_income</name>
+            <name>firm_net_profit</name>
             <description>Net income send to Equity Fund.</description>
             <variables>
                 <variable>

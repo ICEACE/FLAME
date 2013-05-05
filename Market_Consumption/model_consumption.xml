@@ -5,7 +5,23 @@
     <version>Version 0.1.4, 17/04/2012</version>
     <description> Consumption Market. ICEACE consuming activities.</description>
     <environment>
-        <constants/>
+        <constants>
+            <variable>
+                <type>double</type>
+                <name>ratio_liquidity</name>
+                <description>Ratio of liquidity to monthly disposable income.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>consumption_adjustment_speed</name>
+                <description>The consumption adjustment speed.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>wealth_effect</name>
+                <description>A rate of influence from housing market to regular economy. Used by Household agents.</description>
+            </variable>
+        </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
             <file>household_functions_consumption.c</file>
@@ -66,11 +82,6 @@
             <memory>
                 <variable>
                     <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
                     <name>day_of_week_to_act</name>
                     <description>Day of the week to act for consumption.</description>
                 </variable>
@@ -80,7 +91,7 @@
                 <function>
                     <name>idle</name>
                     <description>It is not the day of the week to shop.</description>
-                    <currentState>start</currentState>
+                    <currentState>MallConsumptionMarket</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
@@ -92,7 +103,7 @@
                 <function>
                     <name>mall_consumption_shopping</name>
                     <description>Mall collecting supplies from the firms, demands from the households.</description>
-                    <currentState>start</currentState>
+                    <currentState>MallConsumptionMarket</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <time>
@@ -134,13 +145,47 @@
                     <name>day_of_week_to_act</name>
                     <description>Day of the week to act for consumption.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>weekly_consumption_budget</name>
+                    <description>Regualr weekly consumption budget computed for the quarter.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>consumption_budget</name>
+                    <description>Consumption budget that can be spent for the week.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
                     <name>idle</name>
-                    <description>It is not the day of the week to shop.</description>
+                    <description>It is not the first day of the month to compute monthly consumption.</description>
                     <currentState>HHConsumptionStart</currentState>
+                    <nextState>HHConsumptionWeekly</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_consumption_monthly_budget</name>
+                    <description>It is the first day of the month, time to compute monthly consumption.</description>
+                    <currentState>HHConsumptionStart</currentState>
+                    <nextState>HHConsumptionWeekly</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the week to shop.</description>
+                    <currentState>HHConsumptionWeekly</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
@@ -152,7 +197,7 @@
                 <function>
                     <name>household_consumption_demand</name>
                     <description>A household demands a consumption amounted to the available budget he/she has.</description>
-                    <currentState>HHConsumptionStart</currentState>
+                    <currentState>HHConsumptionWeekly</currentState>
                     <nextState>HHRecieveGoods</nextState>
                     <condition>
                         <time>

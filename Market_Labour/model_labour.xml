@@ -62,11 +62,6 @@
             <memory>
                 <variable>
                     <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
                     <name>day_of_month_to_act</name>
                     <description>The day of mont to perform job matching.</description>
                 </variable>
@@ -76,7 +71,7 @@
                 <function>
                     <name>idle</name>
                     <description>Job matching is not active.</description>
-                    <currentState>start</currentState>
+                    <currentState>JPOLabourMarket</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
@@ -88,7 +83,7 @@
                 <function>
                     <name>jpoffice_labour_stage1</name>
                     <description>Collecting vacancies and job applications. Vacancies and turnover applications are matched.</description>
-                    <currentState>start</currentState>
+                    <currentState>JPOLabourMarket</currentState>
                     <nextState>JPOLabourStage2</nextState>
                     <condition>
                         <time>

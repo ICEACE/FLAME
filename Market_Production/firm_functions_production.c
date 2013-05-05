@@ -8,14 +8,14 @@
  */
 int firm_production_produce_goods()
 {
-    printf("Firm ID = %d\n", ID);   
+    //printf("Firm ID = %d\n", ID);   
     /*
      Production amount based on Lentoif production function.
      Capital productivity is set to inf. This results in a production solely based on availability
      of labour.
      */
-    PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY;
-    printf("    New goods available for the market = %d\n", PRODUCTION_CURRENT);
+    PRODUCTION_CURRENT = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
+    //printf("    New goods available for the market = %d\n", PRODUCTION_CURRENT);
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -40,8 +40,8 @@ int firm_production_set_price()
         UNIT_GOODS_PRICE = (1 + PRICE_MARKUP) * unit_cost;
     }
     
-    printf("Firm ID = %d\n", ID);
-    printf("    New unit Price = %f\n", UNIT_GOODS_PRICE);
+    //printf("Firm ID = %d\n", ID);
+    //printf("    New unit price = %f\n", UNIT_GOODS_PRICE);
     
     return 0; /* Returning zero means the agent is not removed */
 }
@@ -70,20 +70,21 @@ int firm_production_plan()
     else {
         PRODUCTION_ESTIMATE = 0;
     }
-    printf("    Production Estimate = %d\n", PRODUCTION_ESTIMATE);
+    //printf("    Production Estimate = %d\n", PRODUCTION_ESTIMATE);
     
     // compute production plan considering firm memory persistance
     // and production estimates.
     PRODUCTION_PLAN = (int) (FIRM_MEMORY_PERSISTANCE * (double)PRODUCTION_CURRENT);
     PRODUCTION_PLAN += (int)((1.0 - FIRM_MEMORY_PERSISTANCE) * (double)PRODUCTION_ESTIMATE);
     
-    printf("    Production Plan = %d\n", PRODUCTION_PLAN);
+    //printf("    Production Plan = %d\n", PRODUCTION_PLAN);
     
     // INVENTORY available for sell is updated.
     INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
-    printf("    Total INVENTORY available for sale = %d\n", INVENTORY);
+    //printf("    Total INVENTORY available for sale = %d\n", INVENTORY);
     
+    //Sales are monthly.
     SALES = 0;
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -96,8 +97,8 @@ int firm_production_plan()
  */
 int firm_production_compute_labour_demand()
 {
-    EMPLOYEES_NEEDED = PRODUCTION_PLAN / (int)LABOUR_PRODUCTIVITY;
-    printf("    Employees Needed = %d\n", EMPLOYEES_NEEDED);
+    EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+    //printf("    Employees Needed = %d\n", EMPLOYEES_NEEDED);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -115,11 +116,11 @@ int firm_production_compute_labour_demand()
 int firm_production_construct_houses()
 {
     int capital, labour, units_produced;
-    printf("Constructor Firm ID = %d\n", ID);
-    printf("    Houses not sold = %d\n", INVENTORY);
+    //printf("Constructor Firm ID = %d\n", ID);
+    //printf("    Houses not sold = %d\n", INVENTORY);
     
-    labour = NO_EMPLOYEES * LABOUR_PRODUCTIVITY;
-    capital = CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION;
+    labour = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    capital = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
     //Lentoif production function:
     units_produced = min_int(labour, capital);
     
@@ -145,7 +146,7 @@ int firm_production_construct_houses()
     PRODUCTION_CURRENT = PROJECTS[0];
     
     
-    printf("    New housing units available for the market = %d\n", PRODUCTION_CURRENT);
+    //printf("    New housing units available for the market = %d\n", PRODUCTION_CURRENT);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -159,14 +160,15 @@ int firm_production_construction_plan()
 {
     double new_price, old_price;
     int work_in_progress, price;
+    int maxsize;
 
     // New housing units produced in previous month
     // is made available for sale at the start of current month.
     INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
     
-    printf("Constructor Firm ID = %d\n", ID);
-    printf("    Total inventories available for sale = %d\n", INVENTORY);
+    //printf("Constructor Firm ID = %d\n", ID);
+    //printf("    Total inventories available for sale = %d\n", INVENTORY);
     
     //Estimate the production for next period.
     old_price = UNIT_HOUSE_PRICE;
@@ -178,31 +180,43 @@ int firm_production_construction_plan()
         
     //Get number of ongoing projects.
     work_in_progress = 0;
-    for (int i = 1; i<=12; i++) { work_in_progress += PROJECTS[i]; }
+    //printf("    Projects[");
+    for (int i = 1; i<=12; i++) {
+        work_in_progress += PROJECTS[i];
+        //printf("%d ", PROJECTS[i]);
+    }
+    //printf("]\n");
+    //printf("    Work in progress = %d \n", work_in_progress);
     
-    printf("Work in progress %d\n", price);
-
+    maxsize = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
+    //printf("    Maxsize = %d \n", maxsize);
+    //printf("    Old Price = %f \n", old_price);
+    //printf("    New Price = %f \n", new_price);
+    //printf("    No Employees = %d \n", NO_EMPLOYEES);
+    //printf("    Productivity = %f \n", LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    //printf("    Nemployees * productivity = %d \n", (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION));
     
-    int maxsize = (int) CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION;
     
-    //The first 3 condition is added to the model! Needs to be chekced.
+    //Some conditions are added to the model! Needs to be chekced.
     if (maxsize == 0){
         PRODUCTION_PLAN = 0;
     }
-    else if (work_in_progress == 0) {
-        PRODUCTION_PLAN = random_int(1, NO_EMPLOYEES * (int) LABOUR_PRODUCTIVITY);
-    }
-    else if (work_in_progress >= maxsize) {
-        PRODUCTION_PLAN = random_int(1, work_in_progress);
-    }
     else if (new_price > old_price) {
-        PRODUCTION_PLAN = random_int(work_in_progress, maxsize);
+        if (work_in_progress < maxsize) {
+            PRODUCTION_PLAN = random_int(work_in_progress, maxsize);
+        } else {
+            PRODUCTION_PLAN = maxsize;
+        }
     }
     else {
-        PRODUCTION_PLAN = random_int(1, work_in_progress);
+        if (work_in_progress < 2) {
+            PRODUCTION_PLAN = work_in_progress;
+        } else {
+            PRODUCTION_PLAN = random_int(1, work_in_progress);
+        }
     }
 
-    printf("    Planned number of new houses for the next term = %d\n", PRODUCTION_PLAN);
+    //printf("    Planned number of new houses for the next term = %d\n", PRODUCTION_PLAN);
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -213,8 +227,8 @@ int firm_production_construction_plan()
  */
 int firm_production_construction_labour_demand()
 {
-    EMPLOYEES_NEEDED = PRODUCTION_PLAN / (int)LABOUR_PRODUCTIVITY;
-    printf("    Number of Constructor Workers Needed = %d\n", EMPLOYEES_NEEDED);
+    EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    //printf("    Number of Constructor Workers Needed = %d\n", EMPLOYEES_NEEDED);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

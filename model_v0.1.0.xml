@@ -2,8 +2,8 @@
     xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.1.0, 29/03/2012</version>
-    <description>ICEACE - Labour Market </description>
+    <version>Version 0.1.0, 02/05/2012</version>
+    <description>ICEACE - Labour Market, Production Market, Consumption Market and Balance Sheet Accounting </description>
     <models>
         <model>
             <file>Market_Consumption/model_consumption.xml</file>
@@ -33,6 +33,8 @@
             <file>government_functions_top.c</file>
             <file>centralbank_functions_top.c</file>
             <file>equityfund_functions_top.c</file>
+            <file>jpoffice_functions_top.c</file>
+            <file>mall_functions_top.c</file>
         </functionFiles>
         <dataTypes/>
         <timeUnits>
@@ -187,6 +189,44 @@
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
                     <nextState>CBAccountingStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>jpoffice</name>
+            <description>Job placement office.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>jpoffice_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>JPOLabourMarket</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>mall</name>
+            <description>Shopping mall.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>mall_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>MallConsumptionMarket</nextState>
                 </function>
             </functions>
         </xagent>

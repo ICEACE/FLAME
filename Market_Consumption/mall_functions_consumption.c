@@ -165,7 +165,7 @@ int mall_consumption_shopping()
     }
     
     // Finish
-    printf("Mall: Total Goods Not Sold= %d\n", total_sold);
+    //printf("Mall: Total Goods Not Sold= %d\n", total_sold);
     
     /* Free seller list */
     free_seller_array(&sellers_list);

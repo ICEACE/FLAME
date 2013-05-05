@@ -9,13 +9,13 @@
  */
 int equityfund_accounting_collect_firm_shares()
 {
-    START_FIRM_NET_INCOME_MESSAGE_LOOP
-    if (firm_net_income_message->isconstructor == 1) {
-        SHARE_CONSTRUCTION_FIRMS += firm_net_income_message->net_income;
+    START_FIRM_NET_PROFIT_MESSAGE_LOOP
+    if (firm_net_profit_message->isconstructor == 1) {
+        SHARE_CONSTRUCTION_FIRMS += firm_net_profit_message->net_income;
     } else {
-        SHARE_FIRMS += firm_net_income_message->net_income;
+        SHARE_FIRMS += firm_net_profit_message->net_income;
     }
-	FINISH_FIRM_NET_INCOME_MESSAGE_LOOP
+	FINISH_FIRM_NET_PROFIT_MESSAGE_LOOP
     
     // Net incomes are liquidified right away to be distributed to households.
     LIQUIDITY = SHARE_CONSTRUCTION_FIRMS + SHARE_FIRMS;
@@ -34,7 +34,7 @@ int equityfund_accounting_distribute_shares()
 {
     double per_house;
     
-    per_house = LIQUIDITY / N_HOUSEHOLDS;
+    per_house = LIQUIDITY / N_DIVIDENDS;
     
     add_household_share_message(per_house);
     
@@ -52,7 +52,7 @@ int equityfund_accounting_do_balance_sheet()
 {
     EQUITY = LIQUIDITY + SHARE_FIRMS + SHARE_CONSTRUCTION_FIRMS + SHARE_BANKS;
     
-     printf(" Equity Fund Id = %d, Equity %f \n", ID, EQUITY);
+     ////printf(" Equity Fund Id = %d, Equity %f \n", ID, EQUITY);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

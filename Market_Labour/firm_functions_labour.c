@@ -198,7 +198,10 @@ int firm_labour_job_offer_stage2()
  */
 int firm_labour_pay_wages()
 {
-    LIQUIDITY -= WAGE_OFFER * (double)NO_EMPLOYEES;
+    double payrolls;
+    payrolls = (double)(WAGE_OFFER * NO_EMPLOYEES);
+    LIQUIDITY -= payrolls;
+    COSTS += payrolls;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
