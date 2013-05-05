@@ -3,7 +3,7 @@ var searchData=
   ['m_5fbought',['m_bought',['../header_8h.html#a23d377b73cf5c4b2f03c73c9b5c037b6',1,'header.h']]],
   ['m_5fbuy',['m_buy',['../header_8h.html#a4bbf639dbee2ff3a27b912460a65e999',1,'header.h']]],
   ['m_5ffired',['m_fired',['../header_8h.html#adbeae1787ef7bf2126f61f36f5935ebd',1,'header.h']]],
-  ['m_5ffirm_5fnet_5fincome',['m_firm_net_income',['../header_8h.html#ab69bfb21f4e68ac1c9852821a5687b37',1,'header.h']]],
+  ['m_5ffirm_5fnet_5fprofit',['m_firm_net_profit',['../header_8h.html#ab970f481606d4da21a9390a65d1edd05',1,'header.h']]],
   ['m_5fhousehold_5fshare',['m_household_share',['../header_8h.html#a88c578feaed196ff3d6d0bc1c923bb99',1,'header.h']]],
   ['m_5fjob_5fapplication_5fstage1',['m_job_application_stage1',['../header_8h.html#aaa18a5e7a3f34a060ac67c1c26fddfe5',1,'header.h']]],
   ['m_5fjob_5fapplication_5fstage2',['m_job_application_stage2',['../header_8h.html#af78253908fe1f49a1bcd074d630163c3',1,'header.h']]],

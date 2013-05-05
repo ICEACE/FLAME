@@ -2,10 +2,10 @@ var searchData=
 [
   ['household_5fend_5fstate',['household_end_state',['../header_8h.html#a1ce99b061a4ee16a3ed5bd72c92637f5',1,'header.h']]],
   ['household_5fhhaccountingbalancesheet_5fstate',['household_HHAccountingBalanceSheet_state',['../header_8h.html#a8fbef9dd2c7dabfe024d939fa8287485',1,'header.h']]],
-  ['household_5fhhaccountingnetincome_5fstate',['household_HHAccountingNetIncome_state',['../header_8h.html#a03d2b2bf164cb889bdf70e4f07351250',1,'header.h']]],
+  ['household_5fhhaccountingiscapitalist_5fstate',['household_HHAccountingIsCapitalist_state',['../header_8h.html#a79489a35f712d26decd6d875dd2e9b7a',1,'header.h']]],
   ['household_5fhhaccountingstart_5fstate',['household_HHAccountingStart_state',['../header_8h.html#a2ae63a9499c7b381b4781b042f3775ec',1,'header.h']]],
-  ['household_5fhhaccountingwealtheffect_5fstate',['household_HHAccountingWealthEffect_state',['../header_8h.html#a6e1ea02d25a398fa11055b48947dffd0',1,'header.h']]],
   ['household_5fhhconsumptionstart_5fstate',['household_HHConsumptionStart_state',['../header_8h.html#a95f8549b97ed4ea22f2f767198fe798c',1,'header.h']]],
+  ['household_5fhhconsumptionweekly_5fstate',['household_HHConsumptionWeekly_state',['../header_8h.html#a5f6a489a2cf740059472c92eadaf3a9e',1,'header.h']]],
   ['household_5fhhlabourpayroll_5fstate',['household_HHLabourPayroll_state',['../header_8h.html#a48c6f2321690f7b8210f3ce471b8d00a',1,'header.h']]],
   ['household_5fhhlabourstage1_5fstate',['household_HHLabourStage1_state',['../header_8h.html#adc53cf9162570e0621605e4837ce7d01',1,'header.h']]],
   ['household_5fhhlabourstage1applications_5fstate',['household_HHLabourStage1Applications_state',['../header_8h.html#ababcbeef2f3434f6cc699b285cc65d41',1,'header.h']]],

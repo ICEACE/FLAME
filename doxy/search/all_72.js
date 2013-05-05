@@ -2,7 +2,9 @@ var searchData=
 [
   ['random_5fint',['random_int',['../library__functions_8c.html#ad7954e6a1b9ea073c7bc894dc5af85a9',1,'random_int(int min, int max):&#160;library_functions.c'],['../library__header_8h.html#ad7954e6a1b9ea073c7bc894dc5af85a9',1,'random_int(int min, int max):&#160;library_functions.c']]],
   ['random_5fnumber',['random_number',['../library__functions_8c.html#aa13515a0d852afda9cf305d8ef672a98',1,'random_number(int a, int b):&#160;library_functions.c'],['../library__header_8h.html#aa13515a0d852afda9cf305d8ef672a98',1,'random_number(int a, int b):&#160;library_functions.c']]],
+  ['ratio_5fcapitalist_5fhouseholds',['RATIO_CAPITALIST_HOUSEHOLDS',['../header_8h.html#a304e33ca9d811d43cee3567f3336b056',1,'header.h']]],
   ['ratio_5fdebt_5ffirm',['RATIO_DEBT_FIRM',['../header_8h.html#aa6863532f479ae2abc06feeef6a714bf',1,'header.h']]],
+  ['ratio_5fliquidity',['RATIO_LIQUIDITY',['../header_8h.html#aba6d18c176273eb10971f12876fab80d',1,'header.h']]],
   ['read_5fbuyer',['read_buyer',['../header_8h.html#a8061b71ece6aa771a5836c58cd582cd2',1,'read_buyer(char *buffer, int buffer_size, int *j, buyer *temp_datatype):&#160;xml.c'],['../xml_8c.html#ac69cdb53ccfd1484666121d39c4d80b4',1,'read_buyer(char *buffer, intbuffer_size, int *j, buyer *temp_datatype):&#160;xml.c']]],
   ['read_5fbuyer_5fdynamic_5farray',['read_buyer_dynamic_array',['../header_8h.html#a6c2c6b9abe29cc413a1dcac0a128cee8',1,'read_buyer_dynamic_array(char *buffer, int buffer_size, int *j, buyer_array *temp_datatype_array):&#160;xml.c'],['../xml_8c.html#a6c2c6b9abe29cc413a1dcac0a128cee8',1,'read_buyer_dynamic_array(char *buffer, int buffer_size, int *j, buyer_array *temp_datatype_array):&#160;xml.c']]],
   ['read_5fbuyer_5fstatic_5farray',['read_buyer_static_array',['../header_8h.html#aac7c71fd446f0542190986090886c4f3',1,'read_buyer_static_array(char *buffer, int buffer_size, int *j, buyer *temp_datatype_array, int size):&#160;xml.c'],['../xml_8c.html#aac7c71fd446f0542190986090886c4f3',1,'read_buyer_static_array(char *buffer, int buffer_size, int *j, buyer *temp_datatype_array, int size):&#160;xml.c']]],
@@ -27,8 +29,8 @@ var searchData=
   ['readenvironmentxml',['readEnvironmentXML',['../xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34',1,'xml.c']]],
   ['readinitialstates',['readinitialstates',['../header_8h.html#acdf3e0e87f4574e3f9a3e9ede6841849',1,'readinitialstates(char *filename, char *filelocation, int *itno, double cloud_data[], int partition_method, int flag):&#160;xml.c'],['../xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849',1,'readinitialstates(char *filename, char *filelocation, int *itno, double cloud_data[], int partition_method, int flag):&#160;xml.c']]],
   ['readme_2emd',['README.md',['../outputs_2_r_e_a_d_m_e_8md.html',1,'']]],
-  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['readme_2emd',['README.md',['../docs_2_r_e_a_d_m_e_8md.html',1,'']]],
+  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['recieved_5fquantity',['recieved_quantity',['../structbuyer.html#add049617d3867d8f7206df9852ccea18',1,'buyer::recieved_quantity()'],['../structm__bought.html#add049617d3867d8f7206df9852ccea18',1,'m_bought::recieved_quantity()']]],
   ['release',['RELEASE',['../header_8h.html#a5bd9a30fc22d9a737ee060d41a4ec479',1,'header.h']]],
   ['remove_5fbuyer',['remove_buyer',['../header_8h.html#ad451e6a3aa6032434c7e4755de44282e',1,'remove_buyer(buyer_array *array, int index):&#160;memory.c'],['../memory_8c.html#ad451e6a3aa6032434c7e4755de44282e',1,'remove_buyer(buyer_array *array, int index):&#160;memory.c']]],
@@ -47,5 +49,6 @@ var searchData=
   ['reset_5fint_5farray',['reset_int_array',['../header_8h.html#a4cef77cbc0e2812ed11570dc96536e2a',1,'reset_int_array(int_array *array):&#160;memory.c'],['../memory_8c.html#a4cef77cbc0e2812ed11570dc96536e2a',1,'reset_int_array(int_array *array):&#160;memory.c']]],
   ['reset_5fseller_5farray',['reset_seller_array',['../header_8h.html#a3d51c3c4ee9734c7e41753a3069f252b',1,'reset_seller_array(seller_array *array):&#160;memory.c'],['../memory_8c.html#a3d51c3c4ee9734c7e41753a3069f252b',1,'reset_seller_array(seller_array *array):&#160;memory.c']]],
   ['reset_5fvacancy_5farray',['reset_vacancy_array',['../header_8h.html#a453e15c668e901fe5afd5a8a39b8ab8e',1,'reset_vacancy_array(vacancy_array *array):&#160;memory.c'],['../memory_8c.html#a453e15c668e901fe5afd5a8a39b8ab8e',1,'reset_vacancy_array(vacancy_array *array):&#160;memory.c']]],
+  ['revenue',['revenue',['../structxmachine__memory__firm.html#a4246e48200148bdf2335461c21e35107',1,'xmachine_memory_firm::revenue()'],['../firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9',1,'REVENUE():&#160;firm_agent_header.h']]],
   ['rules_2ec',['rules.c',['../rules_8c.html',1,'']]]
 ];

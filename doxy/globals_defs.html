@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -141,6 +141,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>COMPACT_PRINTOUT_P_THRESHOLD
 : <a class="el" href="main_8c.html#a5caa19733791b031eb60cf3777488187">main.c</a>
 </li>
+<li>CONSUMPTION_ADJUSTMENT_SPEED
+: <a class="el" href="header_8h.html#a8a6d43ff3e97acba3c1c4948d4c5a1e3">header.h</a>
+</li>
+<li>CONSUMPTION_BUDGET
+: <a class="el" href="household__agent__header_8h.html#a4dbfd48516bb5066d8461244c4cc6935">household_agent_header.h</a>
+</li>
 <li>COSTS
 : <a class="el" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933">firm_agent_header.h</a>
 </li>
@@ -171,12 +177,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="mall__agent__header_8h.html#a5ea5b3e3dd3c2bb90dab15c69433ba7c">mall_agent_header.h</a>
 </li>
 <li>DEBT
-: <a class="el" href="government__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6">government_agent_header.h</a>
-, <a class="el" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6">bank_agent_header.h</a>
+: <a class="el" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6">bank_agent_header.h</a>
+, <a class="el" href="government__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6">government_agent_header.h</a>
 , <a class="el" href="firm__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6">firm_agent_header.h</a>
 </li>
 <li>DEPOSITS
 : <a class="el" href="bank__agent__header_8h.html#ab72a0a2568aa9d903451ab28b59859c7">bank_agent_header.h</a>
+</li>
+<li>DIVIDENDS
+: <a class="el" href="household__agent__header_8h.html#adb59c56d5ed656e2bf181d6c4786499e">household_agent_header.h</a>
 </li>
 </ul>
 
@@ -212,8 +221,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>FINISH_FIRED_MESSAGE_LOOP
 : <a class="el" href="header_8h.html#a2f6d970685533c673da3542d681f4143">header.h</a>
 </li>
-<li>FINISH_FIRM_NET_INCOME_MESSAGE_LOOP
-: <a class="el" href="header_8h.html#ab829005a7c1858279856d14c0badb383">header.h</a>
+<li>FINISH_FIRM_NET_PROFIT_MESSAGE_LOOP
+: <a class="el" href="header_8h.html#ab9fc7d1ff640b61ac4f147f7eca84da4">header.h</a>
 </li>
 <li>FINISH_HOUSEHOLD_SHARE_MESSAGE_LOOP
 : <a class="el" href="header_8h.html#a828dc64b9cd3baaca0a26bcabcad9521">header.h</a>
@@ -264,9 +273,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
-<li>HOUSING_EXPENDITURE
-: <a class="el" href="header_8h.html#a5ce911f1f96832138bc862bf218d37cf">header.h</a>
-</li>
 <li>HOUSING_PAYMENT
 : <a class="el" href="household__agent__header_8h.html#a899712fd06452e6a1f75149a6e18dbf9">household_agent_header.h</a>
 </li>
@@ -354,14 +360,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
-<li>N_HOUSEHOLDS
-: <a class="el" href="equityfund__agent__header_8h.html#a4fd97d2bbd333b286bf10ea8bdb4a701">equityfund_agent_header.h</a>
+<li>N_DIVIDENDS
+: <a class="el" href="equityfund__agent__header_8h.html#af9f05f12f4e351eea0e258ab84c19f12">equityfund_agent_header.h</a>
 </li>
 <li>NDEBUG
 : <a class="el" href="header_8h.html#a8de3ed741dadc9c979a4ff17c0a9116e">header.h</a>
-</li>
-<li>NET_INCOME
-: <a class="el" href="household__agent__header_8h.html#aaf7e429dbf8cc64d5b5cfb21a58bd94a">household_agent_header.h</a>
 </li>
 <li>NO_EMPLOYEES
 : <a class="el" href="firm__agent__header_8h.html#a267946001b4c4a04b1689cbe32cb8919">firm_agent_header.h</a>
@@ -375,9 +378,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>PRICE_MARKUP
 : <a class="el" href="header_8h.html#ae0dfd0054fb35b70b99c49790601d607">header.h</a>
-</li>
-<li>PRICE_UNIT_PRODUCT
-: <a class="el" href="firm__agent__header_8h.html#a6292669d4f2abca5e40ab9fa91c3b9e4">firm_agent_header.h</a>
 </li>
 <li>PRODUCTION_CURRENT
 : <a class="el" href="firm__agent__header_8h.html#a4d99f22c9b753d1692ac7fa4a22beed4">firm_agent_header.h</a>
@@ -398,11 +398,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>RATIO_CAPITALIST_HOUSEHOLDS
+: <a class="el" href="header_8h.html#a304e33ca9d811d43cee3567f3336b056">header.h</a>
+</li>
 <li>RATIO_DEBT_FIRM
 : <a class="el" href="header_8h.html#aa6863532f479ae2abc06feeef6a714bf">header.h</a>
 </li>
+<li>RATIO_LIQUIDITY
+: <a class="el" href="header_8h.html#aba6d18c176273eb10971f12876fab80d">header.h</a>
+</li>
 <li>RELEASE
 : <a class="el" href="header_8h.html#a5bd9a30fc22d9a737ee060d41a4ec479">header.h</a>
+</li>
+<li>REVENUE
+: <a class="el" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9">firm_agent_header.h</a>
 </li>
 </ul>
 
@@ -432,8 +441,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>START_FIRED_MESSAGE_LOOP
 : <a class="el" href="header_8h.html#a9706221101df04cb4f9351abd1c1a014">header.h</a>
 </li>
-<li>START_FIRM_NET_INCOME_MESSAGE_LOOP
-: <a class="el" href="header_8h.html#a9831ecfc33f5df27fef785d3fa4cd4de">header.h</a>
+<li>START_FIRM_NET_PROFIT_MESSAGE_LOOP
+: <a class="el" href="header_8h.html#a172ae9d590f6346fbe8bfed9b7908f02">header.h</a>
 </li>
 <li>START_HOUSEHOLD_SHARE_MESSAGE_LOOP
 : <a class="el" href="header_8h.html#a3b58f97302fe0248470e3afed1e0f49f">header.h</a>
@@ -469,9 +478,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>TOTAL_ASSETS
-: <a class="el" href="household__agent__header_8h.html#ad4db2509c316dd69fb433e15fb4699a8">household_agent_header.h</a>
-</li>
 <li>TURNOVER_PROBABILITY
 : <a class="el" href="header_8h.html#ad9a765b8ae3c899ab493bcbb4fc5f29e">header.h</a>
 </li>
@@ -512,7 +518,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 26 2013 17:24:50 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 5 2013 19:34:06 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

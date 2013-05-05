@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -114,9 +114,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 &#160;
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
-<li>firm_accounting_distribute_net_income()
-: <a class="el" href="firm__functions__accounting_8c.html#a7104faa21f3d895f3b29812819609c4f">firm_functions_accounting.c</a>
-, <a class="el" href="header_8h.html#a2bde58db8b1767e7cf25e125cb80facc">header.h</a>
+<li>firm_accounting_distribute_net_profit()
+: <a class="el" href="firm__functions__accounting_8c.html#aedf58b4af6ec85c6130ba5e022bc18df">firm_functions_accounting.c</a>
+, <a class="el" href="header_8h.html#a65685529b4071c272deda344c6f81986">header.h</a>
 </li>
 <li>firm_accounting_do_balance_sheet()
 : <a class="el" href="header_8h.html#afe3a5c465319f94842fb3384e2a79ce0">header.h</a>
@@ -218,9 +218,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#a38ca70dbbe0edbb4c12defedd4fe91b6">header.h</a>
 , <a class="el" href="rules_8c.html#a38ca70dbbe0edbb4c12defedd4fe91b6">rules.c</a>
 </li>
-<li>FLAME_condition_firm_firm_accounting_distribute_net_income_FirmAccountingStart_FirmAccountingBalanceSheet()
-: <a class="el" href="header_8h.html#a4bd2f6dba248f14018f1b3ff00b8c30d">header.h</a>
-, <a class="el" href="rules_8c.html#a4bd2f6dba248f14018f1b3ff00b8c30d">rules.c</a>
+<li>FLAME_condition_firm_firm_accounting_distribute_net_profit_FirmAccountingStart_FirmAccountingBalanceSheet()
+: <a class="el" href="header_8h.html#afd09e4be3872cd5ee4250c2d0b17d323">header.h</a>
+, <a class="el" href="rules_8c.html#afd09e4be3872cd5ee4250c2d0b17d323">rules.c</a>
 </li>
 <li>FLAME_condition_firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales()
 : <a class="el" href="header_8h.html#a2f5105fb21b856e988a2736285c3bb33">header.h</a>
@@ -310,13 +310,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#aa34c14276b9628b13f778059f9693f0f">header.h</a>
 , <a class="el" href="rules_8c.html#aa34c14276b9628b13f778059f9693f0f">rules.c</a>
 </li>
-<li>FLAME_condition_household_household_accounting_collect_shares_HHAccountingStart_HHAccountingNetIncome()
-: <a class="el" href="header_8h.html#ac0aa24686bafab95dd9a1aea7fb53a76">header.h</a>
-, <a class="el" href="rules_8c.html#ac0aa24686bafab95dd9a1aea7fb53a76">rules.c</a>
+<li>FLAME_condition_household_household_accounting_collect_shares_HHAccountingIsCapitalist_HHAccountingBalanceSheet()
+: <a class="el" href="header_8h.html#aa6b977cbb65c9a0251b505e172697a77">header.h</a>
+, <a class="el" href="rules_8c.html#aa6b977cbb65c9a0251b505e172697a77">rules.c</a>
 </li>
-<li>FLAME_condition_household_household_consumption_demand_HHConsumptionStart_HHRecieveGoods()
-: <a class="el" href="header_8h.html#ad312d38d98f2768d0c7f385e15a117aa">header.h</a>
-, <a class="el" href="rules_8c.html#ad312d38d98f2768d0c7f385e15a117aa">rules.c</a>
+<li>FLAME_condition_household_household_consumption_demand_HHConsumptionWeekly_HHRecieveGoods()
+: <a class="el" href="header_8h.html#ad9908f130b9f2224ebb6a9caf79527c6">header.h</a>
+, <a class="el" href="rules_8c.html#ad9908f130b9f2224ebb6a9caf79527c6">rules.c</a>
+</li>
+<li>FLAME_condition_household_household_consumption_monthly_budget_HHConsumptionStart_HHConsumptionWeekly()
+: <a class="el" href="header_8h.html#ad01601a3e1ecbd0af0ff5bc0e217f6e3">header.h</a>
+, <a class="el" href="rules_8c.html#ad01601a3e1ecbd0af0ff5bc0e217f6e3">rules.c</a>
 </li>
 <li>FLAME_condition_household_household_labour_check_fired_HHLabourStart_HHLabourStage1()
 : <a class="el" href="header_8h.html#aa37a4deab655b7a0d378f78a0dcb04d8">header.h</a>
@@ -330,13 +334,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#ab611cc99dad6b6386833d266fd5d7234">header.h</a>
 , <a class="el" href="rules_8c.html#ab611cc99dad6b6386833d266fd5d7234">rules.c</a>
 </li>
+<li>FLAME_condition_household_idle_HHAccountingIsCapitalist_HHAccountingBalanceSheet()
+: <a class="el" href="header_8h.html#a000a8979f106a2bbb44dfb7e13e8bf77">header.h</a>
+, <a class="el" href="rules_8c.html#a000a8979f106a2bbb44dfb7e13e8bf77">rules.c</a>
+</li>
+<li>FLAME_condition_household_idle_HHAccountingStart_HHAccountingIsCapitalist()
+: <a class="el" href="header_8h.html#a85365f245258d59f657a31aa1892be05">header.h</a>
+, <a class="el" href="rules_8c.html#a85365f245258d59f657a31aa1892be05">rules.c</a>
+</li>
 <li>FLAME_condition_household_idle_HHAccountingStart_HHLabourStart()
 : <a class="el" href="header_8h.html#adca750ac266eb66e7215e19968db974f">header.h</a>
 , <a class="el" href="rules_8c.html#adca750ac266eb66e7215e19968db974f">rules.c</a>
 </li>
-<li>FLAME_condition_household_idle_HHConsumptionStart_end()
-: <a class="el" href="header_8h.html#a5750d21196061cd3fb4b52be9b0c409e">header.h</a>
-, <a class="el" href="rules_8c.html#a5750d21196061cd3fb4b52be9b0c409e">rules.c</a>
+<li>FLAME_condition_household_idle_HHConsumptionStart_HHConsumptionWeekly()
+: <a class="el" href="header_8h.html#aab1f41157e35bee3d74ffda99e2972c1">header.h</a>
+, <a class="el" href="rules_8c.html#aab1f41157e35bee3d74ffda99e2972c1">rules.c</a>
+</li>
+<li>FLAME_condition_household_idle_HHConsumptionWeekly_end()
+: <a class="el" href="header_8h.html#ab77eb37a6a5d17ccb4ea454ca9712978">header.h</a>
+, <a class="el" href="rules_8c.html#ab77eb37a6a5d17ccb4ea454ca9712978">rules.c</a>
 </li>
 <li>FLAME_condition_household_idle_HHLabourPayroll_HHConsumptionStart()
 : <a class="el" href="header_8h.html#ad350386d397665dc5cd7b149cb34ff3b">header.h</a>
@@ -350,25 +366,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#ad164042cb1cb7f30126e65c2b750b442">header.h</a>
 , <a class="el" href="rules_8c.html#ad164042cb1cb7f30126e65c2b750b442">rules.c</a>
 </li>
-<li>FLAME_condition_jpoffice_idle_start_end()
-: <a class="el" href="header_8h.html#acbb0c74642eddac6c086cd2ba28edc9b">header.h</a>
-, <a class="el" href="rules_8c.html#acbb0c74642eddac6c086cd2ba28edc9b">rules.c</a>
+<li>FLAME_condition_jpoffice_idle_JPOLabourMarket_end()
+: <a class="el" href="rules_8c.html#a2257b8ea0413c6e141950c92db5ac6b6">rules.c</a>
+, <a class="el" href="header_8h.html#a2257b8ea0413c6e141950c92db5ac6b6">header.h</a>
 </li>
-<li>FLAME_condition_jpoffice_jpoffice_labour_stage1_start_JPOLabourStage2()
-: <a class="el" href="header_8h.html#ad2818c19ffd040fd927bb253b226b8e7">header.h</a>
-, <a class="el" href="rules_8c.html#ad2818c19ffd040fd927bb253b226b8e7">rules.c</a>
+<li>FLAME_condition_jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2()
+: <a class="el" href="header_8h.html#aadfdd961eda7f6bd29934289013359e1">header.h</a>
+, <a class="el" href="rules_8c.html#aadfdd961eda7f6bd29934289013359e1">rules.c</a>
 </li>
-<li>FLAME_condition_mall_idle_start_end()
-: <a class="el" href="header_8h.html#a3967bb7c8b6ba865382fa4905bbe272d">header.h</a>
-, <a class="el" href="rules_8c.html#a3967bb7c8b6ba865382fa4905bbe272d">rules.c</a>
+<li>FLAME_condition_mall_idle_MallConsumptionMarket_end()
+: <a class="el" href="header_8h.html#a093d343670e12df7184e2d48e28b6ec5">header.h</a>
+, <a class="el" href="rules_8c.html#a093d343670e12df7184e2d48e28b6ec5">rules.c</a>
 </li>
-<li>FLAME_condition_mall_mall_consumption_shopping_start_end()
-: <a class="el" href="header_8h.html#a0d6aa20626a3a205e046d72fa086b73b">header.h</a>
-, <a class="el" href="rules_8c.html#a0d6aa20626a3a205e046d72fa086b73b">rules.c</a>
+<li>FLAME_condition_mall_mall_consumption_shopping_MallConsumptionMarket_end()
+: <a class="el" href="header_8h.html#a788491559c576d235323fe9b04030b13">header.h</a>
+, <a class="el" href="rules_8c.html#a788491559c576d235323fe9b04030b13">rules.c</a>
 </li>
 <li>FLAME_filter_firm_firm_consumption_recieve_sales_FirmRecieveSales_end_sold()
-: <a class="el" href="rules_8c.html#a47e130c8f08262df534335820c434a6c">rules.c</a>
-, <a class="el" href="header_8h.html#a47e130c8f08262df534335820c434a6c">header.h</a>
+: <a class="el" href="header_8h.html#a47e130c8f08262df534335820c434a6c">header.h</a>
+, <a class="el" href="rules_8c.html#a47e130c8f08262df534335820c434a6c">rules.c</a>
 </li>
 <li>FLAME_filter_firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End_job_match_stage1()
 : <a class="el" href="header_8h.html#a59c8fafcf4e60668aeec0d39081f38aa">header.h</a>
@@ -391,32 +407,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="rules_8c.html#ab106db2fafab0d27c165e943d5922eb0">rules.c</a>
 </li>
 <li>FLAME_filter_household_household_labour_employment_HHLabourStage1Placement_HHLabourPayroll_job_match_stage2()
-: <a class="el" href="rules_8c.html#a5244ea1074b114961b709e24175084a4">rules.c</a>
-, <a class="el" href="header_8h.html#a5244ea1074b114961b709e24175084a4">header.h</a>
+: <a class="el" href="header_8h.html#a5244ea1074b114961b709e24175084a4">header.h</a>
+, <a class="el" href="rules_8c.html#a5244ea1074b114961b709e24175084a4">rules.c</a>
 </li>
 <li>FLAME_filter_household_household_labour_turnover_HHLabourStage2_HHLabourPayroll_job_match_stage1()
 : <a class="el" href="header_8h.html#ad6057212f70184c3ec54a899614b8f66">header.h</a>
 , <a class="el" href="rules_8c.html#ad6057212f70184c3ec54a899614b8f66">rules.c</a>
 </li>
-<li>FLAME_get_environment_variable_firm_memory_persistance()
-: <a class="el" href="memory_8c.html#a2bd17e38682c7aec0d26d7b5f5f59216">memory.c</a>
-, <a class="el" href="header_8h.html#a2bd17e38682c7aec0d26d7b5f5f59216">header.h</a>
+<li>FLAME_get_environment_variable_consumption_adjustment_speed()
+: <a class="el" href="memory_8c.html#a0f0e47c3e270c15c767392bb20079c85">memory.c</a>
+, <a class="el" href="header_8h.html#a0f0e47c3e270c15c767392bb20079c85">header.h</a>
 </li>
-<li>FLAME_get_environment_variable_housing_expenditure()
-: <a class="el" href="header_8h.html#ab4d08e5d3ca87bbd9e473e5aa9a2a3c7">header.h</a>
-, <a class="el" href="memory_8c.html#ab4d08e5d3ca87bbd9e473e5aa9a2a3c7">memory.c</a>
+<li>FLAME_get_environment_variable_firm_memory_persistance()
+: <a class="el" href="header_8h.html#a2bd17e38682c7aec0d26d7b5f5f59216">header.h</a>
+, <a class="el" href="memory_8c.html#a2bd17e38682c7aec0d26d7b5f5f59216">memory.c</a>
 </li>
 <li>FLAME_get_environment_variable_price_markup()
-: <a class="el" href="header_8h.html#ab269537b8aa6d1950efb87328dbc3ab8">header.h</a>
-, <a class="el" href="memory_8c.html#ab269537b8aa6d1950efb87328dbc3ab8">memory.c</a>
+: <a class="el" href="memory_8c.html#ab269537b8aa6d1950efb87328dbc3ab8">memory.c</a>
+, <a class="el" href="header_8h.html#ab269537b8aa6d1950efb87328dbc3ab8">header.h</a>
 </li>
 <li>FLAME_get_environment_variable_production_markup()
 : <a class="el" href="header_8h.html#a5b30b006c61343ccba0aed91b0ee9cf9">header.h</a>
 , <a class="el" href="memory_8c.html#a5b30b006c61343ccba0aed91b0ee9cf9">memory.c</a>
 </li>
+<li>FLAME_get_environment_variable_ratio_capitalist_households()
+: <a class="el" href="memory_8c.html#a2970e74fbe66bbed14ca2f8bd042dbc7">memory.c</a>
+, <a class="el" href="header_8h.html#a2970e74fbe66bbed14ca2f8bd042dbc7">header.h</a>
+</li>
 <li>FLAME_get_environment_variable_ratio_debt_firm()
-: <a class="el" href="memory_8c.html#a302878b26fb26626997fe5255db9f993">memory.c</a>
-, <a class="el" href="header_8h.html#a302878b26fb26626997fe5255db9f993">header.h</a>
+: <a class="el" href="header_8h.html#a302878b26fb26626997fe5255db9f993">header.h</a>
+, <a class="el" href="memory_8c.html#a302878b26fb26626997fe5255db9f993">memory.c</a>
+</li>
+<li>FLAME_get_environment_variable_ratio_liquidity()
+: <a class="el" href="header_8h.html#a3326385cd963eb19c8528001872f3244">header.h</a>
+, <a class="el" href="memory_8c.html#a3326385cd963eb19c8528001872f3244">memory.c</a>
 </li>
 <li>FLAME_get_environment_variable_turnover_probability()
 : <a class="el" href="header_8h.html#a4e77448cd3549b9c1ad5d08bd364c0a3">header.h</a>
@@ -430,25 +454,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#ace08d4a662468d469a9b78b10a6ad85f">header.h</a>
 , <a class="el" href="rules_8c.html#ace08d4a662468d469a9b78b10a6ad85f">rules.c</a>
 </li>
-<li>FLAME_sort_jpoffice_jpoffice_labour_stage1_start_JPOLabourStage2_job_application_stage1()
-: <a class="el" href="rules_8c.html#a882d90b91062c9232ba68d188cc51bcc">rules.c</a>
-, <a class="el" href="header_8h.html#a2847db46deeaf435a887f487599a3fc7">header.h</a>
+<li>FLAME_sort_jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2_job_application_stage1()
+: <a class="el" href="rules_8c.html#a6a13f60d3554cec1e0a87804e7a37d80">rules.c</a>
+, <a class="el" href="header_8h.html#ae24f841afa618f0441a5eba7c31d1ee3">header.h</a>
 </li>
-<li>FLAME_sort_jpoffice_jpoffice_labour_stage1_start_JPOLabourStage2_vacancy_stage1()
-: <a class="el" href="header_8h.html#a7274e9e65fb1289c5dcb02ff5cce784e">header.h</a>
-, <a class="el" href="rules_8c.html#a5f9df2f5de48253a6b3e1645a7ffda4c">rules.c</a>
+<li>FLAME_sort_jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2_vacancy_stage1()
+: <a class="el" href="header_8h.html#a60dc1367cfd5327f8babe0065ba2aaed">header.h</a>
+, <a class="el" href="rules_8c.html#a9f717ce046c88ad7efe93d995465ce1c">rules.c</a>
 </li>
 <li>FLAME_sort_jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end_job_application_stage2()
-: <a class="el" href="header_8h.html#a43fb320b0962823d55cb416c48c28129">header.h</a>
-, <a class="el" href="rules_8c.html#a93afca0ec1afd01005105c04be7839ae">rules.c</a>
+: <a class="el" href="rules_8c.html#a93afca0ec1afd01005105c04be7839ae">rules.c</a>
+, <a class="el" href="header_8h.html#a43fb320b0962823d55cb416c48c28129">header.h</a>
 </li>
 <li>FLAME_sort_jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end_vacancy_stage2()
 : <a class="el" href="header_8h.html#a9cc40e4ce0b5f07b0ca8e73afb044a37">header.h</a>
 , <a class="el" href="rules_8c.html#adac692e377e9a6b86b8200ea2ffc8791">rules.c</a>
 </li>
-<li>FLAME_sort_mall_mall_consumption_shopping_start_end_sell()
-: <a class="el" href="rules_8c.html#a56e2b470248512c31213169545f74d66">rules.c</a>
-, <a class="el" href="header_8h.html#a06091304a728b19b235ac3df91ce2e8e">header.h</a>
+<li>FLAME_sort_mall_mall_consumption_shopping_MallConsumptionMarket_end_sell()
+: <a class="el" href="rules_8c.html#a57f1bac61b314153012a3e14215d43a6">rules.c</a>
+, <a class="el" href="header_8h.html#a2441aa3f69a72547c4f574ead3aa9bef">header.h</a>
 </li>
 <li>FLAME_write_xml()
 : <a class="el" href="xml_8c.html#ad48628bfc281002883a57dbd39954214">xml.c</a>
@@ -457,8 +481,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#a3fd10be6be69cf09a33f1e78ed4abd2b">header.h</a>
 </li>
 <li>free_bank_agent()
-: <a class="el" href="memory_8c.html#a84002ec95ab52a9d90699886212dffdf">memory.c</a>
-, <a class="el" href="header_8h.html#a84002ec95ab52a9d90699886212dffdf">header.h</a>
+: <a class="el" href="header_8h.html#a84002ec95ab52a9d90699886212dffdf">header.h</a>
+, <a class="el" href="memory_8c.html#a84002ec95ab52a9d90699886212dffdf">memory.c</a>
 </li>
 <li>free_bank_agents()
 : <a class="el" href="memory_8c.html#a78f8281575aa61c64ddd5446f6804482">memory.c</a>
@@ -471,8 +495,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#ab5e5932f3a3f40c55401d833f2ab70f0">memory.c</a>
 </li>
 <li>free_buyer_array()
-: <a class="el" href="memory_8c.html#a85555ac2f11938365e9a2c2ce3564c25">memory.c</a>
-, <a class="el" href="header_8h.html#a85555ac2f11938365e9a2c2ce3564c25">header.h</a>
+: <a class="el" href="header_8h.html#a85555ac2f11938365e9a2c2ce3564c25">header.h</a>
+, <a class="el" href="memory_8c.html#a85555ac2f11938365e9a2c2ce3564c25">memory.c</a>
 </li>
 <li>free_buyer_static_array()
 : <a class="el" href="header_8h.html#a1c6b8091d03371b6742a3cd12a332bd2">header.h</a>
@@ -489,8 +513,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="memory_8c.html#ab49618d2e97dc7ce9fbadd111fcb54a5">memory.c</a>
 </li>
 <li>free_char_array()
-: <a class="el" href="memory_8c.html#a05ca87e22f9bc4f7260556552ed1b37d">memory.c</a>
-, <a class="el" href="header_8h.html#a05ca87e22f9bc4f7260556552ed1b37d">header.h</a>
+: <a class="el" href="header_8h.html#a05ca87e22f9bc4f7260556552ed1b37d">header.h</a>
+, <a class="el" href="memory_8c.html#a05ca87e22f9bc4f7260556552ed1b37d">memory.c</a>
 </li>
 <li>free_double_array()
 : <a class="el" href="header_8h.html#aa7bdf5e1338d1028dd84604035852611">header.h</a>
@@ -547,8 +571,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="memory_8c.html#aa90e4a1678100bda7f24a950ef25ebf3">memory.c</a>
 </li>
 <li>free_household_agent()
-: <a class="el" href="memory_8c.html#ace6be6831a9cffa367e347fca0635dcf">memory.c</a>
-, <a class="el" href="header_8h.html#ace6be6831a9cffa367e347fca0635dcf">header.h</a>
+: <a class="el" href="header_8h.html#ace6be6831a9cffa367e347fca0635dcf">header.h</a>
+, <a class="el" href="memory_8c.html#ace6be6831a9cffa367e347fca0635dcf">memory.c</a>
 </li>
 <li>free_household_agents()
 : <a class="el" href="memory_8c.html#a17aae5ae38772b93b7fca6901ddbc653">memory.c</a>
@@ -557,8 +581,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="memory_8c.html#a62770f2b45854841d3bcb021bdf9b88e">memory.c</a>
 </li>
 <li>free_int_array()
-: <a class="el" href="header_8h.html#ac539fcc4c125c0a59da07601b3ef15bc">header.h</a>
-, <a class="el" href="memory_8c.html#ac539fcc4c125c0a59da07601b3ef15bc">memory.c</a>
+: <a class="el" href="memory_8c.html#ac539fcc4c125c0a59da07601b3ef15bc">memory.c</a>
+, <a class="el" href="header_8h.html#ac539fcc4c125c0a59da07601b3ef15bc">header.h</a>
 </li>
 <li>free_jpoffice_agent()
 : <a class="el" href="memory_8c.html#a712df5567f604b27f4e8f4c4d2bcce82">memory.c</a>
@@ -571,8 +595,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="memory_8c.html#aa63aeb182a0c113b33bf1c6559d85185">memory.c</a>
 </li>
 <li>free_mall_agent()
-: <a class="el" href="memory_8c.html#a69fb93baae0c0a6b38107249d196772d">memory.c</a>
-, <a class="el" href="header_8h.html#a69fb93baae0c0a6b38107249d196772d">header.h</a>
+: <a class="el" href="header_8h.html#a69fb93baae0c0a6b38107249d196772d">header.h</a>
+, <a class="el" href="memory_8c.html#a69fb93baae0c0a6b38107249d196772d">memory.c</a>
 </li>
 <li>free_mall_agents()
 : <a class="el" href="memory_8c.html#a6d577b7b6f055d8573c6fd677c514095">memory.c</a>
@@ -584,28 +608,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="memory_8c.html#a68079b3290f9d5e9887e82b75d5ce8d6">memory.c</a>
 </li>
 <li>free_node_info()
-: <a class="el" href="memory_8c.html#a5a31eee4c20f4818e312c18c8c91712f">memory.c</a>
-, <a class="el" href="header_8h.html#a1b4d78505e9bf8af8fec563a8ac94f73">header.h</a>
+: <a class="el" href="header_8h.html#a1b4d78505e9bf8af8fec563a8ac94f73">header.h</a>
+, <a class="el" href="memory_8c.html#a5a31eee4c20f4818e312c18c8c91712f">memory.c</a>
 </li>
 <li>free_seller()
 : <a class="el" href="memory_8c.html#aeb26438d98e9e794699ac5948ea003b2">memory.c</a>
 , <a class="el" href="header_8h.html#aeb26438d98e9e794699ac5948ea003b2">header.h</a>
 </li>
 <li>free_seller_array()
-: <a class="el" href="header_8h.html#af02c3d5da271f1a703d1ee5c686db175">header.h</a>
-, <a class="el" href="memory_8c.html#af02c3d5da271f1a703d1ee5c686db175">memory.c</a>
+: <a class="el" href="memory_8c.html#af02c3d5da271f1a703d1ee5c686db175">memory.c</a>
+, <a class="el" href="header_8h.html#af02c3d5da271f1a703d1ee5c686db175">header.h</a>
 </li>
 <li>free_seller_static_array()
-: <a class="el" href="header_8h.html#ac0e35dbbe8ab19bebdadeaba8213a72b">header.h</a>
-, <a class="el" href="memory_8c.html#ac0e35dbbe8ab19bebdadeaba8213a72b">memory.c</a>
+: <a class="el" href="memory_8c.html#ac0e35dbbe8ab19bebdadeaba8213a72b">memory.c</a>
+, <a class="el" href="header_8h.html#ac0e35dbbe8ab19bebdadeaba8213a72b">header.h</a>
 </li>
 <li>free_vacancy()
-: <a class="el" href="header_8h.html#a0fb74c59100774150d72bd9044bd110e">header.h</a>
-, <a class="el" href="memory_8c.html#a0fb74c59100774150d72bd9044bd110e">memory.c</a>
+: <a class="el" href="memory_8c.html#a0fb74c59100774150d72bd9044bd110e">memory.c</a>
+, <a class="el" href="header_8h.html#a0fb74c59100774150d72bd9044bd110e">header.h</a>
 </li>
 <li>free_vacancy_array()
-: <a class="el" href="memory_8c.html#ad77be4824d260a85eea34d98e29b53dd">memory.c</a>
-, <a class="el" href="header_8h.html#ad77be4824d260a85eea34d98e29b53dd">header.h</a>
+: <a class="el" href="header_8h.html#ad77be4824d260a85eea34d98e29b53dd">header.h</a>
+, <a class="el" href="memory_8c.html#ad77be4824d260a85eea34d98e29b53dd">memory.c</a>
 </li>
 <li>free_vacancy_static_array()
 : <a class="el" href="header_8h.html#a588b8b9456c910b5b1adbdef13ceadbb">header.h</a>
@@ -620,8 +644,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>freefiredmessages()
 : <a class="el" href="header_8h.html#a9df9617dd7d1b6a38a9b98164fca0da2">header.h</a>
 </li>
-<li>freefirm_net_incomemessages()
-: <a class="el" href="header_8h.html#a01c7ec2fd6ea2c1d2b5b818561329d55">header.h</a>
+<li>freefirm_net_profitmessages()
+: <a class="el" href="header_8h.html#ab8ee026da57b642086709b2c3ae4e948">header.h</a>
 </li>
 <li>freehousehold_sharemessages()
 : <a class="el" href="header_8h.html#afb63d7020126544e006fb39e970fe129">header.h</a>
@@ -665,7 +689,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 26 2013 17:24:50 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 5 2013 19:34:06 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

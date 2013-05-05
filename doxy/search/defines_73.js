@@ -8,7 +8,7 @@ var searchData=
   ['start_5fbought_5fmessage_5floop',['START_BOUGHT_MESSAGE_LOOP',['../header_8h.html#a439a0f81c99fdf68997e18b87aefcd4c',1,'header.h']]],
   ['start_5fbuy_5fmessage_5floop',['START_BUY_MESSAGE_LOOP',['../header_8h.html#a0c588a83250ff21a21dfdd4fe04afcfe',1,'header.h']]],
   ['start_5ffired_5fmessage_5floop',['START_FIRED_MESSAGE_LOOP',['../header_8h.html#a9706221101df04cb4f9351abd1c1a014',1,'header.h']]],
-  ['start_5ffirm_5fnet_5fincome_5fmessage_5floop',['START_FIRM_NET_INCOME_MESSAGE_LOOP',['../header_8h.html#a9831ecfc33f5df27fef785d3fa4cd4de',1,'header.h']]],
+  ['start_5ffirm_5fnet_5fprofit_5fmessage_5floop',['START_FIRM_NET_PROFIT_MESSAGE_LOOP',['../header_8h.html#a172ae9d590f6346fbe8bfed9b7908f02',1,'header.h']]],
   ['start_5fhousehold_5fshare_5fmessage_5floop',['START_HOUSEHOLD_SHARE_MESSAGE_LOOP',['../header_8h.html#a3b58f97302fe0248470e3afed1e0f49f',1,'header.h']]],
   ['start_5fjob_5fapplication_5fstage1_5fmessage_5floop',['START_JOB_APPLICATION_STAGE1_MESSAGE_LOOP',['../header_8h.html#a6e345183971e2f313b48673f7309beaa',1,'header.h']]],
   ['start_5fjob_5fapplication_5fstage2_5fmessage_5floop',['START_JOB_APPLICATION_STAGE2_MESSAGE_LOOP',['../header_8h.html#a33e50ce1e086741282de5610863975bf',1,'header.h']]],

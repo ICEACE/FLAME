@@ -1,26 +1,26 @@
 <map id="node_information" name="node_information">
-<area shape="rect" id="node2" href="$structm__vacancy__stage1.html" title="Holds message of type vacancy_stage1_message." alt="" coords="617,23,753,51"/>
-<area shape="rect" id="node3" href="$structm__vacancy__stage2.html" title="Holds message of type vacancy_stage2_message." alt="" coords="617,75,753,103"/>
-<area shape="rect" id="node4" href="$structm__sell.html" title="Holds message of type sell_message." alt="" coords="655,127,715,155"/>
-<area shape="rect" id="node5" href="$structm__sold.html" title="Holds message of type sold_message." alt="" coords="653,179,717,207"/>
-<area shape="rect" id="node6" href="$structm__job__match__stage1.html" title="Holds message of type job_match_stage1_message." alt="" coords="611,231,760,259"/>
-<area shape="rect" id="node7" href="$structm__job__application__stage1.html" title="Holds message of type job_application_stage1_message." alt="" coords="597,283,773,311"/>
-<area shape="rect" id="node8" href="$structm__household__share.html" title="Holds message of type household_share_message." alt="" coords="614,335,756,363"/>
-<area shape="rect" id="node9" href="$structm__job__match__stage2.html" title="Holds message of type job_match_stage2_message." alt="" coords="611,387,760,415"/>
-<area shape="rect" id="node10" href="$structm__job__application__stage2.html" title="Holds message of type job_application_stage2_message." alt="" coords="597,439,773,467"/>
-<area shape="rect" id="node11" href="$structm__bought.html" title="Holds message of type bought_message." alt="" coords="645,491,726,519"/>
-<area shape="rect" id="node12" href="$structm__job__change.html" title="Holds message of type job_change_message." alt="" coords="631,543,740,571"/>
-<area shape="rect" id="node13" href="$structm__fired.html" title="Holds message of type fired_message." alt="" coords="652,595,718,623"/>
-<area shape="rect" id="node14" href="$structxmachine.html" title="Holds xmachines." alt="" coords="646,647,725,675"/>
-<area shape="rect" id="node15" href="$structxmachine__memory__equityfund.html" title="Holds memory of xmachine equityfund." alt="" coords="203,465,405,493"/>
-<area shape="rect" id="node16" href="$structxmachine__memory__bank.html" title="Holds memory of xmachine bank." alt="" coords="219,517,389,545"/>
-<area shape="rect" id="node17" href="$structxmachine__memory__jpoffice.html" title="Holds memory of xmachine jpoffice." alt="" coords="212,569,396,597"/>
-<area shape="rect" id="node18" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="221,621,387,649"/>
-<area shape="rect" id="node19" href="$structxmachine__memory__government.html" title="Holds memory of xmachine government." alt="" coords="198,673,410,701"/>
-<area shape="rect" id="node20" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="222,725,386,753"/>
-<area shape="rect" id="node21" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="6,725,79,753"/>
-<area shape="rect" id="node22" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="203,777,405,805"/>
-<area shape="rect" id="node23" href="$structxmachine__memory__centralbank.html" title="Holds memory of xmachine centralbank." alt="" coords="199,829,409,857"/>
-<area shape="rect" id="node24" href="$structm__firm__net__income.html" title="Holds message of type firm_net_income_message." alt="" coords="616,699,755,727"/>
+<area shape="rect" id="node2" href="$structm__firm__net__profit.html" title="Holds message of type firm_net_profit_message." alt="" coords="623,23,748,51"/>
+<area shape="rect" id="node3" href="$structm__vacancy__stage1.html" title="Holds message of type vacancy_stage1_message." alt="" coords="617,75,753,103"/>
+<area shape="rect" id="node4" href="$structm__vacancy__stage2.html" title="Holds message of type vacancy_stage2_message." alt="" coords="617,127,753,155"/>
+<area shape="rect" id="node5" href="$structm__sell.html" title="Holds message of type sell_message." alt="" coords="655,179,715,207"/>
+<area shape="rect" id="node6" href="$structm__sold.html" title="Holds message of type sold_message." alt="" coords="653,231,717,259"/>
+<area shape="rect" id="node7" href="$structm__job__match__stage1.html" title="Holds message of type job_match_stage1_message." alt="" coords="611,283,760,311"/>
+<area shape="rect" id="node8" href="$structm__job__application__stage1.html" title="Holds message of type job_application_stage1_message." alt="" coords="597,335,773,363"/>
+<area shape="rect" id="node9" href="$structm__household__share.html" title="Holds message of type household_share_message." alt="" coords="614,387,756,415"/>
+<area shape="rect" id="node10" href="$structm__job__match__stage2.html" title="Holds message of type job_match_stage2_message." alt="" coords="611,439,760,467"/>
+<area shape="rect" id="node11" href="$structm__job__application__stage2.html" title="Holds message of type job_application_stage2_message." alt="" coords="597,491,773,519"/>
+<area shape="rect" id="node12" href="$structm__bought.html" title="Holds message of type bought_message." alt="" coords="645,543,726,571"/>
+<area shape="rect" id="node13" href="$structm__job__change.html" title="Holds message of type job_change_message." alt="" coords="631,595,740,623"/>
+<area shape="rect" id="node14" href="$structm__fired.html" title="Holds message of type fired_message." alt="" coords="652,647,718,675"/>
+<area shape="rect" id="node15" href="$structxmachine.html" title="Holds xmachines." alt="" coords="646,699,725,727"/>
+<area shape="rect" id="node16" href="$structxmachine__memory__equityfund.html" title="Holds memory of xmachine equityfund." alt="" coords="203,517,405,545"/>
+<area shape="rect" id="node17" href="$structxmachine__memory__bank.html" title="Holds memory of xmachine bank." alt="" coords="219,569,389,597"/>
+<area shape="rect" id="node18" href="$structxmachine__memory__jpoffice.html" title="Holds memory of xmachine jpoffice." alt="" coords="212,621,396,649"/>
+<area shape="rect" id="node19" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="221,673,387,701"/>
+<area shape="rect" id="node20" href="$structxmachine__memory__government.html" title="Holds memory of xmachine government." alt="" coords="198,725,410,753"/>
+<area shape="rect" id="node21" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="222,777,386,805"/>
+<area shape="rect" id="node22" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="6,777,79,805"/>
+<area shape="rect" id="node23" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="203,829,405,857"/>
+<area shape="rect" id="node24" href="$structxmachine__memory__centralbank.html" title="Holds memory of xmachine centralbank." alt="" coords="199,881,409,909"/>
 <area shape="rect" id="node25" href="$structm__buy.html" title="Holds message of type buy_message." alt="" coords="655,751,716,779"/>
 </map>

@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -151,8 +151,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_equityfund_init_start_EFAccountingStart()
 : <a class="el" href="memory_8c.html#aa5f9e275b4a4bca44ce5bc4a7cf77ee8">memory.c</a>
 </li>
-<li>unittest_firm_accounting_distribute_net_income_FirmAccountingStart_FirmAccountingBalanceSheet()
-: <a class="el" href="memory_8c.html#a8ad4b20a1537045f99c5ca32697a4717">memory.c</a>
+<li>unittest_firm_accounting_distribute_net_profit_FirmAccountingStart_FirmAccountingBalanceSheet()
+: <a class="el" href="memory_8c.html#a2a3d0bf0efd33a672b04d88012f5db43">memory.c</a>
 </li>
 <li>unittest_firm_accounting_do_balance_sheet_FirmAccountingBalanceSheet_FirmProductionStart()
 : <a class="el" href="memory_8c.html#ad2eae7e5cfca4cd22926e342af98a633">memory.c</a>
@@ -249,20 +249,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_government_init_start_GovAccountingStart()
 : <a class="el" href="memory_8c.html#a918fde86f4bc32111efb2105822be822">memory.c</a>
 </li>
-<li>unittest_household_accounting_collect_shares_HHAccountingStart_HHAccountingNetIncome()
-: <a class="el" href="memory_8c.html#abdbe10e7fc97f544bf966844c702a927">memory.c</a>
-</li>
-<li>unittest_household_accounting_compute_net_income_HHAccountingNetIncome_HHAccountingWealthEffect()
-: <a class="el" href="memory_8c.html#a6be4e02cf989371a503c67fb7722d94c">memory.c</a>
+<li>unittest_household_accounting_collect_shares_HHAccountingIsCapitalist_HHAccountingBalanceSheet()
+: <a class="el" href="memory_8c.html#a2abbb646aa7f6d31455a59fc71b42dca">memory.c</a>
 </li>
 <li>unittest_household_accounting_do_balance_sheet_HHAccountingBalanceSheet_HHLabourStart()
 : <a class="el" href="memory_8c.html#a7b0012f86396bd48254828c71126ffba">memory.c</a>
 </li>
-<li>unittest_household_accounting_wealth_effect_HHAccountingWealthEffect_HHAccountingBalanceSheet()
-: <a class="el" href="memory_8c.html#acab298713b6e5bfc0c5e5a98e80a0af5">memory.c</a>
+<li>unittest_household_consumption_demand_HHConsumptionWeekly_HHRecieveGoods()
+: <a class="el" href="memory_8c.html#aad95e2ed9fe4dd1c5f02263d0091734b">memory.c</a>
 </li>
-<li>unittest_household_consumption_demand_HHConsumptionStart_HHRecieveGoods()
-: <a class="el" href="memory_8c.html#a71d2373b1c37a1bcf9c68108c929ca5d">memory.c</a>
+<li>unittest_household_consumption_monthly_budget_HHConsumptionStart_HHConsumptionWeekly()
+: <a class="el" href="memory_8c.html#aaf8222ab682eb49cd13dc515b34a23ac">memory.c</a>
 </li>
 <li>unittest_household_consumption_recieve_goods_HHRecieveGoods_end()
 : <a class="el" href="memory_8c.html#a06c081ce2b894272fc9dd18f3fa61f6a">memory.c</a>
@@ -330,11 +327,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_idle_GovAccountingStart_end()
 : <a class="el" href="memory_8c.html#a8e0883583c09ed0230589ea7cf1ce3a7">memory.c</a>
 </li>
+<li>unittest_idle_HHAccountingIsCapitalist_HHAccountingBalanceSheet()
+: <a class="el" href="memory_8c.html#af814e550899b2e696bc245a64ee8d510">memory.c</a>
+</li>
+<li>unittest_idle_HHAccountingStart_HHAccountingIsCapitalist()
+: <a class="el" href="memory_8c.html#a3aa13a3c2e9744f833db296b1aa3da32">memory.c</a>
+</li>
 <li>unittest_idle_HHAccountingStart_HHLabourStart()
 : <a class="el" href="memory_8c.html#aab2e027abce51d19768b6e76709d59eb">memory.c</a>
 </li>
-<li>unittest_idle_HHConsumptionStart_end()
-: <a class="el" href="memory_8c.html#aaa88b88dd7a5b8511b96b18b91fb5201">memory.c</a>
+<li>unittest_idle_HHConsumptionStart_HHConsumptionWeekly()
+: <a class="el" href="memory_8c.html#a74685979d2246cdac1c46f7dacdae0b3">memory.c</a>
+</li>
+<li>unittest_idle_HHConsumptionWeekly_end()
+: <a class="el" href="memory_8c.html#aa273d94d285bbeb195f2a7ffa9b6ff98">memory.c</a>
 </li>
 <li>unittest_idle_HHLabourPayroll_HHConsumptionStart()
 : <a class="el" href="memory_8c.html#afc1c8a30ba599cdcf39ea6b8136b1c7d">memory.c</a>
@@ -345,55 +351,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_idle_HHLabourStart_HHLabourPayroll()
 : <a class="el" href="memory_8c.html#a52fc3e1a529592ee6b036edb7dbbf149">memory.c</a>
 </li>
-<li>unittest_idle_start_end()
-: <a class="el" href="memory_8c.html#a700a1a67cc7b136330bbe4e0fcd687e0">memory.c</a>
+<li>unittest_idle_JPOLabourMarket_end()
+: <a class="el" href="memory_8c.html#a51032f8ccd71f7affbe7dd10f40e2de9">memory.c</a>
+</li>
+<li>unittest_idle_MallConsumptionMarket_end()
+: <a class="el" href="memory_8c.html#a3f32886c0abe6e65c9063d36448f7356">memory.c</a>
 </li>
 <li>unittest_init_bank_agent()
 : <a class="el" href="memory_8c.html#a2fd4144f49698de0766903188a2dde97">memory.c</a>
 , <a class="el" href="header_8h.html#a2fd4144f49698de0766903188a2dde97">header.h</a>
 </li>
 <li>unittest_init_centralbank_agent()
-: <a class="el" href="header_8h.html#a79fa5d9a605d2544598c898610bf5ea7">header.h</a>
-, <a class="el" href="memory_8c.html#a79fa5d9a605d2544598c898610bf5ea7">memory.c</a>
+: <a class="el" href="memory_8c.html#a79fa5d9a605d2544598c898610bf5ea7">memory.c</a>
+, <a class="el" href="header_8h.html#a79fa5d9a605d2544598c898610bf5ea7">header.h</a>
 </li>
 <li>unittest_init_equityfund_agent()
-: <a class="el" href="header_8h.html#a00ec22adf77f3ab3f27aa15e93175e84">header.h</a>
-, <a class="el" href="memory_8c.html#a00ec22adf77f3ab3f27aa15e93175e84">memory.c</a>
+: <a class="el" href="memory_8c.html#a00ec22adf77f3ab3f27aa15e93175e84">memory.c</a>
+, <a class="el" href="header_8h.html#a00ec22adf77f3ab3f27aa15e93175e84">header.h</a>
 </li>
 <li>unittest_init_firm_agent()
 : <a class="el" href="header_8h.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c">header.h</a>
 , <a class="el" href="memory_8c.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c">memory.c</a>
 </li>
 <li>unittest_init_government_agent()
-: <a class="el" href="memory_8c.html#a535b8199feca50523510acc3f413ca17">memory.c</a>
-, <a class="el" href="header_8h.html#a535b8199feca50523510acc3f413ca17">header.h</a>
+: <a class="el" href="header_8h.html#a535b8199feca50523510acc3f413ca17">header.h</a>
+, <a class="el" href="memory_8c.html#a535b8199feca50523510acc3f413ca17">memory.c</a>
 </li>
 <li>unittest_init_household_agent()
-: <a class="el" href="header_8h.html#ae2d784be8cf6510207b091539a8daf39">header.h</a>
-, <a class="el" href="memory_8c.html#ae2d784be8cf6510207b091539a8daf39">memory.c</a>
+: <a class="el" href="memory_8c.html#ae2d784be8cf6510207b091539a8daf39">memory.c</a>
+, <a class="el" href="header_8h.html#ae2d784be8cf6510207b091539a8daf39">header.h</a>
 </li>
 <li>unittest_init_jpoffice_agent()
-: <a class="el" href="header_8h.html#a1a89cd493d8ca24eda1de6fe7654a2dc">header.h</a>
-, <a class="el" href="memory_8c.html#a1a89cd493d8ca24eda1de6fe7654a2dc">memory.c</a>
+: <a class="el" href="memory_8c.html#a1a89cd493d8ca24eda1de6fe7654a2dc">memory.c</a>
+, <a class="el" href="header_8h.html#a1a89cd493d8ca24eda1de6fe7654a2dc">header.h</a>
 </li>
 <li>unittest_init_mall_agent()
 : <a class="el" href="header_8h.html#ab41b2abff8f08fdace159d56df436e6b">header.h</a>
 , <a class="el" href="memory_8c.html#ab41b2abff8f08fdace159d56df436e6b">memory.c</a>
 </li>
-<li>unittest_jpoffice_labour_stage1_start_JPOLabourStage2()
-: <a class="el" href="memory_8c.html#a704db4feba1c5f0e6d6cdd471aa20246">memory.c</a>
+<li>unittest_jpoffice_init_start_JPOLabourMarket()
+: <a class="el" href="memory_8c.html#a39f1dc489da01bd6287c04b849faef47">memory.c</a>
+</li>
+<li>unittest_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2()
+: <a class="el" href="memory_8c.html#ab7556b17e953c57453faf9ce0ea44359">memory.c</a>
 </li>
 <li>unittest_jpoffice_labour_stage2_JPOLabourStage2_end()
 : <a class="el" href="memory_8c.html#aaf9960aab7c28bea6bc0c52f876dce5c">memory.c</a>
 </li>
-<li>unittest_mall_consumption_shopping_start_end()
-: <a class="el" href="memory_8c.html#ad256369a9d41887f9367c0ea0314118d">memory.c</a>
+<li>unittest_mall_consumption_shopping_MallConsumptionMarket_end()
+: <a class="el" href="memory_8c.html#aa6a2332536dd60cacba2fda15407adce">memory.c</a>
+</li>
+<li>unittest_mall_init_start_MallConsumptionMarket()
+: <a class="el" href="memory_8c.html#a52cc5c233b88307b550b669f8f5379b0">memory.c</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 26 2013 17:24:50 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 5 2013 19:34:06 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -290,14 +290,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="firm__functions__labour_8c.html#acf0ef0eb77a4b697b42aee2f8aaaccbc">  199</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a5fe9a54b243c67d9d9b4b558a9e91669">firm_labour_pay_wages</a>()</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;{</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= <a class="code" href="firm__agent__header_8h.html#ad05e86af79e736a2a34853929a5d9fb7" title="Direct access to wage_offer of firm agent memory variable.">WAGE_OFFER</a> * (double)<a class="code" href="firm__agent__header_8h.html#a267946001b4c4a04b1689cbe32cb8919" title="Direct access to no_employees of firm agent memory variable.">NO_EMPLOYEES</a>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">double</span> payrolls;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    payrolls = (double)(<a class="code" href="firm__agent__header_8h.html#ad05e86af79e736a2a34853929a5d9fb7" title="Direct access to wage_offer of firm agent memory variable.">WAGE_OFFER</a> * <a class="code" href="firm__agent__header_8h.html#a267946001b4c4a04b1689cbe32cb8919" title="Direct access to no_employees of firm agent memory variable.">NO_EMPLOYEES</a>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= payrolls;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <a class="code" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933" title="Direct access to costs of firm agent memory variable.">COSTS</a> += payrolls;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 26 2013 17:24:48 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 5 2013 19:34:03 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

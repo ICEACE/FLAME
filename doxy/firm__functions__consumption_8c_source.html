@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.1.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -103,48 +103,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a6292669d4f2abca5e40ab9fa91c3b9e4" title="Direct access to price_unit_product of firm agent memory variable.">PRICE_UNIT_PRODUCT</a> == 0) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a> == 0) {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> &gt; 0) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="header_8h.html#a884debd5eb37c3d007c96dffb7dac94d" title="Add sell message by calling internal and processing.">add_sell_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a6292669d4f2abca5e40ab9fa91c3b9e4" title="Direct access to price_unit_product of firm agent memory variable.">PRICE_UNIT_PRODUCT</a>, <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * \fn: int firm_consumption_recieve_sales()</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="firm__functions__consumption_8c.html#a0c360de75cfa3a7beae0d3e02f0e381e">   28</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#afa1a8ad769d9a60b5c1185371ca43b4e">firm_consumption_recieve_sales</a>()</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> quantity_sold = 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> weekly_sales_income = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="header_8h.html#a884debd5eb37c3d007c96dffb7dac94d" title="Add sell message by calling internal and processing.">add_sell_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a>, <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment">//printf(&quot;Firm Id = %d Sends = %d Goods to Mall with a price = %f\n&quot;, ID, INVENTORY, UNIT_GOODS_PRICE);</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * \fn: int firm_consumption_recieve_sales()</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> * \brief:</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="firm__functions__consumption_8c.html#a0c360de75cfa3a7beae0d3e02f0e381e">   29</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#afa1a8ad769d9a60b5c1185371ca43b4e">firm_consumption_recieve_sales</a>()</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> quantity_sold = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> weekly_sales_income = 0;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="header_8h.html#a488b0f9086d1b59946c264fc209909b1" title="Start of loop to process sold messages.">START_SOLD_MESSAGE_LOOP</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    quantity_sold = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> - <a class="code" href="header_8h.html#a8082cfe7255d444eb12d4aed8e2aa5a9" title="Pointer to message struct for looping through sold message list.">sold_message</a>-&gt;<a class="code" href="structm__sold.html#ad739915bb56969a581685c1d152c6d54">unsold_quantities</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    weekly_sales_income = quantity_sold * <a class="code" href="firm__agent__header_8h.html#a6292669d4f2abca5e40ab9fa91c3b9e4" title="Direct access to price_unit_product of firm agent memory variable.">PRICE_UNIT_PRODUCT</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//update inventory.</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> = <a class="code" href="header_8h.html#a8082cfe7255d444eb12d4aed8e2aa5a9" title="Pointer to message struct for looping through sold message list.">sold_message</a>-&gt;<a class="code" href="structm__sold.html#ad739915bb56969a581685c1d152c6d54">unsold_quantities</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//update sales.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="firm__agent__header_8h.html#ac539b77732ee6290b294dac3ba9c2ad9" title="Direct access to sales of firm agent memory variable.">SALES</a> += quantity_sold;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="header_8h.html#ad205b620a99bd1ba4c618f784e8d4fa4" title="Finish of loop to process sold messages.">FINISH_SOLD_MESSAGE_LOOP</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += weekly_sales_income;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    printf(<span class="stringliteral">&quot;Firm Id = %d Quantity Sold = %d Weekly Revenue = %f\n&quot;</span>, <a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, quantity_sold, weekly_sales_income);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="header_8h.html#a488b0f9086d1b59946c264fc209909b1" title="Start of loop to process sold messages.">START_SOLD_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    quantity_sold = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> - <a class="code" href="header_8h.html#a8082cfe7255d444eb12d4aed8e2aa5a9" title="Pointer to message struct for looping through sold message list.">sold_message</a>-&gt;<a class="code" href="structm__sold.html#ad739915bb56969a581685c1d152c6d54">unsold_quantities</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    weekly_sales_income = quantity_sold * <a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//update inventory.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> = <a class="code" href="header_8h.html#a8082cfe7255d444eb12d4aed8e2aa5a9" title="Pointer to message struct for looping through sold message list.">sold_message</a>-&gt;<a class="code" href="structm__sold.html#ad739915bb56969a581685c1d152c6d54">unsold_quantities</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//update sales.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="firm__agent__header_8h.html#ac539b77732ee6290b294dac3ba9c2ad9" title="Direct access to sales of firm agent memory variable.">SALES</a> += quantity_sold;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="header_8h.html#ad205b620a99bd1ba4c618f784e8d4fa4" title="Finish of loop to process sold messages.">FINISH_SOLD_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += weekly_sales_income;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> += weekly_sales_income;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//printf(&quot;Firm Id = %d Quantity Sold = %d Weekly Revenue = %f\n&quot;, ID, quantity_sold, weekly_sales_income);</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 26 2013 17:24:48 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 5 2013 19:34:03 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

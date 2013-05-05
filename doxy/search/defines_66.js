@@ -4,7 +4,7 @@ var searchData=
   ['finish_5fbought_5fmessage_5floop',['FINISH_BOUGHT_MESSAGE_LOOP',['../header_8h.html#a9daa2862ff60ff191c0101d6f414f67d',1,'header.h']]],
   ['finish_5fbuy_5fmessage_5floop',['FINISH_BUY_MESSAGE_LOOP',['../header_8h.html#ae9c50e3b97742f760678ac51131ff172',1,'header.h']]],
   ['finish_5ffired_5fmessage_5floop',['FINISH_FIRED_MESSAGE_LOOP',['../header_8h.html#a2f6d970685533c673da3542d681f4143',1,'header.h']]],
-  ['finish_5ffirm_5fnet_5fincome_5fmessage_5floop',['FINISH_FIRM_NET_INCOME_MESSAGE_LOOP',['../header_8h.html#ab829005a7c1858279856d14c0badb383',1,'header.h']]],
+  ['finish_5ffirm_5fnet_5fprofit_5fmessage_5floop',['FINISH_FIRM_NET_PROFIT_MESSAGE_LOOP',['../header_8h.html#ab9fc7d1ff640b61ac4f147f7eca84da4',1,'header.h']]],
   ['finish_5fhousehold_5fshare_5fmessage_5floop',['FINISH_HOUSEHOLD_SHARE_MESSAGE_LOOP',['../header_8h.html#a828dc64b9cd3baaca0a26bcabcad9521',1,'header.h']]],
   ['finish_5fjob_5fapplication_5fstage1_5fmessage_5floop',['FINISH_JOB_APPLICATION_STAGE1_MESSAGE_LOOP',['../header_8h.html#a735f22b93dae40381dc68638a8d0eede',1,'header.h']]],
   ['finish_5fjob_5fapplication_5fstage2_5fmessage_5floop',['FINISH_JOB_APPLICATION_STAGE2_MESSAGE_LOOP',['../header_8h.html#aadb7306ce49482fa88c51eb340308771',1,'header.h']]],

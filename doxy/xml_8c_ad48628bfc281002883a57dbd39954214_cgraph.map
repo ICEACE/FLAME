@@ -6,8 +6,8 @@
 <area shape="rect" id="node8" href="$xml_8c.html#ab3c12cb61b6c6e02f7f1454df5cea1e9" title="write_bank_agent" alt="" coords="206,213,333,241"/>
 <area shape="rect" id="node9" href="$xml_8c.html#a8b51267daf52419b76ed29c302245009" title="write_government_agent" alt="" coords="185,265,353,293"/>
 <area shape="rect" id="node10" href="$xml_8c.html#aba67b260465ab67722f269c3e2c982a8" title="write_centralbank_agent" alt="" coords="186,317,353,345"/>
-<area shape="rect" id="node11" href="$xml_8c.html#a4798653525a5ae2f6f7509e3e313446c" title="write_mall_agent" alt="" coords="208,369,330,397"/>
-<area shape="rect" id="node12" href="$xml_8c.html#a93c36451c81e6f8cac9f53cede2aea42" title="write_jpoffice_agent" alt="" coords="199,421,339,449"/>
+<area shape="rect" id="node11" href="$xml_8c.html#a93c36451c81e6f8cac9f53cede2aea42" title="write_jpoffice_agent" alt="" coords="199,369,339,397"/>
+<area shape="rect" id="node12" href="$xml_8c.html#a4798653525a5ae2f6f7509e3e313446c" title="write_mall_agent" alt="" coords="208,421,330,449"/>
 <area shape="rect" id="node4" href="$xml_8c.html#a89b59dc1f2e521c21941b0104755049e" title="Writes int." alt="" coords="402,57,568,85"/>
 <area shape="rect" id="node5" href="$xml_8c.html#a96daa68becc097e62a4bbb6a9dab94f1" title="write_int_static_array" alt="" coords="412,109,559,137"/>
 </map>
