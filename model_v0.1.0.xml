@@ -2,8 +2,8 @@
     xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.1.0, 02/05/2012</version>
-    <description>ICEACE - Labour Market, Production Market, Consumption Market and Balance Sheet Accounting </description>
+    <version>Version 0.1.1, 02/05/2012</version>
+    <description>'ICEACE - Labour Market, Production Market, Consumption Market, Credit Market and Balance Sheet Accounting </description>
     <models>
         <model>
             <file>Market_Consumption/model_consumption.xml</file>
@@ -21,6 +21,14 @@
             <file>Accounting/model_accounting.xml</file>
             <enabled>true</enabled>
         </model>
+        <model>
+            <file>Market_Credit/model_credit.xml</file>
+            <enabled>true</enabled>
+        </model>
+        <model>
+            <file>Market_Housing/model_housing.xml</file>
+            <enabled>true</enabled>
+        </model>
     </models>
     <environment>
         <constants/>
@@ -35,6 +43,7 @@
             <file>equityfund_functions_top.c</file>
             <file>jpoffice_functions_top.c</file>
             <file>mall_functions_top.c</file>
+            <file>reagency_functions_top.c</file>
         </functionFiles>
         <dataTypes/>
         <timeUnits>
@@ -144,6 +153,11 @@
                     <name>id</name>
                     <description>Agent ID.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -227,6 +241,30 @@
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
                     <nextState>MallConsumptionMarket</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>reagency</name>
+            <description>Real Estate Agency.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>reagency_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>ReagencyHousingMarket</nextState>
                 </function>
             </functions>
         </xagent>

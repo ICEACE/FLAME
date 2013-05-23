@@ -95,8 +95,8 @@
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
-                        <period>weekly</period>
-                        <phase>a.day_of_week_to_act</phase>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -186,7 +186,7 @@
                     <name>idle</name>
                     <description>It is not the day of the week to shop.</description>
                     <currentState>HHConsumptionWeekly</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HHCreditStart</nextState>
                     <condition>
                         <not><time>
                             <period>weekly</period>
@@ -215,7 +215,7 @@
                     <name>household_consumption_recieve_goods</name>
                     <description>A household recieves goods bought from the mall.</description>
                     <currentState>HHRecieveGoods</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HHCreditStart</nextState>
                     <inputs>
                         <input>
                             <messageName>bought</messageName>
@@ -247,7 +247,7 @@
                     <name>idle</name>
                     <description>It is not the day of the week to sell.</description>
                     <currentState>FirmConsumptionStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmCreditStart</nextState>
                     <condition>
                         <not><time>
                             <period>weekly</period>
@@ -276,7 +276,7 @@
                     <name>firm_consumption_recieve_sales</name>
                     <description>A firm recieves goods unsold and sales liquidity from the mall.</description>
                     <currentState>FirmRecieveSales</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmCreditStart</nextState>
                     <inputs>
                         <input>
                             <messageName>sold</messageName>

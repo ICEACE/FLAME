@@ -355,7 +355,7 @@
                     <name>idle</name>
                     <description>It is not the end/start of a quarter.</description>
                     <currentState>BankAccountingStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankCreditStart</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -367,7 +367,7 @@
                     <name>bank_accounting_do_balance_sheet</name>
                     <description>Bank balance sheet accounting activities.</description>
                     <currentState>BankAccountingStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankCreditStart</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -424,7 +424,7 @@
                     <name>idle</name>
                     <description>It is not the end/start of a quarter.</description>
                     <currentState>CBAccountingStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CBCreditStart</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -436,7 +436,7 @@
                     <name>centralbank_accounting_do_balance_sheet</name>
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CBAccountingStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CBCreditStart</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
