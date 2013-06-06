@@ -158,8 +158,7 @@ int firm_production_construct_houses()
  */
 int firm_production_construction_plan()
 {
-    double new_price, old_price;
-    int work_in_progress, price;
+    int work_in_progress;
     int maxsize;
 
     // New housing units produced in previous month
@@ -169,13 +168,6 @@ int firm_production_construction_plan()
     
     //printf("Constructor Firm ID = %d\n", ID);
     //printf("    Total inventories available for sale = %d\n", INVENTORY);
-    
-    //Estimate the production for next period.
-    old_price = UNIT_HOUSE_PRICE;
-    
-    //This randomly determined price scheme to be updated later!!!!!
-    price = random_int((int) 0.9 * old_price, (int) 1.1 * old_price);
-    new_price = (double)price;
     
         
     //Get number of ongoing projects.
@@ -201,7 +193,7 @@ int firm_production_construction_plan()
     if (maxsize == 0){
         PRODUCTION_PLAN = 0;
     }
-    else if (new_price > old_price) {
+    else if (DELTA_HOUSING_PRICE >= 0) {
         if (work_in_progress < maxsize) {
             PRODUCTION_PLAN = random_int(work_in_progress, maxsize);
         } else {

@@ -2,7 +2,7 @@
     xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.1.4, 17/04/2012</version>
+    <version>'Version 0.1.4, 17/04/2012</version>
     <description> Consumption Market. ICEACE consuming activities.</description>
     <environment>
         <constants>
