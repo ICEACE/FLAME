@@ -1,0 +1,5 @@
+<map id="household_housing_pay_mortgages" name="household_housing_pay_mortgages">
+<area shape="rect" id="node2" href="$header_8h.html#ac0ed31e21f5a3468552e24d3556b0661" title="init_mortgage" alt="" coords="250,5,352,33"/>
+<area shape="rect" id="node3" href="$header_8h.html#adf68e6416957f31a26b40a68bc112235" title="Add mortgage_payment message by calling internal and processing." alt="" coords="218,57,384,101"/>
+<area shape="rect" id="node4" href="$header_8h.html#ac46e454953af25854fe14e2f135cf1ee" title="free_mortgage" alt="" coords="247,125,355,153"/>
+</map>

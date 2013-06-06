@@ -1,0 +1,6 @@
+<map id="xmachine_memory_household_state" name="xmachine_memory_household_state">
+<area shape="rect" id="node2" href="$structxmachine__memory__household__holder.html" title="Holds struct of memory of xmachine household." alt="" coords="5,286,208,330"/>
+<area shape="rect" id="node3" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="5,193,208,221"/>
+<area shape="rect" id="node4" href="$structmortgage__array.html" title="Dynamic array to hold mortgages." alt="" coords="49,99,164,127"/>
+<area shape="rect" id="node5" href="$structmortgage.html" title="mortgage" alt="" coords="68,6,145,34"/>
+</map>

@@ -1,0 +1,43 @@
+<map id="node_information" name="node_information">
+<area shape="rect" id="node2" href="$structm__loan__request__1.html" title="Holds message of type loan_request_1_message." alt="" coords="843,27,975,55"/>
+<area shape="rect" id="node3" href="$structm__firm__net__profit.html" title="Holds message of type firm_net_profit_message." alt="" coords="847,79,972,107"/>
+<area shape="rect" id="node4" href="$structm__vacancy__stage1.html" title="Holds message of type vacancy_stage1_message." alt="" coords="841,131,977,159"/>
+<area shape="rect" id="node5" href="$structm__loan__request__2.html" title="Holds message of type loan_request_2_message." alt="" coords="843,183,975,211"/>
+<area shape="rect" id="node6" href="$structm__vacancy__stage2.html" title="Holds message of type vacancy_stage2_message." alt="" coords="841,235,977,263"/>
+<area shape="rect" id="node7" href="$structm__sold__housing.html" title="Holds message of type sold_housing_message." alt="" coords="850,287,969,315"/>
+<area shape="rect" id="node8" href="$structm__mortgaging__capacity.html" title="Holds message of type mortgaging_capacity_message." alt="" coords="828,339,991,367"/>
+<area shape="rect" id="node9" href="$structm__mortgage__requests.html" title="Holds message of type mortgage_requests_message." alt="" coords="832,391,987,419"/>
+<area shape="rect" id="node10" href="$structm__sell.html" title="Holds message of type sell_message." alt="" coords="879,443,939,471"/>
+<area shape="rect" id="node11" href="$structm__housing__price.html" title="Holds message of type housing_price_message." alt="" coords="848,495,971,523"/>
+<area shape="rect" id="node12" href="$structm__sold.html" title="Holds message of type sold_message." alt="" coords="877,547,941,575"/>
+<area shape="rect" id="node13" href="$structm__job__match__stage1.html" title="Holds message of type job_match_stage1_message." alt="" coords="835,599,984,627"/>
+<area shape="rect" id="node14" href="$structm__job__application__stage1.html" title="Holds message of type job_application_stage1_message." alt="" coords="821,651,997,679"/>
+<area shape="rect" id="node15" href="$structm__household__share.html" title="Holds message of type household_share_message." alt="" coords="838,703,980,731"/>
+<area shape="rect" id="node16" href="$structm__job__match__stage2.html" title="Holds message of type job_match_stage2_message." alt="" coords="835,755,984,783"/>
+<area shape="rect" id="node17" href="$structm__job__application__stage2.html" title="Holds message of type job_application_stage2_message." alt="" coords="821,807,997,835"/>
+<area shape="rect" id="node18" href="$structm__bought.html" title="Holds message of type bought_message." alt="" coords="869,859,950,887"/>
+<area shape="rect" id="node19" href="$structm__mortgage__payment.html" title="Holds message of type mortgage_payment_message." alt="" coords="832,911,987,939"/>
+<area shape="rect" id="node20" href="$structm__job__change.html" title="Holds message of type job_change_message." alt="" coords="855,963,964,991"/>
+<area shape="rect" id="node21" href="$structm__fired.html" title="Holds message of type fired_message." alt="" coords="876,1015,942,1043"/>
+<area shape="rect" id="node22" href="$structxmachine.html" title="Holds xmachines." alt="" coords="870,1067,949,1095"/>
+<area shape="rect" id="node23" href="$structxmachine__memory__equityfund.html" title="Holds memory of xmachine equityfund." alt="" coords="427,859,629,887"/>
+<area shape="rect" id="node24" href="$structxmachine__memory__bank.html" title="Holds memory of xmachine bank." alt="" coords="443,911,613,939"/>
+<area shape="rect" id="node25" href="$structxmachine__memory__jpoffice.html" title="Holds memory of xmachine jpoffice." alt="" coords="436,963,620,991"/>
+<area shape="rect" id="node26" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="445,1015,611,1043"/>
+<area shape="rect" id="node27" href="$structxmachine__memory__reagency.html" title="Holds memory of xmachine reagency." alt="" coords="430,1067,626,1095"/>
+<area shape="rect" id="node28" href="$structxmachine__memory__government.html" title="Holds memory of xmachine government." alt="" coords="422,1119,634,1147"/>
+<area shape="rect" id="node29" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="446,1171,610,1199"/>
+<area shape="rect" id="node30" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="187,1171,261,1199"/>
+<area shape="rect" id="node31" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="427,1223,629,1251"/>
+<area shape="rect" id="node32" href="$structmortgage__array.html" title="Dynamic array to hold mortgages." alt="" coords="166,1223,282,1251"/>
+<area shape="rect" id="node33" href="$structmortgage.html" title="mortgage" alt="" coords="5,1223,83,1251"/>
+<area shape="rect" id="node34" href="$structxmachine__memory__centralbank.html" title="Holds memory of xmachine centralbank." alt="" coords="423,1275,633,1303"/>
+<area shape="rect" id="node35" href="$structm__buy__housing.html" title="Holds message of type buy_housing_message." alt="" coords="852,1119,967,1147"/>
+<area shape="rect" id="node36" href="$structm__interest__rate.html" title="Holds message of type interest_rate_message." alt="" coords="852,1171,966,1199"/>
+<area shape="rect" id="node37" href="$structm__buy.html" title="Holds message of type buy_message." alt="" coords="879,1223,940,1251"/>
+<area shape="rect" id="node38" href="$structm__sell__housing.html" title="Holds message of type sell_housing_message." alt="" coords="852,1275,966,1303"/>
+<area shape="rect" id="node39" href="$structm__loan__acknowledge__1.html" title="Holds message of type loan_acknowledge_1_message." alt="" coords="827,1327,992,1355"/>
+<area shape="rect" id="node40" href="$structm__mortgage__payment__from__sale.html" title="Holds message of type mortgage_payment_from_sale_message." alt="" coords="832,1379,987,1423"/>
+<area shape="rect" id="node41" href="$structm__bought__housing.html" title="Holds message of type bought_housing_message." alt="" coords="842,1447,977,1475"/>
+<area shape="rect" id="node42" href="$structm__loan__acknowledge__2.html" title="Holds message of type loan_acknowledge_2_message." alt="" coords="827,1505,992,1533"/>
+</map>

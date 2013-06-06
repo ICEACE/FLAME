@@ -1,0 +1,11 @@
+<map id="initialise_pointers" name="initialise_pointers">
+<area shape="rect" id="node2" href="$header_8h.html#a8cdc093e0ba8ff163382ef772ed48371" title="init_firm_state" alt="" coords="203,5,307,33"/>
+<area shape="rect" id="node3" href="$header_8h.html#ab20cf530859299e3f37cc1a2e53ac5d4" title="init_household_state" alt="" coords="183,57,326,85"/>
+<area shape="rect" id="node4" href="$header_8h.html#ae0247794a9edcbabb12d0de60da7f20e" title="init_equityfund_state" alt="" coords="183,109,326,137"/>
+<area shape="rect" id="node5" href="$header_8h.html#a97c254b73d88b160096babdafe759ee7" title="init_bank_state" alt="" coords="199,161,310,189"/>
+<area shape="rect" id="node6" href="$header_8h.html#a626bcb87cf1879a98e37f47793973827" title="init_government_state" alt="" coords="178,213,331,241"/>
+<area shape="rect" id="node7" href="$header_8h.html#a55b2b7b2b22772bafae94e9ae2d4e44f" title="init_centralbank_state" alt="" coords="179,265,330,293"/>
+<area shape="rect" id="node8" href="$header_8h.html#a5fa376339c05e667fda9c97742163866" title="init_jpoffice_state" alt="" coords="192,317,317,345"/>
+<area shape="rect" id="node9" href="$header_8h.html#ac722399a581a16c3fcdeba61aabcd8cb" title="init_mall_state" alt="" coords="201,369,308,397"/>
+<area shape="rect" id="node10" href="$header_8h.html#a4545208346d063e5dae02b91fef0b445" title="init_reagency_state" alt="" coords="186,421,323,449"/>
+</map>

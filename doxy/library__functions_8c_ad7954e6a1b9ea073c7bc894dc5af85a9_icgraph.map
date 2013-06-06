@@ -1,0 +1,10 @@
+<map id="random_int" name="random_int">
+<area shape="rect" id="node2" href="$mall__functions__consumption_8c.html#ad20ef1bc7b3ee683eb03be6c79f13bf6" title="mall_consumption_shopping" alt="" coords="160,5,350,33"/>
+<area shape="rect" id="node4" href="$firm__functions__housing_8c.html#a66844040a4e57b52d983ed87b7ba3128" title="firm_housing_enter\l_market" alt="" coords="187,57,322,101"/>
+<area shape="rect" id="node5" href="$household__functions__housing_8c.html#af97c63afce68602304beeca8becb77e7" title="household_housing_market_role" alt="" coords="147,125,362,153"/>
+<area shape="rect" id="node6" href="$household__functions__housing_8c.html#ae15832b28d3cafc0d84426e6fa26ec8e" title="household_housing_sell" alt="" coords="172,177,337,205"/>
+<area shape="rect" id="node7" href="$household__functions__housing_8c.html#a283821907cc8cdb719172cae6588bdcf" title="household_housing_fire_sell" alt="" coords="159,229,350,257"/>
+<area shape="rect" id="node8" href="$household__functions__labour_8c.html#a5e993b9ad38efeb835011125dbb8c3d5" title="household_labour_reemployment\l_application" alt="" coords="145,281,364,325"/>
+<area shape="rect" id="node9" href="$firm__functions__production_8c.html#a7fac708e1bb5f394475d584c82d8ef58" title="firm_production_construction_plan" alt="" coords="142,349,367,377"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="416,177,466,205"/>
+</map>
