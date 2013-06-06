@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['equityfund_5faccounting_5fcollect_5ffirm_5fshares',['equityfund_accounting_collect_firm_shares',['../equityfund__functions__accounting_8c.html#a82fc417bc9edea980a6a3f726fabbff5',1,'equityfund_accounting_collect_firm_shares():&#160;equityfund_functions_accounting.c'],['../header_8h.html#a46fab09d896d6886624fff2690afa048',1,'equityfund_accounting_collect_firm_shares(void):&#160;equityfund_functions_accounting.c']]],
-  ['equityfund_5faccounting_5fdistribute_5fshares',['equityfund_accounting_distribute_shares',['../equityfund__functions__accounting_8c.html#a5514c5fb0a5bbdb96b197cc39576d4cf',1,'equityfund_accounting_distribute_shares():&#160;equityfund_functions_accounting.c'],['../header_8h.html#ae8c134a080ddcf2bbfd844d1ebbcf6a3',1,'equityfund_accounting_distribute_shares(void):&#160;equityfund_functions_accounting.c']]],
-  ['equityfund_5faccounting_5fdo_5fbalance_5fsheet',['equityfund_accounting_do_balance_sheet',['../equityfund__functions__accounting_8c.html#a92dd07733505e522b7fcc54d40402057',1,'equityfund_accounting_do_balance_sheet():&#160;equityfund_functions_accounting.c'],['../header_8h.html#aee806b37b070ce927f211c011f123d70',1,'equityfund_accounting_do_balance_sheet(void):&#160;equityfund_functions_accounting.c']]],
-  ['equityfund_5finit',['equityfund_init',['../equityfund__functions__top_8c.html#aaab4829f49cb656fd7fad5a162a8b56e',1,'equityfund_init():&#160;equityfund_functions_top.c'],['../header_8h.html#a0d881e34ec19fcdd5b8ae9dc71fb2374',1,'equityfund_init(void):&#160;equityfund_functions_top.c']]]
-];

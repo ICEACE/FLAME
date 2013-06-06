@@ -1,6 +1,0 @@
-<map id="init_firm_agent" name="init_firm_agent">
-<area shape="rect" id="node2" href="$memory_8c.html#acc7c1d28c836ec62f50b6b7c5ad7cf89" title="Add firm X&#45;machine to the current being used X&#45;machine list." alt="" coords="163,5,277,33"/>
-<area shape="rect" id="node3" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="165,57,275,85"/>
-<area shape="rect" id="node4" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="326,57,440,85"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="488,57,538,85"/>
-</map>

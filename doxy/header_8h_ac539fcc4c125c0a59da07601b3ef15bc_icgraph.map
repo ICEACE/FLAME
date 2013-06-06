@@ -1,9 +1,0 @@
-<map id="free_int_array" name="free_int_array">
-<area shape="rect" id="node2" href="$jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="332,5,487,33"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a9cbca1b922b77ab5533d30c4b1cf35ce" title="free_firm_agent" alt="" coords="163,57,277,85"/>
-<area shape="rect" id="node8" href="$memory_8c.html#a99e42d160be2f9cc3d08dfc73bb3ff30" title="unittest_free_firm\l_agent" alt="" coords="158,109,282,153"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="819,57,869,85"/>
-<area shape="rect" id="node5" href="$memory_8c.html#a7721ab7a5ccc966ee44ebd2635ec0183" title="free_firm_agents" alt="" coords="349,109,470,137"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a71a58d5746770621880907688097afef" title="Free the currently being used X&#45;machine list." alt="" coords="537,109,645,137"/>
-<area shape="rect" id="node7" href="$memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7" title="Add a node to the node list." alt="" coords="694,109,770,137"/>
-</map>

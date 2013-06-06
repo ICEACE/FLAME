@@ -1,5 +1,0 @@
-<map id="init_firm_state" name="init_firm_state">
-<area shape="rect" id="node2" href="$memory_8c.html#a38faaa510471e36d92c54c69d44e1e3f" title="Initialises pointers to xmachine, message, and node lists." alt="" coords="158,31,282,59"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="378,5,428,33"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a0a38efdd42a6a0a68489a05b12837099" title="Initialises framework for unit testing." alt="" coords="330,57,475,85"/>
-</map>

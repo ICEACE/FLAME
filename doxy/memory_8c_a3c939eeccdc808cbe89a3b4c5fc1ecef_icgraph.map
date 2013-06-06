@@ -1,8 +1,0 @@
-<map id="init_employee" name="init_employee">
-<area shape="rect" id="node2" href="$memory_8c.html#a1c1eb737fe6bf9b101bd3ae91e5163b3" title="init_employee_static\l_array" alt="" coords="158,5,300,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a470fa7ca06acc4dab9da261bd23bce89" title="Add an employee to the dynamic employee array." alt="" coords="175,73,284,101"/>
-<area shape="rect" id="node4" href="$jpoffice__functions__labour_8c.html#a7dde36d0f32ecbe8036b24edbd408fa0" title="jpoffice_labour_stage1" alt="" coords="357,21,512,49"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a0b469116e559c52316dd155f93e6da4c" title="copy_employee_array" alt="" coords="358,73,511,101"/>
-<area shape="rect" id="node7" href="$xml_8c.html#a88a3eaf0e39c9add9e085af8c7a0024e" title="read_employee_dynamic\l_array" alt="" coords="350,125,520,169"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="568,21,618,49"/>
-</map>
