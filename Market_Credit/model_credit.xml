@@ -1,0 +1,425 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 0.1.1, 06/05/2013</version>
+    <description>'Credit Market. The market has regular firm as well as sepcialized construction firm, households, banks, central bank and government agents.</description>
+    <environment>
+        <constants>
+            <variable>
+                <type>double</type>
+                <name>risky_assets_ratio</name>
+                <description>Percent of risky assets of banks to be compared to banks' equity.</description>
+            </variable>
+        </constants>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>firm_functions_credit.c</file>
+            <file>household_functions_credit.c</file>
+            <file>bank_functions_credit.c</file>
+            <file>centralbank_functions_credit.c</file>
+        </functionFiles>
+        <dataTypes>
+            <dataType>
+                <name>mortgage</name>
+                <description>Household mortgage information.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>bank_id</name>
+                        <description>Id of the bank from which mortgage is acquired.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>principal</name>
+                        <description>Principal amount left</description>
+                        </variable>
+                    <variable>
+                        <type>int</type>
+                        <name>quarters_left</name>
+                        <description>Number of quarters left for the mortgage.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>quarterly_interest</name>
+                        <description>Amount of interest to be paid within the current quarter.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>quarterly_principal</name>
+                        <description>Amount of principal to be paid within the current quarter.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
+    </environment>
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>firm</name>
+            <description>A firm agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>loans_interest_rate</name>
+                    <description>Rate of interest paid by firms to banks for the loans.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a quarter.</description>
+                    <currentState>FirmCreditStart</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_credit_check_interest_rate</name>
+                    <description>Firm checks quarterly interest rate.</description>
+                    <currentState>FirmCreditStart</currentState>
+                    <nextState>FirmCreditLoanRequest</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Firm stays idle if it does not have a positive equity.</description>
+                    <currentState>FirmCreditLoanRequest</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.equity</value>
+                        </lhs>
+                        <op>LEQ</op>
+                        <rhs>
+                            <value>0</value>
+                        </rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_credit_demand_loans_1</name>
+                    <description>Firm computes loan demand and places a demand if it needs and if it is allowed to do so.</description>
+                    <currentState>FirmCreditLoanRequest</currentState>
+                    <nextState>FirmCreditLoanBorrow1</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.equity</value>
+                        </lhs>
+                        <op>GT</op>
+                        <rhs>
+                            <value>0</value>
+                        </rhs>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>loan_request_1</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_credit_borrow_loans_1</name>
+                    <description>Firm checks whether first loan request is accepted. When not, places another request.</description>
+                    <currentState>FirmCreditLoanBorrow1</currentState>
+                    <nextState>FirmCreditLoanBorrow2</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>loan_acknowledge_1</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>loan_request_2</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_credit_borrow_loans_2</name>
+                    <description>Firm checks weather second loan request is accepted.</description>
+                    <currentState>FirmCreditLoanBorrow2</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>loan_acknowledge_2</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>bank</name>
+            <description>A bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory/>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a quarter.</description>
+                    <currentState>BankCreditStart</currentState>
+                    <nextState>BankHousingMarket</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>bank_credit_process_loan_requests_1</name>
+                    <description>Bank evaluates first loan requests.</description>
+                    <currentState>BankCreditStart</currentState>
+                    <nextState>BankCreditRequest2</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>loan_request_1</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>loan_acknowledge_1</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>bank_credit_process_loan_requests_2</name>
+                    <description>Bank evaluates first loan requests.</description>
+                    <currentState>BankCreditRequest2</currentState>
+                    <nextState>BankHousingMarket</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>loan_request_2</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>loan_acknowledge_2</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A Central Bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>interest_rate</name>
+                    <description>Rate of interest set by central bank.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a quarter.</description>
+                    <currentState>CBCreditStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_credit_set_interest_rate</name>
+                    <description>Central bank sets the interest rate.</description>
+                    <currentState>CBCreditStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>interest_rate</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>household</name>
+            <description>The household agent at credit market.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>mortgages_interest_rate</name>
+                    <description>Rate of interest set by central bank.</description>
+                </variable>
+                <variable>
+                    <type>mortgage_array</type>
+                    <name>mortgages_list</name>
+                    <description>List of mortgages debted by households.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The ID of the bank an household applies to a mortgage.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a quarter.</description>
+                    <currentState>HHCreditStart</currentState>
+                    <nextState>HHHousingStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_credit_check_interest_rate</name>
+                    <description>Households check the interest rate which set by CB.</description>
+                    <currentState>HHCreditStart</currentState>
+                    <nextState>HHCreditUpdateMortgages</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>household_credit_update_mortgage_rates</name>
+                    <description>Households updates annuity, principal and interest payment amounts.</description>
+                    <currentState>HHCreditUpdateMortgages</currentState>
+                    <nextState>HHHousingStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>interest_rate</name>
+            <description>The interest rate sent by central bank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>rate</name>
+                    <description>The rate.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>loan_request_1</name>
+            <description>The loan requested by a firm.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The firm.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>The amount.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>loan_request_2</name>
+            <description>The loan requested by a firm.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The firm.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>The amount.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>loan_acknowledge_1</name>
+            <description>The loan acknowledged by a firm.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>The amount.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>loan_acknowledge_2</name>
+            <description>The loan acknowledged by a firm.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>The amount.</description>
+                </variable>
+            </variables>
+        </message>
+    <messages>
+</xmodel>
