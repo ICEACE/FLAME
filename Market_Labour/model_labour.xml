@@ -3,7 +3,7 @@
     <!-- Model descriptions  -->
     <name>ICEACE</name>
     <version>Version 0.1.0, 29/03/2012</version>
-    <description> Labour Market.</description>
+    <description>'Labour Market.</description>
     <environment>
         <constants>
             <variable>
@@ -17,6 +17,7 @@
             <file>household_functions_labour.c</file>
             <file>firm_functions_labour.c</file>
             <file>jpoffice_functions_labour.c</file>
+            <file>centralbank_functions_labour.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -176,7 +177,7 @@
                     <name>idle</name>
                     <description>Job searching is not active.</description>
                     <currentState>HHLabourStart</currentState>
-                    <nextState>HHLabourPayroll</nextState>
+                    <nextState>HHLabourEmploymentStatus</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -244,7 +245,7 @@
                     <name>household_labour_turnover</name>
                     <description>A job turnover.</description>
                     <currentState>HHLabourStage2</currentState>
-                    <nextState>HHLabourPayroll</nextState>
+                    <nextState>HHLabourEmploymentStatus</nextState>
                     <inputs>
                         <input>
                             <messageName>job_match_stage1</messageName>
@@ -276,7 +277,7 @@
                     <name>household_labour_employment</name>
                     <description>A new employment.</description>
                     <currentState>HHLabourStage1Placement</currentState>
-                    <nextState>HHLabourPayroll</nextState>                                  
+                    <nextState>HHLabourEmploymentStatus</nextState>                                  
                     <inputs>
                         <input>
                         <messageName>job_match_stage2</messageName>
@@ -289,17 +290,28 @@
                     </inputs>
                 </function>
                 <function>
+                    <name>household_labour_report_status</name>
+                    <description>Sends out its employment status.</description>
+                    <currentState>HHLabourEmploymentStatus</currentState>
+                    <nextState>HHLabourPayroll</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>employment_status</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
                     <name>idle</name>
                     <description>Does nothing at the point when it is not last day of the month.</description>
-                        <currentState>HHLabourPayroll</currentState>
-                        <nextState>HHConsumptionStart</nextState>
-                        <condition>
-                            <not><time>
-                                <period>monthly</period>
-                                <phase>a.day_of_month_wage_recieved</phase>
-                            </time></not>
-                        </condition>
-                    </function>
+                    <currentState>HHLabourPayroll</currentState>
+                    <nextState>HHConsumptionStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_wage_recieved</phase>
+                        </time></not>
+                    </condition>
+                </function>
                 <function>
                     <name>household_labour_recieve_wage</name>
                     <description>Recieves payment and update wage history.</description>
@@ -549,6 +561,50 @@
                 </function>
             </functions>
         </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A Central Bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>unemployment_rate</name>
+                    <description>Monthly rate</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the month to act.</description>
+                    <currentState>CentralBankLabour</currentState>
+                    <nextState>CentralBankConsumption</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_trace_unemployment_status</name>
+                    <description>Makes a sensus on employment status.</description>
+                    <currentState>CentralBankLabour</currentState>
+                    <nextState>CentralBankConsumption</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>employment_status</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
     </agents>
     <messages>
         <message>
@@ -676,6 +732,17 @@
                     <type>double</type>
                     <name>wage</name>
                     <description>Amount of salary that is offered.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>employment_status</name>
+            <description>Sent by a household to report his/her employment status.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>employer_id</name>
+                    <description>The employer. O stands for unemployed case.</description>
                 </variable>
             </variables>
         </message>

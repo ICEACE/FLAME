@@ -180,7 +180,7 @@ int household_housing_fire_sell()
  */
 int household_housing_collect_sale_revenue()
 {
-    double sales_income, sale_price;
+    double sale_price;
     int sold = 0;
     
     START_SOLD_HOUSING_MESSAGE_LOOP
@@ -328,3 +328,57 @@ int household_housing_pay_mortgages()
     free_mortgage(&mort);
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+/*
+ * \fn: household_housing_debt_writeoff()
+ * \brief: if household pays a significant amount of his to
+ * to mortgages a debt write off occures and its mortgage
+ * is restructured.
+ */
+int household_housing_debt_writeoff()
+{
+    int size, ind;
+    
+    size = MORTGAGES_LIST.size;
+    if (size == 0){ return 0;}
+    
+    mortgage mort;
+    init_mortgage(&mort);
+    
+    double labour_income, capital_income;
+    
+    double mortgage_costs = 0;
+    
+    while (size > 0) {
+        ind = size - 1;
+        mort = MORTGAGES_LIST.array[ind];
+        mortgage_costs += mort.quarterly_interest;
+        mortgage_costs += mort.quarterly_principal;
+        size = ind;
+    }
+    labour_income = PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2];
+    capital_income = FUND_SHARES;
+    
+    if (mortgage_costs > (HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * (labour_income + capital_income)))
+    {
+        double quarterly_principal, quarterly_interest;
+        double annuity, d1, d2;
+        
+        for (ind = 0; ind < size; ind++){remove_mortgage(&MORTGAGES_LIST, ind);}
+        
+        MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * (labour_income + capital_income) / MORTGAGES_INTEREST_RATE;
+        
+        d1 = MORTGAGES_INTEREST_RATE/4;
+        d2 = d1 * pow((1 + d1), 40);
+        annuity = 1/d1 - 1/d2;
+        
+        quarterly_interest = MORTGAGES * MORTGAGES_INTEREST_RATE / 4;
+        quarterly_principal = (MORTGAGES / annuity) - quarterly_interest;
+        
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, 40, MORTGAGES, quarterly_interest, quarterly_principal);
+    }
+    
+    free_mortgage(&mort);
+	return 0; /* Returning zero means the agent is not removed */
+}
+

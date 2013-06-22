@@ -94,6 +94,19 @@ int household_labour_employment()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
+/*
+ * \fn: int household_labour_report_status()
+ * \brief: Sending out employment status.
+ */
+int household_labour_report_status()
+{
+    add_employment_status_message(MY_EMPLOYER_ID);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
 /*
  * \fn: int household_labour_recieve_wage()
  * \brief: An household updates its wage history and liquidity at the end

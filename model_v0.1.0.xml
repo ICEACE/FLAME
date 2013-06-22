@@ -19,7 +19,7 @@
         </model>
         <model>
             <file>Accounting/model_accounting.xml</file>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
         </model>
         <model>
             <file>Market_Credit/model_credit.xml</file>
@@ -45,7 +45,24 @@
             <file>mall_functions_top.c</file>
             <file>reagency_functions_top.c</file>
         </functionFiles>
-        <dataTypes/>
+        <dataTypes>
+            <dataType>
+                <name>transaction</name>
+                <description>A generic transaction data structure.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>quantity</name>
+                        <description>Number of items within a period.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>avg_price</name>
+                        <description>Average price on overall transactions.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
         <timeUnits>
             <timeUnit>
                 <name>daily</name>
@@ -96,13 +113,18 @@
                     <name>day_of_month_to_act</name>
                     <description>The day of the month to act at production and labour.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isinsolvent</name>
+                    <description>The variable indicates if the firm is a replacement of an insolvent producer.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
                     <name>firm_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>FirmAccountingStart</nextState>
+                    <nextState>FirmCreditStart</nextState>
                 </function>
              </functions>
         </xagent>
@@ -121,7 +143,7 @@
                     <name>household_init</name>
                     <description>Notifies its id..</description>
                     <currentState>start</currentState>
-                    <nextState>HHAccountingStart</nextState>
+                    <nextState>HHCreditStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -140,7 +162,7 @@
                     <name>equityfund_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>EFAccountingStart</nextState>
+                    <nextState>EquityFundStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -164,7 +186,7 @@
                     <name>bank_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>BankAccountingStart</nextState>
+                    <nextState>BankCreditStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -183,7 +205,7 @@
                     <name>government_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>GovAccountingStart</nextState>
+                    <nextState>GovernmentStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -196,13 +218,18 @@
                     <name>id</name>
                     <description>Agent ID.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Day of the month to act.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
                     <name>centralbank_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>CBAccountingStart</nextState>
+                    <nextState>CentralBankCredit</nextState>
                 </function>
             </functions>
         </xagent>
@@ -264,10 +291,22 @@
                     <name>reagency_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>ReagencyHousingMarket</nextState>
+                    <nextState>REAgencyHousingMarket</nextState>
                 </function>
             </functions>
         </xagent>
     </agents>
-    <messages/>
+    <messages>
+        <message>
+            <name>interest_rate</name>
+            <description>The interest rate sent by the central bank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>rate</name>
+                    <description>The rate.</description>
+                </variable>
+            </variables>
+        </message>
+    </messages>
 </xmodel>

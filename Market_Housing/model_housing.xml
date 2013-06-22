@@ -36,6 +36,16 @@
                 <name>housing_price_down_rate</name>
                 <description>Allowable percentage decrease on a fire sale case by an household.</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>household_mortgage_writeoff_high</name>
+                <description>Household budget threshold for mortgage write-off</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>household_mortgage_writeoff_low</name>
+                <description>Household budget ratio for mortgage write-off</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
@@ -43,6 +53,7 @@
             <file>household_functions_housing.c</file>
             <file>bank_functions_housing.c</file>
             <file>reagency_functions_housing.c</file>
+            <file>centralbank_functions_housing.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -440,10 +451,21 @@
                     <name>household_housing_pay_mortgages</name>
                     <description>Household sends out mortgage payments.</description>
                     <currentState>HHHousingPayments</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HHHousingWriteOff</nextState>
                     <outputs>
                         <output>
                             <messageName>mortgage_payment</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>household_housing_debt_writeoff</name>
+                    <description>When debt of household drops below a certain threshold its earnings, the debt is written off.</description>
+                    <currentState>HHHousingWriteOff</currentState>
+                    <nextState>end</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>mortgage_writeoff</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -523,10 +545,27 @@
                     <name>bank_housing_recieve_mortgages</name>
                     <description>Bank collects regular mortgage payments from households.</description>
                     <currentState>BankHousingMortgages</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankHousingWriteOff</nextState>
                     <inputs>
                         <input>
                             <messageName>mortgage_payment</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>bank_housing_debt_writeoff</name>
+                    <description>Bank recieves mortgage written off.</description>
+                    <currentState>BankHousingWriteOff</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>mortgage_writeoff</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -548,13 +587,18 @@
                     <name>mortgages_interest_rate</name>
                     <description>Rate of interest set by central bank.</description>
                 </variable>
+                <variable>
+                    <type>transaction</type>
+                    <name>housing_transactions</name>
+                    <description>Monthly transaction summary at the market.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
                     <name>idle</name>
                     <description>It is not the first day of the month.</description>
-                    <currentState>ReagencyHousingMarket</currentState>
+                    <currentState>REAgencyHousingMarket</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
@@ -564,16 +608,25 @@
                     </condition>
                 </function>
                 <function>
-                    <name>reagency_housing_process</name>
-                    <description>The agent collects requests and does the matchings.</description>
-                    <currentState>ReagencyHousingMarket</currentState>
-                    <nextState>end</nextState>
+                    <name>reagency_housing_check_interest_rate</name>
+                    <description>It is the first day of the month.</description>
+                    <currentState>REAgencyHousingMarket</currentState>
+                    <nextState>REAgencyHousingProcess</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_to_act</phase>
                         </time>
                     </condition>
+                    <input>
+                        <messageName>interest_rate</messageName>
+                    </input>
+                </function>
+                <function>
+                    <name>reagency_housing_process</name>
+                    <description>The agent collects requests and does the matchings.</description>
+                    <currentState>REAgencyHousingProcess</currentState>
+                    <nextState>REAgencyHousingSummary</nextState>
                     <inputs>
                         <input>
                             <messageName>buy_housing</messageName>
@@ -604,198 +657,285 @@
                         <output>
                             <messageName>mortgage_requests</messageName>
                         </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>reagency_housing_summary</name>
+                    <description>The agent reports summary of transactions.</description>
+                    <currentState>REAgencyHousingSummary</currentState>
+                    <nextState>end</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>housing_transactions_summary</messageName>
+                        </output>
                         <output>
                             <messageName>housing_price</messageName>
                         </output>
                     </outputs>
-                    </function>
-                </functions>
-            </xagent>
-        </agents>
-        <messages>
-            <message>
-                <name>housing_price</name>
-                <description>Sent real estate agency at the end of market.</description>
-                <variables>
-                    <variable>
-                        <type>double</type>
-                        <name>price</name>
-                        <description>Average unit price of housing for the month.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>buy_housing</name>
-                <description>Sent by a household.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>buyer_id</name>
-                        <description>Household ID, the buyer.</description>
-                    </variable>
-                    <variable>
-                        <type>int</type>
-                        <name>bank_id</name>
-                        <description>Bank ID of the buyer. Used in case mortgage is needed.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>liquidity</name>
-                        <description>Amount of liquidity an household have at the time to buy housing.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>quarterly_income</name>
-                        <description>Quarterly net income, labour and capital, an household makes.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>quarterly_mortgage_paid</name>
-                        <description>Quarterly mortgage payments being done by an household.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>sell_housing</name>
-                <description>Sent either by a constructor firm or an household.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>seller_id</name>
-                        <description>Agent ID of the seller.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>price</name>
-                        <description>Unit price of housing.</description>
-                    </variable>
-                    <variable>
-                        <type>int</type>
-                        <name>quantity</name>
-                        <description>Quantity of housing units to sell. Households are allowed to sell maximum of 1 unit.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>bought_housing</name>
-                <description>Sent to an household.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>buyer_id</name>
-                        <description>Agent ID of the household who has bought one unit of housing.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>liquidity_spent</name>
-                        <description>Amount of liquid money used to buy a unit of housing.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>mortgage_used</name>
-                        <description>Amount of mortgage used from the bank.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>annuity</name>
-                        <description>Annuity of the housing unit bought.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>sold_housing</name>
-                <description>Sent either to a constructor firm or to an household.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>seller_id</name>
-                        <description>Agent ID of the seller.</description>
-                    </variable>
-                    <variable>
-                        <type>int</type>
-                        <name>quantity_sold</name>
-                        <description>Quantity of housing units that has been sold.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>price_sold</name>
-                        <description>Unit price of each sale.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>mortgaging_capacity</name>
-                <description>Posted by a bank. It shows total amount of mortgage a bank can provide for the market.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>bank_id</name>
-                        <description>Agent ID of the bank.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>equity</name>
-                        <description>Equity owned by bank.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>risky_assets</name>
-                        <description>Amount of risky assets owned by the bank.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>mortgage_requests</name>
-                <description>Posted by a bank. It shows total amount of mortgage a bank can provide for the market.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>bank_id</name>
-                        <description>Agent ID of the bank.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>amount</name>
-                        <description>Amount of mortgage given out by the bank.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>mortgage_payment_from_sale</name>
-                <description>Amount of mortgage principal mortgage paid by a household to a bank after a fire sale.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>bank_id</name>
-                        <description>Agent ID of the bank to receive.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>amount</name>
-                        <description>Amount of mortgage paid to a bank by an household.</description>
-                    </variable>
-                </variables>
-            </message>
-            <message>
-                <name>mortgage_payment</name>
-                <description>Regular mortage payments.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>bank_id</name>
-                        <description>Agent ID of the bank to receive.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>interest</name>
-                        <description>Amount of mortgage interest.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>principal</name>
-                        <description>Amount of mortgage principal.</description>
-                    </variable>
-                </variables>
-            </message>
-        </messages>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A Central Bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>transaction</type>
+                    <name>houses</name>
+                    <description>Monthly transaction summary at the market.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the month to act.</description>
+                    <currentState>CentralBankHousing</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_trace_housing_prices</name>
+                    <description>It is the day of the month to act.</description>
+                    <currentState>CentralBankHousing</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>housing_transactions_summary</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>housing_price</name>
+            <description>Sent real estate agency at the end of market.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>price</name>
+                    <description>Average unit price of housing for the month.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>buy_housing</name>
+            <description>Sent by a household.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>buyer_id</name>
+                    <description>Household ID, the buyer.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Bank ID of the buyer. Used in case mortgage is needed.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Amount of liquidity an household have at the time to buy housing.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>quarterly_income</name>
+                    <description>Quarterly net income, labour and capital, an household makes.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>quarterly_mortgage_paid</name>
+                    <description>Quarterly mortgage payments being done by an household.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>sell_housing</name>
+            <description>Sent either by a constructor firm or an household.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>seller_id</name>
+                    <description>Agent ID of the seller.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>price</name>
+                    <description>Unit price of housing.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>quantity</name>
+                    <description>Quantity of housing units to sell. Households are allowed to sell maximum of 1 unit.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>bought_housing</name>
+            <description>Sent to an household.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>buyer_id</name>
+                    <description>Agent ID of the household who has bought one unit of housing.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity_spent</name>
+                    <description>Amount of liquid money used to buy a unit of housing.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>mortgage_used</name>
+                    <description>Amount of mortgage used from the bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>annuity</name>
+                    <description>Annuity of the housing unit bought.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>sold_housing</name>
+            <description>Sent either to a constructor firm or to an household.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>seller_id</name>
+                    <description>Agent ID of the seller.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>quantity_sold</name>
+                    <description>Quantity of housing units that has been sold.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>price_sold</name>
+                    <description>Unit price of each sale.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>mortgaging_capacity</name>
+            <description>Posted by a bank. It shows total amount of mortgage a bank can provide for the market.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Agent ID of the bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>equity</name>
+                    <description>Equity owned by bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>risky_assets</name>
+                    <description>Amount of risky assets owned by the bank.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>mortgage_requests</name>
+            <description>Posted by a bank. It shows total amount of mortgage a bank can provide for the market.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Agent ID of the bank.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of mortgage given out by the bank.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>mortgage_payment_from_sale</name>
+            <description>Amount of mortgage principal mortgage paid by a household to a bank after a fire sale.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Agent ID of the bank to receive.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of mortgage paid to a bank by an household.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>mortgage_payment</name>
+            <description>Regular mortage payments.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Agent ID of the bank to receive.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>interest</name>
+                    <description>Amount of mortgage interest.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>principal</name>
+                    <description>Amount of mortgage principal.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>mortgage_writeoff</name>
+            <description>Amount of mortgage of a household that is written off.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Agent ID of the bank to receive.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of mortgage interest.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>housing_transactions_summary</name>
+            <description>Monthly transaction summary.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>quantity</name>
+                    <description>Number of housing units sold out.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>avg_price</name>
+                    <description>Monthly avg price..</description>
+                </variable>
+            </variables>
+        </message>
+    </messages>
 </xmodel>

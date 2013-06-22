@@ -4,6 +4,20 @@
 #include <math.h> 
 
 /*
+ * \fn: int reagency_housing_check_interest_rate()
+ * \brief:
+ */
+int reagency_housing_check_interest_rate()
+{
+    
+    START_INTEREST_RATE_MESSAGE_LOOP
+    MORTGAGES_INTEREST_RATE = interest_rate_message->rate;
+	FINISH_INTEREST_RATE_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
  * \fn: int reagency_housing_process()
  * \brief: 
  */
@@ -82,6 +96,8 @@ int reagency_housing_process()
     annuity = 1/d1 - 1/d2;
     
     int nsold = 0;
+    int transaction_quantity = 0;
+    double transaction_volume = 0;
     do {
         if (sellers_list.size == 0 ){break;}
         if (buyers_list.size == 0 ){break;}
@@ -93,6 +109,8 @@ int reagency_housing_process()
             add_sold_housing_message(id, nsold, price);
             remove_hseller(&sellers_list, 0);
             nsold = 0;
+            transaction_quantity += nsold;
+            transaction_volume += nsold * price;
             continue;
         }
         id = buyers_list.array[0].buyer_id;
@@ -168,8 +186,12 @@ int reagency_housing_process()
     if (nsold > 0 && sellers_list.size > 0) {
         id = sellers_list.array[0].seller_id;
         add_sold_housing_message(id, nsold, price);
+        transaction_quantity += nsold;
+        transaction_volume += nsold * price;
     }
     
+    HOUSING_TRANSACTIONS.quantity = transaction_quantity;
+    HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
     
     /* Garbage Collection */
     free_hseller_array(&sellers_list);
@@ -178,3 +200,20 @@ int reagency_housing_process()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+/*
+ * \fn: int reagency_housing_summary()
+ * \brief:
+ */
+int reagency_housing_summary()
+{
+    double price;
+    int quantity;
+    
+    price = HOUSING_TRANSACTIONS.avg_price;
+    quantity = HOUSING_TRANSACTIONS.quantity;
+    
+    add_housing_price_message(price);
+    add_housing_transactions_summary_message(quantity, price);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}

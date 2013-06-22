@@ -74,3 +74,20 @@ int bank_housing_recieve_mortgages()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+/*
+ * \fn: int bank_housing_mortage_writeoff()
+ * \brief: Bank recieves mortgages that are written off.
+ */
+int bank_housing_debt_writeoff()
+{
+    START_MORTGAGE_WRITEOFF_MESSAGE_LOOP
+    //The message is filtered via xmml.
+    
+    MORTGAGES += mortgage_writeoff_message->amount;
+    
+	FINISH_MORTGAGE_WRITEOFF_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+

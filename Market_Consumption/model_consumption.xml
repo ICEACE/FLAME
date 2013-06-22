@@ -27,6 +27,7 @@
             <file>household_functions_consumption.c</file>
             <file>firm_functions_consumption.c</file>
             <file>mall_functions_consumption.c</file>
+            <file>centralbank_functions_consumption.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -85,6 +86,11 @@
                     <name>day_of_week_to_act</name>
                     <description>Day of the week to act for consumption.</description>
                 </variable>
+                <variable>
+                    <type>transaction</type>
+                    <name>goods_transactions</name>
+                    <description>Weakly transaction summary at the market.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -104,7 +110,7 @@
                     <name>mall_consumption_shopping</name>
                     <description>Mall collecting supplies from the firms, demands from the households.</description>
                     <currentState>MallConsumptionMarket</currentState>
-                    <nextState>end</nextState>
+                    <nextState>MallConsumptionSummary</nextState>
                     <condition>
                         <time>
                             <period>weekly</period>
@@ -130,6 +136,17 @@
                         </output>
                         <output>
                             <messageName>bought</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>mall_consumption_summary</name>
+                    <description>The agent reports summary of transactions.</description>
+                    <currentState>MallConsumptionSummary</currentState>
+                    <nextState>end</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>goods_transactions_summary</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -186,7 +203,7 @@
                     <name>idle</name>
                     <description>It is not the day of the week to shop.</description>
                     <currentState>HHConsumptionWeekly</currentState>
-                    <nextState>HHCreditStart</nextState>
+                    <nextState>HHHousingStart</nextState>
                     <condition>
                         <not><time>
                             <period>weekly</period>
@@ -198,7 +215,7 @@
                     <name>household_consumption_demand</name>
                     <description>A household demands a consumption amounted to the available budget he/she has.</description>
                     <currentState>HHConsumptionWeekly</currentState>
-                    <nextState>HHRecieveGoods</nextState>
+                    <nextState>HHConsumptionRecieveGoods</nextState>
                     <condition>
                         <time>
                             <period>weekly</period>
@@ -214,8 +231,8 @@
                 <function>
                     <name>household_consumption_recieve_goods</name>
                     <description>A household recieves goods bought from the mall.</description>
-                    <currentState>HHRecieveGoods</currentState>
-                    <nextState>HHCreditStart</nextState>
+                    <currentState>HHConsumptionRecieveGoods</currentState>
+                    <nextState>HHHousingStart</nextState>
                     <inputs>
                         <input>
                             <messageName>bought</messageName>
@@ -247,7 +264,7 @@
                     <name>idle</name>
                     <description>It is not the day of the week to sell.</description>
                     <currentState>FirmConsumptionStart</currentState>
-                    <nextState>FirmCreditStart</nextState>
+                    <nextState>FirmHousingStart</nextState>
                     <condition>
                         <not><time>
                             <period>weekly</period>
@@ -276,7 +293,7 @@
                     <name>firm_consumption_recieve_sales</name>
                     <description>A firm recieves goods unsold and sales liquidity from the mall.</description>
                     <currentState>FirmRecieveSales</currentState>
-                    <nextState>FirmCreditStart</nextState>
+                    <nextState>FirmHousingStart</nextState>
                     <inputs>
                         <input>
                             <messageName>sold</messageName>
@@ -286,6 +303,55 @@
                                 <op>EQ</op>
                                 <rhs><value>m.id</value></rhs>
                             </filter>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A Central Bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act.</description>
+                </variable>
+                <variable>
+                    <type>transaction</type>
+                    <name>goods</name>
+                    <description>Weakly transaction summary at the market.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the week to act.</description>
+                    <currentState>CentralBankConsumption</currentState>
+                    <nextState>CentralBankHousing</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_trace_goods_prices</name>
+                    <description>It is the day of the week to act.</description>
+                    <currentState>CentralBankConsumption</currentState>
+                    <nextState>CentralBankHousing</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>goods_transactions_summary</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -364,6 +430,22 @@
                     <type>int</type>
                     <name>unsold_quantities</name>
                     <description>Number of unsold quantities.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>goods_transactions_summary</name>
+            <description>Weakly sent out transaction summary.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>quantity</name>
+                    <description>Number of goods sold out.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>avg_price</name>
+                    <description>Weakly avg price.</description>
                 </variable>
             </variables>
         </message>

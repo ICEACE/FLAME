@@ -21,6 +21,12 @@ int mall_consumption_shopping()
     int min_price_index;
     int min_price_is_picked;
     
+    /* identifiers used to hold weekly transaction summary
+     */
+    
+    int transaction_quantity = 0;
+    double transaction_volume = 0;
+    
     /* Allocate local buyer queues and seller lists.
      */
     seller_array sellers_list;
@@ -136,6 +142,10 @@ int mall_consumption_shopping()
                 sellers_list.array[j].inventory -= quantity;
                 buyers_list.array[i].budget -= quantity * price;
                 budget = buyers_list.array[i].budget;
+                
+                transaction_quantity += quantity;
+                transaction_volume += quantity * price;
+                
                 j = min_price_index;
                 select_prob = (double)random_int(0, sellers_list.size) / sellers_list.size;
                 continue;
@@ -145,7 +155,7 @@ int mall_consumption_shopping()
     }
     
 
-    
+    //indeed keeps unsold quantities.
     total_sold = 0;
     quantity = 0;
     // Send out revenue information.
@@ -166,6 +176,8 @@ int mall_consumption_shopping()
     
     // Finish
     //printf("Mall: Total Goods Not Sold= %d\n", total_sold);
+    GOODS_TRANSACTIONS.quantity = transaction_quantity;
+    GOODS_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
     
     /* Free seller list */
     free_seller_array(&sellers_list);
@@ -173,4 +185,23 @@ int mall_consumption_shopping()
     free_buyer_array(&buyers_list);
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+/*
+ * \fn: int mall_consumption_summary()
+ * \brief:
+ */
+int mall_consumption_summary()
+{
+    double price;
+    int quantity;
+    
+    price = GOODS_TRANSACTIONS.avg_price;
+    quantity = GOODS_TRANSACTIONS.quantity;
+    
+    add_goods_transactions_summary_message(quantity, price);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
 

@@ -3,7 +3,7 @@
     <!-- Model descriptions  -->
     <name>ICEACE</name>
     <version>Version 0.1.2, 26/02/2012</version>
-    <description> Production Market. The market has regular firms as well as sepcialized construction firms.</description>
+    <description>'Production Market. The market has regular firms as well as sepcialized construction firms.</description>
     <environment>
         <constants>
             <variable>
@@ -113,9 +113,9 @@
                 </function>
                 <function>
                     <name>idle</name>
-                    <description>The state serves to differentiate regualar and constructor firms.</description>
+                    <description>The state serves to check the activity cases.</description>
                     <currentState>FirmProductionStart</currentState>
-                    <nextState>FirmProductionRoleCheck</nextState>
+                    <nextState>FirmProductionSkip</nextState>
                     <condition>
                         <lhs><time>
                             <period>monthly</period>
@@ -126,6 +126,28 @@
                             <period>monthly</period>
                             <phase>a.day_of_month_production_completed</phase>
                         </time></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_production_skip</name>
+                    <description>The firm is new entrant has initialized with an employee and an inventory.</description>
+                    <currentState>FirmProductionSkip</currentState>
+                    <nextState>FirmLabourStart</nextState>
+                    <condition>
+                        <lhs><value>a.isinsolvent</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>1</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>The firm is a new entrant due to insolvency of inherited firm.</description>
+                    <currentState>FirmProductionSkip</currentState>
+                    <nextState>FirmProductionRoleCheck</nextState>
+                    <condition>
+                        <lhs><value>a.isinsolvent</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>1</value></rhs>
                     </condition>
                 </function>
                 <function>

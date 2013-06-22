@@ -3,6 +3,18 @@
 #include "../library_header.h"
 
 /*
+ * \fn: int firm_production_skip()
+ * \brief: Firm skips the production for the current turn.
+ */
+int firm_production_skip()
+{
+    ISINSOLVENT = 0;
+    EMPLOYEES_NEEDED = 1;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
  * \fn: int firm_production_produce_goods()
  * \brief: Firm releases number of items produced.
  */
