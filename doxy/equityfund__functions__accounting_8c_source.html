@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>ICEACE: /Users/bulent/Documents/workspace/iceace/FLAME/Accounting/equityfund_functions_accounting.c Source File</title>
+<title>ICEACE: /Users/bulent/Documents/AWorkspace/iceace/FLAME/Accounting/equityfund_functions_accounting.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * \brief: Within this implementation the equity fund receives all of net income</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * to be distributed equally to households.</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="header_8h.html#a46fab09d896d6886624fff2690afa048">   10</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="equityfund__functions__accounting_8c.html#a82fc417bc9edea980a6a3f726fabbff5">equityfund_accounting_collect_firm_shares</a>()</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="equityfund__functions__accounting_8c.html#a82fc417bc9edea980a6a3f726fabbff5">   10</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="equityfund__functions__accounting_8c.html#a82fc417bc9edea980a6a3f726fabbff5">equityfund_accounting_collect_firm_shares</a>()</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="header_8h.html#a172ae9d590f6346fbe8bfed9b7908f02" title="Start of loop to process firm_net_profit messages.">START_FIRM_NET_PROFIT_MESSAGE_LOOP</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#afc869528d3869404bff961f824aa461a">isconstructor</a> == 1) {</div>
@@ -122,7 +122,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * \fn: int equityfund_accounting_distribute_shares()</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * \brief:Equity fund sends out shares to households.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="header_8h.html#ae8c134a080ddcf2bbfd844d1ebbcf6a3">   33</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="equityfund__functions__accounting_8c.html#a5514c5fb0a5bbdb96b197cc39576d4cf">equityfund_accounting_distribute_shares</a>()</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="equityfund__functions__accounting_8c.html#a5514c5fb0a5bbdb96b197cc39576d4cf">   33</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="equityfund__functions__accounting_8c.html#a5514c5fb0a5bbdb96b197cc39576d4cf">equityfund_accounting_distribute_shares</a>()</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> per_house;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * \fn: int equityfund_accounting_do_balance_sheet()</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> * \brief: Equity Fund does the balance sheet accounting.</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="header_8h.html#aee806b37b070ce927f211c011f123d70">   51</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="equityfund__functions__accounting_8c.html#a92dd07733505e522b7fcc54d40402057">equityfund_accounting_do_balance_sheet</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="equityfund__functions__accounting_8c.html#a92dd07733505e522b7fcc54d40402057">   51</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="equityfund__functions__accounting_8c.html#a92dd07733505e522b7fcc54d40402057">equityfund_accounting_do_balance_sheet</a>()</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="equityfund__agent__header_8h.html#a5ce7de65c08ea37401091d668197aca2" title="Direct access to share_firms of equityfund agent memory variable.">SHARE_FIRMS</a> + <a class="code" href="equityfund__agent__header_8h.html#a78ba894fc25776cf4b5e0efdb8be3764" title="Direct access to share_construction_firms of equityfund agent memory variable.">SHARE_CONSTRUCTION_FIRMS</a> + <a class="code" href="equityfund__agent__header_8h.html#a51958a1fd9ec42685b04a668c8ac7ed5" title="Direct access to share_banks of equityfund agent memory variable.">SHARE_BANKS</a>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
@@ -152,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2013 12:54:15 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 22 2013 09:38:54 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

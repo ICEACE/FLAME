@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>ICEACE: /Users/bulent/Documents/workspace/iceace/FLAME/Market_Credit/bank_functions_credit.c File Reference</title>
+<title>ICEACE: /Users/bulent/Documents/AWorkspace/iceace/FLAME/Market_Credit/bank_functions_credit.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -97,8 +97,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bank_functions_credit.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="bank__functions__credit_8c__incl.png" border="0" usemap="#_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2_market___credit_2bank__functions__credit_8c" alt=""/></div>
-<map name="_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2_market___credit_2bank__functions__credit_8c" id="_2_users_2bulent_2_documents_2workspace_2iceace_2_f_l_a_m_e_2_market___credit_2bank__functions__credit_8c">
+<div class="center"><img src="bank__functions__credit_8c__incl.png" border="0" usemap="#_2_users_2bulent_2_documents_2_a_workspace_2iceace_2_f_l_a_m_e_2_market___credit_2bank__functions__credit_8c" alt=""/></div>
+<map name="_2_users_2bulent_2_documents_2_a_workspace_2iceace_2_f_l_a_m_e_2_market___credit_2bank__functions__credit_8c" id="_2_users_2bulent_2_documents_2_a_workspace_2iceace_2_f_l_a_m_e_2_market___credit_2bank__functions__credit_8c">
 <area shape="rect" id="node2" href="header_8h.html" title="Header for xmachine data structures and transition functions." alt="" coords="262,131,345,159"/><area shape="rect" id="node10" href="bank__agent__header_8h.html" title="Header for agent type memory access." alt="" coords="370,131,531,159"/></map>
 </div>
 </div>
@@ -110,8 +110,70 @@ Functions</h2></td></tr>
 <tr class="separator:a62455ca9bafc20925dc4ef8eba592dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4268c8ce06ad17b04c0be67d70fb07b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bank__functions__credit_8c.html#a4268c8ce06ad17b04c0be67d70fb07b0">bank_credit_process_loan_requests_2</a> ()</td></tr>
 <tr class="separator:a4268c8ce06ad17b04c0be67d70fb07b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac01daf202da2da103d2564fa4bbdb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bank__functions__credit_8c.html#a2ac01daf202da2da103d2564fa4bbdb9">bank_credit_recieve_loan_writeoffs</a> ()</td></tr>
+<tr class="separator:a2ac01daf202da2da103d2564fa4bbdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429168db7d7a54eeec6da57b03a90b01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bank__functions__credit_8c.html#a429168db7d7a54eeec6da57b03a90b01">bank_credit_recieve_new_entrant_loan_requests</a> ()</td></tr>
+<tr class="separator:a429168db7d7a54eeec6da57b03a90b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b254a78e2af48c354d08b9ef08d0cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bank__functions__credit_8c.html#a69b254a78e2af48c354d08b9ef08d0cc">bank_credit_collect_loan_interests</a> ()</td></tr>
+<tr class="separator:a69b254a78e2af48c354d08b9ef08d0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2ab3d13f1009ea98324e7379b94d552"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bank__functions__credit_8c.html#ae2ab3d13f1009ea98324e7379b94d552">bank_credit_do_balance_sheet</a> ()</td></tr>
+<tr class="separator:ae2ab3d13f1009ea98324e7379b94d552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a69b254a78e2af48c354d08b9ef08d0cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bank_credit_collect_loan_interests </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="bank__functions__credit_8c_source.html#l00053">53</a> of file <a class="el" href="bank__functions__credit_8c_source.html">bank_functions_credit.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="bank__functions__credit_8c_a69b254a78e2af48c354d08b9ef08d0cc_icgraph.png" border="0" usemap="#bank__functions__credit_8c_a69b254a78e2af48c354d08b9ef08d0cc_icgraph" alt=""/></div>
+<map name="bank__functions__credit_8c_a69b254a78e2af48c354d08b9ef08d0cc_icgraph" id="bank__functions__credit_8c_a69b254a78e2af48c354d08b9ef08d0cc_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="190,13,240,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2ab3d13f1009ea98324e7379b94d552"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bank_credit_do_balance_sheet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="bank__functions__credit_8c_source.html#l00064">64</a> of file <a class="el" href="bank__functions__credit_8c_source.html">bank_functions_credit.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="bank__functions__credit_8c_ae2ab3d13f1009ea98324e7379b94d552_icgraph.png" border="0" usemap="#bank__functions__credit_8c_ae2ab3d13f1009ea98324e7379b94d552_icgraph" alt=""/></div>
+<map name="bank__functions__credit_8c_ae2ab3d13f1009ea98324e7379b94d552_icgraph" id="bank__functions__credit_8c_ae2ab3d13f1009ea98324e7379b94d552_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="222,13,272,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a62455ca9bafc20925dc4ef8eba592dfa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -166,10 +228,64 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a2ac01daf202da2da103d2564fa4bbdb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bank_credit_recieve_loan_writeoffs </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="bank__functions__credit_8c_source.html#l00030">30</a> of file <a class="el" href="bank__functions__credit_8c_source.html">bank_functions_credit.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="bank__functions__credit_8c_a2ac01daf202da2da103d2564fa4bbdb9_icgraph.png" border="0" usemap="#bank__functions__credit_8c_a2ac01daf202da2da103d2564fa4bbdb9_icgraph" alt=""/></div>
+<map name="bank__functions__credit_8c_a2ac01daf202da2da103d2564fa4bbdb9_icgraph" id="bank__functions__credit_8c_a2ac01daf202da2da103d2564fa4bbdb9_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="195,13,245,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a429168db7d7a54eeec6da57b03a90b01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bank_credit_recieve_new_entrant_loan_requests </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="bank__functions__credit_8c_source.html#l00042">42</a> of file <a class="el" href="bank__functions__credit_8c_source.html">bank_functions_credit.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="bank__functions__credit_8c_a429168db7d7a54eeec6da57b03a90b01_icgraph.png" border="0" usemap="#bank__functions__credit_8c_a429168db7d7a54eeec6da57b03a90b01_icgraph" alt=""/></div>
+<map name="bank__functions__credit_8c_a429168db7d7a54eeec6da57b03a90b01_icgraph" id="bank__functions__credit_8c_a429168db7d7a54eeec6da57b03a90b01_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="248,13,298,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2013 12:54:18 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 22 2013 09:38:57 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

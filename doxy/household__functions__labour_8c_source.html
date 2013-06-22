@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>ICEACE: /Users/bulent/Documents/workspace/iceace/FLAME/Market_Labour/household_functions_labour.c Source File</title>
+<title>ICEACE: /Users/bulent/Documents/AWorkspace/iceace/FLAME/Market_Labour/household_functions_labour.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -186,36 +186,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> * \fn: int household_labour_recieve_wage()</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> * \brief: An household updates its wage history and liquidity at the end</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> * of the month.</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> * \fn: int household_labour_report_status()</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> * \brief: Sending out employment status.</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="household__functions__labour_8c.html#a7ef09f6ade07cb66ceae61cdd8f50ba8">  102</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a0030a24548ac120b195477ce78bce7c9">household_labour_recieve_wage</a>()</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="household__functions__labour_8c.html#a124f4122ac171d84cab15b6fa4d38cb3">  102</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a403be808c9152daef394cbb69f6f03d1">household_labour_report_status</a>()</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">int</span> wage_total, w0, w1, w2;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="header_8h.html#a92b54477dc925cf9fc8d6bc92ff7cae3" title="Add employment_status message by calling internal and processing.">add_employment_status_message</a>(<a class="code" href="household__agent__header_8h.html#a8b670648d6f111e934493c79dadb98a5" title="Direct access to my_employer_id of household agent memory variable.">MY_EMPLOYER_ID</a>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += <a class="code" href="household__agent__header_8h.html#aef0e7f90715aa83183820734dd69241c" title="Direct access to wage of household agent memory variable.">WAGE</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[2] = <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[1];</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[1] = <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[0];</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[0] = <a class="code" href="household__agent__header_8h.html#aef0e7f90715aa83183820734dd69241c" title="Direct access to wage of household agent memory variable.">WAGE</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    w0 = (int)<a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[0];</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    w1 = (int)<a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[1];</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    w2 = (int)<a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[2];</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    wage_total = w0 + w1 + w2;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">//printf(&quot;Household Id = %d income for last 3 months sums up to  %d\n&quot;,ID, wage_total);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"> * \fn: int household_labour_recieve_wage()</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"> * \brief: An household updates its wage history and liquidity at the end</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"> * of the month.</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="household__functions__labour_8c.html#a7ef09f6ade07cb66ceae61cdd8f50ba8">  115</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a0030a24548ac120b195477ce78bce7c9">household_labour_recieve_wage</a>()</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">int</span> wage_total, w0, w1, w2;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += <a class="code" href="household__agent__header_8h.html#aef0e7f90715aa83183820734dd69241c" title="Direct access to wage of household agent memory variable.">WAGE</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[2] = <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[1];</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[1] = <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[0];</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[0] = <a class="code" href="household__agent__header_8h.html#aef0e7f90715aa83183820734dd69241c" title="Direct access to wage of household agent memory variable.">WAGE</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    w0 = (int)<a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[0];</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    w1 = (int)<a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[1];</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    w2 = (int)<a class="code" href="household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec" title="Direct access to previous_wages of household agent memory variable.">PREVIOUS_WAGES</a>[2];</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    wage_total = w0 + w1 + w2;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">//printf(&quot;Household Id = %d income for last 3 months sums up to  %d\n&quot;,ID, wage_total);</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2013 12:54:15 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 22 2013 09:38:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

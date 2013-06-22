@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -114,17 +114,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 &#160;
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
-<li>unittest_bank_accounting_do_balance_sheet_BankAccountingStart_BankCreditStart()
-: <a class="el" href="memory_8c.html#aaaced291e2dbe9be3163608ed40c33c4">memory.c</a>
+<li>unittest_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#a7d0c05bcefe58a3b1a02700df515861e">memory.c</a>
+</li>
+<li>unittest_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankHousingMarket()
+: <a class="el" href="memory_8c.html#a827ce0352113d99c6ad9c8777e07278f">memory.c</a>
 </li>
 <li>unittest_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2()
 : <a class="el" href="memory_8c.html#aa4003950f9e7a661e8f11f4273203da6">memory.c</a>
 </li>
-<li>unittest_bank_credit_process_loan_requests_2_BankCreditRequest2_BankHousingMarket()
-: <a class="el" href="memory_8c.html#aacdc9c52f845a522eeaa8b6859e1c616">memory.c</a>
+<li>unittest_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs()
+: <a class="el" href="memory_8c.html#a0f92d4dbf93a6ebbe92288c0352c258c">memory.c</a>
+</li>
+<li>unittest_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants()
+: <a class="el" href="memory_8c.html#a80d489624b541a234f09e5f23b05f04c">memory.c</a>
+</li>
+<li>unittest_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests()
+: <a class="el" href="memory_8c.html#a002d8d378915273495353df3ab4fab33">memory.c</a>
 </li>
 <li>unittest_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting()
 : <a class="el" href="memory_8c.html#a25f4605ef1a1bfac396749abbace31c7">memory.c</a>
+</li>
+<li>unittest_bank_housing_debt_writeoff_BankHousingWriteOff_end()
+: <a class="el" href="memory_8c.html#a9f86149cf9c02b0200717209a0f9796a">memory.c</a>
 </li>
 <li>unittest_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales()
 : <a class="el" href="memory_8c.html#af81e695fb3ca2c6bb2bee19828adc861">memory.c</a>
@@ -132,41 +144,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages()
 : <a class="el" href="memory_8c.html#a0ad67dd2040d9cd09a192dd3e6368087">memory.c</a>
 </li>
-<li>unittest_bank_housing_recieve_mortgages_BankHousingMortgages_end()
-: <a class="el" href="memory_8c.html#ade59178daa1c4f89958e51ca81ccd162">memory.c</a>
+<li>unittest_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff()
+: <a class="el" href="memory_8c.html#a33bd8b81e2978d9fd29d336adfeac9a0">memory.c</a>
 </li>
-<li>unittest_bank_init_start_BankAccountingStart()
-: <a class="el" href="memory_8c.html#a5d69801043e34fad42d973e47ed19aaa">memory.c</a>
+<li>unittest_bank_init_start_BankCreditStart()
+: <a class="el" href="memory_8c.html#a6a77de0109702c8c45d874707fbcfd35">memory.c</a>
 </li>
-<li>unittest_centralbank_accounting_do_balance_sheet_CBAccountingStart_CBCreditStart()
-: <a class="el" href="memory_8c.html#a9c6536c16d1a31b975efaae2740b19ba">memory.c</a>
+<li>unittest_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankLabour()
+: <a class="el" href="memory_8c.html#a4c0268c83f626314dae26b9c228b71ba">memory.c</a>
 </li>
-<li>unittest_centralbank_credit_set_interest_rate_CBCreditStart_end()
-: <a class="el" href="memory_8c.html#a8c449f26a7d6755e9e090ee9afb42f59">memory.c</a>
+<li>unittest_centralbank_init_start_CentralBankCredit()
+: <a class="el" href="memory_8c.html#a121671d3f6c898b29ff7bb4595fd0b80">memory.c</a>
 </li>
-<li>unittest_centralbank_init_start_CBAccountingStart()
-: <a class="el" href="memory_8c.html#a04b56b780d2d63478a7d68bcb3254b08">memory.c</a>
+<li>unittest_centralbank_set_interest_rate_CentralBankCredit_CentralBankBalanceSheet()
+: <a class="el" href="memory_8c.html#a113d894b46e8fb1b5e20be7123c5a0eb">memory.c</a>
 </li>
-<li>unittest_equityfund_accounting_collect_firm_shares_EFAccountingStart_EFAccountingDistributeShares()
-: <a class="el" href="memory_8c.html#ac4b89b10437afad8fac97f0a7a0386e6">memory.c</a>
+<li>unittest_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing()
+: <a class="el" href="memory_8c.html#ac3076a2117a773393f87e4ab0041bf3d">memory.c</a>
 </li>
-<li>unittest_equityfund_accounting_distribute_shares_EFAccountingDistributeShares_EFAccountingBalanceSheet()
-: <a class="el" href="memory_8c.html#a5af8fdf2e1935bf31be7a607456c8d5a">memory.c</a>
+<li>unittest_centralbank_trace_housing_prices_CentralBankHousing_end()
+: <a class="el" href="memory_8c.html#a43dbed468837d348bb42a449a15b6f42">memory.c</a>
 </li>
-<li>unittest_equityfund_accounting_do_balance_sheet_EFAccountingBalanceSheet_end()
-: <a class="el" href="memory_8c.html#a87648988eeebd883c04c777b92d1ed4a">memory.c</a>
+<li>unittest_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption()
+: <a class="el" href="memory_8c.html#a9c5dd7371e5a4a1037997cbedf904ed4">memory.c</a>
 </li>
-<li>unittest_equityfund_init_start_EFAccountingStart()
-: <a class="el" href="memory_8c.html#aa5f9e275b4a4bca44ce5bc4a7cf77ee8">memory.c</a>
+<li>unittest_equityfund_credit_collect_firm_shares_EFCreditShareCollection_EFCreditDistributeShares()
+: <a class="el" href="memory_8c.html#a541d5326db50fb55dd03b148d621b57d">memory.c</a>
 </li>
-<li>unittest_firm_accounting_distribute_net_profit_FirmAccountingStart_FirmAccountingBalanceSheet()
-: <a class="el" href="memory_8c.html#a2a3d0bf0efd33a672b04d88012f5db43">memory.c</a>
+<li>unittest_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#a05f4a905ed27688e8fa2c2b5ab947909">memory.c</a>
 </li>
-<li>unittest_firm_accounting_do_balance_sheet_FirmAccountingBalanceSheet_FirmProductionStart()
-: <a class="el" href="memory_8c.html#ad2eae7e5cfca4cd22926e342af98a633">memory.c</a>
+<li>unittest_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_end()
+: <a class="el" href="memory_8c.html#ab295c49da6707e78020284450b09e16d">memory.c</a>
 </li>
-<li>unittest_firm_consumption_recieve_sales_FirmRecieveSales_FirmCreditStart()
-: <a class="el" href="memory_8c.html#a09d72b910b2e75a9f140b44ab7754071">memory.c</a>
+<li>unittest_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditShareCollection()
+: <a class="el" href="memory_8c.html#a6393100474f038bbd662e7fde28ce885">memory.c</a>
+</li>
+<li>unittest_equityfund_init_start_EquityFundStart()
+: <a class="el" href="memory_8c.html#a5dc796745e8b3987fb8719bf0674a2ef">memory.c</a>
+</li>
+<li>unittest_firm_consumption_recieve_sales_FirmRecieveSales_FirmHousingStart()
+: <a class="el" href="memory_8c.html#a7223098c61e4d640dc439e506bcc9950">memory.c</a>
 </li>
 <li>unittest_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales()
 : <a class="el" href="memory_8c.html#a91bac7b6be136669050789c9405c0741">memory.c</a>
@@ -174,14 +192,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2()
 : <a class="el" href="memory_8c.html#af07cb949216a6ccc9f1c7b1bbc25ab6b">memory.c</a>
 </li>
-<li>unittest_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmHousingStart()
-: <a class="el" href="memory_8c.html#a57b63031aa226e179f0a18b953a5ac08">memory.c</a>
+<li>unittest_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditBankruptcy()
+: <a class="el" href="memory_8c.html#a1be26c0ccbfa6c6a160f3faca775d066">memory.c</a>
 </li>
-<li>unittest_firm_credit_check_interest_rate_FirmCreditStart_FirmCreditLoanRequest()
-: <a class="el" href="memory_8c.html#af98f3de6f1814635d9430c82a00c736b">memory.c</a>
+<li>unittest_firm_credit_check_illiquidity_FirmCreditBankruptcy_FirmCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#a105d27597000fa24395acc40a3c9583e">memory.c</a>
+</li>
+<li>unittest_firm_credit_check_interest_rate_FirmCreditStart_FirmCreditQuarterly()
+: <a class="el" href="memory_8c.html#acaff1930a5c17a6035e916aa5ad024a3">memory.c</a>
+</li>
+<li>unittest_firm_credit_check_liquidity_need_FirmCreditQuarterly_FirmCreditStatus()
+: <a class="el" href="memory_8c.html#ad52ff57d3e547213f454f7efcfe6c3f1">memory.c</a>
 </li>
 <li>unittest_firm_credit_demand_loans_1_FirmCreditLoanRequest_FirmCreditLoanBorrow1()
 : <a class="el" href="memory_8c.html#a32d11efd67384deee2f712b32af06544">memory.c</a>
+</li>
+<li>unittest_firm_credit_distribute_net_profit_FirmCreditAccounting_FirmCreditLoanPayment()
+: <a class="el" href="memory_8c.html#a6568d3deb10d4a41beae221ae4e421fe">memory.c</a>
+</li>
+<li>unittest_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmProductionStart()
+: <a class="el" href="memory_8c.html#a5526a52324f7d5fecfff8ccdedbccabf">memory.c</a>
+</li>
+<li>unittest_firm_credit_exit_market_FirmCreditInsolvency_FirmCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#a104786d4dc54b34a40b31389766e5803">memory.c</a>
+</li>
+<li>unittest_firm_credit_pay_interest_on_loans_FirmCreditLoanPayment_FirmCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#ac4deb9528b0db7f17caf9502c19e9757">memory.c</a>
 </li>
 <li>unittest_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice()
 : <a class="el" href="memory_8c.html#a90421a26ff76640ef1d56b702f47b2e6">memory.c</a>
@@ -192,8 +228,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_firm_housing_update_market_price_FirmHousingPrice_end()
 : <a class="el" href="memory_8c.html#a0dff5bf70efbad69fc1165c693abbb6b">memory.c</a>
 </li>
-<li>unittest_firm_init_start_FirmAccountingStart()
-: <a class="el" href="memory_8c.html#a7bc7a67886e2d58c157c35faa3509da0">memory.c</a>
+<li>unittest_firm_init_start_FirmCreditStart()
+: <a class="el" href="memory_8c.html#a8a3d81e6a778fbff287d596643c1bc04">memory.c</a>
 </li>
 <li>unittest_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End()
 : <a class="el" href="memory_8c.html#a8bbf0a4e227d5b107c095d69a5a7c006">memory.c</a>
@@ -240,6 +276,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning()
 : <a class="el" href="memory_8c.html#ad2d1e1f0f398672e0dd1c02bdc1aff93">memory.c</a>
 </li>
+<li>unittest_firm_production_skip_FirmProductionSkip_FirmLabourStart()
+: <a class="el" href="memory_8c.html#a01b2000e1876362e78380c1c6a357ddb">memory.c</a>
+</li>
 <li>unittest_free_bank_agent()
 : <a class="el" href="header_8h.html#ac640251eb8ee21d0912e6e38096b4eb3">header.h</a>
 , <a class="el" href="memory_8c.html#ac640251eb8ee21d0912e6e38096b4eb3">memory.c</a>
@@ -276,32 +315,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="header_8h.html#a6fc05587a8f7ff28391433ec6207dd2f">header.h</a>
 , <a class="el" href="memory_8c.html#a6fc05587a8f7ff28391433ec6207dd2f">memory.c</a>
 </li>
-<li>unittest_government_accounting_do_balance_sheet_GovAccountingStart_end()
-: <a class="el" href="memory_8c.html#a77166a8df9dd49aedf84b1683f540310">memory.c</a>
+<li>unittest_government_collect_capital_tax_GovernmentCapitalTax_GovernmentBalanceSheet()
+: <a class="el" href="memory_8c.html#a63666bb72d60574bb1690bc032245c4d">memory.c</a>
 </li>
-<li>unittest_government_init_start_GovAccountingStart()
-: <a class="el" href="memory_8c.html#a918fde86f4bc32111efb2105822be822">memory.c</a>
+<li>unittest_government_collect_labour_tax_GovernmentLabourTax_end()
+: <a class="el" href="memory_8c.html#a96f6ed65d3613e091a09f07fdadfeb73">memory.c</a>
 </li>
-<li>unittest_household_accounting_collect_shares_HHAccountingIsCapitalist_HHAccountingBalanceSheet()
-: <a class="el" href="memory_8c.html#a2abbb646aa7f6d31455a59fc71b42dca">memory.c</a>
+<li>unittest_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits()
+: <a class="el" href="memory_8c.html#a88308c8e2f9ae67527a570efed15edf0">memory.c</a>
 </li>
-<li>unittest_household_accounting_do_balance_sheet_HHAccountingBalanceSheet_HHLabourStart()
-: <a class="el" href="memory_8c.html#a7b0012f86396bd48254828c71126ffba">memory.c</a>
+<li>unittest_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax()
+: <a class="el" href="memory_8c.html#aa4456251aa904bde8a4ffdbf6e0198f7">memory.c</a>
 </li>
-<li>unittest_household_consumption_demand_HHConsumptionWeekly_HHRecieveGoods()
-: <a class="el" href="memory_8c.html#aad95e2ed9fe4dd1c5f02263d0091734b">memory.c</a>
+<li>unittest_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentMonthly()
+: <a class="el" href="memory_8c.html#ab98d15ff6f98d7edb0f201ce3192b9f9">memory.c</a>
+</li>
+<li>unittest_government_init_start_GovernmentStart()
+: <a class="el" href="memory_8c.html#a590cef60a9664b85351618be6a1cb9c1">memory.c</a>
+</li>
+<li>unittest_government_update_fiscal_policy_GovernmentStart_GovernmentCapitalTax()
+: <a class="el" href="memory_8c.html#ac3580bb6a4e26a8c63ee2586b9077e2e">memory.c</a>
+</li>
+<li>unittest_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods()
+: <a class="el" href="memory_8c.html#af545fc84eba0031677d515097bd691c9">memory.c</a>
 </li>
 <li>unittest_household_consumption_monthly_budget_HHConsumptionStart_HHConsumptionWeekly()
 : <a class="el" href="memory_8c.html#aaf8222ab682eb49cd13dc515b34a23ac">memory.c</a>
 </li>
-<li>unittest_household_consumption_recieve_goods_HHRecieveGoods_HHCreditStart()
-: <a class="el" href="memory_8c.html#aa668997e89c9507e38f95dcfe92ff7df">memory.c</a>
+<li>unittest_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart()
+: <a class="el" href="memory_8c.html#aef3ed60ba9ee2544d22ad6a8731f6ce9">memory.c</a>
 </li>
-<li>unittest_household_credit_check_interest_rate_HHCreditStart_HHCreditUpdateMortgages()
-: <a class="el" href="memory_8c.html#a790db896a6cf5b30e82bae54b7125de5">memory.c</a>
+<li>unittest_household_credit_check_interest_rate_HHCreditMonthly_HHCreditBenefits()
+: <a class="el" href="memory_8c.html#a8e9b31477fb32b074cfa7efeab6525ff">memory.c</a>
 </li>
-<li>unittest_household_credit_update_mortgage_rates_HHCreditUpdateMortgages_HHHousingStart()
-: <a class="el" href="memory_8c.html#af26720c7c596bc4575a53e11da397195">memory.c</a>
+<li>unittest_household_credit_check_tax_rate_HHCreditStart_HHCreditUpdateMortgages()
+: <a class="el" href="memory_8c.html#a5ad77f1c9882e8135fbb7e00b93e6a2f">memory.c</a>
+</li>
+<li>unittest_household_credit_collect_benefits_HHCreditBenefits_HHCreditEmployment()
+: <a class="el" href="memory_8c.html#a61446127167418331de5a5f9b3113e2c">memory.c</a>
+</li>
+<li>unittest_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditCapitalTax()
+: <a class="el" href="memory_8c.html#a432a8f50e01cfb36e8f54fd31a0a3a04">memory.c</a>
+</li>
+<li>unittest_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart()
+: <a class="el" href="memory_8c.html#a9e301c2202cfedc4b3d5865fd3d16355">memory.c</a>
+</li>
+<li>unittest_household_credit_do_balance_sheet_HHCreditBalanceSheet_HHCreditMonthly()
+: <a class="el" href="memory_8c.html#a19fae1e075c6e3ee537b310a18224f89">memory.c</a>
+</li>
+<li>unittest_household_credit_pay_capital_tax_HHCreditCapitalTax_HHCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#a5a9bd0f23f385233502990b60109d6db">memory.c</a>
+</li>
+<li>unittest_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart()
+: <a class="el" href="memory_8c.html#a07a30ccd9d4989b85a2920463078e111">memory.c</a>
+</li>
+<li>unittest_household_credit_update_mortgage_rates_HHCreditUpdateMortgages_HHCreditIsCapitalist()
+: <a class="el" href="memory_8c.html#ab467a981a49afbb3791e969f1f344133">memory.c</a>
 </li>
 <li>unittest_household_housing_buy_HHHousingBargain_HHHousingPrice()
 : <a class="el" href="memory_8c.html#aeec8d38826bc548cda9090a97888b7d7">memory.c</a>
@@ -312,6 +381,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice()
 : <a class="el" href="memory_8c.html#a742d0f4d9d53643bc232df8dd26b459a">memory.c</a>
 </li>
+<li>unittest_household_housing_debt_writeoff_HHHousingWriteOff_end()
+: <a class="el" href="memory_8c.html#a499a9cd03f9a5b430fbfa5c18f598a8d">memory.c</a>
+</li>
 <li>unittest_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain()
 : <a class="el" href="memory_8c.html#ace4a2c6e4d94c2970376d2700b4f56ca">memory.c</a>
 </li>
@@ -321,8 +393,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_household_housing_market_role_HHHousingStart_HHHousingRole()
 : <a class="el" href="memory_8c.html#a3a573b24e8eca4486f0e029620b87819">memory.c</a>
 </li>
-<li>unittest_household_housing_pay_mortgages_HHHousingPayments_end()
-: <a class="el" href="memory_8c.html#a62bde2daa81d23488040cce69411ab8d">memory.c</a>
+<li>unittest_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff()
+: <a class="el" href="memory_8c.html#ad96b94b1a8bcb0998cbdeb9323b9217c">memory.c</a>
 </li>
 <li>unittest_household_housing_sell_HHHousingRole_HHHousingRevenue()
 : <a class="el" href="memory_8c.html#a0107f170f9532dcb7821788672ce0ba9">memory.c</a>
@@ -330,8 +402,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_household_housing_update_market_price_HHHousingPrice_HHHousingPayments()
 : <a class="el" href="memory_8c.html#aeda43ac5fc44f9324de75ed6a8574f2a">memory.c</a>
 </li>
-<li>unittest_household_init_start_HHAccountingStart()
-: <a class="el" href="memory_8c.html#afe2e76bc3716e4a18738fcfcfa46bd1d">memory.c</a>
+<li>unittest_household_init_start_HHCreditStart()
+: <a class="el" href="memory_8c.html#a1fb468d284bbc53f73fdca80a2b163dd">memory.c</a>
 </li>
 <li>unittest_household_labour_check_fired_HHLabourStart_HHLabourStage1()
 : <a class="el" href="memory_8c.html#a52508acc53ad8259fa968a24cf977bb3">memory.c</a>
@@ -339,8 +411,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement()
 : <a class="el" href="memory_8c.html#a0f887203e0e899615f458f506cbba5c5">memory.c</a>
 </li>
-<li>unittest_household_labour_employment_HHLabourStage1Placement_HHLabourPayroll()
-: <a class="el" href="memory_8c.html#aef6252a672cb58721b45a899873f6377">memory.c</a>
+<li>unittest_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus()
+: <a class="el" href="memory_8c.html#aa11e8ce397c334ba18421ecd1ee75117">memory.c</a>
 </li>
 <li>unittest_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart()
 : <a class="el" href="memory_8c.html#a09dc40a4886446a933d993c1b2f2c8ff">memory.c</a>
@@ -348,11 +420,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_household_labour_reemployment_application_HHLabourStage1_HHLabourStage2()
 : <a class="el" href="memory_8c.html#a1a44007d12d3f5e90cbcbcffd617fc9e">memory.c</a>
 </li>
-<li>unittest_household_labour_turnover_HHLabourStage2_HHLabourPayroll()
-: <a class="el" href="memory_8c.html#abac0acd1c7821d2b1d519cf9a5caf885">memory.c</a>
+<li>unittest_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll()
+: <a class="el" href="memory_8c.html#a134649342f634c66a63ea40990283a72">memory.c</a>
 </li>
-<li>unittest_idle_BankAccountingStart_BankCreditStart()
-: <a class="el" href="memory_8c.html#a3d22f1503154db669e9d4f4391e7ec88">memory.c</a>
+<li>unittest_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus()
+: <a class="el" href="memory_8c.html#a44cfa95f959512acf2fb265e3802c7c6">memory.c</a>
 </li>
 <li>unittest_idle_BankCreditStart_BankHousingMarket()
 : <a class="el" href="memory_8c.html#a434062bfdf5721a07f40ef528f1afe41">memory.c</a>
@@ -360,26 +432,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_idle_BankHousingMarket_end()
 : <a class="el" href="memory_8c.html#a86c7d08ec4691b7b2be1a418281c843c">memory.c</a>
 </li>
-<li>unittest_idle_CBAccountingStart_CBCreditStart()
-: <a class="el" href="memory_8c.html#a38f80e782d58224fb4995ea67584e450">memory.c</a>
+<li>unittest_idle_CentralBankConsumption_CentralBankHousing()
+: <a class="el" href="memory_8c.html#a21c20ad3ab3c14802038fb1398e16e02">memory.c</a>
 </li>
-<li>unittest_idle_CBCreditStart_end()
-: <a class="el" href="memory_8c.html#a262d94640d5dcd9549ef08d6d67e8087">memory.c</a>
+<li>unittest_idle_CentralBankCredit_CentralBankLabour()
+: <a class="el" href="memory_8c.html#aa7dba94a6ba1d6c195944b76f7133cb5">memory.c</a>
 </li>
-<li>unittest_idle_EFAccountingStart_end()
-: <a class="el" href="memory_8c.html#ab8f12fa31ff4dce555aa785a80c7eccc">memory.c</a>
+<li>unittest_idle_CentralBankHousing_end()
+: <a class="el" href="memory_8c.html#aa2c09166a282a47e08dd98839aca356e">memory.c</a>
 </li>
-<li>unittest_idle_FirmAccountingStart_FirmProductionStart()
-: <a class="el" href="memory_8c.html#ae429ae1b38a3de0139e4bc2095e1c8ee">memory.c</a>
+<li>unittest_idle_CentralBankLabour_CentralBankConsumption()
+: <a class="el" href="memory_8c.html#ab60d6b5a5e3b964c9af4c3e32df4c24e">memory.c</a>
 </li>
-<li>unittest_idle_FirmConsumptionStart_FirmCreditStart()
-: <a class="el" href="memory_8c.html#a546ebc82abd57f000827bb68723ff68a">memory.c</a>
+<li>unittest_idle_EquityFundStart_end()
+: <a class="el" href="memory_8c.html#aa34da326255c5107718669385fbecd29">memory.c</a>
 </li>
-<li>unittest_idle_FirmCreditLoanRequest_FirmHousingStart()
-: <a class="el" href="memory_8c.html#abc19665c4306e36a8e1b62ad14a35552">memory.c</a>
+<li>unittest_idle_FirmConsumptionStart_FirmHousingStart()
+: <a class="el" href="memory_8c.html#ae31e895e775f5bbffbaa8347fad500dd">memory.c</a>
 </li>
-<li>unittest_idle_FirmCreditStart_FirmHousingStart()
-: <a class="el" href="memory_8c.html#a6fe6b2b73fca64ee6c6d26988c32187a">memory.c</a>
+<li>unittest_idle_FirmCreditBankruptcy_FirmCreditAccounting()
+: <a class="el" href="memory_8c.html#ab933095ded6a0b257cbbe3fae4a70f7d">memory.c</a>
+</li>
+<li>unittest_idle_FirmCreditLoanBorrow2_FirmCreditAccounting()
+: <a class="el" href="memory_8c.html#a9452c60be444679fb0fff115de7013e3">memory.c</a>
+</li>
+<li>unittest_idle_FirmCreditLoanRequest_FirmCreditInsolvency()
+: <a class="el" href="memory_8c.html#a564a75552f427ed4a099628f364df923">memory.c</a>
+</li>
+<li>unittest_idle_FirmCreditQuarterly_FirmProductionStart()
+: <a class="el" href="memory_8c.html#a535a8f76b1480a7894b6af0a5e5b27fb">memory.c</a>
+</li>
+<li>unittest_idle_FirmCreditStart_FirmCreditQuarterly()
+: <a class="el" href="memory_8c.html#a5b226e337ac6a110fe0abcb5b5d24c52">memory.c</a>
+</li>
+<li>unittest_idle_FirmCreditStatus_FirmCreditAccounting()
+: <a class="el" href="memory_8c.html#aaa7b03642fc2b97e003827844ba20ca2">memory.c</a>
+</li>
+<li>unittest_idle_FirmCreditStatus_FirmCreditLoanRequest()
+: <a class="el" href="memory_8c.html#a6932a78450f609eb510c3c4746a98073">memory.c</a>
 </li>
 <li>unittest_idle_FirmHousingMarket_end()
 : <a class="el" href="memory_8c.html#a6eee759a5d09682f6c99efa27408bfc9">memory.c</a>
@@ -408,32 +498,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_idle_FirmProductionRoleCheck_FirmProductionRegular()
 : <a class="el" href="memory_8c.html#ad6a6ada1fc1505ec203d8ae967f4abdb">memory.c</a>
 </li>
+<li>unittest_idle_FirmProductionSkip_FirmProductionRoleCheck()
+: <a class="el" href="memory_8c.html#ad7700cd46c74116f28068b07af7c116e">memory.c</a>
+</li>
 <li>unittest_idle_FirmProductionStart_FirmLabourStart()
 : <a class="el" href="memory_8c.html#a0f619509f2e25f44aa62203203f59620">memory.c</a>
 </li>
-<li>unittest_idle_FirmProductionStart_FirmProductionRoleCheck()
-: <a class="el" href="memory_8c.html#aacbacea513dabe3c4bd8d172934f487a">memory.c</a>
+<li>unittest_idle_FirmProductionStart_FirmProductionSkip()
+: <a class="el" href="memory_8c.html#aaa3254773e0c8092a919b47d7c8c8c3c">memory.c</a>
 </li>
-<li>unittest_idle_GovAccountingStart_end()
-: <a class="el" href="memory_8c.html#a8e0883583c09ed0230589ea7cf1ce3a7">memory.c</a>
+<li>unittest_idle_GovernmentMonthly_end()
+: <a class="el" href="memory_8c.html#aa79531e7bc5dc91c867b83749cbbfe82">memory.c</a>
 </li>
-<li>unittest_idle_HHAccountingIsCapitalist_HHAccountingBalanceSheet()
-: <a class="el" href="memory_8c.html#af814e550899b2e696bc245a64ee8d510">memory.c</a>
-</li>
-<li>unittest_idle_HHAccountingStart_HHAccountingIsCapitalist()
-: <a class="el" href="memory_8c.html#a3aa13a3c2e9744f833db296b1aa3da32">memory.c</a>
-</li>
-<li>unittest_idle_HHAccountingStart_HHLabourStart()
-: <a class="el" href="memory_8c.html#aab2e027abce51d19768b6e76709d59eb">memory.c</a>
+<li>unittest_idle_GovernmentStart_GovernmentMonthly()
+: <a class="el" href="memory_8c.html#a2d487473ee4d4fabc7d7b272c5fb31e7">memory.c</a>
 </li>
 <li>unittest_idle_HHConsumptionStart_HHConsumptionWeekly()
 : <a class="el" href="memory_8c.html#a74685979d2246cdac1c46f7dacdae0b3">memory.c</a>
 </li>
-<li>unittest_idle_HHConsumptionWeekly_HHCreditStart()
-: <a class="el" href="memory_8c.html#af9569b7d9eef86875622709f5b9913a1">memory.c</a>
+<li>unittest_idle_HHConsumptionWeekly_HHHousingStart()
+: <a class="el" href="memory_8c.html#a17b541f3d06d3181fd3538ed09ad4995">memory.c</a>
 </li>
-<li>unittest_idle_HHCreditStart_HHHousingStart()
-: <a class="el" href="memory_8c.html#a868beb7d38dfa0ad13a419a94a56bf2b">memory.c</a>
+<li>unittest_idle_HHCreditIsCapitalist_HHCreditBalanceSheet()
+: <a class="el" href="memory_8c.html#a55fb6c3b813a82922dffa06c89d06123">memory.c</a>
+</li>
+<li>unittest_idle_HHCreditMonthly_HHLabourStart()
+: <a class="el" href="memory_8c.html#ae5ede2bdd3a8c440788638676cbd20eb">memory.c</a>
+</li>
+<li>unittest_idle_HHCreditStart_HHCreditMonthly()
+: <a class="el" href="memory_8c.html#a2180911f2ffb3870fad17e5ca69eeb86">memory.c</a>
 </li>
 <li>unittest_idle_HHHousingCheckWealth_HHHousingPrice()
 : <a class="el" href="memory_8c.html#a72ae3dd7bd2cb0446fa3d2677f7b46b1">memory.c</a>
@@ -450,8 +543,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_idle_HHLabourStage1_HHLabourStage1Applications()
 : <a class="el" href="memory_8c.html#afa97b69bdbe46dcd4fd18c6a29cb4775">memory.c</a>
 </li>
-<li>unittest_idle_HHLabourStart_HHLabourPayroll()
-: <a class="el" href="memory_8c.html#a52fc3e1a529592ee6b036edb7dbbf149">memory.c</a>
+<li>unittest_idle_HHLabourStart_HHLabourEmploymentStatus()
+: <a class="el" href="memory_8c.html#a2317876e5a397d477aff9fc10c2e1273">memory.c</a>
 </li>
 <li>unittest_idle_JPOLabourMarket_end()
 : <a class="el" href="memory_8c.html#a51032f8ccd71f7affbe7dd10f40e2de9">memory.c</a>
@@ -459,20 +552,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_idle_MallConsumptionMarket_end()
 : <a class="el" href="memory_8c.html#a3f32886c0abe6e65c9063d36448f7356">memory.c</a>
 </li>
-<li>unittest_idle_ReagencyHousingMarket_end()
-: <a class="el" href="memory_8c.html#af7baaf60a7a9f60a11041f336c396c1b">memory.c</a>
+<li>unittest_idle_REAgencyHousingMarket_end()
+: <a class="el" href="memory_8c.html#a666cc8c396e32fab6a747b744cdbb418">memory.c</a>
 </li>
 <li>unittest_init_bank_agent()
-: <a class="el" href="memory_8c.html#a2fd4144f49698de0766903188a2dde97">memory.c</a>
-, <a class="el" href="header_8h.html#a2fd4144f49698de0766903188a2dde97">header.h</a>
+: <a class="el" href="header_8h.html#a2fd4144f49698de0766903188a2dde97">header.h</a>
+, <a class="el" href="memory_8c.html#a2fd4144f49698de0766903188a2dde97">memory.c</a>
 </li>
 <li>unittest_init_centralbank_agent()
-: <a class="el" href="memory_8c.html#a79fa5d9a605d2544598c898610bf5ea7">memory.c</a>
-, <a class="el" href="header_8h.html#a79fa5d9a605d2544598c898610bf5ea7">header.h</a>
+: <a class="el" href="header_8h.html#a79fa5d9a605d2544598c898610bf5ea7">header.h</a>
+, <a class="el" href="memory_8c.html#a79fa5d9a605d2544598c898610bf5ea7">memory.c</a>
 </li>
 <li>unittest_init_equityfund_agent()
-: <a class="el" href="memory_8c.html#a00ec22adf77f3ab3f27aa15e93175e84">memory.c</a>
-, <a class="el" href="header_8h.html#a00ec22adf77f3ab3f27aa15e93175e84">header.h</a>
+: <a class="el" href="header_8h.html#a00ec22adf77f3ab3f27aa15e93175e84">header.h</a>
+, <a class="el" href="memory_8c.html#a00ec22adf77f3ab3f27aa15e93175e84">memory.c</a>
 </li>
 <li>unittest_init_firm_agent()
 : <a class="el" href="header_8h.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c">header.h</a>
@@ -483,12 +576,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="header_8h.html#a535b8199feca50523510acc3f413ca17">header.h</a>
 </li>
 <li>unittest_init_household_agent()
-: <a class="el" href="header_8h.html#ae2d784be8cf6510207b091539a8daf39">header.h</a>
-, <a class="el" href="memory_8c.html#ae2d784be8cf6510207b091539a8daf39">memory.c</a>
+: <a class="el" href="memory_8c.html#ae2d784be8cf6510207b091539a8daf39">memory.c</a>
+, <a class="el" href="header_8h.html#ae2d784be8cf6510207b091539a8daf39">header.h</a>
 </li>
 <li>unittest_init_jpoffice_agent()
-: <a class="el" href="memory_8c.html#a1a89cd493d8ca24eda1de6fe7654a2dc">memory.c</a>
-, <a class="el" href="header_8h.html#a1a89cd493d8ca24eda1de6fe7654a2dc">header.h</a>
+: <a class="el" href="header_8h.html#a1a89cd493d8ca24eda1de6fe7654a2dc">header.h</a>
+, <a class="el" href="memory_8c.html#a1a89cd493d8ca24eda1de6fe7654a2dc">memory.c</a>
 </li>
 <li>unittest_init_mall_agent()
 : <a class="el" href="header_8h.html#ab41b2abff8f08fdace159d56df436e6b">header.h</a>
@@ -507,23 +600,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>unittest_jpoffice_labour_stage2_JPOLabourStage2_end()
 : <a class="el" href="memory_8c.html#aaf9960aab7c28bea6bc0c52f876dce5c">memory.c</a>
 </li>
-<li>unittest_mall_consumption_shopping_MallConsumptionMarket_end()
-: <a class="el" href="memory_8c.html#aa6a2332536dd60cacba2fda15407adce">memory.c</a>
+<li>unittest_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary()
+: <a class="el" href="memory_8c.html#af61f1acb07805c8c1d88b1bb542fbe96">memory.c</a>
+</li>
+<li>unittest_mall_consumption_summary_MallConsumptionSummary_end()
+: <a class="el" href="memory_8c.html#afd6d4c71b48e4829d95830ee89dbdcc2">memory.c</a>
 </li>
 <li>unittest_mall_init_start_MallConsumptionMarket()
 : <a class="el" href="memory_8c.html#a52cc5c233b88307b550b669f8f5379b0">memory.c</a>
 </li>
-<li>unittest_reagency_housing_process_ReagencyHousingMarket_end()
-: <a class="el" href="memory_8c.html#ac39604774c44869dc2f90c1f5d66256e">memory.c</a>
+<li>unittest_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess()
+: <a class="el" href="memory_8c.html#a706a33d523f8d4e41947f5954c5d9a7e">memory.c</a>
 </li>
-<li>unittest_reagency_init_start_ReagencyHousingMarket()
-: <a class="el" href="memory_8c.html#a02857145dc1c923e78b43aa17fbd40f7">memory.c</a>
+<li>unittest_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary()
+: <a class="el" href="memory_8c.html#a905aa8a0a6a0ad76bae1b19b2b301aa0">memory.c</a>
+</li>
+<li>unittest_reagency_housing_summary_REAgencyHousingSummary_end()
+: <a class="el" href="memory_8c.html#a3405098206fcea0076a2f8a050a053d7">memory.c</a>
+</li>
+<li>unittest_reagency_init_start_REAgencyHousingMarket()
+: <a class="el" href="memory_8c.html#a82d7a3a0d3148da071d3798bdde94eda">memory.c</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2013 12:54:19 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 22 2013 09:38:59 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

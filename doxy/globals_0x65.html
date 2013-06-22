@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -133,44 +133,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>EMPLOYEES_NEEDED
 : <a class="el" href="firm__agent__header_8h.html#a0f2b627621c7989dde85c78c1ec3ee1f">firm_agent_header.h</a>
 </li>
+<li>employment_status_message
+: <a class="el" href="header_8h.html#a6bbb550e11c6a74a7e4b89065c78956f">header.h</a>
+</li>
 <li>EQUITY
-: <a class="el" href="firm__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">firm_agent_header.h</a>
+: <a class="el" href="equityfund__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">equityfund_agent_header.h</a>
+, <a class="el" href="firm__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">firm_agent_header.h</a>
 , <a class="el" href="government__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">government_agent_header.h</a>
-, <a class="el" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">bank_agent_header.h</a>
 , <a class="el" href="household__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">household_agent_header.h</a>
+, <a class="el" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">bank_agent_header.h</a>
 , <a class="el" href="centralbank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">centralbank_agent_header.h</a>
-, <a class="el" href="equityfund__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2">equityfund_agent_header.h</a>
 </li>
 <li>EQUITY_RATIO
 : <a class="el" href="household__agent__header_8h.html#a6cc28be5d00d1ddc13d46d56ed77b8a3">household_agent_header.h</a>
 </li>
 <li>equityfund_accounting_collect_firm_shares()
 : <a class="el" href="equityfund__functions__accounting_8c.html#a82fc417bc9edea980a6a3f726fabbff5">equityfund_functions_accounting.c</a>
-, <a class="el" href="header_8h.html#a46fab09d896d6886624fff2690afa048">header.h</a>
 </li>
 <li>equityfund_accounting_distribute_shares()
-: <a class="el" href="header_8h.html#ae8c134a080ddcf2bbfd844d1ebbcf6a3">header.h</a>
-, <a class="el" href="equityfund__functions__accounting_8c.html#a5514c5fb0a5bbdb96b197cc39576d4cf">equityfund_functions_accounting.c</a>
+: <a class="el" href="equityfund__functions__accounting_8c.html#a5514c5fb0a5bbdb96b197cc39576d4cf">equityfund_functions_accounting.c</a>
 </li>
 <li>equityfund_accounting_do_balance_sheet()
 : <a class="el" href="equityfund__functions__accounting_8c.html#a92dd07733505e522b7fcc54d40402057">equityfund_functions_accounting.c</a>
-, <a class="el" href="header_8h.html#aee806b37b070ce927f211c011f123d70">header.h</a>
 </li>
-<li>equityfund_EFAccountingBalanceSheet_state
-: <a class="el" href="header_8h.html#a9ba4f23c48f6804bc0d8a5b1dadcdb48">header.h</a>
+<li>equityfund_credit_collect_firm_shares()
+: <a class="el" href="header_8h.html#a64cebd617ff86561d3209d0d6bb5e49b">header.h</a>
+, <a class="el" href="equityfund__functions__credit_8c.html#ace91b6dad5953f0a68e7d5f8dd2a2ddc">equityfund_functions_credit.c</a>
 </li>
-<li>equityfund_EFAccountingDistributeShares_state
-: <a class="el" href="header_8h.html#ae33298d3c39aabaa69e1d5b3f55f7e8f">header.h</a>
+<li>equityfund_credit_distribute_shares()
+: <a class="el" href="header_8h.html#ab789a4fcd055a8b473581dfa1c2504ef">header.h</a>
+, <a class="el" href="equityfund__functions__credit_8c.html#aa3d978e12bd59be2c5d7ea120df238e0">equityfund_functions_credit.c</a>
 </li>
-<li>equityfund_EFAccountingStart_state
-: <a class="el" href="header_8h.html#acd473a51d98a663712dfb744090ed9f4">header.h</a>
+<li>equityfund_credit_do_balance_sheet()
+: <a class="el" href="header_8h.html#a264176182414389a07dd8b1204a29f86">header.h</a>
+, <a class="el" href="equityfund__functions__credit_8c.html#a28f20efe60a5ed5a2d60f81a10ea84ab">equityfund_functions_credit.c</a>
+</li>
+<li>equityfund_credit_invest_illiquids()
+: <a class="el" href="header_8h.html#a310ab9a5037b01206e38535dcfcc7b1f">header.h</a>
+, <a class="el" href="equityfund__functions__credit_8c.html#a4692499a3ac98950f7d80193df165105">equityfund_functions_credit.c</a>
+</li>
+<li>equityfund_EFCreditBalanceSheet_state
+: <a class="el" href="header_8h.html#aaea468cf585156ca8be7470529bbb76c">header.h</a>
+</li>
+<li>equityfund_EFCreditDistributeShares_state
+: <a class="el" href="header_8h.html#a232965d65c0880600b1fce1a5bb9492e">header.h</a>
+</li>
+<li>equityfund_EFCreditShareCollection_state
+: <a class="el" href="header_8h.html#ad6ec47e064967e76ef351f74a2e0eb80">header.h</a>
 </li>
 <li>equityfund_end_state
 : <a class="el" href="header_8h.html#ada9cddcab977f9f484fc89cd29331150">header.h</a>
 </li>
+<li>equityfund_EquityFundStart_state
+: <a class="el" href="header_8h.html#aaaf359cc501a353d8bc8d6b0454a5c76">header.h</a>
+</li>
 <li>equityfund_init()
-: <a class="el" href="equityfund__functions__top_8c.html#aaab4829f49cb656fd7fad5a162a8b56e">equityfund_functions_top.c</a>
-, <a class="el" href="header_8h.html#a0d881e34ec19fcdd5b8ae9dc71fb2374">header.h</a>
+: <a class="el" href="header_8h.html#a0d881e34ec19fcdd5b8ae9dc71fb2374">header.h</a>
+, <a class="el" href="equityfund__functions__top_8c.html#aaab4829f49cb656fd7fad5a162a8b56e">equityfund_functions_top.c</a>
 </li>
 <li>equityfund_start_state
 : <a class="el" href="header_8h.html#aaabc0a7238e64be804a1e790e085ec2c">header.h</a>
@@ -179,7 +198,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2013 12:54:19 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 22 2013 09:38:59 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

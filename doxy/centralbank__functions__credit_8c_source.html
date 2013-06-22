@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>ICEACE: /Users/bulent/Documents/workspace/iceace/FLAME/Market_Credit/centralbank_functions_credit.c Source File</title>
+<title>ICEACE: /Users/bulent/Documents/AWorkspace/iceace/FLAME/Market_Credit/centralbank_functions_credit.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -93,21 +93,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="centralbank__functions__credit_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;../header.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../centralbank_agent_header.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * \fn: int centralbank_credit_set_interest_rate()</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="centralbank__functions__credit_8c.html#ace852359720c9436a4ef4d86afcb8dd5">    8</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a9ac5528985858627d29d1e1e8796625d">centralbank_credit_set_interest_rate</a>()</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \fn: int centralbank_set_interest_rate()</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * \brief:</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="centralbank__functions__credit_8c.html#ae5f41652a6c8a5ab3baa291f26d0eae9">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#afae813aaa07cd64b971e4c5daa312062">centralbank_set_interest_rate</a>()</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * \fn: int centralbank_do_balance_sheet()</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * \brief: Central Bank does the balance sheet accounting.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="centralbank__functions__credit_8c.html#abb33ee4ecb71e96c6a0b4315a6176300">   20</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#ae8d703bc5144fc6336581ab92a7b13d2">centralbank_do_balance_sheet</a>()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> assets, liabilities;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    assets = <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="centralbank__agent__header_8h.html#aca71f979f74f9695a89383a7d99f2a59" title="Direct access to loans_banks of centralbank agent memory variable.">LOANS_BANKS</a> + <a class="code" href="centralbank__agent__header_8h.html#a8ee924cd39c441a1c83c6bcffda1dab4" title="Direct access to loans_government of centralbank agent memory variable.">LOANS_GOVERNMENT</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    liabilities = <a class="code" href="centralbank__agent__header_8h.html#a5ffb262cb95d32b710825a48b9e372a8" title="Direct access to fiat_money of centralbank agent memory variable.">FIAT_MONEY</a> + <a class="code" href="centralbank__agent__header_8h.html#a32d7ca217139c83aaf8da5a015558e58" title="Direct access to liquidity_banks of centralbank agent memory variable.">LIQUIDITY_BANKS</a> + <a class="code" href="centralbank__agent__header_8h.html#a79b525fe06881de575be4aa182898e34" title="Direct access to liquidity_government of centralbank agent memory variable.">LIQUIDITY_GOVERNMENT</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = assets - liabilities;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2013 12:54:15 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 22 2013 09:38:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
