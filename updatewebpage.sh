@@ -2,7 +2,7 @@
 # doxygen ./docs/Doxyfile :to generate doxy docs 
 # git checkout -f gh-pages  :to get rid of all local changes.
 # current directory is: gh-page branch, i.e., /Users/bulent/Documents/workspace/iceace/FLAME/html
-cd /Users/bulent/Documents/workspace/iceace/FLAME/html
+cd /Users/bulent/Documents/AWorkspace/iceace/FLAME/html
 
 rm -r ./doxy/*
 mv -f ../docs/html/* ./doxy
