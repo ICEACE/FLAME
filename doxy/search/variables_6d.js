@@ -2,6 +2,7 @@ var searchData=
 [
   ['mall_5fend_5fstate',['mall_end_state',['../header_8h.html#a368da1331d713dd80d189794f2c214a2',1,'header.h']]],
   ['mall_5fmallconsumptionmarket_5fstate',['mall_MallConsumptionMarket_state',['../header_8h.html#a12e076db339adeb361a34585cedd96bf',1,'header.h']]],
+  ['mall_5fmallconsumptionsummary_5fstate',['mall_MallConsumptionSummary_state',['../header_8h.html#aac7253c744639db468f78a8e39d3a2b3',1,'header.h']]],
   ['mall_5fstart_5fstate',['mall_start_state',['../header_8h.html#ae68f1c9300bae7ac7b9e225ff72178f2',1,'header.h']]],
   ['minimum_5fequity_5fratio',['minimum_equity_ratio',['../structxmachine__memory__household.html#a05e7e2b09eee2d2fc525e0213dcda932',1,'xmachine_memory_household']]],
   ['money_5fleft',['money_left',['../structm__bought.html#a8b7aa2801e0aa64305b31e9386eeeddf',1,'m_bought']]],
@@ -13,6 +14,8 @@ var searchData=
   ['mortgage_5frequests_5fmessage',['mortgage_requests_message',['../header_8h.html#af8c2b538fb9be6aab69c4ad54c9ae6d7',1,'header.h']]],
   ['mortgage_5frequests_5fmessages',['mortgage_requests_messages',['../structnode__information.html#a26784debc03968f84bb3c9eb5f0f6003',1,'node_information']]],
   ['mortgage_5fused',['mortgage_used',['../structm__bought__housing.html#aebd20463499056fcae65ea5dfc676147',1,'m_bought_housing']]],
+  ['mortgage_5fwriteoff_5fmessage',['mortgage_writeoff_message',['../header_8h.html#ad749659ea3dad322f80e494a0dcdfc0e',1,'header.h']]],
+  ['mortgage_5fwriteoff_5fmessages',['mortgage_writeoff_messages',['../structnode__information.html#a933f8632e9d20caa5095cec4000c7326',1,'node_information']]],
   ['mortgages',['mortgages',['../structxmachine__memory__household.html#a901640c2b845466c86d599862a64e222',1,'xmachine_memory_household::mortgages()'],['../structxmachine__memory__bank.html#a901640c2b845466c86d599862a64e222',1,'xmachine_memory_bank::mortgages()']]],
   ['mortgages_5finterest_5frate',['mortgages_interest_rate',['../structxmachine__memory__household.html#ab02da8c9514b9656d9fafbba8762b475',1,'xmachine_memory_household::mortgages_interest_rate()'],['../structxmachine__memory__reagency.html#ab02da8c9514b9656d9fafbba8762b475',1,'xmachine_memory_reagency::mortgages_interest_rate()']]],
   ['mortgages_5flist',['mortgages_list',['../structxmachine__memory__household.html#add2754b7a4bfc4b9484cc93ce5c3b20d',1,'xmachine_memory_household']]],
