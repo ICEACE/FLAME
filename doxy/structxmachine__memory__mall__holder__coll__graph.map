@@ -1,3 +1,4 @@
 <map id="xmachine_memory_mall_holder" name="xmachine_memory_mall_holder">
-<area shape="rect" id="node2" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="5,6,171,34"/>
+<area shape="rect" id="node2" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="5,99,171,127"/>
+<area shape="rect" id="node3" href="$structtransaction.html" title="transaction" alt="" coords="45,6,131,34"/>
 </map>

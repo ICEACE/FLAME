@@ -1,5 +1,6 @@
 <map id="xmachine_memory_firm_state" name="xmachine_memory_firm_state">
-<area shape="rect" id="node2" href="$structxmachine__memory__firm__holder.html" title="Holds struct of memory of xmachine firm." alt="" coords="5,193,168,237"/>
-<area shape="rect" id="node3" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="5,99,168,127"/>
-<area shape="rect" id="node4" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="50,6,123,34"/>
+<area shape="rect" id="node2" href="$structxmachine__memory__firm__holder.html" title="Holds struct of memory of xmachine firm." alt="" coords="9,193,172,237"/>
+<area shape="rect" id="node3" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="9,99,172,127"/>
+<area shape="rect" id="node4" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="5,6,77,34"/>
+<area shape="rect" id="node5" href="$structloan.html" title="loan" alt="" coords="117,6,163,34"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="xmachine_memory_reagency_holder" name="xmachine_memory_reagency_holder">
-<area shape="rect" id="node2" href="$structxmachine__memory__reagency.html" title="Holds memory of xmachine reagency." alt="" coords="5,6,200,34"/>
+<area shape="rect" id="node2" href="$structxmachine__memory__reagency.html" title="Holds memory of xmachine reagency." alt="" coords="5,99,200,127"/>
+<area shape="rect" id="node3" href="$structtransaction.html" title="transaction" alt="" coords="59,6,145,34"/>
 </map>

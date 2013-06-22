@@ -1,13 +1,14 @@
 <map id="free_mortgage" name="free_mortgage">
-<area shape="rect" id="node2" href="$household__functions__housing_8c.html#a378a6ad95e0fe07e0f67bc98d12238b3" title="household_housing_collect\l_sale_revenue" alt="" coords="358,65,540,109"/>
+<area shape="rect" id="node2" href="$household__functions__housing_8c.html#a378a6ad95e0fe07e0f67bc98d12238b3" title="household_housing_collect\l_sale_revenue" alt="" coords="358,73,540,117"/>
 <area shape="rect" id="node4" href="$household__functions__housing_8c.html#a6d5579254cbaa396b397c77ddf14d2fa" title="household_housing_pay\l_mortgages" alt="" coords="589,5,755,49"/>
-<area shape="rect" id="node5" href="$memory_8c.html#a5dc1a234e13907153477f42525d1c0d6" title="free_mortgage_static\l_array" alt="" coords="163,115,309,159"/>
-<area shape="rect" id="node6" href="$memory_8c.html#afafaad7c58b92c64b57f952d71422f9b" title="Free the memory of a dynamic mortgage array." alt="" coords="163,235,309,263"/>
-<area shape="rect" id="node12" href="$memory_8c.html#a832128364a612e6e6492aea76a45e041" title="Remove an mortgage from a dynamic mortgage array." alt="" coords="171,183,301,211"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="1086,98,1136,126"/>
-<area shape="rect" id="node7" href="$memory_8c.html#ace6be6831a9cffa367e347fca0635dcf" title="free_household_agent" alt="" coords="372,175,526,203"/>
-<area shape="rect" id="node11" href="$memory_8c.html#ae2cf54bc9cc17acbf204ec64f621a5b2" title="unittest_free_household\l_agent" alt="" coords="368,227,531,271"/>
-<area shape="rect" id="node8" href="$memory_8c.html#a17aae5ae38772b93b7fca6901ddbc653" title="free_household_agents" alt="" coords="592,175,752,203"/>
-<area shape="rect" id="node9" href="$memory_8c.html#a71a58d5746770621880907688097afef" title="Free the currently being used X&#45;machine list." alt="" coords="803,175,911,203"/>
-<area shape="rect" id="node10" href="$memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7" title="Add a node to the node list." alt="" coords="961,175,1036,203"/>
+<area shape="rect" id="node5" href="$household__functions__housing_8c.html#a51d60cb9793d816642ef5fb40fdbf948" title="household_housing_debt\l_writeoff" alt="" coords="364,141,535,185"/>
+<area shape="rect" id="node6" href="$memory_8c.html#a5dc1a234e13907153477f42525d1c0d6" title="free_mortgage_static\l_array" alt="" coords="163,157,309,201"/>
+<area shape="rect" id="node7" href="$memory_8c.html#afafaad7c58b92c64b57f952d71422f9b" title="Free the memory of a dynamic mortgage array." alt="" coords="163,277,309,305"/>
+<area shape="rect" id="node13" href="$memory_8c.html#a832128364a612e6e6492aea76a45e041" title="Remove an mortgage from a dynamic mortgage array." alt="" coords="171,105,301,133"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="1086,149,1136,177"/>
+<area shape="rect" id="node8" href="$memory_8c.html#ace6be6831a9cffa367e347fca0635dcf" title="free_household_agent" alt="" coords="372,277,526,305"/>
+<area shape="rect" id="node12" href="$memory_8c.html#ae2cf54bc9cc17acbf204ec64f621a5b2" title="unittest_free_household\l_agent" alt="" coords="368,209,531,253"/>
+<area shape="rect" id="node9" href="$memory_8c.html#a17aae5ae38772b93b7fca6901ddbc653" title="free_household_agents" alt="" coords="592,210,752,238"/>
+<area shape="rect" id="node10" href="$memory_8c.html#a71a58d5746770621880907688097afef" title="Free the currently being used X&#45;machine list." alt="" coords="803,209,911,237"/>
+<area shape="rect" id="node11" href="$memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7" title="Add a node to the node list." alt="" coords="961,203,1036,231"/>
 </map>

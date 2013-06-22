@@ -1,0 +1,7 @@
+<map id="copy_transaction" name="copy_transaction">
+<area shape="rect" id="node2" href="$memory_8c.html#a79c88498a1b30eeb7d51baa65641abd3" title="copy_transaction_static\l_array" alt="" coords="177,5,338,49"/>
+<area shape="rect" id="node3" href="$memory_8c.html#a69cb204d165557015dcf8b9585dd7a85" title="add_centralbank_agent" alt="" coords="177,73,338,101"/>
+<area shape="rect" id="node4" href="$memory_8c.html#aa563905b957e7cceb86b274ab1eace5c" title="add_mall_agent" alt="" coords="199,125,315,153"/>
+<area shape="rect" id="node5" href="$memory_8c.html#a6776d7f49670bfd74c1c7e32fe90aef4" title="add_reagency_agent" alt="" coords="184,177,331,205"/>
+<area shape="rect" id="node6" href="$memory_8c.html#ab93625be4102e21b10d301dd50dc94cd" title="Remove an transaction from a dynamic transaction array." alt="" coords="188,229,327,257"/>
+</map>
