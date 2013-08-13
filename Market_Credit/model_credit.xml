@@ -18,8 +18,18 @@
             </variable>
             <variable>
                 <type>double</type>
+                <name>ratio_fiscal_policy</name>
+                <description>Ratio of tax vs benefits to balance government deficit.</description>
+            </variable>
+            <variable>
+                <type>double</type>
                 <name>ratio_capitalist_households</name>
                 <description>It is the rate of households owning firm shares.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>inflation_target</name>
+                <description>It is used by central bank to compute monthly inflation.</description>
             </variable>
         </constants>
         <functionFiles>
@@ -153,38 +163,9 @@
             <functions>
                 <function>
                     <name>idle</name>
-                    <description>It is not the start of a month.</description>
-                    <currentState>FirmCreditStart</currentState>
-                    <nextState>FirmCreditQuarterly</nextState>
-                    <condition>
-                        <not><time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></not>
-                    </condition>
-                </function>
-                <function>
-                    <name>firm_credit_check_interest_rate</name>
-                    <description>Firm checks monthly interest rate.</description>
-                    <currentState>FirmCreditStart</currentState>
-                    <nextState>FirmCreditQuarterly</nextState>
-                    <condition>
-                        <time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time>
-                    </condition>
-                    <inputs>
-                        <input>
-                            <messageName>interest_rate</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>idle</name>
                     <description>It is not the start of a quarter.</description>
-                    <currentState>FirmCreditQuarterly</currentState>
-                    <nextState>FirmProductionStart</nextState>
+                    <currentState>FirmCreditStart</currentState>
+                    <nextState>FirmCreditMonthly</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -195,7 +176,7 @@
                 <function>
                     <name>firm_credit_check_liquidity_need</name>
                     <description>Firm checks if it needs liquidity to pay loans and dividends.</description>
-                    <currentState>FirmCreditQuarterly</currentState>
+                    <currentState>FirmCreditStart</currentState>
                     <nextState>FirmCreditStatus</nextState>
                     <condition>
                         <time>
@@ -410,7 +391,36 @@
                     <name>firm_credit_do_balance_sheet</name>
                     <description>Updating the balance sheet.</description>
                     <currentState>FirmCreditBalanceSheet</currentState>
+                    <nextState>FirmCreditMonthly</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a month.</description>
+                    <currentState>FirmCreditMonthly</currentState>
                     <nextState>FirmProductionStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_credit_check_interest_rate</name>
+                    <description>Firm checks monthly interest rate.</description>
+                    <currentState>FirmCreditMonthly</currentState>
+                    <nextState>FirmProductionStart</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
                 </function>
             </functions>
         </xagent>
@@ -552,10 +562,59 @@
                     <name>bank_credit_collect_loan_interests</name>
                     <description>Bank evaluates first loan requests.</description>
                     <currentState>BankCreditLoanInterests</currentState>
-                    <nextState>BankCreditBalanceSheet</nextState>
+                    <nextState>BankCreditLiquidityNeed</nextState>
                     <inputs>
                         <input>
                             <messageName>interest_on_loan</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>The bank does not have any liquidity need.</description>
+                    <currentState>BankCreditLiquidityNeed</currentState>
+                    <nextState>BankCreditBalanceSheet</nextState>
+                    <condition>
+                        <lhs><value>a.liquidity</value></lhs>
+                        <op>GT</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>bank_credit_request_liquidity</name>
+                    <description>The bank places a liquidity request from the central bank.</description>
+                    <currentState>BankCreditLiquidityNeed</currentState>
+                    <nextState>BankCreditLiquidtyRecieve</nextState>
+                    <condition>
+                        <lhs><value>a.liquidity</value></lhs>
+                        <op>LEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>debt_request</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>bank_credit_recieve_liquidity</name>
+                    <description>The bank recieves liquidity from the central bank.</description>
+                    <currentState>BankCreditLiquidtyRecieve</currentState>
+                    <nextState>BankCreditBalanceSheet</nextState>
+                    <condition>
+                        <lhs><value>a.liquidity</value></lhs>
+                        <op>LEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>debt_ack</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -625,7 +684,7 @@
                     <name>idle</name>
                     <description>It is not time to act.</description>
                     <currentState>CentralBankCredit</currentState>
-                    <nextState>CentralBankLabour</nextState>
+                    <nextState>CentralBankSetRCB</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -634,8 +693,8 @@
                     </condition>
                 </function>
                 <function>
-                    <name>centralbank_set_interest_rate</name>
-                    <description>Central bank sets the interest rate.</description>
+                    <name>centralbank_process_debt_requests</name>
+                    <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankCredit</currentState>
                     <nextState>CentralBankBalanceSheet</nextState>
                     <condition>
@@ -644,9 +703,14 @@
                             <phase>1</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>debt_request</messageName>
+                        </input>
+                    </inputs>
                     <outputs>
                         <output>
-                            <messageName>interest_rate</messageName>
+                            <messageName>debt_ack</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -654,7 +718,36 @@
                     <name>centralbank_do_balance_sheet</name>
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankBalanceSheet</currentState>
+                    <nextState>CentralBankSetRCB</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not montly time to act.</description>
+                    <currentState>CentralBankSetRCB</currentState>
                     <nextState>CentralBankLabour</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_set_interest_rate</name>
+                    <description>Central bank sets the interest rate.</description>
+                    <currentState>CentralBankSetRCB</currentState>
+                    <nextState>CentralBankLabour</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>interest_rate</messageName>
+                        </output>
+                    </outputs>
                 </function>
             </functions>
         </xagent>
@@ -775,7 +868,7 @@
                         <lhs><value>a.dividends</value></lhs>
                         <op>EQ</op>
                         <rhs><value>0</value></rhs>
-                    </condition>F
+                    </condition>
                 </function>
                 <function>
                     <name>household_credit_collect_shares</name>
@@ -1006,6 +1099,41 @@
                     <name>day_of_month_to_act</name>
                     <description>Day of the month to act.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>gov_tax_rate</name>
+                    <description>Government rate on taxes.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>labour_tax_income</name>
+                    <description>Collected amount of labour tax.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>capital_tax_income</name>
+                    <description>Collected amount of capital tax.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>gov_general_benefit_rate</name>
+                    <description>Rate of general benefits to distribute to all housholds.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>gov_unemployment_rate</name>
+                    <description>Rate of unemployment benefit with respect to average wage.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>general_benefits</name>
+                    <description>Amount of general benefits distributed to households.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unemployment_benefits</name>
+                    <description>Amount of unemployment benefits distributed by the government.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -1099,7 +1227,7 @@
                     <name>government_collect_labour_tax</name>
                     <description>Labour tax is collected</description>
                     <currentState>GovernmentLabourTax</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentLabourStatus</nextState>
                     <inputs>
                         <input>
                             <messageName>labour_tax</messageName>
@@ -1195,23 +1323,34 @@
             </variables>
         </message>
         <message>
-            <name>firm_net_profit</name>
-            <description>Net income send to Equity Fund.</description>
+            <name>debt_request</name>
+            <description>Debt request from the central bank.</description>
             <variables>
                 <variable>
                     <type>int</type>
-                    <name>id</name>
-                    <description>Firm agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>isconstructor</name>
-                    <description>Flag to label whether the income is recieved from a constructor firm.</description>
+                    <name>bank_id</name>
+                    <description>The bank id</description>
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>net_income</name>
-                    <description>Net income to be distributed.</description>
+                    <name>amount</name>
+                    <description>amount requested</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>debt_ack</name>
+            <description>Debt given to banks by the central bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank ID.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>The amount of liquidity provided.</description>
                 </variable>
             </variables>
         </message>
@@ -1342,6 +1481,27 @@
                     <type>double</type>
                     <name>amount</name>
                     <description></description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_net_profit</name>
+            <description>Net income send to Equity Fund.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isconstructor</name>
+                    <description>Flag to label whether the income is recieved from a constructor firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>net_income</name>
+                    <description>Net income to be distributed.</description>
                 </variable>
             </variables>
         </message>

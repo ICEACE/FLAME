@@ -18,6 +18,7 @@
             <file>firm_functions_labour.c</file>
             <file>jpoffice_functions_labour.c</file>
             <file>centralbank_functions_labour.c</file>
+            <file>government_functions_labour.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -565,13 +566,6 @@
             <name>centralbank</name>
             <description>A Central Bank agent.</description>
             <!-- Agent memory holding a list of variables -->
-            <memory>
-                <variable>
-                    <type>double</type>
-                    <name>unemployment_rate</name>
-                    <description>Monthly rate</description>
-                </variable>
-            </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
@@ -597,6 +591,42 @@
                             <phase>a.day_of_month_to_act</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>employment_status</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>government</name>
+            <description>The government agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>average_wage</name>
+                    <description>Average wage for employed households.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unemployment_rate</name>
+                    <description>The unemployment rate</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>population_size</name>
+                    <description>Number of households.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>government_trace_unemployment_status</name>
+                    <description>Makes a sensus on employment status.</description>
+                    <currentState>GovernmentLabourStatus</currentState>
+                    <nextState>end</nextState>
                     <inputs>
                         <input>
                             <messageName>employment_status</messageName>
@@ -743,6 +773,11 @@
                     <type>int</type>
                     <name>employer_id</name>
                     <description>The employer. O stands for unemployed case.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Current wage of an household.</description>
                 </variable>
             </variables>
         </message>

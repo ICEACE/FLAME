@@ -19,6 +19,8 @@ int household_consumption_monthly_budget()
     budget = disposable_income;
     budget += CONSUMPTION_ADJUSTMENT_SPEED * (LIQUIDITY - RATIO_LIQUIDITY * disposable_income);
     budget += WEALTH_EFFECT * EQUITY;
+    // here instead equity use delta-assets for the wealth effect.
+    // wealth effect amount is quarterly it should be divided by 3 for monthly budget.
     
     WEEKLY_CONSUMPTION_BUDGET = budget / 4;
     

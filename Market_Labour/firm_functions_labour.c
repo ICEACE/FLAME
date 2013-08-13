@@ -73,7 +73,7 @@ int firm_labour_fire()
 int firm_labour_job_announcement_stage1()
 {
     int i;
-    
+    //update the WAGE_OFFER looking 
     for (i = 0; i < VACANCIES; i++) {
         add_vacancy_stage1_message(ID,WAGE_OFFER);
     }

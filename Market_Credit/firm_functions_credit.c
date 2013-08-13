@@ -3,11 +3,17 @@
 
 /*
  * \fn: int firm_credit_check_interest_rate()
- * \brief: 
+ * \brief: it receives interest rate from the central bank and updates interest to be paid on loans.
  */
 int firm_credit_check_interest_rate()
 {
-  
+    double rcb;
+    START_INTEREST_RATE_MESSAGE_LOOP
+    // 1 percent increase determined by the model.
+    rcb = interest_rate_message->rate;
+    LOANS_INTEREST_RATE = rcb + 0.01;
+    
+	FINISH_INTEREST_RATE_MESSAGE_LOOP
         
 	return 0; /* Returning zero means the agent is not removed */
 }

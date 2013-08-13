@@ -58,6 +58,39 @@ int bank_credit_collect_loan_interests()
 }
 
 /*
+ * \fn: int bank_credit_request_liquidity()
+ * \brief: If a bank has a negative liquidity at the end of a quarter, requests loans from
+ * the central bank.
+ */
+int bank_credit_request_liquidity()
+{
+    //The condition checked by state transition conditions. See model description file.
+    double amount;
+    amount = -1 * LIQUIDITY;
+    add_debt_request_message(ID, amount);
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int bank_credit_recieve_liquidity()
+ * \brief: Bank recieves the loan from the central bank and updates its book.
+ */
+int bank_credit_recieve_liquidity()
+{
+    //Model description filter picks the notice.
+    double amount;
+    
+    START_DEBT_ACK_MESSAGE_LOOP
+    amount = debt_ack_message->amount;
+    LIQUIDITY += amount;
+    DEBT += amount;
+    FINISH_DEBT_ACK_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
  * \fn: int bank_credit_do_balance_sheet()
  * \brief: Bank does the balance sheet accounting.
  */

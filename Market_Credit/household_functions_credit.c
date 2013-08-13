@@ -3,11 +3,16 @@
 
 /*
  * \fn: int household_credit_check_interest_rate()
- * \brief:
+ * \brief: checks monthly interest rate and sets the mortgage interest rates
  */
 int household_credit_check_interest_rate()
 {
 
+    START_INTEREST_RATE_MESSAGE_LOOP
+    // 2 percent increase determined by the model.
+    MORTGAGES_INTEREST_RATE = interest_rate_message->rate + 0.02;
+    
+	FINISH_INTEREST_RATE_MESSAGE_LOOP
 
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -70,14 +75,17 @@ int household_credit_do_balance_sheet()
     double housing;
     double assets;
     
+    // use a delta asset to be used to incorporate wealth effect on consumption.
     // Updating value of housing assets.
     housing = HOUSING_UNITS * HOUSING_PRICE;
     
-    assets = LIQUIDITY + FUND_SHARES + housing;
-    EQUITY = assets - MORTGAGES;
-    
     //Shares are liquidified.
     LIQUIDITY += FUND_SHARES;
+    
+    assets = LIQUIDITY +  housing;
+    EQUITY = assets - MORTGAGES;
+    
+   
     
     
     //printf(" Household Id = %d, Equity %f \n", ID, EQUITY);

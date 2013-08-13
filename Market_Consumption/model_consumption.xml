@@ -323,6 +323,11 @@
                     <name>goods</name>
                     <description>Weakly transaction summary at the market.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>weekly_price_averages[4]</name>
+                    <description>Weakly price averages at the market.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>

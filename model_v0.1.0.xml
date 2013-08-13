@@ -223,6 +223,16 @@
                     <name>day_of_month_to_act</name>
                     <description>Day of the month to act.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unemployment_rate</name>
+                    <description>Unemployment rate. It is updated monthly</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>consumption_goods_prices[12]</name>
+                    <description>Unemployment rate. It is updated monthly</description>
+                </variable>
             </memory>
             <functions>
                 <function>
