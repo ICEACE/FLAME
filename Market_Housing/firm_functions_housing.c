@@ -19,7 +19,7 @@ int firm_housing_enter_market()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
-
+//
 /*
  * \fn: int firm_housing_collect_sale_revenues()
  * \brief: The contructor firm checks its ID from the message board and 
