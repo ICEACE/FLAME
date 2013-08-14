@@ -23,7 +23,9 @@ int household_credit_check_interest_rate()
  */
 int household_credit_check_tax_rate()
 {
-    
+    START_TAX_RATE_MESSAGE_LOOP
+    TAX_RATE = tax_rate_message->value;
+	FINISH_TAX_RATE_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -34,8 +36,44 @@ int household_credit_check_tax_rate()
  */
 int household_credit_update_mortgage_rates()
 {
+    int size, i;
+    mortgage mort;
+    init_mortgage(&mort);
+    double principle;
+    int quarters_left;
+    double new_quarterly_interest;
+    double new_quarterly_principal;
+    double annuity;
+    double d1, d2;
     
+    size = MORTGAGES_LIST.size;
     
+    if (size == 0) {
+        free_mortgage(&mort);
+        return 0;
+    }
+    
+    for (i = 0; i < size - 1; i++) {
+        mort = MORTGAGES_LIST.array[i];
+        principle = mort.principal;
+        quarters_left = mort.quarters_left - 1;
+        
+        d1 = MORTGAGES_INTEREST_RATE/4;
+        d2 = d1 * pow((1 + d1), quarters_left);
+        annuity = 1/d1 - 1/d2;
+        
+        new_quarterly_interest = principle * d1;
+        new_quarterly_principal = (principle / annuity) - new_quarterly_interest;
+        
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, quarters_left, principle, new_quarterly_interest, new_quarterly_principal);
+    }
+    
+    //updates above added to the array, code snippet below remove redundant entries. No in place mutation is done.
+    for (i = 0; i < size - 1; i++) {
+        remove_mortgage(&MORTGAGES_LIST, i);
+    }
+    
+    free_mortgage(&mort);
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -45,11 +83,14 @@ int household_credit_update_mortgage_rates()
  */
 int household_credit_collect_shares()
 {
+    double amount = 0;
     
     FUND_SHARES = 0;
     
     START_HOUSEHOLD_SHARE_MESSAGE_LOOP
-    FUND_SHARES += DIVIDENDS * household_share_message->amount;
+    amount = DIVIDENDS * household_share_message->amount;
+    FUND_SHARES += amount;
+    LIQUIDITY += amount;
 	FINISH_HOUSEHOLD_SHARE_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -61,6 +102,11 @@ int household_credit_collect_shares()
  */
 int household_credit_pay_capital_tax()
 {
+    double capital_tax = 0;
+    
+    capital_tax = FUND_SHARES * TAX_RATE;
+    add_capital_tax_message(capital_tax);
+    LIQUIDITY -= capital_tax;
     
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -100,7 +146,12 @@ int household_credit_do_balance_sheet()
  */
 int household_credit_collect_benefits()
 {
+    double benefit = 0;
     
+    START_GENERAL_BENEFIT_MESSAGE_LOOP
+    benefit = general_benefit_message->amount;
+    LIQUIDITY += benefit;
+	FINISH_GENERAL_BENEFIT_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -111,7 +162,12 @@ int household_credit_collect_benefits()
  */
 int household_credit_collect_unemployment()
 {
+    double benefit = 0;
     
+    START_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
+    benefit = unemployment_benefit_message->amount;
+    LIQUIDITY += benefit;
+	FINISH_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -122,7 +178,11 @@ int household_credit_collect_unemployment()
  */
 int household_credit_pay_labour_tax()
 {
+    double labour_tax = 0;
     
+    labour_tax = WAGE * TAX_RATE;
+    add_labour_tax_message(labour_tax);
+    LIQUIDITY -= labour_tax;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

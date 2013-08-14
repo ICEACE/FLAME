@@ -838,7 +838,7 @@
                 </function>
                 <function>
                     <name>household_credit_check_tax_rate</name>
-                    <description>Households check the tax rate which set by government.</description>
+                    <description>Households check the tax rate which is set by government.</description>
                     <currentState>HHCreditStart</currentState>
                     <nextState>HHCreditUpdateMortgages</nextState>
                     <condition>
