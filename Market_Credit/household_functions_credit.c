@@ -90,6 +90,7 @@ int household_credit_collect_shares()
     START_HOUSEHOLD_SHARE_MESSAGE_LOOP
     amount = DIVIDENDS * household_share_message->amount;
     FUND_SHARES += amount;
+    //Shares are liquidified.
     LIQUIDITY += amount;
 	FINISH_HOUSEHOLD_SHARE_MESSAGE_LOOP
     
@@ -125,14 +126,10 @@ int household_credit_do_balance_sheet()
     // Updating value of housing assets.
     housing = HOUSING_UNITS * HOUSING_PRICE;
     
-    //Shares are liquidified.
-    LIQUIDITY += FUND_SHARES;
+    //Liquidity contains fund shares the capital goods.
     
     assets = LIQUIDITY +  housing;
     EQUITY = assets - MORTGAGES;
-    
-   
-    
     
     //printf(" Household Id = %d, Equity %f \n", ID, EQUITY);
     
