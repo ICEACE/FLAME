@@ -101,7 +101,7 @@ int household_labour_employment()
  */
 int household_labour_report_status()
 {
-    add_employment_status_message(MY_EMPLOYER_ID, WAGE);
+    add_employment_status_message(MY_EMPLOYER_ID, WAGE, DIVIDENDS);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

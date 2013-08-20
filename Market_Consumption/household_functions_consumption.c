@@ -12,6 +12,7 @@ int household_consumption_monthly_budget()
     double budget;
     
     labour_income = PREVIOUS_WAGES[0]+PREVIOUS_WAGES[1]+PREVIOUS_WAGES[2];
+    HOUSING_PAYMENT = MORTGAGE_COSTS[0] + MORTGAGE_COSTS[1] + MORTGAGE_COSTS[2];
     
     disposable_income = (labour_income + FUND_SHARES - HOUSING_PAYMENT)/3;
     
@@ -37,9 +38,15 @@ int household_consumption_demand()
 {
     CONSUMPTION_BUDGET += WEEKLY_CONSUMPTION_BUDGET;
     
-    if (CONSUMPTION_BUDGET > 0) {
+    if (LIQUIDITY < 0 || CONSUMPTION_BUDGET < 0) { return 0; }
+    
+    if (CONSUMPTION_BUDGET > LIQUIDITY) {
+        add_buy_message(ID, LIQUIDITY);
+        CONSUMPTION_BUDGET += (LIQUIDITY - WEEKLY_CONSUMPTION_BUDGET);
+    } else {
         add_buy_message(ID, CONSUMPTION_BUDGET);
     }
+    
 
 	return 0; /* Returning zero means the agent is not removed */
 }

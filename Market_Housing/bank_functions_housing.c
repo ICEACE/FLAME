@@ -66,9 +66,10 @@ int bank_housing_recieve_mortgages()
     //The message is filtered via xmml.
     principal = mortgage_payment_message->principal;
     interest = mortgage_payment_message->interest;
-    
+
     MORTGAGES -= principal;
     LIQUIDITY += principal + interest;
+    INTERESTS_ACCRUED += interest;
     
 	FINISH_MORTGAGE_PAYMENT_MESSAGE_LOOP
     
@@ -81,11 +82,13 @@ int bank_housing_recieve_mortgages()
  */
 int bank_housing_debt_writeoff()
 {
+    double amount = 0;
+    
     START_MORTGAGE_WRITEOFF_MESSAGE_LOOP
     //The message is filtered via xmml.
-    
-    MORTGAGES += mortgage_writeoff_message->amount;
-    
+    amount = mortgage_writeoff_message->amount;
+    MORTGAGES += amount;
+    TOTAL_WRITEOFFS += amount;
 	FINISH_MORTGAGE_WRITEOFF_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */

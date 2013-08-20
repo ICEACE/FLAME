@@ -205,3 +205,37 @@ int firm_labour_pay_wages()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+
+/*
+ * \fn: int firm_labour_trace_wages()
+ * \brief: The firm traces wages in the market and update.
+ */
+int firm_labour_trace_wages(){
+    int unemployed = 0;
+    double total_wages = 0;
+    double total = 0;
+    int id;
+    START_EMPLOYMENT_STATUS_MESSAGE_LOOP
+    id = employment_status_message->employer_id;
+    if (id == 0) {
+        unemployed++;
+    }
+    else{
+        total_wages += employment_status_message->wage;
+    }
+    total++;
+    FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
+    if (total == 0 || unemployed == total) {
+        AVERAGE_WAGE = 0;
+    } else {
+        AVERAGE_WAGE = total_wages / (total - unemployed);
+    }
+    
+    if (WAGE_OFFER < AVERAGE_WAGE) {
+        /* %10 increase */
+        WAGE_OFFER = WAGE_OFFER * 1.1;
+    }
+    
+	return 0; /* Returning zero means the agent is not removed */
+}

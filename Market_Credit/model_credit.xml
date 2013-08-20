@@ -31,6 +31,21 @@
                 <name>inflation_target</name>
                 <description>It is used by central bank to compute monthly inflation.</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>firms_minimum_equity_ratio</name>
+                <description>The paramter is used by funding agency to check equity requirement to invest in a firm.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>firm_startup_leverage</name>
+                <description>Firms' starting leverage'.</description>
+            </variable>
+            <variable>
+                <type>double</type>
+                <name>household_startup_leverage</name>
+                <description>Households' starting leverage'.</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
@@ -99,6 +114,11 @@
             <!-- Agent memory holding a list of variables -->
             <memory>
                 <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Primary bank of a firm.</description>
+                </variable>
+                <variable>
                     <type>double</type>
                     <name>loans_interest_rate</name>
                     <description>Rate of interest paid by firms to banks for the loans.</description>
@@ -147,6 +167,11 @@
                     <type>int</type>
                     <name>hasloan</name>
                     <description>The variable holds wheather a firm been credited by a bank for the loan that was requested.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>hasinvestment</name>
+                    <description>The variable holds wheather a firm has recieved investment from the fund for its liquidity need.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -283,7 +308,7 @@
                         </lhs>
                         <op>EQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                 </function>
@@ -291,14 +316,14 @@
                     <name>firm_credit_borrow_loans_2</name>
                     <description>Firm checks weather second loan request is accepted.</description>
                     <currentState>FirmCreditLoanBorrow2</currentState>
-                    <nextState>FirmCreditBankruptcy</nextState>
+                    <nextState>FirmCreditIlliquidityStatus</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasloan</value>
                         </lhs>
                         <op>NEQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                     <inputs>
@@ -316,7 +341,7 @@
                 <function>
                     <name>idle</name>
                     <description>The firm has gotten loan in the second trial.</description>
-                    <currentState>FirmCreditBankruptcy</currentState>
+                    <currentState>FirmCreditIlliquidityStatus</currentState>
                     <nextState>FirmCreditAccounting</nextState>
                     <condition>
                         <lhs>
@@ -329,10 +354,10 @@
                     </condition>
                 </function>
                 <function>
-                    <name>firm_credit_check_illiquidity</name>
-                    <description>The firm checks its illiquidity state, checking the deal with Equity Fund.</description>
-                    <currentState>FirmCreditBankruptcy</currentState>
-                    <nextState>FirmCreditBalanceSheet</nextState>
+                    <name>firm_credit_request_investment</name>
+                    <description>The firm checks its illiquidity state. It places a request for investment from Equity Fund.</description>
+                    <currentState>FirmCreditIlliquidityStatus</currentState>
+                    <nextState>FirmCreditCheckInvestment</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasloan</value>
@@ -346,6 +371,55 @@
                         <output>
                             <messageName>fund_request</messageName>
                         </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_credit_check_investment</name>
+                    <description>The firm checks for decision by Equity Fund.</description>
+                    <currentState>FirmCreditCheckInvestment</currentState>
+                    <nextState>FirmCreditBankruptcy</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>fund_request_ack</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.firm_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>The firm has the investment goes paying loans.</description>
+                    <currentState>FirmCreditBankruptcy</currentState>
+                    <nextState>FirmCreditLoanPayment</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.hasinvestment</value>
+                        </lhs>
+                        <op>NEQ</op>
+                        <rhs>
+                            <value>0</value>
+                        </rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_credit_illiquidity_bankrupt</name>
+                    <description>Firm cannot recieve fund goes illiquidity.</description>
+                    <currentState>FirmCreditBankruptcy</currentState>
+                    <nextState>FirmCreditBalanceSheet</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.hasinvestment</value>
+                        </lhs>
+                        <op>EQ</op>
+                        <rhs>
+                            <value>0</value>
+                        </rhs>
+                    </condition>
+                    <outputs>
                         <output>
                             <messageName>loan_writeoff</messageName>
                         </output>
@@ -459,6 +533,26 @@
                     <name>liquidity</name>
                     <description>Liquidity.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_writeoffs</name>
+                    <description>Total of writeoff loss a bank has.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>interests_accrued</name>
+                    <description>Total interest a bank has collected from loans and mortgages.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>interests_paid</name>
+                    <description>Total interest a bank has paid to for its central bank debts.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>dividends_paid</name>
+                    <description>Amount of dividends paid to share holders via Equity Fund.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -510,12 +604,6 @@
                     <inputs>
                         <input>
                             <messageName>loan_request_2</messageName>
-                            <filter>
-                                <!-- checks self id. -->
-                                <lhs><value>a.id</value></lhs>
-                                <op>EQ</op>
-                                <rhs><value>m.bank_id</value></rhs>
-                            </filter>
                         </input>
                     </inputs>
                     <outputs>
@@ -526,7 +614,7 @@
                 </function>
                 <function>
                     <name>bank_credit_recieve_loan_writeoffs</name>
-                    <description>Bank evaluates first loan requests.</description>
+                    <description>Bank updates its loss.</description>
                     <currentState>BankCreditLoanWriteOffs</currentState>
                     <nextState>BankCreditNewEntrants</nextState>
                     <inputs>
@@ -562,7 +650,7 @@
                     <name>bank_credit_collect_loan_interests</name>
                     <description>Bank evaluates first loan requests.</description>
                     <currentState>BankCreditLoanInterests</currentState>
-                    <nextState>BankCreditLiquidityNeed</nextState>
+                    <nextState>BankCreditPayDividends</nextState>
                     <inputs>
                         <input>
                             <messageName>interest_on_loan</messageName>
@@ -574,6 +662,17 @@
                             </filter>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>bank_credit_send_dividends</name>
+                    <description>Bank evaluates first loan requests.</description>
+                    <currentState>BankCreditPayDividends</currentState>
+                    <nextState>BankCreditLiquidityNeed</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>bank_net_profit</messageName>
+                        </output>
+                    </outputs>
                 </function>
                 <function>
                     <name>idle</name>
@@ -607,11 +706,6 @@
                     <description>The bank recieves liquidity from the central bank.</description>
                     <currentState>BankCreditLiquidtyRecieve</currentState>
                     <nextState>BankCreditBalanceSheet</nextState>
-                    <condition>
-                        <lhs><value>a.liquidity</value></lhs>
-                        <op>LEQ</op>
-                        <rhs><value>0</value></rhs>
-                    </condition>
                     <inputs>
                         <input>
                             <messageName>debt_ack</messageName>
@@ -1010,7 +1104,27 @@
                 <variable>
                     <type>int</type>
                     <name>n_dividends</name>
-                    <description>Number of households to recieve liquid shares from firm net income.</description>
+                    <description>Number of households(shares) to recieve liquid shares from firm net income.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>dividends_recieved</name>
+                    <description>Total amount dividends recieved from firms and banks</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>dividends_retained</name>
+                    <description>Total amount of dividends retained.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>dividends_paid</name>
+                    <description>Total amount of dividends distributed to shareholders.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>firm_investment</name>
+                    <description>Total amount of liquidity used for firms with liquidity needs.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->
@@ -1019,7 +1133,7 @@
                     <name>idle</name>
                     <description>It is not the start of a quarter.</description>
                     <currentState>EquityFundStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EFLabourMarket</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -1031,7 +1145,7 @@
                     <name>equityfund_credit_invest_illiquids</name>
                     <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
                     <currentState>EquityFundStart</currentState>
-                    <nextState>EFCreditShareCollection</nextState>
+                    <nextState>EFCreditShareCollectionFirms</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -1041,17 +1155,34 @@
                     <inputs>
                         <input>
                             <messageName>fund_request</messageName>
+                            <random>true</random>
                         </input>
                     </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>fund_request_ack</messageName>
+                        </output>
+                    </outputs>
                 </function>
                 <function>
                     <name>equityfund_credit_collect_firm_shares</name>
                     <description>At the end of a quarter collect net income from the firms in the market.</description>
-                    <currentState>EFCreditShareCollection</currentState>
-                    <nextState>EFCreditDistributeShares</nextState>
+                    <currentState>EFCreditShareCollectionFirms</currentState>
+                    <nextState>EFCreditShareCollectionBanks</nextState>
                     <inputs>
                         <input>
                             <messageName>firm_net_profit</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_collect_bank_shares</name>
+                    <description>At the end of a quarter collect net income from the banks in the market.</description>
+                    <currentState>EFCreditShareCollectionBanks</currentState>
+                    <nextState>EFCreditDistributeShares</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>bank_net_profit</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -1070,7 +1201,7 @@
                     <name>equityfund_credit_do_balance_sheet</name>
                     <description>Equity fund balance sheet accounting activities.</description>
                     <currentState>EFCreditBalanceSheet</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EFLabourMarket</nextState>
                 </function>
             </functions>
         </xagent>
@@ -1425,8 +1556,29 @@
             <description>Amount of the liquidity requested from Equity Fund.</description>
             <variables>
                 <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description></description>
+                </variable>
+                <variable>
                     <type>double</type>
-                    <name>value</name>
+                    <name>amount</name>
+                    <description></description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>fund_request_ack</name>
+            <description>Amount of the liquidity requested is confirmed by Equity Fund.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description></description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
                     <description></description>
                 </variable>
             </variables>
@@ -1497,6 +1649,22 @@
                     <type>int</type>
                     <name>isconstructor</name>
                     <description>Flag to label whether the income is recieved from a constructor firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>net_income</name>
+                    <description>Net income to be distributed.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>bank_net_profit</name>
+            <description>Net income send to Equity Fund.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Bank Agent ID.</description>
                 </variable>
                 <variable>
                     <type>double</type>

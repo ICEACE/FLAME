@@ -19,6 +19,7 @@
             <file>jpoffice_functions_labour.c</file>
             <file>centralbank_functions_labour.c</file>
             <file>government_functions_labour.c</file>
+            <file>equityfund_functions_labour.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -343,6 +344,11 @@
                     <description>Monthly wage offer.</description>
                 </variable>
                 <variable>
+                    <type>double</type>
+                    <name>average_wage</name>
+                    <description>Average wage in the market.</description>
+                </variable>
+                <variable>
                     <type>int</type>
                     <name>no_employees</name>
                     <description>Number of employees</description>
@@ -552,13 +558,19 @@
                     <name>firm_labour_pay_wages</name>
                     <description>Pay wages and update liquidity.</description>
                     <currentState>FirmLabourPayWages</currentState>
-                    <nextState>FirmConsumptionStart</nextState>
+                    <nextState>FirmLabourWageAdjustment</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_wages_paid</phase>
                         </time>
                     </condition>
+                </function>
+                <function>
+                    <name>firm_labour_trace_wages</name>
+                    <description>Firm checks wage in the market and updates its wage offer.</description>
+                    <currentState>FirmLabourWageAdjustment</currentState>
+                    <nextState>FirmConsumptionStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -627,6 +639,50 @@
                     <description>Makes a sensus on employment status.</description>
                     <currentState>GovernmentLabourStatus</currentState>
                     <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>employment_status</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>equityfund</name>
+            <description>The funding agency.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day for the shareholder audition.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a month.</description>
+                    <currentState>EFLabourMarket</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>equityfund_audit_dividends</name>
+                    <description>Makes a sensus on size of dividends.</description>
+                    <currentState>EFLabourMarket</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
                     <inputs>
                         <input>
                             <messageName>employment_status</messageName>
@@ -778,6 +834,11 @@
                     <type>double</type>
                     <name>wage</name>
                     <description>Current wage of an household.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>ndividends</name>
+                    <description>Number of dividends one own.</description>
                 </variable>
             </variables>
         </message>

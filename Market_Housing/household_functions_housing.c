@@ -320,7 +320,7 @@ int household_housing_pay_mortgages()
     
     MORTGAGE_COSTS[2] = MORTGAGE_COSTS[1];
     MORTGAGE_COSTS[1] = MORTGAGE_COSTS[0];
-    MORTGAGE_COSTS[0] = total_principal_paid + total_principal_paid;
+    MORTGAGE_COSTS[0] = total_principal_paid + total_interest_paid;
     
     MORTGAGES -= total_principal_paid;
     LIQUIDITY -= MORTGAGE_COSTS[0];

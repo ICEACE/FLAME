@@ -257,6 +257,11 @@
                     <name>day_of_week_to_act</name>
                     <description>Day of the week to act for consumption.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>average_goods_price</name>
+                    <description>Average goods price in the market.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -293,7 +298,7 @@
                     <name>firm_consumption_recieve_sales</name>
                     <description>A firm recieves goods unsold and sales liquidity from the mall.</description>
                     <currentState>FirmRecieveSales</currentState>
-                    <nextState>FirmHousingStart</nextState>
+                    <nextState>FirmConsumptionPrice</nextState>
                     <inputs>
                         <input>
                             <messageName>sold</messageName>
@@ -303,6 +308,17 @@
                                 <op>EQ</op>
                                 <rhs><value>m.id</value></rhs>
                             </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>firm_consumption_update_market_price</name>
+                    <description>Firm checks goods prices.</description>
+                    <currentState>FirmConsumptionPrice</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>goods_transactions_summary</messageName>
                         </input>
                     </inputs>
                 </function>
