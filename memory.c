@@ -338,14 +338,44 @@ void unittest_firm_production_construction_labour_demand_FirmConstructionLabourD
 	//return firm_production_construction_labour_demand();
 }
 
-void unittest_idle_FirmCreditStart_FirmCreditMonthly()
+void unittest_idle_FirmCreditStart_FirmProductionStart()
 {
 	
 	
 	//return idle();
 }
 
-void unittest_firm_credit_check_liquidity_need_FirmCreditStart_FirmCreditStatus()
+void unittest_firm_credit_check_interest_rate_FirmCreditStart_FirmCreditLiquidityNeed()
+{
+	int rc;
+	
+	
+	rc = MB_Iterator_Create(b_interest_rate, &i_interest_rate);
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'interest_rate'\n");
+	   switch(rc) {
+	       case MB_ERR_INVALID:
+	           fprintf(stderr, "\t reason: 'interest_rate' board is invalid\n");
+	           break;
+	       case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'interest_rate' board is locked\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	   }
+	}
+	#endif
+	
+	//return firm_credit_check_interest_rate();
+}
+
+void unittest_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus()
 {
 	
 	
@@ -526,48 +556,11 @@ void unittest_firm_credit_pay_interest_on_loans_FirmCreditLoanPayment_FirmCredit
 	//return firm_credit_pay_interest_on_loans();
 }
 
-void unittest_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmCreditMonthly()
+void unittest_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmProductionStart()
 {
 	
 	
 	//return firm_credit_do_balance_sheet();
-}
-
-void unittest_idle_FirmCreditMonthly_FirmProductionStart()
-{
-	
-	
-	//return idle();
-}
-
-void unittest_firm_credit_check_interest_rate_FirmCreditMonthly_FirmProductionStart()
-{
-	int rc;
-	
-	
-	rc = MB_Iterator_Create(b_interest_rate, &i_interest_rate);
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'interest_rate'\n");
-	   switch(rc) {
-	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'interest_rate' board is invalid\n");
-	           break;
-	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'interest_rate' board is locked\n");
-               break;
-           case MB_ERR_MEMALLOC:
-               fprintf(stderr, "\t reason: out of memory\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-	   }
-	}
-	#endif
-	
-	//return firm_credit_check_interest_rate();
 }
 
 void unittest_idle_FirmHousingStart_end()
@@ -869,7 +862,37 @@ void unittest_idle_HHCreditStart_HHCreditMonthly()
 	//return idle();
 }
 
-void unittest_household_credit_check_tax_rate_HHCreditStart_HHCreditUpdateMortgages()
+void unittest_household_credit_check_interest_rate_HHCreditStart_HHCreditCheckTax()
+{
+	int rc;
+	
+	
+	rc = MB_Iterator_Create(b_interest_rate, &i_interest_rate);
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'interest_rate'\n");
+	   switch(rc) {
+	       case MB_ERR_INVALID:
+	           fprintf(stderr, "\t reason: 'interest_rate' board is invalid\n");
+	           break;
+	       case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'interest_rate' board is locked\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	   }
+	}
+	#endif
+	
+	//return household_credit_check_interest_rate();
+}
+
+void unittest_household_credit_check_tax_rate_HHCreditCheckTax_HHCreditUpdateMortgages()
 {
 	int rc;
 	
@@ -964,37 +987,7 @@ void unittest_idle_HHCreditMonthly_HHLabourStart()
 	//return idle();
 }
 
-void unittest_household_credit_check_interest_rate_HHCreditMonthly_HHCreditBenefits()
-{
-	int rc;
-	
-	
-	rc = MB_Iterator_Create(b_interest_rate, &i_interest_rate);
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'interest_rate'\n");
-	   switch(rc) {
-	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'interest_rate' board is invalid\n");
-	           break;
-	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'interest_rate' board is locked\n");
-               break;
-           case MB_ERR_MEMALLOC:
-               fprintf(stderr, "\t reason: out of memory\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-	   }
-	}
-	#endif
-	
-	//return household_credit_check_interest_rate();
-}
-
-void unittest_household_credit_collect_benefits_HHCreditBenefits_HHCreditEmployment()
+void unittest_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment()
 {
 	int rc;
 	
@@ -1272,22 +1265,22 @@ void unittest_idle_EquityFundStart_EFLabourMarket()
 	//return idle();
 }
 
-void unittest_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditShareCollectionFirms()
+void unittest_equityfund_credit_collect_bank_shares_EquityFundStart_EFCreditShareCollectionFirms()
 {
 	int rc;
 	
 	
-	rc = MB_Iterator_Create(b_fund_request, &i_fund_request);
+	rc = MB_Iterator_Create(b_bank_net_profit, &i_bank_net_profit);
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'fund_request'\n");
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'bank_net_profit'\n");
 	   switch(rc) {
 	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'fund_request' board is invalid\n");
+	           fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
 	           break;
 	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'fund_request' board is locked\n");
+               fprintf(stderr, "\t reason: 'bank_net_profit' board is locked\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
@@ -1299,10 +1292,10 @@ void unittest_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditShareCo
 	}
 	#endif
 	
-	//return equityfund_credit_invest_illiquids();
+	//return equityfund_credit_collect_bank_shares();
 }
 
-void unittest_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditShareCollectionBanks()
+void unittest_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditInvestFirms()
 {
 	int rc;
 	
@@ -1332,22 +1325,22 @@ void unittest_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms
 	//return equityfund_credit_collect_firm_shares();
 }
 
-void unittest_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditDistributeShares()
+void unittest_equityfund_credit_invest_illiquids_EFCreditInvestFirms_EFCreditDistributeShares()
 {
 	int rc;
 	
 	
-	rc = MB_Iterator_Create(b_bank_net_profit, &i_bank_net_profit);
+	rc = MB_Iterator_Create(b_fund_request, &i_fund_request);
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'bank_net_profit'\n");
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'fund_request'\n");
 	   switch(rc) {
 	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
+	           fprintf(stderr, "\t reason: 'fund_request' board is invalid\n");
 	           break;
 	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'bank_net_profit' board is locked\n");
+               fprintf(stderr, "\t reason: 'fund_request' board is locked\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
@@ -1359,7 +1352,7 @@ void unittest_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks
 	}
 	#endif
 	
-	//return equityfund_credit_collect_bank_shares();
+	//return equityfund_credit_invest_illiquids();
 }
 
 void unittest_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditBalanceSheet()
@@ -1390,11 +1383,18 @@ void unittest_idle_BankCreditStart_BankHousingMarket()
 	//return idle();
 }
 
-void unittest_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2()
+void unittest_bank_credit_send_dividends_BankCreditStart_BankCreditRequest1()
+{
+	
+	
+	//return bank_credit_send_dividends();
+}
+
+void unittest_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2()
 {
 	int rc;
 	
-	rc = MB_Iterator_CreateFiltered(b_loan_request_1, &i_loan_request_1, &FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2_loan_request_1, current_xmachine_bank);
+	rc = MB_Iterator_CreateFiltered(b_loan_request_1, &i_loan_request_1, &FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2_loan_request_1, current_xmachine_bank);
 	
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
@@ -1510,11 +1510,11 @@ void unittest_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrant
 	//return bank_credit_recieve_new_entrant_loan_requests();
 }
 
-void unittest_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditPayDividends()
+void unittest_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed()
 {
 	int rc;
 	
-	rc = MB_Iterator_CreateFiltered(b_interest_on_loan, &i_interest_on_loan, &FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditPayDividends_interest_on_loan, current_xmachine_bank);
+	rc = MB_Iterator_CreateFiltered(b_interest_on_loan, &i_interest_on_loan, &FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed_interest_on_loan, current_xmachine_bank);
 	
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
@@ -1538,13 +1538,6 @@ void unittest_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCre
 	#endif
 	
 	//return bank_credit_collect_loan_interests();
-}
-
-void unittest_bank_credit_send_dividends_BankCreditPayDividends_BankCreditLiquidityNeed()
-{
-	
-	
-	//return bank_credit_send_dividends();
 }
 
 void unittest_idle_BankCreditLiquidityNeed_BankCreditBalanceSheet()
@@ -1952,14 +1945,21 @@ void unittest_centralbank_trace_unemployment_status_CentralBankLabour_CentralBan
 	//return centralbank_trace_unemployment_status();
 }
 
-void unittest_idle_CentralBankCredit_CentralBankSetRCB()
+void unittest_idle_CentralBankCredit_CentralBankLabour()
 {
 	
 	
 	//return idle();
 }
 
-void unittest_centralbank_process_debt_requests_CentralBankCredit_CentralBankBalanceSheet()
+void unittest_centralbank_set_interest_rate_CentralBankCredit_CentralBankDebtRequests()
+{
+	
+	
+	//return centralbank_set_interest_rate();
+}
+
+void unittest_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankBalanceSheet()
 {
 	int rc;
 	
@@ -1989,25 +1989,11 @@ void unittest_centralbank_process_debt_requests_CentralBankCredit_CentralBankBal
 	//return centralbank_process_debt_requests();
 }
 
-void unittest_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankSetRCB()
+void unittest_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankLabour()
 {
 	
 	
 	//return centralbank_do_balance_sheet();
-}
-
-void unittest_idle_CentralBankSetRCB_CentralBankLabour()
-{
-	
-	
-	//return idle();
-}
-
-void unittest_centralbank_set_interest_rate_CentralBankSetRCB_CentralBankLabour()
-{
-	
-	
-	//return centralbank_set_interest_rate();
 }
 
 void unittest_idle_CentralBankHousing_end()
@@ -4797,7 +4783,7 @@ int rc;
 
 	firm_FirmCreditStatus_state = init_firm_state();
 
-	firm_FirmCreditMonthly_state = init_firm_state();
+	firm_FirmCreditLiquidityNeed_state = init_firm_state();
 
 	firm_FirmConstructionLabourDemand_state = init_firm_state();
 
@@ -4861,8 +4847,6 @@ int rc;
 
 	household_HHCreditEmployment_state = init_household_state();
 
-	household_HHCreditBenefits_state = init_household_state();
-
 	household_HHCreditCapitalTax_state = init_household_state();
 
 	household_HHCreditBalanceSheet_state = init_household_state();
@@ -4870,6 +4854,8 @@ int rc;
 	household_HHCreditIsCapitalist_state = init_household_state();
 
 	household_HHCreditUpdateMortgages_state = init_household_state();
+
+	household_HHCreditCheckTax_state = init_household_state();
 
 	household_HHCreditMonthly_state = init_household_state();
 
@@ -4903,7 +4889,7 @@ int rc;
 
 	equityfund_EFCreditDistributeShares_state = init_equityfund_state();
 
-	equityfund_EFCreditShareCollectionBanks_state = init_equityfund_state();
+	equityfund_EFCreditInvestFirms_state = init_equityfund_state();
 
 	equityfund_EFCreditShareCollectionFirms_state = init_equityfund_state();
 
@@ -4931,8 +4917,6 @@ int rc;
 
 	bank_BankCreditLiquidityNeed_state = init_bank_state();
 
-	bank_BankCreditPayDividends_state = init_bank_state();
-
 	bank_BankCreditLoanInterests_state = init_bank_state();
 
 	bank_BankCreditNewEntrants_state = init_bank_state();
@@ -4940,6 +4924,8 @@ int rc;
 	bank_BankCreditLoanWriteOffs_state = init_bank_state();
 
 	bank_BankCreditRequest2_state = init_bank_state();
+
+	bank_BankCreditRequest1_state = init_bank_state();
 
 	bank_BankHousingMarket_state = init_bank_state();
 
@@ -4969,7 +4955,7 @@ int rc;
 
 	centralbank_CentralBankBalanceSheet_state = init_centralbank_state();
 
-	centralbank_CentralBankSetRCB_state = init_centralbank_state();
+	centralbank_CentralBankDebtRequests_state = init_centralbank_state();
 
 	centralbank_CentralBankLabour_state = init_centralbank_state();
 
@@ -5659,6 +5645,7 @@ xmachine_memory_firm * init_firm_agent()
 	current->labour_productivity_construction = 0.0;
 	current->capital_productivity_construction = 0.0;
 	current->capital_construction = 0.0;
+	current->physical_capital = 0.0;
 	init_int_static_array(current->projects, 13);
 	current->bank_id = 0;
 	current->loans_interest_rate = 0.0;
@@ -5721,6 +5708,7 @@ void unittest_init_firm_agent()
 		current_xmachine_firm->labour_productivity_construction = 0.0;
 		current_xmachine_firm->capital_productivity_construction = 0.0;
 		current_xmachine_firm->capital_construction = 0.0;
+		current_xmachine_firm->physical_capital = 0.0;
 		init_int_static_array(current_xmachine_firm->projects, 13);
 		current_xmachine_firm->bank_id = 0;
 		current_xmachine_firm->loans_interest_rate = 0.0;
@@ -5870,14 +5858,14 @@ void free_firm_agents()
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
 	firm_FirmCreditStatus_state->count = 0;
-	current_xmachine_firm_holder = firm_FirmCreditMonthly_state->agents;
+	current_xmachine_firm_holder = firm_FirmCreditLiquidityNeed_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditMonthly_state);
+		free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLiquidityNeed_state);
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	firm_FirmCreditMonthly_state->count = 0;
+	firm_FirmCreditLiquidityNeed_state->count = 0;
 	current_xmachine_firm_holder = firm_FirmConstructionLabourDemand_state->agents;
 	while(current_xmachine_firm_holder)
 	{
@@ -6073,7 +6061,7 @@ void free_firm_states()
 	free(firm_FirmCreditLoanRequest_state);
 	free(firm_FirmCreditAccounting_state);
 	free(firm_FirmCreditStatus_state);
-	free(firm_FirmCreditMonthly_state);
+	free(firm_FirmCreditLiquidityNeed_state);
 	free(firm_FirmConstructionLabourDemand_state);
 	free(firm_FirmProductionLabourDemand_state);
 	free(firm_FirmProductionPlanning_state);
@@ -6123,7 +6111,7 @@ void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_
 
 }
 
-/** \fn void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isinsolvent, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, int projects[], int bank_id, double loans_interest_rate, double debt, int inventory, int sales, double revenue, double costs, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double liquidity_need, loan ** loan_list, double delta_housing_price)
+/** \fn void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isinsolvent, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], int bank_id, double loans_interest_rate, double debt, int inventory, int sales, double revenue, double costs, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double liquidity_need, loan ** loan_list, double delta_housing_price)
  * \brief Add firm X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
  * \param isconstructor Variable for the X-machine memory.
@@ -6148,6 +6136,7 @@ void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_
  * \param labour_productivity_construction Variable for the X-machine memory.
  * \param capital_productivity_construction Variable for the X-machine memory.
  * \param capital_construction Variable for the X-machine memory.
+ * \param physical_capital Variable for the X-machine memory.
  * \param projects Variable for the X-machine memory.
  * \param bank_id Variable for the X-machine memory.
  * \param loans_interest_rate Variable for the X-machine memory.
@@ -6165,7 +6154,7 @@ void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_
  * \param loan_list Variable for the X-machine memory.
  * \param delta_housing_price Variable for the X-machine memory.
  */
-void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isinsolvent, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, int projects[], int bank_id, double loans_interest_rate, double debt, int inventory, int sales, double revenue, double costs, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double liquidity_need, loan loan_list[], double delta_housing_price)
+void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isinsolvent, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], int bank_id, double loans_interest_rate, double debt, int inventory, int sales, double revenue, double costs, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double liquidity_need, loan loan_list[], double delta_housing_price)
 {
 	xmachine_memory_firm * current;
 
@@ -6197,6 +6186,7 @@ void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isin
 	current->labour_productivity_construction = labour_productivity_construction;
 	current->capital_productivity_construction = capital_productivity_construction;
 	current->capital_construction = capital_construction;
+	current->physical_capital = physical_capital;
 	memcpy(current->projects, projects, 13*sizeof(int));
 	current->bank_id = bank_id;
 	current->loans_interest_rate = loans_interest_rate;
@@ -6387,14 +6377,6 @@ void free_household_agents()
 		current_xmachine_household_holder = temp_xmachine_household_holder;
 	}
 	household_HHCreditEmployment_state->count = 0;
-	current_xmachine_household_holder = household_HHCreditBenefits_state->agents;
-	while(current_xmachine_household_holder)
-	{
-		temp_xmachine_household_holder = current_xmachine_household_holder->next;
-		free_household_agent(current_xmachine_household_holder, household_HHCreditBenefits_state);
-		current_xmachine_household_holder = temp_xmachine_household_holder;
-	}
-	household_HHCreditBenefits_state->count = 0;
 	current_xmachine_household_holder = household_HHCreditCapitalTax_state->agents;
 	while(current_xmachine_household_holder)
 	{
@@ -6427,6 +6409,14 @@ void free_household_agents()
 		current_xmachine_household_holder = temp_xmachine_household_holder;
 	}
 	household_HHCreditUpdateMortgages_state->count = 0;
+	current_xmachine_household_holder = household_HHCreditCheckTax_state->agents;
+	while(current_xmachine_household_holder)
+	{
+		temp_xmachine_household_holder = current_xmachine_household_holder->next;
+		free_household_agent(current_xmachine_household_holder, household_HHCreditCheckTax_state);
+		current_xmachine_household_holder = temp_xmachine_household_holder;
+	}
+	household_HHCreditCheckTax_state->count = 0;
 	current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
 	while(current_xmachine_household_holder)
 	{
@@ -6552,11 +6542,11 @@ void free_household_states()
 	free(household_HHHousingRole_state);
 	free(household_end_state);
 	free(household_HHCreditEmployment_state);
-	free(household_HHCreditBenefits_state);
 	free(household_HHCreditCapitalTax_state);
 	free(household_HHCreditBalanceSheet_state);
 	free(household_HHCreditIsCapitalist_state);
 	free(household_HHCreditUpdateMortgages_state);
+	free(household_HHCreditCheckTax_state);
 	free(household_HHCreditMonthly_state);
 	free(household_HHLabourPayroll_state);
 	free(household_HHLabourStage1Placement_state);
@@ -6750,14 +6740,14 @@ void free_equityfund_agents()
 		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
 	}
 	equityfund_EFCreditDistributeShares_state->count = 0;
-	current_xmachine_equityfund_holder = equityfund_EFCreditShareCollectionBanks_state->agents;
+	current_xmachine_equityfund_holder = equityfund_EFCreditInvestFirms_state->agents;
 	while(current_xmachine_equityfund_holder)
 	{
 		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
-		free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditShareCollectionBanks_state);
+		free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditInvestFirms_state);
 		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
 	}
-	equityfund_EFCreditShareCollectionBanks_state->count = 0;
+	equityfund_EFCreditInvestFirms_state->count = 0;
 	current_xmachine_equityfund_holder = equityfund_EFCreditShareCollectionFirms_state->agents;
 	while(current_xmachine_equityfund_holder)
 	{
@@ -6804,7 +6794,7 @@ void free_equityfund_states()
 {
 	free(equityfund_EFCreditBalanceSheet_state);
 	free(equityfund_EFCreditDistributeShares_state);
-	free(equityfund_EFCreditShareCollectionBanks_state);
+	free(equityfund_EFCreditInvestFirms_state);
 	free(equityfund_EFCreditShareCollectionFirms_state);
 	free(equityfund_end_state);
 	free(equityfund_EFLabourMarket_state);
@@ -7011,14 +7001,6 @@ void free_bank_agents()
 		current_xmachine_bank_holder = temp_xmachine_bank_holder;
 	}
 	bank_BankCreditLiquidityNeed_state->count = 0;
-	current_xmachine_bank_holder = bank_BankCreditPayDividends_state->agents;
-	while(current_xmachine_bank_holder)
-	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		free_bank_agent(current_xmachine_bank_holder, bank_BankCreditPayDividends_state);
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
-	}
-	bank_BankCreditPayDividends_state->count = 0;
 	current_xmachine_bank_holder = bank_BankCreditLoanInterests_state->agents;
 	while(current_xmachine_bank_holder)
 	{
@@ -7051,6 +7033,14 @@ void free_bank_agents()
 		current_xmachine_bank_holder = temp_xmachine_bank_holder;
 	}
 	bank_BankCreditRequest2_state->count = 0;
+	current_xmachine_bank_holder = bank_BankCreditRequest1_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		free_bank_agent(current_xmachine_bank_holder, bank_BankCreditRequest1_state);
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	bank_BankCreditRequest1_state->count = 0;
 	current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
 	while(current_xmachine_bank_holder)
 	{
@@ -7087,11 +7077,11 @@ void free_bank_states()
 	free(bank_BankCreditLiquidtyRecieve_state);
 	free(bank_BankCreditBalanceSheet_state);
 	free(bank_BankCreditLiquidityNeed_state);
-	free(bank_BankCreditPayDividends_state);
 	free(bank_BankCreditLoanInterests_state);
 	free(bank_BankCreditNewEntrants_state);
 	free(bank_BankCreditLoanWriteOffs_state);
 	free(bank_BankCreditRequest2_state);
+	free(bank_BankCreditRequest1_state);
 	free(bank_BankHousingMarket_state);
 	free(bank_BankCreditStart_state);
 	free(bank_start_state);
@@ -7494,14 +7484,14 @@ void free_centralbank_agents()
 		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
 	}
 	centralbank_CentralBankBalanceSheet_state->count = 0;
-	current_xmachine_centralbank_holder = centralbank_CentralBankSetRCB_state->agents;
+	current_xmachine_centralbank_holder = centralbank_CentralBankDebtRequests_state->agents;
 	while(current_xmachine_centralbank_holder)
 	{
 		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
-		free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankSetRCB_state);
+		free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankDebtRequests_state);
 		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
 	}
-	centralbank_CentralBankSetRCB_state->count = 0;
+	centralbank_CentralBankDebtRequests_state->count = 0;
 	current_xmachine_centralbank_holder = centralbank_CentralBankLabour_state->agents;
 	while(current_xmachine_centralbank_holder)
 	{
@@ -7548,7 +7538,7 @@ void free_centralbank_states()
 {
 	free(centralbank_end_state);
 	free(centralbank_CentralBankBalanceSheet_state);
-	free(centralbank_CentralBankSetRCB_state);
+	free(centralbank_CentralBankDebtRequests_state);
 	free(centralbank_CentralBankLabour_state);
 	free(centralbank_CentralBankHousing_state);
 	free(centralbank_CentralBankConsumption_state);
@@ -8612,6 +8602,28 @@ void set_capital_construction(double capital_construction)
 double get_capital_construction()
 {
 	if(current_xmachine->xmachine_firm) return (*current_xmachine->xmachine_firm).capital_construction;
+
+    // suppress compiler warning by returning dummy value /
+    // this statement should rightfully NEVER be reached /
+    return (double)0;
+}
+
+/** \fn void set_physical_capital(double physical_capital)
+ * \brief Set physical_capital memory variable for current X-machine.
+ * \param physical_capital New value for variable.
+ */
+void set_physical_capital(double physical_capital)
+{
+	if(current_xmachine->xmachine_firm) (*current_xmachine->xmachine_firm).physical_capital = physical_capital;
+}
+
+/** \fn double get_physical_capital()
+ * \brief Get physical_capital memory variable from current X-machine.
+ * \return Value for variable.
+ */
+double get_physical_capital()
+{
+	if(current_xmachine->xmachine_firm) return (*current_xmachine->xmachine_firm).physical_capital;
 
     // suppress compiler warning by returning dummy value /
     // this statement should rightfully NEVER be reached /

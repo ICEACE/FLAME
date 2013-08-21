@@ -10,12 +10,14 @@
 int firm_housing_enter_market()
 {
     double price_difference, price;
+    int i = 1;
     
-    price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
-    
-    price = UNIT_HOUSE_PRICE * (1 + price_difference);
-    
-    add_sell_housing_message(ID, price, INVENTORY);
+    while (i <= INVENTORY) {
+        price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
+        price = UNIT_HOUSE_PRICE * (1 + price_difference);
+        add_sell_housing_message(ID, price, 1);
+        i++;
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -29,6 +31,7 @@ int firm_housing_enter_market()
 int firm_housing_collect_sale_revenues()
 {
     int n_sold_units = 0;
+    int total_sold = 0;
     double sale_unit_price, sales_income;
     
     

@@ -1661,6 +1661,7 @@ int readAgentXML(char * location,
 	int in_labour_productivity_construction = 0;
 	int in_capital_productivity_construction = 0;
 	int in_capital_construction = 0;
+	int in_physical_capital = 0;
 	int in_projects = 0;
 	int in_bank_id = 0;
 	int in_loans_interest_rate = 0;
@@ -2286,6 +2287,8 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/capital_productivity_construction") == 0) { in_capital_productivity_construction = 0; }
 			if(strcmp(buffer, "capital_construction") == 0) { in_capital_construction = 1; }
 			if(strcmp(buffer, "/capital_construction") == 0) { in_capital_construction = 0; }
+			if(strcmp(buffer, "physical_capital") == 0) { in_physical_capital = 1; }
+			if(strcmp(buffer, "/physical_capital") == 0) { in_physical_capital = 0; }
 			if(strcmp(buffer, "projects") == 0) { in_projects = 1; }
 			if(strcmp(buffer, "/projects") == 0) { in_projects = 0; }
 			if(strcmp(buffer, "bank_id") == 0) { in_bank_id = 1; }
@@ -2517,6 +2520,7 @@ int readAgentXML(char * location,
 					if(in_labour_productivity_construction) { current_firm_agent->labour_productivity_construction = atof(buffer); }
 					if(in_capital_productivity_construction) { current_firm_agent->capital_productivity_construction = atof(buffer); }
 					if(in_capital_construction) { current_firm_agent->capital_construction = atof(buffer); }
+					if(in_physical_capital) { current_firm_agent->physical_capital = atof(buffer); }
 					if(in_projects) { j = 0;
 						rc = read_int_static_array(buffer, index, &j, current_firm_agent->projects, 13);
 						if(rc != 0) { printf("Error: reading 'firm' agent variable 'projects' of type 'int'\n"); exit(0); } }
@@ -3784,6 +3788,10 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	sprintf(data, "%f", current->capital_construction);
 	fputs(data, file);
 	fputs("</capital_construction>\n", file);
+		fputs("<physical_capital>", file);
+	sprintf(data, "%f", current->physical_capital);
+	fputs(data, file);
+	fputs("</physical_capital>\n", file);
 		fputs("<projects>", file);
 	write_int_static_array(file, current->projects, 13);
 	fputs("</projects>\n", file);

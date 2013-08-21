@@ -190,7 +190,7 @@
                     <name>idle</name>
                     <description>It is not the start of a quarter.</description>
                     <currentState>FirmCreditStart</currentState>
-                    <nextState>FirmCreditMonthly</nextState>
+                    <nextState>FirmProductionStart</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -199,16 +199,27 @@
                     </condition>
                 </function>
                 <function>
-                    <name>firm_credit_check_liquidity_need</name>
-                    <description>Firm checks if it needs liquidity to pay loans and dividends.</description>
+                    <name>firm_credit_check_interest_rate</name>
+                    <description>Firm checks monthly interest rate.</description>
                     <currentState>FirmCreditStart</currentState>
-                    <nextState>FirmCreditStatus</nextState>
+                    <nextState>FirmCreditLiquidityNeed</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>firm_credit_check_liquidity_need</name>
+                    <description>Firm checks if it needs liquidity to pay loans and dividends.</description>
+                    <currentState>FirmCreditLiquidityNeed</currentState>
+                    <nextState>FirmCreditStatus</nextState>
                 </function>
                 <function>
                     <name>idle</name>
@@ -465,36 +476,7 @@
                     <name>firm_credit_do_balance_sheet</name>
                     <description>Updating the balance sheet.</description>
                     <currentState>FirmCreditBalanceSheet</currentState>
-                    <nextState>FirmCreditMonthly</nextState>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>It is not the start of a month.</description>
-                    <currentState>FirmCreditMonthly</currentState>
                     <nextState>FirmProductionStart</nextState>
-                    <condition>
-                        <not><time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></not>
-                    </condition>
-                </function>
-                <function>
-                    <name>firm_credit_check_interest_rate</name>
-                    <description>Firm checks monthly interest rate.</description>
-                    <currentState>FirmCreditMonthly</currentState>
-                    <nextState>FirmProductionStart</nextState>
-                    <condition>
-                        <time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time>
-                    </condition>
-                    <inputs>
-                        <input>
-                            <messageName>interest_rate</messageName>
-                        </input>
-                    </inputs>
                 </function>
             </functions>
         </xagent>
@@ -569,16 +551,27 @@
                     </condition>
                 </function>
                 <function>
-                    <name>bank_credit_process_loan_requests_1</name>
+                    <name>bank_credit_send_dividends</name>
                     <description>Bank evaluates first loan requests.</description>
                     <currentState>BankCreditStart</currentState>
-                    <nextState>BankCreditRequest2</nextState>
+                    <nextState>BankCreditRequest1</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
+                    <outputs>
+                        <output>
+                            <messageName>bank_net_profit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>bank_credit_process_loan_requests_1</name>
+                    <description>Bank evaluates first loan requests.</description>
+                    <currentState>BankCreditRequest1</currentState>
+                    <nextState>BankCreditRequest2</nextState>
                     <inputs>
                         <input>
                             <messageName>loan_request_1</messageName>
@@ -650,7 +643,7 @@
                     <name>bank_credit_collect_loan_interests</name>
                     <description>Bank evaluates first loan requests.</description>
                     <currentState>BankCreditLoanInterests</currentState>
-                    <nextState>BankCreditPayDividends</nextState>
+                    <nextState>BankCreditLiquidityNeed</nextState>
                     <inputs>
                         <input>
                             <messageName>interest_on_loan</messageName>
@@ -662,17 +655,6 @@
                             </filter>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>bank_credit_send_dividends</name>
-                    <description>Bank evaluates first loan requests.</description>
-                    <currentState>BankCreditPayDividends</currentState>
-                    <nextState>BankCreditLiquidityNeed</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>bank_net_profit</messageName>
-                        </output>
-                    </outputs>
                 </function>
                 <function>
                     <name>idle</name>
@@ -778,7 +760,7 @@
                     <name>idle</name>
                     <description>It is not time to act.</description>
                     <currentState>CentralBankCredit</currentState>
-                    <nextState>CentralBankSetRCB</nextState>
+                    <nextState>CentralBankLabour</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -787,16 +769,27 @@
                     </condition>
                 </function>
                 <function>
-                    <name>centralbank_process_debt_requests</name>
-                    <description>Central Bank balance sheet accounting activities.</description>
+                    <name>centralbank_set_interest_rate</name>
+                    <description>Central bank sets the interest rate.</description>
                     <currentState>CentralBankCredit</currentState>
-                    <nextState>CentralBankBalanceSheet</nextState>
+                    <nextState>CentralBankDebtRequests</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
+                    <outputs>
+                        <output>
+                            <messageName>interest_rate</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>centralbank_process_debt_requests</name>
+                    <description>Central Bank balance sheet accounting activities.</description>
+                    <currentState>CentralBankDebtRequests</currentState>
+                    <nextState>CentralBankBalanceSheet</nextState>
                     <inputs>
                         <input>
                             <messageName>debt_request</messageName>
@@ -812,36 +805,7 @@
                     <name>centralbank_do_balance_sheet</name>
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankBalanceSheet</currentState>
-                    <nextState>CentralBankSetRCB</nextState>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>It is not montly time to act.</description>
-                    <currentState>CentralBankSetRCB</currentState>
                     <nextState>CentralBankLabour</nextState>
-                    <condition>
-                        <not><time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></not>
-                    </condition>
-                </function>
-                <function>
-                    <name>centralbank_set_interest_rate</name>
-                    <description>Central bank sets the interest rate.</description>
-                    <currentState>CentralBankSetRCB</currentState>
-                    <nextState>CentralBankLabour</nextState>
-                    <condition>
-                        <time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time>
-                    </condition>
-                    <outputs>
-                        <output>
-                            <messageName>interest_rate</messageName>
-                        </output>
-                    </outputs>
                 </function>
             </functions>
         </xagent>
@@ -931,16 +895,27 @@
                     </condition>
                 </function>
                 <function>
-                    <name>household_credit_check_tax_rate</name>
-                    <description>Households check the tax rate which is set by government.</description>
+                    <name>household_credit_check_interest_rate</name>
+                    <description>Households check the interest rate which is set by CB.</description>
                     <currentState>HHCreditStart</currentState>
-                    <nextState>HHCreditUpdateMortgages</nextState>
+                    <nextState>HHCreditCheckTax</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>household_credit_check_tax_rate</name>
+                    <description>Households check the tax rate which is set by government.</description>
+                    <currentState>HHCreditCheckTax</currentState>
+                    <nextState>HHCreditUpdateMortgages</nextState>
                     <inputs>
                         <input>
                             <messageName>tax_rate</messageName>
@@ -1010,27 +985,16 @@
                     </condition>
                 </function>
                 <function>
-                    <name>household_credit_check_interest_rate</name>
-                    <description>Households check the interest rate which is set by CB.</description>
+                    <name>household_credit_collect_benefits</name>
+                    <description>Collect general transfer benefits from the government.</description>
                     <currentState>HHCreditMonthly</currentState>
-                    <nextState>HHCreditBenefits</nextState>
+                    <nextState>HHCreditEmployment</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_to_act</phase>
                         </time>
                     </condition>
-                    <inputs>
-                        <input>
-                            <messageName>interest_rate</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>household_credit_collect_benefits</name>
-                    <description>Collect general transfer benefits from the government.</description>
-                    <currentState>HHCreditBenefits</currentState>
-                    <nextState>HHCreditEmployment</nextState>
                     <inputs>
                         <input>
                             <messageName>general_benefit</messageName>
@@ -1142,8 +1106,8 @@
                     </condition>
                 </function>
                 <function>
-                    <name>equityfund_credit_invest_illiquids</name>
-                    <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
+                    <name>equityfund_credit_collect_bank_shares</name>
+                    <description>At the end of a quarter collect net income from the banks in the market.</description>
                     <currentState>EquityFundStart</currentState>
                     <nextState>EFCreditShareCollectionFirms</nextState>
                     <condition>
@@ -1152,6 +1116,28 @@
                             <phase>1</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>bank_net_profit</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_collect_firm_shares</name>
+                    <description>At the end of a quarter collect net income from the firms in the market.</description>
+                    <currentState>EFCreditShareCollectionFirms</currentState>
+                    <nextState>EFCreditInvestFirms</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>firm_net_profit</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_invest_illiquids</name>
+                    <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
+                    <currentState>EFCreditInvestFirms</currentState>
+                    <nextState>EFCreditDistributeShares</nextState>
                     <inputs>
                         <input>
                             <messageName>fund_request</messageName>
@@ -1163,28 +1149,6 @@
                             <messageName>fund_request_ack</messageName>
                         </output>
                     </outputs>
-                </function>
-                <function>
-                    <name>equityfund_credit_collect_firm_shares</name>
-                    <description>At the end of a quarter collect net income from the firms in the market.</description>
-                    <currentState>EFCreditShareCollectionFirms</currentState>
-                    <nextState>EFCreditShareCollectionBanks</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>firm_net_profit</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>equityfund_credit_collect_bank_shares</name>
-                    <description>At the end of a quarter collect net income from the banks in the market.</description>
-                    <currentState>EFCreditShareCollectionBanks</currentState>
-                    <nextState>EFCreditDistributeShares</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>bank_net_profit</messageName>
-                        </input>
-                    </inputs>
                 </function>
                 <function>
                     <name>equityfund_credit_distribute_shares</name>

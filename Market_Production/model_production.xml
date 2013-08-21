@@ -87,6 +87,11 @@
                     <description>Upper amount of constraction capital in housing.</description>
                 </variable>
                 <variable>
+                    <type>double</type>
+                    <name>physical_capital</name>
+                    <description>physical capital owned by a firm.</description>
+                </variable>
+                <variable>
                     <type>int</type>
                     <name>projects[13]</name>
                     <description>Holds projects under construction. Indices denote number of months left for completion.</description>

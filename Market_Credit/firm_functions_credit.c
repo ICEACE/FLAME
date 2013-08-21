@@ -72,7 +72,7 @@ int firm_credit_borrow_loans_1()
     }
     else{
         HASLOAN = 0;
-        add_loan_request_2_message(ID, BANK_ID, LIQUIDITY_NEED);
+        add_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -238,21 +238,24 @@ int firm_credit_exit_market()
     SALES = 0;
     REVENUE = 0;
     COSTS = 0;
+    /* Pysical capital kept the same.
+     */
     
     if (ISCONSTRUCTOR == 0) {
         INVENTORY = LABOUR_PRODUCTIVITY * 1;
-        total_assets = INVENTORY * UNIT_GOODS_PRICE;
+        total_assets = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
         UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
     } else {
         INVENTORY = 0;
-        total_assets = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1;
+        total_assets = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
         /* Constructor firms keep the avergae house prices */
     }
     /* Getting initial loan */
+    total_assets += PHYSICAL_CAPITAL;
     DEBT = total_assets / (1 + FIRM_STARTUP_LEVERAGE);
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     LOAN_LIST[0].amount = DEBT;
-    LIQUIDITY += DEBT;
+    //LIQUIDITY += DEBT;
     EQUITY = total_assets - DEBT;
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -264,12 +267,22 @@ int firm_credit_exit_market()
  */
 int firm_credit_distribute_net_profit()
 {
-    double net_profit;
+    double net_profit, ebit;
     
     // Labour cost is decremented from liquidity on a monthly basis.
     // Cost and revenue are updated incrementally.
     
-    net_profit = REVENUE - COSTS;
+    ebit = REVENUE - COSTS;
+    
+    // Firms doesn't pay tax but interest on loans.
+    int bank;
+    double interest_to_be_paid;
+    for (int i = 0; i < 2; i++) {
+        bank = LOAN_LIST[i].bank_id;
+        interest_to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE;
+    }
+    net_profit = ebit - interest_to_be_paid;
+    
     
     // In case net income is positive it is sent to be distributed.
     if (net_profit > 0) {

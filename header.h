@@ -805,6 +805,7 @@ struct xmachine_memory_firm
 	double labour_productivity_construction;	/**< X-machine memory variable labour_productivity_construction of type double. */
 	double capital_productivity_construction;	/**< X-machine memory variable capital_productivity_construction of type double. */
 	double capital_construction;	/**< X-machine memory variable capital_construction of type double. */
+	double physical_capital;	/**< X-machine memory variable physical_capital of type double. */
 	int projects[13];	/**< X-machine memory variable projects of type int. */
 	int bank_id;	/**< X-machine memory variable bank_id of type int. */
 	double loans_interest_rate;	/**< X-machine memory variable loans_interest_rate of type double. */
@@ -2464,9 +2465,9 @@ xmachine_memory_firm_state * firm_FirmCreditAccounting_state;
 /* Pointer to list of firm agents in state FirmCreditStatus state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmCreditStatus;
 xmachine_memory_firm_state * firm_FirmCreditStatus_state;
-/* Pointer to list of firm agents in state FirmCreditMonthly state */
-//xmachine_memory_firm * temp_xmachine_firm_FirmCreditMonthly;
-xmachine_memory_firm_state * firm_FirmCreditMonthly_state;
+/* Pointer to list of firm agents in state FirmCreditLiquidityNeed state */
+//xmachine_memory_firm * temp_xmachine_firm_FirmCreditLiquidityNeed;
+xmachine_memory_firm_state * firm_FirmCreditLiquidityNeed_state;
 /* Pointer to list of firm agents in state FirmConstructionLabourDemand state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmConstructionLabourDemand;
 xmachine_memory_firm_state * firm_FirmConstructionLabourDemand_state;
@@ -2565,9 +2566,6 @@ xmachine_memory_household_state * household_end_state;
 /* Pointer to list of household agents in state HHCreditEmployment state */
 //xmachine_memory_household * temp_xmachine_household_HHCreditEmployment;
 xmachine_memory_household_state * household_HHCreditEmployment_state;
-/* Pointer to list of household agents in state HHCreditBenefits state */
-//xmachine_memory_household * temp_xmachine_household_HHCreditBenefits;
-xmachine_memory_household_state * household_HHCreditBenefits_state;
 /* Pointer to list of household agents in state HHCreditCapitalTax state */
 //xmachine_memory_household * temp_xmachine_household_HHCreditCapitalTax;
 xmachine_memory_household_state * household_HHCreditCapitalTax_state;
@@ -2580,6 +2578,9 @@ xmachine_memory_household_state * household_HHCreditIsCapitalist_state;
 /* Pointer to list of household agents in state HHCreditUpdateMortgages state */
 //xmachine_memory_household * temp_xmachine_household_HHCreditUpdateMortgages;
 xmachine_memory_household_state * household_HHCreditUpdateMortgages_state;
+/* Pointer to list of household agents in state HHCreditCheckTax state */
+//xmachine_memory_household * temp_xmachine_household_HHCreditCheckTax;
+xmachine_memory_household_state * household_HHCreditCheckTax_state;
 /* Pointer to list of household agents in state HHCreditMonthly state */
 //xmachine_memory_household * temp_xmachine_household_HHCreditMonthly;
 xmachine_memory_household_state * household_HHCreditMonthly_state;
@@ -2633,9 +2634,9 @@ xmachine_memory_equityfund_state * equityfund_EFCreditBalanceSheet_state;
 /* Pointer to list of equityfund agents in state EFCreditDistributeShares state */
 //xmachine_memory_equityfund * temp_xmachine_equityfund_EFCreditDistributeShares;
 xmachine_memory_equityfund_state * equityfund_EFCreditDistributeShares_state;
-/* Pointer to list of equityfund agents in state EFCreditShareCollectionBanks state */
-//xmachine_memory_equityfund * temp_xmachine_equityfund_EFCreditShareCollectionBanks;
-xmachine_memory_equityfund_state * equityfund_EFCreditShareCollectionBanks_state;
+/* Pointer to list of equityfund agents in state EFCreditInvestFirms state */
+//xmachine_memory_equityfund * temp_xmachine_equityfund_EFCreditInvestFirms;
+xmachine_memory_equityfund_state * equityfund_EFCreditInvestFirms_state;
 /* Pointer to list of equityfund agents in state EFCreditShareCollectionFirms state */
 //xmachine_memory_equityfund * temp_xmachine_equityfund_EFCreditShareCollectionFirms;
 xmachine_memory_equityfund_state * equityfund_EFCreditShareCollectionFirms_state;
@@ -2680,9 +2681,6 @@ xmachine_memory_bank_state * bank_BankCreditBalanceSheet_state;
 /* Pointer to list of bank agents in state BankCreditLiquidityNeed state */
 //xmachine_memory_bank * temp_xmachine_bank_BankCreditLiquidityNeed;
 xmachine_memory_bank_state * bank_BankCreditLiquidityNeed_state;
-/* Pointer to list of bank agents in state BankCreditPayDividends state */
-//xmachine_memory_bank * temp_xmachine_bank_BankCreditPayDividends;
-xmachine_memory_bank_state * bank_BankCreditPayDividends_state;
 /* Pointer to list of bank agents in state BankCreditLoanInterests state */
 //xmachine_memory_bank * temp_xmachine_bank_BankCreditLoanInterests;
 xmachine_memory_bank_state * bank_BankCreditLoanInterests_state;
@@ -2695,6 +2693,9 @@ xmachine_memory_bank_state * bank_BankCreditLoanWriteOffs_state;
 /* Pointer to list of bank agents in state BankCreditRequest2 state */
 //xmachine_memory_bank * temp_xmachine_bank_BankCreditRequest2;
 xmachine_memory_bank_state * bank_BankCreditRequest2_state;
+/* Pointer to list of bank agents in state BankCreditRequest1 state */
+//xmachine_memory_bank * temp_xmachine_bank_BankCreditRequest1;
+xmachine_memory_bank_state * bank_BankCreditRequest1_state;
 /* Pointer to list of bank agents in state BankHousingMarket state */
 //xmachine_memory_bank * temp_xmachine_bank_BankHousingMarket;
 xmachine_memory_bank_state * bank_BankHousingMarket_state;
@@ -2747,9 +2748,9 @@ xmachine_memory_centralbank_state * centralbank_end_state;
 /* Pointer to list of centralbank agents in state CentralBankBalanceSheet state */
 //xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankBalanceSheet;
 xmachine_memory_centralbank_state * centralbank_CentralBankBalanceSheet_state;
-/* Pointer to list of centralbank agents in state CentralBankSetRCB state */
-//xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankSetRCB;
-xmachine_memory_centralbank_state * centralbank_CentralBankSetRCB_state;
+/* Pointer to list of centralbank agents in state CentralBankDebtRequests state */
+//xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankDebtRequests;
+xmachine_memory_centralbank_state * centralbank_CentralBankDebtRequests_state;
 /* Pointer to list of centralbank agents in state CentralBankLabour state */
 //xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankLabour;
 xmachine_memory_centralbank_state * centralbank_CentralBankLabour_state;
@@ -3391,7 +3392,7 @@ xmachine_memory_firm * init_firm_agent();
 void free_firm_agent(xmachine_memory_firm_holder * tmp, xmachine_memory_firm_state * state);
 void transition_firm_agent(xmachine_memory_firm_holder * tmp, xmachine_memory_firm_state * from_state, xmachine_memory_firm_state * to_state);
 void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_state * state);
-void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isinsolvent, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, int projects[], int bank_id, double loans_interest_rate, double debt, int inventory, int sales, double revenue, double costs, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double liquidity_need, loan loan_list[], double delta_housing_price);
+void add_firm_agent(int id, int isconstructor, int day_of_month_to_act, int isinsolvent, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], int bank_id, double loans_interest_rate, double debt, int inventory, int sales, double revenue, double costs, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double liquidity_need, loan loan_list[], double delta_housing_price);
 void unittest_init_firm_agent();
 void unittest_free_firm_agent();
 xmachine_memory_household_state * init_household_state();
@@ -3775,6 +3776,8 @@ void set_capital_productivity_construction(double capital_productivity_construct
 double get_capital_productivity_construction();
 void set_capital_construction(double capital_construction);
 double get_capital_construction();
+void set_physical_capital(double physical_capital);
+double get_physical_capital();
 int * get_projects();
 void set_bank_id(int bank_id);
 int get_bank_id();
@@ -4185,9 +4188,10 @@ int firm_production_construction_plan(void);
 int FLAME_condition_firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand(xmachine_memory_firm *a);
 int firm_production_construction_labour_demand(void);
 
-int FLAME_condition_firm_idle_FirmCreditStart_FirmCreditMonthly(xmachine_memory_firm *a);
+int FLAME_condition_firm_idle_FirmCreditStart_FirmProductionStart(xmachine_memory_firm *a);
+int firm_credit_check_interest_rate(void);
+int FLAME_condition_firm_firm_credit_check_interest_rate_FirmCreditStart_FirmCreditLiquidityNeed(xmachine_memory_firm *a);
 int firm_credit_check_liquidity_need(void);
-int FLAME_condition_firm_firm_credit_check_liquidity_need_FirmCreditStart_FirmCreditStatus(xmachine_memory_firm *a);
 
 int FLAME_condition_firm_idle_FirmCreditStatus_FirmCreditAccounting(xmachine_memory_firm *a);
 
@@ -4217,10 +4221,6 @@ int firm_credit_exit_market(void);
 int firm_credit_distribute_net_profit(void);
 int firm_credit_pay_interest_on_loans(void);
 int firm_credit_do_balance_sheet(void);
-
-int FLAME_condition_firm_idle_FirmCreditMonthly_FirmProductionStart(xmachine_memory_firm *a);
-int firm_credit_check_interest_rate(void);
-int FLAME_condition_firm_firm_credit_check_interest_rate_FirmCreditMonthly_FirmProductionStart(xmachine_memory_firm *a);
 
 int FLAME_condition_firm_idle_FirmHousingStart_end(xmachine_memory_firm *a);
 
@@ -4264,8 +4264,9 @@ int household_labour_recieve_wage(void);
 int FLAME_condition_household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart(xmachine_memory_household *a);
 
 int FLAME_condition_household_idle_HHCreditStart_HHCreditMonthly(xmachine_memory_household *a);
+int household_credit_check_interest_rate(void);
+int FLAME_condition_household_household_credit_check_interest_rate_HHCreditStart_HHCreditCheckTax(xmachine_memory_household *a);
 int household_credit_check_tax_rate(void);
-int FLAME_condition_household_household_credit_check_tax_rate_HHCreditStart_HHCreditUpdateMortgages(xmachine_memory_household *a);
 int household_credit_update_mortgage_rates(void);
 
 int FLAME_condition_household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet(xmachine_memory_household *a);
@@ -4275,9 +4276,8 @@ int household_credit_pay_capital_tax(void);
 int household_credit_do_balance_sheet(void);
 
 int FLAME_condition_household_idle_HHCreditMonthly_HHLabourStart(xmachine_memory_household *a);
-int household_credit_check_interest_rate(void);
-int FLAME_condition_household_household_credit_check_interest_rate_HHCreditMonthly_HHCreditBenefits(xmachine_memory_household *a);
 int household_credit_collect_benefits(void);
+int FLAME_condition_household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment(xmachine_memory_household *a);
 int household_credit_collect_unemployment(void);
 int FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a);
 int household_credit_pay_labour_tax(void);
@@ -4312,26 +4312,26 @@ int equityfund_audit_dividends(void);
 int FLAME_condition_equityfund_equityfund_audit_dividends_EFLabourMarket_end(xmachine_memory_equityfund *a);
 
 int FLAME_condition_equityfund_idle_EquityFundStart_EFLabourMarket(xmachine_memory_equityfund *a);
-int equityfund_credit_invest_illiquids(void);
-int FLAME_condition_equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditShareCollectionFirms(xmachine_memory_equityfund *a);
-int equityfund_credit_collect_firm_shares(void);
 int equityfund_credit_collect_bank_shares(void);
+int FLAME_condition_equityfund_equityfund_credit_collect_bank_shares_EquityFundStart_EFCreditShareCollectionFirms(xmachine_memory_equityfund *a);
+int equityfund_credit_collect_firm_shares(void);
+int equityfund_credit_invest_illiquids(void);
 int equityfund_credit_distribute_shares(void);
 int equityfund_credit_do_balance_sheet(void);
 int bank_init(void);
 
 int FLAME_condition_bank_idle_BankCreditStart_BankHousingMarket(xmachine_memory_bank *a);
+int bank_credit_send_dividends(void);
+int FLAME_condition_bank_bank_credit_send_dividends_BankCreditStart_BankCreditRequest1(xmachine_memory_bank *a);
 int bank_credit_process_loan_requests_1(void);
-int FLAME_condition_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2(xmachine_memory_bank *a);
-int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2_loan_request_1(const void *msg, const void *params);
+int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2_loan_request_1(const void *msg, const void *params);
 int bank_credit_process_loan_requests_2(void);
 int bank_credit_recieve_loan_writeoffs(void);
 int FLAME_filter_bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants_loan_writeoff(const void *msg, const void *params);
 int bank_credit_recieve_new_entrant_loan_requests(void);
 int FLAME_filter_bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests_new_entrant_loan(const void *msg, const void *params);
 int bank_credit_collect_loan_interests(void);
-int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditPayDividends_interest_on_loan(const void *msg, const void *params);
-int bank_credit_send_dividends(void);
+int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed_interest_on_loan(const void *msg, const void *params);
 
 int FLAME_condition_bank_idle_BankCreditLiquidityNeed_BankCreditBalanceSheet(xmachine_memory_bank *a);
 int bank_credit_request_liquidity(void);
@@ -4375,14 +4375,11 @@ int FLAME_condition_centralbank_idle_CentralBankLabour_CentralBankConsumption(xm
 int centralbank_trace_unemployment_status(void);
 int FLAME_condition_centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption(xmachine_memory_centralbank *a);
 
-int FLAME_condition_centralbank_idle_CentralBankCredit_CentralBankSetRCB(xmachine_memory_centralbank *a);
-int centralbank_process_debt_requests(void);
-int FLAME_condition_centralbank_centralbank_process_debt_requests_CentralBankCredit_CentralBankBalanceSheet(xmachine_memory_centralbank *a);
-int centralbank_do_balance_sheet(void);
-
-int FLAME_condition_centralbank_idle_CentralBankSetRCB_CentralBankLabour(xmachine_memory_centralbank *a);
+int FLAME_condition_centralbank_idle_CentralBankCredit_CentralBankLabour(xmachine_memory_centralbank *a);
 int centralbank_set_interest_rate(void);
-int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankSetRCB_CentralBankLabour(xmachine_memory_centralbank *a);
+int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankDebtRequests(xmachine_memory_centralbank *a);
+int centralbank_process_debt_requests(void);
+int centralbank_do_balance_sheet(void);
 
 int FLAME_condition_centralbank_idle_CentralBankHousing_end(xmachine_memory_centralbank *a);
 int centralbank_trace_housing_prices(void);

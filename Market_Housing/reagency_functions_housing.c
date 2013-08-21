@@ -18,6 +18,7 @@ int reagency_housing_check_interest_rate()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
 /*
  * \fn: int reagency_housing_process()
  * \brief: 

@@ -72,6 +72,9 @@
 /** \def CAPITAL_CONSTRUCTION
  * \brief Direct access to capital_construction of firm agent memory variable. */
 #define CAPITAL_CONSTRUCTION (current_xmachine_firm->capital_construction)
+/** \def PHYSICAL_CAPITAL
+ * \brief Direct access to physical_capital of firm agent memory variable. */
+#define PHYSICAL_CAPITAL (current_xmachine_firm->physical_capital)
 /** \def PROJECTS
  * \brief Direct access to projects of firm agent memory variable. */
 #define PROJECTS (current_xmachine_firm->projects)
