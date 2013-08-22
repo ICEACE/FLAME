@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -143,10 +143,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * \fn: int firm_consumption_update_market_price()</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> * \brief: The producer firm gets average market price per good.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="firm__functions__consumption_8c.html#a5812c509892f9d6479a8edb3a4a86a63">   59</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#ac033b9bae37f0196e400b803a7ec80b6">firm_consumption_update_market_price</a>()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="header_8h.html#a35b70e333f6675367848bc69f7109dcf" title="Start of loop to process goods_transactions_summary messages.">START_GOODS_TRANSACTIONS_SUMMARY_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="firm__agent__header_8h.html#af99564e997234c60e68967b28d84a06f" title="Direct access to average_goods_price of firm agent memory variable.">AVERAGE_GOODS_PRICE</a> = <a class="code" href="header_8h.html#a20f240acbdf15f0c10d8b9efbdb7950c" title="Pointer to message struct for looping through goods_transactions_summary message list.">goods_transactions_summary_message</a>-&gt;<a class="code" href="structm__goods__transactions__summary.html#a3018dbc943bbbc2c449f0c4915d06982">avg_price</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="header_8h.html#a14c2a78791c5ccca58db525a427ad41b" title="Finish of loop to process goods_transactions_summary messages.">FINISH_GOODS_TRANSACTIONS_SUMMARY_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:37 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

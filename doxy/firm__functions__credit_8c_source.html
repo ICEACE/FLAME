@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -95,155 +95,351 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * \fn: int firm_credit_check_interest_rate()</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \brief: </span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \brief: it receives interest rate from the central bank and updates interest to be paid on loans.</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#ae6ef26d5d04e548884d983833b436c7d">    8</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a5f8d3023c5af7feaf0f119fd761c77c5">firm_credit_check_interest_rate</a>()</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * \fn: int firm_credit_check_liquidity_need()</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * \brief: </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a0550a170d7f207f27217da84933ace06">   19</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a216753fdbd92ef291e92a87cc4b5d8be">firm_credit_check_liquidity_need</a>()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">/* Compute LIQUIDTY_NEED</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">     Compute/check EQUITY.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">     It maybe possible that it is needed to decrement the loans and dividends to be paid within the current quarter to compute the equity</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * \fn: int firm_credit_demand_loans_1()</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a4ad82e4fbd88080c90e3501e9b847e00">   34</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#aab3cba18c551539edbe7e6a5b18ea754">firm_credit_demand_loans_1</a>()</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">double</span> rcb;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="header_8h.html#a899aa5fd64c6d760a213d2f6a4dd6a45" title="Start of loop to process interest_rate messages.">START_INTEREST_RATE_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// 1 percent increase determined by the model.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    rcb = <a class="code" href="header_8h.html#a4e7d257f484d9fc10956705741e1e286" title="Pointer to message struct for looping through interest_rate message list.">interest_rate_message</a>-&gt;<a class="code" href="structm__interest__rate.html#a40fc078492fcc08ce7ad3957496b4c0b">rate</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="firm__agent__header_8h.html#accb54ea6e6d37b0b84e8281b28b738e0" title="Direct access to loans_interest_rate of firm agent memory variable.">LOANS_INTEREST_RATE</a> = rcb + 0.01;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="header_8h.html#adc3e0ee7f28d6e5db256bb70bc561542" title="Finish of loop to process interest_rate messages.">FINISH_INTEREST_RATE_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * \fn: int firm_credit_check_liquidity_need()</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * \brief: </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a0550a170d7f207f27217da84933ace06">   25</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a216753fdbd92ef291e92a87cc4b5d8be">firm_credit_check_liquidity_need</a>()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">double</span> dividends_to_be_paid;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">double</span> interests_to_be_paid;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    dividends_to_be_paid = <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> - <a class="code" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933" title="Direct access to costs of firm agent memory variable.">COSTS</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    interests_to_be_paid = <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> * <a class="code" href="firm__agent__header_8h.html#accb54ea6e6d37b0b84e8281b28b738e0" title="Direct access to loans_interest_rate of firm agent memory variable.">LOANS_INTEREST_RATE</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = dividends_to_be_paid + interests_to_be_paid - <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> &lt; 0) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = 0  ;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * \fn: int firm_credit_borrow_loans_1()</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * \fn: int firm_credit_demand_loans_1()</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> * \brief:</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#abec7028950a2eca84363c44f0147c634">   45</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#af71f6cbd48390016d87f6f199d7b55e6">firm_credit_borrow_loans_1</a>()</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a4ad82e4fbd88080c90e3501e9b847e00">   45</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#aab3cba18c551539edbe7e6a5b18ea754">firm_credit_demand_loans_1</a>()</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * \fn: int firm_credit_borrow_loans_2()</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#afce836a8a85c82396ab9aea329fe7b2b">   56</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a4f8c28011317e82193f58e37d4937706">firm_credit_borrow_loans_2</a>()</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * \fn: int firm_credit_check_illiquidity()</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a5a4921f2e8a33a3127df617d47b4ecd3">   67</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a9a2c21dffc31274ff4e4880d80c60561">firm_credit_check_illiquidity</a>()</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * \fn: int firm_credit_exit_market()</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a548ef2316c88c14a01d6933baf12b297">   78</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a32f1f458de950a4fc12e14b787f71d6e">firm_credit_exit_market</a>()</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// The firm will skip production for the first time and enters the labour market.</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a7767b8b0103612b1c60782aa39f74bd0" title="Direct access to isinsolvent of firm agent memory variable.">ISINSOLVENT</a> = 1;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> * \fn: int firm_credit_distribute_net_profit ()</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> * \brief: Within this implementation the firm sends all of net income</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * to the Fund Equity to be distributed equally to households.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#ae0246fe8c0c545454cbb07cd1c8ccd8e">   92</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a6e96fa9fed1d8baa7168f681af35439e">firm_credit_distribute_net_profit</a>()</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">double</span> net_profit;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Labour cost is decremented from liquidity on a monthly basis.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Cost and revenue are updated incrementally.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    net_profit = <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> - <a class="code" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933" title="Direct access to costs of firm agent memory variable.">COSTS</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// In case net income is positive it is sent to be distributed.</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span> (net_profit &gt; 0) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="header_8h.html#a1adb0e758c45dce14a89764baf324a69" title="Add firm_net_profit message by calling internal and processing.">add_firm_net_profit_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13" title="Direct access to isconstructor of firm agent memory variable.">ISCONSTRUCTOR</a>, net_profit);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">//Check this with production market.</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> = 0;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        COSTS = 0;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">// The amount sent is decremented from liquidity</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= net_profit;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//printf(&quot; Firm Id = %d, Net Profit %f \n&quot;, ID, net_profit);</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment"> * \fn: int firm_credit_pay_interest_on_loans()</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"> * \brief:</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a703989c648e6daa029a3aef92495b22d">  120</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a3728c649425825522fa5bb182e4a4b2a">firm_credit_pay_interest_on_loans</a>()</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"> * \fn: int firm_credit_do_balance_sheet()</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"> * \brief: Firm does the balance sheet accounting.</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a11606c894d0d60d7af4285ed45735490">  131</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a31239d18b48e564937c2c771f299bb5f">firm_credit_do_balance_sheet</a>()</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">double</span> assets;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13" title="Direct access to isconstructor of firm agent memory variable.">ISCONSTRUCTOR</a> == 1) {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#adfcd5712573e5598199afb57d50f9487" title="Direct access to unit_house_price of firm agent memory variable.">UNIT_HOUSE_PRICE</a>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        assets += <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="firm__agent__header_8h.html#af15dc7101e02c13761cda1ddacc1448d" title="Direct access to capital_construction of firm agent memory variable.">CAPITAL_CONSTRUCTION</a>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        assets += <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="firm__agent__header_8h.html#a41ec29f6776be4c457bba34f2207f426" title="Direct access to capital_goods of firm agent memory variable.">CAPITAL_GOODS</a>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = assets - <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> &gt; 0){</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       <a class="code" href="header_8h.html#a0c0fa21bf8cd2767636c3e48bf0aeb4c" title="Add loan_request_1 message by calling internal and processing.">add_loan_request_1_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a35c1d174c8e48ec46028cfc2ad690a7a" title="Direct access to bank_id of firm agent memory variable.">BANK_ID</a>, <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> * \fn: int firm_credit_borrow_loans_1()</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * \brief: The function is run when there is liquidity need.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#abec7028950a2eca84363c44f0147c634">   58</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#af71f6cbd48390016d87f6f199d7b55e6">firm_credit_borrow_loans_1</a>()</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">double</span> amount = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="header_8h.html#a1cce4a30f01463be5999e7c737918259" title="Start of loop to process loan_acknowledge_1 messages.">START_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    amount = <a class="code" href="header_8h.html#ae4b3f916b8eacb37c8d023a9aaf6a7e3" title="Pointer to message struct for looping through loan_acknowledge_1 message list.">loan_acknowledge_1_message</a>-&gt;<a class="code" href="structm__loan__acknowledge__1.html#a44429d6dc16c0f5233b3f75c3cfcdea5">amount</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="header_8h.html#acef15097a918895e3d9260bcf44b13e4" title="Finish of loop to process loan_acknowledge_1 messages.">FINISH_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> (amount &gt;= <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a>){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += amount;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> += amount;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[0].amount += amount;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="firm__agent__header_8h.html#acfe51a3f0d689ca7912f68cf8314fce0" title="Direct access to hasloan of firm agent memory variable.">HASLOAN</a> = 1;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="firm__agent__header_8h.html#acfe51a3f0d689ca7912f68cf8314fce0" title="Direct access to hasloan of firm agent memory variable.">HASLOAN</a> = 0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="header_8h.html#ad78042f46acab92bedcd966b46ca8e3c" title="Add loan_request_2 message by calling internal and processing.">add_loan_request_2_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[1].bank_id, <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"> * \fn: int firm_credit_borrow_loans_2()</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> * \brief:</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#afce836a8a85c82396ab9aea329fe7b2b">   85</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a4f8c28011317e82193f58e37d4937706">firm_credit_borrow_loans_2</a>()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">double</span> amount = 0;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="header_8h.html#a4c1c605a4c2ea28cb716e195434a6231" title="Start of loop to process loan_acknowledge_2 messages.">START_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    amount = <a class="code" href="header_8h.html#a328e056e0957b2278868ccc3a4208e15" title="Pointer to message struct for looping through loan_acknowledge_2 message list.">loan_acknowledge_2_message</a>-&gt;<a class="code" href="structm__loan__acknowledge__2.html#a44429d6dc16c0f5233b3f75c3cfcdea5">amount</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="header_8h.html#a8d8cea21798feff9ea189353793a0fb0" title="Finish of loop to process loan_acknowledge_2 messages.">FINISH_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (amount &gt;= <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a>){</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += amount;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> += amount;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[1].amount += amount;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="firm__agent__header_8h.html#acfe51a3f0d689ca7912f68cf8314fce0" title="Direct access to hasloan of firm agent memory variable.">HASLOAN</a> = 1;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="firm__agent__header_8h.html#acfe51a3f0d689ca7912f68cf8314fce0" title="Direct access to hasloan of firm agent memory variable.">HASLOAN</a> = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> * \fn: int firm_credit_request_investment()</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"> * \brief: Firm goes to equity fund to get the required amount of liquidity it needs. Dividend payments are </span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"> * deferred.</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a80cf84dba08d7597408ebe377da44f41">  112</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a775647e0b3f4e28bcfd1d49ad23b8d60">firm_credit_request_investment</a>()</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// Check critical liquidity need.</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">double</span> interests_to_be_paid;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    interests_to_be_paid = <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> * <a class="code" href="firm__agent__header_8h.html#accb54ea6e6d37b0b84e8281b28b738e0" title="Direct access to loans_interest_rate of firm agent memory variable.">LOANS_INTEREST_RATE</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = interests_to_be_paid - <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> &lt; 0) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = 0  ;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">double</span> assets;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> &gt; 0){</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13" title="Direct access to isconstructor of firm agent memory variable.">ISCONSTRUCTOR</a> == 1) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#adfcd5712573e5598199afb57d50f9487" title="Direct access to unit_house_price of firm agent memory variable.">UNIT_HOUSE_PRICE</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            assets += LIQUIDITY + <a class="code" href="firm__agent__header_8h.html#af15dc7101e02c13761cda1ddacc1448d" title="Direct access to capital_construction of firm agent memory variable.">CAPITAL_CONSTRUCTION</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            assets += LIQUIDITY + <a class="code" href="firm__agent__header_8h.html#a41ec29f6776be4c457bba34f2207f426" title="Direct access to capital_goods of firm agent memory variable.">CAPITAL_GOODS</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = assets - <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">if</span> (assets = 0){</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">if</span> ((<a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> / assets) &gt; <a class="code" href="header_8h.html#abffe62443f4be85a970913e7af09870c" title="Provide access to environment variables in uppercase.">FIRMS_MINIMUM_EQUITY_RATIO</a>) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;           <a class="code" href="header_8h.html#a31f3a7cc261aa497821cfeb86d9e978a" title="Add fund_request message by calling internal and processing.">add_fund_request_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a>); </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">//printf(&quot; Firm Id = %d, Equity %f \n&quot;, ID, EQUITY);</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment"> * \fn: int firm_credit_check_investment()</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment"> * \brief: Firms check if they are invested by Equity Fund for their liquidity need.</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a45d3cff35c1539d933397ec8026fb61f">  152</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a7cbd735ff82e78d5ee64a03a36e4aa1c">firm_credit_check_investment</a>()</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">double</span> amount = 0;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a850c64fb47e12e6cbdff7e66f7cf4633" title="Direct access to hasinvestment of firm agent memory variable.">HASINVESTMENT</a> = 0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="header_8h.html#ac6735ffbbd9ffa4d88af876ab1f232ce" title="Start of loop to process fund_request_ack messages.">START_FUND_REQUEST_ACK_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    amount = <a class="code" href="header_8h.html#a2d22801161d411331a8d49160908c62c" title="Pointer to message struct for looping through fund_request_ack message list.">fund_request_ack_message</a>-&gt;<a class="code" href="structm__fund__request__ack.html#a44429d6dc16c0f5233b3f75c3cfcdea5">amount</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="header_8h.html#ae3f1fae1c16631b13c8a7fe3594a4adb" title="Finish of loop to process fund_request_ack messages.">FINISH_FUND_REQUEST_ACK_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">if</span> (amount &gt; 0) {</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += amount;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a850c64fb47e12e6cbdff7e66f7cf4633" title="Direct access to hasinvestment of firm agent memory variable.">HASINVESTMENT</a> = 1;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> += amount;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a08b28a518ba0729bacd99da5b513c6d2" title="Direct access to liquidity_need of firm agent memory variable.">LIQUIDITY_NEED</a> = 0;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment"> * \fn: int firm_credit_illiquidity_bankrupt()</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment"> * \brief: Firm debt is restructured.</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#af81ce745fbf1670d7650d976df73037a">  177</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#aa1ac8449993ec8456b25a0bd54cebd77">firm_credit_illiquidity_bankrupt</a>()</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;{</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">double</span> ebit;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">double</span> new_loans, current_loans;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">double</span> ratio, current_amount, new_amount;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">int</span> bank;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    current_loans = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[0].amount + <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[1].amount;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">/* Earning before interest and taxes.</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    ebit = <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> - <a class="code" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933" title="Direct access to costs of firm agent memory variable.">COSTS</a>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">/* maximum amount debts that can be paid.</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">if</span> (ebit &lt; 0){ new_loans = 0;}</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">else</span> { new_loans = ebit / <a class="code" href="firm__agent__header_8h.html#accb54ea6e6d37b0b84e8281b28b738e0" title="Direct access to loans_interest_rate of firm agent memory variable.">LOANS_INTEREST_RATE</a>;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (current_loans = 0) { ratio = 0;}</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">else</span> { ratio = new_loans / current_loans;}</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> = <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> - current_loans + new_loans;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; i++) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        bank = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].bank_id;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        current_amount = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].amount;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        new_amount = current_amount * ratio;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].amount = new_amount;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <a class="code" href="header_8h.html#a8ed3e5728f9647e79bbb11ff0ce31a2d" title="Add loan_writeoff message by calling internal and processing.">add_loan_writeoff_message</a>(bank, new_amount);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"> * \fn: int firm_credit_exit_market()</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment"> * \brief:</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a548ef2316c88c14a01d6933baf12b297">  216</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a32f1f458de950a4fc12e14b787f71d6e">firm_credit_exit_market</a>()</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">/* The firm will skip production for the first time and enters the labour market.</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">     The variable below is used for that purpose in production and labour markets.</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a7767b8b0103612b1c60782aa39f74bd0" title="Direct access to isinsolvent of firm agent memory variable.">ISINSOLVENT</a> = 1;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">/* Writeoff debts.</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">int</span> bank;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">double</span> amount;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">double</span> total_assets;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; i++) {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        bank = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].bank_id;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        amount = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].amount;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="header_8h.html#a8ed3e5728f9647e79bbb11ff0ce31a2d" title="Add loan_writeoff message by calling internal and processing.">add_loan_writeoff_message</a>(bank, amount);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].amount = 0;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> = 0;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> = 0;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <a class="code" href="firm__agent__header_8h.html#ac539b77732ee6290b294dac3ba9c2ad9" title="Direct access to sales of firm agent memory variable.">SALES</a> = 0;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> = 0;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="code" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933" title="Direct access to costs of firm agent memory variable.">COSTS</a> = 0;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="comment">/* Pysical capital kept the same.</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13" title="Direct access to isconstructor of firm agent memory variable.">ISCONSTRUCTOR</a> == 0) {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> = <a class="code" href="firm__agent__header_8h.html#a976c699380fcece8f09855c96b06e728" title="Direct access to labour_productivity of firm agent memory variable.">LABOUR_PRODUCTIVITY</a> * 1;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        total_assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#af99564e997234c60e68967b28d84a06f" title="Direct access to average_goods_price of firm agent memory variable.">AVERAGE_GOODS_PRICE</a> + <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a>;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a> = <a class="code" href="firm__agent__header_8h.html#af99564e997234c60e68967b28d84a06f" title="Direct access to average_goods_price of firm agent memory variable.">AVERAGE_GOODS_PRICE</a>;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> = 0;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        total_assets = <a class="code" href="firm__agent__header_8h.html#a224fb52cdebb918cb69a50dbd02200c9" title="Direct access to capital_productivity_construction of firm agent memory variable.">CAPITAL_PRODUCTIVITY_CONSTRUCTION</a> * 1 + <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a>;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <span class="comment">/* Constructor firms keep the avergae house prices */</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">/* Getting initial loan */</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    total_assets += <a class="code" href="firm__agent__header_8h.html#a35adf382bda5d93efb1b6481f7d23397" title="Direct access to physical_capital of firm agent memory variable.">PHYSICAL_CAPITAL</a>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a> = total_assets / (1 + <a class="code" href="header_8h.html#ad83b5b1c482fa136dbc3ea28fe4c39c2" title="Provide access to environment variables in uppercase.">FIRM_STARTUP_LEVERAGE</a>);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="header_8h.html#aaf2856dbf4cbef0250a15e0d79c3ad21" title="Add new_entrant_loan message by calling internal and processing.">add_new_entrant_loan_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a35c1d174c8e48ec46028cfc2ad690a7a" title="Direct access to bank_id of firm agent memory variable.">BANK_ID</a>, <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a>);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[0].amount = <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">//LIQUIDITY += DEBT;</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = total_assets - <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a>;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"> * \fn: int firm_credit_distribute_net_profit ()</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"> * \brief: Within this implementation the firm sends all of net income</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"> * to the Fund Equity to be distributed equally to households.</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#ae0246fe8c0c545454cbb07cd1c8ccd8e">  268</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a6e96fa9fed1d8baa7168f681af35439e">firm_credit_distribute_net_profit</a>()</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;{</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">double</span> net_profit, ebit;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// Labour cost is decremented from liquidity on a monthly basis.</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">// Cost and revenue are updated incrementally.</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    ebit = <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> - <a class="code" href="firm__agent__header_8h.html#af6d242346e741ce690037e91f0550933" title="Direct access to costs of firm agent memory variable.">COSTS</a>;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">// Firms doesn&#39;t pay tax but interest on loans.</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">int</span> bank;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordtype">double</span> interest_to_be_paid;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; i++) {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        bank = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].bank_id;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        interest_to_be_paid = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].amount * <a class="code" href="firm__agent__header_8h.html#accb54ea6e6d37b0b84e8281b28b738e0" title="Direct access to loans_interest_rate of firm agent memory variable.">LOANS_INTEREST_RATE</a>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    net_profit = ebit - interest_to_be_paid;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">// In case net income is positive it is sent to be distributed.</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (net_profit &gt; 0) {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <a class="code" href="header_8h.html#a1adb0e758c45dce14a89764baf324a69" title="Add firm_net_profit message by calling internal and processing.">add_firm_net_profit_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>, <a class="code" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13" title="Direct access to isconstructor of firm agent memory variable.">ISCONSTRUCTOR</a>, net_profit);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="comment">//Check this with production market.</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a0d33048e22219b4a5affc1d9559ab5f9" title="Direct access to revenue of firm agent memory variable.">REVENUE</a> = 0;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        COSTS = 0;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="comment">// The amount sent is decremented from liquidity</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= net_profit;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">//printf(&quot; Firm Id = %d, Net Profit %f \n&quot;, ID, net_profit);</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;}</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"> * \fn: int firm_credit_pay_interest_on_loans()</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment"> * \brief:</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a703989c648e6daa029a3aef92495b22d">  306</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a3728c649425825522fa5bb182e4a4b2a">firm_credit_pay_interest_on_loans</a>()</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;{</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">int</span> bank;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">double</span> to_be_paid;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 2; i++) {</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        bank = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].bank_id;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        to_be_paid = <a class="code" href="firm__agent__header_8h.html#a174c9f0e80d5431be774cbcd48aa850c" title="Direct access to loan_list of firm agent memory variable.">LOAN_LIST</a>[i].amount * <a class="code" href="firm__agent__header_8h.html#accb54ea6e6d37b0b84e8281b28b738e0" title="Direct access to loans_interest_rate of firm agent memory variable.">LOANS_INTEREST_RATE</a>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= to_be_paid;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <a class="code" href="header_8h.html#a0256281f4065455fc27820900c2e5823" title="Add interest_on_loan message by calling internal and processing.">add_interest_on_loan_message</a>(bank, to_be_paid);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment"> * \fn: int firm_credit_do_balance_sheet()</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment"> * \brief: Firm does the balance sheet accounting.</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno"><a class="code" href="firm__functions__credit_8c.html#a11606c894d0d60d7af4285ed45735490">  327</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a31239d18b48e564937c2c771f299bb5f">firm_credit_do_balance_sheet</a>()</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;{</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">double</span> assets;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#a327bb6f4ccc83ad3356f6ef8d36c9e13" title="Direct access to isconstructor of firm agent memory variable.">ISCONSTRUCTOR</a> == 1) {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#adfcd5712573e5598199afb57d50f9487" title="Direct access to unit_house_price of firm agent memory variable.">UNIT_HOUSE_PRICE</a>;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        assets += <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="firm__agent__header_8h.html#af15dc7101e02c13761cda1ddacc1448d" title="Direct access to capital_construction of firm agent memory variable.">CAPITAL_CONSTRUCTION</a>;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        assets = <a class="code" href="firm__agent__header_8h.html#ab5573640a440bc8047751f26ff0468d7" title="Direct access to inventory of firm agent memory variable.">INVENTORY</a> * <a class="code" href="firm__agent__header_8h.html#ad0c369960d7010d50cd16ca43c00c466" title="Direct access to unit_goods_price of firm agent memory variable.">UNIT_GOODS_PRICE</a>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        assets += <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="firm__agent__header_8h.html#a41ec29f6776be4c457bba34f2207f426" title="Direct access to capital_goods of firm agent memory variable.">CAPITAL_GOODS</a>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = assets - <a class="code" href="bank__agent__header_8h.html#a195c61250aa26776a59fc2b07738d1c6" title="Direct access to debt of bank agent memory variable.">DEBT</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">//printf(&quot; Firm Id = %d, Equity %f \n&quot;, ID, EQUITY);</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;}</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:37 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

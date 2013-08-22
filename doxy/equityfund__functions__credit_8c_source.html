@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -95,74 +95,121 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * \fn: equityfund_credit_invest_illiquids()</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \brief: Equity Fund does the balance sheet accounting.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#a4692499a3ac98950f7d80193df165105">    8</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a310ab9a5037b01206e38535dcfcc7b1f">equityfund_credit_invest_illiquids</a>()</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * \fn: int equityfund_credit_collect_firm_shares()</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * \brief: Within this implementation the equity fund receives all of net income</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * to be distributed equally to households.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#ace91b6dad5953f0a68e7d5f8dd2a2ddc">   20</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a64cebd617ff86561d3209d0d6bb5e49b">equityfund_credit_collect_firm_shares</a>()</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="header_8h.html#a172ae9d590f6346fbe8bfed9b7908f02" title="Start of loop to process firm_net_profit messages.">START_FIRM_NET_PROFIT_MESSAGE_LOOP</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#afc869528d3869404bff961f824aa461a">isconstructor</a> == 1) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="equityfund__agent__header_8h.html#a78ba894fc25776cf4b5e0efdb8be3764" title="Direct access to share_construction_firms of equityfund agent memory variable.">SHARE_CONSTRUCTION_FIRMS</a> += <a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#abcdc873da8e62d2f44fb32577e956ace">net_income</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="equityfund__agent__header_8h.html#a5ce7de65c08ea37401091d668197aca2" title="Direct access to share_firms of equityfund agent memory variable.">SHARE_FIRMS</a> += <a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#abcdc873da8e62d2f44fb32577e956ace">net_income</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="header_8h.html#ab9fc7d1ff640b61ac4f147f7eca84da4" title="Finish of loop to process firm_net_profit messages.">FINISH_FIRM_NET_PROFIT_MESSAGE_LOOP</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Net incomes are liquidified right away to be distributed to households.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> = <a class="code" href="equityfund__agent__header_8h.html#a78ba894fc25776cf4b5e0efdb8be3764" title="Direct access to share_construction_firms of equityfund agent memory variable.">SHARE_CONSTRUCTION_FIRMS</a> + <a class="code" href="equityfund__agent__header_8h.html#a5ce7de65c08ea37401091d668197aca2" title="Direct access to share_firms of equityfund agent memory variable.">SHARE_FIRMS</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="equityfund__agent__header_8h.html#a78ba894fc25776cf4b5e0efdb8be3764" title="Direct access to share_construction_firms of equityfund agent memory variable.">SHARE_CONSTRUCTION_FIRMS</a> = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    SHARE_FIRMS = 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * \fn: int equityfund_credit_distribute_shares()</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * \brief:Equity fund sends out shares to households.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#aa3d978e12bd59be2c5d7ea120df238e0">   43</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#ab789a4fcd055a8b473581dfa1c2504ef">equityfund_credit_distribute_shares</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span> per_house;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    per_house = <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> / <a class="code" href="equityfund__agent__header_8h.html#af9f05f12f4e351eea0e258ab84c19f12" title="Direct access to n_dividends of equityfund agent memory variable.">N_DIVIDENDS</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="header_8h.html#aa8ea8b35111e6a7d798b178aa01e7015" title="Add household_share message by calling internal and processing.">add_household_share_message</a>(per_house);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> * \fn: int equityfund_credit_do_balance_sheet()</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> * \brief: Equity Fund does the balance sheet accounting.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#a28f20efe60a5ed5a2d60f81a10ea84ab">   61</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a264176182414389a07dd8b1204a29f86">equityfund_credit_do_balance_sheet</a>()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> + <a class="code" href="equityfund__agent__header_8h.html#a5ce7de65c08ea37401091d668197aca2" title="Direct access to share_firms of equityfund agent memory variable.">SHARE_FIRMS</a> + <a class="code" href="equityfund__agent__header_8h.html#a78ba894fc25776cf4b5e0efdb8be3764" title="Direct access to share_construction_firms of equityfund agent memory variable.">SHARE_CONSTRUCTION_FIRMS</a> + <a class="code" href="equityfund__agent__header_8h.html#a51958a1fd9ec42685b04a668c8ac7ed5" title="Direct access to share_banks of equityfund agent memory variable.">SHARE_BANKS</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * \brief: Equity Fund recieves investement request. Firms send request when they need </span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * liquidity.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#a4692499a3ac98950f7d80193df165105">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a310ab9a5037b01206e38535dcfcc7b1f">equityfund_credit_invest_illiquids</a>()</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">double</span> request;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> firm_id;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="header_8h.html#af4591418cc5faac74dacb17143fb9415" title="Start of loop to process fund_request messages.">START_FUND_REQUEST_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    request = <a class="code" href="header_8h.html#ac530b25505853c3ba550b21993a13553" title="Pointer to message struct for looping through fund_request message list.">fund_request_message</a>-&gt;<a class="code" href="structm__fund__request.html#a44429d6dc16c0f5233b3f75c3cfcdea5">amount</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    firm_id = <a class="code" href="header_8h.html#ac530b25505853c3ba550b21993a13553" title="Pointer to message struct for looping through fund_request message list.">fund_request_message</a>-&gt;<a class="code" href="structm__fund__request.html#af57b0d7b4f8af167215fc8d78712fd07">firm_id</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> &gt; request) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="header_8h.html#a3e012ed17a049c35185f34426c92d56d" title="Add fund_request_ack message by calling internal and processing.">add_fund_request_ack_message</a>(firm_id, request);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= request;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="equityfund__agent__header_8h.html#ab2dc48a301dc5a2105fa9a3ca8e914b9" title="Direct access to firm_investment of equityfund agent memory variable.">FIRM_INVESTMENT</a> += request;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="header_8h.html#a1295e700a17c303ad75033b1da1060f4" title="Finish of loop to process fund_request messages.">FINISH_FUND_REQUEST_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * \fn: int equityfund_credit_collect_firm_shares()</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * \brief: Within this implementation the equity fund receives all of net income</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * to be distributed equally to households.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#ace91b6dad5953f0a68e7d5f8dd2a2ddc">   32</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a64cebd617ff86561d3209d0d6bb5e49b">equityfund_credit_collect_firm_shares</a>()</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> producers = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> constructors = 0;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="header_8h.html#a172ae9d590f6346fbe8bfed9b7908f02" title="Start of loop to process firm_net_profit messages.">START_FIRM_NET_PROFIT_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#afc869528d3869404bff961f824aa461a">isconstructor</a> == 1) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;         constructors = <a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#abcdc873da8e62d2f44fb32577e956ace">net_income</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        producers = <a class="code" href="header_8h.html#af317f7c36ede6e0b95d4e49aedcc6522" title="Pointer to message struct for looping through firm_net_profit message list.">firm_net_profit_message</a>-&gt;<a class="code" href="structm__firm__net__profit.html#abcdc873da8e62d2f44fb32577e956ace">net_income</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="header_8h.html#ab9fc7d1ff640b61ac4f147f7eca84da4" title="Finish of loop to process firm_net_profit messages.">FINISH_FIRM_NET_PROFIT_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="equityfund__agent__header_8h.html#a5ce7de65c08ea37401091d668197aca2" title="Direct access to share_firms of equityfund agent memory variable.">SHARE_FIRMS</a> += producers;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="equityfund__agent__header_8h.html#a78ba894fc25776cf4b5e0efdb8be3764" title="Direct access to share_construction_firms of equityfund agent memory variable.">SHARE_CONSTRUCTION_FIRMS</a> += constructors;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += producers + constructors;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="equityfund__agent__header_8h.html#a7a0f354dadf603079eaf55ca1aa486e5" title="Direct access to dividends_recieved of equityfund agent memory variable.">DIVIDENDS_RECIEVED</a> += producers + constructors;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> * \fn: int equityfund_credit_collect_bank_shares()</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * \brief: Within this implementation the equity fund receives all of net income</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> * to be distributed equally to households.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#a45257ecfa9196507c8efe7957286768b">   59</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#afebfc79448ab0f6fb4668757a103f616">equityfund_credit_collect_bank_shares</a>()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">double</span> shares = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="header_8h.html#a3924d63929cfe47081f7d1f7710533a4" title="Start of loop to process bank_net_profit messages.">START_BANK_NET_PROFIT_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    shares = <a class="code" href="header_8h.html#a5f91dcac1d76639295a338536be73739" title="Pointer to message struct for looping through bank_net_profit message list.">bank_net_profit_message</a>-&gt;<a class="code" href="structm__bank__net__profit.html#abcdc873da8e62d2f44fb32577e956ace">net_income</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="header_8h.html#a5618eeeb22bec4f851d9d1f679b1ab35" title="Finish of loop to process bank_net_profit messages.">FINISH_BANK_NET_PROFIT_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="equityfund__agent__header_8h.html#a51958a1fd9ec42685b04a668c8ac7ed5" title="Direct access to share_banks of equityfund agent memory variable.">SHARE_BANKS</a> += shares;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> += shares;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="equityfund__agent__header_8h.html#a7a0f354dadf603079eaf55ca1aa486e5" title="Direct access to dividends_recieved of equityfund agent memory variable.">DIVIDENDS_RECIEVED</a> += shares;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * \fn: int equityfund_credit_distribute_shares()</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> * \brief:Equity fund sends out shares to households.</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#aa3d978e12bd59be2c5d7ea120df238e0">   78</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#ab789a4fcd055a8b473581dfa1c2504ef">equityfund_credit_distribute_shares</a>()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">double</span> per_share;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="equityfund__agent__header_8h.html#ab2dc48a301dc5a2105fa9a3ca8e914b9" title="Direct access to firm_investment of equityfund agent memory variable.">FIRM_INVESTMENT</a> &gt; 0) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="equityfund__agent__header_8h.html#a63928b9da2238a6f6dcbecb43a2d2368" title="Direct access to dividends_retained of equityfund agent memory variable.">DIVIDENDS_RETAINED</a> = <a class="code" href="equityfund__agent__header_8h.html#ab2dc48a301dc5a2105fa9a3ca8e914b9" title="Direct access to firm_investment of equityfund agent memory variable.">FIRM_INVESTMENT</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="equityfund__agent__header_8h.html#a63928b9da2238a6f6dcbecb43a2d2368" title="Direct access to dividends_retained of equityfund agent memory variable.">DIVIDENDS_RETAINED</a> = 0;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="bank__agent__header_8h.html#a3e2373ce2a81f2ccb99c1f6ec12cb6dd" title="Direct access to dividends_paid of bank agent memory variable.">DIVIDENDS_PAID</a> = <a class="code" href="equityfund__agent__header_8h.html#a7a0f354dadf603079eaf55ca1aa486e5" title="Direct access to dividends_recieved of equityfund agent memory variable.">DIVIDENDS_RECIEVED</a> - <a class="code" href="equityfund__agent__header_8h.html#a63928b9da2238a6f6dcbecb43a2d2368" title="Direct access to dividends_retained of equityfund agent memory variable.">DIVIDENDS_RETAINED</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="equityfund__agent__header_8h.html#af9f05f12f4e351eea0e258ab84c19f12" title="Direct access to n_dividends of equityfund agent memory variable.">N_DIVIDENDS</a> &gt; 0) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        per_share = <a class="code" href="bank__agent__header_8h.html#a3e2373ce2a81f2ccb99c1f6ec12cb6dd" title="Direct access to dividends_paid of bank agent memory variable.">DIVIDENDS_PAID</a> / <a class="code" href="equityfund__agent__header_8h.html#af9f05f12f4e351eea0e258ab84c19f12" title="Direct access to n_dividends of equityfund agent memory variable.">N_DIVIDENDS</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        per_share = <a class="code" href="bank__agent__header_8h.html#a3e2373ce2a81f2ccb99c1f6ec12cb6dd" title="Direct access to dividends_paid of bank agent memory variable.">DIVIDENDS_PAID</a> / 8000;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> -= <a class="code" href="bank__agent__header_8h.html#a3e2373ce2a81f2ccb99c1f6ec12cb6dd" title="Direct access to dividends_paid of bank agent memory variable.">DIVIDENDS_PAID</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="header_8h.html#aa8ea8b35111e6a7d798b178aa01e7015" title="Add household_share message by calling internal and processing.">add_household_share_message</a>(per_share);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"> * \fn: int equityfund_credit_do_balance_sheet()</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"> * \brief: Equity Fund does the balance sheet accounting.</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="equityfund__functions__credit_8c.html#a28f20efe60a5ed5a2d60f81a10ea84ab">  109</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a264176182414389a07dd8b1204a29f86">equityfund_credit_do_balance_sheet</a>()</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="bank__agent__header_8h.html#ab3a5765c91aa83a60992d558735e4ca2" title="Direct access to equity of bank agent memory variable.">EQUITY</a> = <a class="code" href="bank__agent__header_8h.html#ac4bfffebbdc8c83d0cace0e0f160a4c2" title="Direct access to liquidity of bank agent memory variable.">LIQUIDITY</a> ;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:37 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

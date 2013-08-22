@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -165,7 +165,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="firm__functions__labour_8c.html#a1dac8aa36431e5081d3ab1a904a737ff">   73</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#af3b485742e3affa1b60d5eb6786c3442">firm_labour_job_announcement_stage1</a>()</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//update the WAGE_OFFER looking </span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="firm__agent__header_8h.html#a11c81588ce0d24fa4e2bd40595d219dc" title="Direct access to vacancies of firm agent memory variable.">VACANCIES</a>; i++) {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="header_8h.html#a615971cd3b1c408f24a2d9da1311c575" title="Add vacancy_stage1 message by calling internal and processing.">add_vacancy_stage1_message</a>(<a class="code" href="bank__agent__header_8h.html#a77ceac8d6af195fe72f95f6afd87c45e" title="Direct access to id of bank agent memory variable.">ID</a>,<a class="code" href="firm__agent__header_8h.html#ad05e86af79e736a2a34853929a5d9fb7" title="Direct access to wage_offer of firm agent memory variable.">WAGE_OFFER</a>);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
@@ -297,10 +297,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    </div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"> * \fn: int firm_labour_trace_wages()</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment"> * \brief: The firm traces wages in the market and update.</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="code" href="firm__functions__labour_8c.html#ad099da9a74b33f5c0f3efc690f9eaebb">  214</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="header_8h.html#a07e47f606a2ec7c1c841b9ab7772a726">firm_labour_trace_wages</a>(){</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">int</span> unemployed = 0;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">double</span> total_wages = 0;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">double</span> total = 0;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <a class="code" href="header_8h.html#a56d74cafd5eff03f16b02a0d057cd153" title="Start of loop to process employment_status messages.">START_EMPLOYMENT_STATUS_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">id</span> = <a class="code" href="header_8h.html#a6bbb550e11c6a74a7e4b89065c78956f" title="Pointer to message struct for looping through employment_status message list.">employment_status_message</a>-&gt;<a class="code" href="structm__employment__status.html#a405afb7144535cbbea960e902d52b6e2">employer_id</a>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0) {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        unemployed++;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        total_wages += <a class="code" href="header_8h.html#a6bbb550e11c6a74a7e4b89065c78956f" title="Pointer to message struct for looping through employment_status message list.">employment_status_message</a>-&gt;<a class="code" href="structm__employment__status.html#a0dfa4f9ba71a4e644928cb35b6a0f741">wage</a>;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    total++;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="header_8h.html#ae6fca4a2305ad41b2ffa27722c134a77" title="Finish of loop to process employment_status messages.">FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP</a></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (total == 0 || unemployed == total) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a5cf8da43366173cde68f5645811dd3ae" title="Direct access to average_wage of firm agent memory variable.">AVERAGE_WAGE</a> = 0;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <a class="code" href="firm__agent__header_8h.html#a5cf8da43366173cde68f5645811dd3ae" title="Direct access to average_wage of firm agent memory variable.">AVERAGE_WAGE</a> = total_wages / (total - unemployed);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="firm__agent__header_8h.html#ad05e86af79e736a2a34853929a5d9fb7" title="Direct access to wage_offer of firm agent memory variable.">WAGE_OFFER</a> &lt; <a class="code" href="firm__agent__header_8h.html#a5cf8da43366173cde68f5645811dd3ae" title="Direct access to average_wage of firm agent memory variable.">AVERAGE_WAGE</a>) {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="comment">/* %10 increase */</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <a class="code" href="firm__agent__header_8h.html#ad05e86af79e736a2a34853929a5d9fb7" title="Direct access to wage_offer of firm agent memory variable.">WAGE_OFFER</a> = <a class="code" href="firm__agent__header_8h.html#ad05e86af79e736a2a34853929a5d9fb7" title="Direct access to wage_offer of firm agent memory variable.">WAGE_OFFER</a> * 1.1;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">return</span> 0; <span class="comment">/* Returning zero means the agent is not removed */</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:55 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:37 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

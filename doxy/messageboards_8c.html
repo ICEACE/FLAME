@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -143,7 +143,9 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__loan__acknowledge__2.html">pu_loan_acknowledge_2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__firm__net__profit.html">pu_firm_net_profit</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__debt__request.html">pu_debt_request</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__debt__ack.html">pu_debt_ack</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__household__share.html">pu_household_share</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,11 +161,17 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__fund__request.html">pu_fund_request</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__fund__request__ack.html">pu_fund_request_ack</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__new__entrant__loan.html">pu_new_entrant_loan</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__interest__on__loan.html">pu_interest_on_loan</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__loan__writeoff.html">pu_loan_writeoff</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__firm__net__profit.html">pu_firm_net_profit</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__bank__net__profit.html">pu_bank_net_profit</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionpu__housing__price.html">pu_housing_price</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -302,9 +310,9 @@ Functions</h2></td></tr>
 <tr class="separator:ab01e3d4ec67778545558988839319119"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a839b8750812265eee0901d252d0bb2f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__job__match__stage2.html">m_job_match_stage2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a839b8750812265eee0901d252d0bb2f6">get_next_job_match_stage2_message</a> (<a class="el" href="structm__job__match__stage2.html">m_job_match_stage2</a> *current)</td></tr>
 <tr class="separator:a839b8750812265eee0901d252d0bb2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92b54477dc925cf9fc8d6bc92ff7cae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a92b54477dc925cf9fc8d6bc92ff7cae3">add_employment_status_message</a> (int employer_id)</td></tr>
-<tr class="memdesc:a92b54477dc925cf9fc8d6bc92ff7cae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add employment_status message by calling internal and processing.  <a href="#a92b54477dc925cf9fc8d6bc92ff7cae3">More...</a><br/></td></tr>
-<tr class="separator:a92b54477dc925cf9fc8d6bc92ff7cae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acda6e1e8dacb90a1fe981188641b99d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#acda6e1e8dacb90a1fe981188641b99d0">add_employment_status_message</a> (int employer_id, double wage, int ndividends)</td></tr>
+<tr class="memdesc:acda6e1e8dacb90a1fe981188641b99d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add employment_status message by calling internal and processing.  <a href="#acda6e1e8dacb90a1fe981188641b99d0">More...</a><br/></td></tr>
+<tr class="separator:acda6e1e8dacb90a1fe981188641b99d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a272356f4469eae5545ae878ad1e7e55e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__employment__status.html">m_employment_status</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a272356f4469eae5545ae878ad1e7e55e">get_first_employment_status_message</a> ()</td></tr>
 <tr class="memdesc:a272356f4469eae5545ae878ad1e7e55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first employment_status message in the employment_status message list.  <a href="#a272356f4469eae5545ae878ad1e7e55e">More...</a><br/></td></tr>
 <tr class="separator:a272356f4469eae5545ae878ad1e7e55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -342,14 +350,22 @@ Functions</h2></td></tr>
 <tr class="separator:a7cdc4951428e5d10acf056fe5b6dd768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c3dc265d0fc590623997f7be5b75f38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__loan__acknowledge__2.html">m_loan_acknowledge_2</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a2c3dc265d0fc590623997f7be5b75f38">get_next_loan_acknowledge_2_message</a> (<a class="el" href="structm__loan__acknowledge__2.html">m_loan_acknowledge_2</a> *current)</td></tr>
 <tr class="separator:a2c3dc265d0fc590623997f7be5b75f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1adb0e758c45dce14a89764baf324a69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1adb0e758c45dce14a89764baf324a69">add_firm_net_profit_message</a> (int id, int isconstructor, double net_income)</td></tr>
-<tr class="memdesc:a1adb0e758c45dce14a89764baf324a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add firm_net_profit message by calling internal and processing.  <a href="#a1adb0e758c45dce14a89764baf324a69">More...</a><br/></td></tr>
-<tr class="separator:a1adb0e758c45dce14a89764baf324a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a152567341ab8c224d4558d4e2d02c8fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__firm__net__profit.html">m_firm_net_profit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a152567341ab8c224d4558d4e2d02c8fd">get_first_firm_net_profit_message</a> ()</td></tr>
-<tr class="memdesc:a152567341ab8c224d4558d4e2d02c8fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first firm_net_profit message in the firm_net_profit message list.  <a href="#a152567341ab8c224d4558d4e2d02c8fd">More...</a><br/></td></tr>
-<tr class="separator:a152567341ab8c224d4558d4e2d02c8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9958e4028f2d38e1bc1d4ba9bd539b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__firm__net__profit.html">m_firm_net_profit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a4b9958e4028f2d38e1bc1d4ba9bd539b">get_next_firm_net_profit_message</a> (<a class="el" href="structm__firm__net__profit.html">m_firm_net_profit</a> *current)</td></tr>
-<tr class="separator:a4b9958e4028f2d38e1bc1d4ba9bd539b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a441052055b44655c5987e825e9f4073b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a441052055b44655c5987e825e9f4073b">add_debt_request_message</a> (int bank_id, double amount)</td></tr>
+<tr class="memdesc:a441052055b44655c5987e825e9f4073b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add debt_request message by calling internal and processing.  <a href="#a441052055b44655c5987e825e9f4073b">More...</a><br/></td></tr>
+<tr class="separator:a441052055b44655c5987e825e9f4073b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79e4a66db2f3dded8c6734425fd3a06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__debt__request.html">m_debt_request</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#ab79e4a66db2f3dded8c6734425fd3a06">get_first_debt_request_message</a> ()</td></tr>
+<tr class="memdesc:ab79e4a66db2f3dded8c6734425fd3a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first debt_request message in the debt_request message list.  <a href="#ab79e4a66db2f3dded8c6734425fd3a06">More...</a><br/></td></tr>
+<tr class="separator:ab79e4a66db2f3dded8c6734425fd3a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b60c694631512d5a2fc884d0db4af7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__debt__request.html">m_debt_request</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a83b60c694631512d5a2fc884d0db4af7">get_next_debt_request_message</a> (<a class="el" href="structm__debt__request.html">m_debt_request</a> *current)</td></tr>
+<tr class="separator:a83b60c694631512d5a2fc884d0db4af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ada34a04ae83f0af102b64027bacac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a05ada34a04ae83f0af102b64027bacac">add_debt_ack_message</a> (int bank_id, double amount)</td></tr>
+<tr class="memdesc:a05ada34a04ae83f0af102b64027bacac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add debt_ack message by calling internal and processing.  <a href="#a05ada34a04ae83f0af102b64027bacac">More...</a><br/></td></tr>
+<tr class="separator:a05ada34a04ae83f0af102b64027bacac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7bacde8852164c060d6fac98dbab3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__debt__ack.html">m_debt_ack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aac7bacde8852164c060d6fac98dbab3b">get_first_debt_ack_message</a> ()</td></tr>
+<tr class="memdesc:aac7bacde8852164c060d6fac98dbab3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first debt_ack message in the debt_ack message list.  <a href="#aac7bacde8852164c060d6fac98dbab3b">More...</a><br/></td></tr>
+<tr class="separator:aac7bacde8852164c060d6fac98dbab3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac172fb4ca2a488356dfeae5f832a0c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__debt__ack.html">m_debt_ack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#ac172fb4ca2a488356dfeae5f832a0c88">get_next_debt_ack_message</a> (<a class="el" href="structm__debt__ack.html">m_debt_ack</a> *current)</td></tr>
+<tr class="separator:ac172fb4ca2a488356dfeae5f832a0c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8ea8b35111e6a7d798b178aa01e7015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aa8ea8b35111e6a7d798b178aa01e7015">add_household_share_message</a> (double amount)</td></tr>
 <tr class="memdesc:aa8ea8b35111e6a7d798b178aa01e7015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add household_share message by calling internal and processing.  <a href="#aa8ea8b35111e6a7d798b178aa01e7015">More...</a><br/></td></tr>
 <tr class="separator:aa8ea8b35111e6a7d798b178aa01e7015"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -398,14 +414,22 @@ Functions</h2></td></tr>
 <tr class="separator:ac4b321d55aefa5aad5a5651e924f9d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b40b0ad685d71281a01ef446fb5ed06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__tax__rate.html">m_tax_rate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a7b40b0ad685d71281a01ef446fb5ed06">get_next_tax_rate_message</a> (<a class="el" href="structm__tax__rate.html">m_tax_rate</a> *current)</td></tr>
 <tr class="separator:a7b40b0ad685d71281a01ef446fb5ed06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e9c2cda9fc5483348fd3968ae26f93d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a7e9c2cda9fc5483348fd3968ae26f93d">add_fund_request_message</a> (double value)</td></tr>
-<tr class="memdesc:a7e9c2cda9fc5483348fd3968ae26f93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add fund_request message by calling internal and processing.  <a href="#a7e9c2cda9fc5483348fd3968ae26f93d">More...</a><br/></td></tr>
-<tr class="separator:a7e9c2cda9fc5483348fd3968ae26f93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f3a7cc261aa497821cfeb86d9e978a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a31f3a7cc261aa497821cfeb86d9e978a">add_fund_request_message</a> (int firm_id, double amount)</td></tr>
+<tr class="memdesc:a31f3a7cc261aa497821cfeb86d9e978a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add fund_request message by calling internal and processing.  <a href="#a31f3a7cc261aa497821cfeb86d9e978a">More...</a><br/></td></tr>
+<tr class="separator:a31f3a7cc261aa497821cfeb86d9e978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fe833892afd11fc14206a3aaf23fa60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__fund__request.html">m_fund_request</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a2fe833892afd11fc14206a3aaf23fa60">get_first_fund_request_message</a> ()</td></tr>
 <tr class="memdesc:a2fe833892afd11fc14206a3aaf23fa60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first fund_request message in the fund_request message list.  <a href="#a2fe833892afd11fc14206a3aaf23fa60">More...</a><br/></td></tr>
 <tr class="separator:a2fe833892afd11fc14206a3aaf23fa60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71a38f103d585844e898795ce0420288"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__fund__request.html">m_fund_request</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a71a38f103d585844e898795ce0420288">get_next_fund_request_message</a> (<a class="el" href="structm__fund__request.html">m_fund_request</a> *current)</td></tr>
 <tr class="separator:a71a38f103d585844e898795ce0420288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e012ed17a049c35185f34426c92d56d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a3e012ed17a049c35185f34426c92d56d">add_fund_request_ack_message</a> (int firm_id, double amount)</td></tr>
+<tr class="memdesc:a3e012ed17a049c35185f34426c92d56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add fund_request_ack message by calling internal and processing.  <a href="#a3e012ed17a049c35185f34426c92d56d">More...</a><br/></td></tr>
+<tr class="separator:a3e012ed17a049c35185f34426c92d56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cb657adc49876d0b3ca978b4d6e321"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__fund__request__ack.html">m_fund_request_ack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a20cb657adc49876d0b3ca978b4d6e321">get_first_fund_request_ack_message</a> ()</td></tr>
+<tr class="memdesc:a20cb657adc49876d0b3ca978b4d6e321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first fund_request_ack message in the fund_request_ack message list.  <a href="#a20cb657adc49876d0b3ca978b4d6e321">More...</a><br/></td></tr>
+<tr class="separator:a20cb657adc49876d0b3ca978b4d6e321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8154686cf0c32a2950a9f2674dd879b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__fund__request__ack.html">m_fund_request_ack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a8154686cf0c32a2950a9f2674dd879b5">get_next_fund_request_ack_message</a> (<a class="el" href="structm__fund__request__ack.html">m_fund_request_ack</a> *current)</td></tr>
+<tr class="separator:a8154686cf0c32a2950a9f2674dd879b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf2856dbf4cbef0250a15e0d79c3ad21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#aaf2856dbf4cbef0250a15e0d79c3ad21">add_new_entrant_loan_message</a> (int firm_id, int bank_id, double amount)</td></tr>
 <tr class="memdesc:aaf2856dbf4cbef0250a15e0d79c3ad21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add new_entrant_loan message by calling internal and processing.  <a href="#aaf2856dbf4cbef0250a15e0d79c3ad21">More...</a><br/></td></tr>
 <tr class="separator:aaf2856dbf4cbef0250a15e0d79c3ad21"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -430,6 +454,22 @@ Functions</h2></td></tr>
 <tr class="separator:af6dbf1b2291838a3f1ef8c260adc6734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54d05ddd9400d52a3b62012b977890b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__loan__writeoff.html">m_loan_writeoff</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a54d05ddd9400d52a3b62012b977890b9">get_next_loan_writeoff_message</a> (<a class="el" href="structm__loan__writeoff.html">m_loan_writeoff</a> *current)</td></tr>
 <tr class="separator:a54d05ddd9400d52a3b62012b977890b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adb0e758c45dce14a89764baf324a69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1adb0e758c45dce14a89764baf324a69">add_firm_net_profit_message</a> (int id, int isconstructor, double net_income)</td></tr>
+<tr class="memdesc:a1adb0e758c45dce14a89764baf324a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add firm_net_profit message by calling internal and processing.  <a href="#a1adb0e758c45dce14a89764baf324a69">More...</a><br/></td></tr>
+<tr class="separator:a1adb0e758c45dce14a89764baf324a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152567341ab8c224d4558d4e2d02c8fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__firm__net__profit.html">m_firm_net_profit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a152567341ab8c224d4558d4e2d02c8fd">get_first_firm_net_profit_message</a> ()</td></tr>
+<tr class="memdesc:a152567341ab8c224d4558d4e2d02c8fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first firm_net_profit message in the firm_net_profit message list.  <a href="#a152567341ab8c224d4558d4e2d02c8fd">More...</a><br/></td></tr>
+<tr class="separator:a152567341ab8c224d4558d4e2d02c8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9958e4028f2d38e1bc1d4ba9bd539b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__firm__net__profit.html">m_firm_net_profit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a4b9958e4028f2d38e1bc1d4ba9bd539b">get_next_firm_net_profit_message</a> (<a class="el" href="structm__firm__net__profit.html">m_firm_net_profit</a> *current)</td></tr>
+<tr class="separator:a4b9958e4028f2d38e1bc1d4ba9bd539b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1511216ceabeb670a684547c18d12693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a1511216ceabeb670a684547c18d12693">add_bank_net_profit_message</a> (int id, double net_income)</td></tr>
+<tr class="memdesc:a1511216ceabeb670a684547c18d12693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add bank_net_profit message by calling internal and processing.  <a href="#a1511216ceabeb670a684547c18d12693">More...</a><br/></td></tr>
+<tr class="separator:a1511216ceabeb670a684547c18d12693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2367b37ef459a60428dda86a86545b3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__bank__net__profit.html">m_bank_net_profit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a2367b37ef459a60428dda86a86545b3f">get_first_bank_net_profit_message</a> ()</td></tr>
+<tr class="memdesc:a2367b37ef459a60428dda86a86545b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first bank_net_profit message in the bank_net_profit message list.  <a href="#a2367b37ef459a60428dda86a86545b3f">More...</a><br/></td></tr>
+<tr class="separator:a2367b37ef459a60428dda86a86545b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50d507445dbd9f00c073db895d383d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structm__bank__net__profit.html">m_bank_net_profit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#a50d507445dbd9f00c073db895d383d20">get_next_bank_net_profit_message</a> (<a class="el" href="structm__bank__net__profit.html">m_bank_net_profit</a> *current)</td></tr>
+<tr class="separator:a50d507445dbd9f00c073db895d383d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8c3f952d3629502bc16cebca580d65f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="messageboards_8c.html#af8c3f952d3629502bc16cebca580d65f">add_housing_price_message</a> (double price)</td></tr>
 <tr class="memdesc:af8c3f952d3629502bc16cebca580d65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add housing_price message by calling internal and processing.  <a href="#af8c3f952d3629502bc16cebca580d65f">More...</a><br/></td></tr>
 <tr class="separator:af8c3f952d3629502bc16cebca580d65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -524,6 +564,52 @@ Functions</h2></td></tr>
 
 <p>Definition in file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a1511216ceabeb670a684547c18d12693"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_bank_net_profit_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>net_income</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add bank_net_profit message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">net_income</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04518">4518</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a1511216ceabeb670a684547c18d12693_icgraph.png" border="0" usemap="#messageboards_8c_a1511216ceabeb670a684547c18d12693_icgraph" alt=""/></div>
+<map name="messageboards_8c_a1511216ceabeb670a684547c18d12693_icgraph" id="messageboards_8c_a1511216ceabeb670a684547c18d12693_icgraph">
+<area shape="rect" id="node2" href="bank__functions__credit_8c.html#afc1e7813d07cdb204d86d847ee649a9a" title="bank_credit_send_dividends" alt="" coords="198,13,389,41"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="438,13,488,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a94ecc412c5ab9f054327797d754fa962"></a>
 <div class="memitem">
 <div class="memproto">
@@ -571,7 +657,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04520">4520</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05070">5070</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -691,7 +777,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04241">4241</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04791">4791</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -772,11 +858,112 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02889">2889</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03027">3027</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a26d2dbe64c105211bc7ba4b08ca7d006_icgraph.png" border="0" usemap="#messageboards_8c_a26d2dbe64c105211bc7ba4b08ca7d006_icgraph" alt=""/></div>
+<map name="messageboards_8c_a26d2dbe64c105211bc7ba4b08ca7d006_icgraph" id="messageboards_8c_a26d2dbe64c105211bc7ba4b08ca7d006_icgraph">
+<area shape="rect" id="node2" href="household__functions__credit_8c.html#a8cf5a2f1c1a9c0b56e8adc0fa1654b7e" title="household_credit_pay\l_capital_tax" alt="" coords="229,5,381,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="430,13,480,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a92b54477dc925cf9fc8d6bc92ff7cae3"></a>
+<a class="anchor" id="a05ada34a04ae83f0af102b64027bacac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_debt_ack_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bank_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add debt_ack message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bank_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">amount</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02758">2758</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a05ada34a04ae83f0af102b64027bacac_icgraph.png" border="0" usemap="#messageboards_8c_a05ada34a04ae83f0af102b64027bacac_icgraph" alt=""/></div>
+<map name="messageboards_8c_a05ada34a04ae83f0af102b64027bacac_icgraph" id="messageboards_8c_a05ada34a04ae83f0af102b64027bacac_icgraph">
+<area shape="rect" id="node2" href="centralbank__functions__credit_8c.html#a98901fe3054dbf1d80dd4a2d55ee654c" title="centralbank_process\l_debt_requests" alt="" coords="221,5,366,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="414,13,464,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a441052055b44655c5987e825e9f4073b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_debt_request_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bank_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add debt_request message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bank_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">amount</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02622">2622</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a441052055b44655c5987e825e9f4073b_icgraph.png" border="0" usemap="#messageboards_8c_a441052055b44655c5987e825e9f4073b_icgraph" alt=""/></div>
+<map name="messageboards_8c_a441052055b44655c5987e825e9f4073b_icgraph" id="messageboards_8c_a441052055b44655c5987e825e9f4073b_icgraph">
+<area shape="rect" id="node2" href="bank__functions__credit_8c.html#ac64ef824ae286000ab60b07c9902d013" title="bank_credit_request\l_liquidity" alt="" coords="246,5,388,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="438,13,488,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acda6e1e8dacb90a1fe981188641b99d0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -784,8 +971,24 @@ Here is the caller graph for this function:</div>
           <td class="memname">void add_employment_status_message </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>employer_id</em></td><td>)</td>
+          <td class="paramname"><em>employer_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ndividends</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -794,17 +997,19 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">employer_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">wage</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">ndividends</td><td>Message variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l01931">1931</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l01933">1933</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="messageboards_8c_a92b54477dc925cf9fc8d6bc92ff7cae3_icgraph.png" border="0" usemap="#messageboards_8c_a92b54477dc925cf9fc8d6bc92ff7cae3_icgraph" alt=""/></div>
-<map name="messageboards_8c_a92b54477dc925cf9fc8d6bc92ff7cae3_icgraph" id="messageboards_8c_a92b54477dc925cf9fc8d6bc92ff7cae3_icgraph">
+<div class="center"><img src="messageboards_8c_acda6e1e8dacb90a1fe981188641b99d0_icgraph.png" border="0" usemap="#messageboards_8c_acda6e1e8dacb90a1fe981188641b99d0_icgraph" alt=""/></div>
+<map name="messageboards_8c_acda6e1e8dacb90a1fe981188641b99d0_icgraph" id="messageboards_8c_acda6e1e8dacb90a1fe981188641b99d0_icgraph">
 <area shape="rect" id="node2" href="household__functions__labour_8c.html#a124f4122ac171d84cab15b6fa4d38cb3" title="household_labour_report\l_status" alt="" coords="222,5,391,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="440,13,490,41"/></map>
 </div>
 </p>
@@ -886,7 +1091,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02619">2619</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04381">4381</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -899,16 +1104,72 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a7e9c2cda9fc5483348fd3968ae26f93d"></a>
+<a class="anchor" id="a3e012ed17a049c35185f34426c92d56d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_fund_request_ack_message </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>firm_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add fund_request_ack message by calling internal and processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">firm_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">amount</td><td>Message variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03834">3834</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a3e012ed17a049c35185f34426c92d56d_icgraph.png" border="0" usemap="#messageboards_8c_a3e012ed17a049c35185f34426c92d56d_icgraph" alt=""/></div>
+<map name="messageboards_8c_a3e012ed17a049c35185f34426c92d56d_icgraph" id="messageboards_8c_a3e012ed17a049c35185f34426c92d56d_icgraph">
+<area shape="rect" id="node2" href="equityfund__functions__credit_8c.html#a4692499a3ac98950f7d80193df165105" title="equityfund_credit_invest\l_illiquids" alt="" coords="211,5,376,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="424,13,474,41"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a31f3a7cc261aa497821cfeb86d9e978a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void add_fund_request_message </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>firm_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -916,12 +1177,22 @@ Here is the caller graph for this function:</div>
 <p>Add fund_request message by calling internal and processing. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">firm_id</td><td>Message variable. </td></tr>
+    <tr><td class="paramname">amount</td><td>Message variable. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03559">3559</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03698">3698</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a31f3a7cc261aa497821cfeb86d9e978a_icgraph.png" border="0" usemap="#messageboards_8c_a31f3a7cc261aa497821cfeb86d9e978a_icgraph" alt=""/></div>
+<map name="messageboards_8c_a31f3a7cc261aa497821cfeb86d9e978a_icgraph" id="messageboards_8c_a31f3a7cc261aa497821cfeb86d9e978a_icgraph">
+<area shape="rect" id="node2" href="firm__functions__credit_8c.html#a80cf84dba08d7597408ebe377da44f41" title="firm_credit_request\l_investment" alt="" coords="246,5,381,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="430,13,480,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -947,7 +1218,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03291">3291</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03429">3429</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a7b5ff0ff9b5019b75de8e2c0abaa9ac5_icgraph.png" border="0" usemap="#messageboards_8c_a7b5ff0ff9b5019b75de8e2c0abaa9ac5_icgraph" alt=""/></div>
+<map name="messageboards_8c_a7b5ff0ff9b5019b75de8e2c0abaa9ac5_icgraph" id="messageboards_8c_a7b5ff0ff9b5019b75de8e2c0abaa9ac5_icgraph">
+<area shape="rect" id="node2" href="government__functions__credit_8c.html#afd787028f3a8d26e34bf5e2251a5bb87" title="government_distribute\l_general_benefits" alt="" coords="198,5,351,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="400,13,450,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1019,7 +1299,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02755">2755</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02893">2893</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1054,7 +1334,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04103">4103</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04653">4653</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1100,7 +1380,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05480">5480</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l06030">6030</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1146,7 +1426,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03832">3832</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04108">4108</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a0256281f4065455fc27820900c2e5823_icgraph.png" border="0" usemap="#messageboards_8c_a0256281f4065455fc27820900c2e5823_icgraph" alt=""/></div>
+<map name="messageboards_8c_a0256281f4065455fc27820900c2e5823_icgraph" id="messageboards_8c_a0256281f4065455fc27820900c2e5823_icgraph">
+<area shape="rect" id="node2" href="firm__functions__credit_8c.html#a703989c648e6daa029a3aef92495b22d" title="firm_credit_pay_interest\l_on_loans" alt="" coords="204,5,367,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="416,13,466,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1173,6 +1462,15 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p>Definition at line <a class="el" href="messageboards_8c_source.html#l00025">25</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_aa7c2874aa8f3acc6d1b703d6b6db4e5a_icgraph.png" border="0" usemap="#messageboards_8c_aa7c2874aa8f3acc6d1b703d6b6db4e5a_icgraph" alt=""/></div>
+<map name="messageboards_8c_aa7c2874aa8f3acc6d1b703d6b6db4e5a_icgraph" id="messageboards_8c_aa7c2874aa8f3acc6d1b703d6b6db4e5a_icgraph">
+<area shape="rect" id="node2" href="centralbank__functions__credit_8c.html#ae5f41652a6c8a5ab3baa291f26d0eae9" title="centralbank_set_interest_rate" alt="" coords="240,5,437,33"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="486,5,536,33"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1431,7 +1729,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03023">3023</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03161">3161</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a980a196f8d2c55258c41ca6d00c4e16a_icgraph.png" border="0" usemap="#messageboards_8c_a980a196f8d2c55258c41ca6d00c4e16a_icgraph" alt=""/></div>
+<map name="messageboards_8c_a980a196f8d2c55258c41ca6d00c4e16a_icgraph" id="messageboards_8c_a980a196f8d2c55258c41ca6d00c4e16a_icgraph">
+<area shape="rect" id="node2" href="household__functions__credit_8c.html#a68c3d7aa7b4cdefa96396c6083f81c1b" title="household_credit_pay\l_labour_tax" alt="" coords="229,5,381,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="430,13,480,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1475,7 +1782,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02343">2343</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02347">2347</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a64c790f8b2c1701f76d3bce92020db1d_icgraph.png" border="0" usemap="#messageboards_8c_a64c790f8b2c1701f76d3bce92020db1d_icgraph" alt=""/></div>
+<map name="messageboards_8c_a64c790f8b2c1701f76d3bce92020db1d_icgraph" id="messageboards_8c_a64c790f8b2c1701f76d3bce92020db1d_icgraph">
+<area shape="rect" id="node2" href="bank__functions__credit_8c.html#a62455ca9bafc20925dc4ef8eba592dfa" title="bank_credit_process\l_loan_requests_1" alt="" coords="216,5,360,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="408,13,458,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1519,7 +1835,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02481">2481</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02485">2485</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a44c604327c61652a10dfac728e9bc9c9_icgraph.png" border="0" usemap="#messageboards_8c_a44c604327c61652a10dfac728e9bc9c9_icgraph" alt=""/></div>
+<map name="messageboards_8c_a44c604327c61652a10dfac728e9bc9c9_icgraph" id="messageboards_8c_a44c604327c61652a10dfac728e9bc9c9_icgraph">
+<area shape="rect" id="node2" href="bank__functions__credit_8c.html#a4268c8ce06ad17b04c0be67d70fb07b0" title="bank_credit_process\l_loan_requests_2" alt="" coords="216,5,360,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="408,13,458,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1563,7 +1888,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02067">2067</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02071">2071</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a0c0fa21bf8cd2767636c3e48bf0aeb4c_icgraph.png" border="0" usemap="#messageboards_8c_a0c0fa21bf8cd2767636c3e48bf0aeb4c_icgraph" alt=""/></div>
+<map name="messageboards_8c_a0c0fa21bf8cd2767636c3e48bf0aeb4c_icgraph" id="messageboards_8c_a0c0fa21bf8cd2767636c3e48bf0aeb4c_icgraph">
+<area shape="rect" id="node2" href="firm__functions__credit_8c.html#a4ad82e4fbd88080c90e3501e9b847e00" title="firm_credit_demand\l_loans_1" alt="" coords="197,5,336,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="384,13,434,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1607,7 +1941,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02205">2205</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02209">2209</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_ad78042f46acab92bedcd966b46ca8e3c_icgraph.png" border="0" usemap="#messageboards_8c_ad78042f46acab92bedcd966b46ca8e3c_icgraph" alt=""/></div>
+<map name="messageboards_8c_ad78042f46acab92bedcd966b46ca8e3c_icgraph" id="messageboards_8c_ad78042f46acab92bedcd966b46ca8e3c_icgraph">
+<area shape="rect" id="node2" href="firm__functions__credit_8c.html#abec7028950a2eca84363c44f0147c634" title="firm_credit_borrow\l_loans_1" alt="" coords="198,5,330,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="379,13,429,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1644,7 +1987,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03968">3968</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04244">4244</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a8ed3e5728f9647e79bbb11ff0ce31a2d_icgraph.png" border="0" usemap="#messageboards_8c_a8ed3e5728f9647e79bbb11ff0ce31a2d_icgraph" alt=""/></div>
+<map name="messageboards_8c_a8ed3e5728f9647e79bbb11ff0ce31a2d_icgraph" id="messageboards_8c_a8ed3e5728f9647e79bbb11ff0ce31a2d_icgraph">
+<area shape="rect" id="node2" href="firm__functions__credit_8c.html#af81ce745fbf1670d7650d976df73037a" title="firm_credit_illiquidity\l_bankrupt" alt="" coords="252,5,393,49"/><area shape="rect" id="node4" href="firm__functions__credit_8c.html#a548ef2316c88c14a01d6933baf12b297" title="firm_credit_exit_market" alt="" coords="243,73,403,101"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="451,43,501,71"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1681,7 +2033,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05070">5070</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05620">5620</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1734,7 +2086,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05207">5207</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05757">5757</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1780,7 +2132,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04934">4934</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05484">5484</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -1817,7 +2169,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05344">5344</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05894">5894</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -1861,7 +2213,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04797">4797</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05347">5347</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1914,7 +2266,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03695">3695</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03971">3971</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_aaf2856dbf4cbef0250a15e0d79c3ad21_icgraph.png" border="0" usemap="#messageboards_8c_aaf2856dbf4cbef0250a15e0d79c3ad21_icgraph" alt=""/></div>
+<map name="messageboards_8c_aaf2856dbf4cbef0250a15e0d79c3ad21_icgraph" id="messageboards_8c_aaf2856dbf4cbef0250a15e0d79c3ad21_icgraph">
+<area shape="rect" id="node2" href="firm__functions__credit_8c.html#a548ef2316c88c14a01d6933baf12b297" title="firm_credit_exit_market" alt="" coords="211,13,371,41"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="419,13,469,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1958,7 +2319,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04381">4381</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04931">4931</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2064,7 +2425,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04659">4659</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05209">5209</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2145,7 +2506,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03425">3425</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03563">3563</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a2ac7c320ba3d394022195ef21cc46f20_icgraph.png" border="0" usemap="#messageboards_8c_a2ac7c320ba3d394022195ef21cc46f20_icgraph" alt=""/></div>
+<map name="messageboards_8c_a2ac7c320ba3d394022195ef21cc46f20_icgraph" id="messageboards_8c_a2ac7c320ba3d394022195ef21cc46f20_icgraph">
+<area shape="rect" id="node2" href="government__functions__credit_8c.html#a40fb0c1b5ce869cc4354ad61f76fd85e" title="government_update_fiscal\l_policy" alt="" coords="216,5,394,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="443,13,493,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -2171,7 +2541,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03157">3157</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03295">3295</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="messageboards_8c_a07a8f3fd84bab3e70920b20b4a35e18f_icgraph.png" border="0" usemap="#messageboards_8c_a07a8f3fd84bab3e70920b20b4a35e18f_icgraph" alt=""/></div>
+<map name="messageboards_8c_a07a8f3fd84bab3e70920b20b4a35e18f_icgraph" id="messageboards_8c_a07a8f3fd84bab3e70920b20b4a35e18f_icgraph">
+<area shape="rect" id="node2" href="government__functions__credit_8c.html#ad83a4ce45149a62b8b418fa1e5175090" title="government_distribute\l_unemployment_benefits" alt="" coords="240,5,410,49"/><area shape="rect" id="node3" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="459,13,509,41"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -2267,6 +2646,27 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a2367b37ef459a60428dda86a86545b3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__bank__net__profit.html">m_bank_net_profit</a>* get_first_bank_net_profit_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first bank_net_profit message in the bank_net_profit message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04622">4622</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a20c8093c864b664e1926778778aa10ad"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2284,7 +2684,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first bought_housing message in the bought_housing message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04626">4626</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05176">5176</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2326,7 +2726,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first buy_housing message in the buy_housing message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04348">4348</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04898">4898</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2368,7 +2768,49 @@ Here is the caller graph for this function:</div>
 <p>Get the first capital_tax message in the capital_tax message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02992">2992</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03130">3130</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac7bacde8852164c060d6fac98dbab3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__debt__ack.html">m_debt_ack</a>* get_first_debt_ack_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first debt_ack message in the debt_ack message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02862">2862</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab79e4a66db2f3dded8c6734425fd3a06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__debt__request.html">m_debt_request</a>* get_first_debt_request_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first debt_request message in the debt_request message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02726">2726</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2389,7 +2831,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first employment_status message in the employment_status message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02034">2034</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02038">2038</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2431,7 +2873,28 @@ Here is the caller graph for this function:</div>
 <p>Get the first firm_net_profit message in the firm_net_profit message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02724">2724</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04486">4486</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20cb657adc49876d0b3ca978b4d6e321"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__fund__request__ack.html">m_fund_request_ack</a>* get_first_fund_request_ack_message </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first fund_request_ack message in the fund_request_ack message list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03938">3938</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2452,7 +2915,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first fund_request message in the fund_request message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03662">3662</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03802">3802</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2473,7 +2936,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first general_benefit message in the general_benefit message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03394">3394</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03532">3532</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2515,7 +2978,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first household_share message in the household_share message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02858">2858</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02996">2996</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2536,7 +2999,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first housing_price message in the housing_price message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04206">4206</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04756">4756</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2557,7 +3020,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first housing_transactions_summary message in the housing_transactions_summary message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05584">5584</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l06134">6134</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2578,7 +3041,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first interest_on_loan message in the interest_on_loan message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03936">3936</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04212">4212</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2725,7 +3188,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first labour_tax message in the labour_tax message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03126">3126</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03264">3264</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2746,7 +3209,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first loan_acknowledge_1 message in the loan_acknowledge_1 message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02448">2448</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02452">2452</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2767,7 +3230,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first loan_acknowledge_2 message in the loan_acknowledge_2 message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02586">2586</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02590">2590</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2788,7 +3251,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first loan_request_1 message in the loan_request_1 message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02172">2172</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02176">2176</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2809,7 +3272,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first loan_request_2 message in the loan_request_2 message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02310">2310</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02314">2314</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2830,7 +3293,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first loan_writeoff message in the loan_writeoff message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04072">4072</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04348">4348</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2851,7 +3314,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first mortgage_payment_from_sale message in the mortgage_payment_from_sale message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05174">5174</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05724">5724</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2872,7 +3335,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first mortgage_payment message in the mortgage_payment message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05312">5312</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05862">5862</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2893,7 +3356,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first mortgage_requests message in the mortgage_requests message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05038">5038</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05588">5588</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2914,7 +3377,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first mortgage_writeoff message in the mortgage_writeoff message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05448">5448</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05998">5998</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2935,7 +3398,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first mortgaging_capacity message in the mortgaging_capacity message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04902">4902</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05452">5452</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2956,7 +3419,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first new_entrant_loan message in the new_entrant_loan message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03800">3800</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04076">4076</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -2977,7 +3440,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first sell_housing message in the sell_housing message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04486">4486</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05036">5036</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3019,7 +3482,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first sold_housing message in the sold_housing message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04764">4764</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05314">5314</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3061,7 +3524,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first tax_rate message in the tax_rate message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03528">3528</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03666">3666</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3082,7 +3545,7 @@ Here is the caller graph for this function:</div>
 <p>Get the first unemployment_benefit message in the unemployment_benefit message list. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first message in the list. </dd></dl>
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03260">3260</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03398">3398</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3128,6 +3591,24 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a50d507445dbd9f00c073db895d383d20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__bank__net__profit.html">m_bank_net_profit</a>* get_next_bank_net_profit_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__bank__net__profit.html">m_bank_net_profit</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04632">4632</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4122ee002aa92be6208c7f0186c80b73"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3142,7 +3623,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04636">4636</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05186">5186</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3178,7 +3659,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04358">4358</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04908">4908</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3214,7 +3695,43 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03002">3002</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03140">3140</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac172fb4ca2a488356dfeae5f832a0c88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__debt__ack.html">m_debt_ack</a>* get_next_debt_ack_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__debt__ack.html">m_debt_ack</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02872">2872</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83b60c694631512d5a2fc884d0db4af7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__debt__request.html">m_debt_request</a>* get_next_debt_request_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__debt__request.html">m_debt_request</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02736">2736</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3232,7 +3749,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02044">2044</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02048">2048</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3268,7 +3785,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02734">2734</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04496">4496</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8154686cf0c32a2950a9f2674dd879b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structm__fund__request__ack.html">m_fund_request_ack</a>* get_next_fund_request_ack_message </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structm__fund__request__ack.html">m_fund_request_ack</a> *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03948">3948</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3286,7 +3821,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03672">3672</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03812">3812</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3304,7 +3839,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03404">3404</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03542">3542</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3340,7 +3875,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02868">2868</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03006">3006</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3358,7 +3893,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04216">4216</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04766">4766</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3376,7 +3911,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05594">5594</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l06144">6144</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3394,7 +3929,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03946">3946</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04222">4222</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3520,7 +4055,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03136">3136</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03274">3274</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3538,7 +4073,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02458">2458</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02462">2462</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3556,7 +4091,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02596">2596</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02600">2600</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3574,7 +4109,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02182">2182</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02186">2186</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3592,7 +4127,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02320">2320</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l02324">2324</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3610,7 +4145,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04082">4082</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04358">4358</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3628,7 +4163,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05184">5184</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05734">5734</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3646,7 +4181,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05322">5322</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05872">5872</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3664,7 +4199,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05048">5048</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05598">5598</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3682,7 +4217,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05458">5458</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l06008">6008</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3700,7 +4235,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04912">4912</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05462">5462</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3718,7 +4253,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03810">3810</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04086">4086</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3736,7 +4271,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04496">4496</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05046">5046</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3772,7 +4307,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l04774">4774</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l05324">5324</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3808,7 +4343,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03538">3538</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03676">3676</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3826,7 +4361,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03270">3270</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
+<p>Definition at line <a class="el" href="messageboards_8c_source.html#l03408">3408</a> of file <a class="el" href="messageboards_8c_source.html">messageboards.c</a>.</p>
 
 </div>
 </div>
@@ -3869,7 +4404,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:58 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:42 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

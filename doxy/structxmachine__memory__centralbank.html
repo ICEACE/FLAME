@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -108,12 +108,16 @@ Data Fields</h2></td></tr>
 <tr class="separator:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc114b4789515b33f29b7c1a9266efaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#afc114b4789515b33f29b7c1a9266efaf">day_of_month_to_act</a></td></tr>
 <tr class="separator:afc114b4789515b33f29b7c1a9266efaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a829939f5adbc2cbe4613207d79b3d9dc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#a829939f5adbc2cbe4613207d79b3d9dc">unemployment_rate</a></td></tr>
+<tr class="separator:a829939f5adbc2cbe4613207d79b3d9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd6a5a7e37b1a4287171027e95723c9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#aecd6a5a7e37b1a4287171027e95723c9">consumption_goods_prices</a> [12]</td></tr>
+<tr class="separator:aecd6a5a7e37b1a4287171027e95723c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9edb64fd8a4695dfeae2accd3c6349ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#a9edb64fd8a4695dfeae2accd3c6349ba">day_of_week_to_act</a></td></tr>
 <tr class="separator:a9edb64fd8a4695dfeae2accd3c6349ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a200ffa656363c33a4851c580cb9127bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtransaction.html">transaction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#a200ffa656363c33a4851c580cb9127bb">goods</a></td></tr>
 <tr class="separator:a200ffa656363c33a4851c580cb9127bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a829939f5adbc2cbe4613207d79b3d9dc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#a829939f5adbc2cbe4613207d79b3d9dc">unemployment_rate</a></td></tr>
-<tr class="separator:a829939f5adbc2cbe4613207d79b3d9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7a3040a502e31733016fc09b2b79d1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#a8d7a3040a502e31733016fc09b2b79d1">weekly_price_averages</a> [4]</td></tr>
+<tr class="separator:a8d7a3040a502e31733016fc09b2b79d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab42e30598c4e833f01fe833a2d6b5ede"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#ab42e30598c4e833f01fe833a2d6b5ede">interest_rate</a></td></tr>
 <tr class="separator:ab42e30598c4e833f01fe833a2d6b5ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64f9b1498b4dab51919e099008428acd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxmachine__memory__centralbank.html#a64f9b1498b4dab51919e099008428acd">liquidity</a></td></tr>
@@ -136,8 +140,23 @@ Data Fields</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds memory of xmachine centralbank. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00964">964</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01027">1027</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="aecd6a5a7e37b1a4287171027e95723c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double consumption_goods_prices[12]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>X-machine memory variable consumption_goods_prices of type double. </p>
+
+<p>Definition at line <a class="el" href="header_8h_source.html#l01032">1032</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="afc114b4789515b33f29b7c1a9266efaf"></a>
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +168,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable day_of_month_to_act of type int. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00967">967</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01030">1030</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -164,7 +183,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable day_of_week_to_act of type int. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00968">968</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01033">1033</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -179,7 +198,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable equity of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00976">976</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01041">1041</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +213,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable fiat_money of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00975">975</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01040">1040</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -209,7 +228,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable goods of type transaction. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00969">969</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01034">1034</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -224,7 +243,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable houses of type transaction. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00979">979</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01044">1044</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -239,7 +258,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable id of type int. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00966">966</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01029">1029</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -254,7 +273,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable interest_rate of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00971">971</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01036">1036</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -269,7 +288,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable liquidity of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00972">972</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01037">1037</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +303,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable liquidity_banks of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00977">977</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01042">1042</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -299,7 +318,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable liquidity_government of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00978">978</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01043">1043</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -314,7 +333,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable loans_banks of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00973">973</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01038">1038</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +348,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable loans_government of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00974">974</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01039">1039</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -344,7 +363,22 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>X-machine memory variable unemployment_rate of type double. </p>
 
-<p>Definition at line <a class="el" href="header_8h_source.html#l00970">970</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+<p>Definition at line <a class="el" href="header_8h_source.html#l01031">1031</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d7a3040a502e31733016fc09b2b79d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double weekly_price_averages[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>X-machine memory variable weekly_price_averages of type double. </p>
+
+<p>Definition at line <a class="el" href="header_8h_source.html#l01035">1035</a> of file <a class="el" href="header_8h_source.html">header.h</a>.</p>
 
 </div>
 </div>
@@ -354,7 +388,7 @@ Data Fields</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:59 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:43 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

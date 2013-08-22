@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ICEACE
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.9</span>
    </div>
    <div id="projectbrief">Design Documentation of ICEACE Implementation on FLAME Multi-agent Simulation Platform</div>
   </td>
@@ -130,6 +130,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>CAPITAL_PRODUCTIVITY_CONSTRUCTION
 : <a class="el" href="firm__agent__header_8h.html#a224fb52cdebb918cb69a50dbd02200c9">firm_agent_header.h</a>
 </li>
+<li>CAPITAL_TAX_INCOME
+: <a class="el" href="government__agent__header_8h.html#a19c5a7358cda476411a5ccbf6073cbbf">government_agent_header.h</a>
+</li>
 <li>capital_tax_message
 : <a class="el" href="header_8h.html#a1848154e4dc5010880c6d1d6413b3b69">header.h</a>
 </li>
@@ -144,6 +147,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>centralbank_CentralBankCredit_state
 : <a class="el" href="header_8h.html#a77b77e9ea1c93467170f22cb21bd9de7">header.h</a>
+</li>
+<li>centralbank_CentralBankDebtRequests_state
+: <a class="el" href="header_8h.html#a0ecf65ea5e2b82aaf5aac927d25e5a22">header.h</a>
 </li>
 <li>centralbank_CentralBankHousing_state
 : <a class="el" href="header_8h.html#aeb9d971809436ac0376483e0625ab4f6">header.h</a>
@@ -161,6 +167,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>centralbank_init()
 : <a class="el" href="centralbank__functions__top_8c.html#ae82b3a49a42dc9340604676decb615ec">centralbank_functions_top.c</a>
 , <a class="el" href="header_8h.html#a5f1705097fe0b728b4a09e7398d8bfe1">header.h</a>
+</li>
+<li>centralbank_process_debt_requests()
+: <a class="el" href="header_8h.html#a09d375eff32a5aa2636692d48a56243d">header.h</a>
+, <a class="el" href="centralbank__functions__credit_8c.html#a98901fe3054dbf1d80dd4a2d55ee654c">centralbank_functions_credit.c</a>
 </li>
 <li>centralbank_production_dummy()
 : <a class="el" href="centralbank__functions__production_8c.html#a5fe98711d12a9b73ca6f8e36d4bc4d5a">centralbank_functions_production.c</a>
@@ -205,6 +215,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>CONSUMPTION_BUDGET
 : <a class="el" href="household__agent__header_8h.html#a4dbfd48516bb5066d8461244c4cc6935">household_agent_header.h</a>
+</li>
+<li>CONSUMPTION_GOODS_PRICES
+: <a class="el" href="centralbank__agent__header_8h.html#a5274e29c0d55dbc31151e834aabb58cd">centralbank_agent_header.h</a>
 </li>
 <li>copy_array_to_str()
 : <a class="el" href="header_8h.html#a80ef479d7c8e2f9312c100492dd62387">header.h</a>
@@ -255,8 +268,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#a428105e8aad1f90acd4b47d9132689c1">memory.c</a>
 </li>
 <li>copy_hbank_static_array()
-: <a class="el" href="header_8h.html#a9a82a14ef7a21873c3ae53dfa558f0e8">header.h</a>
-, <a class="el" href="memory_8c.html#a9a82a14ef7a21873c3ae53dfa558f0e8">memory.c</a>
+: <a class="el" href="memory_8c.html#a9a82a14ef7a21873c3ae53dfa558f0e8">memory.c</a>
+, <a class="el" href="header_8h.html#a9a82a14ef7a21873c3ae53dfa558f0e8">header.h</a>
 </li>
 <li>copy_hbuyer()
 : <a class="el" href="header_8h.html#acdf0aa869aa034e547037ff02d2baf5a">header.h</a>
@@ -279,8 +292,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#a8e3c6a4be3a846a91954ad853e43ad56">memory.c</a>
 </li>
 <li>copy_hseller_static_array()
-: <a class="el" href="memory_8c.html#a1c973621b7dbf988ccef7b858d594755">memory.c</a>
-, <a class="el" href="header_8h.html#a1c973621b7dbf988ccef7b858d594755">header.h</a>
+: <a class="el" href="header_8h.html#a1c973621b7dbf988ccef7b858d594755">header.h</a>
+, <a class="el" href="memory_8c.html#a1c973621b7dbf988ccef7b858d594755">memory.c</a>
 </li>
 <li>copy_int_array()
 : <a class="el" href="header_8h.html#ade418f9ad6a0b5f62b81677981e59f1f">header.h</a>
@@ -303,16 +316,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#ab21293b20ff60acc578cc5420b92da46">memory.c</a>
 </li>
 <li>copy_mortgage_array()
-: <a class="el" href="header_8h.html#aca12a57460055a8ca8c933f737bc78f9">header.h</a>
-, <a class="el" href="memory_8c.html#aca12a57460055a8ca8c933f737bc78f9">memory.c</a>
+: <a class="el" href="memory_8c.html#aca12a57460055a8ca8c933f737bc78f9">memory.c</a>
+, <a class="el" href="header_8h.html#aca12a57460055a8ca8c933f737bc78f9">header.h</a>
 </li>
 <li>copy_mortgage_static_array()
 : <a class="el" href="header_8h.html#a5debe505169ab4ab8dd839ec5e180c49">header.h</a>
 , <a class="el" href="memory_8c.html#a5debe505169ab4ab8dd839ec5e180c49">memory.c</a>
 </li>
 <li>copy_seller()
-: <a class="el" href="header_8h.html#a08064d21e35c484ebd76037eecef89fb">header.h</a>
-, <a class="el" href="memory_8c.html#a08064d21e35c484ebd76037eecef89fb">memory.c</a>
+: <a class="el" href="memory_8c.html#a08064d21e35c484ebd76037eecef89fb">memory.c</a>
+, <a class="el" href="header_8h.html#a08064d21e35c484ebd76037eecef89fb">header.h</a>
 </li>
 <li>copy_seller_array()
 : <a class="el" href="header_8h.html#a7f53770432085b75cf9786c8a788ed02">header.h</a>
@@ -323,8 +336,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="memory_8c.html#a3319d2ed366d60d66b76cc62faeceba4">memory.c</a>
 </li>
 <li>copy_transaction()
-: <a class="el" href="memory_8c.html#ac9c1770353e56ab1413ffc243c7de856">memory.c</a>
-, <a class="el" href="header_8h.html#ac9c1770353e56ab1413ffc243c7de856">header.h</a>
+: <a class="el" href="header_8h.html#ac9c1770353e56ab1413ffc243c7de856">header.h</a>
+, <a class="el" href="memory_8c.html#ac9c1770353e56ab1413ffc243c7de856">memory.c</a>
 </li>
 <li>copy_transaction_array()
 : <a class="el" href="memory_8c.html#a9c3cf0742a6d4ebf51e7b78822ea9848">memory.c</a>
@@ -446,7 +459,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 22 2013 09:38:59 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 22 2013 14:22:43 for ICEACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
