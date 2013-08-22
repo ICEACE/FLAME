@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['hasinvestment',['hasinvestment',['../structxmachine__memory__firm.html#a28a3b0821c085304e985a7dbb060447a',1,'xmachine_memory_firm']]],
   ['hasloan',['hasloan',['../structxmachine__memory__firm.html#aa3c46e6f6fdd6f05f5e01696d9ea12fe',1,'xmachine_memory_firm']]],
   ['hmarket_5frole',['hmarket_role',['../structxmachine__memory__household.html#a71d81cbcfef7fdc6d345b87575cee379',1,'xmachine_memory_household']]],
   ['household_5fend_5fstate',['household_end_state',['../header_8h.html#a1ce99b061a4ee16a3ed5bd72c92637f5',1,'header.h']]],
@@ -7,8 +8,8 @@ var searchData=
   ['household_5fhhconsumptionstart_5fstate',['household_HHConsumptionStart_state',['../header_8h.html#a95f8549b97ed4ea22f2f767198fe798c',1,'header.h']]],
   ['household_5fhhconsumptionweekly_5fstate',['household_HHConsumptionWeekly_state',['../header_8h.html#a5f6a489a2cf740059472c92eadaf3a9e',1,'header.h']]],
   ['household_5fhhcreditbalancesheet_5fstate',['household_HHCreditBalanceSheet_state',['../header_8h.html#a1e48e5263d407f7b84b3e7c053087757',1,'header.h']]],
-  ['household_5fhhcreditbenefits_5fstate',['household_HHCreditBenefits_state',['../header_8h.html#af7ee66cd536f356259d7896dc6bda3e6',1,'header.h']]],
   ['household_5fhhcreditcapitaltax_5fstate',['household_HHCreditCapitalTax_state',['../header_8h.html#a45c08577dba355dd87b1f2f738cf30a0',1,'header.h']]],
+  ['household_5fhhcreditchecktax_5fstate',['household_HHCreditCheckTax_state',['../header_8h.html#a0e437045ecf7c5155ecef779ca060ea9',1,'header.h']]],
   ['household_5fhhcreditemployment_5fstate',['household_HHCreditEmployment_state',['../header_8h.html#a6dcf91c329318de6bad3ee6520ddb3ce',1,'header.h']]],
   ['household_5fhhcreditiscapitalist_5fstate',['household_HHCreditIsCapitalist_state',['../header_8h.html#a20944b7b5889b7607dede578cb99d6d7',1,'header.h']]],
   ['household_5fhhcreditmonthly_5fstate',['household_HHCreditMonthly_state',['../header_8h.html#a41ee117e345de5cb71fca622bc8f6509',1,'header.h']]],

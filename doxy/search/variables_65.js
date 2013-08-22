@@ -10,7 +10,9 @@ var searchData=
   ['equity_5fratio',['equity_ratio',['../structxmachine__memory__household.html#a5aad41b930368c6d15c0f3e2afa4fad7',1,'xmachine_memory_household']]],
   ['equityfund_5fefcreditbalancesheet_5fstate',['equityfund_EFCreditBalanceSheet_state',['../header_8h.html#aaea468cf585156ca8be7470529bbb76c',1,'header.h']]],
   ['equityfund_5fefcreditdistributeshares_5fstate',['equityfund_EFCreditDistributeShares_state',['../header_8h.html#a232965d65c0880600b1fce1a5bb9492e',1,'header.h']]],
-  ['equityfund_5fefcreditsharecollection_5fstate',['equityfund_EFCreditShareCollection_state',['../header_8h.html#ad6ec47e064967e76ef351f74a2e0eb80',1,'header.h']]],
+  ['equityfund_5fefcreditinvestfirms_5fstate',['equityfund_EFCreditInvestFirms_state',['../header_8h.html#a988a5ebd93405dca06d1027843be15f1',1,'header.h']]],
+  ['equityfund_5fefcreditsharecollectionfirms_5fstate',['equityfund_EFCreditShareCollectionFirms_state',['../header_8h.html#a9207f99ada103d1570b9ec0d4658520c',1,'header.h']]],
+  ['equityfund_5feflabourmarket_5fstate',['equityfund_EFLabourMarket_state',['../header_8h.html#ad51a8d572044120d1606628bba17ea09',1,'header.h']]],
   ['equityfund_5fend_5fstate',['equityfund_end_state',['../header_8h.html#ada9cddcab977f9f484fc89cd29331150',1,'header.h']]],
   ['equityfund_5fequityfundstart_5fstate',['equityfund_EquityFundStart_state',['../header_8h.html#aaaf359cc501a353d8bc8d6b0454a5c76',1,'header.h']]],
   ['equityfund_5fstart_5fstate',['equityfund_start_state',['../header_8h.html#aaabc0a7238e64be804a1e790e085ec2c',1,'header.h']]]

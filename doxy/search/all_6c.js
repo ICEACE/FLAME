@@ -2,6 +2,7 @@ var searchData=
 [
   ['labour_5fproductivity',['labour_productivity',['../structxmachine__memory__firm.html#aaa3572ed51f53df7653876eef090e986',1,'xmachine_memory_firm::labour_productivity()'],['../firm__agent__header_8h.html#a976c699380fcece8f09855c96b06e728',1,'LABOUR_PRODUCTIVITY():&#160;firm_agent_header.h']]],
   ['labour_5fproductivity_5fconstruction',['labour_productivity_construction',['../structxmachine__memory__firm.html#a88d2eceb49ff5a6f08632ebf483a084a',1,'xmachine_memory_firm::labour_productivity_construction()'],['../firm__agent__header_8h.html#a273e5628dbc16aaea402d116ce76c297',1,'LABOUR_PRODUCTIVITY_CONSTRUCTION():&#160;firm_agent_header.h']]],
+  ['labour_5ftax_5fincome',['labour_tax_income',['../structxmachine__memory__government.html#ad5f793839c304377fd6f5418b7861aad',1,'xmachine_memory_government::labour_tax_income()'],['../government__agent__header_8h.html#a61b5a303efcceead40e5efe3e607ee92',1,'LABOUR_TAX_INCOME():&#160;government_agent_header.h']]],
   ['labour_5ftax_5fmessage',['labour_tax_message',['../header_8h.html#a673af48b2939234ce24ce57e95552c02',1,'header.h']]],
   ['labour_5ftax_5fmessages',['labour_tax_messages',['../structnode__information.html#ae725e33ab469661c55217609a9800d9d',1,'node_information']]],
   ['library_5ffunctions_2ec',['library_functions.c',['../library__functions_8c.html',1,'']]],

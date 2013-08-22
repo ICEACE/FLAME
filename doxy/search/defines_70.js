@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['physical_5fcapital',['PHYSICAL_CAPITAL',['../firm__agent__header_8h.html#a35adf382bda5d93efb1b6481f7d23397',1,'firm_agent_header.h']]],
+  ['population_5fsize',['POPULATION_SIZE',['../government__agent__header_8h.html#a53959fa81befcc4e7290a0b5581cbe09',1,'government_agent_header.h']]],
   ['previous_5fwages',['PREVIOUS_WAGES',['../household__agent__header_8h.html#a0f7b429b7ac5245cbf19bf3b6180efec',1,'household_agent_header.h']]],
   ['price_5fmarkup',['PRICE_MARKUP',['../header_8h.html#ae0dfd0054fb35b70b99c49790601d607',1,'header.h']]],
   ['production_5fcurrent',['PRODUCTION_CURRENT',['../firm__agent__header_8h.html#a4d99f22c9b753d1692ac7fa4a22beed4',1,'firm_agent_header.h']]],

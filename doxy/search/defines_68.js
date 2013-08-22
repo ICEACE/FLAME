@@ -1,10 +1,12 @@
 var searchData=
 [
+  ['hasinvestment',['HASINVESTMENT',['../firm__agent__header_8h.html#a850c64fb47e12e6cbdff7e66f7cf4633',1,'firm_agent_header.h']]],
   ['hasloan',['HASLOAN',['../firm__agent__header_8h.html#acfe51a3f0d689ca7912f68cf8314fce0',1,'firm_agent_header.h']]],
   ['hmarket_5frole',['HMARKET_ROLE',['../household__agent__header_8h.html#a955b3edc2a109ef49edc761e9eea307a',1,'household_agent_header.h']]],
   ['household_5fbudget_5fconstraint',['HOUSEHOLD_BUDGET_CONSTRAINT',['../header_8h.html#a9f0b2959b256f8a9d691943f6ab33553',1,'header.h']]],
   ['household_5fmortgage_5fwriteoff_5fhigh',['HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH',['../header_8h.html#af83284ea8ba15cf00ac1b6569b16304d',1,'header.h']]],
   ['household_5fmortgage_5fwriteoff_5flow',['HOUSEHOLD_MORTGAGE_WRITEOFF_LOW',['../header_8h.html#a15a11651ecc0fd600d2ab3bca04e844d',1,'header.h']]],
+  ['household_5fstartup_5fleverage',['HOUSEHOLD_STARTUP_LEVERAGE',['../header_8h.html#a8e59488cdd1fb2533cd46c1e2a95ada1',1,'header.h']]],
   ['houses',['HOUSES',['../centralbank__agent__header_8h.html#a5d917f3004168bedb809ef5764b7530b',1,'centralbank_agent_header.h']]],
   ['housing_5fmarket_5fentrance_5fprob',['HOUSING_MARKET_ENTRANCE_PROB',['../header_8h.html#a719ef2c2f6c9825180b88636ab91b7f1',1,'header.h']]],
   ['housing_5fpayment',['HOUSING_PAYMENT',['../household__agent__header_8h.html#a899712fd06452e6a1f75149a6e18dbf9',1,'household_agent_header.h']]],

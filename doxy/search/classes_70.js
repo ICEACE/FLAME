@@ -1,14 +1,18 @@
 var searchData=
 [
+  ['pu_5fbank_5fnet_5fprofit',['pu_bank_net_profit',['../unionpu__bank__net__profit.html',1,'']]],
   ['pu_5fbought',['pu_bought',['../unionpu__bought.html',1,'']]],
   ['pu_5fbought_5fhousing',['pu_bought_housing',['../unionpu__bought__housing.html',1,'']]],
   ['pu_5fbuy',['pu_buy',['../unionpu__buy.html',1,'']]],
   ['pu_5fbuy_5fhousing',['pu_buy_housing',['../unionpu__buy__housing.html',1,'']]],
   ['pu_5fcapital_5ftax',['pu_capital_tax',['../unionpu__capital__tax.html',1,'']]],
+  ['pu_5fdebt_5fack',['pu_debt_ack',['../unionpu__debt__ack.html',1,'']]],
+  ['pu_5fdebt_5frequest',['pu_debt_request',['../unionpu__debt__request.html',1,'']]],
   ['pu_5femployment_5fstatus',['pu_employment_status',['../unionpu__employment__status.html',1,'']]],
   ['pu_5ffired',['pu_fired',['../unionpu__fired.html',1,'']]],
   ['pu_5ffirm_5fnet_5fprofit',['pu_firm_net_profit',['../unionpu__firm__net__profit.html',1,'']]],
   ['pu_5ffund_5frequest',['pu_fund_request',['../unionpu__fund__request.html',1,'']]],
+  ['pu_5ffund_5frequest_5fack',['pu_fund_request_ack',['../unionpu__fund__request__ack.html',1,'']]],
   ['pu_5fgeneral_5fbenefit',['pu_general_benefit',['../unionpu__general__benefit.html',1,'']]],
   ['pu_5fgoods_5ftransactions_5fsummary',['pu_goods_transactions_summary',['../unionpu__goods__transactions__summary.html',1,'']]],
   ['pu_5fhousehold_5fshare',['pu_household_share',['../unionpu__household__share.html',1,'']]],

@@ -4,15 +4,49 @@
 # current directory is: gh-page branch, i.e., /Users/bulent/Documents/workspace/iceace/FLAME/html
 cd /Users/bulent/Documents/AWorkspace/iceace/FLAME/html
 
+rm -r ./doxy/*.map
+rm -r ./doxy/*.md5
+rm -r ./doxy/*.png
+rm -r ./doxy/*.html
+rm -r ./doxy/*.pdf
+rm -r ./doxy/*.js
+rm -r ./doxy/*.css
 rm -r ./doxy/*
-mv -f ../docs/html/* ./doxy
-# For new files:
-git add ./doxy/*
 
-# If only updated pages to be comitted:
-# git commit -a -m "Web page design is updated."
-git commit -m "Design documents are updated, reflecting a newer implementation."
+mv -f ../docs/html/*.map ./doxy/
+mv -f ../docs/html/*.md5 ./doxy/
+mv -f ../docs/html/*.png ./doxy/
+mv -f ../docs/html/*.html ./doxy/
+mv -f ../docs/html/*.js ./doxy/
+mv -f ../docs/html/*.css ./doxy/
+mv -f ../docs/html/* ./doxy/
+
+
+# For new files:
+git add ./doxy/*.map
+git commit -m "Design documents are updated, reflecting the integrated implementation."
 git push origin gh-pages
+git add ./doxy/*.md5
+git commit -m "Design documents are updated, reflecting the integrated implementation."
+git push origin gh-pages
+git add ./doxy/*.png
+git commit -m "Design documents are updated, reflecting the integrated implementation."
+git push origin gh-pages
+git add ./doxy/*.html
+git commit -m "Design documents are updated, reflecting the integrated implementation."
+git push origin gh-pages
+git add ./doxy/*.js
+git commit -m "Design documents are updated, reflecting the integrated implementation."
+git push origin gh-pages
+
+git add ./doxy/*
+git commit -m "Design documents are updated, reflecting the integrated implementation."
+git push origin gh-pages
+
+git add ./doxy/*.map
+git commit -m "Design documents are updated, reflecting the integrated implementation."
+git push origin gh-pages
+
 
 # Linking doxy site to github pages.
 sed 's|ICEACE Documentation|<a href="http://iceace.github.com/FLAME/"> Click this link to access main site of ICEACE. <p>The site provides general information and points to software downloads on FLAME implementation.</p></a>|' ./doxy/index.html > ./doxy/newindex.html 

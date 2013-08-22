@@ -5,6 +5,7 @@ var searchData=
   ['rate',['rate',['../structm__interest__rate.html#a40fc078492fcc08ce7ad3957496b4c0b',1,'m_interest_rate']]],
   ['ratio_5fcapitalist_5fhouseholds',['RATIO_CAPITALIST_HOUSEHOLDS',['../header_8h.html#a304e33ca9d811d43cee3567f3336b056',1,'header.h']]],
   ['ratio_5fdebt_5ffirm',['RATIO_DEBT_FIRM',['../header_8h.html#aa6863532f479ae2abc06feeef6a714bf',1,'header.h']]],
+  ['ratio_5ffiscal_5fpolicy',['RATIO_FISCAL_POLICY',['../header_8h.html#a1ba75779cbc30b419487442780c6a663',1,'header.h']]],
   ['ratio_5fliquidity',['RATIO_LIQUIDITY',['../header_8h.html#aba6d18c176273eb10971f12876fab80d',1,'header.h']]],
   ['read_5fbuyer',['read_buyer',['../header_8h.html#a8061b71ece6aa771a5836c58cd582cd2',1,'read_buyer(char *buffer, int buffer_size, int *j, buyer *temp_datatype):&#160;xml.c'],['../xml_8c.html#ac69cdb53ccfd1484666121d39c4d80b4',1,'read_buyer(char *buffer, intbuffer_size, int *j, buyer *temp_datatype):&#160;xml.c']]],
   ['read_5fbuyer_5fdynamic_5farray',['read_buyer_dynamic_array',['../header_8h.html#a6c2c6b9abe29cc413a1dcac0a128cee8',1,'read_buyer_dynamic_array(char *buffer, int buffer_size, int *j, buyer_array *temp_datatype_array):&#160;xml.c'],['../xml_8c.html#a6c2c6b9abe29cc413a1dcac0a128cee8',1,'read_buyer_dynamic_array(char *buffer, int buffer_size, int *j, buyer_array *temp_datatype_array):&#160;xml.c']]],

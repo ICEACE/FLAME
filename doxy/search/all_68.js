@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['hasinvestment',['hasinvestment',['../structxmachine__memory__firm.html#a28a3b0821c085304e985a7dbb060447a',1,'xmachine_memory_firm::hasinvestment()'],['../firm__agent__header_8h.html#a850c64fb47e12e6cbdff7e66f7cf4633',1,'HASINVESTMENT():&#160;firm_agent_header.h']]],
   ['hasloan',['hasloan',['../structxmachine__memory__firm.html#aa3c46e6f6fdd6f05f5e01696d9ea12fe',1,'xmachine_memory_firm::hasloan()'],['../firm__agent__header_8h.html#acfe51a3f0d689ca7912f68cf8314fce0',1,'HASLOAN():&#160;firm_agent_header.h']]],
   ['hbank',['hbank',['../structhbank.html',1,'hbank'],['../header_8h.html#aa1fbd58c4cac076c85b74142dcab3e13',1,'hbank():&#160;header.h']]],
   ['hbank_5farray',['hbank_array',['../structhbank__array.html',1,'hbank_array'],['../header_8h.html#a1afe3ada788b9d7ff0ced0a20c9df9f8',1,'hbank_array():&#160;header.h']]],
@@ -35,8 +36,8 @@ var searchData=
   ['household_5fhhconsumptionstart_5fstate',['household_HHConsumptionStart_state',['../header_8h.html#a95f8549b97ed4ea22f2f767198fe798c',1,'header.h']]],
   ['household_5fhhconsumptionweekly_5fstate',['household_HHConsumptionWeekly_state',['../header_8h.html#a5f6a489a2cf740059472c92eadaf3a9e',1,'header.h']]],
   ['household_5fhhcreditbalancesheet_5fstate',['household_HHCreditBalanceSheet_state',['../header_8h.html#a1e48e5263d407f7b84b3e7c053087757',1,'header.h']]],
-  ['household_5fhhcreditbenefits_5fstate',['household_HHCreditBenefits_state',['../header_8h.html#af7ee66cd536f356259d7896dc6bda3e6',1,'header.h']]],
   ['household_5fhhcreditcapitaltax_5fstate',['household_HHCreditCapitalTax_state',['../header_8h.html#a45c08577dba355dd87b1f2f738cf30a0',1,'header.h']]],
+  ['household_5fhhcreditchecktax_5fstate',['household_HHCreditCheckTax_state',['../header_8h.html#a0e437045ecf7c5155ecef779ca060ea9',1,'header.h']]],
   ['household_5fhhcreditemployment_5fstate',['household_HHCreditEmployment_state',['../header_8h.html#a6dcf91c329318de6bad3ee6520ddb3ce',1,'header.h']]],
   ['household_5fhhcreditiscapitalist_5fstate',['household_HHCreditIsCapitalist_state',['../header_8h.html#a20944b7b5889b7607dede578cb99d6d7',1,'header.h']]],
   ['household_5fhhcreditmonthly_5fstate',['household_HHCreditMonthly_state',['../header_8h.html#a41ee117e345de5cb71fca622bc8f6509',1,'header.h']]],
@@ -81,6 +82,7 @@ var searchData=
   ['household_5fshare_5fmessage',['household_share_message',['../header_8h.html#aef01396b006c118c62a778ab5121455b',1,'header.h']]],
   ['household_5fshare_5fmessages',['household_share_messages',['../structnode__information.html#af88b451b8bf221939221f59a5f524714',1,'node_information']]],
   ['household_5fstart_5fstate',['household_start_state',['../header_8h.html#aad713441c4bf767521c2bf57b78dca65',1,'header.h']]],
+  ['household_5fstartup_5fleverage',['HOUSEHOLD_STARTUP_LEVERAGE',['../header_8h.html#a8e59488cdd1fb2533cd46c1e2a95ada1',1,'header.h']]],
   ['houses',['houses',['../structxmachine__memory__centralbank.html#ae42ec3ffb86c03cbd180a9f102f8360a',1,'xmachine_memory_centralbank::houses()'],['../centralbank__agent__header_8h.html#a5d917f3004168bedb809ef5764b7530b',1,'HOUSES():&#160;centralbank_agent_header.h']]],
   ['housing_5fmarket_5fentrance_5fprob',['HOUSING_MARKET_ENTRANCE_PROB',['../header_8h.html#a719ef2c2f6c9825180b88636ab91b7f1',1,'header.h']]],
   ['housing_5fpayment',['housing_payment',['../structxmachine__memory__household.html#a6c921f690f5969ebe430d85382101966',1,'xmachine_memory_household::housing_payment()'],['../household__agent__header_8h.html#a899712fd06452e6a1f75149a6e18dbf9',1,'HOUSING_PAYMENT():&#160;household_agent_header.h']]],

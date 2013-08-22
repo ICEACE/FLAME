@@ -1,14 +1,18 @@
 var searchData=
 [
+  ['m_5fbank_5fnet_5fprofit',['m_bank_net_profit',['../structm__bank__net__profit.html',1,'m_bank_net_profit'],['../header_8h.html#a4edba32f7fa385bee0b6eba164f8bb20',1,'m_bank_net_profit():&#160;header.h']]],
   ['m_5fbought',['m_bought',['../structm__bought.html',1,'m_bought'],['../header_8h.html#a23d377b73cf5c4b2f03c73c9b5c037b6',1,'m_bought():&#160;header.h']]],
   ['m_5fbought_5fhousing',['m_bought_housing',['../structm__bought__housing.html',1,'m_bought_housing'],['../header_8h.html#a74acb81ba8e8f49bd137a2ae4115d7b5',1,'m_bought_housing():&#160;header.h']]],
   ['m_5fbuy',['m_buy',['../structm__buy.html',1,'m_buy'],['../header_8h.html#a4bbf639dbee2ff3a27b912460a65e999',1,'m_buy():&#160;header.h']]],
   ['m_5fbuy_5fhousing',['m_buy_housing',['../structm__buy__housing.html',1,'m_buy_housing'],['../header_8h.html#a547e94a7e5fd4a181f24134046a19c1c',1,'m_buy_housing():&#160;header.h']]],
   ['m_5fcapital_5ftax',['m_capital_tax',['../structm__capital__tax.html',1,'m_capital_tax'],['../header_8h.html#a73127b5442e5e471ef954bbf8174ed19',1,'m_capital_tax():&#160;header.h']]],
+  ['m_5fdebt_5fack',['m_debt_ack',['../structm__debt__ack.html',1,'m_debt_ack'],['../header_8h.html#af5a2b595ba6db03f1dd572c65ffbe55c',1,'m_debt_ack():&#160;header.h']]],
+  ['m_5fdebt_5frequest',['m_debt_request',['../structm__debt__request.html',1,'m_debt_request'],['../header_8h.html#acda242aafcb4bf54935bf8d066649769',1,'m_debt_request():&#160;header.h']]],
   ['m_5femployment_5fstatus',['m_employment_status',['../structm__employment__status.html',1,'m_employment_status'],['../header_8h.html#aaf9887d87c079cff26f9144533faed19',1,'m_employment_status():&#160;header.h']]],
   ['m_5ffired',['m_fired',['../structm__fired.html',1,'m_fired'],['../header_8h.html#adbeae1787ef7bf2126f61f36f5935ebd',1,'m_fired():&#160;header.h']]],
   ['m_5ffirm_5fnet_5fprofit',['m_firm_net_profit',['../structm__firm__net__profit.html',1,'m_firm_net_profit'],['../header_8h.html#ab970f481606d4da21a9390a65d1edd05',1,'m_firm_net_profit():&#160;header.h']]],
   ['m_5ffund_5frequest',['m_fund_request',['../structm__fund__request.html',1,'m_fund_request'],['../header_8h.html#af7837b3f0553f84ae3f69604e3c44cac',1,'m_fund_request():&#160;header.h']]],
+  ['m_5ffund_5frequest_5fack',['m_fund_request_ack',['../structm__fund__request__ack.html',1,'m_fund_request_ack'],['../header_8h.html#abdef043075500e7f4d9dba917cbaa87f',1,'m_fund_request_ack():&#160;header.h']]],
   ['m_5fgeneral_5fbenefit',['m_general_benefit',['../structm__general__benefit.html',1,'m_general_benefit'],['../header_8h.html#aaee67d1badd36572cbc435fa4533b24b',1,'m_general_benefit():&#160;header.h']]],
   ['m_5fgoods_5ftransactions_5fsummary',['m_goods_transactions_summary',['../structm__goods__transactions__summary.html',1,'m_goods_transactions_summary'],['../header_8h.html#ac015afbcc5b71e912f592975f3489c4b',1,'m_goods_transactions_summary():&#160;header.h']]],
   ['m_5fhousehold_5fshare',['m_household_share',['../structm__household__share.html',1,'m_household_share'],['../header_8h.html#a88c578feaed196ff3d6d0bc1c923bb99',1,'m_household_share():&#160;header.h']]],

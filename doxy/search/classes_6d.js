@@ -1,14 +1,18 @@
 var searchData=
 [
+  ['m_5fbank_5fnet_5fprofit',['m_bank_net_profit',['../structm__bank__net__profit.html',1,'']]],
   ['m_5fbought',['m_bought',['../structm__bought.html',1,'']]],
   ['m_5fbought_5fhousing',['m_bought_housing',['../structm__bought__housing.html',1,'']]],
   ['m_5fbuy',['m_buy',['../structm__buy.html',1,'']]],
   ['m_5fbuy_5fhousing',['m_buy_housing',['../structm__buy__housing.html',1,'']]],
   ['m_5fcapital_5ftax',['m_capital_tax',['../structm__capital__tax.html',1,'']]],
+  ['m_5fdebt_5fack',['m_debt_ack',['../structm__debt__ack.html',1,'']]],
+  ['m_5fdebt_5frequest',['m_debt_request',['../structm__debt__request.html',1,'']]],
   ['m_5femployment_5fstatus',['m_employment_status',['../structm__employment__status.html',1,'']]],
   ['m_5ffired',['m_fired',['../structm__fired.html',1,'']]],
   ['m_5ffirm_5fnet_5fprofit',['m_firm_net_profit',['../structm__firm__net__profit.html',1,'']]],
   ['m_5ffund_5frequest',['m_fund_request',['../structm__fund__request.html',1,'']]],
+  ['m_5ffund_5frequest_5fack',['m_fund_request_ack',['../structm__fund__request__ack.html',1,'']]],
   ['m_5fgeneral_5fbenefit',['m_general_benefit',['../structm__general__benefit.html',1,'']]],
   ['m_5fgoods_5ftransactions_5fsummary',['m_goods_transactions_summary',['../structm__goods__transactions__summary.html',1,'']]],
   ['m_5fhousehold_5fshare',['m_household_share',['../structm__household__share.html',1,'']]],
