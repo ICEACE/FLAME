@@ -1,7 +1,8 @@
 <map id="copy_mortgage" name="copy_mortgage">
-<area shape="rect" id="node2" href="$memory_8c.html#a5debe505169ab4ab8dd839ec5e180c49" title="copy_mortgage_static\l_array" alt="" coords="168,5,320,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a832128364a612e6e6492aea76a45e041" title="Remove an mortgage from a dynamic mortgage array." alt="" coords="179,73,309,101"/>
-<area shape="rect" id="node4" href="$household__functions__housing_8c.html#a378a6ad95e0fe07e0f67bc98d12238b3" title="household_housing_collect\l_sale_revenue" alt="" coords="369,30,551,74"/>
-<area shape="rect" id="node6" href="$household__functions__housing_8c.html#a51d60cb9793d816642ef5fb40fdbf948" title="household_housing_debt\l_writeoff" alt="" coords="375,98,545,142"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="600,73,650,101"/>
+<area shape="rect" id="node2" href="$memory_8c.html#a5debe505169ab4ab8dd839ec5e180c49" title="copy_mortgage_static\l_array" alt="" coords="168,13,320,57"/>
+<area shape="rect" id="node3" href="$memory_8c.html#a832128364a612e6e6492aea76a45e041" title="Remove an mortgage from a dynamic mortgage array." alt="" coords="179,81,309,109"/>
+<area shape="rect" id="node4" href="$household__functions__credit_8c.html#a8e2c38bf8340cf525e45d08a480faaf6" title="household_credit_update\l_mortgage_rates" alt="" coords="374,5,546,49"/>
+<area shape="rect" id="node6" href="$household__functions__housing_8c.html#a378a6ad95e0fe07e0f67bc98d12238b3" title="household_housing_collect\l_sale_revenue" alt="" coords="369,73,551,117"/>
+<area shape="rect" id="node7" href="$household__functions__housing_8c.html#a51d60cb9793d816642ef5fb40fdbf948" title="household_housing_debt\l_writeoff" alt="" coords="375,141,545,185"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="600,81,650,109"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="write_double_static_array" name="write_double_static_array">
-<area shape="rect" id="node2" href="$xml_8c.html#a320eb6bafdc27dcd76cbc9dfa8d9d749" title="write_household_agent" alt="" coords="190,13,349,41"/>
-<area shape="rect" id="node3" href="$xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="398,13,527,41"/>
-<area shape="rect" id="node4" href="$xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="576,13,699,41"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="747,13,797,41"/>
+<area shape="rect" id="node2" href="$xml_8c.html#a320eb6bafdc27dcd76cbc9dfa8d9d749" title="write_household_agent" alt="" coords="194,5,353,33"/>
+<area shape="rect" id="node6" href="$xml_8c.html#aba67b260465ab67722f269c3e2c982a8" title="write_centralbank_agent" alt="" coords="190,57,357,85"/>
+<area shape="rect" id="node3" href="$xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="406,31,535,59"/>
+<area shape="rect" id="node4" href="$xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="584,31,707,59"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="755,31,805,59"/>
 </map>

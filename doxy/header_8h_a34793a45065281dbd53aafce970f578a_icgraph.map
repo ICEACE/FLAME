@@ -7,7 +7,7 @@
 <area shape="rect" id="node12" href="$memory_8c.html#a75c74079067b886411fed1de567159bb" title="init_reagency_agent" alt="" coords="177,177,319,205"/>
 <area shape="rect" id="node14" href="$memory_8c.html#afa262954ba9175318bd50d767f4ddaf8" title="unittest_init_reagency\l_agent" alt="" coords="172,365,324,409"/>
 <area shape="rect" id="node15" href="$memory_8c.html#a77e215aeccce5a3b634a9367de948c6e" title="Add an transaction to the dynamic transaction array." alt="" coords="190,433,306,461"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a69cb204d165557015dcf8b9585dd7a85" title="add_centralbank_agent" alt="" coords="388,47,548,75"/>
+<area shape="rect" id="node4" href="$memory_8c.html#a64dda7b4c113ad47f1da52e65056bad7" title="add_centralbank_agent" alt="" coords="388,47,548,75"/>
 <area shape="rect" id="node5" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="413,99,523,127"/>
 <area shape="rect" id="node6" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="606,99,720,127"/>
 <area shape="rect" id="node7" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="768,99,818,127"/>
