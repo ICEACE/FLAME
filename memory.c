@@ -13113,10 +13113,6 @@ double FLAME_get_environment_variable_firm_memory_persistance()
 {
 	return FLAME_environment_variable_firm_memory_persistance;
 }
-double FLAME_get_environment_variable_risky_assets_ratio()
-{
-	return FLAME_environment_variable_risky_assets_ratio;
-}
 double FLAME_get_environment_variable_ratio_debt_firm()
 {
 	return FLAME_environment_variable_ratio_debt_firm;

@@ -53,9 +53,6 @@
 /** \def FIRM_MEMORY_PERSISTANCE
  * \brief Provide access to environment variables in uppercase. */
 #define FIRM_MEMORY_PERSISTANCE (FLAME_get_environment_variable_firm_memory_persistance())
-/** \def RISKY_ASSETS_RATIO
- * \brief Provide access to environment variables in uppercase. */
-#define RISKY_ASSETS_RATIO (FLAME_get_environment_variable_risky_assets_ratio())
 /** \def RATIO_DEBT_FIRM
  * \brief Provide access to environment variables in uppercase. */
 #define RATIO_DEBT_FIRM (FLAME_get_environment_variable_ratio_debt_firm())
@@ -2207,9 +2204,6 @@ double FLAME_environment_variable_price_markup;
 /** \var double firm_memory_persistance
 * \brief A constant variable from the environment. */
 double FLAME_environment_variable_firm_memory_persistance;
-/** \var double risky_assets_ratio
-* \brief A constant variable from the environment. */
-double FLAME_environment_variable_risky_assets_ratio;
 /** \var double ratio_debt_firm
 * \brief A constant variable from the environment. */
 double FLAME_environment_variable_ratio_debt_firm;
@@ -4107,7 +4101,6 @@ double FLAME_get_environment_variable_turnover_probability();
 double FLAME_get_environment_variable_production_markup();
 double FLAME_get_environment_variable_price_markup();
 double FLAME_get_environment_variable_firm_memory_persistance();
-double FLAME_get_environment_variable_risky_assets_ratio();
 double FLAME_get_environment_variable_ratio_debt_firm();
 double FLAME_get_environment_variable_ratio_fiscal_policy();
 double FLAME_get_environment_variable_ratio_capitalist_households();

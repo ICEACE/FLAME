@@ -1478,7 +1478,6 @@ int readEnvironmentXML(char * location)
 	int in_production_markup = 0;
 	int in_price_markup = 0;
 	int in_firm_memory_persistance = 0;
-	int in_risky_assets_ratio = 0;
 	int in_ratio_debt_firm = 0;
 	int in_ratio_fiscal_policy = 0;
 	int in_ratio_capitalist_households = 0;
@@ -1529,8 +1528,6 @@ int readEnvironmentXML(char * location)
 			if(strcmp(buffer, "/price_markup") == 0) in_price_markup = 0;
 			if(strcmp(buffer, "firm_memory_persistance") == 0) in_firm_memory_persistance = 1;
 			if(strcmp(buffer, "/firm_memory_persistance") == 0) in_firm_memory_persistance = 0;
-			if(strcmp(buffer, "risky_assets_ratio") == 0) in_risky_assets_ratio = 1;
-			if(strcmp(buffer, "/risky_assets_ratio") == 0) in_risky_assets_ratio = 0;
 			if(strcmp(buffer, "ratio_debt_firm") == 0) in_ratio_debt_firm = 1;
 			if(strcmp(buffer, "/ratio_debt_firm") == 0) in_ratio_debt_firm = 0;
 			if(strcmp(buffer, "ratio_fiscal_policy") == 0) in_ratio_fiscal_policy = 1;
@@ -1577,7 +1574,6 @@ int readEnvironmentXML(char * location)
 				if(in_production_markup == 1) { FLAME_environment_variable_production_markup = atof(buffer); }
 				if(in_price_markup == 1) { FLAME_environment_variable_price_markup = atof(buffer); }
 				if(in_firm_memory_persistance == 1) { FLAME_environment_variable_firm_memory_persistance = atof(buffer); }
-				if(in_risky_assets_ratio == 1) { FLAME_environment_variable_risky_assets_ratio = atof(buffer); }
 				if(in_ratio_debt_firm == 1) { FLAME_environment_variable_ratio_debt_firm = atof(buffer); }
 				if(in_ratio_fiscal_policy == 1) { FLAME_environment_variable_ratio_fiscal_policy = atof(buffer); }
 				if(in_ratio_capitalist_households == 1) { FLAME_environment_variable_ratio_capitalist_households = atof(buffer); }
@@ -2783,7 +2779,6 @@ void readinitialstates(char * filename, char * filelocation, int * itno, double 
 	FLAME_environment_variable_production_markup = 0.0;
 	FLAME_environment_variable_price_markup = 0.0;
 	FLAME_environment_variable_firm_memory_persistance = 0.0;
-	FLAME_environment_variable_risky_assets_ratio = 0.0;
 	FLAME_environment_variable_ratio_debt_firm = 0.0;
 	FLAME_environment_variable_ratio_fiscal_policy = 0.0;
 	FLAME_environment_variable_ratio_capitalist_households = 0.0;
@@ -4329,10 +4324,6 @@ void FLAME_write_xml(char * location, int iteration_number, int * output_types, 
 		sprintf(data, "%f", FLAME_environment_variable_firm_memory_persistance);
 		fputs(data, file);
 		fputs("</firm_memory_persistance>\n", file);
-			fputs("<risky_assets_ratio>", file);
-		sprintf(data, "%f", FLAME_environment_variable_risky_assets_ratio);
-		fputs(data, file);
-		fputs("</risky_assets_ratio>\n", file);
 			fputs("<ratio_debt_firm>", file);
 		sprintf(data, "%f", FLAME_environment_variable_ratio_debt_firm);
 		fputs(data, file);
