@@ -27,7 +27,7 @@ int household_housing_market_role()
     }
     
     // inactive:
-    if (random_int(0, 99) < HOUSING_MARKET_ENTRANCE_PROB * 100) {
+    if (random_int(0, 99) < (100 - 2 * HOUSING_MARKET_ENTRANCE_PROB * 100)) {
         HMARKET_ROLE = 0;
         return 0;
     }
@@ -127,7 +127,7 @@ int household_housing_buy()
         
         // update mortgages array.
         
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, 40, mortgage_used, quarterly_interest, quarterly_principal);
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, 160, mortgage_used, quarterly_interest, quarterly_principal);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -369,13 +369,13 @@ int household_housing_debt_writeoff()
         MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * (labour_income + capital_income) / MORTGAGES_INTEREST_RATE;
         
         d1 = MORTGAGES_INTEREST_RATE/4;
-        d2 = d1 * pow((1 + d1), 40);
+        d2 = d1 * pow((1 + d1), 160);
         annuity = 1/d1 - 1/d2;
         
         quarterly_interest = MORTGAGES * MORTGAGES_INTEREST_RATE / 4;
         quarterly_principal = (MORTGAGES / annuity) - quarterly_interest;
         
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, 40, MORTGAGES, quarterly_interest, quarterly_principal);
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, 160, MORTGAGES, quarterly_interest, quarterly_principal);
     }
     
     free_mortgage(&mort);

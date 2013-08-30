@@ -9,7 +9,7 @@
             <variable>
                 <type>double</type>
                 <name>housing_market_entrance_prob</name>
-                <description>Entrance probability to be in active for the hoisehold agents.</description>
+                <description>Entrance probability of an household agent. It determines the chance for an household to be active at housing market.</description>
             </variable>
             <variable>
                 <type>double</type>

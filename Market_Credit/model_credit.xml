@@ -8,11 +8,6 @@
         <constants>
             <variable>
                 <type>double</type>
-                <name>risky_assets_ratio</name>
-                <description>Percent of risky assets of banks to be compared to banks' equity.</description>
-            </variable>
-            <variable>
-                <type>double</type>
                 <name>ratio_debt_firm</name>
                 <description>Ratio of debt to be paid by a firm.</description>
             </variable>
@@ -1637,5 +1632,5 @@
                 </variable>
             </variables>
         </message>
-    <messages>
+    </messages>
 </xmodel>

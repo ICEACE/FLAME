@@ -11,7 +11,7 @@
  */
 int bank_housing_compute_capital_status()
 {
-    add_mortgaging_capacity_message(ID,EQUITY,MORTGAGES+LOANS);
+    add_mortgaging_capacity_message(ID,EQUITY,MORTGAGES+LOANS+LIQUIDITY);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

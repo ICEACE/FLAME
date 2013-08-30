@@ -11,7 +11,7 @@ int bank_credit_process_loan_requests_1()
     int firm;
 
     START_LOAN_REQUEST_1_MESSAGE_LOOP
-    risks = LOANS + MORTGAGES;
+    risks = LOANS + MORTGAGES + LIQUIDITY;
     amount = loan_request_1_message->amount;
     firm = loan_request_1_message->firm_id;
     // code redundancy is to prevent division by zero error. 
@@ -20,7 +20,7 @@ int bank_credit_process_loan_requests_1()
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
     }
-    else if ((EQUITY / risks) >= RISKY_ASSETS_RATIO) {
+    else if ((EQUITY / risks) >= BANK_RISKY_ASSETS_RATIO) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
@@ -58,7 +58,7 @@ int bank_credit_process_loan_requests_2()
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
     }
-    else if ((EQUITY / risks) >= RISKY_ASSETS_RATIO) {
+    else if ((EQUITY / risks) >= BANK_RISKY_ASSETS_RATIO) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
