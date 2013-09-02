@@ -192,9 +192,11 @@ int reagency_housing_process()
         transaction_volume += nsold * price;
     }
     
-    HOUSING_TRANSACTIONS.quantity = transaction_quantity;
-    HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
-    
+    if (transaction_quantity > 0) {
+        HOUSING_TRANSACTIONS.quantity = transaction_quantity;
+        HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;        
+    }
+        
     /* Garbage Collection */
     free_hseller_array(&sellers_list);
     free_hbuyer_array(&buyers_list);

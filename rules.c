@@ -804,7 +804,7 @@ int FLAME_condition_household_household_housing_fire_sell_HHHousingRole_HHHousin
  */
 int FLAME_condition_household_idle_HHHousingCheckWealth_HHHousingPrice(xmachine_memory_household *a)
 {
-	if((a->equity_ratio <= a->minimum_equity_ratio)) return 1;
+	if((a->equity_ratio < a->minimum_equity_ratio)) return 1;
 	else return 0;
 }
 
@@ -816,7 +816,7 @@ int FLAME_condition_household_idle_HHHousingCheckWealth_HHHousingPrice(xmachine_
  */
 int FLAME_condition_household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain(xmachine_memory_household *a)
 {
-	if((a->equity_ratio > a->minimum_equity_ratio)) return 1;
+	if((a->equity_ratio >= a->minimum_equity_ratio)) return 1;
 	else return 0;
 }
 

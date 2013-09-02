@@ -176,8 +176,10 @@ int mall_consumption_shopping()
     
     // Finish
     //printf("Mall: Total Goods Not Sold= %d\n", total_sold);
-    GOODS_TRANSACTIONS.quantity = transaction_quantity;
-    GOODS_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
+    if (transaction_quantity > 0) {
+        GOODS_TRANSACTIONS.quantity = transaction_quantity;
+        GOODS_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
+    }
     
     /* Free seller list */
     free_seller_array(&sellers_list);

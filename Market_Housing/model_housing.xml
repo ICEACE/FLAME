@@ -393,7 +393,7 @@
                         <lhs>
                             <value>a.equity_ratio</value>
                         </lhs>
-                        <op>LEQ</op>
+                        <op>LT</op>
                         <rhs>
                             <value>a.minimum_equity_ratio</value>
                         </rhs>
@@ -408,7 +408,7 @@
                         <lhs>
                             <value>a.equity_ratio</value>
                         </lhs>
-                        <op>GT</op>
+                        <op>GEQ</op>
                         <rhs>
                             <value>a.minimum_equity_ratio</value>
                         </rhs>

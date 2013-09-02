@@ -51,8 +51,8 @@ int household_housing_market_role()
  */
 int household_housing_check_wealth()
 {
-    double wealth;
-    double housing;
+    double wealth = 0;
+    double housing = 0;
     
     // Housing assets.
     housing = HOUSING_UNITS * HOUSING_PRICE;
@@ -60,12 +60,16 @@ int household_housing_check_wealth()
     //Capital income (the FUND_SHARES are liquidified as sooon as they are recieved.)
     wealth = LIQUIDITY + housing;
     
-    if (wealth == 0){
+    if (wealth <= 0){
         EQUITY_RATIO = 0;
     } else {
         EQUITY_RATIO = EQUITY / wealth;
     }
     
+    printf("HousingMarket Household ID = %d buys\n", ID);
+    printf("HousingMarket Household MARKET ROLE = %d\n", HMARKET_ROLE);
+    
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -88,6 +92,9 @@ int household_housing_enter_market()
     mortgage_costs = MORTGAGE_COSTS[0] + MORTGAGE_COSTS[1] + MORTGAGE_COSTS[2];
     
     add_buy_housing_message(ID, BANK_ID, LIQUIDITY, income, mortgage_costs);
+    
+    printf("HousingMarket Household ID = %d buys\n", ID);
+    printf("HousingMarket Household Equity Ratio = %f\n", EQUITY_RATIO);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -278,10 +285,13 @@ int household_housing_collect_sale_revenue()
  */
 int household_housing_update_market_price()
 {
+    printf("HousingMarket Household Old Housing Price = %f\n", HOUSING_PRICE);
  
     START_HOUSING_PRICE_MESSAGE_LOOP
     HOUSING_PRICE = housing_price_message->price;
 	FINISH_HOUSING_PRICE_MESSAGE_LOOP
+    
+    printf("HousingMarket Household New Housing Price = %f\n", HOUSING_PRICE);
 	    
 	return 0; /* Returning zero means the agent is not removed */
 }
