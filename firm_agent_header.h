@@ -6,6 +6,9 @@
 /** \def ID
  * \brief Direct access to id of firm agent memory variable. */
 #define ID (current_xmachine_firm->id)
+/** \def BANK_ID
+ * \brief Direct access to bank_id of firm agent memory variable. */
+#define BANK_ID (current_xmachine_firm->bank_id)
 /** \def ISCONSTRUCTOR
  * \brief Direct access to isconstructor of firm agent memory variable. */
 #define ISCONSTRUCTOR (current_xmachine_firm->isconstructor)
@@ -15,6 +18,9 @@
 /** \def ISINSOLVENT
  * \brief Direct access to isinsolvent of firm agent memory variable. */
 #define ISINSOLVENT (current_xmachine_firm->isinsolvent)
+/** \def IT_NO
+ * \brief Direct access to it_no of firm agent memory variable. */
+#define IT_NO (current_xmachine_firm->it_no)
 /** \def DAY_OF_WEEK_TO_ACT
  * \brief Direct access to day_of_week_to_act of firm agent memory variable. */
 #define DAY_OF_WEEK_TO_ACT (current_xmachine_firm->day_of_week_to_act)
@@ -78,9 +84,6 @@
 /** \def PROJECTS
  * \brief Direct access to projects of firm agent memory variable. */
 #define PROJECTS (current_xmachine_firm->projects)
-/** \def BANK_ID
- * \brief Direct access to bank_id of firm agent memory variable. */
-#define BANK_ID (current_xmachine_firm->bank_id)
 /** \def LOANS_INTEREST_RATE
  * \brief Direct access to loans_interest_rate of firm agent memory variable. */
 #define LOANS_INTEREST_RATE (current_xmachine_firm->loans_interest_rate)
@@ -96,9 +99,27 @@
 /** \def REVENUE
  * \brief Direct access to revenue of firm agent memory variable. */
 #define REVENUE (current_xmachine_firm->revenue)
+/** \def TOTAL_ASSETS
+ * \brief Direct access to total_assets of firm agent memory variable. */
+#define TOTAL_ASSETS (current_xmachine_firm->total_assets)
 /** \def COSTS
  * \brief Direct access to costs of firm agent memory variable. */
 #define COSTS (current_xmachine_firm->costs)
+/** \def TOTAL_INTEREST_PAYMENTS
+ * \brief Direct access to total_interest_payments of firm agent memory variable. */
+#define TOTAL_INTEREST_PAYMENTS (current_xmachine_firm->total_interest_payments)
+/** \def DIVIDENDS_PAID
+ * \brief Direct access to dividends_paid of firm agent memory variable. */
+#define DIVIDENDS_PAID (current_xmachine_firm->dividends_paid)
+/** \def DIVIDENDS_RETAINED
+ * \brief Direct access to dividends_retained of firm agent memory variable. */
+#define DIVIDENDS_RETAINED (current_xmachine_firm->dividends_retained)
+/** \def EARNINGS
+ * \brief Direct access to earnings of firm agent memory variable. */
+#define EARNINGS (current_xmachine_firm->earnings)
+/** \def EBIT
+ * \brief Direct access to ebit of firm agent memory variable. */
+#define EBIT (current_xmachine_firm->ebit)
 /** \def EQUITY
  * \brief Direct access to equity of firm agent memory variable. */
 #define EQUITY (current_xmachine_firm->equity)

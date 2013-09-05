@@ -65,17 +65,35 @@ int centralbank_process_debt_requests()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
+/*
+ * \fn: int centralbank_compute_income_statement()
+ * \brief: Central Bank computes the income statement.
+ */
+int centralbank_compute_income_statement()
+{
+    REVENUES = INTERESTS_ACCRUED;
+    TOTAL_COSTS = TOTAL_WRITEOFFS;
+    NET_EARNINGS = REVENUES - TOTAL_COSTS;
+    // output revenues, interests collected and writeoffs
+    INTERESTS_ACCRUED = 0;
+    TOTAL_WRITEOFFS = 0;
+            
+	return 0; /* Returning zero means the agent is not removed */
+}
+
 /*
  * \fn: int centralbank_do_balance_sheet()
  * \brief: Central Bank does the balance sheet accounting.
  */
 int centralbank_do_balance_sheet()
 {
-    double assets, liabilities;
+    double liabilities;
     
-    assets = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
+    TOTAL_ASSETS = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
     liabilities = FIAT_MONEY + LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT;
-    EQUITY = assets - liabilities;
+    EQUITY = TOTAL_ASSETS - liabilities;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+

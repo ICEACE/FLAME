@@ -23,6 +23,36 @@ int equityfund_credit_invest_illiquids()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+/*
+ * \fn: int equityfund_credit_distribute_shares()
+ * \brief:Equity fund sends out shares to households.
+ */
+int equityfund_credit_distribute_shares()
+{
+    double per_share;
+        
+    DIVIDENDS_PAID = DIVIDENDS_RECIEVED - FIRM_INVESTMENT;
+    
+    if (DIVIDENDS_PAID < 0) {
+        DIVIDENDS_PAID = 0;
+        return 0;
+    }
+    
+    if (N_DIVIDENDS > 0) {
+        per_share = DIVIDENDS_PAID / N_DIVIDENDS;
+    }
+    else {
+        per_share = DIVIDENDS_PAID / 8000;
+    }
+    
+    LIQUIDITY -= DIVIDENDS_PAID;
+    
+    add_household_share_message(per_share);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
 
 /*
  * \fn: int equityfund_credit_collect_firm_shares()
@@ -45,8 +75,7 @@ int equityfund_credit_collect_firm_shares()
     SHARE_FIRMS += producers;
     SHARE_CONSTRUCTION_FIRMS += constructors;
     LIQUIDITY += producers + constructors;
-    DIVIDENDS_RECIEVED += producers + constructors;
-    
+        
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -66,37 +95,25 @@ int equityfund_credit_collect_bank_shares()
 
     SHARE_BANKS += shares;
     LIQUIDITY += shares;
-    DIVIDENDS_RECIEVED += shares;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
 /*
- * \fn: int equityfund_credit_distribute_shares()
- * \brief:Equity fund sends out shares to households.
+ * \fn: int eqyuityfund_compute_income_statement()
+ * \brief: fund computes the income statement.
  */
-int equityfund_credit_distribute_shares()
+int equityfund_compute_income_statement()
 {
-    double per_share;
+    DIVIDENDS_RECIEVED = SHARE_BANKS + SHARE_FIRMS + SHARE_CONSTRUCTION_FIRMS;
+    DIVIDENDS_RETAINED = FIRM_INVESTMENT;
+    //DIVIDENDS_PAID is computed while shares are sent to fund.
     
-    if (FIRM_INVESTMENT > 0) {
-        DIVIDENDS_RETAINED = FIRM_INVESTMENT;
-    } else {
-        DIVIDENDS_RETAINED = 0;
-    }
-    
-    DIVIDENDS_PAID = DIVIDENDS_RECIEVED - DIVIDENDS_RETAINED;
-    
-    if (N_DIVIDENDS > 0) {
-        per_share = DIVIDENDS_PAID / N_DIVIDENDS;
-    }
-    else {
-        per_share = DIVIDENDS_PAID / 8000;
-    }
-    
-    LIQUIDITY -= DIVIDENDS_PAID;
-    
-    add_household_share_message(per_share);
+    SHARE_CONSTRUCTION_FIRMS = 0;
+    SHARE_FIRMS = 0;
+    SHARE_BANKS = 0;
+    FIRM_INVESTMENT = 0;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

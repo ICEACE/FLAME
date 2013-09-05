@@ -20,7 +20,7 @@ int bank_credit_process_loan_requests_1()
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
     }
-    else if ((EQUITY / risks) >= BANK_RISKY_ASSETS_RATIO) {
+    else if ((EQUITY / risks) >= CAPITAL_ADEQUECY_RATIO) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
@@ -43,7 +43,7 @@ int bank_credit_process_loan_requests_2()
     int firm, primary_bank;
     
     START_LOAN_REQUEST_2_MESSAGE_LOOP
-    risks = LOANS + MORTGAGES;
+    risks = LOANS + MORTGAGES + LIQUIDITY;
     amount = loan_request_2_message->amount;
     firm = loan_request_2_message->firm_id;
     primary_bank = loan_request_2_message->bank_id;
@@ -58,7 +58,7 @@ int bank_credit_process_loan_requests_2()
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
     }
-    else if ((EQUITY / risks) >= BANK_RISKY_ASSETS_RATIO) {
+    else if ((EQUITY / risks) >= CAPITAL_ADEQUECY_RATIO) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
@@ -126,26 +126,6 @@ int bank_credit_collect_loan_interests()
 
 
 /*
- * \fn: int bank_credit_send_dividends()
- * \brief:
- */
-int bank_credit_send_dividends()
-{
-    double net_income;
-    
-    net_income = INTERESTS_ACCRUED - TOTAL_WRITEOFFS;
-    if (net_income <= 0) { return 0; }
-    
-    add_bank_net_profit_message(ID, net_income);
-    DIVIDENDS_PAID += net_income;
-    LIQUIDITY -= net_income;
-    INTERESTS_ACCRUED = 0;
-    TOTAL_WRITEOFFS = 0;
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
-
-/*
  * \fn: int bank_credit_request_liquidity()
  * \brief: If a bank has a negative liquidity at the end of a quarter, requests loans from
  * the central bank.
@@ -172,8 +152,64 @@ int bank_credit_recieve_liquidity()
     START_DEBT_ACK_MESSAGE_LOOP
     amount = debt_ack_message->amount;
     LIQUIDITY += amount;
-    DEBT += amount;
+    CENTRALBANK_DEBT += amount;
     FINISH_DEBT_ACK_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int bank_credit_compute_income_statement()
+ * \brief:
+ */
+int bank_credit_compute_income_statement()
+{
+    REVENUES = INTERESTS_ACCRUED;
+    TOTAL_COSTS = TOTAL_WRITEOFFS + INTERESTS_PAID;
+    NET_EARNINGS = REVENUES - TOTAL_COSTS;
+    // output revenues, interests collected and paid, writeoffs
+    INTERESTS_ACCRUED = 0;
+    TOTAL_WRITEOFFS = 0;
+    INTERESTS_PAID = 0;
+    
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int bank_credit_compute_dividends()
+ * \brief:
+ */
+int bank_credit_compute_dividends()
+{
+
+    if (NET_EARNINGS <= 0) {
+        return 0;
+    }
+    // determine if dividends retained.
+    
+    if (TOTAL_ASSETS > 0) {
+        if ((EQUITY / TOTAL_ASSETS) < (CAPITAL_ADEQUECY_RATIO + CAR_BUFFER_THRESHOLD)){
+            RETAINED_EARNINGS = NET_EARNINGS;
+            TOTAL_DIVIDENDS = 0;
+        }
+        else{
+            RETAINED_EARNINGS = 0;
+            TOTAL_DIVIDENDS = NET_EARNINGS;;
+        }
+    }
+    else
+    {
+    // stytem exit: put log file the information.
+        printf("Total Asset of Bank = %d is Negative or Zero!!!\n", ID);
+    }
+    
+    //add_bank_fund_dividends_message()
+    LIQUIDITY -= TOTAL_DIVIDENDS;
+    add_bank_net_profit_message(ID, TOTAL_DIVIDENDS);
+  // data: retained_earnings, total_dividends.
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -184,11 +220,27 @@ int bank_credit_recieve_liquidity()
  */
 int bank_credit_do_balance_sheet()
 {
-    double assets, liabilities;
+    if (LIQUIDITY < 0) {
+        CENTRALBANK_DEBT += -1 * LIQUIDITY;
+        LIQUIDITY = 0;
+    }
+    else if (LIQUIDITY > 0 && CENTRALBANK_DEBT > 0) {
+        if (LIQUIDITY > CENTRALBANK_DEBT){
+            LIQUIDITY -= CENTRALBANK_DEBT;
+            CENTRALBANK_DEBT = 0;
+        }
+        else{
+            CENTRALBANK_DEBT -= LIQUIDITY;
+            LIQUIDITY = 0;
+        }
+    }
+    else {
+        // nothing to do for now.
+    }
     
-    assets = LIQUIDITY + LOANS + MORTGAGES;
-    liabilities = DEPOSITS + DEBT;
-    EQUITY = assets - liabilities;
+
+    TOTAL_ASSETS = LIQUIDITY + LOANS + MORTGAGES;
+    EQUITY = TOTAL_ASSETS - DEPOSITS - CENTRALBANK_DEBT;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

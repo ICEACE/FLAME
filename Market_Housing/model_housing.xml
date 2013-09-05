@@ -23,7 +23,7 @@
             </variable>
             <variable>
                 <type>double</type>
-                <name>bank_risky_assets_ratio</name>
+                <name>capital_adequecy_ratio</name>
                 <description>Allowable ratio of risky assets owned by bank for crediting.</description>
             </variable>
             <variable>
@@ -155,7 +155,7 @@
                     <name>idle</name>
                     <description>Handles if the firm is not a constructor.</description>
                     <currentState>FirmHousingStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmUpdateDeposits</nextState>
                     <condition>
                         <lhs>
                             <value>a.isconstructor</value>
@@ -185,7 +185,7 @@
                     <name>idle</name>
                     <description>It is not the first day of the month.</description>
                     <currentState>FirmHousingMarket</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmUpdateDeposits</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -231,7 +231,7 @@
                     <name>firm_housing_update_market_price</name>
                     <description>Firm checks housing prices.</description>
                     <currentState>FirmHousingPrice</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmUpdateDeposits</nextState>
                     <inputs>
                         <input>
                             <messageName>housing_price</messageName>
@@ -272,7 +272,7 @@
                     <name>idle</name>
                     <description>It is not the first day of the month.</description>
                     <currentState>HHHousingStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HouseholdUpdateDeposits</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -462,7 +462,7 @@
                     <name>household_housing_debt_writeoff</name>
                     <description>When debt of household drops below a certain threshold its earnings, the debt is written off.</description>
                     <currentState>HHHousingWriteOff</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HouseholdUpdateDeposits</nextState>
                     <outputs>
                         <output>
                             <messageName>mortgage_writeoff</messageName>
@@ -482,7 +482,7 @@
                     <name>idle</name>
                     <description>It is not the first day of the month.</description>
                     <currentState>BankHousingMarket</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankUpdateDeposits</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -562,7 +562,7 @@
                     <name>bank_housing_debt_writeoff</name>
                     <description>Bank recieves mortgage written off.</description>
                     <currentState>BankHousingWriteOff</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankUpdateDeposits</nextState>
                     <inputs>
                         <input>
                             <messageName>mortgage_writeoff</messageName>

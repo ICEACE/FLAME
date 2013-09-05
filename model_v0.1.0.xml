@@ -105,6 +105,11 @@
                 </variable>
                 <variable>
                     <type>int</type>
+                    <name>bank_id</name>
+                    <description>Primary bank of a firm.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
                     <name>isconstructor</name>
                     <description>Identifies if the firm is a constractor firm or not.</description>
                 </variable>
@@ -118,13 +123,47 @@
                     <name>isinsolvent</name>
                     <description>The variable indicates if the firm is a replacement of an insolvent producer.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
                     <name>firm_init</name>
-                    <description>Notifies its id.</description>
+                    <description>Does run time initializations.</description>
                     <currentState>start</currentState>
                     <nextState>FirmCreditStart</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>FirmUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_update_bank_account</name>
+                    <description>Deposits/updates its liquidity to bank.</description>
+                    <currentState>FirmUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>firm_bank_update_deposit</messageName>
+                        </output>
+                    </outputs>
                 </function>
              </functions>
         </xagent>
@@ -137,6 +176,11 @@
                     <name>id</name>
                     <description>Agent ID.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The ID of the bank an household has. Household applies to her bank for mortgage and deposits.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -144,6 +188,35 @@
                     <description>Notifies its id..</description>
                     <currentState>start</currentState>
                     <nextState>HHCreditStart</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>HouseholdUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_update_bank_account</name>
+                    <description>Deposits/updates its liquidity to bank.</description>
+                    <currentState>HouseholdUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>household_bank_update_deposit</messageName>
+                        </output>
+                    </outputs>
                 </function>
             </functions>
         </xagent>
@@ -180,6 +253,11 @@
                     <name>day_of_month_to_act</name>
                     <description>Activation day.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -187,6 +265,50 @@
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
                     <nextState>BankCreditStart</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>BankUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>bank_update_deposits</name>
+                    <description>Deposits/updates its liquidity to bank.</description>
+                    <currentState>BankUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>household_bank_update_deposit</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                        <input>
+                            <messageName>firm_bank_update_deposit</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
                 </function>
             </functions>
         </xagent>
@@ -307,6 +429,38 @@
         </xagent>
     </agents>
     <messages>
+        <message>
+            <name>firm_bank_update_deposit</name>
+            <description>Firm sends out its liquid money to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank where liquid money to be deposited.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>household_bank_update_deposit</name>
+            <description>Household sends out its liquid money to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank where liquid money to be deposited.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
         <message>
             <name>interest_rate</name>
             <description>The interest rate sent by the central bank.</description>

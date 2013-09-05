@@ -155,14 +155,11 @@ int reagency_housing_process()
         // after new requested mortgage.
         risk += mortgage_request;
         
-        // equity before the round.
-        double equity = banks_list.array[i].equity;
-        // equity decreased at current round so far/
-        equity -= banks_list.array[i].amount_mortgaged;
-        // after new request.
-        equity -= mortgage_request;
         
-        if (equity < BANK_RISKY_ASSETS_RATIO * risk) {
+        double equity = banks_list.array[i].equity;
+        
+        
+        if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
             remove_hbuyer(&buyers_list, 0);
             remove_hbank(&banks_list, i);
             continue;

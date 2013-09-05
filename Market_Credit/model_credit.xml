@@ -41,6 +41,11 @@
                 <name>household_startup_leverage</name>
                 <description>Households' starting leverage'.</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>car_buffer_threshold</name>
+                <description>Allowable ratio of risky assets owned by bank for crediting.</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
@@ -109,11 +114,6 @@
             <!-- Agent memory holding a list of variables -->
             <memory>
                 <variable>
-                    <type>int</type>
-                    <name>bank_id</name>
-                    <description>Primary bank of a firm.</description>
-                </variable>
-                <variable>
                     <type>double</type>
                     <name>loans_interest_rate</name>
                     <description>Rate of interest paid by firms to banks for the loans.</description>
@@ -140,8 +140,38 @@
                 </variable>
                 <variable>
                     <type>double</type>
+                    <name>total_assets</name>
+                    <description>Total assets of a firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
                     <name>costs</name>
                     <description>Total production and operation costs.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_interest_payments</name>
+                    <description>Total ineterests paid on a quarterly  basis for the bank loans.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>dividends_paid</name>
+                    <description>Amount of dividends paid to share holders via Equity Fund.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>dividends_retained</name>
+                    <description>Amount of dividends retained by the firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>earnings</name>
+                    <description>Quarterly profit after ineterest payments.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>ebit</name>
+                    <description>Firm earnings before ineterest and taxes.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -220,7 +250,7 @@
                     <name>idle</name>
                     <description>Firm does not need loans.</description>
                     <currentState>FirmCreditStatus</currentState>
-                    <nextState>FirmCreditAccounting</nextState>
+                    <nextState>FirmCreditDividendPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.liquidity_need</value>
@@ -307,7 +337,7 @@
                     <name>idle</name>
                     <description>The firm has gotten loan.</description>
                     <currentState>FirmCreditLoanBorrow2</currentState>
-                    <nextState>FirmCreditAccounting</nextState>
+                    <nextState>FirmCreditDividendPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasloan</value>
@@ -348,7 +378,7 @@
                     <name>idle</name>
                     <description>The firm has gotten loan in the second trial.</description>
                     <currentState>FirmCreditIlliquidityStatus</currentState>
-                    <nextState>FirmCreditAccounting</nextState>
+                    <nextState>FirmCreditDividendPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasloan</value>
@@ -415,7 +445,7 @@
                     <name>firm_credit_illiquidity_bankrupt</name>
                     <description>Firm cannot recieve fund goes illiquidity.</description>
                     <currentState>FirmCreditBankruptcy</currentState>
-                    <nextState>FirmCreditBalanceSheet</nextState>
+                    <nextState>FirmCreditIncomeStatement</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasinvestment</value>
@@ -435,7 +465,7 @@
                     <name>firm_credit_exit_market</name>
                     <description>The firm checks its illiquidity state, checking the deal with Equity Fund.</description>
                     <currentState>FirmCreditInsolvency</currentState>
-                    <nextState>FirmCreditBalanceSheet</nextState>
+                    <nextState>FirmCreditIncomeStatement</nextState>
                     <outputs>
                         <output>
                             <messageName>new_entrant_loan</messageName>
@@ -448,7 +478,7 @@
                 <function>
                     <name>firm_credit_distribute_net_profit</name>
                     <description>At the end of a quarter, a firm sends net profit to the equity fund.</description>
-                    <currentState>FirmCreditAccounting</currentState>
+                    <currentState>FirmCreditDividendPayments</currentState>
                     <nextState>FirmCreditLoanPayment</nextState>
                     <outputs>
                         <output>
@@ -460,12 +490,18 @@
                     <name>firm_credit_pay_interest_on_loans</name>
                     <description>Each quarter firm sends out intterest on the loans it has.</description>
                     <currentState>FirmCreditLoanPayment</currentState>
-                    <nextState>FirmCreditBalanceSheet</nextState>
+                    <nextState>FirmCreditIncomeStatement</nextState>
                     <outputs>
                         <output>
                             <messageName>interest_on_loan</messageName>
                         </output>
                     </outputs>
+                </function>
+                <function>
+                    <name>firm_credit_compute_income_statement</name>
+                    <description>computing firm balance sheet.</description>
+                    <currentState>FirmCreditIncomeStatement</currentState>
+                    <nextState>FirmCreditBalanceSheet</nextState>
                 </function>
                 <function>
                     <name>firm_credit_do_balance_sheet</name>
@@ -480,6 +516,11 @@
             <description>A bank agent.</description>
             <!-- Agent memory holding a list of variables -->
             <memory>
+                <variable>
+                    <type>double</type>
+                    <name>total_assets</name>
+                    <description>Total assets of the banks.</description>
+                </variable>
                 <variable>
                     <type>double</type>
                     <name>loans</name>
@@ -497,7 +538,7 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>debt</name>
+                    <name>centralbank_debt</name>
                     <description>Debt to central bank.</description>
                 </variable>
                 <variable>
@@ -509,6 +550,11 @@
                     <type>double</type>
                     <name>liquidity</name>
                     <description>Liquidity.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>revenues</name>
+                    <description>Revenues of the bank.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -530,6 +576,26 @@
                     <name>dividends_paid</name>
                     <description>Amount of dividends paid to share holders via Equity Fund.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_dividends</name>
+                    <description>Amount of dividends banks have to distribute.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>retained_earnings</name>
+                    <description>Retained earnings in the case of capital inadequecy.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>net_earnings</name>
+                    <description>Earnings from interests minus costs.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_costs</name>
+                    <description>Total costs of banks. It is interest paid to CB and writeoffs recieved.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -546,27 +612,16 @@
                     </condition>
                 </function>
                 <function>
-                    <name>bank_credit_send_dividends</name>
+                    <name>bank_credit_process_loan_requests_1</name>
                     <description>Bank evaluates first loan requests.</description>
                     <currentState>BankCreditStart</currentState>
-                    <nextState>BankCreditRequest1</nextState>
+                    <nextState>BankCreditRequest2</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
-                    <outputs>
-                        <output>
-                            <messageName>bank_net_profit</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>bank_credit_process_loan_requests_1</name>
-                    <description>Bank evaluates first loan requests.</description>
-                    <currentState>BankCreditRequest1</currentState>
-                    <nextState>BankCreditRequest2</nextState>
                     <inputs>
                         <input>
                             <messageName>loan_request_1</messageName>
@@ -655,7 +710,7 @@
                     <name>idle</name>
                     <description>The bank does not have any liquidity need.</description>
                     <currentState>BankCreditLiquidityNeed</currentState>
-                    <nextState>BankCreditBalanceSheet</nextState>
+                    <nextState>BankCreditIncomeStatement</nextState>
                     <condition>
                         <lhs><value>a.liquidity</value></lhs>
                         <op>GT</op>
@@ -682,7 +737,7 @@
                     <name>bank_credit_recieve_liquidity</name>
                     <description>The bank recieves liquidity from the central bank.</description>
                     <currentState>BankCreditLiquidtyRecieve</currentState>
-                    <nextState>BankCreditBalanceSheet</nextState>
+                    <nextState>BankCreditIncomeStatement</nextState>
                     <inputs>
                         <input>
                             <messageName>debt_ack</messageName>
@@ -694,6 +749,28 @@
                             </filter>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>bank_credit_compute_income_statement</name>
+                    <description>Bank computes income statement.</description>
+                    <currentState>BankCreditIncomeStatement</currentState>
+                    <nextState>BankCreditDividends</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>bank_net_profit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>bank_credit_compute_dividends</name>
+                    <description>Bank evaluates first loan requests.</description>
+                    <currentState>BankCreditDividends</currentState>
+                    <nextState>BankCreditBalanceSheet</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>bank_net_profit</messageName>
+                        </output>
+                    </outputs>
                 </function>
                 <function>
                     <name>bank_credit_do_balance_sheet</name>
@@ -748,6 +825,36 @@
                     <name>liquidity_government</name>
                     <description>Liquidity kept for the government.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_assets</name>
+                    <description>Central Bank total assets.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_writeoffs</name>
+                    <description>Central Bank loss due to bank bailouts.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>interests_accrued</name>
+                    <description>Amount of interest collected from banks and government.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>revenues</name>
+                    <description>Central Bank revenues.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>net_earnings</name>
+                    <description>Central Bank net earnings.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_costs</name>
+                    <description>Central Bank total costs.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -784,7 +891,7 @@
                     <name>centralbank_process_debt_requests</name>
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankDebtRequests</currentState>
-                    <nextState>CentralBankBalanceSheet</nextState>
+                    <nextState>CentralBankIncomeStatement</nextState>
                     <inputs>
                         <input>
                             <messageName>debt_request</messageName>
@@ -795,6 +902,12 @@
                             <messageName>debt_ack</messageName>
                         </output>
                     </outputs>
+                </function>
+                <function>
+                    <name>centralbank_compute_income_statement</name>
+                    <description>Central Bank computes income statement.</description>
+                    <currentState>CentralBankIncomeStatement</currentState>
+                    <nextState>CentralBankBalanceSheet</nextState>
                 </function>
                 <function>
                     <name>centralbank_do_balance_sheet</name>
@@ -823,11 +936,6 @@
                     <type>mortgage_array</type>
                     <name>mortgages_list</name>
                     <description>List of mortgages debted by households.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>bank_id</name>
-                    <description>The ID of the bank an household applies to a mortgage.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -1101,38 +1209,16 @@
                     </condition>
                 </function>
                 <function>
-                    <name>equityfund_credit_collect_bank_shares</name>
-                    <description>At the end of a quarter collect net income from the banks in the market.</description>
+                    <name>equityfund_credit_invest_illiquids</name>
+                    <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
                     <currentState>EquityFundStart</currentState>
-                    <nextState>EFCreditShareCollectionFirms</nextState>
+                    <nextState>EFCreditDistributeShares</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
-                    <inputs>
-                        <input>
-                            <messageName>bank_net_profit</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>equityfund_credit_collect_firm_shares</name>
-                    <description>At the end of a quarter collect net income from the firms in the market.</description>
-                    <currentState>EFCreditShareCollectionFirms</currentState>
-                    <nextState>EFCreditInvestFirms</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>firm_net_profit</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>equityfund_credit_invest_illiquids</name>
-                    <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
-                    <currentState>EFCreditInvestFirms</currentState>
-                    <nextState>EFCreditDistributeShares</nextState>
                     <inputs>
                         <input>
                             <messageName>fund_request</messageName>
@@ -1149,12 +1235,34 @@
                     <name>equityfund_credit_distribute_shares</name>
                     <description>At the end of a quarter net income per household is distributed.</description>
                     <currentState>EFCreditDistributeShares</currentState>
-                    <nextState>EFCreditBalanceSheet</nextState>
+                    <nextState>EFCreditShareCollectionBanks</nextState>
                     <outputs>
                         <output>
                             <messageName>household_share</messageName>
                         </output>
                     </outputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_collect_bank_shares</name>
+                    <description>At the end of a quarter collect net income from the banks in the market.</description>
+                    <currentState>EFCreditShareCollectionBanks</currentState>
+                    <nextState>EFCreditShareCollectionFirms</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>bank_net_profit</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_collect_firm_shares</name>
+                    <description>At the end of a quarter collect net income from the firms in the market.</description>
+                    <currentState>EFCreditShareCollectionFirms</currentState>
+                    <nextState>EFCreditBalanceSheet</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>firm_net_profit</messageName>
+                        </input>
+                    </inputs>
                 </function>
                 <function>
                     <name>equityfund_credit_do_balance_sheet</name>
@@ -1224,6 +1332,16 @@
                     <name>unemployment_benefits</name>
                     <description>Amount of unemployment benefits distributed by the government.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>earnings</name>
+                    <description>Government earnings from taxes.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>expenditures</name>
+                    <description>Government expenditures on unemployment and general benefit payments.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -1260,12 +1378,18 @@
                     <name>government_collect_capital_tax</name>
                     <description>It is the start of the quarter.</description>
                     <currentState>GovernmentCapitalTax</currentState>
-                    <nextState>GovernmentBalanceSheet</nextState>
+                    <nextState>GovernmentIncomeStatement</nextState>
                     <inputs>
                         <input>
                             <messageName>capital_tax</messageName>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>government_compute_income_statement</name>
+                    <description>Government computes its income statement.</description>
+                    <currentState>GovernmentIncomeStatement</currentState>
+                    <nextState>GovernmentBalanceSheet</nextState>
                 </function>
                 <function>
                     <name>government_do_balance_sheet</name>

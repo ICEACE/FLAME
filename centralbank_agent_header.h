@@ -48,6 +48,24 @@
 /** \def LIQUIDITY_GOVERNMENT
  * \brief Direct access to liquidity_government of centralbank agent memory variable. */
 #define LIQUIDITY_GOVERNMENT (current_xmachine_centralbank->liquidity_government)
+/** \def TOTAL_ASSETS
+ * \brief Direct access to total_assets of centralbank agent memory variable. */
+#define TOTAL_ASSETS (current_xmachine_centralbank->total_assets)
+/** \def TOTAL_WRITEOFFS
+ * \brief Direct access to total_writeoffs of centralbank agent memory variable. */
+#define TOTAL_WRITEOFFS (current_xmachine_centralbank->total_writeoffs)
+/** \def INTERESTS_ACCRUED
+ * \brief Direct access to interests_accrued of centralbank agent memory variable. */
+#define INTERESTS_ACCRUED (current_xmachine_centralbank->interests_accrued)
+/** \def REVENUES
+ * \brief Direct access to revenues of centralbank agent memory variable. */
+#define REVENUES (current_xmachine_centralbank->revenues)
+/** \def NET_EARNINGS
+ * \brief Direct access to net_earnings of centralbank agent memory variable. */
+#define NET_EARNINGS (current_xmachine_centralbank->net_earnings)
+/** \def TOTAL_COSTS
+ * \brief Direct access to total_costs of centralbank agent memory variable. */
+#define TOTAL_COSTS (current_xmachine_centralbank->total_costs)
 /** \def HOUSES
  * \brief Direct access to houses of centralbank agent memory variable. */
 #define HOUSES (current_xmachine_centralbank->houses)

@@ -48,3 +48,9 @@
 /** \def UNEMPLOYMENT_BENEFITS
  * \brief Direct access to unemployment_benefits of government agent memory variable. */
 #define UNEMPLOYMENT_BENEFITS (current_xmachine_government->unemployment_benefits)
+/** \def EARNINGS
+ * \brief Direct access to earnings of government agent memory variable. */
+#define EARNINGS (current_xmachine_government->earnings)
+/** \def EXPENDITURES
+ * \brief Direct access to expenditures of government agent memory variable. */
+#define EXPENDITURES (current_xmachine_government->expenditures)

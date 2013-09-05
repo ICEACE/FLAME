@@ -12,6 +12,278 @@
 
 
 
+union pu_firm_bank_update_deposit 
+{
+    m_firm_bank_update_deposit *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_firm_bank_update_deposit_message(int bank_id, double amount)
+ * \brief Add firm_bank_update_deposit message by calling internal and processing.
+ * \param bank_id Message variable.
+ * \param amount Message variable.
+ */
+void add_firm_bank_update_deposit_message(int bank_id, double amount)
+{
+    int rc;
+	m_firm_bank_update_deposit msg;
+    
+    msg.bank_id = bank_id;
+    msg.amount = amount;
+    
+    
+    rc = MB_AddMessage(b_firm_bank_update_deposit, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'firm_bank_update_deposit' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'firm_bank_update_deposit' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'firm_bank_update_deposit' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_firm_bank_update_deposit* getInternalMessage_firm_bank_update_deposit(void)
+{
+    static m_firm_bank_update_deposit *msg_prev = NULL;
+    union pu_firm_bank_update_deposit msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_firm_bank_update_deposit); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'firm_bank_update_deposit' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'firm_bank_update_deposit' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_firm_bank_update_deposit, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'firm_bank_update_deposit' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'firm_bank_update_deposit' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_firm_bank_update_deposit * get_first_firm_bank_update_deposit_message()
+ * \brief Get the first firm_bank_update_deposit message in the firm_bank_update_deposit message list.
+ * \return The first message in the list.
+ */
+m_firm_bank_update_deposit * get_first_firm_bank_update_deposit_message()
+{
+	return getInternalMessage_firm_bank_update_deposit();
+}
+
+/** \fn xmachine_message_firm_bank_update_deposit * get_next_firm_bank_update_deposit_message(xmachine_message_firm_bank_update_deposit * current)
+ * \brief Get the next firm_bank_update_deposit message in the firm_bank_update_deposit message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_firm_bank_update_deposit * get_next_firm_bank_update_deposit_message(m_firm_bank_update_deposit * current)
+{
+	return getInternalMessage_firm_bank_update_deposit();
+}
+
+
+/* Box filtering functions */
+
+
+
+
+union pu_household_bank_update_deposit 
+{
+    m_household_bank_update_deposit *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_household_bank_update_deposit_message(int bank_id, double amount)
+ * \brief Add household_bank_update_deposit message by calling internal and processing.
+ * \param bank_id Message variable.
+ * \param amount Message variable.
+ */
+void add_household_bank_update_deposit_message(int bank_id, double amount)
+{
+    int rc;
+	m_household_bank_update_deposit msg;
+    
+    msg.bank_id = bank_id;
+    msg.amount = amount;
+    
+    
+    rc = MB_AddMessage(b_household_bank_update_deposit, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'household_bank_update_deposit' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'household_bank_update_deposit' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'household_bank_update_deposit' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_household_bank_update_deposit* getInternalMessage_household_bank_update_deposit(void)
+{
+    static m_household_bank_update_deposit *msg_prev = NULL;
+    union pu_household_bank_update_deposit msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_household_bank_update_deposit); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'household_bank_update_deposit' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'household_bank_update_deposit' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_household_bank_update_deposit, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'household_bank_update_deposit' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'household_bank_update_deposit' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_household_bank_update_deposit * get_first_household_bank_update_deposit_message()
+ * \brief Get the first household_bank_update_deposit message in the household_bank_update_deposit message list.
+ * \return The first message in the list.
+ */
+m_household_bank_update_deposit * get_first_household_bank_update_deposit_message()
+{
+	return getInternalMessage_household_bank_update_deposit();
+}
+
+/** \fn xmachine_message_household_bank_update_deposit * get_next_household_bank_update_deposit_message(xmachine_message_household_bank_update_deposit * current)
+ * \brief Get the next household_bank_update_deposit message in the household_bank_update_deposit message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_household_bank_update_deposit * get_next_household_bank_update_deposit_message(m_household_bank_update_deposit * current)
+{
+	return getInternalMessage_household_bank_update_deposit();
+}
+
+
+/* Box filtering functions */
+
+
+
+
 union pu_interest_rate 
 {
     m_interest_rate *ptr;

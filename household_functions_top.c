@@ -13,3 +13,14 @@ int household_init()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+/*
+ * \fn: int household_update_bank_account()
+ * \brief: puts money to deposit account of its prefered bak. */
+int household_update_bank_account()
+{
+    if (LIQUIDITY > 0) {
+        add_household_bank_update_deposit_message(BANK_ID, LIQUIDITY);
+    }
+    
+	return 0; /* Returning zero means the agent is not removed */
+}

@@ -6,6 +6,9 @@
 /** \def ID
  * \brief Direct access to id of household agent memory variable. */
 #define ID (current_xmachine_household->id)
+/** \def BANK_ID
+ * \brief Direct access to bank_id of household agent memory variable. */
+#define BANK_ID (current_xmachine_household->bank_id)
 /** \def DAY_OF_WEEK_TO_ACT
  * \brief Direct access to day_of_week_to_act of household agent memory variable. */
 #define DAY_OF_WEEK_TO_ACT (current_xmachine_household->day_of_week_to_act)
@@ -36,9 +39,6 @@
 /** \def MORTGAGES_LIST
  * \brief Direct access to mortgages_list of household agent memory variable. */
 #define MORTGAGES_LIST (current_xmachine_household->mortgages_list)
-/** \def BANK_ID
- * \brief Direct access to bank_id of household agent memory variable. */
-#define BANK_ID (current_xmachine_household->bank_id)
 /** \def MORTGAGES
  * \brief Direct access to mortgages of household agent memory variable. */
 #define MORTGAGES (current_xmachine_household->mortgages)

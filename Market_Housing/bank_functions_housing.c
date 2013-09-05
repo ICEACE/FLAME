@@ -87,7 +87,7 @@ int bank_housing_debt_writeoff()
     START_MORTGAGE_WRITEOFF_MESSAGE_LOOP
     //The message is filtered via xmml.
     amount = mortgage_writeoff_message->amount;
-    MORTGAGES += amount;
+    MORTGAGES -= amount;
     TOTAL_WRITEOFFS += amount;
 	FINISH_MORTGAGE_WRITEOFF_MESSAGE_LOOP
     

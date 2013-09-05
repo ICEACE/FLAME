@@ -68,6 +68,23 @@ int government_collect_capital_tax()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+/*
+ * \fn: int government_compute_income_statement()
+ * \brief: Government does the balance sheet accounting.
+ */
+int government_compute_income_statement()
+{
+    EARNINGS = CAPITAL_TAX_INCOME + LABOUR_TAX_INCOME;
+    EXPENDITURES = UNEMPLOYMENT_BENEFITS + GENERAL_BENEFITS;
+    // These values can be kept longer to be able to implement
+    // long term government fiscal policy decisons.
+    CAPITAL_TAX_INCOME = 0;
+    LABOUR_TAX_INCOME = 0;
+    GENERAL_BENEFITS = 0;
+    UNEMPLOYMENT_BENEFITS = 0;
+	return 0; /* Returning zero means the agent is not removed */
+}
+
 
 /*
  * \fn: int government_do_balance_sheet()
@@ -76,12 +93,6 @@ int government_collect_capital_tax()
 int government_do_balance_sheet()
 {
     EQUITY = LIQUIDITY - DEBT;
-    // These values can be kept longer to be able to implement
-    // long term government fiscal policy decisons.
-    CAPITAL_TAX_INCOME = 0;
-    LABOUR_TAX_INCOME = 0;
-    GENERAL_BENEFITS = 0;
-    UNEMPLOYMENT_BENEFITS = 0;
 	return 0; /* Returning zero means the agent is not removed */
 }
 

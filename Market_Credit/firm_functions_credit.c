@@ -134,7 +134,7 @@ int firm_credit_request_investment()
         
         EQUITY = assets - DEBT;
         
-        if (assets = 0){
+        if (assets == 0){
             return 0;
         }
         if ((EQUITY / assets) > FIRMS_MINIMUM_EQUITY_RATIO) {
@@ -176,21 +176,16 @@ int firm_credit_check_investment()
  */
 int firm_credit_illiquidity_bankrupt()
 {
-    double ebit;
     double new_loans, current_loans;
     double ratio, current_amount, new_amount;
     int bank;
     
     current_loans = LOAN_LIST[0].amount + LOAN_LIST[1].amount;
-    
-    /* Earning before interest and taxes.
-     */
-    ebit = REVENUE - COSTS;
-    
+        
     /* maximum amount debts that can be paid.
      */
-    if (ebit < 0){ new_loans = 0;}
-    else { new_loans = ebit / LOANS_INTEREST_RATE;}
+    if (EBIT < 0){ new_loans = 0;}
+    else { new_loans = EBIT / LOANS_INTEREST_RATE;}
     
     if (current_loans = 0) { ratio = 0;}
     else { ratio = new_loans / current_loans;}
@@ -225,8 +220,7 @@ int firm_credit_exit_market()
      */
     int bank;
     double amount;
-    double total_assets;
-    
+        
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         amount = LOAN_LIST[i].amount;
@@ -243,20 +237,20 @@ int firm_credit_exit_market()
     
     if (ISCONSTRUCTOR == 0) {
         INVENTORY = LABOUR_PRODUCTIVITY * 1;
-        total_assets = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
+        TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
         UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
     } else {
         INVENTORY = 0;
-        total_assets = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
+        TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
         /* Constructor firms keep the avergae house prices */
     }
     /* Getting initial loan */
-    total_assets += PHYSICAL_CAPITAL;
-    DEBT = total_assets / (1 + FIRM_STARTUP_LEVERAGE);
+    TOTAL_ASSETS += PHYSICAL_CAPITAL;
+    DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     LOAN_LIST[0].amount = DEBT;
     //LIQUIDITY += DEBT;
-    EQUITY = total_assets - DEBT;
+    EQUITY = TOTAL_ASSETS - DEBT;
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -267,12 +261,7 @@ int firm_credit_exit_market()
  */
 int firm_credit_distribute_net_profit()
 {
-    double net_profit, ebit;
-    
-    // Labour cost is decremented from liquidity on a monthly basis.
-    // Cost and revenue are updated incrementally.
-    
-    ebit = REVENUE - COSTS;
+    double net_profit;
     
     // Firms doesn't pay tax but interest on loans.
     int bank;
@@ -281,17 +270,15 @@ int firm_credit_distribute_net_profit()
         bank = LOAN_LIST[i].bank_id;
         interest_to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE;
     }
-    net_profit = ebit - interest_to_be_paid;
+    net_profit = EBIT - interest_to_be_paid;
     
     
     // In case net income is positive it is sent to be distributed.
     if (net_profit > 0) {
-        add_firm_net_profit_message(ID, ISCONSTRUCTOR, net_profit);
-        //Check this with production market.
-        REVENUE = 0;
-        COSTS = 0;
+        DIVIDENDS_PAID = net_profit;
         // The amount sent is decremented from liquidity
         LIQUIDITY -= net_profit;
+        add_firm_net_profit_message(ID, ISCONSTRUCTOR, net_profit);
     }
     
     //printf(" Firm Id = %d, Net Profit %f \n", ID, net_profit);
@@ -313,6 +300,7 @@ int firm_credit_pay_interest_on_loans()
         bank = LOAN_LIST[i].bank_id;
         to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE;
         LIQUIDITY -= to_be_paid;
+        TOTAL_INTEREST_PAYMENTS += to_be_paid;
         add_interest_on_loan_message(bank, to_be_paid);
     }
 
@@ -321,22 +309,43 @@ int firm_credit_pay_interest_on_loans()
 
 
 /*
+ * \fn: int firm_credit_compute_income_statement()
+ * \brief: Firm computes its income statement.
+ */
+int firm_credit_compute_income_statement()
+{
+    // Labour cost is decremented from liquidity on a monthly basis.
+    // Costs (wages) and revenues (from sales) are updated incrementally.
+    
+    EBIT = REVENUE - COSTS;
+    EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
+    // data: REVENEU, COSTS, TOTAL_INTEREST_PAYMENTS, DIVIDENDS_PAID, DIVIDENDS_RETAINED.
+    REVENUE = 0;
+    COSTS = 0;
+    TOTAL_INTEREST_PAYMENTS = 0;
+    DIVIDENDS_PAID = 0;
+    DIVIDENDS_RETAINED = 0;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
  * \fn: int firm_credit_do_balance_sheet()
  * \brief: Firm does the balance sheet accounting.
  */
 int firm_credit_do_balance_sheet()
 {
-    double assets;
-    
+ 
+    // what we should do about PHYSICAL_CAPITAL?!!
     if (ISCONSTRUCTOR == 1) {
-        assets = INVENTORY * UNIT_HOUSE_PRICE;
-        assets += LIQUIDITY + CAPITAL_CONSTRUCTION;
+        TOTAL_ASSETS  = INVENTORY * UNIT_HOUSE_PRICE;
+        TOTAL_ASSETS += LIQUIDITY + CAPITAL_CONSTRUCTION;
     } else {
-        assets = INVENTORY * UNIT_GOODS_PRICE;
-        assets += LIQUIDITY + CAPITAL_GOODS;
+        TOTAL_ASSETS = INVENTORY * UNIT_GOODS_PRICE;
+        TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS;
     }
     
-    EQUITY = assets - DEBT;
+    EQUITY = TOTAL_ASSETS - DEBT;
     
     //printf(" Firm Id = %d, Equity %f \n", ID, EQUITY);
     
