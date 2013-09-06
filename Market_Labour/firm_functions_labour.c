@@ -192,14 +192,19 @@ int firm_labour_job_offer_stage2()
 }
 
 
+
 /*
  * \fn: int firm_labour_pay_wages()
- * \brief: a firm pays wages.
+ * \brief: a firm pays wages and taxes on wages.
  */
 int firm_labour_pay_wages()
 {
     double payrolls;
+    double labour_tax = 0;
+    
     payrolls = (double)(WAGE_OFFER * NO_EMPLOYEES);
+    labour_tax = payrolls * TAX_RATE;
+    add_labour_tax_message(labour_tax);
     LIQUIDITY -= payrolls;
     LABOUR_COSTS += payrolls;
     

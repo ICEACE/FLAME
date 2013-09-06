@@ -39,6 +39,9 @@
 /** \def TOTAL_WRITEOFFS
  * \brief Direct access to total_writeoffs of bank agent memory variable. */
 #define TOTAL_WRITEOFFS (current_xmachine_bank->total_writeoffs)
+/** \def INTEREST_RATE
+ * \brief Direct access to interest_rate of bank agent memory variable. */
+#define INTEREST_RATE (current_xmachine_bank->interest_rate)
 /** \def INTERESTS_ACCRUED
  * \brief Direct access to interests_accrued of bank agent memory variable. */
 #define INTERESTS_ACCRUED (current_xmachine_bank->interests_accrued)

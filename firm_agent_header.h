@@ -135,6 +135,9 @@
 /** \def CAPITAL_GOODS
  * \brief Direct access to capital_goods of firm agent memory variable. */
 #define CAPITAL_GOODS (current_xmachine_firm->capital_goods)
+/** \def CAPITAL_GOODS_PRICE
+ * \brief Direct access to capital_goods_price of firm agent memory variable. */
+#define CAPITAL_GOODS_PRICE (current_xmachine_firm->capital_goods_price)
 /** \def HASLOAN
  * \brief Direct access to hasloan of firm agent memory variable. */
 #define HASLOAN (current_xmachine_firm->hasloan)
@@ -150,6 +153,9 @@
 /** \def LOAN_LIST
  * \brief Direct access to loan_list of firm agent memory variable. */
 #define LOAN_LIST (current_xmachine_firm->loan_list)
+/** \def TAX_RATE
+ * \brief Direct access to tax_rate of firm agent memory variable. */
+#define TAX_RATE (current_xmachine_firm->tax_rate)
 /** \def DELTA_HOUSING_PRICE
  * \brief Direct access to delta_housing_price of firm agent memory variable. */
 #define DELTA_HOUSING_PRICE (current_xmachine_firm->delta_housing_price)

@@ -113,12 +113,16 @@ int household_labour_report_status()
  * of the month.
  */
 int household_labour_recieve_wage()
-{    
-    LIQUIDITY += WAGE;
+{
+    double net_wage = 0;
+    
+    net_wage = WAGE * TAX_RATE;
+    
+    LIQUIDITY += net_wage;
     
     PREVIOUS_WAGES[2] = PREVIOUS_WAGES[1];
     PREVIOUS_WAGES[1] = PREVIOUS_WAGES[0];
-    PREVIOUS_WAGES[0] = WAGE;
+    PREVIOUS_WAGES[0] = net_wage;
     
     LABOUR_INCOME = PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2];
     

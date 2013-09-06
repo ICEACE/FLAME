@@ -565,6 +565,11 @@
                             <phase>a.day_of_month_wages_paid</phase>
                         </time>
                     </condition>
+                    <outputs>
+                        <output>
+                            <messageName>labour_tax</messageName>
+                        </output>
+                    </outputs>
                 </function>
                 <function>
                     <name>firm_labour_trace_wages</name>

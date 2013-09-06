@@ -425,14 +425,38 @@ int FLAME_condition_firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments(xma
 }
 
 
-/** \fn int FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditCheckFundInvestment(xmachine_memory_firm *a)
+/** \fn int FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck(xmachine_memory_firm *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditCheckFundInvestment(xmachine_memory_firm *a)
+int FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck(xmachine_memory_firm *a)
 {
 	if((a->hasloan != 1)) return 1;
+	else return 0;
+}
+
+
+/** \fn int FLAME_condition_firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments(xmachine_memory_firm *a)
+ * \brief The condition function for an agent function.
+ * \param a The agent memory.
+ * \return The success (1) or failure (0) of the condition.
+ */
+int FLAME_condition_firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments(xmachine_memory_firm *a)
+{
+	if((a->liquidity_need == 0)) return 1;
+	else return 0;
+}
+
+
+/** \fn int FLAME_condition_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy(xmachine_memory_firm *a)
+ * \brief The condition function for an agent function.
+ * \param a The agent memory.
+ * \return The success (1) or failure (0) of the condition.
+ */
+int FLAME_condition_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy(xmachine_memory_firm *a)
+{
+	if((a->liquidity_need != 0)) return 1;
 	else return 0;
 }
 
@@ -457,6 +481,30 @@ int FLAME_condition_firm_idle_FirmCreditBankruptcy_FirmCreditPayments(xmachine_m
 int FLAME_condition_firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet(xmachine_memory_firm *a)
 {
 	if((a->hasinvestment != 1)) return 1;
+	else return 0;
+}
+
+
+/** \fn int FLAME_condition_firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart(xmachine_memory_firm *a)
+ * \brief The condition function for an agent function.
+ * \param a The agent memory.
+ * \return The success (1) or failure (0) of the condition.
+ */
+int FLAME_condition_firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart(xmachine_memory_firm *a)
+{
+	if((a->isinsolvent != 1)) return 1;
+	else return 0;
+}
+
+
+/** \fn int FLAME_condition_firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart(xmachine_memory_firm *a)
+ * \brief The condition function for an agent function.
+ * \param a The agent memory.
+ * \return The success (1) or failure (0) of the condition.
+ */
+int FLAME_condition_firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart(xmachine_memory_firm *a)
+{
+	if((a->isinsolvent == 1)) return 1;
 	else return 0;
 }
 
@@ -689,12 +737,12 @@ int FLAME_condition_household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet(xma
 }
 
 
-/** \fn int FLAME_condition_household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditCapitalTax(xmachine_memory_household *a)
+/** \fn int FLAME_condition_household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet(xmachine_memory_household *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditCapitalTax(xmachine_memory_household *a)
+int FLAME_condition_household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet(xmachine_memory_household *a)
 {
 	if((a->n_shares > 0)) return 1;
 	else return 0;
@@ -737,12 +785,12 @@ int FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmpl
 }
 
 
-/** \fn int FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a)
+/** \fn int FLAME_condition_household_idle_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a)
+int FLAME_condition_household_idle_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a)
 {
 	if((a->my_employer_id != 0)) return 1;
 	else return 0;
@@ -881,12 +929,12 @@ int FLAME_condition_equityfund_idle_EquityFundStart_EFLabourMarket(xmachine_memo
 }
 
 
-/** \fn int FLAME_condition_equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares(xmachine_memory_equityfund *a)
+/** \fn int FLAME_condition_equityfund_equityfund_credit_check_tax_rate_EquityFundStart_EFIlliquidInvestment(xmachine_memory_equityfund *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares(xmachine_memory_equityfund *a)
+int FLAME_condition_equityfund_equityfund_credit_check_tax_rate_EquityFundStart_EFIlliquidInvestment(xmachine_memory_equityfund *a)
 {
 	if((iteration_loop%60 == 1)) return 1;
 	else return 0;
@@ -929,38 +977,14 @@ int FLAME_condition_bank_idle_BankCreditStart_BankHousingMarket(xmachine_memory_
 }
 
 
-/** \fn int FLAME_condition_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2(xmachine_memory_bank *a)
+/** \fn int FLAME_condition_bank_bank_credit_check_interest_rate_BankCreditStart_BankCreditIncomeStatement(xmachine_memory_bank *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2(xmachine_memory_bank *a)
+int FLAME_condition_bank_bank_credit_check_interest_rate_BankCreditStart_BankCreditIncomeStatement(xmachine_memory_bank *a)
 {
 	if((iteration_loop%60 == 1)) return 1;
-	else return 0;
-}
-
-
-/** \fn int FLAME_condition_bank_idle_BankCreditLiquidityNeed_BankCreditIncomeStatement(xmachine_memory_bank *a)
- * \brief The condition function for an agent function.
- * \param a The agent memory.
- * \return The success (1) or failure (0) of the condition.
- */
-int FLAME_condition_bank_idle_BankCreditLiquidityNeed_BankCreditIncomeStatement(xmachine_memory_bank *a)
-{
-	if((a->liquidity > 0)) return 1;
-	else return 0;
-}
-
-
-/** \fn int FLAME_condition_bank_bank_credit_request_liquidity_BankCreditLiquidityNeed_BankCreditLiquidtyRecieve(xmachine_memory_bank *a)
- * \brief The condition function for an agent function.
- * \param a The agent memory.
- * \return The success (1) or failure (0) of the condition.
- */
-int FLAME_condition_bank_bank_credit_request_liquidity_BankCreditLiquidityNeed_BankCreditLiquidtyRecieve(xmachine_memory_bank *a)
-{
-	if((a->liquidity <= 0)) return 1;
 	else return 0;
 }
 
@@ -1001,12 +1025,12 @@ int FLAME_condition_government_idle_GovernmentStart_GovernmentMonthly(xmachine_m
 }
 
 
-/** \fn int FLAME_condition_government_government_update_fiscal_policy_GovernmentStart_GovernmentCapitalTax(xmachine_memory_government *a)
+/** \fn int FLAME_condition_government_government_compute_income_statement_GovernmentStart_GovernmentBalanceSheet(xmachine_memory_government *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_government_government_update_fiscal_policy_GovernmentStart_GovernmentCapitalTax(xmachine_memory_government *a)
+int FLAME_condition_government_government_compute_income_statement_GovernmentStart_GovernmentBalanceSheet(xmachine_memory_government *a)
 {
 	if((iteration_loop%60 == 1)) return 1;
 	else return 0;
@@ -1097,12 +1121,12 @@ int FLAME_condition_centralbank_idle_CentralBankCredit_CentralBankLabour(xmachin
 }
 
 
-/** \fn int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankDebtRequests(xmachine_memory_centralbank *a)
+/** \fn int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankInterestPayments(xmachine_memory_centralbank *a)
  * \brief The condition function for an agent function.
  * \param a The agent memory.
  * \return The success (1) or failure (0) of the condition.
  */
-int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankDebtRequests(xmachine_memory_centralbank *a)
+int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankInterestPayments(xmachine_memory_centralbank *a)
 {
 	if((iteration_loop%60 == 1)) return 1;
 	else return 0;
@@ -1326,15 +1350,15 @@ int FLAME_filter_firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCredi
 	else return 0;
 }
 
-/** \fn int FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditCheckFundInvestment_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params)
+/** \fn int FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params)
  * \brief The filter function for a message input used in serial for each agent.
  * \param msg The pointer to the message to be filtered.
  * \param params The pointer to the agent memory.
  * \return The success (1) or failure (0) of the filter on the message.
  */
-int FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditCheckFundInvestment_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params)
+int FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params)
 {
-	//printf("**** FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditCheckFundInvestment_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params)\n");
+	//printf("**** FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params)\n");
 	
 	/* Cast the message pointer to the correct message type */
 	m_fund_request_ack *m = (m_fund_request_ack*)msg;
@@ -1526,15 +1550,15 @@ int FLAME_filter_bank_bank_update_deposits_BankUpdateDeposits_end_firm_bank_upda
 	else return 0;
 }
 
-/** \fn int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2_loan_request_1(const void *msg, const void *params)
+/** \fn int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2_loan_request_1(const void *msg, const void *params)
  * \brief The filter function for a message input used in serial for each agent.
  * \param msg The pointer to the message to be filtered.
  * \param params The pointer to the agent memory.
  * \return The success (1) or failure (0) of the filter on the message.
  */
-int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2_loan_request_1(const void *msg, const void *params)
+int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2_loan_request_1(const void *msg, const void *params)
 {
-	//printf("**** FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2_loan_request_1(const void *msg, const void *params)\n");
+	//printf("**** FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2_loan_request_1(const void *msg, const void *params)\n");
 	
 	/* Cast the message pointer to the correct message type */
 	m_loan_request_1 *m = (m_loan_request_1*)msg;
@@ -1586,38 +1610,18 @@ int FLAME_filter_bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNe
 	else return 0;
 }
 
-/** \fn int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed_interest_on_loan(const void *msg, const void *params)
+/** \fn int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket_interest_on_loan(const void *msg, const void *params)
  * \brief The filter function for a message input used in serial for each agent.
  * \param msg The pointer to the message to be filtered.
  * \param params The pointer to the agent memory.
  * \return The success (1) or failure (0) of the filter on the message.
  */
-int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed_interest_on_loan(const void *msg, const void *params)
+int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket_interest_on_loan(const void *msg, const void *params)
 {
-	//printf("**** FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed_interest_on_loan(const void *msg, const void *params)\n");
+	//printf("**** FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket_interest_on_loan(const void *msg, const void *params)\n");
 	
 	/* Cast the message pointer to the correct message type */
 	m_interest_on_loan *m = (m_interest_on_loan*)msg;
-	/* Cast the params pointer to the correct agent type */
-	xmachine_memory_bank *a = (xmachine_memory_bank *)params;
-
-	/* The filter */
-	if((a->id == m->bank_id)) return 1;
-	else return 0;
-}
-
-/** \fn int FLAME_filter_bank_bank_credit_recieve_liquidity_BankCreditLiquidtyRecieve_BankCreditIncomeStatement_debt_ack(const void *msg, const void *params)
- * \brief The filter function for a message input used in serial for each agent.
- * \param msg The pointer to the message to be filtered.
- * \param params The pointer to the agent memory.
- * \return The success (1) or failure (0) of the filter on the message.
- */
-int FLAME_filter_bank_bank_credit_recieve_liquidity_BankCreditLiquidtyRecieve_BankCreditIncomeStatement_debt_ack(const void *msg, const void *params)
-{
-	//printf("**** FLAME_filter_bank_bank_credit_recieve_liquidity_BankCreditLiquidtyRecieve_BankCreditIncomeStatement_debt_ack(const void *msg, const void *params)\n");
-	
-	/* Cast the message pointer to the correct message type */
-	m_debt_ack *m = (m_debt_ack*)msg;
 	/* Cast the params pointer to the correct agent type */
 	xmachine_memory_bank *a = (xmachine_memory_bank *)params;
 

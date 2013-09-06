@@ -44,23 +44,42 @@ int centralbank_set_interest_rate()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
+/*
+ * \fn: int centralbank_collect_interest_payments()
+ * \brief: Central Bank collects interest payments from banks.
+ */
+int centralbank_collect_interest_payments()
+{
+    double amount;
+    START_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP
+    amount = bank_centralbank_interest_payment_message->amount;
+    INTERESTS_ACCRUED += amount;
+    LIQUIDITY += amount;
+    FINISH_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP
+
+	return 0; /* Returning zero means the agent is not removed */
+}
+
 /*
  * \fn: int centralbank_process_debt_requests()
  * \brief: Central Bank handles each bank debt request.
  */
 int centralbank_process_debt_requests()
 {
-    double request;
-    int id;
+    double amount;
     
     START_DEBT_REQUEST_MESSAGE_LOOP
-    request = debt_request_message->amount;
-    id = debt_request_message->bank_id;
-    LOANS_BANKS += request;
-    LIQUIDITY -= request;
-    add_debt_ack_message(id, request);
+    amount = debt_request_message->amount;
+    LOANS_BANKS += amount;
+    FIAT_MONEY += amount;
     FINISH_DEBT_REQUEST_MESSAGE_LOOP
 
+    START_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
+    amount = bank_centralbank_debt_payment_message->amount;
+    LOANS_BANKS -= amount;
+    FIAT_MONEY -= amount;
+    FINISH_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -69,16 +88,22 @@ int centralbank_process_debt_requests()
 /*
  * \fn: int centralbank_compute_income_statement()
  * \brief: Central Bank computes the income statement.
+ * Profits are sent to the government.
  */
 int centralbank_compute_income_statement()
 {
     REVENUES = INTERESTS_ACCRUED;
     TOTAL_COSTS = TOTAL_WRITEOFFS;
     NET_EARNINGS = REVENUES - TOTAL_COSTS;
-    // output revenues, interests collected and writeoffs
+    if (NET_EARNINGS > 0) {
+        add_centralbank_government_profit_message(NET_EARNINGS);
+        LIQUIDITY -= NET_EARNINGS;
+        NET_EARNINGS = 0;
+    }
+    //data: revenues, interests collected and writeoffs
     INTERESTS_ACCRUED = 0;
     TOTAL_WRITEOFFS = 0;
-            
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

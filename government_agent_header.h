@@ -51,6 +51,9 @@
 /** \def EARNINGS
  * \brief Direct access to earnings of government agent memory variable. */
 #define EARNINGS (current_xmachine_government->earnings)
+/** \def CENTRALBANK_INCOME
+ * \brief Direct access to centralbank_income of government agent memory variable. */
+#define CENTRALBANK_INCOME (current_xmachine_government->centralbank_income)
 /** \def EXPENDITURES
  * \brief Direct access to expenditures of government agent memory variable. */
 #define EXPENDITURES (current_xmachine_government->expenditures)

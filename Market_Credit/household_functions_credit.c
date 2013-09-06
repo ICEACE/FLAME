@@ -3,7 +3,8 @@
 
 /*
  * \fn: int household_credit_check_interest_rate()
- * \brief: checks monthly interest rate and sets the mortgage interest rates
+ * \brief: Household hecks quarterly interest rate and
+ * sets the mortgage interest rates accordingly.
  */
 int household_credit_check_interest_rate()
 {
@@ -97,21 +98,6 @@ int household_credit_collect_shares()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
-/*
- * \fn: int household_credit_update_mortgage_rates()
- * \brief:
- */
-int household_credit_pay_capital_tax()
-{
-    double capital_tax = 0;
-    
-    capital_tax = CAPITAL_INCOME * TAX_RATE;
-    add_capital_tax_message(capital_tax);
-    LIQUIDITY -= capital_tax;
-    
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
 
 /*
  * \fn: int household_credit_do_balance_sheet()
@@ -172,18 +158,4 @@ int household_credit_collect_unemployment()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
-/*
- * \fn: int household_credit_pay_labour_tax()
- * \brief: Pay tax on labour earnings.
- */
-int household_credit_pay_labour_tax()
-{
-    double labour_tax = 0;
-    
-    labour_tax = WAGE * TAX_RATE;
-    add_labour_tax_message(labour_tax);
-    LIQUIDITY -= labour_tax;
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
 

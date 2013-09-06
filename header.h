@@ -129,6 +129,12 @@
 /** \def FINISH_INTEREST_RATE_MESSAGE_LOOP
  * \brief Finish of loop to process interest_rate messages. */
 #define FINISH_INTEREST_RATE_MESSAGE_LOOP }
+/** \def START_TAX_RATE_MESSAGE_LOOP
+ * \brief Start of loop to process tax_rate messages. */
+#define START_TAX_RATE_MESSAGE_LOOP  for(tax_rate_message = get_first_tax_rate_message(); tax_rate_message != NULL; tax_rate_message = get_next_tax_rate_message(tax_rate_message)) {
+/** \def FINISH_TAX_RATE_MESSAGE_LOOP
+ * \brief Finish of loop to process tax_rate messages. */
+#define FINISH_TAX_RATE_MESSAGE_LOOP }
 /** \def START_BUY_MESSAGE_LOOP
  * \brief Start of loop to process buy messages. */
 #define START_BUY_MESSAGE_LOOP  for(buy_message = get_first_buy_message(); buy_message != NULL; buy_message = get_next_buy_message(buy_message)) {
@@ -243,12 +249,6 @@
 /** \def FINISH_DEBT_REQUEST_MESSAGE_LOOP
  * \brief Finish of loop to process debt_request messages. */
 #define FINISH_DEBT_REQUEST_MESSAGE_LOOP }
-/** \def START_DEBT_ACK_MESSAGE_LOOP
- * \brief Start of loop to process debt_ack messages. */
-#define START_DEBT_ACK_MESSAGE_LOOP  for(debt_ack_message = get_first_debt_ack_message(); debt_ack_message != NULL; debt_ack_message = get_next_debt_ack_message(debt_ack_message)) {
-/** \def FINISH_DEBT_ACK_MESSAGE_LOOP
- * \brief Finish of loop to process debt_ack messages. */
-#define FINISH_DEBT_ACK_MESSAGE_LOOP }
 /** \def START_HOUSEHOLD_SHARE_MESSAGE_LOOP
  * \brief Start of loop to process household_share messages. */
 #define START_HOUSEHOLD_SHARE_MESSAGE_LOOP  for(household_share_message = get_first_household_share_message(); household_share_message != NULL; household_share_message = get_next_household_share_message(household_share_message)) {
@@ -279,12 +279,6 @@
 /** \def FINISH_GENERAL_BENEFIT_MESSAGE_LOOP
  * \brief Finish of loop to process general_benefit messages. */
 #define FINISH_GENERAL_BENEFIT_MESSAGE_LOOP }
-/** \def START_TAX_RATE_MESSAGE_LOOP
- * \brief Start of loop to process tax_rate messages. */
-#define START_TAX_RATE_MESSAGE_LOOP  for(tax_rate_message = get_first_tax_rate_message(); tax_rate_message != NULL; tax_rate_message = get_next_tax_rate_message(tax_rate_message)) {
-/** \def FINISH_TAX_RATE_MESSAGE_LOOP
- * \brief Finish of loop to process tax_rate messages. */
-#define FINISH_TAX_RATE_MESSAGE_LOOP }
 /** \def START_FUND_REQUEST_MESSAGE_LOOP
  * \brief Start of loop to process fund_request messages. */
 #define START_FUND_REQUEST_MESSAGE_LOOP  for(fund_request_message = get_first_fund_request_message(); fund_request_message != NULL; fund_request_message = get_next_fund_request_message(fund_request_message)) {
@@ -327,6 +321,24 @@
 /** \def FINISH_BANK_NET_PROFIT_MESSAGE_LOOP
  * \brief Finish of loop to process bank_net_profit messages. */
 #define FINISH_BANK_NET_PROFIT_MESSAGE_LOOP }
+/** \def START_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP
+ * \brief Start of loop to process bank_centralbank_interest_payment messages. */
+#define START_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP  for(bank_centralbank_interest_payment_message = get_first_bank_centralbank_interest_payment_message(); bank_centralbank_interest_payment_message != NULL; bank_centralbank_interest_payment_message = get_next_bank_centralbank_interest_payment_message(bank_centralbank_interest_payment_message)) {
+/** \def FINISH_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP
+ * \brief Finish of loop to process bank_centralbank_interest_payment messages. */
+#define FINISH_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP }
+/** \def START_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
+ * \brief Start of loop to process bank_centralbank_debt_payment messages. */
+#define START_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP  for(bank_centralbank_debt_payment_message = get_first_bank_centralbank_debt_payment_message(); bank_centralbank_debt_payment_message != NULL; bank_centralbank_debt_payment_message = get_next_bank_centralbank_debt_payment_message(bank_centralbank_debt_payment_message)) {
+/** \def FINISH_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
+ * \brief Finish of loop to process bank_centralbank_debt_payment messages. */
+#define FINISH_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP }
+/** \def START_CENTRALBANK_GOVERNMENT_PROFIT_MESSAGE_LOOP
+ * \brief Start of loop to process centralbank_government_profit messages. */
+#define START_CENTRALBANK_GOVERNMENT_PROFIT_MESSAGE_LOOP  for(centralbank_government_profit_message = get_first_centralbank_government_profit_message(); centralbank_government_profit_message != NULL; centralbank_government_profit_message = get_next_centralbank_government_profit_message(centralbank_government_profit_message)) {
+/** \def FINISH_CENTRALBANK_GOVERNMENT_PROFIT_MESSAGE_LOOP
+ * \brief Finish of loop to process centralbank_government_profit messages. */
+#define FINISH_CENTRALBANK_GOVERNMENT_PROFIT_MESSAGE_LOOP }
 /** \def START_HOUSING_PRICE_MESSAGE_LOOP
  * \brief Start of loop to process housing_price messages. */
 #define START_HOUSING_PRICE_MESSAGE_LOOP  for(housing_price_message = get_first_housing_price_message(); housing_price_message != NULL; housing_price_message = get_next_housing_price_message(housing_price_message)) {
@@ -839,11 +851,13 @@ struct xmachine_memory_firm
 	double equity;	/**< X-machine memory variable equity of type double. */
 	double liquidity;	/**< X-machine memory variable liquidity of type double. */
 	double capital_goods;	/**< X-machine memory variable capital_goods of type double. */
+	double capital_goods_price;	/**< X-machine memory variable capital_goods_price of type double. */
 	int hasloan;	/**< X-machine memory variable hasloan of type int. */
 	int hasinvestment;	/**< X-machine memory variable hasinvestment of type int. */
 	double planned_investment_costs;	/**< X-machine memory variable planned_investment_costs of type double. */
 	double liquidity_need;	/**< X-machine memory variable liquidity_need of type double. */
 	loan loan_list[2];	/**< X-machine memory variable loan_list of type loan. */
+	double tax_rate;	/**< X-machine memory variable tax_rate of type double. */
 	double delta_housing_price;	/**< X-machine memory variable delta_housing_price of type double. */
 };
 
@@ -942,6 +956,7 @@ struct xmachine_memory_equityfund
 	double dividends_retained;	/**< X-machine memory variable dividends_retained of type double. */
 	double dividends_paid;	/**< X-machine memory variable dividends_paid of type double. */
 	double firm_investment;	/**< X-machine memory variable firm_investment of type double. */
+	double tax_rate;	/**< X-machine memory variable tax_rate of type double. */
 };
 
 /** \struct xmachine_memory_equityfund_holder
@@ -982,6 +997,7 @@ struct xmachine_memory_bank
 	double liquidity;	/**< X-machine memory variable liquidity of type double. */
 	double revenues;	/**< X-machine memory variable revenues of type double. */
 	double total_writeoffs;	/**< X-machine memory variable total_writeoffs of type double. */
+	double interest_rate;	/**< X-machine memory variable interest_rate of type double. */
 	double interests_accrued;	/**< X-machine memory variable interests_accrued of type double. */
 	double interests_paid;	/**< X-machine memory variable interests_paid of type double. */
 	double dividends_paid;	/**< X-machine memory variable dividends_paid of type double. */
@@ -1033,6 +1049,7 @@ struct xmachine_memory_government
 	double general_benefits;	/**< X-machine memory variable general_benefits of type double. */
 	double unemployment_benefits;	/**< X-machine memory variable unemployment_benefits of type double. */
 	double earnings;	/**< X-machine memory variable earnings of type double. */
+	double centralbank_income;	/**< X-machine memory variable centralbank_income of type double. */
 	double expenditures;	/**< X-machine memory variable expenditures of type double. */
 };
 
@@ -1252,6 +1269,18 @@ void* FLAME_m_interest_rate_composite_params;
 struct m_interest_rate
 {
 	double rate;	/**< Message memory variable rate of type double. */
+};
+
+/** \var void* FLAME_m_tax_rate_composite_params\n
+ * \brief Pointer to message sync agent composite params */
+void* FLAME_m_tax_rate_composite_params;
+
+/** \struct m_tax_rate
+ * \brief Holds message of type tax_rate_message.
+ */
+struct m_tax_rate
+{
+	double value;	/**< Message memory variable value of type double. */
 };
 
 /** \var void* FLAME_m_buy_composite_params\n
@@ -1508,19 +1537,6 @@ struct m_debt_request
 	double amount;	/**< Message memory variable amount of type double. */
 };
 
-/** \var void* FLAME_m_debt_ack_composite_params\n
- * \brief Pointer to message sync agent composite params */
-void* FLAME_m_debt_ack_composite_params;
-
-/** \struct m_debt_ack
- * \brief Holds message of type debt_ack_message.
- */
-struct m_debt_ack
-{
-	int bank_id;	/**< Message memory variable bank_id of type int. */
-	double amount;	/**< Message memory variable amount of type double. */
-};
-
 /** \var void* FLAME_m_household_share_composite_params\n
  * \brief Pointer to message sync agent composite params */
 void* FLAME_m_household_share_composite_params;
@@ -1579,18 +1595,6 @@ void* FLAME_m_general_benefit_composite_params;
 struct m_general_benefit
 {
 	double amount;	/**< Message memory variable amount of type double. */
-};
-
-/** \var void* FLAME_m_tax_rate_composite_params\n
- * \brief Pointer to message sync agent composite params */
-void* FLAME_m_tax_rate_composite_params;
-
-/** \struct m_tax_rate
- * \brief Holds message of type tax_rate_message.
- */
-struct m_tax_rate
-{
-	double value;	/**< Message memory variable value of type double. */
 };
 
 /** \var void* FLAME_m_fund_request_composite_params\n
@@ -1684,6 +1688,44 @@ struct m_bank_net_profit
 {
 	int id;	/**< Message memory variable id of type int. */
 	double net_income;	/**< Message memory variable net_income of type double. */
+};
+
+/** \var void* FLAME_m_bank_centralbank_interest_payment_composite_params\n
+ * \brief Pointer to message sync agent composite params */
+void* FLAME_m_bank_centralbank_interest_payment_composite_params;
+
+/** \struct m_bank_centralbank_interest_payment
+ * \brief Holds message of type bank_centralbank_interest_payment_message.
+ */
+struct m_bank_centralbank_interest_payment
+{
+	int id;	/**< Message memory variable id of type int. */
+	double amount;	/**< Message memory variable amount of type double. */
+};
+
+/** \var void* FLAME_m_bank_centralbank_debt_payment_composite_params\n
+ * \brief Pointer to message sync agent composite params */
+void* FLAME_m_bank_centralbank_debt_payment_composite_params;
+
+/** \struct m_bank_centralbank_debt_payment
+ * \brief Holds message of type bank_centralbank_debt_payment_message.
+ */
+struct m_bank_centralbank_debt_payment
+{
+	int id;	/**< Message memory variable id of type int. */
+	double amount;	/**< Message memory variable amount of type double. */
+};
+
+/** \var void* FLAME_m_centralbank_government_profit_composite_params\n
+ * \brief Pointer to message sync agent composite params */
+void* FLAME_m_centralbank_government_profit_composite_params;
+
+/** \struct m_centralbank_government_profit
+ * \brief Holds message of type centralbank_government_profit_message.
+ */
+struct m_centralbank_government_profit
+{
+	double amount;	/**< Message memory variable amount of type double. */
 };
 
 /** \var void* FLAME_m_housing_price_composite_params\n
@@ -1964,6 +2006,11 @@ typedef struct m_household_bank_update_deposit m_household_bank_update_deposit;
  */
 typedef struct m_interest_rate m_interest_rate;
 
+/** \typedef m_tax_rate m_tax_rate
+ * \brief Typedef for m_tax_rate struct.
+ */
+typedef struct m_tax_rate m_tax_rate;
+
 /** \typedef m_buy m_buy
  * \brief Typedef for m_buy struct.
  */
@@ -2059,11 +2106,6 @@ typedef struct m_loan_acknowledge_2 m_loan_acknowledge_2;
  */
 typedef struct m_debt_request m_debt_request;
 
-/** \typedef m_debt_ack m_debt_ack
- * \brief Typedef for m_debt_ack struct.
- */
-typedef struct m_debt_ack m_debt_ack;
-
 /** \typedef m_household_share m_household_share
  * \brief Typedef for m_household_share struct.
  */
@@ -2088,11 +2130,6 @@ typedef struct m_unemployment_benefit m_unemployment_benefit;
  * \brief Typedef for m_general_benefit struct.
  */
 typedef struct m_general_benefit m_general_benefit;
-
-/** \typedef m_tax_rate m_tax_rate
- * \brief Typedef for m_tax_rate struct.
- */
-typedef struct m_tax_rate m_tax_rate;
 
 /** \typedef m_fund_request m_fund_request
  * \brief Typedef for m_fund_request struct.
@@ -2128,6 +2165,21 @@ typedef struct m_firm_net_profit m_firm_net_profit;
  * \brief Typedef for m_bank_net_profit struct.
  */
 typedef struct m_bank_net_profit m_bank_net_profit;
+
+/** \typedef m_bank_centralbank_interest_payment m_bank_centralbank_interest_payment
+ * \brief Typedef for m_bank_centralbank_interest_payment struct.
+ */
+typedef struct m_bank_centralbank_interest_payment m_bank_centralbank_interest_payment;
+
+/** \typedef m_bank_centralbank_debt_payment m_bank_centralbank_debt_payment
+ * \brief Typedef for m_bank_centralbank_debt_payment struct.
+ */
+typedef struct m_bank_centralbank_debt_payment m_bank_centralbank_debt_payment;
+
+/** \typedef m_centralbank_government_profit m_centralbank_government_profit
+ * \brief Typedef for m_centralbank_government_profit struct.
+ */
+typedef struct m_centralbank_government_profit m_centralbank_government_profit;
 
 /** \typedef m_housing_price m_housing_price
  * \brief Typedef for m_housing_price struct.
@@ -2208,6 +2260,7 @@ struct node_information
 	struct m_firm_bank_update_deposit * firm_bank_update_deposit_messages;	/**< Pointer to firm_bank_update_deposit message list. */
 	struct m_household_bank_update_deposit * household_bank_update_deposit_messages;	/**< Pointer to household_bank_update_deposit message list. */
 	struct m_interest_rate * interest_rate_messages;	/**< Pointer to interest_rate message list. */
+	struct m_tax_rate * tax_rate_messages;	/**< Pointer to tax_rate message list. */
 	struct m_buy * buy_messages;	/**< Pointer to buy message list. */
 	struct m_bought * bought_messages;	/**< Pointer to bought message list. */
 	struct m_sell * sell_messages;	/**< Pointer to sell message list. */
@@ -2227,13 +2280,11 @@ struct node_information
 	struct m_loan_acknowledge_1 * loan_acknowledge_1_messages;	/**< Pointer to loan_acknowledge_1 message list. */
 	struct m_loan_acknowledge_2 * loan_acknowledge_2_messages;	/**< Pointer to loan_acknowledge_2 message list. */
 	struct m_debt_request * debt_request_messages;	/**< Pointer to debt_request message list. */
-	struct m_debt_ack * debt_ack_messages;	/**< Pointer to debt_ack message list. */
 	struct m_household_share * household_share_messages;	/**< Pointer to household_share message list. */
 	struct m_capital_tax * capital_tax_messages;	/**< Pointer to capital_tax message list. */
 	struct m_labour_tax * labour_tax_messages;	/**< Pointer to labour_tax message list. */
 	struct m_unemployment_benefit * unemployment_benefit_messages;	/**< Pointer to unemployment_benefit message list. */
 	struct m_general_benefit * general_benefit_messages;	/**< Pointer to general_benefit message list. */
-	struct m_tax_rate * tax_rate_messages;	/**< Pointer to tax_rate message list. */
 	struct m_fund_request * fund_request_messages;	/**< Pointer to fund_request message list. */
 	struct m_fund_request_ack * fund_request_ack_messages;	/**< Pointer to fund_request_ack message list. */
 	struct m_new_entrant_loan * new_entrant_loan_messages;	/**< Pointer to new_entrant_loan message list. */
@@ -2241,6 +2292,9 @@ struct node_information
 	struct m_loan_writeoff * loan_writeoff_messages;	/**< Pointer to loan_writeoff message list. */
 	struct m_firm_net_profit * firm_net_profit_messages;	/**< Pointer to firm_net_profit message list. */
 	struct m_bank_net_profit * bank_net_profit_messages;	/**< Pointer to bank_net_profit message list. */
+	struct m_bank_centralbank_interest_payment * bank_centralbank_interest_payment_messages;	/**< Pointer to bank_centralbank_interest_payment message list. */
+	struct m_bank_centralbank_debt_payment * bank_centralbank_debt_payment_messages;	/**< Pointer to bank_centralbank_debt_payment message list. */
+	struct m_centralbank_government_profit * centralbank_government_profit_messages;	/**< Pointer to centralbank_government_profit message list. */
 	struct m_housing_price * housing_price_messages;	/**< Pointer to housing_price message list. */
 	struct m_buy_housing * buy_housing_messages;	/**< Pointer to buy_housing message list. */
 	struct m_sell_housing * sell_housing_messages;	/**< Pointer to sell_housing message list. */
@@ -2348,6 +2402,9 @@ m_household_bank_update_deposit * temp_household_bank_update_deposit_message;
 /** \var m_interest_rate * temp_interest_rate_message
 * \brief Pointer to m_interest_rate to initialise linked list. */
 m_interest_rate * temp_interest_rate_message;
+/** \var m_tax_rate * temp_tax_rate_message
+* \brief Pointer to m_tax_rate to initialise linked list. */
+m_tax_rate * temp_tax_rate_message;
 /** \var m_buy * temp_buy_message
 * \brief Pointer to m_buy to initialise linked list. */
 m_buy * temp_buy_message;
@@ -2405,9 +2462,6 @@ m_loan_acknowledge_2 * temp_loan_acknowledge_2_message;
 /** \var m_debt_request * temp_debt_request_message
 * \brief Pointer to m_debt_request to initialise linked list. */
 m_debt_request * temp_debt_request_message;
-/** \var m_debt_ack * temp_debt_ack_message
-* \brief Pointer to m_debt_ack to initialise linked list. */
-m_debt_ack * temp_debt_ack_message;
 /** \var m_household_share * temp_household_share_message
 * \brief Pointer to m_household_share to initialise linked list. */
 m_household_share * temp_household_share_message;
@@ -2423,9 +2477,6 @@ m_unemployment_benefit * temp_unemployment_benefit_message;
 /** \var m_general_benefit * temp_general_benefit_message
 * \brief Pointer to m_general_benefit to initialise linked list. */
 m_general_benefit * temp_general_benefit_message;
-/** \var m_tax_rate * temp_tax_rate_message
-* \brief Pointer to m_tax_rate to initialise linked list. */
-m_tax_rate * temp_tax_rate_message;
 /** \var m_fund_request * temp_fund_request_message
 * \brief Pointer to m_fund_request to initialise linked list. */
 m_fund_request * temp_fund_request_message;
@@ -2447,6 +2498,15 @@ m_firm_net_profit * temp_firm_net_profit_message;
 /** \var m_bank_net_profit * temp_bank_net_profit_message
 * \brief Pointer to m_bank_net_profit to initialise linked list. */
 m_bank_net_profit * temp_bank_net_profit_message;
+/** \var m_bank_centralbank_interest_payment * temp_bank_centralbank_interest_payment_message
+* \brief Pointer to m_bank_centralbank_interest_payment to initialise linked list. */
+m_bank_centralbank_interest_payment * temp_bank_centralbank_interest_payment_message;
+/** \var m_bank_centralbank_debt_payment * temp_bank_centralbank_debt_payment_message
+* \brief Pointer to m_bank_centralbank_debt_payment to initialise linked list. */
+m_bank_centralbank_debt_payment * temp_bank_centralbank_debt_payment_message;
+/** \var m_centralbank_government_profit * temp_centralbank_government_profit_message
+* \brief Pointer to m_centralbank_government_profit to initialise linked list. */
+m_centralbank_government_profit * temp_centralbank_government_profit_message;
 /** \var m_housing_price * temp_housing_price_message
 * \brief Pointer to m_housing_price to initialise linked list. */
 m_housing_price * temp_housing_price_message;
@@ -2515,9 +2575,9 @@ xmachine_memory_firm_state * firm_FirmHousingSell_state;
 /* Pointer to list of firm agents in state FirmHousingMarket state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmHousingMarket;
 xmachine_memory_firm_state * firm_FirmHousingMarket_state;
-/* Pointer to list of firm agents in state FirmCreditInsolvency state */
-//xmachine_memory_firm * temp_xmachine_firm_FirmCreditInsolvency;
-xmachine_memory_firm_state * firm_FirmCreditInsolvency_state;
+/* Pointer to list of firm agents in state FirmCreditInsolvencyCheck state */
+//xmachine_memory_firm * temp_xmachine_firm_FirmCreditInsolvencyCheck;
+xmachine_memory_firm_state * firm_FirmCreditInsolvencyCheck_state;
 /* Pointer to list of firm agents in state FirmCreditDividendPayments state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmCreditDividendPayments;
 xmachine_memory_firm_state * firm_FirmCreditDividendPayments_state;
@@ -2527,9 +2587,9 @@ xmachine_memory_firm_state * firm_FirmCreditBalanceSheet_state;
 /* Pointer to list of firm agents in state FirmCreditBankruptcy state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmCreditBankruptcy;
 xmachine_memory_firm_state * firm_FirmCreditBankruptcy_state;
-/* Pointer to list of firm agents in state FirmCreditCheckFundInvestment state */
-//xmachine_memory_firm * temp_xmachine_firm_FirmCreditCheckFundInvestment;
-xmachine_memory_firm_state * firm_FirmCreditCheckFundInvestment_state;
+/* Pointer to list of firm agents in state FirmCreditLiquidityRecheck state */
+//xmachine_memory_firm * temp_xmachine_firm_FirmCreditLiquidityRecheck;
+xmachine_memory_firm_state * firm_FirmCreditLiquidityRecheck_state;
 /* Pointer to list of firm agents in state FirmCreditIlliquidityStatus state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmCreditIlliquidityStatus;
 xmachine_memory_firm_state * firm_FirmCreditIlliquidityStatus_state;
@@ -2554,6 +2614,9 @@ xmachine_memory_firm_state * firm_FirmCreditComputeDividends_state;
 /* Pointer to list of firm agents in state FirmCreditInvestment state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmCreditInvestment;
 xmachine_memory_firm_state * firm_FirmCreditInvestment_state;
+/* Pointer to list of firm agents in state FirmCreditTaxRate state */
+//xmachine_memory_firm * temp_xmachine_firm_FirmCreditTaxRate;
+xmachine_memory_firm_state * firm_FirmCreditTaxRate_state;
 /* Pointer to list of firm agents in state FirmCreditInterestRate state */
 //xmachine_memory_firm * temp_xmachine_firm_FirmCreditInterestRate;
 xmachine_memory_firm_state * firm_FirmCreditInterestRate_state;
@@ -2658,9 +2721,6 @@ xmachine_memory_household_state * household_HHHousingRole_state;
 /* Pointer to list of household agents in state HHCreditEmployment state */
 //xmachine_memory_household * temp_xmachine_household_HHCreditEmployment;
 xmachine_memory_household_state * household_HHCreditEmployment_state;
-/* Pointer to list of household agents in state HHCreditCapitalTax state */
-//xmachine_memory_household * temp_xmachine_household_HHCreditCapitalTax;
-xmachine_memory_household_state * household_HHCreditCapitalTax_state;
 /* Pointer to list of household agents in state HHCreditBalanceSheet state */
 //xmachine_memory_household * temp_xmachine_household_HHCreditBalanceSheet;
 xmachine_memory_household_state * household_HHCreditBalanceSheet_state;
@@ -2738,6 +2798,9 @@ xmachine_memory_equityfund_state * equityfund_EFCreditShareCollectionBanks_state
 /* Pointer to list of equityfund agents in state EFCreditDistributeShares state */
 //xmachine_memory_equityfund * temp_xmachine_equityfund_EFCreditDistributeShares;
 xmachine_memory_equityfund_state * equityfund_EFCreditDistributeShares_state;
+/* Pointer to list of equityfund agents in state EFIlliquidInvestment state */
+//xmachine_memory_equityfund * temp_xmachine_equityfund_EFIlliquidInvestment;
+xmachine_memory_equityfund_state * equityfund_EFIlliquidInvestment_state;
 /* Pointer to list of equityfund agents in state end state */
 //xmachine_memory_equityfund * temp_xmachine_equityfund_end;
 xmachine_memory_equityfund_state * equityfund_end_state;
@@ -2767,21 +2830,6 @@ xmachine_memory_bank_state * bank_BankHousingSales_state;
 /* Pointer to list of bank agents in state BankHousingCrediting state */
 //xmachine_memory_bank * temp_xmachine_bank_BankHousingCrediting;
 xmachine_memory_bank_state * bank_BankHousingCrediting_state;
-/* Pointer to list of bank agents in state BankCreditBalanceSheet state */
-//xmachine_memory_bank * temp_xmachine_bank_BankCreditBalanceSheet;
-xmachine_memory_bank_state * bank_BankCreditBalanceSheet_state;
-/* Pointer to list of bank agents in state BankCreditDividends state */
-//xmachine_memory_bank * temp_xmachine_bank_BankCreditDividends;
-xmachine_memory_bank_state * bank_BankCreditDividends_state;
-/* Pointer to list of bank agents in state BankCreditLiquidtyRecieve state */
-//xmachine_memory_bank * temp_xmachine_bank_BankCreditLiquidtyRecieve;
-xmachine_memory_bank_state * bank_BankCreditLiquidtyRecieve_state;
-/* Pointer to list of bank agents in state BankCreditIncomeStatement state */
-//xmachine_memory_bank * temp_xmachine_bank_BankCreditIncomeStatement;
-xmachine_memory_bank_state * bank_BankCreditIncomeStatement_state;
-/* Pointer to list of bank agents in state BankCreditLiquidityNeed state */
-//xmachine_memory_bank * temp_xmachine_bank_BankCreditLiquidityNeed;
-xmachine_memory_bank_state * bank_BankCreditLiquidityNeed_state;
 /* Pointer to list of bank agents in state BankCreditLoanInterests state */
 //xmachine_memory_bank * temp_xmachine_bank_BankCreditLoanInterests;
 xmachine_memory_bank_state * bank_BankCreditLoanInterests_state;
@@ -2794,6 +2842,18 @@ xmachine_memory_bank_state * bank_BankCreditLoanWriteOffs_state;
 /* Pointer to list of bank agents in state BankCreditRequest2 state */
 //xmachine_memory_bank * temp_xmachine_bank_BankCreditRequest2;
 xmachine_memory_bank_state * bank_BankCreditRequest2_state;
+/* Pointer to list of bank agents in state BankCreditRequest1 state */
+//xmachine_memory_bank * temp_xmachine_bank_BankCreditRequest1;
+xmachine_memory_bank_state * bank_BankCreditRequest1_state;
+/* Pointer to list of bank agents in state BankCreditBalanceSheet state */
+//xmachine_memory_bank * temp_xmachine_bank_BankCreditBalanceSheet;
+xmachine_memory_bank_state * bank_BankCreditBalanceSheet_state;
+/* Pointer to list of bank agents in state BankCreditDividends state */
+//xmachine_memory_bank * temp_xmachine_bank_BankCreditDividends;
+xmachine_memory_bank_state * bank_BankCreditDividends_state;
+/* Pointer to list of bank agents in state BankCreditIncomeStatement state */
+//xmachine_memory_bank * temp_xmachine_bank_BankCreditIncomeStatement;
+xmachine_memory_bank_state * bank_BankCreditIncomeStatement_state;
 /* Pointer to list of bank agents in state BankHousingMarket state */
 //xmachine_memory_bank * temp_xmachine_bank_BankHousingMarket;
 xmachine_memory_bank_state * bank_BankHousingMarket_state;
@@ -2820,15 +2880,18 @@ xmachine_memory_government_state * government_GovernmentLabourTax_state;
 /* Pointer to list of government agents in state GovernmentUnemploymentBenefits state */
 //xmachine_memory_government * temp_xmachine_government_GovernmentUnemploymentBenefits;
 xmachine_memory_government_state * government_GovernmentUnemploymentBenefits_state;
-/* Pointer to list of government agents in state GovernmentBalanceSheet state */
-//xmachine_memory_government * temp_xmachine_government_GovernmentBalanceSheet;
-xmachine_memory_government_state * government_GovernmentBalanceSheet_state;
-/* Pointer to list of government agents in state GovernmentIncomeStatement state */
-//xmachine_memory_government * temp_xmachine_government_GovernmentIncomeStatement;
-xmachine_memory_government_state * government_GovernmentIncomeStatement_state;
+/* Pointer to list of government agents in state GovernmentCentralbankProfits state */
+//xmachine_memory_government * temp_xmachine_government_GovernmentCentralbankProfits;
+xmachine_memory_government_state * government_GovernmentCentralbankProfits_state;
 /* Pointer to list of government agents in state GovernmentCapitalTax state */
 //xmachine_memory_government * temp_xmachine_government_GovernmentCapitalTax;
 xmachine_memory_government_state * government_GovernmentCapitalTax_state;
+/* Pointer to list of government agents in state GovernmentFiscalPolicy state */
+//xmachine_memory_government * temp_xmachine_government_GovernmentFiscalPolicy;
+xmachine_memory_government_state * government_GovernmentFiscalPolicy_state;
+/* Pointer to list of government agents in state GovernmentBalanceSheet state */
+//xmachine_memory_government * temp_xmachine_government_GovernmentBalanceSheet;
+xmachine_memory_government_state * government_GovernmentBalanceSheet_state;
 /* Pointer to list of government agents in state GovernmentMonthly state */
 //xmachine_memory_government * temp_xmachine_government_GovernmentMonthly;
 xmachine_memory_government_state * government_GovernmentMonthly_state;
@@ -2861,6 +2924,9 @@ xmachine_memory_centralbank_state * centralbank_CentralBankIncomeStatement_state
 /* Pointer to list of centralbank agents in state CentralBankDebtRequests state */
 //xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankDebtRequests;
 xmachine_memory_centralbank_state * centralbank_CentralBankDebtRequests_state;
+/* Pointer to list of centralbank agents in state CentralBankInterestPayments state */
+//xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankInterestPayments;
+xmachine_memory_centralbank_state * centralbank_CentralBankInterestPayments_state;
 /* Pointer to list of centralbank agents in state CentralBankLabour state */
 //xmachine_memory_centralbank * temp_xmachine_centralbank_CentralBankLabour;
 xmachine_memory_centralbank_state * centralbank_CentralBankLabour_state;
@@ -2942,6 +3008,9 @@ MBt_Iterator i_household_bank_update_deposit;
 MBt_Board b_interest_rate;
 MBt_Iterator i_interest_rate;
 
+MBt_Board b_tax_rate;
+MBt_Iterator i_tax_rate;
+
 MBt_Board b_buy;
 MBt_Iterator i_buy;
 
@@ -2999,9 +3068,6 @@ MBt_Iterator i_loan_acknowledge_2;
 MBt_Board b_debt_request;
 MBt_Iterator i_debt_request;
 
-MBt_Board b_debt_ack;
-MBt_Iterator i_debt_ack;
-
 MBt_Board b_household_share;
 MBt_Iterator i_household_share;
 
@@ -3016,9 +3082,6 @@ MBt_Iterator i_unemployment_benefit;
 
 MBt_Board b_general_benefit;
 MBt_Iterator i_general_benefit;
-
-MBt_Board b_tax_rate;
-MBt_Iterator i_tax_rate;
 
 MBt_Board b_fund_request;
 MBt_Iterator i_fund_request;
@@ -3040,6 +3103,15 @@ MBt_Iterator i_firm_net_profit;
 
 MBt_Board b_bank_net_profit;
 MBt_Iterator i_bank_net_profit;
+
+MBt_Board b_bank_centralbank_interest_payment;
+MBt_Iterator i_bank_centralbank_interest_payment;
+
+MBt_Board b_bank_centralbank_debt_payment;
+MBt_Iterator i_bank_centralbank_debt_payment;
+
+MBt_Board b_centralbank_government_profit;
+MBt_Iterator i_centralbank_government_profit;
 
 MBt_Board b_housing_price;
 MBt_Iterator i_housing_price;
@@ -3084,6 +3156,9 @@ m_household_bank_update_deposit * household_bank_update_deposit_message;
 /** \var m_interest_rate * interest_rate_message
 * \brief Pointer to message struct for looping through interest_rate message list */
 m_interest_rate * interest_rate_message;
+/** \var m_tax_rate * tax_rate_message
+* \brief Pointer to message struct for looping through tax_rate message list */
+m_tax_rate * tax_rate_message;
 /** \var m_buy * buy_message
 * \brief Pointer to message struct for looping through buy message list */
 m_buy * buy_message;
@@ -3141,9 +3216,6 @@ m_loan_acknowledge_2 * loan_acknowledge_2_message;
 /** \var m_debt_request * debt_request_message
 * \brief Pointer to message struct for looping through debt_request message list */
 m_debt_request * debt_request_message;
-/** \var m_debt_ack * debt_ack_message
-* \brief Pointer to message struct for looping through debt_ack message list */
-m_debt_ack * debt_ack_message;
 /** \var m_household_share * household_share_message
 * \brief Pointer to message struct for looping through household_share message list */
 m_household_share * household_share_message;
@@ -3159,9 +3231,6 @@ m_unemployment_benefit * unemployment_benefit_message;
 /** \var m_general_benefit * general_benefit_message
 * \brief Pointer to message struct for looping through general_benefit message list */
 m_general_benefit * general_benefit_message;
-/** \var m_tax_rate * tax_rate_message
-* \brief Pointer to message struct for looping through tax_rate message list */
-m_tax_rate * tax_rate_message;
 /** \var m_fund_request * fund_request_message
 * \brief Pointer to message struct for looping through fund_request message list */
 m_fund_request * fund_request_message;
@@ -3183,6 +3252,15 @@ m_firm_net_profit * firm_net_profit_message;
 /** \var m_bank_net_profit * bank_net_profit_message
 * \brief Pointer to message struct for looping through bank_net_profit message list */
 m_bank_net_profit * bank_net_profit_message;
+/** \var m_bank_centralbank_interest_payment * bank_centralbank_interest_payment_message
+* \brief Pointer to message struct for looping through bank_centralbank_interest_payment message list */
+m_bank_centralbank_interest_payment * bank_centralbank_interest_payment_message;
+/** \var m_bank_centralbank_debt_payment * bank_centralbank_debt_payment_message
+* \brief Pointer to message struct for looping through bank_centralbank_debt_payment message list */
+m_bank_centralbank_debt_payment * bank_centralbank_debt_payment_message;
+/** \var m_centralbank_government_profit * centralbank_government_profit_message
+* \brief Pointer to message struct for looping through centralbank_government_profit message list */
+m_centralbank_government_profit * centralbank_government_profit_message;
 /** \var m_housing_price * housing_price_message
 * \brief Pointer to message struct for looping through housing_price message list */
 m_housing_price * housing_price_message;
@@ -3514,7 +3592,7 @@ xmachine_memory_firm * init_firm_agent();
 void free_firm_agent(xmachine_memory_firm_holder * tmp, xmachine_memory_firm_state * state);
 void transition_firm_agent(xmachine_memory_firm_holder * tmp, xmachine_memory_firm_state * from_state, xmachine_memory_firm_state * to_state);
 void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_state * state);
-void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_act, int isinsolvent, int it_no, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], double loans_interest_rate, double debt, int inventory, int sales, double revenues, double total_assets, double operating_costs, double labour_costs, double total_interest_payments, double dividends_paid, double dividends_to_be_paid, double retained_earnings, double net_earnings, double ebit, double equity, double liquidity, double capital_goods, int hasloan, int hasinvestment, double planned_investment_costs, double liquidity_need, loan loan_list[], double delta_housing_price);
+void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_act, int isinsolvent, int it_no, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int production_estimate, int production_plan, double unit_goods_price, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], double loans_interest_rate, double debt, int inventory, int sales, double revenues, double total_assets, double operating_costs, double labour_costs, double total_interest_payments, double dividends_paid, double dividends_to_be_paid, double retained_earnings, double net_earnings, double ebit, double equity, double liquidity, double capital_goods, double capital_goods_price, int hasloan, int hasinvestment, double planned_investment_costs, double liquidity_need, loan loan_list[], double tax_rate, double delta_housing_price);
 void unittest_init_firm_agent();
 void unittest_free_firm_agent();
 xmachine_memory_household_state * init_household_state();
@@ -3530,7 +3608,7 @@ xmachine_memory_equityfund * init_equityfund_agent();
 void free_equityfund_agent(xmachine_memory_equityfund_holder * tmp, xmachine_memory_equityfund_state * state);
 void transition_equityfund_agent(xmachine_memory_equityfund_holder * tmp, xmachine_memory_equityfund_state * from_state, xmachine_memory_equityfund_state * to_state);
 void add_equityfund_agent_internal(xmachine_memory_equityfund * agent, xmachine_memory_equityfund_state * state);
-void add_equityfund_agent(int id, int day_of_month_to_act, double share_firms, double share_construction_firms, double share_banks, double equity, double liquidity, int n_shares, double dividends_recieved, double dividends_retained, double dividends_paid, double firm_investment);
+void add_equityfund_agent(int id, int day_of_month_to_act, double share_firms, double share_construction_firms, double share_banks, double equity, double liquidity, int n_shares, double dividends_recieved, double dividends_retained, double dividends_paid, double firm_investment, double tax_rate);
 void unittest_init_equityfund_agent();
 void unittest_free_equityfund_agent();
 xmachine_memory_bank_state * init_bank_state();
@@ -3538,7 +3616,7 @@ xmachine_memory_bank * init_bank_agent();
 void free_bank_agent(xmachine_memory_bank_holder * tmp, xmachine_memory_bank_state * state);
 void transition_bank_agent(xmachine_memory_bank_holder * tmp, xmachine_memory_bank_state * from_state, xmachine_memory_bank_state * to_state);
 void add_bank_agent_internal(xmachine_memory_bank * agent, xmachine_memory_bank_state * state);
-void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, double total_assets, double loans, double mortgages, double deposits, double centralbank_debt, double equity, double liquidity, double revenues, double total_writeoffs, double interests_accrued, double interests_paid, double dividends_paid, double total_dividends, double retained_earnings, double net_earnings, double total_costs);
+void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, double total_assets, double loans, double mortgages, double deposits, double centralbank_debt, double equity, double liquidity, double revenues, double total_writeoffs, double interest_rate, double interests_accrued, double interests_paid, double dividends_paid, double total_dividends, double retained_earnings, double net_earnings, double total_costs);
 void unittest_init_bank_agent();
 void unittest_free_bank_agent();
 xmachine_memory_government_state * init_government_state();
@@ -3546,7 +3624,7 @@ xmachine_memory_government * init_government_agent();
 void free_government_agent(xmachine_memory_government_holder * tmp, xmachine_memory_government_state * state);
 void transition_government_agent(xmachine_memory_government_holder * tmp, xmachine_memory_government_state * from_state, xmachine_memory_government_state * to_state);
 void add_government_agent_internal(xmachine_memory_government * agent, xmachine_memory_government_state * state);
-void add_government_agent(int id, double average_wage, double unemployment_rate, int population_size, double debt, double equity, double liquidity, int day_of_month_to_act, double gov_tax_rate, double labour_tax_income, double capital_tax_income, double gov_general_benefit_rate, double gov_unemployment_rate, double general_benefits, double unemployment_benefits, double earnings, double expenditures);
+void add_government_agent(int id, double average_wage, double unemployment_rate, int population_size, double debt, double equity, double liquidity, int day_of_month_to_act, double gov_tax_rate, double labour_tax_income, double capital_tax_income, double gov_general_benefit_rate, double gov_unemployment_rate, double general_benefits, double unemployment_benefits, double earnings, double centralbank_income, double expenditures);
 void unittest_init_government_agent();
 void unittest_free_government_agent();
 xmachine_memory_centralbank_state * init_centralbank_state();
@@ -3599,6 +3677,12 @@ m_interest_rate * add_interest_rate_message_internal(void);
 m_interest_rate * get_first_interest_rate_message(void);
 m_interest_rate * get_next_interest_rate_message(m_interest_rate * current);
 void freeinterest_ratemessages(void);
+
+void add_tax_rate_message(double value);
+m_tax_rate * add_tax_rate_message_internal(void);
+m_tax_rate * get_first_tax_rate_message(void);
+m_tax_rate * get_next_tax_rate_message(m_tax_rate * current);
+void freetax_ratemessages(void);
 
 void add_buy_message(int id, double budget);
 m_buy * add_buy_message_internal(void);
@@ -3714,12 +3798,6 @@ m_debt_request * get_first_debt_request_message(void);
 m_debt_request * get_next_debt_request_message(m_debt_request * current);
 void freedebt_requestmessages(void);
 
-void add_debt_ack_message(int bank_id, double amount);
-m_debt_ack * add_debt_ack_message_internal(void);
-m_debt_ack * get_first_debt_ack_message(void);
-m_debt_ack * get_next_debt_ack_message(m_debt_ack * current);
-void freedebt_ackmessages(void);
-
 void add_household_share_message(double amount);
 m_household_share * add_household_share_message_internal(void);
 m_household_share * get_first_household_share_message(void);
@@ -3749,12 +3827,6 @@ m_general_benefit * add_general_benefit_message_internal(void);
 m_general_benefit * get_first_general_benefit_message(void);
 m_general_benefit * get_next_general_benefit_message(m_general_benefit * current);
 void freegeneral_benefitmessages(void);
-
-void add_tax_rate_message(double value);
-m_tax_rate * add_tax_rate_message_internal(void);
-m_tax_rate * get_first_tax_rate_message(void);
-m_tax_rate * get_next_tax_rate_message(m_tax_rate * current);
-void freetax_ratemessages(void);
 
 void add_fund_request_message(int firm_id, double amount);
 m_fund_request * add_fund_request_message_internal(void);
@@ -3797,6 +3869,24 @@ m_bank_net_profit * add_bank_net_profit_message_internal(void);
 m_bank_net_profit * get_first_bank_net_profit_message(void);
 m_bank_net_profit * get_next_bank_net_profit_message(m_bank_net_profit * current);
 void freebank_net_profitmessages(void);
+
+void add_bank_centralbank_interest_payment_message(int id, double amount);
+m_bank_centralbank_interest_payment * add_bank_centralbank_interest_payment_message_internal(void);
+m_bank_centralbank_interest_payment * get_first_bank_centralbank_interest_payment_message(void);
+m_bank_centralbank_interest_payment * get_next_bank_centralbank_interest_payment_message(m_bank_centralbank_interest_payment * current);
+void freebank_centralbank_interest_paymentmessages(void);
+
+void add_bank_centralbank_debt_payment_message(int id, double amount);
+m_bank_centralbank_debt_payment * add_bank_centralbank_debt_payment_message_internal(void);
+m_bank_centralbank_debt_payment * get_first_bank_centralbank_debt_payment_message(void);
+m_bank_centralbank_debt_payment * get_next_bank_centralbank_debt_payment_message(m_bank_centralbank_debt_payment * current);
+void freebank_centralbank_debt_paymentmessages(void);
+
+void add_centralbank_government_profit_message(double amount);
+m_centralbank_government_profit * add_centralbank_government_profit_message_internal(void);
+m_centralbank_government_profit * get_first_centralbank_government_profit_message(void);
+m_centralbank_government_profit * get_next_centralbank_government_profit_message(m_centralbank_government_profit * current);
+void freecentralbank_government_profitmessages(void);
 
 void add_housing_price_message(double price);
 m_housing_price * add_housing_price_message_internal(void);
@@ -3951,6 +4041,8 @@ void set_liquidity(double liquidity);
 double get_liquidity();
 void set_capital_goods(double capital_goods);
 double get_capital_goods();
+void set_capital_goods_price(double capital_goods_price);
+double get_capital_goods_price();
 void set_hasloan(int hasloan);
 int get_hasloan();
 void set_hasinvestment(int hasinvestment);
@@ -3960,6 +4052,8 @@ double get_planned_investment_costs();
 void set_liquidity_need(double liquidity_need);
 double get_liquidity_need();
 loan * get_loan_list();
+void set_tax_rate(double tax_rate);
+double get_tax_rate();
 void set_delta_housing_price(double delta_housing_price);
 double get_delta_housing_price();
 void set_weekly_consumption_budget(double weekly_consumption_budget);
@@ -3974,8 +4068,6 @@ void set_day_of_month_wage_recieved(int day_of_month_wage_recieved);
 int get_day_of_month_wage_recieved();
 void set_mortgages_interest_rate(double mortgages_interest_rate);
 double get_mortgages_interest_rate();
-void set_tax_rate(double tax_rate);
-double get_tax_rate();
 mortgage_array * get_mortgages_list();
 void set_mortgages(double mortgages);
 double get_mortgages();
@@ -4023,6 +4115,8 @@ void set_centralbank_debt(double centralbank_debt);
 double get_centralbank_debt();
 void set_total_writeoffs(double total_writeoffs);
 double get_total_writeoffs();
+void set_interest_rate(double interest_rate);
+double get_interest_rate();
 void set_interests_accrued(double interests_accrued);
 double get_interests_accrued();
 void set_interests_paid(double interests_paid);
@@ -4051,13 +4145,13 @@ void set_unemployment_benefits(double unemployment_benefits);
 double get_unemployment_benefits();
 void set_earnings(double earnings);
 double get_earnings();
+void set_centralbank_income(double centralbank_income);
+double get_centralbank_income();
 void set_expenditures(double expenditures);
 double get_expenditures();
 double * get_consumption_goods_prices();
 transaction * get_goods();
 double * get_weekly_price_averages();
-void set_interest_rate(double interest_rate);
-double get_interest_rate();
 void set_loans_banks(double loans_banks);
 double get_loans_banks();
 void set_loans_government(double loans_government);
@@ -4092,6 +4186,10 @@ m_household_bank_update_deposit * get_next_message_household_bank_update_deposit
 
 
 m_interest_rate * get_next_message_interest_rate_in_range(m_interest_rate * current);
+
+
+
+m_tax_rate * get_next_message_tax_rate_in_range(m_tax_rate * current);
 
 
 
@@ -4171,10 +4269,6 @@ m_debt_request * get_next_message_debt_request_in_range(m_debt_request * current
 
 
 
-m_debt_ack * get_next_message_debt_ack_in_range(m_debt_ack * current);
-
-
-
 m_household_share * get_next_message_household_share_in_range(m_household_share * current);
 
 
@@ -4192,10 +4286,6 @@ m_unemployment_benefit * get_next_message_unemployment_benefit_in_range(m_unempl
 
 
 m_general_benefit * get_next_message_general_benefit_in_range(m_general_benefit * current);
-
-
-
-m_tax_rate * get_next_message_tax_rate_in_range(m_tax_rate * current);
 
 
 
@@ -4224,6 +4314,18 @@ m_firm_net_profit * get_next_message_firm_net_profit_in_range(m_firm_net_profit 
 
 
 m_bank_net_profit * get_next_message_bank_net_profit_in_range(m_bank_net_profit * current);
+
+
+
+m_bank_centralbank_interest_payment * get_next_message_bank_centralbank_interest_payment_in_range(m_bank_centralbank_interest_payment * current);
+
+
+
+m_bank_centralbank_debt_payment * get_next_message_bank_centralbank_debt_payment_in_range(m_bank_centralbank_debt_payment * current);
+
+
+
+m_centralbank_government_profit * get_next_message_centralbank_government_profit_in_range(m_centralbank_government_profit * current);
 
 
 
@@ -4370,6 +4472,7 @@ int FLAME_condition_firm_idle_FirmCreditStart_FirmProductionStart(xmachine_memor
 int firm_credit_compute_income_statement(void);
 int FLAME_condition_firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInterestRate(xmachine_memory_firm *a);
 int firm_credit_check_interest_rate(void);
+int firm_credit_check_tax_rate(void);
 int firm_credit_investment_decisions(void);
 int firm_credit_compute_dividends(void);
 int firm_credit_check_liquidity_need(void);
@@ -4387,9 +4490,12 @@ int FLAME_filter_firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCredi
 
 int FLAME_condition_firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments(xmachine_memory_firm *a);
 int firm_credit_request_equityfund_investment(void);
-int FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditCheckFundInvestment(xmachine_memory_firm *a);
+int FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck(xmachine_memory_firm *a);
+
+int FLAME_condition_firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments(xmachine_memory_firm *a);
 int firm_credit_check_equityfund_investment(void);
-int FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditCheckFundInvestment_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params);
+int FLAME_condition_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy(xmachine_memory_firm *a);
+int FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy_fund_request_ack(const void *msg, const void *params);
 
 int FLAME_condition_firm_idle_FirmCreditBankruptcy_FirmCreditPayments(xmachine_memory_firm *a);
 int firm_credit_illiquidity_bankrupt(void);
@@ -4397,7 +4503,10 @@ int FLAME_condition_firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_F
 int firm_credit_pay_interest_on_loans(void);
 int firm_credit_pay_dividends(void);
 int firm_credit_do_balance_sheet(void);
-int firm_credit_exit_market(void);
+
+int FLAME_condition_firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart(xmachine_memory_firm *a);
+int firm_credit_insolvency_bankruptcy(void);
+int FLAME_condition_firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart(xmachine_memory_firm *a);
 
 int FLAME_condition_firm_idle_FirmHousingStart_FirmUpdateDeposits(xmachine_memory_firm *a);
 
@@ -4452,8 +4561,7 @@ int household_credit_update_mortgage_rates(void);
 
 int FLAME_condition_household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet(xmachine_memory_household *a);
 int household_credit_collect_shares(void);
-int FLAME_condition_household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditCapitalTax(xmachine_memory_household *a);
-int household_credit_pay_capital_tax(void);
+int FLAME_condition_household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet(xmachine_memory_household *a);
 int household_credit_do_balance_sheet(void);
 
 int FLAME_condition_household_idle_HHCreditMonthly_HHLabourStart(xmachine_memory_household *a);
@@ -4461,8 +4569,8 @@ int household_credit_collect_benefits(void);
 int FLAME_condition_household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment(xmachine_memory_household *a);
 int household_credit_collect_unemployment(void);
 int FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a);
-int household_credit_pay_labour_tax(void);
-int FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a);
+
+int FLAME_condition_household_idle_HHCreditEmployment_HHLabourStart(xmachine_memory_household *a);
 
 int FLAME_condition_household_idle_HHHousingStart_HouseholdUpdateDeposits(xmachine_memory_household *a);
 int household_housing_market_role(void);
@@ -4493,8 +4601,9 @@ int equityfund_audit_dividends(void);
 int FLAME_condition_equityfund_equityfund_audit_dividends_EFLabourMarket_end(xmachine_memory_equityfund *a);
 
 int FLAME_condition_equityfund_idle_EquityFundStart_EFLabourMarket(xmachine_memory_equityfund *a);
+int equityfund_credit_check_tax_rate(void);
+int FLAME_condition_equityfund_equityfund_credit_check_tax_rate_EquityFundStart_EFIlliquidInvestment(xmachine_memory_equityfund *a);
 int equityfund_credit_invest_illiquids(void);
-int FLAME_condition_equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares(xmachine_memory_equityfund *a);
 int equityfund_credit_distribute_shares(void);
 int equityfund_credit_collect_bank_shares(void);
 int equityfund_credit_collect_firm_shares(void);
@@ -4508,25 +4617,20 @@ int FLAME_filter_bank_bank_update_deposits_BankUpdateDeposits_end_household_bank
 int FLAME_filter_bank_bank_update_deposits_BankUpdateDeposits_end_firm_bank_update_deposit(const void *msg, const void *params);
 
 int FLAME_condition_bank_idle_BankCreditStart_BankHousingMarket(xmachine_memory_bank *a);
+int bank_credit_check_interest_rate(void);
+int FLAME_condition_bank_bank_credit_check_interest_rate_BankCreditStart_BankCreditIncomeStatement(xmachine_memory_bank *a);
+int bank_credit_compute_income_statement(void);
+int bank_credit_compute_dividends(void);
+int bank_credit_do_balance_sheet(void);
 int bank_credit_process_loan_requests_1(void);
-int FLAME_condition_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2(xmachine_memory_bank *a);
-int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditStart_BankCreditRequest2_loan_request_1(const void *msg, const void *params);
+int FLAME_filter_bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2_loan_request_1(const void *msg, const void *params);
 int bank_credit_process_loan_requests_2(void);
 int bank_credit_recieve_loan_writeoffs(void);
 int FLAME_filter_bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants_loan_writeoff(const void *msg, const void *params);
 int bank_credit_recieve_new_entrant_loan_requests(void);
 int FLAME_filter_bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests_new_entrant_loan(const void *msg, const void *params);
 int bank_credit_collect_loan_interests(void);
-int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditLiquidityNeed_interest_on_loan(const void *msg, const void *params);
-
-int FLAME_condition_bank_idle_BankCreditLiquidityNeed_BankCreditIncomeStatement(xmachine_memory_bank *a);
-int bank_credit_request_liquidity(void);
-int FLAME_condition_bank_bank_credit_request_liquidity_BankCreditLiquidityNeed_BankCreditLiquidtyRecieve(xmachine_memory_bank *a);
-int bank_credit_recieve_liquidity(void);
-int FLAME_filter_bank_bank_credit_recieve_liquidity_BankCreditLiquidtyRecieve_BankCreditIncomeStatement_debt_ack(const void *msg, const void *params);
-int bank_credit_compute_income_statement(void);
-int bank_credit_compute_dividends(void);
-int bank_credit_do_balance_sheet(void);
+int FLAME_filter_bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket_interest_on_loan(const void *msg, const void *params);
 
 int FLAME_condition_bank_idle_BankHousingMarket_BankUpdateDeposits(xmachine_memory_bank *a);
 int bank_housing_compute_capital_status(void);
@@ -4543,11 +4647,12 @@ int government_init(void);
 int government_trace_unemployment_status(void);
 
 int FLAME_condition_government_idle_GovernmentStart_GovernmentMonthly(xmachine_memory_government *a);
-int government_update_fiscal_policy(void);
-int FLAME_condition_government_government_update_fiscal_policy_GovernmentStart_GovernmentCapitalTax(xmachine_memory_government *a);
-int government_collect_capital_tax(void);
 int government_compute_income_statement(void);
+int FLAME_condition_government_government_compute_income_statement_GovernmentStart_GovernmentBalanceSheet(xmachine_memory_government *a);
 int government_do_balance_sheet(void);
+int government_update_fiscal_policy(void);
+int government_collect_capital_tax(void);
+int government_collect_centralbank_profit(void);
 
 int FLAME_condition_government_idle_GovernmentMonthly_end(xmachine_memory_government *a);
 int government_distribute_general_benefits(void);
@@ -4566,7 +4671,8 @@ int FLAME_condition_centralbank_centralbank_trace_unemployment_status_CentralBan
 
 int FLAME_condition_centralbank_idle_CentralBankCredit_CentralBankLabour(xmachine_memory_centralbank *a);
 int centralbank_set_interest_rate(void);
-int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankDebtRequests(xmachine_memory_centralbank *a);
+int FLAME_condition_centralbank_centralbank_set_interest_rate_CentralBankCredit_CentralBankInterestPayments(xmachine_memory_centralbank *a);
+int centralbank_collect_interest_payments(void);
 int centralbank_process_debt_requests(void);
 int centralbank_compute_income_statement(void);
 int centralbank_do_balance_sheet(void);

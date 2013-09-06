@@ -1,6 +1,21 @@
 #include "../header.h"
 #include "../equityfund_agent_header.h"
 
+
+/*
+ * \fn: int equityfund_credit_check_tax_rate()
+ * \brief: Recieved from the government.
+ */
+int equityfund_credit_check_tax_rate()
+{
+    
+    START_TAX_RATE_MESSAGE_LOOP
+    TAX_RATE = tax_rate_message->value;
+	FINISH_TAX_RATE_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
 /*
  * \fn: equityfund_credit_invest_illiquids()
  * \brief: Equity Fund recieves investement request. Firms send request when they need 
@@ -23,31 +38,36 @@ int equityfund_credit_invest_illiquids()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
 /*
  * \fn: int equityfund_credit_distribute_shares()
  * \brief:Equity fund sends out shares to households.
  */
 int equityfund_credit_distribute_shares()
 {
-    double per_share;
-        
+    double per_share = 0;
+    
     DIVIDENDS_PAID = DIVIDENDS_RECIEVED - FIRM_INVESTMENT;
     
     if (DIVIDENDS_PAID < 0) {
         DIVIDENDS_PAID = 0;
+        add_household_share_message(per_share);
+        add_capital_tax_message(DIVIDENDS_PAID * TAX_RATE);
+        
         return 0;
     }
     
-    if (N_SHARES> 0) {
+    if (N_SHARES > 0) {
         per_share = DIVIDENDS_PAID / N_SHARES;
+        LIQUIDITY -= DIVIDENDS_PAID;
+        per_share -= per_share * TAX_RATE;
     }
-    else {
-        per_share = DIVIDENDS_PAID / 8000;
+    else{
+        per_share = 0;
+        DIVIDENDS_PAID = 0;
     }
-    
-    LIQUIDITY -= DIVIDENDS_PAID;
-    
     add_household_share_message(per_share);
+    add_capital_tax_message(DIVIDENDS_PAID * TAX_RATE);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

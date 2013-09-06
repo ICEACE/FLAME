@@ -502,5 +502,16 @@
                 </variable>
             </variables>
         </message>
+        <message>
+            <name>tax_rate</name>
+            <description>Flat tax rate both on wage income and capital income.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>value</name>
+                    <description>Rate of the tax.</description>
+                </variable>
+            </variables>
+        </message>
     </messages>
 </xmodel>

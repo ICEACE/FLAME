@@ -418,6 +418,140 @@ m_interest_rate * get_next_interest_rate_message(m_interest_rate * current)
 
 
 
+union pu_tax_rate 
+{
+    m_tax_rate *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_tax_rate_message(double value)
+ * \brief Add tax_rate message by calling internal and processing.
+ * \param value Message variable.
+ */
+void add_tax_rate_message(double value)
+{
+    int rc;
+	m_tax_rate msg;
+    
+    msg.value = value;
+    
+    
+    rc = MB_AddMessage(b_tax_rate, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'tax_rate' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'tax_rate' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_tax_rate* getInternalMessage_tax_rate(void)
+{
+    static m_tax_rate *msg_prev = NULL;
+    union pu_tax_rate msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_tax_rate); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'tax_rate' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'tax_rate' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_tax_rate, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'tax_rate' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'tax_rate' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_tax_rate * get_first_tax_rate_message()
+ * \brief Get the first tax_rate message in the tax_rate message list.
+ * \return The first message in the list.
+ */
+m_tax_rate * get_first_tax_rate_message()
+{
+	return getInternalMessage_tax_rate();
+}
+
+/** \fn xmachine_message_tax_rate * get_next_tax_rate_message(xmachine_message_tax_rate * current)
+ * \brief Get the next tax_rate message in the tax_rate message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_tax_rate * get_next_tax_rate_message(m_tax_rate * current)
+{
+	return getInternalMessage_tax_rate();
+}
+
+
+/* Box filtering functions */
+
+
+
+
 union pu_buy 
 {
     m_buy *ptr;
@@ -3016,142 +3150,6 @@ m_debt_request * get_next_debt_request_message(m_debt_request * current)
 
 
 
-union pu_debt_ack 
-{
-    m_debt_ack *ptr;
-    void *ptr_anon;
-};
-
-/** \fn void add_debt_ack_message(int bank_id, double amount)
- * \brief Add debt_ack message by calling internal and processing.
- * \param bank_id Message variable.
- * \param amount Message variable.
- */
-void add_debt_ack_message(int bank_id, double amount)
-{
-    int rc;
-	m_debt_ack msg;
-    
-    msg.bank_id = bank_id;
-    msg.amount = amount;
-    
-    
-    rc = MB_AddMessage(b_debt_ack, &msg);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not add message to 'debt_ack' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'debt_ack' board has not been created?\n");
-               break;
-           case MB_ERR_MEMALLOC:
-               fprintf(stderr, "\t reason: out of memory\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-	       default:
-               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-	   }
-	      
-	   
-       exit(rc);
-    }
-    #endif
-}
-
-inline static m_debt_ack* getInternalMessage_debt_ack(void)
-{
-    static m_debt_ack *msg_prev = NULL;
-    union pu_debt_ack msg_pu;
-    int rc;
-    
-    /* deallocate previously returned message */
-    if (msg_prev != NULL) 
-    {
-        free(msg_prev);
-    }
-    else 
-    {
-        rc = MB_Iterator_Rewind(i_debt_ack); 
-        #ifdef ERRCHECK
-        if (rc != MB_SUCCESS)
-        {
-            fprintf(stderr, "ERROR: Could not rewind 'debt_ack' Iterator\n");
-            switch(rc) {
-                case MB_ERR_INVALID:
-                    fprintf(stderr, "\t reason: 'debt_ack' Iterator has not been created?\n");
-                    break;
-	            default:
-                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
-                    break;
-	        }
-	       
-	       
-       	   exit(rc);
-        }
-        #endif
-    }
-    
-    /* get next message from iterator */
-    rc = MB_Iterator_GetMessage(i_debt_ack, &(msg_pu.ptr_anon));
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not get message from 'debt_ack' Iterator\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'debt_ack' Iterator has not been created?\n");
-               break;
-           case MB_ERR_MEMALLOC:
-               fprintf(stderr, "\t reason: out of memory\n");
-               break;
-	       default:
-               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-	       }
-	       
-	       
-       	   exit(rc);
-    }
-    #endif
-    
-    /* store pointer so memory can be deallocated later */
-    msg_prev = msg_pu.ptr;
-    
-    return msg_pu.ptr;
-}
-
-/** \fn xmachine_message_debt_ack * get_first_debt_ack_message()
- * \brief Get the first debt_ack message in the debt_ack message list.
- * \return The first message in the list.
- */
-m_debt_ack * get_first_debt_ack_message()
-{
-	return getInternalMessage_debt_ack();
-}
-
-/** \fn xmachine_message_debt_ack * get_next_debt_ack_message(xmachine_message_debt_ack * current)
- * \brief Get the next debt_ack message in the debt_ack message list after the current message.
- * \param current The current message in the list.
- * \return The next message in the list.
- */
-m_debt_ack * get_next_debt_ack_message(m_debt_ack * current)
-{
-	return getInternalMessage_debt_ack();
-}
-
-
-/* Box filtering functions */
-
-
-
-
 union pu_household_share 
 {
     m_household_share *ptr;
@@ -3814,140 +3812,6 @@ m_general_benefit * get_first_general_benefit_message()
 m_general_benefit * get_next_general_benefit_message(m_general_benefit * current)
 {
 	return getInternalMessage_general_benefit();
-}
-
-
-/* Box filtering functions */
-
-
-
-
-union pu_tax_rate 
-{
-    m_tax_rate *ptr;
-    void *ptr_anon;
-};
-
-/** \fn void add_tax_rate_message(double value)
- * \brief Add tax_rate message by calling internal and processing.
- * \param value Message variable.
- */
-void add_tax_rate_message(double value)
-{
-    int rc;
-	m_tax_rate msg;
-    
-    msg.value = value;
-    
-    
-    rc = MB_AddMessage(b_tax_rate, &msg);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not add message to 'tax_rate' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'tax_rate' board has not been created?\n");
-               break;
-           case MB_ERR_MEMALLOC:
-               fprintf(stderr, "\t reason: out of memory\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-	       default:
-               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-	   }
-	      
-	   
-       exit(rc);
-    }
-    #endif
-}
-
-inline static m_tax_rate* getInternalMessage_tax_rate(void)
-{
-    static m_tax_rate *msg_prev = NULL;
-    union pu_tax_rate msg_pu;
-    int rc;
-    
-    /* deallocate previously returned message */
-    if (msg_prev != NULL) 
-    {
-        free(msg_prev);
-    }
-    else 
-    {
-        rc = MB_Iterator_Rewind(i_tax_rate); 
-        #ifdef ERRCHECK
-        if (rc != MB_SUCCESS)
-        {
-            fprintf(stderr, "ERROR: Could not rewind 'tax_rate' Iterator\n");
-            switch(rc) {
-                case MB_ERR_INVALID:
-                    fprintf(stderr, "\t reason: 'tax_rate' Iterator has not been created?\n");
-                    break;
-	            default:
-                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
-                    break;
-	        }
-	       
-	       
-       	   exit(rc);
-        }
-        #endif
-    }
-    
-    /* get next message from iterator */
-    rc = MB_Iterator_GetMessage(i_tax_rate, &(msg_pu.ptr_anon));
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not get message from 'tax_rate' Iterator\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'tax_rate' Iterator has not been created?\n");
-               break;
-           case MB_ERR_MEMALLOC:
-               fprintf(stderr, "\t reason: out of memory\n");
-               break;
-	       default:
-               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-	       }
-	       
-	       
-       	   exit(rc);
-    }
-    #endif
-    
-    /* store pointer so memory can be deallocated later */
-    msg_prev = msg_pu.ptr;
-    
-    return msg_pu.ptr;
-}
-
-/** \fn xmachine_message_tax_rate * get_first_tax_rate_message()
- * \brief Get the first tax_rate message in the tax_rate message list.
- * \return The first message in the list.
- */
-m_tax_rate * get_first_tax_rate_message()
-{
-	return getInternalMessage_tax_rate();
-}
-
-/** \fn xmachine_message_tax_rate * get_next_tax_rate_message(xmachine_message_tax_rate * current)
- * \brief Get the next tax_rate message in the tax_rate message list after the current message.
- * \param current The current message in the list.
- * \return The next message in the list.
- */
-m_tax_rate * get_next_tax_rate_message(m_tax_rate * current)
-{
-	return getInternalMessage_tax_rate();
 }
 
 
@@ -4904,6 +4768,412 @@ m_bank_net_profit * get_first_bank_net_profit_message()
 m_bank_net_profit * get_next_bank_net_profit_message(m_bank_net_profit * current)
 {
 	return getInternalMessage_bank_net_profit();
+}
+
+
+/* Box filtering functions */
+
+
+
+
+union pu_bank_centralbank_interest_payment 
+{
+    m_bank_centralbank_interest_payment *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_bank_centralbank_interest_payment_message(int id, double amount)
+ * \brief Add bank_centralbank_interest_payment message by calling internal and processing.
+ * \param id Message variable.
+ * \param amount Message variable.
+ */
+void add_bank_centralbank_interest_payment_message(int id, double amount)
+{
+    int rc;
+	m_bank_centralbank_interest_payment msg;
+    
+    msg.id = id;
+    msg.amount = amount;
+    
+    
+    rc = MB_AddMessage(b_bank_centralbank_interest_payment, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'bank_centralbank_interest_payment' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'bank_centralbank_interest_payment' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'bank_centralbank_interest_payment' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_bank_centralbank_interest_payment* getInternalMessage_bank_centralbank_interest_payment(void)
+{
+    static m_bank_centralbank_interest_payment *msg_prev = NULL;
+    union pu_bank_centralbank_interest_payment msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_bank_centralbank_interest_payment); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'bank_centralbank_interest_payment' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'bank_centralbank_interest_payment' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_bank_centralbank_interest_payment, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'bank_centralbank_interest_payment' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'bank_centralbank_interest_payment' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_bank_centralbank_interest_payment * get_first_bank_centralbank_interest_payment_message()
+ * \brief Get the first bank_centralbank_interest_payment message in the bank_centralbank_interest_payment message list.
+ * \return The first message in the list.
+ */
+m_bank_centralbank_interest_payment * get_first_bank_centralbank_interest_payment_message()
+{
+	return getInternalMessage_bank_centralbank_interest_payment();
+}
+
+/** \fn xmachine_message_bank_centralbank_interest_payment * get_next_bank_centralbank_interest_payment_message(xmachine_message_bank_centralbank_interest_payment * current)
+ * \brief Get the next bank_centralbank_interest_payment message in the bank_centralbank_interest_payment message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_bank_centralbank_interest_payment * get_next_bank_centralbank_interest_payment_message(m_bank_centralbank_interest_payment * current)
+{
+	return getInternalMessage_bank_centralbank_interest_payment();
+}
+
+
+/* Box filtering functions */
+
+
+
+
+union pu_bank_centralbank_debt_payment 
+{
+    m_bank_centralbank_debt_payment *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_bank_centralbank_debt_payment_message(int id, double amount)
+ * \brief Add bank_centralbank_debt_payment message by calling internal and processing.
+ * \param id Message variable.
+ * \param amount Message variable.
+ */
+void add_bank_centralbank_debt_payment_message(int id, double amount)
+{
+    int rc;
+	m_bank_centralbank_debt_payment msg;
+    
+    msg.id = id;
+    msg.amount = amount;
+    
+    
+    rc = MB_AddMessage(b_bank_centralbank_debt_payment, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'bank_centralbank_debt_payment' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'bank_centralbank_debt_payment' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'bank_centralbank_debt_payment' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_bank_centralbank_debt_payment* getInternalMessage_bank_centralbank_debt_payment(void)
+{
+    static m_bank_centralbank_debt_payment *msg_prev = NULL;
+    union pu_bank_centralbank_debt_payment msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_bank_centralbank_debt_payment); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'bank_centralbank_debt_payment' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'bank_centralbank_debt_payment' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_bank_centralbank_debt_payment, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'bank_centralbank_debt_payment' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'bank_centralbank_debt_payment' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_bank_centralbank_debt_payment * get_first_bank_centralbank_debt_payment_message()
+ * \brief Get the first bank_centralbank_debt_payment message in the bank_centralbank_debt_payment message list.
+ * \return The first message in the list.
+ */
+m_bank_centralbank_debt_payment * get_first_bank_centralbank_debt_payment_message()
+{
+	return getInternalMessage_bank_centralbank_debt_payment();
+}
+
+/** \fn xmachine_message_bank_centralbank_debt_payment * get_next_bank_centralbank_debt_payment_message(xmachine_message_bank_centralbank_debt_payment * current)
+ * \brief Get the next bank_centralbank_debt_payment message in the bank_centralbank_debt_payment message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_bank_centralbank_debt_payment * get_next_bank_centralbank_debt_payment_message(m_bank_centralbank_debt_payment * current)
+{
+	return getInternalMessage_bank_centralbank_debt_payment();
+}
+
+
+/* Box filtering functions */
+
+
+
+
+union pu_centralbank_government_profit 
+{
+    m_centralbank_government_profit *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_centralbank_government_profit_message(double amount)
+ * \brief Add centralbank_government_profit message by calling internal and processing.
+ * \param amount Message variable.
+ */
+void add_centralbank_government_profit_message(double amount)
+{
+    int rc;
+	m_centralbank_government_profit msg;
+    
+    msg.amount = amount;
+    
+    
+    rc = MB_AddMessage(b_centralbank_government_profit, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'centralbank_government_profit' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'centralbank_government_profit' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'centralbank_government_profit' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_centralbank_government_profit* getInternalMessage_centralbank_government_profit(void)
+{
+    static m_centralbank_government_profit *msg_prev = NULL;
+    union pu_centralbank_government_profit msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_centralbank_government_profit); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'centralbank_government_profit' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'centralbank_government_profit' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_centralbank_government_profit, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'centralbank_government_profit' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'centralbank_government_profit' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_centralbank_government_profit * get_first_centralbank_government_profit_message()
+ * \brief Get the first centralbank_government_profit message in the centralbank_government_profit message list.
+ * \return The first message in the list.
+ */
+m_centralbank_government_profit * get_first_centralbank_government_profit_message()
+{
+	return getInternalMessage_centralbank_government_profit();
+}
+
+/** \fn xmachine_message_centralbank_government_profit * get_next_centralbank_government_profit_message(xmachine_message_centralbank_government_profit * current)
+ * \brief Get the next centralbank_government_profit message in the centralbank_government_profit message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_centralbank_government_profit * get_next_centralbank_government_profit_message(m_centralbank_government_profit * current)
+{
+	return getInternalMessage_centralbank_government_profit();
 }
 
 

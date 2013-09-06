@@ -39,3 +39,6 @@
 /** \def FIRM_INVESTMENT
  * \brief Direct access to firm_investment of equityfund agent memory variable. */
 #define FIRM_INVESTMENT (current_xmachine_equityfund->firm_investment)
+/** \def TAX_RATE
+ * \brief Direct access to tax_rate of equityfund agent memory variable. */
+#define TAX_RATE (current_xmachine_equityfund->tax_rate)

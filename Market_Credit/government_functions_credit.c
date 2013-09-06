@@ -65,6 +65,24 @@ int government_collect_capital_tax()
     CAPITAL_TAX_INCOME += amount;
     LIQUIDITY += amount;
 	FINISH_CAPITAL_TAX_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int government_collect_centralbank_profit()
+ * \brief:
+ */
+int government_collect_centralbank_profit()
+{
+    double amount = 0;
+    
+    START_CENTRALBANK_GOVERNMENT_PROFIT_MESSAGE_LOOP
+    amount = centralbank_government_profit_message->amount;
+    CENTRALBANK_INCOME += amount;
+    LIQUIDITY += amount;
+	FINISH_CENTRALBANK_GOVERNMENT_PROFIT_MESSAGE_LOOP
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -74,7 +92,7 @@ int government_collect_capital_tax()
  */
 int government_compute_income_statement()
 {
-    EARNINGS = CAPITAL_TAX_INCOME + LABOUR_TAX_INCOME;
+    EARNINGS = CAPITAL_TAX_INCOME + LABOUR_TAX_INCOME + CENTRALBANK_INCOME;
     EXPENDITURES = UNEMPLOYMENT_BENEFITS + GENERAL_BENEFITS;
     // These values can be kept longer to be able to implement
     // long term government fiscal policy decisons.
@@ -82,6 +100,7 @@ int government_compute_income_statement()
     LABOUR_TAX_INCOME = 0;
     GENERAL_BENEFITS = 0;
     UNEMPLOYMENT_BENEFITS = 0;
+    CENTRALBANK_INCOME = 0;
 	return 0; /* Returning zero means the agent is not removed */
 }
 

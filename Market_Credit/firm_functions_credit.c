@@ -20,6 +20,20 @@ int firm_credit_check_interest_rate()
 
 
 /*
+ * \fn: int firm_credit_check_tax_rate()
+ * \brief: Recieved from the government.
+ */
+int firm_credit_check_tax_rate()
+{
+
+    START_TAX_RATE_MESSAGE_LOOP
+    TAX_RATE = tax_rate_message->value;
+	FINISH_TAX_RATE_MESSAGE_LOOP
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
  * \fn: int firm_credit_compute_income_statement()
  * \brief: Firm computes its income statement.
  */
@@ -102,7 +116,7 @@ int firm_credit_check_liquidity_need()
 int firm_credit_demand_loans_1()
 {
     if (LIQUIDITY_NEED > 0){
-       add_loan_request_1_message(ID, BANK_ID, LIQUIDITY_NEED);
+       add_loan_request_1_message(BANK_ID, ID, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -120,7 +134,7 @@ int firm_credit_borrow_loans_1()
     amount = loan_acknowledge_1_message->amount;
  	FINISH_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
     
-    if (amount >= LIQUIDITY_NEED){
+    if (amount == LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
         LIQUIDITY += amount;
         DEBT += amount;
@@ -130,7 +144,7 @@ int firm_credit_borrow_loans_1()
     // Shall we allow partial loans?
     else{
         HASLOAN = 0;
-        add_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
+        add_loan_request_2_message(LOAN_LIST[1].bank_id, ID, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -169,9 +183,12 @@ int firm_credit_borrow_loans_2()
  */
 int firm_credit_request_equityfund_investment()
 {
-    LIQUIDITY_NEED = DEBT * LOANS_INTEREST_RATE - LIQUIDITY;
+    LIQUIDITY_NEED = TOTAL_INTEREST_PAYMENTS - LIQUIDITY;
     
-    if (LIQUIDITY_NEED < 0) { LIQUIDITY_NEED = 0 ;}
+    if (LIQUIDITY_NEED < 0) {
+        DIVIDENDS_TO_BE_PAID = 0;
+        PLANNED_INVESTMENT_COSTS = 0;
+        LIQUIDITY_NEED = 0 ;}
 
     if (LIQUIDITY_NEED > 0){
         if (TOTAL_ASSETS == 0){ return 0;}
@@ -217,7 +234,7 @@ int firm_credit_illiquidity_bankrupt()
     double ratio, current_amount, new_amount, delta_amount;
     int bank;
     
-    current_loans = LOAN_LIST[0].amount + LOAN_LIST[1].amount;
+    current_loans = DEBT;
         
     /* maximum amount debts that can be paid.
      */
@@ -227,7 +244,7 @@ int firm_credit_illiquidity_bankrupt()
     if (current_loans == 0) { ratio = 0;}
     else { ratio = new_loans / current_loans;}
     
-    DEBT = DEBT - current_loans + new_loans;
+    DEBT = new_loans;
     
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
@@ -238,56 +255,6 @@ int firm_credit_illiquidity_bankrupt()
         add_loan_writeoff_message(bank, delta_amount);
     }
     
-	return 0; /* Returning zero means the agent is not removed */
-}
-
-
-/*
- * \fn: int firm_credit_exit_market()
- * \brief:
- */
-int firm_credit_exit_market()
-{
-    
-    /* The firm will skip production for the first time and enters the labour market.
-     The variable below is used for that purpose in production and labour markets.
-     */
-    ISINSOLVENT = 1;
-    
-    /* Writeoff debts.
-     */
-    int bank;
-    double amount;
-        
-    for (int i = 0; i < 2; i++) {
-        bank = LOAN_LIST[i].bank_id;
-        amount = LOAN_LIST[i].amount;
-        add_loan_writeoff_message(bank, amount);
-        LOAN_LIST[i].amount = 0;
-    }
-    DEBT = 0;
-    LIQUIDITY = 0;
-    SALES = 0;
-    REVENUES = 0;
-    OPERATING_COSTS = 0;
-    /* Pysical capital kept the same.
-     */
-    
-    if (ISCONSTRUCTOR == 0) {
-        INVENTORY = LABOUR_PRODUCTIVITY * 1;
-        TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
-        UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
-    } else {
-        INVENTORY = 0;
-        TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
-        /* Constructor firms keep the avergae house prices */
-    }
-    /* Getting initial loan */
-    TOTAL_ASSETS += PHYSICAL_CAPITAL;
-    DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
-    add_new_entrant_loan_message(ID, BANK_ID, DEBT);
-    LOAN_LIST[0].amount = DEBT;
-    EQUITY = TOTAL_ASSETS - DEBT;
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -322,11 +289,15 @@ int firm_credit_pay_interest_on_loans()
 int firm_credit_pay_dividends()
 {
     if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
+        printf("Logical Error: Firm_credit_pay_dividends \n");
+    }
+    else{
         DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
         LIQUIDITY -= DIVIDENDS_TO_BE_PAID;
         add_firm_net_profit_message(ID, ISCONSTRUCTOR, DIVIDENDS_TO_BE_PAID);
         DIVIDENDS_TO_BE_PAID = 0;
     }
+
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -338,18 +309,70 @@ int firm_credit_pay_dividends()
  */
 int firm_credit_do_balance_sheet()
 {
-    // what we should do about PHYSICAL_CAPITAL?!!
+    
     if (ISCONSTRUCTOR == 1) {
         TOTAL_ASSETS  = INVENTORY * UNIT_HOUSE_PRICE;
-        TOTAL_ASSETS += LIQUIDITY + CAPITAL_CONSTRUCTION;
+        TOTAL_ASSETS += LIQUIDITY + CAPITAL_CONSTRUCTION * CAPITAL_GOODS_PRICE;
     } else {
         TOTAL_ASSETS = INVENTORY * UNIT_GOODS_PRICE;
-        TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS;
+        TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
     }
     
     EQUITY = TOTAL_ASSETS - DEBT;
     
+    if (EQUITY < 0) {
+        ISINSOLVENT = 1;
+    } else {
+        ISINSOLVENT = 0;
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+/*
+ * \fn: int firm_credit_insolvency_bankruptcy()
+ * \brief:
+ */
+int firm_credit_insolvency_bankruptcy()
+{
+    
+    /* The firm will skip production for the first time and enters the labour market.
+     The variable below is used for that purpose in production and labour markets.
+     */
+    
+    /* Writeoff debts.
+     */
+    int bank;
+    double amount;
+    
+    for (int i = 0; i < 2; i++) {
+        bank = LOAN_LIST[i].bank_id;
+        amount = LOAN_LIST[i].amount;
+        add_loan_writeoff_message(bank, amount);
+        LOAN_LIST[i].amount = 0;
+    }
+    DEBT = 0;
+    LIQUIDITY = 0;
+    SALES = 0;
+    REVENUES = 0;
+    OPERATING_COSTS = 0;
+    /* Pysical capital kept the same.
+     */
+    
+    if (ISCONSTRUCTOR == 0) {
+        INVENTORY = LABOUR_PRODUCTIVITY * 1;
+        TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
+        UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
+    } else {
+        INVENTORY = 0;
+        TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
+        /* Constructor firms keep the avergae house prices */
+    }
+    /* Getting initial loan */
+    TOTAL_ASSETS += CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
+    DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
+    add_new_entrant_loan_message(ID, BANK_ID, DEBT);
+    LOAN_LIST[0].amount = DEBT;
+    EQUITY = TOTAL_ASSETS - DEBT;
+	return 0; /* Returning zero means the agent is not removed */
+}
 
