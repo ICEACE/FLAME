@@ -102,6 +102,11 @@
                         <name>amount</name>
                         <description>The amount requested so far.</description>
                     </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>to_be_paid</name>
+                        <description>The amount to be paid.</description>
+                    </variable>
                 </variables>
             </dataType>
         </dataTypes>
@@ -135,7 +140,7 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>revenue</name>
+                    <name>revenues</name>
                     <description>Total revenue from sales. It is offset quarterly.</description>
                 </variable>
                 <variable>
@@ -145,8 +150,13 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>costs</name>
-                    <description>Total production and operation costs.</description>
+                    <name>operating_costs</name>
+                    <description>Total operation costs.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>labour_costs</name>
+                    <description>Total labour costs.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -160,12 +170,17 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>dividends_retained</name>
+                    <name>dividends_to_be_paid</name>
+                    <description>Amount of dividends to be paid based on previous quarter operation.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>retained_earnings</name>
                     <description>Amount of dividends retained by the firm.</description>
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>earnings</name>
+                    <name>net_earnings</name>
                     <description>Quarterly profit after ineterest payments.</description>
                 </variable>
                 <variable>
@@ -200,6 +215,11 @@
                 </variable>
                 <variable>
                     <type>double</type>
+                    <name>planned_investment_costs</name>
+                    <description>Amount of investment to be made.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
                     <name>liquidity_need</name>
                     <description>The variable holds wheather a firm needs liquidity to pay debt and dividends.</description>
                 </variable>
@@ -224,21 +244,39 @@
                     </condition>
                 </function>
                 <function>
-                    <name>firm_credit_check_interest_rate</name>
-                    <description>Firm checks monthly interest rate.</description>
+                    <name>firm_credit_compute_income_statement</name>
+                    <description>computing firm balance sheet.</description>
                     <currentState>FirmCreditStart</currentState>
-                    <nextState>FirmCreditLiquidityNeed</nextState>
+                    <nextState>FirmCreditInterestRate</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>1</phase>
                         </time>
                     </condition>
+                </function>
+                <function>
+                    <name>firm_credit_check_interest_rate</name>
+                    <description>Firm checks monthly interest rate.</description>
+                    <currentState>FirmCreditInterestRate</currentState>
+                    <nextState>FirmCreditInvestment</nextState>
                     <inputs>
                         <input>
                             <messageName>interest_rate</messageName>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>firm_credit_investment_decisions</name>
+                    <description>computing firm balance sheet.</description>
+                    <currentState>FirmCreditInvestment</currentState>
+                    <nextState>FirmCreditComputeDividends</nextState>
+                </function>
+                <function>
+                    <name>firm_credit_compute_dividends</name>
+                    <description>computing dividends to be paid.</description>
+                    <currentState>FirmCreditComputeDividends</currentState>
+                    <nextState>FirmCreditLiquidityNeed</nextState>
                 </function>
                 <function>
                     <name>firm_credit_check_liquidity_need</name>
@@ -250,7 +288,7 @@
                     <name>idle</name>
                     <description>Firm does not need loans.</description>
                     <currentState>FirmCreditStatus</currentState>
-                    <nextState>FirmCreditDividendPayments</nextState>
+                    <nextState>FirmCreditPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.liquidity_need</value>
@@ -262,45 +300,15 @@
                     </condition>
                 </function>
                 <function>
-                    <name>idle</name>
-                    <description>Firm need loans.</description>
+                    <name>firm_credit_demand_loans_1</name>
+                    <description>Firm computes loan demand and places a demand if it needs and if it is allowed to do so.</description>
                     <currentState>FirmCreditStatus</currentState>
-                    <nextState>FirmCreditLoanRequest</nextState>
+                    <nextState>FirmCreditLoanBorrow1</nextState>
                     <condition>
                         <lhs>
                             <value>a.liquidity_need</value>
                         </lhs>
                         <op>NEQ</op>
-                        <rhs>
-                            <value>0</value>
-                        </rhs>
-                    </condition>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>Firm is insolvent if it does not have a positive equity.</description>
-                    <currentState>FirmCreditLoanRequest</currentState>
-                    <nextState>FirmCreditInsolvency</nextState>
-                    <condition>
-                        <lhs>
-                            <value>a.equity</value>
-                        </lhs>
-                        <op>LT</op>
-                        <rhs>
-                            <value>0</value>
-                        </rhs>
-                    </condition>
-                </function>
-                <function>
-                    <name>firm_credit_demand_loans_1</name>
-                    <description>Firm computes loan demand and places a demand if it needs and if it is allowed to do so.</description>
-                    <currentState>FirmCreditLoanRequest</currentState>
-                    <nextState>FirmCreditLoanBorrow1</nextState>
-                    <condition>
-                        <lhs>
-                            <value>a.equity</value>
-                        </lhs>
-                        <op>GEQ</op>
                         <rhs>
                             <value>0</value>
                         </rhs>
@@ -337,7 +345,7 @@
                     <name>idle</name>
                     <description>The firm has gotten loan.</description>
                     <currentState>FirmCreditLoanBorrow2</currentState>
-                    <nextState>FirmCreditDividendPayments</nextState>
+                    <nextState>FirmCreditPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasloan</value>
@@ -378,29 +386,29 @@
                     <name>idle</name>
                     <description>The firm has gotten loan in the second trial.</description>
                     <currentState>FirmCreditIlliquidityStatus</currentState>
-                    <nextState>FirmCreditDividendPayments</nextState>
-                    <condition>
-                        <lhs>
-                            <value>a.hasloan</value>
-                        </lhs>
-                        <op>NEQ</op>
-                        <rhs>
-                            <value>0</value>
-                        </rhs>
-                    </condition>
-                </function>
-                <function>
-                    <name>firm_credit_request_investment</name>
-                    <description>The firm checks its illiquidity state. It places a request for investment from Equity Fund.</description>
-                    <currentState>FirmCreditIlliquidityStatus</currentState>
-                    <nextState>FirmCreditCheckInvestment</nextState>
+                    <nextState>FirmCreditPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasloan</value>
                         </lhs>
                         <op>EQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
+                        </rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_credit_request_equityfund_investment</name>
+                    <description>The firm checks its illiquidity state. It places a request for investment from Equity Fund.</description>
+                    <currentState>FirmCreditIlliquidityStatus</currentState>
+                    <nextState>FirmCreditCheckFundInvestment</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.hasloan</value>
+                        </lhs>
+                        <op>NEQ</op>
+                        <rhs>
+                            <value>1</value>
                         </rhs>
                     </condition>
                     <outputs>
@@ -410,9 +418,9 @@
                     </outputs>
                 </function>
                 <function>
-                    <name>firm_credit_check_investment</name>
+                    <name>firm_credit_check_equityfund_investment</name>
                     <description>The firm checks for decision by Equity Fund.</description>
-                    <currentState>FirmCreditCheckInvestment</currentState>
+                    <currentState>FirmCreditCheckFundInvestment</currentState>
                     <nextState>FirmCreditBankruptcy</nextState>
                     <inputs>
                         <input>
@@ -430,14 +438,14 @@
                     <name>idle</name>
                     <description>The firm has the investment goes paying loans.</description>
                     <currentState>FirmCreditBankruptcy</currentState>
-                    <nextState>FirmCreditLoanPayment</nextState>
+                    <nextState>FirmCreditPayments</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasinvestment</value>
                         </lhs>
-                        <op>NEQ</op>
+                        <op>EQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                 </function>
@@ -445,14 +453,14 @@
                     <name>firm_credit_illiquidity_bankrupt</name>
                     <description>Firm cannot recieve fund goes illiquidity.</description>
                     <currentState>FirmCreditBankruptcy</currentState>
-                    <nextState>FirmCreditIncomeStatement</nextState>
+                    <nextState>FirmCreditBalanceSheet</nextState>
                     <condition>
                         <lhs>
                             <value>a.hasinvestment</value>
                         </lhs>
-                        <op>EQ</op>
+                        <op>NEQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                     <outputs>
@@ -462,10 +470,38 @@
                     </outputs>
                 </function>
                 <function>
+                    <name>firm_credit_pay_interest_on_loans</name>
+                    <description>Each quarter firm sends out intterest on the loans it has.</description>
+                    <currentState>FirmCreditPayments</currentState>
+                    <nextState>FirmCreditDividendPayments</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>interest_on_loan</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_credit_pay_dividends</name>
+                    <description>At the end of a quarter, a firm sends net profit to the equity fund.</description>
+                    <currentState>FirmCreditDividendPayments</currentState>
+                    <nextState>FirmCreditBalanceSheet</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>firm_net_profit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_credit_do_balance_sheet</name>
+                    <description>Updating the balance sheet.</description>
+                    <currentState>FirmCreditBalanceSheet</currentState>
+                    <nextState>FirmCreditInsolvency</nextState>
+                </function>
+                <function>
                     <name>firm_credit_exit_market</name>
                     <description>The firm checks its illiquidity state, checking the deal with Equity Fund.</description>
                     <currentState>FirmCreditInsolvency</currentState>
-                    <nextState>FirmCreditIncomeStatement</nextState>
+                    <nextState>FirmProductionStart</nextState>
                     <outputs>
                         <output>
                             <messageName>new_entrant_loan</messageName>
@@ -474,40 +510,6 @@
                             <messageName>loan_writeoff</messageName>
                         </output>
                     </outputs>
-                </function>
-                <function>
-                    <name>firm_credit_distribute_net_profit</name>
-                    <description>At the end of a quarter, a firm sends net profit to the equity fund.</description>
-                    <currentState>FirmCreditDividendPayments</currentState>
-                    <nextState>FirmCreditLoanPayment</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>firm_net_profit</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>firm_credit_pay_interest_on_loans</name>
-                    <description>Each quarter firm sends out intterest on the loans it has.</description>
-                    <currentState>FirmCreditLoanPayment</currentState>
-                    <nextState>FirmCreditIncomeStatement</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>interest_on_loan</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>firm_credit_compute_income_statement</name>
-                    <description>computing firm balance sheet.</description>
-                    <currentState>FirmCreditIncomeStatement</currentState>
-                    <nextState>FirmCreditBalanceSheet</nextState>
-                </function>
-                <function>
-                    <name>firm_credit_do_balance_sheet</name>
-                    <description>Updating the balance sheet.</description>
-                    <currentState>FirmCreditBalanceSheet</currentState>
-                    <nextState>FirmProductionStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -964,8 +966,8 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>dividends</name>
-                    <description>Number of dividends an household owns.</description>
+                    <name>n_shares</name>
+                    <description>Number of shares an household owns.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -974,13 +976,33 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>fund_shares</name>
-                    <description>Equity fund shares.</description>
+                    <name>capital_income</name>
+                    <description>Equity fund shares recieved quarterly.</description>
                 </variable>
                 <variable>
                     <type>int</type>
                     <name>previous_wages[3]</name>
                     <description>Holds wages earned in three previous months.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>labour_income</name>
+                    <description>Labour income for last 3 months.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>total_assets</name>
+                    <description>Total assets owned by an household.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>housing_value</name>
+                    <description>Monetary value of housing units owned by an household.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>delta_housing_value</name>
+                    <description>Value change on housing value on a monthly basis.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->
@@ -1037,7 +1059,7 @@
                     <currentState>HHCreditIsCapitalist</currentState>
                     <nextState>HHCreditBalanceSheet</nextState>
                     <condition>
-                        <lhs><value>a.dividends</value></lhs>
+                        <lhs><value>a.n_shares</value></lhs>
                         <op>EQ</op>
                         <rhs><value>0</value></rhs>
                     </condition>
@@ -1048,7 +1070,7 @@
                     <currentState>HHCreditIsCapitalist</currentState>
                     <nextState>HHCreditCapitalTax</nextState>
                     <condition>
-                        <lhs><value>a.dividends</value></lhs>
+                        <lhs><value>a.n_shares</value></lhs>
                         <op>GT</op>
                         <rhs><value>0</value></rhs>
                     </condition>
@@ -1170,7 +1192,7 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>n_dividends</name>
+                    <name>n_shares</name>
                     <description>Number of households(shares) to recieve liquid shares from firm net income.</description>
                 </variable>
                 <variable>

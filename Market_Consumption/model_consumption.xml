@@ -169,7 +169,7 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>consumption_budget</name>
+                    <name>planned_consumption_budget</name>
                     <description>Consumption budget that can be spent for the week.</description>
                 </variable>
             </memory>
@@ -188,7 +188,7 @@
                     </condition>
                 </function>
                 <function>
-                    <name>household_consumption_monthly_budget</name>
+                    <name>household_consumption_compute_budget</name>
                     <description>It is the first day of the month, time to compute monthly consumption.</description>
                     <currentState>HHConsumptionStart</currentState>
                     <nextState>HHConsumptionWeekly</nextState>

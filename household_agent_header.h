@@ -15,9 +15,9 @@
 /** \def WEEKLY_CONSUMPTION_BUDGET
  * \brief Direct access to weekly_consumption_budget of household agent memory variable. */
 #define WEEKLY_CONSUMPTION_BUDGET (current_xmachine_household->weekly_consumption_budget)
-/** \def CONSUMPTION_BUDGET
- * \brief Direct access to consumption_budget of household agent memory variable. */
-#define CONSUMPTION_BUDGET (current_xmachine_household->consumption_budget)
+/** \def PLANNED_CONSUMPTION_BUDGET
+ * \brief Direct access to planned_consumption_budget of household agent memory variable. */
+#define PLANNED_CONSUMPTION_BUDGET (current_xmachine_household->planned_consumption_budget)
 /** \def MY_EMPLOYER_ID
  * \brief Direct access to my_employer_id of household agent memory variable. */
 #define MY_EMPLOYER_ID (current_xmachine_household->my_employer_id)
@@ -54,18 +54,30 @@
 /** \def HOUSING_UNITS
  * \brief Direct access to housing_units of household agent memory variable. */
 #define HOUSING_UNITS (current_xmachine_household->housing_units)
-/** \def DIVIDENDS
- * \brief Direct access to dividends of household agent memory variable. */
-#define DIVIDENDS (current_xmachine_household->dividends)
+/** \def N_SHARES
+ * \brief Direct access to n_shares of household agent memory variable. */
+#define N_SHARES (current_xmachine_household->n_shares)
 /** \def LIQUIDITY
  * \brief Direct access to liquidity of household agent memory variable. */
 #define LIQUIDITY (current_xmachine_household->liquidity)
-/** \def FUND_SHARES
- * \brief Direct access to fund_shares of household agent memory variable. */
-#define FUND_SHARES (current_xmachine_household->fund_shares)
+/** \def CAPITAL_INCOME
+ * \brief Direct access to capital_income of household agent memory variable. */
+#define CAPITAL_INCOME (current_xmachine_household->capital_income)
 /** \def PREVIOUS_WAGES
  * \brief Direct access to previous_wages of household agent memory variable. */
 #define PREVIOUS_WAGES (current_xmachine_household->previous_wages)
+/** \def LABOUR_INCOME
+ * \brief Direct access to labour_income of household agent memory variable. */
+#define LABOUR_INCOME (current_xmachine_household->labour_income)
+/** \def TOTAL_ASSETS
+ * \brief Direct access to total_assets of household agent memory variable. */
+#define TOTAL_ASSETS (current_xmachine_household->total_assets)
+/** \def HOUSING_VALUE
+ * \brief Direct access to housing_value of household agent memory variable. */
+#define HOUSING_VALUE (current_xmachine_household->housing_value)
+/** \def DELTA_HOUSING_VALUE
+ * \brief Direct access to delta_housing_value of household agent memory variable. */
+#define DELTA_HOUSING_VALUE (current_xmachine_household->delta_housing_value)
 /** \def HMARKET_ROLE
  * \brief Direct access to hmarket_role of household agent memory variable. */
 #define HMARKET_ROLE (current_xmachine_household->hmarket_role)

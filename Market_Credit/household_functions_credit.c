@@ -85,11 +85,11 @@ int household_credit_collect_shares()
 {
     double amount = 0;
     
-    FUND_SHARES = 0;
+    CAPITAL_INCOME = 0;
     
     START_HOUSEHOLD_SHARE_MESSAGE_LOOP
-    amount = DIVIDENDS * household_share_message->amount;
-    FUND_SHARES += amount;
+    amount = N_SHARES * household_share_message->amount;
+    CAPITAL_INCOME += amount;
     //Shares are liquidified.
     LIQUIDITY += amount;
 	FINISH_HOUSEHOLD_SHARE_MESSAGE_LOOP
@@ -105,7 +105,7 @@ int household_credit_pay_capital_tax()
 {
     double capital_tax = 0;
     
-    capital_tax = FUND_SHARES * TAX_RATE;
+    capital_tax = CAPITAL_INCOME * TAX_RATE;
     add_capital_tax_message(capital_tax);
     LIQUIDITY -= capital_tax;
     
@@ -119,17 +119,20 @@ int household_credit_pay_capital_tax()
  */
 int household_credit_do_balance_sheet()
 {
-    double housing;
-    double assets;
+    double old_housing;
     
+    old_housing = HOUSING_VALUE;
+
     // use a delta asset to be used to incorporate wealth effect on consumption.
     // Updating value of housing assets.
-    housing = HOUSING_UNITS * HOUSING_PRICE;
+    HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
+    DELTA_HOUSING_VALUE = HOUSING_VALUE - old_housing;
+    // do the same for total_assets, equity.
     
     //Liquidity contains fund shares the capital goods.
     
-    assets = LIQUIDITY +  housing;
-    EQUITY = assets - MORTGAGES;
+    TOTAL_ASSETS = LIQUIDITY +  HOUSING_VALUE;
+    EQUITY = TOTAL_ASSETS - MORTGAGES;
     
     //printf(" Household Id = %d, Equity %f \n", ID, EQUITY);
     

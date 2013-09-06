@@ -30,7 +30,6 @@ int firm_housing_enter_market()
 int firm_housing_collect_sale_revenues()
 {
     int n_sold_units = 0;
-    int total_sold = 0;
     double sale_unit_price, sales_income;
     
     
@@ -48,7 +47,7 @@ int firm_housing_collect_sale_revenues()
     //update revenue and liquidity
     sales_income = n_sold_units * sale_unit_price;
     LIQUIDITY += sales_income;
-    REVENUE += sales_income;
+    REVENUES += sales_income;
     
 	FINISH_SOLD_HOUSING_MESSAGE_LOOP
     

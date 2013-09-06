@@ -45,7 +45,7 @@ int firm_consumption_recieve_sales()
 	FINISH_SOLD_MESSAGE_LOOP
     
     LIQUIDITY += weekly_sales_income;
-    REVENUE += weekly_sales_income;
+    REVENUES += weekly_sales_income;
     
     //printf("Firm Id = %d Quantity Sold = %d Weekly Revenue = %f\n", ID, quantity_sold, weekly_sales_income);
     

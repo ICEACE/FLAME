@@ -1003,7 +1003,7 @@ int read_loan(char * buffer, int /*@unused@*/ buffer_size, int * j, loan * temp_
 	(*j)++;
 	(*temp_datatype).amount = 0.0;
 	array_k = 0;
-	while(buffer[*j] != '}')
+	while(buffer[*j] != ',')
 	{
 		if(buffer[(*j)] == '\0') return -1;
 		arraydata[array_k] = buffer[*j];
@@ -1013,6 +1013,18 @@ int read_loan(char * buffer, int /*@unused@*/ buffer_size, int * j, loan * temp_
 	arraydata[array_k] = '\0';
 	(*temp_datatype).amount = atof(arraydata);
 	(*j)++;
+	(*temp_datatype).to_be_paid = 0.0;
+	array_k = 0;
+	while(buffer[*j] != '}')
+	{
+		if(buffer[(*j)] == '\0') return -1;
+		arraydata[array_k] = buffer[*j];
+		array_k++;
+		(*j)++;
+	}
+	arraydata[array_k] = '\0';
+	(*temp_datatype).to_be_paid = atof(arraydata);
+	(*j)++;
 
 	return 0;
 }
@@ -1021,6 +1033,7 @@ int read_loan_dynamic_array(char * buffer, int buffer_size, int * j, loan_array 
 {
 	int arraycount = 0;
 	int rc;
+	
 	
 	
 	
@@ -1037,7 +1050,7 @@ int read_loan_dynamic_array(char * buffer, int buffer_size, int * j, loan_array 
 	{
 		if(buffer[(*j)] == '{')
 		{
-			add_loan(temp_datatype_array, 0, 0.0);
+			add_loan(temp_datatype_array, 0, 0.0, 0.0);
 			rc = read_loan(buffer, buffer_size, j, &(*temp_datatype_array).array[arraycount]);
 			if(rc != 0) { printf("Error: reading variable 'loan' of type '\n"); return -1; }
 			arraycount++;
@@ -1669,24 +1682,27 @@ int readAgentXML(char * location,
 	int in_debt = 0;
 	int in_inventory = 0;
 	int in_sales = 0;
-	int in_revenue = 0;
+	int in_revenues = 0;
 	int in_total_assets = 0;
-	int in_costs = 0;
+	int in_operating_costs = 0;
+	int in_labour_costs = 0;
 	int in_total_interest_payments = 0;
 	int in_dividends_paid = 0;
-	int in_dividends_retained = 0;
-	int in_earnings = 0;
+	int in_dividends_to_be_paid = 0;
+	int in_retained_earnings = 0;
+	int in_net_earnings = 0;
 	int in_ebit = 0;
 	int in_equity = 0;
 	int in_liquidity = 0;
 	int in_capital_goods = 0;
 	int in_hasloan = 0;
 	int in_hasinvestment = 0;
+	int in_planned_investment_costs = 0;
 	int in_liquidity_need = 0;
 	int in_loan_list = 0;
 	int in_delta_housing_price = 0;
 	int in_weekly_consumption_budget = 0;
-	int in_consumption_budget = 0;
+	int in_planned_consumption_budget = 0;
 	int in_my_employer_id = 0;
 	int in_wage = 0;
 	int in_day_of_month_wage_recieved = 0;
@@ -1697,9 +1713,12 @@ int readAgentXML(char * location,
 	int in_housing_payment = 0;
 	int in_housing_price = 0;
 	int in_housing_units = 0;
-	int in_dividends = 0;
-	int in_fund_shares = 0;
+	int in_n_shares = 0;
+	int in_capital_income = 0;
 	int in_previous_wages = 0;
+	int in_labour_income = 0;
+	int in_housing_value = 0;
+	int in_delta_housing_value = 0;
 	int in_hmarket_role = 0;
 	int in_equity_ratio = 0;
 	int in_minimum_equity_ratio = 0;
@@ -1707,19 +1726,16 @@ int readAgentXML(char * location,
 	int in_share_firms = 0;
 	int in_share_construction_firms = 0;
 	int in_share_banks = 0;
-	int in_n_dividends = 0;
 	int in_dividends_recieved = 0;
+	int in_dividends_retained = 0;
 	int in_firm_investment = 0;
 	int in_loans = 0;
 	int in_deposits = 0;
 	int in_centralbank_debt = 0;
-	int in_revenues = 0;
 	int in_total_writeoffs = 0;
 	int in_interests_accrued = 0;
 	int in_interests_paid = 0;
 	int in_total_dividends = 0;
-	int in_retained_earnings = 0;
-	int in_net_earnings = 0;
 	int in_total_costs = 0;
 	int in_unemployment_rate = 0;
 	int in_population_size = 0;
@@ -1730,6 +1746,7 @@ int readAgentXML(char * location,
 	int in_gov_unemployment_rate = 0;
 	int in_general_benefits = 0;
 	int in_unemployment_benefits = 0;
+	int in_earnings = 0;
 	int in_expenditures = 0;
 	int in_consumption_goods_prices = 0;
 	int in_goods = 0;
@@ -2315,20 +2332,24 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/inventory") == 0) { in_inventory = 0; }
 			if(strcmp(buffer, "sales") == 0) { in_sales = 1; }
 			if(strcmp(buffer, "/sales") == 0) { in_sales = 0; }
-			if(strcmp(buffer, "revenue") == 0) { in_revenue = 1; }
-			if(strcmp(buffer, "/revenue") == 0) { in_revenue = 0; }
+			if(strcmp(buffer, "revenues") == 0) { in_revenues = 1; }
+			if(strcmp(buffer, "/revenues") == 0) { in_revenues = 0; }
 			if(strcmp(buffer, "total_assets") == 0) { in_total_assets = 1; }
 			if(strcmp(buffer, "/total_assets") == 0) { in_total_assets = 0; }
-			if(strcmp(buffer, "costs") == 0) { in_costs = 1; }
-			if(strcmp(buffer, "/costs") == 0) { in_costs = 0; }
+			if(strcmp(buffer, "operating_costs") == 0) { in_operating_costs = 1; }
+			if(strcmp(buffer, "/operating_costs") == 0) { in_operating_costs = 0; }
+			if(strcmp(buffer, "labour_costs") == 0) { in_labour_costs = 1; }
+			if(strcmp(buffer, "/labour_costs") == 0) { in_labour_costs = 0; }
 			if(strcmp(buffer, "total_interest_payments") == 0) { in_total_interest_payments = 1; }
 			if(strcmp(buffer, "/total_interest_payments") == 0) { in_total_interest_payments = 0; }
 			if(strcmp(buffer, "dividends_paid") == 0) { in_dividends_paid = 1; }
 			if(strcmp(buffer, "/dividends_paid") == 0) { in_dividends_paid = 0; }
-			if(strcmp(buffer, "dividends_retained") == 0) { in_dividends_retained = 1; }
-			if(strcmp(buffer, "/dividends_retained") == 0) { in_dividends_retained = 0; }
-			if(strcmp(buffer, "earnings") == 0) { in_earnings = 1; }
-			if(strcmp(buffer, "/earnings") == 0) { in_earnings = 0; }
+			if(strcmp(buffer, "dividends_to_be_paid") == 0) { in_dividends_to_be_paid = 1; }
+			if(strcmp(buffer, "/dividends_to_be_paid") == 0) { in_dividends_to_be_paid = 0; }
+			if(strcmp(buffer, "retained_earnings") == 0) { in_retained_earnings = 1; }
+			if(strcmp(buffer, "/retained_earnings") == 0) { in_retained_earnings = 0; }
+			if(strcmp(buffer, "net_earnings") == 0) { in_net_earnings = 1; }
+			if(strcmp(buffer, "/net_earnings") == 0) { in_net_earnings = 0; }
 			if(strcmp(buffer, "ebit") == 0) { in_ebit = 1; }
 			if(strcmp(buffer, "/ebit") == 0) { in_ebit = 0; }
 			if(strcmp(buffer, "equity") == 0) { in_equity = 1; }
@@ -2341,6 +2362,8 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/hasloan") == 0) { in_hasloan = 0; }
 			if(strcmp(buffer, "hasinvestment") == 0) { in_hasinvestment = 1; }
 			if(strcmp(buffer, "/hasinvestment") == 0) { in_hasinvestment = 0; }
+			if(strcmp(buffer, "planned_investment_costs") == 0) { in_planned_investment_costs = 1; }
+			if(strcmp(buffer, "/planned_investment_costs") == 0) { in_planned_investment_costs = 0; }
 			if(strcmp(buffer, "liquidity_need") == 0) { in_liquidity_need = 1; }
 			if(strcmp(buffer, "/liquidity_need") == 0) { in_liquidity_need = 0; }
 			if(strcmp(buffer, "loan_list") == 0) { in_loan_list = 1; }
@@ -2349,8 +2372,8 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/delta_housing_price") == 0) { in_delta_housing_price = 0; }
 			if(strcmp(buffer, "weekly_consumption_budget") == 0) { in_weekly_consumption_budget = 1; }
 			if(strcmp(buffer, "/weekly_consumption_budget") == 0) { in_weekly_consumption_budget = 0; }
-			if(strcmp(buffer, "consumption_budget") == 0) { in_consumption_budget = 1; }
-			if(strcmp(buffer, "/consumption_budget") == 0) { in_consumption_budget = 0; }
+			if(strcmp(buffer, "planned_consumption_budget") == 0) { in_planned_consumption_budget = 1; }
+			if(strcmp(buffer, "/planned_consumption_budget") == 0) { in_planned_consumption_budget = 0; }
 			if(strcmp(buffer, "my_employer_id") == 0) { in_my_employer_id = 1; }
 			if(strcmp(buffer, "/my_employer_id") == 0) { in_my_employer_id = 0; }
 			if(strcmp(buffer, "wage") == 0) { in_wage = 1; }
@@ -2371,12 +2394,18 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/housing_price") == 0) { in_housing_price = 0; }
 			if(strcmp(buffer, "housing_units") == 0) { in_housing_units = 1; }
 			if(strcmp(buffer, "/housing_units") == 0) { in_housing_units = 0; }
-			if(strcmp(buffer, "dividends") == 0) { in_dividends = 1; }
-			if(strcmp(buffer, "/dividends") == 0) { in_dividends = 0; }
-			if(strcmp(buffer, "fund_shares") == 0) { in_fund_shares = 1; }
-			if(strcmp(buffer, "/fund_shares") == 0) { in_fund_shares = 0; }
+			if(strcmp(buffer, "n_shares") == 0) { in_n_shares = 1; }
+			if(strcmp(buffer, "/n_shares") == 0) { in_n_shares = 0; }
+			if(strcmp(buffer, "capital_income") == 0) { in_capital_income = 1; }
+			if(strcmp(buffer, "/capital_income") == 0) { in_capital_income = 0; }
 			if(strcmp(buffer, "previous_wages") == 0) { in_previous_wages = 1; }
 			if(strcmp(buffer, "/previous_wages") == 0) { in_previous_wages = 0; }
+			if(strcmp(buffer, "labour_income") == 0) { in_labour_income = 1; }
+			if(strcmp(buffer, "/labour_income") == 0) { in_labour_income = 0; }
+			if(strcmp(buffer, "housing_value") == 0) { in_housing_value = 1; }
+			if(strcmp(buffer, "/housing_value") == 0) { in_housing_value = 0; }
+			if(strcmp(buffer, "delta_housing_value") == 0) { in_delta_housing_value = 1; }
+			if(strcmp(buffer, "/delta_housing_value") == 0) { in_delta_housing_value = 0; }
 			if(strcmp(buffer, "hmarket_role") == 0) { in_hmarket_role = 1; }
 			if(strcmp(buffer, "/hmarket_role") == 0) { in_hmarket_role = 0; }
 			if(strcmp(buffer, "equity_ratio") == 0) { in_equity_ratio = 1; }
@@ -2391,10 +2420,10 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/share_construction_firms") == 0) { in_share_construction_firms = 0; }
 			if(strcmp(buffer, "share_banks") == 0) { in_share_banks = 1; }
 			if(strcmp(buffer, "/share_banks") == 0) { in_share_banks = 0; }
-			if(strcmp(buffer, "n_dividends") == 0) { in_n_dividends = 1; }
-			if(strcmp(buffer, "/n_dividends") == 0) { in_n_dividends = 0; }
 			if(strcmp(buffer, "dividends_recieved") == 0) { in_dividends_recieved = 1; }
 			if(strcmp(buffer, "/dividends_recieved") == 0) { in_dividends_recieved = 0; }
+			if(strcmp(buffer, "dividends_retained") == 0) { in_dividends_retained = 1; }
+			if(strcmp(buffer, "/dividends_retained") == 0) { in_dividends_retained = 0; }
 			if(strcmp(buffer, "firm_investment") == 0) { in_firm_investment = 1; }
 			if(strcmp(buffer, "/firm_investment") == 0) { in_firm_investment = 0; }
 			if(strcmp(buffer, "loans") == 0) { in_loans = 1; }
@@ -2403,8 +2432,6 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/deposits") == 0) { in_deposits = 0; }
 			if(strcmp(buffer, "centralbank_debt") == 0) { in_centralbank_debt = 1; }
 			if(strcmp(buffer, "/centralbank_debt") == 0) { in_centralbank_debt = 0; }
-			if(strcmp(buffer, "revenues") == 0) { in_revenues = 1; }
-			if(strcmp(buffer, "/revenues") == 0) { in_revenues = 0; }
 			if(strcmp(buffer, "total_writeoffs") == 0) { in_total_writeoffs = 1; }
 			if(strcmp(buffer, "/total_writeoffs") == 0) { in_total_writeoffs = 0; }
 			if(strcmp(buffer, "interests_accrued") == 0) { in_interests_accrued = 1; }
@@ -2413,10 +2440,6 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/interests_paid") == 0) { in_interests_paid = 0; }
 			if(strcmp(buffer, "total_dividends") == 0) { in_total_dividends = 1; }
 			if(strcmp(buffer, "/total_dividends") == 0) { in_total_dividends = 0; }
-			if(strcmp(buffer, "retained_earnings") == 0) { in_retained_earnings = 1; }
-			if(strcmp(buffer, "/retained_earnings") == 0) { in_retained_earnings = 0; }
-			if(strcmp(buffer, "net_earnings") == 0) { in_net_earnings = 1; }
-			if(strcmp(buffer, "/net_earnings") == 0) { in_net_earnings = 0; }
 			if(strcmp(buffer, "total_costs") == 0) { in_total_costs = 1; }
 			if(strcmp(buffer, "/total_costs") == 0) { in_total_costs = 0; }
 			if(strcmp(buffer, "unemployment_rate") == 0) { in_unemployment_rate = 1; }
@@ -2437,6 +2460,8 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/general_benefits") == 0) { in_general_benefits = 0; }
 			if(strcmp(buffer, "unemployment_benefits") == 0) { in_unemployment_benefits = 1; }
 			if(strcmp(buffer, "/unemployment_benefits") == 0) { in_unemployment_benefits = 0; }
+			if(strcmp(buffer, "earnings") == 0) { in_earnings = 1; }
+			if(strcmp(buffer, "/earnings") == 0) { in_earnings = 0; }
 			if(strcmp(buffer, "expenditures") == 0) { in_expenditures = 1; }
 			if(strcmp(buffer, "/expenditures") == 0) { in_expenditures = 0; }
 			if(strcmp(buffer, "consumption_goods_prices") == 0) { in_consumption_goods_prices = 1; }
@@ -2566,19 +2591,22 @@ int readAgentXML(char * location,
 					if(in_debt) { current_firm_agent->debt = atof(buffer); }
 					if(in_inventory) { current_firm_agent->inventory = atoi(buffer); }
 					if(in_sales) { current_firm_agent->sales = atoi(buffer); }
-					if(in_revenue) { current_firm_agent->revenue = atof(buffer); }
+					if(in_revenues) { current_firm_agent->revenues = atof(buffer); }
 					if(in_total_assets) { current_firm_agent->total_assets = atof(buffer); }
-					if(in_costs) { current_firm_agent->costs = atof(buffer); }
+					if(in_operating_costs) { current_firm_agent->operating_costs = atof(buffer); }
+					if(in_labour_costs) { current_firm_agent->labour_costs = atof(buffer); }
 					if(in_total_interest_payments) { current_firm_agent->total_interest_payments = atof(buffer); }
 					if(in_dividends_paid) { current_firm_agent->dividends_paid = atof(buffer); }
-					if(in_dividends_retained) { current_firm_agent->dividends_retained = atof(buffer); }
-					if(in_earnings) { current_firm_agent->earnings = atof(buffer); }
+					if(in_dividends_to_be_paid) { current_firm_agent->dividends_to_be_paid = atof(buffer); }
+					if(in_retained_earnings) { current_firm_agent->retained_earnings = atof(buffer); }
+					if(in_net_earnings) { current_firm_agent->net_earnings = atof(buffer); }
 					if(in_ebit) { current_firm_agent->ebit = atof(buffer); }
 					if(in_equity) { current_firm_agent->equity = atof(buffer); }
 					if(in_liquidity) { current_firm_agent->liquidity = atof(buffer); }
 					if(in_capital_goods) { current_firm_agent->capital_goods = atof(buffer); }
 					if(in_hasloan) { current_firm_agent->hasloan = atoi(buffer); }
 					if(in_hasinvestment) { current_firm_agent->hasinvestment = atoi(buffer); }
+					if(in_planned_investment_costs) { current_firm_agent->planned_investment_costs = atof(buffer); }
 					if(in_liquidity_need) { current_firm_agent->liquidity_need = atof(buffer); }
 					if(in_loan_list) { j = 0;
 						rc = read_loan_static_array(buffer, index, &j, current_firm_agent->loan_list, 2);
@@ -2590,7 +2618,7 @@ int readAgentXML(char * location,
 					if(in_bank_id) { current_household_agent->bank_id = atoi(buffer); }
 					if(in_day_of_week_to_act) { current_household_agent->day_of_week_to_act = atoi(buffer); }
 					if(in_weekly_consumption_budget) { current_household_agent->weekly_consumption_budget = atof(buffer); }
-					if(in_consumption_budget) { current_household_agent->consumption_budget = atof(buffer); }
+					if(in_planned_consumption_budget) { current_household_agent->planned_consumption_budget = atof(buffer); }
 					if(in_my_employer_id) { current_household_agent->my_employer_id = atoi(buffer); }
 					if(in_wage) { current_household_agent->wage = atof(buffer); }
 					if(in_day_of_month_to_act) { current_household_agent->day_of_month_to_act = atoi(buffer); }
@@ -2605,12 +2633,16 @@ int readAgentXML(char * location,
 					if(in_equity) { current_household_agent->equity = atof(buffer); }
 					if(in_housing_price) { current_household_agent->housing_price = atof(buffer); }
 					if(in_housing_units) { current_household_agent->housing_units = atoi(buffer); }
-					if(in_dividends) { current_household_agent->dividends = atoi(buffer); }
+					if(in_n_shares) { current_household_agent->n_shares = atoi(buffer); }
 					if(in_liquidity) { current_household_agent->liquidity = atof(buffer); }
-					if(in_fund_shares) { current_household_agent->fund_shares = atof(buffer); }
+					if(in_capital_income) { current_household_agent->capital_income = atof(buffer); }
 					if(in_previous_wages) { j = 0;
 						rc = read_int_static_array(buffer, index, &j, current_household_agent->previous_wages, 3);
 						if(rc != 0) { printf("Error: reading 'household' agent variable 'previous_wages' of type 'int'\n"); exit(0); } }
+					if(in_labour_income) { current_household_agent->labour_income = atof(buffer); }
+					if(in_total_assets) { current_household_agent->total_assets = atof(buffer); }
+					if(in_housing_value) { current_household_agent->housing_value = atof(buffer); }
+					if(in_delta_housing_value) { current_household_agent->delta_housing_value = atof(buffer); }
 					if(in_hmarket_role) { current_household_agent->hmarket_role = atoi(buffer); }
 					if(in_equity_ratio) { current_household_agent->equity_ratio = atof(buffer); }
 					if(in_minimum_equity_ratio) { current_household_agent->minimum_equity_ratio = atof(buffer); }
@@ -2626,7 +2658,7 @@ int readAgentXML(char * location,
 					if(in_share_banks) { current_equityfund_agent->share_banks = atof(buffer); }
 					if(in_equity) { current_equityfund_agent->equity = atof(buffer); }
 					if(in_liquidity) { current_equityfund_agent->liquidity = atof(buffer); }
-					if(in_n_dividends) { current_equityfund_agent->n_dividends = atoi(buffer); }
+					if(in_n_shares) { current_equityfund_agent->n_shares = atoi(buffer); }
 					if(in_dividends_recieved) { current_equityfund_agent->dividends_recieved = atof(buffer); }
 					if(in_dividends_retained) { current_equityfund_agent->dividends_retained = atof(buffer); }
 					if(in_dividends_paid) { current_equityfund_agent->dividends_paid = atof(buffer); }
@@ -3576,6 +3608,8 @@ void write_loan(FILE *file, loan * temp_datatype)
 	fputs(data, file);
 	fputs(", ", file);	sprintf(data, "%f", (*temp_datatype).amount);
 	fputs(data, file);
+	fputs(", ", file);	sprintf(data, "%f", (*temp_datatype).to_be_paid);
+	fputs(data, file);
 	fputs("}", file);
 }
 
@@ -3877,18 +3911,22 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	sprintf(data, "%i", current->sales);
 	fputs(data, file);
 	fputs("</sales>\n", file);
-		fputs("<revenue>", file);
-	sprintf(data, "%f", current->revenue);
+		fputs("<revenues>", file);
+	sprintf(data, "%f", current->revenues);
 	fputs(data, file);
-	fputs("</revenue>\n", file);
+	fputs("</revenues>\n", file);
 		fputs("<total_assets>", file);
 	sprintf(data, "%f", current->total_assets);
 	fputs(data, file);
 	fputs("</total_assets>\n", file);
-		fputs("<costs>", file);
-	sprintf(data, "%f", current->costs);
+		fputs("<operating_costs>", file);
+	sprintf(data, "%f", current->operating_costs);
 	fputs(data, file);
-	fputs("</costs>\n", file);
+	fputs("</operating_costs>\n", file);
+		fputs("<labour_costs>", file);
+	sprintf(data, "%f", current->labour_costs);
+	fputs(data, file);
+	fputs("</labour_costs>\n", file);
 		fputs("<total_interest_payments>", file);
 	sprintf(data, "%f", current->total_interest_payments);
 	fputs(data, file);
@@ -3897,14 +3935,18 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	sprintf(data, "%f", current->dividends_paid);
 	fputs(data, file);
 	fputs("</dividends_paid>\n", file);
-		fputs("<dividends_retained>", file);
-	sprintf(data, "%f", current->dividends_retained);
+		fputs("<dividends_to_be_paid>", file);
+	sprintf(data, "%f", current->dividends_to_be_paid);
 	fputs(data, file);
-	fputs("</dividends_retained>\n", file);
-		fputs("<earnings>", file);
-	sprintf(data, "%f", current->earnings);
+	fputs("</dividends_to_be_paid>\n", file);
+		fputs("<retained_earnings>", file);
+	sprintf(data, "%f", current->retained_earnings);
 	fputs(data, file);
-	fputs("</earnings>\n", file);
+	fputs("</retained_earnings>\n", file);
+		fputs("<net_earnings>", file);
+	sprintf(data, "%f", current->net_earnings);
+	fputs(data, file);
+	fputs("</net_earnings>\n", file);
 		fputs("<ebit>", file);
 	sprintf(data, "%f", current->ebit);
 	fputs(data, file);
@@ -3929,6 +3971,10 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	sprintf(data, "%i", current->hasinvestment);
 	fputs(data, file);
 	fputs("</hasinvestment>\n", file);
+		fputs("<planned_investment_costs>", file);
+	sprintf(data, "%f", current->planned_investment_costs);
+	fputs(data, file);
+	fputs("</planned_investment_costs>\n", file);
 		fputs("<liquidity_need>", file);
 	sprintf(data, "%f", current->liquidity_need);
 	fputs(data, file);
@@ -3965,10 +4011,10 @@ void write_household_agent(FILE *file, xmachine_memory_household * current)
 	sprintf(data, "%f", current->weekly_consumption_budget);
 	fputs(data, file);
 	fputs("</weekly_consumption_budget>\n", file);
-		fputs("<consumption_budget>", file);
-	sprintf(data, "%f", current->consumption_budget);
+		fputs("<planned_consumption_budget>", file);
+	sprintf(data, "%f", current->planned_consumption_budget);
 	fputs(data, file);
-	fputs("</consumption_budget>\n", file);
+	fputs("</planned_consumption_budget>\n", file);
 		fputs("<my_employer_id>", file);
 	sprintf(data, "%i", current->my_employer_id);
 	fputs(data, file);
@@ -4016,21 +4062,37 @@ void write_household_agent(FILE *file, xmachine_memory_household * current)
 	sprintf(data, "%i", current->housing_units);
 	fputs(data, file);
 	fputs("</housing_units>\n", file);
-		fputs("<dividends>", file);
-	sprintf(data, "%i", current->dividends);
+		fputs("<n_shares>", file);
+	sprintf(data, "%i", current->n_shares);
 	fputs(data, file);
-	fputs("</dividends>\n", file);
+	fputs("</n_shares>\n", file);
 		fputs("<liquidity>", file);
 	sprintf(data, "%f", current->liquidity);
 	fputs(data, file);
 	fputs("</liquidity>\n", file);
-		fputs("<fund_shares>", file);
-	sprintf(data, "%f", current->fund_shares);
+		fputs("<capital_income>", file);
+	sprintf(data, "%f", current->capital_income);
 	fputs(data, file);
-	fputs("</fund_shares>\n", file);
+	fputs("</capital_income>\n", file);
 		fputs("<previous_wages>", file);
 	write_int_static_array(file, current->previous_wages, 3);
 	fputs("</previous_wages>\n", file);
+		fputs("<labour_income>", file);
+	sprintf(data, "%f", current->labour_income);
+	fputs(data, file);
+	fputs("</labour_income>\n", file);
+		fputs("<total_assets>", file);
+	sprintf(data, "%f", current->total_assets);
+	fputs(data, file);
+	fputs("</total_assets>\n", file);
+		fputs("<housing_value>", file);
+	sprintf(data, "%f", current->housing_value);
+	fputs(data, file);
+	fputs("</housing_value>\n", file);
+		fputs("<delta_housing_value>", file);
+	sprintf(data, "%f", current->delta_housing_value);
+	fputs(data, file);
+	fputs("</delta_housing_value>\n", file);
 		fputs("<hmarket_role>", file);
 	sprintf(data, "%i", current->hmarket_role);
 	fputs(data, file);
@@ -4083,10 +4145,10 @@ void write_equityfund_agent(FILE *file, xmachine_memory_equityfund * current)
 	sprintf(data, "%f", current->liquidity);
 	fputs(data, file);
 	fputs("</liquidity>\n", file);
-		fputs("<n_dividends>", file);
-	sprintf(data, "%i", current->n_dividends);
+		fputs("<n_shares>", file);
+	sprintf(data, "%i", current->n_shares);
 	fputs(data, file);
-	fputs("</n_dividends>\n", file);
+	fputs("</n_shares>\n", file);
 		fputs("<dividends_recieved>", file);
 	sprintf(data, "%f", current->dividends_recieved);
 	fputs(data, file);

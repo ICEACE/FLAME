@@ -10,13 +10,9 @@
 int household_housing_market_role()
 {
     double quarterly_mortgage_costs;
-    double wage_income;
     double quarterly_income;
-    double capital_income;
     
-    wage_income = (double)(PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2]);
-    capital_income = FUND_SHARES;
-    quarterly_income = wage_income + capital_income;
+    quarterly_income = LABOUR_INCOME + CAPITAL_INCOME;
     
     quarterly_mortgage_costs = MORTGAGE_COSTS[0] + MORTGAGE_COSTS[1] + MORTGAGE_COSTS[2];
     
@@ -57,7 +53,7 @@ int household_housing_check_wealth()
     // Housing assets.
     housing = HOUSING_UNITS * HOUSING_PRICE;
     
-    //Capital income (the FUND_SHARES are liquidified as sooon as they are recieved.)
+    //Capital incomes CAPITAL_INCOME are liquidified as sooon as they are recieved.
     wealth = LIQUIDITY + housing;
     
     if (wealth <= 0){
@@ -66,10 +62,6 @@ int household_housing_check_wealth()
         EQUITY_RATIO = EQUITY / wealth;
     }
     
-    printf("HousingMarket Household ID = %d buys\n", ID);
-    printf("HousingMarket Household MARKET ROLE = %d\n", HMARKET_ROLE);
-    
-
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -81,20 +73,13 @@ int household_housing_check_wealth()
 int household_housing_enter_market()
 {
     double mortgage_costs;
-    double wage;
-    double capital;
     double income;
     
-    wage = (double)(PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2]);
-    capital = FUND_SHARES;
-    income = wage + capital;
+    income = LABOUR_INCOME + CAPITAL_INCOME;
     
     mortgage_costs = MORTGAGE_COSTS[0] + MORTGAGE_COSTS[1] + MORTGAGE_COSTS[2];
     
     add_buy_housing_message(ID, BANK_ID, LIQUIDITY, income, mortgage_costs);
-    
-    printf("HousingMarket Household ID = %d buys\n", ID);
-    printf("HousingMarket Household Equity Ratio = %f\n", EQUITY_RATIO);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -348,14 +333,13 @@ int household_housing_pay_mortgages()
 int household_housing_debt_writeoff()
 {
     int size, ind;
+    double total_income;
     
     size = MORTGAGES_LIST.size;
     if (size == 0){ return 0;}
     
     mortgage mort;
     init_mortgage(&mort);
-    
-    double labour_income, capital_income;
     
     double mortgage_costs = 0;
     
@@ -366,17 +350,16 @@ int household_housing_debt_writeoff()
         mortgage_costs += mort.quarterly_principal;
         size = ind;
     }
-    labour_income = PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2];
-    capital_income = FUND_SHARES;
     
-    if (mortgage_costs > (HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * (labour_income + capital_income)))
+    total_income = LABOUR_INCOME + CAPITAL_INCOME;
+    if (mortgage_costs > HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * total_income)
     {
         double quarterly_principal, quarterly_interest;
         double annuity, d1, d2;
         
         for (ind = 0; ind < size; ind++){remove_mortgage(&MORTGAGES_LIST, ind);}
         
-        MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * (labour_income + capital_income) / MORTGAGES_INTEREST_RATE;
+        MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income / MORTGAGES_INTEREST_RATE;
         
         d1 = MORTGAGES_INTEREST_RATE/4;
         d2 = d1 * pow((1 + d1), 160);

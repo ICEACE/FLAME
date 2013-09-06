@@ -52,9 +52,6 @@ int firm_production_set_price()
         UNIT_GOODS_PRICE = (1 + PRICE_MARKUP) * unit_cost;
     }
     
-    //printf("Firm ID = %d\n", ID);
-    //printf("    New unit price = %f\n", UNIT_GOODS_PRICE);
-    
     return 0; /* Returning zero means the agent is not removed */
 }
 

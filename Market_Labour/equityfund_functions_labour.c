@@ -6,11 +6,11 @@
  * \brief: The funding agency collects number of shares.
  */
 int equityfund_audit_dividends(){
-    int dividends = 0;
+    int shares = 0;
    
     START_EMPLOYMENT_STATUS_MESSAGE_LOOP
-        dividends += employment_status_message->ndividends;
+        shares += employment_status_message->nshares;
     FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
-    N_DIVIDENDS = dividends;
+    N_SHARES = shares;
 	return 0; /* Returning zero means the agent is not removed */
 }

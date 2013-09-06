@@ -142,10 +142,15 @@
                     <currentState>FirmUpdateDeposits</currentState>
                     <nextState>end</nextState>
                     <condition>
-                        <not><time>
+                        <not><lhs><time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
-                        </time></not>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs></not>
                     </condition>
                 </function>
                 <function>
@@ -154,10 +159,15 @@
                     <currentState>FirmUpdateDeposits</currentState>
                     <nextState>end</nextState>
                     <condition>
-                        <time>
+                        <lhs><time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
-                        </time>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs>
                     </condition>
                     <outputs>
                         <output>
@@ -195,10 +205,15 @@
                     <currentState>HouseholdUpdateDeposits</currentState>
                     <nextState>end</nextState>
                     <condition>
-                        <not><time>
+                        <not><lhs><time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
-                        </time></not>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs></not>
                     </condition>
                 </function>
                 <function>
@@ -207,10 +222,15 @@
                     <currentState>HouseholdUpdateDeposits</currentState>
                     <nextState>end</nextState>
                     <condition>
-                        <time>
+                        <lhs><time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
-                        </time>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs>
                     </condition>
                     <outputs>
                         <output>
@@ -272,10 +292,15 @@
                     <currentState>BankUpdateDeposits</currentState>
                     <nextState>end</nextState>
                     <condition>
-                        <not><time>
+                        <not><lhs><time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
-                        </time></not>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs></not>
                     </condition>
                 </function>
                 <function>
@@ -284,10 +309,15 @@
                     <currentState>BankUpdateDeposits</currentState>
                     <nextState>end</nextState>
                     <condition>
-                        <time>
+                        <lhs><time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
-                        </time>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs>
                     </condition>
                     <inputs>
                         <input>

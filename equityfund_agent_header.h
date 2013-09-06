@@ -24,9 +24,9 @@
 /** \def LIQUIDITY
  * \brief Direct access to liquidity of equityfund agent memory variable. */
 #define LIQUIDITY (current_xmachine_equityfund->liquidity)
-/** \def N_DIVIDENDS
- * \brief Direct access to n_dividends of equityfund agent memory variable. */
-#define N_DIVIDENDS (current_xmachine_equityfund->n_dividends)
+/** \def N_SHARES
+ * \brief Direct access to n_shares of equityfund agent memory variable. */
+#define N_SHARES (current_xmachine_equityfund->n_shares)
 /** \def DIVIDENDS_RECIEVED
  * \brief Direct access to dividends_recieved of equityfund agent memory variable. */
 #define DIVIDENDS_RECIEVED (current_xmachine_equityfund->dividends_recieved)

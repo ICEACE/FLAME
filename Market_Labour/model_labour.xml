@@ -837,8 +837,8 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>ndividends</name>
-                    <description>Number of dividends one own.</description>
+                    <name>nshares</name>
+                    <description>Number of shares one own.</description>
                 </variable>
             </variables>
         </message>

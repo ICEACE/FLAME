@@ -2196,20 +2196,20 @@ union pu_employment_status
     void *ptr_anon;
 };
 
-/** \fn void add_employment_status_message(int employer_id, double wage, int ndividends)
+/** \fn void add_employment_status_message(int employer_id, double wage, int nshares)
  * \brief Add employment_status message by calling internal and processing.
  * \param employer_id Message variable.
  * \param wage Message variable.
- * \param ndividends Message variable.
+ * \param nshares Message variable.
  */
-void add_employment_status_message(int employer_id, double wage, int ndividends)
+void add_employment_status_message(int employer_id, double wage, int nshares)
 {
     int rc;
 	m_employment_status msg;
     
     msg.employer_id = employer_id;
     msg.wage = wage;
-    msg.ndividends = ndividends;
+    msg.nshares = nshares;
     
     
     rc = MB_AddMessage(b_employment_status, &msg);

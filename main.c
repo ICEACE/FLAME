@@ -4695,8 +4695,8 @@ printf("Iterations: %i\n", iteration_total);
 		while(current_xmachine_firm_holder)
 		{
 			FLAME_debug_count = 0;
-			/* Function: firm_credit_check_interest_rate */
-			if(FLAME_condition_firm_firm_credit_check_interest_rate_FirmCreditStart_FirmCreditLiquidityNeed(current_xmachine_firm_holder->agent)==1)
+			/* Function: firm_credit_compute_income_statement */
+			if(FLAME_condition_firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInterestRate(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/* Function: idle */
 			if(FLAME_condition_firm_idle_FirmCreditStart_FirmProductionStart(current_xmachine_firm_holder->agent)==1)
@@ -5418,6 +5418,51 @@ printf("Iterations: %i\n", iteration_total);
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_compute_income_statement\n");
+	current_xmachine_firm_holder = firm_FirmCreditStart_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmCreditInterestRate_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInterestRate(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = firm_credit_compute_income_statement();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStart_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStart_state, firm_FirmCreditInterestRate_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_compute_income_statement\n");
+
+
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
 	current_xmachine_firm_holder = firm_FirmCreditStart_state->agents;
 	while(current_xmachine_firm_holder)
@@ -5504,12 +5549,12 @@ printf("Iterations: %i\n", iteration_total);
 	}
 	
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_check_interest_rate\n");
-	current_xmachine_firm_holder = firm_FirmCreditStart_state->agents;
+	current_xmachine_firm_holder = firm_FirmCreditInterestRate_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditLiquidityNeed_state;
+		current_xmachine_firm_next_state = firm_FirmCreditInvestment_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -5522,8 +5567,7 @@ printf("Iterations: %i\n", iteration_total);
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_firm_credit_check_interest_rate_FirmCreditStart_FirmCreditLiquidityNeed(current_xmachine_firm)==1)
-		{
+		
 
 		
 		
@@ -5591,13 +5635,13 @@ printf("Iterations: %i\n", iteration_total);
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStart_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInterestRate_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStart_state, firm_FirmCreditLiquidityNeed_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInterestRate_state, firm_FirmCreditInvestment_state);
 			}
-		}
+		
 
 		current_xmachine_firm = NULL;
 
@@ -5878,13 +5922,13 @@ if(FLAME_interest_rate_message_board_read == 0)
     #endif
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_check_liquidity_need\n");
-	current_xmachine_firm_holder = firm_FirmCreditLiquidityNeed_state->agents;
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_investment_decisions\n");
+	current_xmachine_firm_holder = firm_FirmCreditInvestment_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditStatus_state;
+		current_xmachine_firm_next_state = firm_FirmCreditComputeDividends_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -5901,17 +5945,17 @@ if(FLAME_interest_rate_message_board_read == 0)
 
 		
 
-			i = firm_credit_check_liquidity_need();
+			i = firm_credit_investment_decisions();
 
 		
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLiquidityNeed_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInvestment_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLiquidityNeed_state, firm_FirmCreditStatus_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInvestment_state, firm_FirmCreditComputeDividends_state);
 			}
 		
 
@@ -5919,7 +5963,7 @@ if(FLAME_interest_rate_message_board_read == 0)
 
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_check_liquidity_need\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_investment_decisions\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -6168,13 +6212,13 @@ if(FLAME_tax_rate_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_update_mortgage_rates\n");
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmCreditStatus_state->agents;
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_compute_dividends\n");
+	current_xmachine_firm_holder = firm_FirmCreditComputeDividends_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditLoanRequest_state;
+		current_xmachine_firm_next_state = firm_FirmCreditLiquidityNeed_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -6187,75 +6231,29 @@ if(FLAME_tax_rate_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_idle_FirmCreditStatus_FirmCreditLoanRequest(current_xmachine_firm)==1)
-		{
+		
 
 		
 
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state, firm_FirmCreditLoanRequest_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmCreditStatus_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditDividendPayments_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmCreditStatus_FirmCreditDividendPayments(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
+			i = firm_credit_compute_dividends();
 
 		
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditComputeDividends_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state, firm_FirmCreditDividendPayments_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditComputeDividends_state, firm_FirmCreditLiquidityNeed_state);
 			}
-		}
+		
 
 		current_xmachine_firm = NULL;
 
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_compute_dividends\n");
 
 
 /* End of layer number 4 */
@@ -6264,29 +6262,6 @@ if(FLAME_tax_rate_message_board_read == 0)
  * and sync complete if doing late sync complete */
 
 	/* DEBUG: States with branching functions */
-		current_xmachine_firm_holder = firm_FirmCreditLoanRequest_state->agents;
-		while(current_xmachine_firm_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: firm_credit_demand_loans_1 */
-			if(FLAME_condition_firm_firm_credit_demand_loans_1_FirmCreditLoanRequest_FirmCreditLoanBorrow1(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmCreditLoanRequest_FirmCreditInsolvency(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmCreditLoanRequest'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		}
-		/* DEBUG: States with branching functions */
 		current_xmachine_household_holder = household_HHCreditIsCapitalist_state->agents;
 		while(current_xmachine_household_holder)
 		{
@@ -6310,8 +6285,126 @@ if(FLAME_tax_rate_message_board_read == 0)
 			current_xmachine_household_holder = current_xmachine_household_holder->next;
 		}
 	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_household_holder = household_HHCreditIsCapitalist_state->agents;
+	while(current_xmachine_household_holder)
+	{
+		temp_xmachine_household_holder = current_xmachine_household_holder->next;
+		current_xmachine_household = current_xmachine_household_holder->agent;
+		current_xmachine_household_next_state = household_HHCreditBalanceSheet_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_household = current_xmachine_household;
+
+		if(FLAME_condition_household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet(current_xmachine_household)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_household_agent(current_xmachine_household_holder, household_HHCreditIsCapitalist_state);
+			}
+			else
+			{
+				transition_household_agent(current_xmachine_household_holder, household_HHCreditIsCapitalist_state, household_HHCreditBalanceSheet_state);
+			}
+		}
+
+		current_xmachine_household = NULL;
+
+		current_xmachine_household_holder = temp_xmachine_household_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_check_liquidity_need\n");
+	current_xmachine_firm_holder = firm_FirmCreditLiquidityNeed_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmCreditStatus_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+
+			i = firm_credit_check_liquidity_need();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLiquidityNeed_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLiquidityNeed_state, firm_FirmCreditStatus_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_check_liquidity_need\n");
+
+
+/* End of layer number 5 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+	/* DEBUG: States with branching functions */
+		current_xmachine_firm_holder = firm_FirmCreditStatus_state->agents;
+		while(current_xmachine_firm_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: firm_credit_demand_loans_1 */
+			if(FLAME_condition_firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_firm_idle_FirmCreditStatus_FirmCreditPayments(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmCreditStatus'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		}
+	
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_demand_loans_1\n");
-	current_xmachine_firm_holder = firm_FirmCreditLoanRequest_state->agents;
+	current_xmachine_firm_holder = firm_FirmCreditStatus_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
@@ -6329,7 +6422,7 @@ if(FLAME_tax_rate_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_firm_credit_demand_loans_1_FirmCreditLoanRequest_FirmCreditLoanBorrow1(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1(current_xmachine_firm)==1)
 		{
 
 		
@@ -6340,11 +6433,11 @@ if(FLAME_tax_rate_message_board_read == 0)
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanRequest_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanRequest_state, firm_FirmCreditLoanBorrow1_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state, firm_FirmCreditLoanBorrow1_state);
 			}
 		}
 
@@ -6391,57 +6484,12 @@ if(FLAME_tax_rate_message_board_read == 0)
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_household_holder = household_HHCreditIsCapitalist_state->agents;
-	while(current_xmachine_household_holder)
-	{
-		temp_xmachine_household_holder = current_xmachine_household_holder->next;
-		current_xmachine_household = current_xmachine_household_holder->agent;
-		current_xmachine_household_next_state = household_HHCreditBalanceSheet_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_household = current_xmachine_household;
-
-		if(FLAME_condition_household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet(current_xmachine_household)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_household_agent(current_xmachine_household_holder, household_HHCreditIsCapitalist_state);
-			}
-			else
-			{
-				transition_household_agent(current_xmachine_household_holder, household_HHCreditIsCapitalist_state, household_HHCreditBalanceSheet_state);
-			}
-		}
-
-		current_xmachine_household = NULL;
-
-		current_xmachine_household_holder = temp_xmachine_household_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmCreditLoanRequest_state->agents;
+	current_xmachine_firm_holder = firm_FirmCreditStatus_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditInsolvency_state;
+		current_xmachine_firm_next_state = firm_FirmCreditPayments_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -6454,7 +6502,7 @@ if(FLAME_tax_rate_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_idle_FirmCreditLoanRequest_FirmCreditInsolvency(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_idle_FirmCreditStatus_FirmCreditPayments(current_xmachine_firm)==1)
 		{
 
 		
@@ -6465,11 +6513,11 @@ if(FLAME_tax_rate_message_board_read == 0)
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanRequest_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanRequest_state, firm_FirmCreditInsolvency_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditStatus_state, firm_FirmCreditPayments_state);
 			}
 		}
 
@@ -6480,89 +6528,10 @@ if(FLAME_tax_rate_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 5 */
+/* End of layer number 6 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_exit_market\n");
-	current_xmachine_firm_holder = firm_FirmCreditInsolvency_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditIncomeStatement_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		
-
-		
-
-			i = firm_credit_exit_market();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInsolvency_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInsolvency_state, firm_FirmCreditIncomeStatement_state);
-			}
-		
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_exit_market\n");
-
-	if(FLAME_new_entrant_loan_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_new_entrant_loan)\n");
-		rc = MB_SyncStart(b_new_entrant_loan);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_new_entrant_loan)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'new_entrant_loan' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'new_entrant_loan' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'new_entrant_loan' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -6740,7 +6709,7 @@ if(FLAME_tax_rate_message_board_read == 0)
     
 
 
-/* End of layer number 6 */
+/* End of layer number 7 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -6980,7 +6949,7 @@ if(FLAME_loan_request_1_message_board_read == 0)
     
 
 
-/* End of layer number 7 */
+/* End of layer number 8 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -7054,7 +7023,7 @@ if(FLAME_loan_acknowledge_1_message_board_read == 0)
 			if(FLAME_condition_firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmCreditLoanBorrow2_FirmCreditDividendPayments(current_xmachine_firm_holder->agent)==1)
+			if(FLAME_condition_firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
 			if(FLAME_debug_count != 1)
@@ -7246,7 +7215,7 @@ if(FLAME_loan_acknowledge_1_message_board_read == 0)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditDividendPayments_state;
+		current_xmachine_firm_next_state = firm_FirmCreditPayments_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -7259,7 +7228,7 @@ if(FLAME_loan_acknowledge_1_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_idle_FirmCreditLoanBorrow2_FirmCreditDividendPayments(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments(current_xmachine_firm)==1)
 		{
 
 		
@@ -7274,7 +7243,7 @@ if(FLAME_loan_acknowledge_1_message_board_read == 0)
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanBorrow2_state, firm_FirmCreditDividendPayments_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanBorrow2_state, firm_FirmCreditPayments_state);
 			}
 		}
 
@@ -7285,7 +7254,7 @@ if(FLAME_loan_acknowledge_1_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 8 */
+/* End of layer number 9 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -7491,7 +7460,7 @@ if(FLAME_loan_request_2_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_borrow_loans_2\n");
 
 
-/* End of layer number 9 */
+/* End of layer number 10 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -7561,11 +7530,11 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 		while(current_xmachine_firm_holder)
 		{
 			FLAME_debug_count = 0;
-			/* Function: firm_credit_request_investment */
-			if(FLAME_condition_firm_firm_credit_request_investment_FirmCreditIlliquidityStatus_FirmCreditCheckInvestment(current_xmachine_firm_holder->agent)==1)
+			/* Function: firm_credit_request_equityfund_investment */
+			if(FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditCheckFundInvestment(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmCreditIlliquidityStatus_FirmCreditDividendPayments(current_xmachine_firm_holder->agent)==1)
+			if(FLAME_condition_firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
 			if(FLAME_debug_count != 1)
@@ -7580,13 +7549,13 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		}
 	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_request_investment\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_request_equityfund_investment\n");
 	current_xmachine_firm_holder = firm_FirmCreditIlliquidityStatus_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditCheckInvestment_state;
+		current_xmachine_firm_next_state = firm_FirmCreditCheckFundInvestment_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -7599,12 +7568,12 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_firm_credit_request_investment_FirmCreditIlliquidityStatus_FirmCreditCheckInvestment(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditCheckFundInvestment(current_xmachine_firm)==1)
 		{
 
 		
 
-			i = firm_credit_request_investment();
+			i = firm_credit_request_equityfund_investment();
 
 		
 
@@ -7614,7 +7583,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditIlliquidityStatus_state, firm_FirmCreditCheckInvestment_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditIlliquidityStatus_state, firm_FirmCreditCheckFundInvestment_state);
 			}
 		}
 
@@ -7622,7 +7591,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_request_investment\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_request_equityfund_investment\n");
 
 	if(FLAME_fund_request_message_board_write == 1)
 	{
@@ -7666,7 +7635,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditDividendPayments_state;
+		current_xmachine_firm_next_state = firm_FirmCreditPayments_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -7679,7 +7648,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_idle_FirmCreditIlliquidityStatus_FirmCreditDividendPayments(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments(current_xmachine_firm)==1)
 		{
 
 		
@@ -7694,7 +7663,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditIlliquidityStatus_state, firm_FirmCreditDividendPayments_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditIlliquidityStatus_state, firm_FirmCreditPayments_state);
 			}
 		}
 
@@ -7705,7 +7674,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 10 */
+/* End of layer number 11 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -7883,86 +7852,7 @@ if(FLAME_loan_acknowledge_2_message_board_read == 0)
     
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_distribute_net_profit\n");
-	current_xmachine_firm_holder = firm_FirmCreditDividendPayments_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditLoanPayment_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		
-
-		
-
-			i = firm_credit_distribute_net_profit();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditDividendPayments_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditDividendPayments_state, firm_FirmCreditLoanPayment_state);
-			}
-		
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_distribute_net_profit\n");
-
-	if(FLAME_firm_net_profit_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_firm_net_profit)\n");
-		rc = MB_SyncStart(b_firm_net_profit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_firm_net_profit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'firm_net_profit' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'firm_net_profit' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-/* End of layer number 11 */
+/* End of layer number 12 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -8141,8 +8031,8 @@ if(FLAME_fund_request_message_board_read == 0)
     
 	}
 	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_check_investment\n");
-	current_xmachine_firm_holder = firm_FirmCreditCheckInvestment_state->agents;
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_check_equityfund_investment\n");
+	current_xmachine_firm_holder = firm_FirmCreditCheckFundInvestment_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
@@ -8167,7 +8057,7 @@ if(FLAME_fund_request_message_board_read == 0)
           
                   
           
-		    rc = MB_Iterator_CreateFiltered(b_fund_request_ack, &i_fund_request_ack, &FLAME_filter_firm_firm_credit_check_investment_FirmCreditCheckInvestment_FirmCreditBankruptcy_fund_request_ack, current_xmachine_firm);
+		    rc = MB_Iterator_CreateFiltered(b_fund_request_ack, &i_fund_request_ack, &FLAME_filter_firm_firm_credit_check_equityfund_investment_FirmCreditCheckFundInvestment_FirmCreditBankruptcy_fund_request_ack, current_xmachine_firm);
 		    
 		  
 		
@@ -8203,7 +8093,7 @@ if(FLAME_fund_request_message_board_read == 0)
 		
 		
 
-			i = firm_credit_check_investment();
+			i = firm_credit_check_equityfund_investment();
 
 		
 		    rc = MB_Iterator_Delete(&i_fund_request_ack);
@@ -8231,11 +8121,11 @@ if(FLAME_fund_request_message_board_read == 0)
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditCheckInvestment_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditCheckFundInvestment_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditCheckInvestment_state, firm_FirmCreditBankruptcy_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditCheckFundInvestment_state, firm_FirmCreditBankruptcy_state);
 			}
 		
 
@@ -8243,10 +8133,10 @@ if(FLAME_fund_request_message_board_read == 0)
 
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_check_investment\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_check_equityfund_investment\n");
 
 
-/* End of layer number 12 */
+/* End of layer number 13 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -8317,10 +8207,10 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 		{
 			FLAME_debug_count = 0;
 			/* Function: firm_credit_illiquidity_bankrupt */
-			if(FLAME_condition_firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditIncomeStatement(current_xmachine_firm_holder->agent)==1)
+			if(FLAME_condition_firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmCreditBankruptcy_FirmCreditLoanPayment(current_xmachine_firm_holder->agent)==1)
+			if(FLAME_condition_firm_idle_FirmCreditBankruptcy_FirmCreditPayments(current_xmachine_firm_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
 			if(FLAME_debug_count != 1)
@@ -8341,7 +8231,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditIncomeStatement_state;
+		current_xmachine_firm_next_state = firm_FirmCreditBalanceSheet_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -8354,7 +8244,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditIncomeStatement(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet(current_xmachine_firm)==1)
 		{
 
 		
@@ -8369,7 +8259,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBankruptcy_state, firm_FirmCreditIncomeStatement_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBankruptcy_state, firm_FirmCreditBalanceSheet_state);
 			}
 		}
 
@@ -8379,41 +8269,6 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 	}
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_illiquidity_bankrupt\n");
 
-	if(FLAME_loan_writeoff_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_loan_writeoff)\n");
-		rc = MB_SyncStart(b_loan_writeoff);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_loan_writeoff)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'loan_writeoff' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'loan_writeoff' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'loan_writeoff' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
 	current_xmachine_firm_holder = firm_FirmCreditBankruptcy_state->agents;
@@ -8421,7 +8276,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditLoanPayment_state;
+		current_xmachine_firm_next_state = firm_FirmCreditPayments_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -8434,7 +8289,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		if(FLAME_condition_firm_idle_FirmCreditBankruptcy_FirmCreditLoanPayment(current_xmachine_firm)==1)
+		if(FLAME_condition_firm_idle_FirmCreditBankruptcy_FirmCreditPayments(current_xmachine_firm)==1)
 		{
 
 		
@@ -8449,7 +8304,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBankruptcy_state, firm_FirmCreditLoanPayment_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBankruptcy_state, firm_FirmCreditPayments_state);
 			}
 		}
 
@@ -8597,7 +8452,7 @@ if(FLAME_fund_request_ack_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_collect_shares\n");
 
 
-/* End of layer number 13 */
+/* End of layer number 14 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -8743,12 +8598,12 @@ if(FLAME_household_share_message_board_read == 0)
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_pay_interest_on_loans\n");
-	current_xmachine_firm_holder = firm_FirmCreditLoanPayment_state->agents;
+	current_xmachine_firm_holder = firm_FirmCreditPayments_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditIncomeStatement_state;
+		current_xmachine_firm_next_state = firm_FirmCreditDividendPayments_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -8771,11 +8626,11 @@ if(FLAME_household_share_message_board_read == 0)
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanPayment_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditPayments_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditLoanPayment_state, firm_FirmCreditIncomeStatement_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditPayments_state, firm_FirmCreditDividendPayments_state);
 			}
 		
 
@@ -8819,6 +8674,901 @@ if(FLAME_household_share_message_board_read == 0)
 		#endif
     }
     
+
+
+/* End of layer number 15 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_pay_dividends\n");
+	current_xmachine_firm_holder = firm_FirmCreditDividendPayments_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmCreditBalanceSheet_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+
+			i = firm_credit_pay_dividends();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditDividendPayments_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditDividendPayments_state, firm_FirmCreditBalanceSheet_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_pay_dividends\n");
+
+	if(FLAME_firm_net_profit_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_firm_net_profit)\n");
+		rc = MB_SyncStart(b_firm_net_profit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_firm_net_profit)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'firm_net_profit' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'firm_net_profit' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_do_balance_sheet\n");
+	current_xmachine_household_holder = household_HHCreditBalanceSheet_state->agents;
+	while(current_xmachine_household_holder)
+	{
+		temp_xmachine_household_holder = current_xmachine_household_holder->next;
+		current_xmachine_household = current_xmachine_household_holder->agent;
+		current_xmachine_household_next_state = household_HHCreditMonthly_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_household = current_xmachine_household;
+
+		
+
+		
+
+			i = household_credit_do_balance_sheet();
+
+		
+
+			if(i == 1)
+			{
+				free_household_agent(current_xmachine_household_holder, household_HHCreditBalanceSheet_state);
+			}
+			else
+			{
+				transition_household_agent(current_xmachine_household_holder, household_HHCreditBalanceSheet_state, household_HHCreditMonthly_state);
+			}
+		
+
+		current_xmachine_household = NULL;
+
+		current_xmachine_household_holder = temp_xmachine_household_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_do_balance_sheet\n");
+
+
+	/* If mb is not read then leave sync complete until last possible moment */
+	if(FLAME_capital_tax_message_board_read == 1)
+	{
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_capital_tax)\n");
+		rc = MB_SyncComplete(b_capital_tax);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_capital_tax)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not complete sync of 'capital_tax' board\n");
+		   switch(rc) {
+				case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+	
+		   
+		   exit(rc);
+		}
+		#endif
+    
+    
+    
+	}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_collect_capital_tax\n");
+	current_xmachine_government_holder = government_GovernmentCapitalTax_state->agents;
+	while(current_xmachine_government_holder)
+	{
+		temp_xmachine_government_holder = current_xmachine_government_holder->next;
+		current_xmachine_government = current_xmachine_government_holder->agent;
+		current_xmachine_government_next_state = government_GovernmentIncomeStatement_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_government = current_xmachine_government;
+
+		
+
+		
+		
+		
+		  rc = MB_Iterator_Create(b_capital_tax, &i_capital_tax);
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'capital_tax'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'capital_tax' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+               
+                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = government_collect_capital_tax();
+
+		
+		    rc = MB_Iterator_Delete(&i_capital_tax);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'capital_tax' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'capital_tax' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_government_agent(current_xmachine_government_holder, government_GovernmentCapitalTax_state);
+			}
+			else
+			{
+				transition_government_agent(current_xmachine_government_holder, government_GovernmentCapitalTax_state, government_GovernmentIncomeStatement_state);
+			}
+		
+
+		current_xmachine_government = NULL;
+
+		current_xmachine_government_holder = temp_xmachine_government_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_collect_capital_tax\n");
+
+
+/* End of layer number 16 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+if(FLAME_capital_tax_message_board_read == 0)
+{
+	/*printf("%d> capital_tax message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_capital_tax)\n");
+	rc = MB_SyncComplete(b_capital_tax);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_capital_tax)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'capital_tax' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_capital_tax);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'capital_tax' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'capital_tax' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
+
+	/* DEBUG: States with branching functions */
+		current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
+		while(current_xmachine_household_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: household_credit_collect_benefits */
+			if(FLAME_condition_household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment(current_xmachine_household_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_household_idle_HHCreditMonthly_HHLabourStart(current_xmachine_household_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'household' leaving state 'HHCreditMonthly'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_household_holder = current_xmachine_household_holder->next;
+		}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_compute_income_statement\n");
+	current_xmachine_government_holder = government_GovernmentIncomeStatement_state->agents;
+	while(current_xmachine_government_holder)
+	{
+		temp_xmachine_government_holder = current_xmachine_government_holder->next;
+		current_xmachine_government = current_xmachine_government_holder->agent;
+		current_xmachine_government_next_state = government_GovernmentBalanceSheet_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_government = current_xmachine_government;
+
+		
+
+		
+
+			i = government_compute_income_statement();
+
+		
+
+			if(i == 1)
+			{
+				free_government_agent(current_xmachine_government_holder, government_GovernmentIncomeStatement_state);
+			}
+			else
+			{
+				transition_government_agent(current_xmachine_government_holder, government_GovernmentIncomeStatement_state, government_GovernmentBalanceSheet_state);
+			}
+		
+
+		current_xmachine_government = NULL;
+
+		current_xmachine_government_holder = temp_xmachine_government_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_compute_income_statement\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
+	while(current_xmachine_household_holder)
+	{
+		temp_xmachine_household_holder = current_xmachine_household_holder->next;
+		current_xmachine_household = current_xmachine_household_holder->agent;
+		current_xmachine_household_next_state = household_HHLabourStart_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_household = current_xmachine_household;
+
+		if(FLAME_condition_household_idle_HHCreditMonthly_HHLabourStart(current_xmachine_household)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state);
+			}
+			else
+			{
+				transition_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state, household_HHLabourStart_state);
+			}
+		}
+
+		current_xmachine_household = NULL;
+
+		current_xmachine_household_holder = temp_xmachine_household_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_do_balance_sheet\n");
+	current_xmachine_firm_holder = firm_FirmCreditBalanceSheet_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmCreditInsolvency_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+
+			i = firm_credit_do_balance_sheet();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBalanceSheet_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBalanceSheet_state, firm_FirmCreditInsolvency_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_do_balance_sheet\n");
+
+
+/* End of layer number 17 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_exit_market\n");
+	current_xmachine_firm_holder = firm_FirmCreditInsolvency_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmProductionStart_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+
+			i = firm_credit_exit_market();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInsolvency_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditInsolvency_state, firm_FirmProductionStart_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_exit_market\n");
+
+	if(FLAME_loan_writeoff_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_loan_writeoff)\n");
+		rc = MB_SyncStart(b_loan_writeoff);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_loan_writeoff)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'loan_writeoff' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'loan_writeoff' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'loan_writeoff' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+	if(FLAME_new_entrant_loan_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_new_entrant_loan)\n");
+		rc = MB_SyncStart(b_new_entrant_loan);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_new_entrant_loan)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'new_entrant_loan' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'new_entrant_loan' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'new_entrant_loan' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_do_balance_sheet\n");
+	current_xmachine_government_holder = government_GovernmentBalanceSheet_state->agents;
+	while(current_xmachine_government_holder)
+	{
+		temp_xmachine_government_holder = current_xmachine_government_holder->next;
+		current_xmachine_government = current_xmachine_government_holder->agent;
+		current_xmachine_government_next_state = government_GovernmentMonthly_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_government = current_xmachine_government;
+
+		
+
+		
+
+			i = government_do_balance_sheet();
+
+		
+
+			if(i == 1)
+			{
+				free_government_agent(current_xmachine_government_holder, government_GovernmentBalanceSheet_state);
+			}
+			else
+			{
+				transition_government_agent(current_xmachine_government_holder, government_GovernmentBalanceSheet_state, government_GovernmentMonthly_state);
+			}
+		
+
+		current_xmachine_government = NULL;
+
+		current_xmachine_government_holder = temp_xmachine_government_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_do_balance_sheet\n");
+
+
+/* End of layer number 18 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+	/* DEBUG: States with branching functions */
+		current_xmachine_government_holder = government_GovernmentMonthly_state->agents;
+		while(current_xmachine_government_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: government_distribute_general_benefits */
+			if(FLAME_condition_government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits(current_xmachine_government_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_government_idle_GovernmentMonthly_end(current_xmachine_government_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'government' leaving state 'GovernmentMonthly'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_government_holder = current_xmachine_government_holder->next;
+		}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_distribute_general_benefits\n");
+	current_xmachine_government_holder = government_GovernmentMonthly_state->agents;
+	while(current_xmachine_government_holder)
+	{
+		temp_xmachine_government_holder = current_xmachine_government_holder->next;
+		current_xmachine_government = current_xmachine_government_holder->agent;
+		current_xmachine_government_next_state = government_GovernmentUnemploymentBenefits_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_government = current_xmachine_government;
+
+		if(FLAME_condition_government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits(current_xmachine_government)==1)
+		{
+
+		
+
+			i = government_distribute_general_benefits();
+
+		
+
+			if(i == 1)
+			{
+				free_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state);
+			}
+			else
+			{
+				transition_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state, government_GovernmentUnemploymentBenefits_state);
+			}
+		}
+
+		current_xmachine_government = NULL;
+
+		current_xmachine_government_holder = temp_xmachine_government_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_distribute_general_benefits\n");
+
+	if(FLAME_general_benefit_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_general_benefit)\n");
+		rc = MB_SyncStart(b_general_benefit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_general_benefit)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'general_benefit' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'general_benefit' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_government_holder = government_GovernmentMonthly_state->agents;
+	while(current_xmachine_government_holder)
+	{
+		temp_xmachine_government_holder = current_xmachine_government_holder->next;
+		current_xmachine_government = current_xmachine_government_holder->agent;
+		current_xmachine_government_next_state = government_end_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_government = current_xmachine_government;
+
+		if(FLAME_condition_government_idle_GovernmentMonthly_end(current_xmachine_government)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state);
+			}
+			else
+			{
+				transition_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state, government_end_state);
+			}
+		}
+
+		current_xmachine_government = NULL;
+
+		current_xmachine_government_holder = temp_xmachine_government_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmProductionStart_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmProductionSkip_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_idle_FirmProductionStart_FirmProductionSkip(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state, firm_FirmProductionSkip_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmProductionStart_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStart_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_idle_FirmProductionStart_FirmLabourStart(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state, firm_FirmLabourStart_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -8960,7 +9710,7 @@ if(FLAME_household_share_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_recieve_loan_writeoffs\n");
 
 
-/* End of layer number 14 */
+/* End of layer number 19 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -9025,14 +9775,37 @@ if(FLAME_loan_writeoff_message_board_read == 0)
     }
     #endif
 
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_do_balance_sheet\n");
-	current_xmachine_household_holder = household_HHCreditBalanceSheet_state->agents;
-	while(current_xmachine_household_holder)
+	/* DEBUG: States with branching functions */
+		current_xmachine_firm_holder = firm_FirmProductionSkip_state->agents;
+		while(current_xmachine_firm_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: idle */
+			if(FLAME_condition_firm_idle_FirmProductionSkip_FirmProductionRoleCheck(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: firm_production_skip */
+			if(FLAME_condition_firm_firm_production_skip_FirmProductionSkip_FirmLabourStart(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmProductionSkip'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_distribute_unemployment_benefits\n");
+	current_xmachine_government_holder = government_GovernmentUnemploymentBenefits_state->agents;
+	while(current_xmachine_government_holder)
 	{
-		temp_xmachine_household_holder = current_xmachine_household_holder->next;
-		current_xmachine_household = current_xmachine_household_holder->agent;
-		current_xmachine_household_next_state = household_HHCreditMonthly_state;
+		temp_xmachine_government_holder = current_xmachine_government_holder->next;
+		current_xmachine_government = current_xmachine_government_holder->agent;
+		current_xmachine_government_next_state = government_GovernmentLabourTax_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -9043,40 +9816,75 @@ if(FLAME_loan_writeoff_message_board_read == 0)
 		current_xmachine->xmachine_jpoffice = NULL;
 		current_xmachine->xmachine_mall = NULL;
 		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_household = current_xmachine_household;
+		current_xmachine->xmachine_government = current_xmachine_government;
 
 		
 
 		
 
-			i = household_credit_do_balance_sheet();
+			i = government_distribute_unemployment_benefits();
 
 		
 
 			if(i == 1)
 			{
-				free_household_agent(current_xmachine_household_holder, household_HHCreditBalanceSheet_state);
+				free_government_agent(current_xmachine_government_holder, government_GovernmentUnemploymentBenefits_state);
 			}
 			else
 			{
-				transition_household_agent(current_xmachine_household_holder, household_HHCreditBalanceSheet_state, household_HHCreditMonthly_state);
+				transition_government_agent(current_xmachine_government_holder, government_GovernmentUnemploymentBenefits_state, government_GovernmentLabourTax_state);
 			}
 		
 
-		current_xmachine_household = NULL;
+		current_xmachine_government = NULL;
 
-		current_xmachine_household_holder = temp_xmachine_household_holder;
+		current_xmachine_government_holder = temp_xmachine_government_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_do_balance_sheet\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_distribute_unemployment_benefits\n");
+
+	if(FLAME_unemployment_benefit_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_unemployment_benefit)\n");
+		rc = MB_SyncStart(b_unemployment_benefit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_unemployment_benefit)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'unemployment_benefit' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'unemployment_benefit' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_compute_income_statement\n");
-	current_xmachine_firm_holder = firm_FirmCreditIncomeStatement_state->agents;
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmProductionSkip_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmCreditBalanceSheet_state;
+		current_xmachine_firm_next_state = firm_FirmProductionRoleCheck_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -9089,29 +9897,75 @@ if(FLAME_loan_writeoff_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		
+		if(FLAME_condition_firm_idle_FirmProductionSkip_FirmProductionRoleCheck(current_xmachine_firm)==1)
+		{
 
 		
 
-			i = firm_credit_compute_income_statement();
+			i = idle();
 
 		
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditIncomeStatement_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditIncomeStatement_state, firm_FirmCreditBalanceSheet_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state, firm_FirmProductionRoleCheck_state);
 			}
-		
+		}
 
 		current_xmachine_firm = NULL;
 
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_compute_income_statement\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_skip\n");
+	current_xmachine_firm_holder = firm_FirmProductionSkip_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStart_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_firm_production_skip_FirmProductionSkip_FirmLabourStart(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = firm_production_skip();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state, firm_FirmLabourStart_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_skip\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -9254,18 +10108,18 @@ if(FLAME_loan_writeoff_message_board_read == 0)
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_capital_tax_message_board_read == 1)
+	if(FLAME_general_benefit_message_board_read == 1)
 	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_capital_tax)\n");
-		rc = MB_SyncComplete(b_capital_tax);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_capital_tax)\n");
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_general_benefit)\n");
+		rc = MB_SyncComplete(b_general_benefit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_general_benefit)\n");
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'capital_tax' board\n");
+		   fprintf(stderr, "ERROR: Could not complete sync of 'general_benefit' board\n");
 		   switch(rc) {
 				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+				   fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
 				   break;
 			   case MB_ERR_MEMALLOC:
 				   fprintf(stderr, "\t reason: out of memory\n");
@@ -9287,13 +10141,13 @@ if(FLAME_loan_writeoff_message_board_read == 0)
     
 	}
 	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_collect_capital_tax\n");
-	current_xmachine_government_holder = government_GovernmentCapitalTax_state->agents;
-	while(current_xmachine_government_holder)
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_collect_benefits\n");
+	current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
+	while(current_xmachine_household_holder)
 	{
-		temp_xmachine_government_holder = current_xmachine_government_holder->next;
-		current_xmachine_government = current_xmachine_government_holder->agent;
-		current_xmachine_government_next_state = government_GovernmentIncomeStatement_state;
+		temp_xmachine_household_holder = current_xmachine_household_holder->next;
+		current_xmachine_household = current_xmachine_household_holder->agent;
+		current_xmachine_household_next_state = household_HHCreditEmployment_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -9304,26 +10158,27 @@ if(FLAME_loan_writeoff_message_board_read == 0)
 		current_xmachine->xmachine_jpoffice = NULL;
 		current_xmachine->xmachine_mall = NULL;
 		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_government = current_xmachine_government;
+		current_xmachine->xmachine_household = current_xmachine_household;
+
+		if(FLAME_condition_household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment(current_xmachine_household)==1)
+		{
 
 		
-
 		
 		
-		
-		  rc = MB_Iterator_Create(b_capital_tax, &i_capital_tax);
+		  rc = MB_Iterator_Create(b_general_benefit, &i_general_benefit);
 		  
 		
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'capital_tax'\n");
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'general_benefit'\n");
 		   switch(rc) {
 		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+		           fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
 		           break;
 		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'capital_tax' board is locked\n");
+	               fprintf(stderr, "\t reason: 'general_benefit' board is locked\n");
 	               break;
 	           case MB_ERR_MEMALLOC:
 	               fprintf(stderr, "\t reason: out of memory\n");
@@ -9346,17 +10201,17 @@ if(FLAME_loan_writeoff_message_board_read == 0)
 		
 		
 
-			i = government_collect_capital_tax();
+			i = household_credit_collect_benefits();
 
 		
-		    rc = MB_Iterator_Delete(&i_capital_tax);
+		    rc = MB_Iterator_Delete(&i_general_benefit);
 		    #ifdef ERRCHECK
 		    if (rc != MB_SUCCESS)
 		    {
-		       fprintf(stderr, "ERROR: Could not delete 'capital_tax' iterator\n");
+		       fprintf(stderr, "ERROR: Could not delete 'general_benefit' iterator\n");
 		       switch(rc) {
 		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'capital_tax' iterator is invalid\n");
+		               fprintf(stderr, "\t reason: 'general_benefit' iterator is invalid\n");
 		               break;
 		           case MB_ERR_INTERNAL:
 		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -9374,40 +10229,40 @@ if(FLAME_loan_writeoff_message_board_read == 0)
 
 			if(i == 1)
 			{
-				free_government_agent(current_xmachine_government_holder, government_GovernmentCapitalTax_state);
+				free_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state);
 			}
 			else
 			{
-				transition_government_agent(current_xmachine_government_holder, government_GovernmentCapitalTax_state, government_GovernmentIncomeStatement_state);
+				transition_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state, household_HHCreditEmployment_state);
 			}
-		
+		}
 
-		current_xmachine_government = NULL;
+		current_xmachine_household = NULL;
 
-		current_xmachine_government_holder = temp_xmachine_government_holder;
+		current_xmachine_household_holder = temp_xmachine_household_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_collect_capital_tax\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_collect_benefits\n");
 
 
-/* End of layer number 15 */
+/* End of layer number 20 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
 
-if(FLAME_capital_tax_message_board_read == 0)
+if(FLAME_general_benefit_message_board_read == 0)
 {
-	/*printf("%d> capital_tax message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	/*printf("%d> general_benefit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
 	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_capital_tax)\n");
-	rc = MB_SyncComplete(b_capital_tax);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_capital_tax)\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_general_benefit)\n");
+	rc = MB_SyncComplete(b_general_benefit);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_general_benefit)\n");
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'capital_tax' board\n");
+	   fprintf(stderr, "ERROR: Could not complete sync of 'general_benefit' board\n");
 	   switch(rc) {
 			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+			   fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
 			   break;
 		   case MB_ERR_MEMALLOC:
 			   fprintf(stderr, "\t reason: out of memory\n");
@@ -9428,17 +10283,17 @@ if(FLAME_capital_tax_message_board_read == 0)
 
     /* Delete any search trees */
 
-    rc = MB_Clear(b_capital_tax);
+    rc = MB_Clear(b_general_benefit);
     #ifdef ERRCHECK
     if (rc != MB_SUCCESS)
     {
-       fprintf(stderr, "ERROR: Could not clear 'capital_tax' board\n");
+       fprintf(stderr, "ERROR: Could not clear 'general_benefit' board\n");
        switch(rc) {
            case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'capital_tax' board is invalid\n");
+               fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
                break;
            case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'capital_tax' board is locked\n");
+               fprintf(stderr, "\t reason: 'general_benefit' board is locked\n");
                break;
            case MB_ERR_INTERNAL:
                fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -9515,20 +10370,20 @@ if(FLAME_new_entrant_loan_message_board_read == 0)
     #endif
 
 	/* DEBUG: States with branching functions */
-		current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
+		current_xmachine_household_holder = household_HHCreditEmployment_state->agents;
 		while(current_xmachine_household_holder)
 		{
 			FLAME_debug_count = 0;
-			/* Function: household_credit_collect_benefits */
-			if(FLAME_condition_household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment(current_xmachine_household_holder->agent)==1)
+			/* Function: household_credit_pay_labour_tax */
+			if(FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(current_xmachine_household_holder->agent)==1)
 			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_household_idle_HHCreditMonthly_HHLabourStart(current_xmachine_household_holder->agent)==1)
+			/* Function: household_credit_collect_unemployment */
+			if(FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart(current_xmachine_household_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
 			if(FLAME_debug_count != 1)
 			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'household' leaving state 'HHCreditMonthly'\n");
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'household' leaving state 'HHCreditEmployment'\n");
 				if(FLAME_debug_count > 1)
 					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
 				if(FLAME_debug_count == 0)
@@ -9538,52 +10393,8 @@ if(FLAME_new_entrant_loan_message_board_read == 0)
 			current_xmachine_household_holder = current_xmachine_household_holder->next;
 		}
 	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_compute_income_statement\n");
-	current_xmachine_government_holder = government_GovernmentIncomeStatement_state->agents;
-	while(current_xmachine_government_holder)
-	{
-		temp_xmachine_government_holder = current_xmachine_government_holder->next;
-		current_xmachine_government = current_xmachine_government_holder->agent;
-		current_xmachine_government_next_state = government_GovernmentBalanceSheet_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_government = current_xmachine_government;
-
-		
-
-		
-
-			i = government_compute_income_statement();
-
-		
-
-			if(i == 1)
-			{
-				free_government_agent(current_xmachine_government_holder, government_GovernmentIncomeStatement_state);
-			}
-			else
-			{
-				transition_government_agent(current_xmachine_government_holder, government_GovernmentIncomeStatement_state, government_GovernmentBalanceSheet_state);
-			}
-		
-
-		current_xmachine_government = NULL;
-
-		current_xmachine_government_holder = temp_xmachine_government_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_compute_income_statement\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_pay_labour_tax\n");
+	current_xmachine_household_holder = household_HHCreditEmployment_state->agents;
 	while(current_xmachine_household_holder)
 	{
 		temp_xmachine_household_holder = current_xmachine_household_holder->next;
@@ -9601,22 +10412,22 @@ if(FLAME_new_entrant_loan_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_household = current_xmachine_household;
 
-		if(FLAME_condition_household_idle_HHCreditMonthly_HHLabourStart(current_xmachine_household)==1)
+		if(FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(current_xmachine_household)==1)
 		{
 
 		
 
-			i = idle();
+			i = household_credit_pay_labour_tax();
 
 		
 
 			if(i == 1)
 			{
-				free_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state);
+				free_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state);
 			}
 			else
 			{
-				transition_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state, household_HHLabourStart_state);
+				transition_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state, household_HHLabourStart_state);
 			}
 		}
 
@@ -9624,16 +10435,51 @@ if(FLAME_new_entrant_loan_message_board_read == 0)
 
 		current_xmachine_household_holder = temp_xmachine_household_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_pay_labour_tax\n");
+
+	if(FLAME_labour_tax_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_labour_tax)\n");
+		rc = MB_SyncStart(b_labour_tax);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_labour_tax)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'labour_tax' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'labour_tax' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'labour_tax' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_credit_do_balance_sheet\n");
-	current_xmachine_firm_holder = firm_FirmCreditBalanceSheet_state->agents;
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmProductionRoleCheck_state->agents;
 	while(current_xmachine_firm_holder)
 	{
 		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
 		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmProductionStart_state;
+		current_xmachine_firm_next_state = firm_FirmProductionConstructor_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -9646,29 +10492,75 @@ if(FLAME_new_entrant_loan_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_firm = current_xmachine_firm;
 
-		
+		if(FLAME_condition_firm_idle_FirmProductionRoleCheck_FirmProductionConstructor(current_xmachine_firm)==1)
+		{
 
 		
 
-			i = firm_credit_do_balance_sheet();
+			i = idle();
 
 		
 
 			if(i == 1)
 			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBalanceSheet_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state);
 			}
 			else
 			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmCreditBalanceSheet_state, firm_FirmProductionStart_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state, firm_FirmProductionConstructor_state);
 			}
-		
+		}
 
 		current_xmachine_firm = NULL;
 
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_credit_do_balance_sheet\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmProductionRoleCheck_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmProductionRegular_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_idle_FirmProductionRoleCheck_FirmProductionRegular(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state, firm_FirmProductionRegular_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -9810,10 +10702,207 @@ if(FLAME_new_entrant_loan_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_collect_loan_interests\n");
 
 
-/* End of layer number 16 */
+	/* If mb is not read then leave sync complete until last possible moment */
+	if(FLAME_unemployment_benefit_message_board_read == 1)
+	{
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_unemployment_benefit)\n");
+		rc = MB_SyncComplete(b_unemployment_benefit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_unemployment_benefit)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not complete sync of 'unemployment_benefit' board\n");
+		   switch(rc) {
+				case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+	
+		   
+		   exit(rc);
+		}
+		#endif
+    
+    
+    
+	}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_collect_unemployment\n");
+	current_xmachine_household_holder = household_HHCreditEmployment_state->agents;
+	while(current_xmachine_household_holder)
+	{
+		temp_xmachine_household_holder = current_xmachine_household_holder->next;
+		current_xmachine_household = current_xmachine_household_holder->agent;
+		current_xmachine_household_next_state = household_HHLabourStart_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_household = current_xmachine_household;
+
+		if(FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart(current_xmachine_household)==1)
+		{
+
+		
+		
+		
+		  rc = MB_Iterator_Create(b_unemployment_benefit, &i_unemployment_benefit);
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'unemployment_benefit'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'unemployment_benefit' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+               
+                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = household_credit_collect_unemployment();
+
+		
+		    rc = MB_Iterator_Delete(&i_unemployment_benefit);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'unemployment_benefit' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'unemployment_benefit' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state);
+			}
+			else
+			{
+				transition_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state, household_HHLabourStart_state);
+			}
+		}
+
+		current_xmachine_household = NULL;
+
+		current_xmachine_household_holder = temp_xmachine_household_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_collect_unemployment\n");
+
+
+/* End of layer number 21 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
+
+if(FLAME_unemployment_benefit_message_board_read == 0)
+{
+	/*printf("%d> unemployment_benefit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_unemployment_benefit)\n");
+	rc = MB_SyncComplete(b_unemployment_benefit);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_unemployment_benefit)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'unemployment_benefit' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_unemployment_benefit);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'unemployment_benefit' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'unemployment_benefit' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
 
 if(FLAME_interest_on_loan_message_board_read == 0)
 {
@@ -9876,6 +10965,75 @@ if(FLAME_interest_on_loan_message_board_read == 0)
     #endif
 
 	/* DEBUG: States with branching functions */
+		current_xmachine_firm_holder = firm_FirmProductionRegular_state->agents;
+		while(current_xmachine_firm_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: firm_production_set_price */
+			if(FLAME_condition_firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: firm_production_produce_goods */
+			if(FLAME_condition_firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmProductionRegular'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		}
+		/* DEBUG: States with branching functions */
+		current_xmachine_firm_holder = firm_FirmProductionConstructor_state->agents;
+		while(current_xmachine_firm_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: firm_production_construction_plan */
+			if(FLAME_condition_firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: firm_production_construct_houses */
+			if(FLAME_condition_firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmProductionConstructor'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		}
+		/* DEBUG: States with branching functions */
+		current_xmachine_household_holder = household_HHLabourStart_state->agents;
+		while(current_xmachine_household_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: household_labour_check_fired */
+			if(FLAME_condition_household_household_labour_check_fired_HHLabourStart_HHLabourStage1(current_xmachine_household_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_household_idle_HHLabourStart_HHLabourEmploymentStatus(current_xmachine_household_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'household' leaving state 'HHLabourStart'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_household_holder = current_xmachine_household_holder->next;
+		}
+		/* DEBUG: States with branching functions */
 		current_xmachine_bank_holder = bank_BankCreditLiquidityNeed_state->agents;
 		while(current_xmachine_bank_holder)
 		{
@@ -9979,50 +11137,6 @@ if(FLAME_interest_on_loan_message_board_read == 0)
     
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_do_balance_sheet\n");
-	current_xmachine_government_holder = government_GovernmentBalanceSheet_state->agents;
-	while(current_xmachine_government_holder)
-	{
-		temp_xmachine_government_holder = current_xmachine_government_holder->next;
-		current_xmachine_government = current_xmachine_government_holder->agent;
-		current_xmachine_government_next_state = government_GovernmentMonthly_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_government = current_xmachine_government;
-
-		
-
-		
-
-			i = government_do_balance_sheet();
-
-		
-
-			if(i == 1)
-			{
-				free_government_agent(current_xmachine_government_holder, government_GovernmentBalanceSheet_state);
-			}
-			else
-			{
-				transition_government_agent(current_xmachine_government_holder, government_GovernmentBalanceSheet_state, government_GovernmentMonthly_state);
-			}
-		
-
-		current_xmachine_government = NULL;
-
-		current_xmachine_government_holder = temp_xmachine_government_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_do_balance_sheet\n");
-
-
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
 	current_xmachine_bank_holder = bank_BankCreditLiquidityNeed_state->agents;
 	while(current_xmachine_bank_holder)
@@ -10069,992 +11183,12 @@ if(FLAME_interest_on_loan_message_board_read == 0)
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmProductionStart_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmProductionSkip_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmProductionStart_FirmProductionSkip(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state, firm_FirmProductionSkip_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmProductionStart_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStart_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmProductionStart_FirmLabourStart(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionStart_state, firm_FirmLabourStart_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-/* End of layer number 17 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-	/* DEBUG: States with branching functions */
-		current_xmachine_firm_holder = firm_FirmProductionSkip_state->agents;
-		while(current_xmachine_firm_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmProductionSkip_FirmProductionRoleCheck(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: firm_production_skip */
-			if(FLAME_condition_firm_firm_production_skip_FirmProductionSkip_FirmLabourStart(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmProductionSkip'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		}
-		/* DEBUG: States with branching functions */
-		current_xmachine_government_holder = government_GovernmentMonthly_state->agents;
-		while(current_xmachine_government_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: government_distribute_general_benefits */
-			if(FLAME_condition_government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits(current_xmachine_government_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_government_idle_GovernmentMonthly_end(current_xmachine_government_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'government' leaving state 'GovernmentMonthly'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_government_holder = current_xmachine_government_holder->next;
-		}
-	
-	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_debt_request_message_board_read == 1)
-	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_request)\n");
-		rc = MB_SyncComplete(b_debt_request);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_request)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'debt_request' board\n");
-		   switch(rc) {
-				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-	
-		   
-		   exit(rc);
-		}
-		#endif
-    
-    
-    
-	}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start centralbank_process_debt_requests\n");
-	current_xmachine_centralbank_holder = centralbank_CentralBankDebtRequests_state->agents;
-	while(current_xmachine_centralbank_holder)
-	{
-		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
-		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
-		current_xmachine_centralbank_next_state = centralbank_CentralBankIncomeStatement_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
-
-		
-
-		
-		
-		
-		  rc = MB_Iterator_Create(b_debt_request, &i_debt_request);
-		  
-		
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'debt_request'\n");
-		   switch(rc) {
-		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
-		           break;
-		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'debt_request' board is locked\n");
-	               break;
-	           case MB_ERR_MEMALLOC:
-	               fprintf(stderr, "\t reason: out of memory\n");
-	               break;
-	           case MB_ERR_INTERNAL:
-	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-	               break;
-	           default:
-	           
-               
-                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
-               
-                   break;
-		   }
-
-		   
-           exit(rc);
-		}
-		#endif
-		
-		
-
-			i = centralbank_process_debt_requests();
-
-		
-		    rc = MB_Iterator_Delete(&i_debt_request);
-		    #ifdef ERRCHECK
-		    if (rc != MB_SUCCESS)
-		    {
-		       fprintf(stderr, "ERROR: Could not delete 'debt_request' iterator\n");
-		       switch(rc) {
-		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'debt_request' iterator is invalid\n");
-		               break;
-		           case MB_ERR_INTERNAL:
-		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-		               break;
-		           default:
-                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
-                       break;
-		       }
-
-		       
-               exit(rc);
-		    }
-		    #endif
-		
-
-			if(i == 1)
-			{
-				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankDebtRequests_state);
-			}
-			else
-			{
-				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankDebtRequests_state, centralbank_CentralBankIncomeStatement_state);
-			}
-		
-
-		current_xmachine_centralbank = NULL;
-
-		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_process_debt_requests\n");
-
-	if(FLAME_debt_ack_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_debt_ack)\n");
-		rc = MB_SyncStart(b_debt_ack);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_debt_ack)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'debt_ack' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_distribute_general_benefits\n");
-	current_xmachine_government_holder = government_GovernmentMonthly_state->agents;
-	while(current_xmachine_government_holder)
-	{
-		temp_xmachine_government_holder = current_xmachine_government_holder->next;
-		current_xmachine_government = current_xmachine_government_holder->agent;
-		current_xmachine_government_next_state = government_GovernmentUnemploymentBenefits_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_government = current_xmachine_government;
-
-		if(FLAME_condition_government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits(current_xmachine_government)==1)
-		{
-
-		
-
-			i = government_distribute_general_benefits();
-
-		
-
-			if(i == 1)
-			{
-				free_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state);
-			}
-			else
-			{
-				transition_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state, government_GovernmentUnemploymentBenefits_state);
-			}
-		}
-
-		current_xmachine_government = NULL;
-
-		current_xmachine_government_holder = temp_xmachine_government_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_distribute_general_benefits\n");
-
-	if(FLAME_general_benefit_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_general_benefit)\n");
-		rc = MB_SyncStart(b_general_benefit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_general_benefit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'general_benefit' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'general_benefit' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_government_holder = government_GovernmentMonthly_state->agents;
-	while(current_xmachine_government_holder)
-	{
-		temp_xmachine_government_holder = current_xmachine_government_holder->next;
-		current_xmachine_government = current_xmachine_government_holder->agent;
-		current_xmachine_government_next_state = government_end_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_government = current_xmachine_government;
-
-		if(FLAME_condition_government_idle_GovernmentMonthly_end(current_xmachine_government)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state);
-			}
-			else
-			{
-				transition_government_agent(current_xmachine_government_holder, government_GovernmentMonthly_state, government_end_state);
-			}
-		}
-
-		current_xmachine_government = NULL;
-
-		current_xmachine_government_holder = temp_xmachine_government_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmProductionSkip_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmProductionRoleCheck_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmProductionSkip_FirmProductionRoleCheck(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state, firm_FirmProductionRoleCheck_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_skip\n");
-	current_xmachine_firm_holder = firm_FirmProductionSkip_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStart_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_firm_production_skip_FirmProductionSkip_FirmLabourStart(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = firm_production_skip();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionSkip_state, firm_FirmLabourStart_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_skip\n");
-
-
-/* End of layer number 18 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-if(FLAME_debt_request_message_board_read == 0)
-{
-	/*printf("%d> debt_request message board sync complete late as no agents reading any messages of this type\n", node_number);*/
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_request)\n");
-	rc = MB_SyncComplete(b_debt_request);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_request)\n");
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'debt_request' board\n");
-	   switch(rc) {
-			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
-			   break;
-		   case MB_ERR_MEMALLOC:
-			   fprintf(stderr, "\t reason: out of memory\n");
-			   break;
-		   case MB_ERR_INTERNAL:
-			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-			   break;
-		   default:
-			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-			   break;
-	   }
-
-	   
-	   exit(rc);
-	}
-	#endif
-}
-
-    /* Delete any search trees */
-
-    rc = MB_Clear(b_debt_request);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not clear 'debt_request' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'debt_request' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-           default:
-               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-
-       }
-
-       
-       exit(rc);
-    }
-    #endif
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start government_distribute_unemployment_benefits\n");
-	current_xmachine_government_holder = government_GovernmentUnemploymentBenefits_state->agents;
-	while(current_xmachine_government_holder)
-	{
-		temp_xmachine_government_holder = current_xmachine_government_holder->next;
-		current_xmachine_government = current_xmachine_government_holder->agent;
-		current_xmachine_government_next_state = government_GovernmentLabourTax_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_government = current_xmachine_government;
-
-		
-
-		
-
-			i = government_distribute_unemployment_benefits();
-
-		
-
-			if(i == 1)
-			{
-				free_government_agent(current_xmachine_government_holder, government_GovernmentUnemploymentBenefits_state);
-			}
-			else
-			{
-				transition_government_agent(current_xmachine_government_holder, government_GovernmentUnemploymentBenefits_state, government_GovernmentLabourTax_state);
-			}
-		
-
-		current_xmachine_government = NULL;
-
-		current_xmachine_government_holder = temp_xmachine_government_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_distribute_unemployment_benefits\n");
-
-	if(FLAME_unemployment_benefit_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_unemployment_benefit)\n");
-		rc = MB_SyncStart(b_unemployment_benefit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_unemployment_benefit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'unemployment_benefit' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'unemployment_benefit' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start centralbank_compute_income_statement\n");
-	current_xmachine_centralbank_holder = centralbank_CentralBankIncomeStatement_state->agents;
-	while(current_xmachine_centralbank_holder)
-	{
-		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
-		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
-		current_xmachine_centralbank_next_state = centralbank_CentralBankBalanceSheet_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
-
-		
-
-		
-
-			i = centralbank_compute_income_statement();
-
-		
-
-			if(i == 1)
-			{
-				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankIncomeStatement_state);
-			}
-			else
-			{
-				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankIncomeStatement_state, centralbank_CentralBankBalanceSheet_state);
-			}
-		
-
-		current_xmachine_centralbank = NULL;
-
-		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_compute_income_statement\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmProductionRoleCheck_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmProductionConstructor_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmProductionRoleCheck_FirmProductionConstructor(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state, firm_FirmProductionConstructor_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmProductionRoleCheck_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmProductionRegular_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmProductionRoleCheck_FirmProductionRegular(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionRoleCheck_state, firm_FirmProductionRegular_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_debt_ack_message_board_read == 1)
-	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_ack)\n");
-		rc = MB_SyncComplete(b_debt_ack);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_ack)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'debt_ack' board\n");
-		   switch(rc) {
-				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-	
-		   
-		   exit(rc);
-		}
-		#endif
-    
-    
-    
-	}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_recieve_liquidity\n");
-	current_xmachine_bank_holder = bank_BankCreditLiquidtyRecieve_state->agents;
-	while(current_xmachine_bank_holder)
-	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		current_xmachine_bank = current_xmachine_bank_holder->agent;
-		current_xmachine_bank_next_state = bank_BankCreditIncomeStatement_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_bank = current_xmachine_bank;
-
-		
-
-		
-		
-          
-                  
-          
-		    rc = MB_Iterator_CreateFiltered(b_debt_ack, &i_debt_ack, &FLAME_filter_bank_bank_credit_recieve_liquidity_BankCreditLiquidtyRecieve_BankCreditIncomeStatement_debt_ack, current_xmachine_bank);
-		    
-		  
-		
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'debt_ack'\n");
-		   switch(rc) {
-		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
-		           break;
-		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
-	               break;
-	           case MB_ERR_MEMALLOC:
-	               fprintf(stderr, "\t reason: out of memory\n");
-	               break;
-	           case MB_ERR_INTERNAL:
-	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-	               break;
-	           default:
-	           
-                   fprintf(stderr, "\t MB_Iterator_CreateFiltered returned error code: %d (see libmboard docs for details)\n", rc);
-               
-               
-                   break;
-		   }
-
-		   
-           exit(rc);
-		}
-		#endif
-		
-		
-
-			i = bank_credit_recieve_liquidity();
-
-		
-		    rc = MB_Iterator_Delete(&i_debt_ack);
-		    #ifdef ERRCHECK
-		    if (rc != MB_SUCCESS)
-		    {
-		       fprintf(stderr, "ERROR: Could not delete 'debt_ack' iterator\n");
-		       switch(rc) {
-		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'debt_ack' iterator is invalid\n");
-		               break;
-		           case MB_ERR_INTERNAL:
-		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-		               break;
-		           default:
-                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
-                       break;
-		       }
-
-		       
-               exit(rc);
-		    }
-		    #endif
-		
-
-			if(i == 1)
-			{
-				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditLiquidtyRecieve_state);
-			}
-			else
-			{
-				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditLiquidtyRecieve_state, bank_BankCreditIncomeStatement_state);
-			}
-		
-
-		current_xmachine_bank = NULL;
-
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_recieve_liquidity\n");
-
-
-	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_general_benefit_message_board_read == 1)
-	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_general_benefit)\n");
-		rc = MB_SyncComplete(b_general_benefit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_general_benefit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'general_benefit' board\n");
-		   switch(rc) {
-				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-	
-		   
-		   exit(rc);
-		}
-		#endif
-    
-    
-    
-	}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_collect_benefits\n");
-	current_xmachine_household_holder = household_HHCreditMonthly_state->agents;
+	current_xmachine_household_holder = household_HHLabourStart_state->agents;
 	while(current_xmachine_household_holder)
 	{
 		temp_xmachine_household_holder = current_xmachine_household_holder->next;
 		current_xmachine_household = current_xmachine_household_holder->agent;
-		current_xmachine_household_next_state = household_HHCreditEmployment_state;
+		current_xmachine_household_next_state = household_HHLabourEmploymentStatus_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -11067,80 +11201,22 @@ if(FLAME_debt_request_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_household = current_xmachine_household;
 
-		if(FLAME_condition_household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment(current_xmachine_household)==1)
+		if(FLAME_condition_household_idle_HHLabourStart_HHLabourEmploymentStatus(current_xmachine_household)==1)
 		{
 
 		
-		
-		
-		  rc = MB_Iterator_Create(b_general_benefit, &i_general_benefit);
-		  
-		
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'general_benefit'\n");
-		   switch(rc) {
-		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
-		           break;
-		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'general_benefit' board is locked\n");
-	               break;
-	           case MB_ERR_MEMALLOC:
-	               fprintf(stderr, "\t reason: out of memory\n");
-	               break;
-	           case MB_ERR_INTERNAL:
-	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-	               break;
-	           default:
-	           
-               
-                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
-               
-                   break;
-		   }
 
-		   
-           exit(rc);
-		}
-		#endif
-		
-		
+			i = idle();
 
-			i = household_credit_collect_benefits();
-
-		
-		    rc = MB_Iterator_Delete(&i_general_benefit);
-		    #ifdef ERRCHECK
-		    if (rc != MB_SUCCESS)
-		    {
-		       fprintf(stderr, "ERROR: Could not delete 'general_benefit' iterator\n");
-		       switch(rc) {
-		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'general_benefit' iterator is invalid\n");
-		               break;
-		           case MB_ERR_INTERNAL:
-		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-		               break;
-		           default:
-                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
-                       break;
-		       }
-
-		       
-               exit(rc);
-		    }
-		    #endif
 		
 
 			if(i == 1)
 			{
-				free_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state);
+				free_household_agent(current_xmachine_household_holder, household_HHLabourStart_state);
 			}
 			else
 			{
-				transition_household_agent(current_xmachine_household_holder, household_HHCreditMonthly_state, household_HHCreditEmployment_state);
+				transition_household_agent(current_xmachine_household_holder, household_HHLabourStart_state, household_HHLabourEmploymentStatus_state);
 			}
 		}
 
@@ -11148,370 +11224,7 @@ if(FLAME_debt_request_message_board_read == 0)
 
 		current_xmachine_household_holder = temp_xmachine_household_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_collect_benefits\n");
-
-
-/* End of layer number 19 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-if(FLAME_debt_ack_message_board_read == 0)
-{
-	/*printf("%d> debt_ack message board sync complete late as no agents reading any messages of this type\n", node_number);*/
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_ack)\n");
-	rc = MB_SyncComplete(b_debt_ack);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_ack)\n");
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'debt_ack' board\n");
-	   switch(rc) {
-			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
-			   break;
-		   case MB_ERR_MEMALLOC:
-			   fprintf(stderr, "\t reason: out of memory\n");
-			   break;
-		   case MB_ERR_INTERNAL:
-			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-			   break;
-		   default:
-			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-			   break;
-	   }
-
-	   
-	   exit(rc);
-	}
-	#endif
-}
-
-    /* Delete any search trees */
-
-    rc = MB_Clear(b_debt_ack);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not clear 'debt_ack' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-           default:
-               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-
-       }
-
-       
-       exit(rc);
-    }
-    #endif
-
-if(FLAME_general_benefit_message_board_read == 0)
-{
-	/*printf("%d> general_benefit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_general_benefit)\n");
-	rc = MB_SyncComplete(b_general_benefit);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_general_benefit)\n");
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'general_benefit' board\n");
-	   switch(rc) {
-			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
-			   break;
-		   case MB_ERR_MEMALLOC:
-			   fprintf(stderr, "\t reason: out of memory\n");
-			   break;
-		   case MB_ERR_INTERNAL:
-			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-			   break;
-		   default:
-			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-			   break;
-	   }
-
-	   
-	   exit(rc);
-	}
-	#endif
-}
-
-    /* Delete any search trees */
-
-    rc = MB_Clear(b_general_benefit);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not clear 'general_benefit' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'general_benefit' board is invalid\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'general_benefit' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-           default:
-               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-
-       }
-
-       
-       exit(rc);
-    }
-    #endif
-
-	/* DEBUG: States with branching functions */
-		current_xmachine_firm_holder = firm_FirmProductionRegular_state->agents;
-		while(current_xmachine_firm_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: firm_production_set_price */
-			if(FLAME_condition_firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: firm_production_produce_goods */
-			if(FLAME_condition_firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmProductionRegular'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		}
-		/* DEBUG: States with branching functions */
-		current_xmachine_firm_holder = firm_FirmProductionConstructor_state->agents;
-		while(current_xmachine_firm_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: firm_production_construction_plan */
-			if(FLAME_condition_firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: firm_production_construct_houses */
-			if(FLAME_condition_firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmProductionConstructor'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		}
-		/* DEBUG: States with branching functions */
-		current_xmachine_household_holder = household_HHCreditEmployment_state->agents;
-		while(current_xmachine_household_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: household_credit_pay_labour_tax */
-			if(FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(current_xmachine_household_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: household_credit_collect_unemployment */
-			if(FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart(current_xmachine_household_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'household' leaving state 'HHCreditEmployment'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_household_holder = current_xmachine_household_holder->next;
-		}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_pay_labour_tax\n");
-	current_xmachine_household_holder = household_HHCreditEmployment_state->agents;
-	while(current_xmachine_household_holder)
-	{
-		temp_xmachine_household_holder = current_xmachine_household_holder->next;
-		current_xmachine_household = current_xmachine_household_holder->agent;
-		current_xmachine_household_next_state = household_HHLabourStart_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_household = current_xmachine_household;
-
-		if(FLAME_condition_household_household_credit_pay_labour_tax_HHCreditEmployment_HHLabourStart(current_xmachine_household)==1)
-		{
-
-		
-
-			i = household_credit_pay_labour_tax();
-
-		
-
-			if(i == 1)
-			{
-				free_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state);
-			}
-			else
-			{
-				transition_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state, household_HHLabourStart_state);
-			}
-		}
-
-		current_xmachine_household = NULL;
-
-		current_xmachine_household_holder = temp_xmachine_household_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_pay_labour_tax\n");
-
-	if(FLAME_labour_tax_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_labour_tax)\n");
-		rc = MB_SyncStart(b_labour_tax);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_labour_tax)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'labour_tax' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'labour_tax' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'labour_tax' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_compute_income_statement\n");
-	current_xmachine_bank_holder = bank_BankCreditIncomeStatement_state->agents;
-	while(current_xmachine_bank_holder)
-	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		current_xmachine_bank = current_xmachine_bank_holder->agent;
-		current_xmachine_bank_next_state = bank_BankCreditDividends_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_bank = current_xmachine_bank;
-
-		
-
-		
-
-			i = bank_credit_compute_income_statement();
-
-		
-
-			if(i == 1)
-			{
-				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditIncomeStatement_state);
-			}
-			else
-			{
-				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditIncomeStatement_state, bank_BankCreditDividends_state);
-			}
-		
-
-		current_xmachine_bank = NULL;
-
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_compute_income_statement\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start centralbank_do_balance_sheet\n");
-	current_xmachine_centralbank_holder = centralbank_CentralBankBalanceSheet_state->agents;
-	while(current_xmachine_centralbank_holder)
-	{
-		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
-		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
-		current_xmachine_centralbank_next_state = centralbank_CentralBankLabour_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
-
-		
-
-		
-
-			i = centralbank_do_balance_sheet();
-
-		
-
-			if(i == 1)
-			{
-				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankBalanceSheet_state);
-			}
-			else
-			{
-				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankBalanceSheet_state, centralbank_CentralBankLabour_state);
-			}
-		
-
-		current_xmachine_centralbank = NULL;
-
-		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_do_balance_sheet\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_construction_plan\n");
@@ -11695,512 +11408,6 @@ if(FLAME_general_benefit_message_board_read == 0)
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_unemployment_benefit_message_board_read == 1)
-	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_unemployment_benefit)\n");
-		rc = MB_SyncComplete(b_unemployment_benefit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_unemployment_benefit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'unemployment_benefit' board\n");
-		   switch(rc) {
-				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-	
-		   
-		   exit(rc);
-		}
-		#endif
-    
-    
-    
-	}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_credit_collect_unemployment\n");
-	current_xmachine_household_holder = household_HHCreditEmployment_state->agents;
-	while(current_xmachine_household_holder)
-	{
-		temp_xmachine_household_holder = current_xmachine_household_holder->next;
-		current_xmachine_household = current_xmachine_household_holder->agent;
-		current_xmachine_household_next_state = household_HHLabourStart_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_household = current_xmachine_household;
-
-		if(FLAME_condition_household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart(current_xmachine_household)==1)
-		{
-
-		
-		
-		
-		  rc = MB_Iterator_Create(b_unemployment_benefit, &i_unemployment_benefit);
-		  
-		
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'unemployment_benefit'\n");
-		   switch(rc) {
-		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
-		           break;
-		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'unemployment_benefit' board is locked\n");
-	               break;
-	           case MB_ERR_MEMALLOC:
-	               fprintf(stderr, "\t reason: out of memory\n");
-	               break;
-	           case MB_ERR_INTERNAL:
-	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-	               break;
-	           default:
-	           
-               
-                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
-               
-                   break;
-		   }
-
-		   
-           exit(rc);
-		}
-		#endif
-		
-		
-
-			i = household_credit_collect_unemployment();
-
-		
-		    rc = MB_Iterator_Delete(&i_unemployment_benefit);
-		    #ifdef ERRCHECK
-		    if (rc != MB_SUCCESS)
-		    {
-		       fprintf(stderr, "ERROR: Could not delete 'unemployment_benefit' iterator\n");
-		       switch(rc) {
-		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'unemployment_benefit' iterator is invalid\n");
-		               break;
-		           case MB_ERR_INTERNAL:
-		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-		               break;
-		           default:
-                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
-                       break;
-		       }
-
-		       
-               exit(rc);
-		    }
-		    #endif
-		
-
-			if(i == 1)
-			{
-				free_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state);
-			}
-			else
-			{
-				transition_household_agent(current_xmachine_household_holder, household_HHCreditEmployment_state, household_HHLabourStart_state);
-			}
-		}
-
-		current_xmachine_household = NULL;
-
-		current_xmachine_household_holder = temp_xmachine_household_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_collect_unemployment\n");
-
-
-/* End of layer number 20 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-if(FLAME_unemployment_benefit_message_board_read == 0)
-{
-	/*printf("%d> unemployment_benefit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_unemployment_benefit)\n");
-	rc = MB_SyncComplete(b_unemployment_benefit);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_unemployment_benefit)\n");
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'unemployment_benefit' board\n");
-	   switch(rc) {
-			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
-			   break;
-		   case MB_ERR_MEMALLOC:
-			   fprintf(stderr, "\t reason: out of memory\n");
-			   break;
-		   case MB_ERR_INTERNAL:
-			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-			   break;
-		   default:
-			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-			   break;
-	   }
-
-	   
-	   exit(rc);
-	}
-	#endif
-}
-
-    /* Delete any search trees */
-
-    rc = MB_Clear(b_unemployment_benefit);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not clear 'unemployment_benefit' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'unemployment_benefit' board is invalid\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'unemployment_benefit' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-           default:
-               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-
-       }
-
-       
-       exit(rc);
-    }
-    #endif
-
-	/* DEBUG: States with branching functions */
-		current_xmachine_household_holder = household_HHLabourStart_state->agents;
-		while(current_xmachine_household_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: household_labour_check_fired */
-			if(FLAME_condition_household_household_labour_check_fired_HHLabourStart_HHLabourStage1(current_xmachine_household_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_household_idle_HHLabourStart_HHLabourEmploymentStatus(current_xmachine_household_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'household' leaving state 'HHLabourStart'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_household_holder = current_xmachine_household_holder->next;
-		}
-		/* DEBUG: States with branching functions */
-		current_xmachine_centralbank_holder = centralbank_CentralBankLabour_state->agents;
-		while(current_xmachine_centralbank_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: centralbank_trace_unemployment_status */
-			if(FLAME_condition_centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption(current_xmachine_centralbank_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_centralbank_idle_CentralBankLabour_CentralBankConsumption(current_xmachine_centralbank_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'centralbank' leaving state 'CentralBankLabour'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
-		}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_compute_dividends\n");
-	current_xmachine_bank_holder = bank_BankCreditDividends_state->agents;
-	while(current_xmachine_bank_holder)
-	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		current_xmachine_bank = current_xmachine_bank_holder->agent;
-		current_xmachine_bank_next_state = bank_BankCreditBalanceSheet_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_bank = current_xmachine_bank;
-
-		
-
-		
-
-			i = bank_credit_compute_dividends();
-
-		
-
-			if(i == 1)
-			{
-				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditDividends_state);
-			}
-			else
-			{
-				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditDividends_state, bank_BankCreditBalanceSheet_state);
-			}
-		
-
-		current_xmachine_bank = NULL;
-
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_compute_dividends\n");
-
-	if(FLAME_bank_net_profit_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_bank_net_profit)\n");
-		rc = MB_SyncStart(b_bank_net_profit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_bank_net_profit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'bank_net_profit' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'bank_net_profit' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_centralbank_holder = centralbank_CentralBankLabour_state->agents;
-	while(current_xmachine_centralbank_holder)
-	{
-		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
-		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
-		current_xmachine_centralbank_next_state = centralbank_CentralBankConsumption_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
-
-		if(FLAME_condition_centralbank_idle_CentralBankLabour_CentralBankConsumption(current_xmachine_centralbank)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankLabour_state);
-			}
-			else
-			{
-				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankLabour_state, centralbank_CentralBankConsumption_state);
-			}
-		}
-
-		current_xmachine_centralbank = NULL;
-
-		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_household_holder = household_HHLabourStart_state->agents;
-	while(current_xmachine_household_holder)
-	{
-		temp_xmachine_household_holder = current_xmachine_household_holder->next;
-		current_xmachine_household = current_xmachine_household_holder->agent;
-		current_xmachine_household_next_state = household_HHLabourEmploymentStatus_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_household = current_xmachine_household;
-
-		if(FLAME_condition_household_idle_HHLabourStart_HHLabourEmploymentStatus(current_xmachine_household)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_household_agent(current_xmachine_household_holder, household_HHLabourStart_state);
-			}
-			else
-			{
-				transition_household_agent(current_xmachine_household_holder, household_HHLabourStart_state, household_HHLabourEmploymentStatus_state);
-			}
-		}
-
-		current_xmachine_household = NULL;
-
-		current_xmachine_household_holder = temp_xmachine_household_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_construction_labour_demand\n");
-	current_xmachine_firm_holder = firm_FirmConstructionLabourDemand_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStart_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		
-
-		
-
-			i = firm_production_construction_labour_demand();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmConstructionLabourDemand_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmConstructionLabourDemand_state, firm_FirmLabourStart_state);
-			}
-		
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_construction_labour_demand\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_plan\n");
-	current_xmachine_firm_holder = firm_FirmProductionPlanning_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmProductionLabourDemand_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		
-
-		
-
-			i = firm_production_plan();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionPlanning_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionPlanning_state, firm_FirmProductionLabourDemand_state);
-			}
-		
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_plan\n");
-
-
-	/* If mb is not read then leave sync complete until last possible moment */
 	if(FLAME_labour_tax_message_board_read == 1)
 	{
 		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_labour_tax)\n");
@@ -12336,7 +11543,7 @@ if(FLAME_unemployment_benefit_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_collect_labour_tax\n");
 
 
-/* End of layer number 21 */
+/* End of layer number 22 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -12402,13 +11609,13 @@ if(FLAME_labour_tax_message_board_read == 0)
     #endif
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_do_balance_sheet\n");
-	current_xmachine_bank_holder = bank_BankCreditBalanceSheet_state->agents;
-	while(current_xmachine_bank_holder)
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_construction_labour_demand\n");
+	current_xmachine_firm_holder = firm_FirmConstructionLabourDemand_state->agents;
+	while(current_xmachine_firm_holder)
 	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		current_xmachine_bank = current_xmachine_bank_holder->agent;
-		current_xmachine_bank_next_state = bank_BankHousingMarket_state;
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStart_state;
 		/* For backwards compatibility set current_xmachine */
 		current_xmachine->xmachine_firm = NULL;
 		current_xmachine->xmachine_household = NULL;
@@ -12419,31 +11626,356 @@ if(FLAME_labour_tax_message_board_read == 0)
 		current_xmachine->xmachine_jpoffice = NULL;
 		current_xmachine->xmachine_mall = NULL;
 		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_bank = current_xmachine_bank;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
 
 		
 
 		
 
-			i = bank_credit_do_balance_sheet();
+			i = firm_production_construction_labour_demand();
 
 		
 
 			if(i == 1)
 			{
-				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditBalanceSheet_state);
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmConstructionLabourDemand_state);
 			}
 			else
 			{
-				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditBalanceSheet_state, bank_BankHousingMarket_state);
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmConstructionLabourDemand_state, firm_FirmLabourStart_state);
 			}
 		
 
-		current_xmachine_bank = NULL;
+		current_xmachine_firm = NULL;
 
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_do_balance_sheet\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_construction_labour_demand\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_plan\n");
+	current_xmachine_firm_holder = firm_FirmProductionPlanning_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmProductionLabourDemand_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+
+			i = firm_production_plan();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmProductionPlanning_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmProductionPlanning_state, firm_FirmProductionLabourDemand_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_plan\n");
+
+
+	/* If mb is not read then leave sync complete until last possible moment */
+	if(FLAME_debt_request_message_board_read == 1)
+	{
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_request)\n");
+		rc = MB_SyncComplete(b_debt_request);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_request)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not complete sync of 'debt_request' board\n");
+		   switch(rc) {
+				case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+	
+		   
+		   exit(rc);
+		}
+		#endif
+    
+    
+    
+	}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start centralbank_process_debt_requests\n");
+	current_xmachine_centralbank_holder = centralbank_CentralBankDebtRequests_state->agents;
+	while(current_xmachine_centralbank_holder)
+	{
+		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
+		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
+		current_xmachine_centralbank_next_state = centralbank_CentralBankIncomeStatement_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
+
+		
+
+		
+		
+		
+		  rc = MB_Iterator_Create(b_debt_request, &i_debt_request);
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'debt_request'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'debt_request' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+               
+                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = centralbank_process_debt_requests();
+
+		
+		    rc = MB_Iterator_Delete(&i_debt_request);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'debt_request' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'debt_request' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankDebtRequests_state);
+			}
+			else
+			{
+				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankDebtRequests_state, centralbank_CentralBankIncomeStatement_state);
+			}
+		
+
+		current_xmachine_centralbank = NULL;
+
+		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_process_debt_requests\n");
+
+	if(FLAME_debt_ack_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_debt_ack)\n");
+		rc = MB_SyncStart(b_debt_ack);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_debt_ack)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'debt_ack' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+/* End of layer number 23 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+if(FLAME_debt_request_message_board_read == 0)
+{
+	/*printf("%d> debt_request message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_request)\n");
+	rc = MB_SyncComplete(b_debt_request);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_request)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'debt_request' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_debt_request);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'debt_request' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'debt_request' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'debt_request' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start centralbank_compute_income_statement\n");
+	current_xmachine_centralbank_holder = centralbank_CentralBankIncomeStatement_state->agents;
+	while(current_xmachine_centralbank_holder)
+	{
+		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
+		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
+		current_xmachine_centralbank_next_state = centralbank_CentralBankBalanceSheet_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
+
+		
+
+		
+
+			i = centralbank_compute_income_statement();
+
+		
+
+			if(i == 1)
+			{
+				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankIncomeStatement_state);
+			}
+			else
+			{
+				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankIncomeStatement_state, centralbank_CentralBankBalanceSheet_state);
+			}
+		
+
+		current_xmachine_centralbank = NULL;
+
+		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_compute_income_statement\n");
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_production_compute_labour_demand\n");
@@ -12488,6 +12020,846 @@ if(FLAME_labour_tax_message_board_read == 0)
 		current_xmachine_firm_holder = temp_xmachine_firm_holder;
 	}
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_production_compute_labour_demand\n");
+
+
+	/* If mb is not read then leave sync complete until last possible moment */
+	if(FLAME_debt_ack_message_board_read == 1)
+	{
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_ack)\n");
+		rc = MB_SyncComplete(b_debt_ack);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_ack)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not complete sync of 'debt_ack' board\n");
+		   switch(rc) {
+				case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+	
+		   
+		   exit(rc);
+		}
+		#endif
+    
+    
+    
+	}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_recieve_liquidity\n");
+	current_xmachine_bank_holder = bank_BankCreditLiquidtyRecieve_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		current_xmachine_bank = current_xmachine_bank_holder->agent;
+		current_xmachine_bank_next_state = bank_BankCreditIncomeStatement_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_bank = current_xmachine_bank;
+
+		
+
+		
+		
+          
+                  
+          
+		    rc = MB_Iterator_CreateFiltered(b_debt_ack, &i_debt_ack, &FLAME_filter_bank_bank_credit_recieve_liquidity_BankCreditLiquidtyRecieve_BankCreditIncomeStatement_debt_ack, current_xmachine_bank);
+		    
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'debt_ack'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+                   fprintf(stderr, "\t MB_Iterator_CreateFiltered returned error code: %d (see libmboard docs for details)\n", rc);
+               
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = bank_credit_recieve_liquidity();
+
+		
+		    rc = MB_Iterator_Delete(&i_debt_ack);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'debt_ack' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'debt_ack' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditLiquidtyRecieve_state);
+			}
+			else
+			{
+				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditLiquidtyRecieve_state, bank_BankCreditIncomeStatement_state);
+			}
+		
+
+		current_xmachine_bank = NULL;
+
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_recieve_liquidity\n");
+
+
+/* End of layer number 24 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+if(FLAME_debt_ack_message_board_read == 0)
+{
+	/*printf("%d> debt_ack message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_debt_ack)\n");
+	rc = MB_SyncComplete(b_debt_ack);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_debt_ack)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'debt_ack' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_debt_ack);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'debt_ack' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'debt_ack' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'debt_ack' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
+
+	/* DEBUG: States with branching functions */
+		current_xmachine_firm_holder = firm_FirmLabourStart_state->agents;
+		while(current_xmachine_firm_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: firm_labour_workforce_needed */
+			if(FLAME_condition_firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_firm_idle_FirmLabourStart_FirmLabourPayWages(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmLabourStart'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_compute_income_statement\n");
+	current_xmachine_bank_holder = bank_BankCreditIncomeStatement_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		current_xmachine_bank = current_xmachine_bank_holder->agent;
+		current_xmachine_bank_next_state = bank_BankCreditDividends_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_bank = current_xmachine_bank;
+
+		
+
+		
+
+			i = bank_credit_compute_income_statement();
+
+		
+
+			if(i == 1)
+			{
+				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditIncomeStatement_state);
+			}
+			else
+			{
+				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditIncomeStatement_state, bank_BankCreditDividends_state);
+			}
+		
+
+		current_xmachine_bank = NULL;
+
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_compute_income_statement\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start centralbank_do_balance_sheet\n");
+	current_xmachine_centralbank_holder = centralbank_CentralBankBalanceSheet_state->agents;
+	while(current_xmachine_centralbank_holder)
+	{
+		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
+		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
+		current_xmachine_centralbank_next_state = centralbank_CentralBankLabour_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
+
+		
+
+		
+
+			i = centralbank_do_balance_sheet();
+
+		
+
+			if(i == 1)
+			{
+				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankBalanceSheet_state);
+			}
+			else
+			{
+				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankBalanceSheet_state, centralbank_CentralBankLabour_state);
+			}
+		
+
+		current_xmachine_centralbank = NULL;
+
+		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_do_balance_sheet\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_workforce_needed\n");
+	current_xmachine_firm_holder = firm_FirmLabourStart_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStage1_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = firm_labour_workforce_needed();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state, firm_FirmLabourStage1_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_workforce_needed\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmLabourStart_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourPayWages_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_idle_FirmLabourStart_FirmLabourPayWages(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state, firm_FirmLabourPayWages_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+/* End of layer number 25 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+	/* DEBUG: States with branching functions */
+		current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
+		while(current_xmachine_firm_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: firm_labour_job_announcement_stage1 */
+			if(FLAME_condition_firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: firm_labour_fire */
+			if(FLAME_condition_firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_firm_idle_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmLabourStage1'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		}
+		/* DEBUG: States with branching functions */
+		current_xmachine_centralbank_holder = centralbank_CentralBankLabour_state->agents;
+		while(current_xmachine_centralbank_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: centralbank_trace_unemployment_status */
+			if(FLAME_condition_centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption(current_xmachine_centralbank_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_centralbank_idle_CentralBankLabour_CentralBankConsumption(current_xmachine_centralbank_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'centralbank' leaving state 'CentralBankLabour'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
+		}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_fire\n");
+	current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStage1End_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = firm_labour_fire();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state, firm_FirmLabourStage1End_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_fire\n");
+
+	if(FLAME_fired_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_fired)\n");
+		rc = MB_SyncStart(b_fired);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_fired)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'fired' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'fired' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'fired' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_compute_dividends\n");
+	current_xmachine_bank_holder = bank_BankCreditDividends_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		current_xmachine_bank = current_xmachine_bank_holder->agent;
+		current_xmachine_bank_next_state = bank_BankCreditBalanceSheet_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_bank = current_xmachine_bank;
+
+		
+
+		
+
+			i = bank_credit_compute_dividends();
+
+		
+
+			if(i == 1)
+			{
+				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditDividends_state);
+			}
+			else
+			{
+				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditDividends_state, bank_BankCreditBalanceSheet_state);
+			}
+		
+
+		current_xmachine_bank = NULL;
+
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_compute_dividends\n");
+
+	if(FLAME_bank_net_profit_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_bank_net_profit)\n");
+		rc = MB_SyncStart(b_bank_net_profit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_bank_net_profit)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'bank_net_profit' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'bank_net_profit' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_job_announcement_stage1\n");
+	current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStage1Application_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = firm_labour_job_announcement_stage1();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state, firm_FirmLabourStage1Application_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_job_announcement_stage1\n");
+
+	if(FLAME_vacancy_stage1_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_vacancy_stage1)\n");
+		rc = MB_SyncStart(b_vacancy_stage1);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_vacancy_stage1)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'vacancy_stage1' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'vacancy_stage1' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'vacancy_stage1' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_centralbank_holder = centralbank_CentralBankLabour_state->agents;
+	while(current_xmachine_centralbank_holder)
+	{
+		temp_xmachine_centralbank_holder = current_xmachine_centralbank_holder->next;
+		current_xmachine_centralbank = current_xmachine_centralbank_holder->agent;
+		current_xmachine_centralbank_next_state = centralbank_CentralBankConsumption_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_centralbank = current_xmachine_centralbank;
+
+		if(FLAME_condition_centralbank_idle_CentralBankLabour_CentralBankConsumption(current_xmachine_centralbank)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankLabour_state);
+			}
+			else
+			{
+				transition_centralbank_agent(current_xmachine_centralbank_holder, centralbank_CentralBankLabour_state, centralbank_CentralBankConsumption_state);
+			}
+		}
+
+		current_xmachine_centralbank = NULL;
+
+		current_xmachine_centralbank_holder = temp_xmachine_centralbank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStage1End_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		if(FLAME_condition_firm_idle_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state, firm_FirmLabourStage1End_state);
+			}
+		}
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
+/* End of layer number 26 */
+
+/* Clear message boards that have finished being used
+ * and sync complete if doing late sync complete */
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_credit_do_balance_sheet\n");
+	current_xmachine_bank_holder = bank_BankCreditBalanceSheet_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		current_xmachine_bank = current_xmachine_bank_holder->agent;
+		current_xmachine_bank_next_state = bank_BankHousingMarket_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_bank = current_xmachine_bank;
+
+		
+
+		
+
+			i = bank_credit_do_balance_sheet();
+
+		
+
+			if(i == 1)
+			{
+				free_bank_agent(current_xmachine_bank_holder, bank_BankCreditBalanceSheet_state);
+			}
+			else
+			{
+				transition_bank_agent(current_xmachine_bank_holder, bank_BankCreditBalanceSheet_state, bank_BankHousingMarket_state);
+			}
+		
+
+		current_xmachine_bank = NULL;
+
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_credit_do_balance_sheet\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -12624,884 +12996,6 @@ if(FLAME_labour_tax_message_board_read == 0)
 		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
 	}
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish equityfund_credit_collect_bank_shares\n");
-
-
-/* End of layer number 22 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-if(FLAME_bank_net_profit_message_board_read == 0)
-{
-	/*printf("%d> bank_net_profit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_bank_net_profit)\n");
-	rc = MB_SyncComplete(b_bank_net_profit);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_bank_net_profit)\n");
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'bank_net_profit' board\n");
-	   switch(rc) {
-			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
-			   break;
-		   case MB_ERR_MEMALLOC:
-			   fprintf(stderr, "\t reason: out of memory\n");
-			   break;
-		   case MB_ERR_INTERNAL:
-			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-			   break;
-		   default:
-			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-			   break;
-	   }
-
-	   
-	   exit(rc);
-	}
-	#endif
-}
-
-    /* Delete any search trees */
-
-    rc = MB_Clear(b_bank_net_profit);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not clear 'bank_net_profit' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'bank_net_profit' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-           default:
-               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-
-       }
-
-       
-       exit(rc);
-    }
-    #endif
-
-	/* DEBUG: States with branching functions */
-		current_xmachine_firm_holder = firm_FirmLabourStart_state->agents;
-		while(current_xmachine_firm_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: firm_labour_workforce_needed */
-			if(FLAME_condition_firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmLabourStart_FirmLabourPayWages(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmLabourStart'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		}
-		/* DEBUG: States with branching functions */
-		current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
-		while(current_xmachine_bank_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: bank_housing_compute_capital_status */
-			if(FLAME_condition_bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting(current_xmachine_bank_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_bank_idle_BankHousingMarket_BankUpdateDeposits(current_xmachine_bank_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'bank' leaving state 'BankHousingMarket'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_housing_compute_capital_status\n");
-	current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
-	while(current_xmachine_bank_holder)
-	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		current_xmachine_bank = current_xmachine_bank_holder->agent;
-		current_xmachine_bank_next_state = bank_BankHousingCrediting_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_bank = current_xmachine_bank;
-
-		if(FLAME_condition_bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting(current_xmachine_bank)==1)
-		{
-
-		
-
-			i = bank_housing_compute_capital_status();
-
-		
-
-			if(i == 1)
-			{
-				free_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state);
-			}
-			else
-			{
-				transition_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state, bank_BankHousingCrediting_state);
-			}
-		}
-
-		current_xmachine_bank = NULL;
-
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_housing_compute_capital_status\n");
-
-	if(FLAME_mortgaging_capacity_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_mortgaging_capacity)\n");
-		rc = MB_SyncStart(b_mortgaging_capacity);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_mortgaging_capacity)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'mortgaging_capacity' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'mortgaging_capacity' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'mortgaging_capacity' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
-	while(current_xmachine_bank_holder)
-	{
-		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
-		current_xmachine_bank = current_xmachine_bank_holder->agent;
-		current_xmachine_bank_next_state = bank_BankUpdateDeposits_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_bank = current_xmachine_bank;
-
-		if(FLAME_condition_bank_idle_BankHousingMarket_BankUpdateDeposits(current_xmachine_bank)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state);
-			}
-			else
-			{
-				transition_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state, bank_BankUpdateDeposits_state);
-			}
-		}
-
-		current_xmachine_bank = NULL;
-
-		current_xmachine_bank_holder = temp_xmachine_bank_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_workforce_needed\n");
-	current_xmachine_firm_holder = firm_FirmLabourStart_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStage1_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = firm_labour_workforce_needed();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state, firm_FirmLabourStage1_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_workforce_needed\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmLabourStart_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourPayWages_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmLabourStart_FirmLabourPayWages(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStart_state, firm_FirmLabourPayWages_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_firm_net_profit_message_board_read == 1)
-	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_firm_net_profit)\n");
-		rc = MB_SyncComplete(b_firm_net_profit);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_firm_net_profit)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'firm_net_profit' board\n");
-		   switch(rc) {
-				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-	
-		   
-		   exit(rc);
-		}
-		#endif
-    
-    
-    
-	}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start equityfund_credit_collect_firm_shares\n");
-	current_xmachine_equityfund_holder = equityfund_EFCreditShareCollectionFirms_state->agents;
-	while(current_xmachine_equityfund_holder)
-	{
-		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
-		current_xmachine_equityfund = current_xmachine_equityfund_holder->agent;
-		current_xmachine_equityfund_next_state = equityfund_EFCreditBalanceSheet_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_equityfund = current_xmachine_equityfund;
-
-		
-
-		
-		
-		
-		  rc = MB_Iterator_Create(b_firm_net_profit, &i_firm_net_profit);
-		  
-		
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'firm_net_profit'\n");
-		   switch(rc) {
-		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
-		           break;
-		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'firm_net_profit' board is locked\n");
-	               break;
-	           case MB_ERR_MEMALLOC:
-	               fprintf(stderr, "\t reason: out of memory\n");
-	               break;
-	           case MB_ERR_INTERNAL:
-	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-	               break;
-	           default:
-	           
-               
-                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
-               
-                   break;
-		   }
-
-		   
-           exit(rc);
-		}
-		#endif
-		
-		
-
-			i = equityfund_credit_collect_firm_shares();
-
-		
-		    rc = MB_Iterator_Delete(&i_firm_net_profit);
-		    #ifdef ERRCHECK
-		    if (rc != MB_SUCCESS)
-		    {
-		       fprintf(stderr, "ERROR: Could not delete 'firm_net_profit' iterator\n");
-		       switch(rc) {
-		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'firm_net_profit' iterator is invalid\n");
-		               break;
-		           case MB_ERR_INTERNAL:
-		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-		               break;
-		           default:
-                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
-                       break;
-		       }
-
-		       
-               exit(rc);
-		    }
-		    #endif
-		
-
-			if(i == 1)
-			{
-				free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditShareCollectionFirms_state);
-			}
-			else
-			{
-				transition_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditShareCollectionFirms_state, equityfund_EFCreditBalanceSheet_state);
-			}
-		
-
-		current_xmachine_equityfund = NULL;
-
-		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish equityfund_credit_collect_firm_shares\n");
-
-
-/* End of layer number 23 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-if(FLAME_firm_net_profit_message_board_read == 0)
-{
-	/*printf("%d> firm_net_profit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_firm_net_profit)\n");
-	rc = MB_SyncComplete(b_firm_net_profit);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_firm_net_profit)\n");
-	#ifdef ERRCHECK
-	if (rc != MB_SUCCESS)
-	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'firm_net_profit' board\n");
-	   switch(rc) {
-			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
-			   break;
-		   case MB_ERR_MEMALLOC:
-			   fprintf(stderr, "\t reason: out of memory\n");
-			   break;
-		   case MB_ERR_INTERNAL:
-			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-			   break;
-		   default:
-			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
-			   break;
-	   }
-
-	   
-	   exit(rc);
-	}
-	#endif
-}
-
-    /* Delete any search trees */
-
-    rc = MB_Clear(b_firm_net_profit);
-    #ifdef ERRCHECK
-    if (rc != MB_SUCCESS)
-    {
-       fprintf(stderr, "ERROR: Could not clear 'firm_net_profit' board\n");
-       switch(rc) {
-           case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
-               break;
-           case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'firm_net_profit' board is locked\n");
-               break;
-           case MB_ERR_INTERNAL:
-               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-               break;
-           default:
-               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
-               break;
-
-       }
-
-       
-       exit(rc);
-    }
-    #endif
-
-	/* DEBUG: States with branching functions */
-		current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
-		while(current_xmachine_firm_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: firm_labour_job_announcement_stage1 */
-			if(FLAME_condition_firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: firm_labour_fire */
-			if(FLAME_condition_firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_firm_idle_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'firm' leaving state 'FirmLabourStage1'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_fire\n");
-	current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStage1End_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = firm_labour_fire();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state, firm_FirmLabourStage1End_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_fire\n");
-
-	if(FLAME_fired_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_fired)\n");
-		rc = MB_SyncStart(b_fired);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_fired)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'fired' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'fired' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'fired' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_job_announcement_stage1\n");
-	current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStage1Application_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = firm_labour_job_announcement_stage1();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state, firm_FirmLabourStage1Application_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_job_announcement_stage1\n");
-
-	if(FLAME_vacancy_stage1_message_board_write == 1)
-	{
-
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_vacancy_stage1)\n");
-		rc = MB_SyncStart(b_vacancy_stage1);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_vacancy_stage1)\n");
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'vacancy_stage1' board\n");
-		   switch(rc) {
-			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'vacancy_stage1' board is invalid\n");
-				   break;
-			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'vacancy_stage1' board is locked\n");
-				   break;
-			   case MB_ERR_MEMALLOC:
-				   fprintf(stderr, "\t reason: out of memory\n");
-				   break;
-			   case MB_ERR_INTERNAL:
-				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-				   break;
-			   default:
-				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
-				   break;
-		   }
-
-			
-			exit(rc);
-		}
-		#endif
-    }
-    
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start equityfund_credit_do_balance_sheet\n");
-	current_xmachine_equityfund_holder = equityfund_EFCreditBalanceSheet_state->agents;
-	while(current_xmachine_equityfund_holder)
-	{
-		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
-		current_xmachine_equityfund = current_xmachine_equityfund_holder->agent;
-		current_xmachine_equityfund_next_state = equityfund_EFLabourMarket_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_equityfund = current_xmachine_equityfund;
-
-		
-
-		
-
-			i = equityfund_credit_do_balance_sheet();
-
-		
-
-			if(i == 1)
-			{
-				free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditBalanceSheet_state);
-			}
-			else
-			{
-				transition_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditBalanceSheet_state, equityfund_EFLabourMarket_state);
-			}
-		
-
-		current_xmachine_equityfund = NULL;
-
-		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish equityfund_credit_do_balance_sheet\n");
-
-
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_firm_holder = firm_FirmLabourStage1_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStage1End_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		if(FLAME_condition_firm_idle_FirmLabourStage1_FirmLabourStage1End(current_xmachine_firm)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1_state, firm_FirmLabourStage1End_state);
-			}
-		}
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
-
-
-/* End of layer number 24 */
-
-/* Clear message boards that have finished being used
- * and sync complete if doing late sync complete */
-
-	/* DEBUG: States with branching functions */
-		current_xmachine_equityfund_holder = equityfund_EFLabourMarket_state->agents;
-		while(current_xmachine_equityfund_holder)
-		{
-			FLAME_debug_count = 0;
-			/* Function: equityfund_audit_dividends */
-			if(FLAME_condition_equityfund_equityfund_audit_dividends_EFLabourMarket_end(current_xmachine_equityfund_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/* Function: idle */
-			if(FLAME_condition_equityfund_idle_EFLabourMarket_end(current_xmachine_equityfund_holder->agent)==1)
-			{ FLAME_debug_count++; }
-			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
-			if(FLAME_debug_count != 1)
-			{
-				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'equityfund' leaving state 'EFLabourMarket'\n");
-				if(FLAME_debug_count > 1)
-					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
-				if(FLAME_debug_count == 0)
-					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
-			}
-			
-			current_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
-		}
-	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
-	current_xmachine_equityfund_holder = equityfund_EFLabourMarket_state->agents;
-	while(current_xmachine_equityfund_holder)
-	{
-		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
-		current_xmachine_equityfund = current_xmachine_equityfund_holder->agent;
-		current_xmachine_equityfund_next_state = equityfund_end_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_equityfund = current_xmachine_equityfund;
-
-		if(FLAME_condition_equityfund_idle_EFLabourMarket_end(current_xmachine_equityfund)==1)
-		{
-
-		
-
-			i = idle();
-
-		
-
-			if(i == 1)
-			{
-				free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFLabourMarket_state);
-			}
-			else
-			{
-				transition_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFLabourMarket_state, equityfund_end_state);
-			}
-		}
-
-		current_xmachine_equityfund = NULL;
-
-		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -13644,7 +13138,7 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_labour_check_fired\n");
 
 
-/* End of layer number 25 */
+/* End of layer number 27 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -13709,6 +13203,66 @@ if(FLAME_fired_message_board_read == 0)
     }
     #endif
 
+if(FLAME_bank_net_profit_message_board_read == 0)
+{
+	/*printf("%d> bank_net_profit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_bank_net_profit)\n");
+	rc = MB_SyncComplete(b_bank_net_profit);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_bank_net_profit)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'bank_net_profit' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_bank_net_profit);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'bank_net_profit' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'bank_net_profit' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'bank_net_profit' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
+
 	/* DEBUG: States with branching functions */
 		current_xmachine_household_holder = household_HHLabourStage1_state->agents;
 		while(current_xmachine_household_holder)
@@ -13731,6 +13285,29 @@ if(FLAME_fired_message_board_read == 0)
 			}
 			
 			current_xmachine_household_holder = current_xmachine_household_holder->next;
+		}
+		/* DEBUG: States with branching functions */
+		current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
+		while(current_xmachine_bank_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: bank_housing_compute_capital_status */
+			if(FLAME_condition_bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting(current_xmachine_bank_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_bank_idle_BankHousingMarket_BankUpdateDeposits(current_xmachine_bank_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'bank' leaving state 'BankHousingMarket'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_bank_holder = current_xmachine_bank_holder->next;
 		}
 	
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_labour_reemployment_application\n");
@@ -13813,6 +13390,131 @@ if(FLAME_fired_message_board_read == 0)
     
 
 
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start bank_housing_compute_capital_status\n");
+	current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		current_xmachine_bank = current_xmachine_bank_holder->agent;
+		current_xmachine_bank_next_state = bank_BankHousingCrediting_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_bank = current_xmachine_bank;
+
+		if(FLAME_condition_bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting(current_xmachine_bank)==1)
+		{
+
+		
+
+			i = bank_housing_compute_capital_status();
+
+		
+
+			if(i == 1)
+			{
+				free_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state);
+			}
+			else
+			{
+				transition_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state, bank_BankHousingCrediting_state);
+			}
+		}
+
+		current_xmachine_bank = NULL;
+
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_housing_compute_capital_status\n");
+
+	if(FLAME_mortgaging_capacity_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_mortgaging_capacity)\n");
+		rc = MB_SyncStart(b_mortgaging_capacity);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_mortgaging_capacity)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'mortgaging_capacity' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'mortgaging_capacity' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'mortgaging_capacity' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_bank_holder = bank_BankHousingMarket_state->agents;
+	while(current_xmachine_bank_holder)
+	{
+		temp_xmachine_bank_holder = current_xmachine_bank_holder->next;
+		current_xmachine_bank = current_xmachine_bank_holder->agent;
+		current_xmachine_bank_next_state = bank_BankUpdateDeposits_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_bank = current_xmachine_bank;
+
+		if(FLAME_condition_bank_idle_BankHousingMarket_BankUpdateDeposits(current_xmachine_bank)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state);
+			}
+			else
+			{
+				transition_bank_agent(current_xmachine_bank_holder, bank_BankHousingMarket_state, bank_BankUpdateDeposits_state);
+			}
+		}
+
+		current_xmachine_bank = NULL;
+
+		current_xmachine_bank_holder = temp_xmachine_bank_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
+
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
 	current_xmachine_household_holder = household_HHLabourStage1_state->agents;
 	while(current_xmachine_household_holder)
@@ -13858,10 +13560,206 @@ if(FLAME_fired_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 26 */
+	/* If mb is not read then leave sync complete until last possible moment */
+	if(FLAME_firm_net_profit_message_board_read == 1)
+	{
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_firm_net_profit)\n");
+		rc = MB_SyncComplete(b_firm_net_profit);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_firm_net_profit)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not complete sync of 'firm_net_profit' board\n");
+		   switch(rc) {
+				case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+	
+		   
+		   exit(rc);
+		}
+		#endif
+    
+    
+    
+	}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start equityfund_credit_collect_firm_shares\n");
+	current_xmachine_equityfund_holder = equityfund_EFCreditShareCollectionFirms_state->agents;
+	while(current_xmachine_equityfund_holder)
+	{
+		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
+		current_xmachine_equityfund = current_xmachine_equityfund_holder->agent;
+		current_xmachine_equityfund_next_state = equityfund_EFCreditBalanceSheet_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_equityfund = current_xmachine_equityfund;
+
+		
+
+		
+		
+		
+		  rc = MB_Iterator_Create(b_firm_net_profit, &i_firm_net_profit);
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'firm_net_profit'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'firm_net_profit' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+               
+                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = equityfund_credit_collect_firm_shares();
+
+		
+		    rc = MB_Iterator_Delete(&i_firm_net_profit);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'firm_net_profit' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'firm_net_profit' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditShareCollectionFirms_state);
+			}
+			else
+			{
+				transition_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditShareCollectionFirms_state, equityfund_EFCreditBalanceSheet_state);
+			}
+		
+
+		current_xmachine_equityfund = NULL;
+
+		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish equityfund_credit_collect_firm_shares\n");
+
+
+/* End of layer number 28 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
+
+if(FLAME_firm_net_profit_message_board_read == 0)
+{
+	/*printf("%d> firm_net_profit message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_firm_net_profit)\n");
+	rc = MB_SyncComplete(b_firm_net_profit);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_firm_net_profit)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'firm_net_profit' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_firm_net_profit);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'firm_net_profit' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'firm_net_profit' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'firm_net_profit' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_labour_employment_application\n");
@@ -13941,6 +13839,50 @@ if(FLAME_fired_message_board_read == 0)
 		#endif
     }
     
+
+
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start equityfund_credit_do_balance_sheet\n");
+	current_xmachine_equityfund_holder = equityfund_EFCreditBalanceSheet_state->agents;
+	while(current_xmachine_equityfund_holder)
+	{
+		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
+		current_xmachine_equityfund = current_xmachine_equityfund_holder->agent;
+		current_xmachine_equityfund_next_state = equityfund_EFLabourMarket_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_equityfund = current_xmachine_equityfund;
+
+		
+
+		
+
+			i = equityfund_credit_do_balance_sheet();
+
+		
+
+			if(i == 1)
+			{
+				free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditBalanceSheet_state);
+			}
+			else
+			{
+				transition_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFCreditBalanceSheet_state, equityfund_EFLabourMarket_state);
+			}
+		
+
+		current_xmachine_equityfund = NULL;
+
+		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish equityfund_credit_do_balance_sheet\n");
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
@@ -14207,7 +14149,7 @@ if(FLAME_fired_message_board_read == 0)
     
 
 
-/* End of layer number 27 */
+/* End of layer number 29 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -14332,6 +14274,74 @@ if(FLAME_job_application_stage1_message_board_read == 0)
     }
     #endif
 
+	/* DEBUG: States with branching functions */
+		current_xmachine_equityfund_holder = equityfund_EFLabourMarket_state->agents;
+		while(current_xmachine_equityfund_holder)
+		{
+			FLAME_debug_count = 0;
+			/* Function: equityfund_audit_dividends */
+			if(FLAME_condition_equityfund_equityfund_audit_dividends_EFLabourMarket_end(current_xmachine_equityfund_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/* Function: idle */
+			if(FLAME_condition_equityfund_idle_EFLabourMarket_end(current_xmachine_equityfund_holder->agent)==1)
+			{ FLAME_debug_count++; }
+			/*printf("FLAME_debug_count = %d\n", FLAME_debug_count);*/
+			if(FLAME_debug_count != 1)
+			{
+				fprintf(stderr, "ERROR: A function condition test has failed for agent type 'equityfund' leaving state 'EFLabourMarket'\n");
+				if(FLAME_debug_count > 1)
+					fprintf(stderr, "\t reason: there was more than one possible outgoing transition function\n");
+				if(FLAME_debug_count == 0)
+					fprintf(stderr, "\t reason: there was no possible outgoing transition function\n");
+			}
+			
+			current_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
+		}
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
+	current_xmachine_equityfund_holder = equityfund_EFLabourMarket_state->agents;
+	while(current_xmachine_equityfund_holder)
+	{
+		temp_xmachine_equityfund_holder = current_xmachine_equityfund_holder->next;
+		current_xmachine_equityfund = current_xmachine_equityfund_holder->agent;
+		current_xmachine_equityfund_next_state = equityfund_end_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_equityfund = current_xmachine_equityfund;
+
+		if(FLAME_condition_equityfund_idle_EFLabourMarket_end(current_xmachine_equityfund)==1)
+		{
+
+		
+
+			i = idle();
+
+		
+
+			if(i == 1)
+			{
+				free_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFLabourMarket_state);
+			}
+			else
+			{
+				transition_equityfund_agent(current_xmachine_equityfund_holder, equityfund_EFLabourMarket_state, equityfund_end_state);
+			}
+		}
+
+		current_xmachine_equityfund = NULL;
+
+		current_xmachine_equityfund_holder = temp_xmachine_equityfund_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
+
 
 	/* If mb is not read then leave sync complete until last possible moment */
 	if(FLAME_job_match_stage1_message_board_read == 1)
@@ -14367,6 +14377,111 @@ if(FLAME_job_application_stage1_message_board_read == 0)
     
 	}
 	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_job_offer_stage1\n");
+	current_xmachine_firm_holder = firm_FirmLabourStage1Application_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmLabourStage1End_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+		
+          
+                  
+          
+		    rc = MB_Iterator_CreateFiltered(b_job_match_stage1, &i_job_match_stage1, &FLAME_filter_firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End_job_match_stage1, current_xmachine_firm);
+		    
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'job_match_stage1'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'job_match_stage1' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'job_match_stage1' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+                   fprintf(stderr, "\t MB_Iterator_CreateFiltered returned error code: %d (see libmboard docs for details)\n", rc);
+               
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = firm_labour_job_offer_stage1();
+
+		
+		    rc = MB_Iterator_Delete(&i_job_match_stage1);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'job_match_stage1' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'job_match_stage1' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1Application_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1Application_state, firm_FirmLabourStage1End_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_job_offer_stage1\n");
+
+
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_labour_turnover\n");
 	current_xmachine_household_holder = household_HHLabourStage2_state->agents;
 	while(current_xmachine_household_holder)
@@ -14507,112 +14622,7 @@ if(FLAME_job_application_stage1_message_board_read == 0)
     
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_job_offer_stage1\n");
-	current_xmachine_firm_holder = firm_FirmLabourStage1Application_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmLabourStage1End_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		
-
-		
-		
-          
-                  
-          
-		    rc = MB_Iterator_CreateFiltered(b_job_match_stage1, &i_job_match_stage1, &FLAME_filter_firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End_job_match_stage1, current_xmachine_firm);
-		    
-		  
-		
-		#ifdef ERRCHECK
-		if (rc != MB_SUCCESS)
-		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'job_match_stage1'\n");
-		   switch(rc) {
-		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'job_match_stage1' board is invalid\n");
-		           break;
-		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'job_match_stage1' board is locked\n");
-	               break;
-	           case MB_ERR_MEMALLOC:
-	               fprintf(stderr, "\t reason: out of memory\n");
-	               break;
-	           case MB_ERR_INTERNAL:
-	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-	               break;
-	           default:
-	           
-                   fprintf(stderr, "\t MB_Iterator_CreateFiltered returned error code: %d (see libmboard docs for details)\n", rc);
-               
-               
-                   break;
-		   }
-
-		   
-           exit(rc);
-		}
-		#endif
-		
-		
-
-			i = firm_labour_job_offer_stage1();
-
-		
-		    rc = MB_Iterator_Delete(&i_job_match_stage1);
-		    #ifdef ERRCHECK
-		    if (rc != MB_SUCCESS)
-		    {
-		       fprintf(stderr, "ERROR: Could not delete 'job_match_stage1' iterator\n");
-		       switch(rc) {
-		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'job_match_stage1' iterator is invalid\n");
-		               break;
-		           case MB_ERR_INTERNAL:
-		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
-		               break;
-		           default:
-                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
-                       break;
-		       }
-
-		       
-               exit(rc);
-		    }
-		    #endif
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1Application_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourStage1Application_state, firm_FirmLabourStage1End_state);
-			}
-		
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_job_offer_stage1\n");
-
-
-/* End of layer number 28 */
+/* End of layer number 30 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -14817,7 +14827,7 @@ if(FLAME_job_match_stage1_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_update\n");
 
 
-/* End of layer number 29 */
+/* End of layer number 31 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -15031,7 +15041,7 @@ if(FLAME_job_change_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 30 */
+/* End of layer number 32 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -15300,7 +15310,7 @@ if(FLAME_job_change_message_board_read == 0)
     
 
 
-/* End of layer number 31 */
+/* End of layer number 33 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -15670,7 +15680,7 @@ if(FLAME_vacancy_stage2_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_labour_employment\n");
 
 
-/* End of layer number 32 */
+/* End of layer number 34 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -15928,7 +15938,7 @@ if(FLAME_job_match_stage2_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 33 */
+/* End of layer number 35 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -16433,7 +16443,7 @@ if(FLAME_job_match_stage2_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_trace_unemployment_status\n");
 
 
-/* End of layer number 34 */
+/* End of layer number 36 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -16526,8 +16536,8 @@ if(FLAME_employment_status_message_board_read == 0)
 		while(current_xmachine_household_holder)
 		{
 			FLAME_debug_count = 0;
-			/* Function: household_consumption_monthly_budget */
-			if(FLAME_condition_household_household_consumption_monthly_budget_HHConsumptionStart_HHConsumptionWeekly(current_xmachine_household_holder->agent)==1)
+			/* Function: household_consumption_compute_budget */
+			if(FLAME_condition_household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly(current_xmachine_household_holder->agent)==1)
 			{ FLAME_debug_count++; }
 			/* Function: idle */
 			if(FLAME_condition_household_idle_HHConsumptionStart_HHConsumptionWeekly(current_xmachine_household_holder->agent)==1)
@@ -16693,7 +16703,7 @@ if(FLAME_employment_status_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_consumption_monthly_budget\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start household_consumption_compute_budget\n");
 	current_xmachine_household_holder = household_HHConsumptionStart_state->agents;
 	while(current_xmachine_household_holder)
 	{
@@ -16712,12 +16722,12 @@ if(FLAME_employment_status_message_board_read == 0)
 		current_xmachine->xmachine_reagency = NULL;
 		current_xmachine->xmachine_household = current_xmachine_household;
 
-		if(FLAME_condition_household_household_consumption_monthly_budget_HHConsumptionStart_HHConsumptionWeekly(current_xmachine_household)==1)
+		if(FLAME_condition_household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly(current_xmachine_household)==1)
 		{
 
 		
 
-			i = household_consumption_monthly_budget();
+			i = household_consumption_compute_budget();
 
 		
 
@@ -16735,7 +16745,7 @@ if(FLAME_employment_status_message_board_read == 0)
 
 		current_xmachine_household_holder = temp_xmachine_household_holder;
 	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_consumption_monthly_budget\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_consumption_compute_budget\n");
 
 
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start idle\n");
@@ -16828,7 +16838,7 @@ if(FLAME_employment_status_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 35 */
+/* End of layer number 37 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -16982,7 +16992,7 @@ if(FLAME_employment_status_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 36 */
+/* End of layer number 38 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -17287,7 +17297,7 @@ if(FLAME_employment_status_message_board_read == 0)
     
 
 
-/* End of layer number 37 */
+/* End of layer number 39 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -17770,7 +17780,7 @@ if(FLAME_sell_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_consumption_recieve_goods\n");
 
 
-/* End of layer number 38 */
+/* End of layer number 40 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -18248,7 +18258,7 @@ if(FLAME_sold_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish centralbank_trace_goods_prices\n");
 
 
-/* End of layer number 39 */
+/* End of layer number 41 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -18681,7 +18691,7 @@ if(FLAME_goods_transactions_summary_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 40 */
+/* End of layer number 42 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -18983,7 +18993,7 @@ if(FLAME_goods_transactions_summary_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 41 */
+/* End of layer number 43 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -19414,7 +19424,7 @@ if(FLAME_goods_transactions_summary_message_board_read == 0)
     
 
 
-/* End of layer number 42 */
+/* End of layer number 44 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -20271,7 +20281,7 @@ if(FLAME_mortgaging_capacity_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_housing_deliver_mortages\n");
 
 
-/* End of layer number 43 */
+/* End of layer number 45 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -20971,7 +20981,7 @@ if(FLAME_mortgage_requests_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_housing_recieve_mortgage_principals\n");
 
 
-/* End of layer number 44 */
+/* End of layer number 46 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -21384,7 +21394,7 @@ if(FLAME_housing_transactions_summary_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-/* End of layer number 45 */
+/* End of layer number 47 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -21608,7 +21618,7 @@ if(FLAME_housing_transactions_summary_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_housing_recieve_mortgages\n");
 
 
-/* End of layer number 46 */
+/* End of layer number 48 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -21961,7 +21971,7 @@ if(FLAME_mortgage_payment_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_housing_debt_writeoff\n");
 
 
-/* End of layer number 47 */
+/* End of layer number 49 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -22330,7 +22340,7 @@ if(FLAME_mortgage_writeoff_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish bank_update_deposits\n");
 
 
-/* End of layer number 48 */
+/* End of layer number 50 */
 
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
@@ -22466,20 +22476,20 @@ if(FLAME_household_bank_update_deposit_message_board_read == 0)
 	/*printf("firm_FirmHousingMarket_state->count = %d\n", firm_FirmHousingMarket_state->count);*/
 	firm_FirmHousingMarket_state->count = 0;
 
+	/*printf("firm_FirmCreditInsolvency_state->count = %d\n", firm_FirmCreditInsolvency_state->count);*/
+	firm_FirmCreditInsolvency_state->count = 0;
+
+	/*printf("firm_FirmCreditDividendPayments_state->count = %d\n", firm_FirmCreditDividendPayments_state->count);*/
+	firm_FirmCreditDividendPayments_state->count = 0;
+
 	/*printf("firm_FirmCreditBalanceSheet_state->count = %d\n", firm_FirmCreditBalanceSheet_state->count);*/
 	firm_FirmCreditBalanceSheet_state->count = 0;
-
-	/*printf("firm_FirmCreditIncomeStatement_state->count = %d\n", firm_FirmCreditIncomeStatement_state->count);*/
-	firm_FirmCreditIncomeStatement_state->count = 0;
-
-	/*printf("firm_FirmCreditLoanPayment_state->count = %d\n", firm_FirmCreditLoanPayment_state->count);*/
-	firm_FirmCreditLoanPayment_state->count = 0;
 
 	/*printf("firm_FirmCreditBankruptcy_state->count = %d\n", firm_FirmCreditBankruptcy_state->count);*/
 	firm_FirmCreditBankruptcy_state->count = 0;
 
-	/*printf("firm_FirmCreditCheckInvestment_state->count = %d\n", firm_FirmCreditCheckInvestment_state->count);*/
-	firm_FirmCreditCheckInvestment_state->count = 0;
+	/*printf("firm_FirmCreditCheckFundInvestment_state->count = %d\n", firm_FirmCreditCheckFundInvestment_state->count);*/
+	firm_FirmCreditCheckFundInvestment_state->count = 0;
 
 	/*printf("firm_FirmCreditIlliquidityStatus_state->count = %d\n", firm_FirmCreditIlliquidityStatus_state->count);*/
 	firm_FirmCreditIlliquidityStatus_state->count = 0;
@@ -22490,20 +22500,23 @@ if(FLAME_household_bank_update_deposit_message_board_read == 0)
 	/*printf("firm_FirmCreditLoanBorrow1_state->count = %d\n", firm_FirmCreditLoanBorrow1_state->count);*/
 	firm_FirmCreditLoanBorrow1_state->count = 0;
 
-	/*printf("firm_FirmCreditInsolvency_state->count = %d\n", firm_FirmCreditInsolvency_state->count);*/
-	firm_FirmCreditInsolvency_state->count = 0;
-
-	/*printf("firm_FirmCreditLoanRequest_state->count = %d\n", firm_FirmCreditLoanRequest_state->count);*/
-	firm_FirmCreditLoanRequest_state->count = 0;
-
-	/*printf("firm_FirmCreditDividendPayments_state->count = %d\n", firm_FirmCreditDividendPayments_state->count);*/
-	firm_FirmCreditDividendPayments_state->count = 0;
+	/*printf("firm_FirmCreditPayments_state->count = %d\n", firm_FirmCreditPayments_state->count);*/
+	firm_FirmCreditPayments_state->count = 0;
 
 	/*printf("firm_FirmCreditStatus_state->count = %d\n", firm_FirmCreditStatus_state->count);*/
 	firm_FirmCreditStatus_state->count = 0;
 
 	/*printf("firm_FirmCreditLiquidityNeed_state->count = %d\n", firm_FirmCreditLiquidityNeed_state->count);*/
 	firm_FirmCreditLiquidityNeed_state->count = 0;
+
+	/*printf("firm_FirmCreditComputeDividends_state->count = %d\n", firm_FirmCreditComputeDividends_state->count);*/
+	firm_FirmCreditComputeDividends_state->count = 0;
+
+	/*printf("firm_FirmCreditInvestment_state->count = %d\n", firm_FirmCreditInvestment_state->count);*/
+	firm_FirmCreditInvestment_state->count = 0;
+
+	/*printf("firm_FirmCreditInterestRate_state->count = %d\n", firm_FirmCreditInterestRate_state->count);*/
+	firm_FirmCreditInterestRate_state->count = 0;
 
 	/*printf("firm_FirmConstructionLabourDemand_state->count = %d\n", firm_FirmConstructionLabourDemand_state->count);*/
 	firm_FirmConstructionLabourDemand_state->count = 0;

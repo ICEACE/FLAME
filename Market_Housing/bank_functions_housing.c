@@ -22,10 +22,14 @@ int bank_housing_compute_capital_status()
  */
 int bank_housing_deliver_mortages()
 {
+    double amount = 0;
+    
     START_MORTGAGE_REQUESTS_MESSAGE_LOOP
     //The message is filtered via xmml.
     
+    amount = mortgage_requests_message->amount;
     MORTGAGES += mortgage_requests_message->amount;
+    LIQUIDITY -= amount;
         
 	FINISH_MORTGAGE_REQUESTS_MESSAGE_LOOP
     

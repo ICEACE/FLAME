@@ -38,8 +38,8 @@ int equityfund_credit_distribute_shares()
         return 0;
     }
     
-    if (N_DIVIDENDS > 0) {
-        per_share = DIVIDENDS_PAID / N_DIVIDENDS;
+    if (N_SHARES> 0) {
+        per_share = DIVIDENDS_PAID / N_SHARES;
     }
     else {
         per_share = DIVIDENDS_PAID / 8000;

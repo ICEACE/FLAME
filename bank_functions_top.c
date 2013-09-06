@@ -18,7 +18,7 @@ int bank_init()
  * \brief: puts money to deposit account of its prefered bak. */
 int bank_update_deposits()
 {
-    double old_deposits, current_deposit, delta_deposit;
+    double current_deposit, delta_deposit;
     double deposits_households = 0;
     double deposits_firms = 0;
     

@@ -96,27 +96,33 @@
 /** \def SALES
  * \brief Direct access to sales of firm agent memory variable. */
 #define SALES (current_xmachine_firm->sales)
-/** \def REVENUE
- * \brief Direct access to revenue of firm agent memory variable. */
-#define REVENUE (current_xmachine_firm->revenue)
+/** \def REVENUES
+ * \brief Direct access to revenues of firm agent memory variable. */
+#define REVENUES (current_xmachine_firm->revenues)
 /** \def TOTAL_ASSETS
  * \brief Direct access to total_assets of firm agent memory variable. */
 #define TOTAL_ASSETS (current_xmachine_firm->total_assets)
-/** \def COSTS
- * \brief Direct access to costs of firm agent memory variable. */
-#define COSTS (current_xmachine_firm->costs)
+/** \def OPERATING_COSTS
+ * \brief Direct access to operating_costs of firm agent memory variable. */
+#define OPERATING_COSTS (current_xmachine_firm->operating_costs)
+/** \def LABOUR_COSTS
+ * \brief Direct access to labour_costs of firm agent memory variable. */
+#define LABOUR_COSTS (current_xmachine_firm->labour_costs)
 /** \def TOTAL_INTEREST_PAYMENTS
  * \brief Direct access to total_interest_payments of firm agent memory variable. */
 #define TOTAL_INTEREST_PAYMENTS (current_xmachine_firm->total_interest_payments)
 /** \def DIVIDENDS_PAID
  * \brief Direct access to dividends_paid of firm agent memory variable. */
 #define DIVIDENDS_PAID (current_xmachine_firm->dividends_paid)
-/** \def DIVIDENDS_RETAINED
- * \brief Direct access to dividends_retained of firm agent memory variable. */
-#define DIVIDENDS_RETAINED (current_xmachine_firm->dividends_retained)
-/** \def EARNINGS
- * \brief Direct access to earnings of firm agent memory variable. */
-#define EARNINGS (current_xmachine_firm->earnings)
+/** \def DIVIDENDS_TO_BE_PAID
+ * \brief Direct access to dividends_to_be_paid of firm agent memory variable. */
+#define DIVIDENDS_TO_BE_PAID (current_xmachine_firm->dividends_to_be_paid)
+/** \def RETAINED_EARNINGS
+ * \brief Direct access to retained_earnings of firm agent memory variable. */
+#define RETAINED_EARNINGS (current_xmachine_firm->retained_earnings)
+/** \def NET_EARNINGS
+ * \brief Direct access to net_earnings of firm agent memory variable. */
+#define NET_EARNINGS (current_xmachine_firm->net_earnings)
 /** \def EBIT
  * \brief Direct access to ebit of firm agent memory variable. */
 #define EBIT (current_xmachine_firm->ebit)
@@ -135,6 +141,9 @@
 /** \def HASINVESTMENT
  * \brief Direct access to hasinvestment of firm agent memory variable. */
 #define HASINVESTMENT (current_xmachine_firm->hasinvestment)
+/** \def PLANNED_INVESTMENT_COSTS
+ * \brief Direct access to planned_investment_costs of firm agent memory variable. */
+#define PLANNED_INVESTMENT_COSTS (current_xmachine_firm->planned_investment_costs)
 /** \def LIQUIDITY_NEED
  * \brief Direct access to liquidity_need of firm agent memory variable. */
 #define LIQUIDITY_NEED (current_xmachine_firm->liquidity_need)

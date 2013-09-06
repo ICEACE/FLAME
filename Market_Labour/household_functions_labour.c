@@ -101,7 +101,7 @@ int household_labour_employment()
  */
 int household_labour_report_status()
 {
-    add_employment_status_message(MY_EMPLOYER_ID, WAGE, DIVIDENDS);
+    add_employment_status_message(MY_EMPLOYER_ID, WAGE, N_SHARES);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -113,21 +113,14 @@ int household_labour_report_status()
  * of the month.
  */
 int household_labour_recieve_wage()
-{
-    int wage_total, w0, w1, w2;
-    
+{    
     LIQUIDITY += WAGE;
     
     PREVIOUS_WAGES[2] = PREVIOUS_WAGES[1];
     PREVIOUS_WAGES[1] = PREVIOUS_WAGES[0];
     PREVIOUS_WAGES[0] = WAGE;
     
-    w0 = (int)PREVIOUS_WAGES[0];
-    w1 = (int)PREVIOUS_WAGES[1];
-    w2 = (int)PREVIOUS_WAGES[2];
-    wage_total = w0 + w1 + w2;
-    
-    //printf("Household Id = %d income for last 3 months sums up to  %d\n",ID, wage_total);
+    LABOUR_INCOME = PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2];
     
 	return 0; /* Returning zero means the agent is not removed */
 }

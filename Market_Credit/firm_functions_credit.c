@@ -18,29 +18,86 @@ int firm_credit_check_interest_rate()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
+
+/*
+ * \fn: int firm_credit_compute_income_statement()
+ * \brief: Firm computes its income statement.
+ */
+int firm_credit_compute_income_statement()
+{
+    int bank;
+    double to_be_paid;
+    
+    TOTAL_INTEREST_PAYMENTS = 0;
+    
+    for (int i = 0; i < 2; i++) {
+        bank = LOAN_LIST[i].bank_id;
+        to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE / 4;
+        LOAN_LIST[i].to_be_paid = to_be_paid;
+        TOTAL_INTEREST_PAYMENTS += to_be_paid;
+    }
+
+    // Labour cost is decremented from liquidity on a monthly basis.
+    // Costs (wages) and revenues (from sales) are updated incrementally.
+    
+    OPERATING_COSTS = LABOUR_COSTS;
+    EBIT = REVENUES - OPERATING_COSTS;
+    NET_EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
+
+    // data: REVENEU, COSTS, TOTAL_INTEREST_PAYMENTS, DIVIDENDS_PAID, DIVIDENDS_RETAINED.
+    REVENUES = 0;
+    OPERATING_COSTS = 0;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int firm_credit_investment_decisions()
+ * \brief: 
+ */
+int firm_credit_investment_decisions()
+{
+    RETAINED_EARNINGS = 0;
+    PLANNED_INVESTMENT_COSTS = 0;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int firm_credit_compute_dividends()
+ * \brief: Within this implementation the firm sends all of net income
+ * to the Fund Equity to be distributed equally to households.
+ */
+int firm_credit_compute_dividends()
+{
+    DIVIDENDS_TO_BE_PAID = NET_EARNINGS - RETAINED_EARNINGS;
+    // data:
+    DIVIDENDS_PAID = 0;
+    RETAINED_EARNINGS = 0;
+        
+	return 0; /* Returning zero means the agent is not removed */
+}
+
 /*
  * \fn: int firm_credit_check_liquidity_need()
- * \brief: 
+ * \brief: Firm checks its liquidity need. The information will be used for the decisio
+ * to enter the credit market or not.
  */
 int firm_credit_check_liquidity_need()
 {
-    double dividends_to_be_paid;
-    double interests_to_be_paid;
-        
-    dividends_to_be_paid = REVENUE - COSTS;
-    interests_to_be_paid = DEBT * LOANS_INTEREST_RATE;
-    LIQUIDITY_NEED = dividends_to_be_paid + interests_to_be_paid - LIQUIDITY;
+    
+    LIQUIDITY_NEED = DIVIDENDS_TO_BE_PAID + TOTAL_INTEREST_PAYMENTS + PLANNED_INVESTMENT_COSTS - LIQUIDITY;
     
     if (LIQUIDITY_NEED < 0) {
         LIQUIDITY_NEED = 0  ;
     }
-
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
  * \fn: int firm_credit_demand_loans_1()
- * \brief:
+ * \brief: Firm goes to its own bank for the loan request.
  */
 int firm_credit_demand_loans_1()
 {
@@ -70,6 +127,7 @@ int firm_credit_borrow_loans_1()
         LOAN_LIST[0].amount += amount;
         HASLOAN = 1;
     }
+    // Shall we allow partial loans?
     else{
         HASLOAN = 0;
         add_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
@@ -105,39 +163,19 @@ int firm_credit_borrow_loans_2()
 }
 
 /*
- * \fn: int firm_credit_request_investment()
+ * \fn: int firm_credit_request_equityfund_investment()
  * \brief: Firm goes to equity fund to get the required amount of liquidity it needs. Dividend payments are 
  * deferred.
  */
-int firm_credit_request_investment()
+int firm_credit_request_equityfund_investment()
 {
-    // Check critical liquidity need.
-    double interests_to_be_paid;
+    LIQUIDITY_NEED = DEBT * LOANS_INTEREST_RATE - LIQUIDITY;
     
-    interests_to_be_paid = DEBT * LOANS_INTEREST_RATE;
-    LIQUIDITY_NEED = interests_to_be_paid - LIQUIDITY;
-    
-    if (LIQUIDITY_NEED < 0) {
-        LIQUIDITY_NEED = 0  ;
-    }
+    if (LIQUIDITY_NEED < 0) { LIQUIDITY_NEED = 0 ;}
 
-    double assets;
-    
     if (LIQUIDITY_NEED > 0){
-        if (ISCONSTRUCTOR == 1) {
-            assets = INVENTORY * UNIT_HOUSE_PRICE;
-            assets += LIQUIDITY + CAPITAL_CONSTRUCTION;
-        } else {
-            assets = INVENTORY * UNIT_GOODS_PRICE;
-            assets += LIQUIDITY + CAPITAL_GOODS;
-        }
-        
-        EQUITY = assets - DEBT;
-        
-        if (assets == 0){
-            return 0;
-        }
-        if ((EQUITY / assets) > FIRMS_MINIMUM_EQUITY_RATIO) {
+        if (TOTAL_ASSETS == 0){ return 0;}
+        if ((EQUITY / TOTAL_ASSETS) > FIRMS_MINIMUM_EQUITY_RATIO) {
            add_fund_request_message(ID, LIQUIDITY_NEED); 
         }
     }
@@ -146,10 +184,10 @@ int firm_credit_request_investment()
 }
 
 /*
- * \fn: int firm_credit_check_investment()
+ * \fn: int firm_credit_check_equityfund_investment()
  * \brief: Firms check if they are invested by Equity Fund for their liquidity need.
  */
-int firm_credit_check_investment()
+int firm_credit_check_equityfund_investment()
 {
     double amount = 0;
     
@@ -169,7 +207,6 @@ int firm_credit_check_investment()
 }
 
 
-
 /*
  * \fn: int firm_credit_illiquidity_bankrupt()
  * \brief: Firm debt is restructured.
@@ -177,7 +214,7 @@ int firm_credit_check_investment()
 int firm_credit_illiquidity_bankrupt()
 {
     double new_loans, current_loans;
-    double ratio, current_amount, new_amount;
+    double ratio, current_amount, new_amount, delta_amount;
     int bank;
     
     current_loans = LOAN_LIST[0].amount + LOAN_LIST[1].amount;
@@ -187,7 +224,7 @@ int firm_credit_illiquidity_bankrupt()
     if (EBIT < 0){ new_loans = 0;}
     else { new_loans = EBIT / LOANS_INTEREST_RATE;}
     
-    if (current_loans = 0) { ratio = 0;}
+    if (current_loans == 0) { ratio = 0;}
     else { ratio = new_loans / current_loans;}
     
     DEBT = DEBT - current_loans + new_loans;
@@ -197,7 +234,8 @@ int firm_credit_illiquidity_bankrupt()
         current_amount = LOAN_LIST[i].amount;
         new_amount = current_amount * ratio;
         LOAN_LIST[i].amount = new_amount;
-        add_loan_writeoff_message(bank, new_amount);
+        delta_amount = current_amount - new_amount;
+        add_loan_writeoff_message(bank, delta_amount);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -230,8 +268,8 @@ int firm_credit_exit_market()
     DEBT = 0;
     LIQUIDITY = 0;
     SALES = 0;
-    REVENUE = 0;
-    COSTS = 0;
+    REVENUES = 0;
+    OPERATING_COSTS = 0;
     /* Pysical capital kept the same.
      */
     
@@ -249,42 +287,11 @@ int firm_credit_exit_market()
     DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     LOAN_LIST[0].amount = DEBT;
-    //LIQUIDITY += DEBT;
     EQUITY = TOTAL_ASSETS - DEBT;
 	return 0; /* Returning zero means the agent is not removed */
 }
 
-/*
- * \fn: int firm_credit_distribute_net_profit ()
- * \brief: Within this implementation the firm sends all of net income
- * to the Fund Equity to be distributed equally to households.
- */
-int firm_credit_distribute_net_profit()
-{
-    double net_profit;
-    
-    // Firms doesn't pay tax but interest on loans.
-    int bank;
-    double interest_to_be_paid;
-    for (int i = 0; i < 2; i++) {
-        bank = LOAN_LIST[i].bank_id;
-        interest_to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE;
-    }
-    net_profit = EBIT - interest_to_be_paid;
-    
-    
-    // In case net income is positive it is sent to be distributed.
-    if (net_profit > 0) {
-        DIVIDENDS_PAID = net_profit;
-        // The amount sent is decremented from liquidity
-        LIQUIDITY -= net_profit;
-        add_firm_net_profit_message(ID, ISCONSTRUCTOR, net_profit);
-    }
-    
-    //printf(" Firm Id = %d, Net Profit %f \n", ID, net_profit);
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
+
 
 /*
  * \fn: int firm_credit_pay_interest_on_loans()
@@ -298,9 +305,8 @@ int firm_credit_pay_interest_on_loans()
     
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
-        to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE;
+        to_be_paid = LOAN_LIST[i].to_be_paid;
         LIQUIDITY -= to_be_paid;
-        TOTAL_INTEREST_PAYMENTS += to_be_paid;
         add_interest_on_loan_message(bank, to_be_paid);
     }
 
@@ -309,25 +315,22 @@ int firm_credit_pay_interest_on_loans()
 
 
 /*
- * \fn: int firm_credit_compute_income_statement()
- * \brief: Firm computes its income statement.
+ * \fn: int firm_credit_pay_dividends()
+ * \brief: Firm send dividends to to the Fund Equity to be distributed
+ * to households.
  */
-int firm_credit_compute_income_statement()
+int firm_credit_pay_dividends()
 {
-    // Labour cost is decremented from liquidity on a monthly basis.
-    // Costs (wages) and revenues (from sales) are updated incrementally.
-    
-    EBIT = REVENUE - COSTS;
-    EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
-    // data: REVENEU, COSTS, TOTAL_INTEREST_PAYMENTS, DIVIDENDS_PAID, DIVIDENDS_RETAINED.
-    REVENUE = 0;
-    COSTS = 0;
-    TOTAL_INTEREST_PAYMENTS = 0;
-    DIVIDENDS_PAID = 0;
-    DIVIDENDS_RETAINED = 0;
+    if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
+        DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
+        LIQUIDITY -= DIVIDENDS_TO_BE_PAID;
+        add_firm_net_profit_message(ID, ISCONSTRUCTOR, DIVIDENDS_TO_BE_PAID);
+        DIVIDENDS_TO_BE_PAID = 0;
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
 
 /*
  * \fn: int firm_credit_do_balance_sheet()
@@ -335,7 +338,6 @@ int firm_credit_compute_income_statement()
  */
 int firm_credit_do_balance_sheet()
 {
- 
     // what we should do about PHYSICAL_CAPITAL?!!
     if (ISCONSTRUCTOR == 1) {
         TOTAL_ASSETS  = INVENTORY * UNIT_HOUSE_PRICE;
@@ -346,8 +348,6 @@ int firm_credit_do_balance_sheet()
     }
     
     EQUITY = TOTAL_ASSETS - DEBT;
-    
-    //printf(" Firm Id = %d, Equity %f \n", ID, EQUITY);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

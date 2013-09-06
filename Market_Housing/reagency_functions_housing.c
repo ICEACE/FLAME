@@ -94,7 +94,7 @@ int reagency_housing_process()
     double annuity;
     double d1, d2;
     d1 = MORTGAGES_INTEREST_RATE/4;
-    d2 = d1 * pow((1 + d1), 40);
+    d2 = d1 * pow((1 + d1), 160);
     annuity = 1/d1 - 1/d2;
     
     int nsold = 0;
@@ -110,9 +110,9 @@ int reagency_housing_process()
         if (nsold == quantity){
             add_sold_housing_message(id, nsold, price);
             remove_hseller(&sellers_list, 0);
-            nsold = 0;
             transaction_quantity += nsold;
             transaction_volume += nsold * price;
+            nsold = 0;
             continue;
         }
         id = buyers_list.array[0].buyer_id;

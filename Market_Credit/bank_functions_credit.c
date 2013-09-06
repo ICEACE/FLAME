@@ -82,6 +82,7 @@ int bank_credit_recieve_loan_writeoffs()
     START_LOAN_WRITEOFF_MESSAGE_LOOP
     amount = loan_writeoff_message->amount;
     LOANS -= amount;
+    EQUITY -= amount;
     TOTAL_WRITEOFFS += amount;
     FINISH_LOAN_WRITEOFF_MESSAGE_LOOP
     

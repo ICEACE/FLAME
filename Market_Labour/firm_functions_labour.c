@@ -201,7 +201,7 @@ int firm_labour_pay_wages()
     double payrolls;
     payrolls = (double)(WAGE_OFFER * NO_EMPLOYEES);
     LIQUIDITY -= payrolls;
-    COSTS += payrolls;
+    LABOUR_COSTS += payrolls;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
