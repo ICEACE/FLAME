@@ -1,0 +1,6 @@
+<map id="add_sell_housing_message" name="add_sell_housing_message">
+<area shape="rect" id="node2" href="$firm__functions__housing_8c.html#a66844040a4e57b52d983ed87b7ba3128" title="firm_housing_enter\l_market" alt="" coords="268,5,404,49"/>
+<area shape="rect" id="node4" href="$household__functions__housing_8c.html#ae15832b28d3cafc0d84426e6fa26ec8e" title="household_housing_sell" alt="" coords="254,73,418,101"/>
+<area shape="rect" id="node5" href="$household__functions__housing_8c.html#a283821907cc8cdb719172cae6588bdcf" title="household_housing_fire_sell" alt="" coords="241,125,431,153"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="480,73,530,101"/>
+</map>

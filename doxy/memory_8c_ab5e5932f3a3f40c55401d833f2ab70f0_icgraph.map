@@ -1,0 +1,7 @@
+<map id="free_buyer" name="free_buyer">
+<area shape="rect" id="node2" href="$memory_8c.html#a1c6b8091d03371b6742a3cd12a332bd2" title="free_buyer_static_array" alt="" coords="139,5,301,33"/>
+<area shape="rect" id="node3" href="$memory_8c.html#a85555ac2f11938365e9a2c2ce3564c25" title="Free the memory of a dynamic buyer array." alt="" coords="159,57,281,85"/>
+<area shape="rect" id="node6" href="$memory_8c.html#ad451e6a3aa6032434c7e4755de44282e" title="Remove an buyer from a dynamic buyer array." alt="" coords="167,109,273,137"/>
+<area shape="rect" id="node4" href="$mall__functions__consumption_8c.html#ad20ef1bc7b3ee683eb03be6c79f13bf6" title="mall_consumption_shopping" alt="" coords="350,57,540,85"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="590,57,640,85"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="add_vacancy" name="add_vacancy">
+<area shape="rect" id="node2" href="$jpoffice__functions__labour_8c.html#a7dde36d0f32ecbe8036b24edbd408fa0" title="jpoffice_labour_stage1" alt="" coords="158,5,314,33"/>
+<area shape="rect" id="node4" href="$jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="158,57,314,85"/>
+<area shape="rect" id="node5" href="$memory_8c.html#a5d0ace6774dc87798f906ceb42909e50" title="copy_vacancy_array" alt="" coords="164,109,308,137"/>
+<area shape="rect" id="node6" href="$xml_8c.html#a4122d80060b6c5d15d6ab7acb0c0d854" title="read_vacancy_dynamic\l_array" alt="" coords="155,161,317,205"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="366,31,416,59"/>
+</map>

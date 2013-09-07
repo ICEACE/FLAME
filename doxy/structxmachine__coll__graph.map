@@ -1,0 +1,16 @@
+<map id="xmachine" name="xmachine">
+<area shape="rect" id="node2" href="$structxmachine__memory__equityfund.html" title="Holds memory of xmachine equityfund." alt="" coords="467,19,669,47"/>
+<area shape="rect" id="node3" href="$structxmachine__memory__bank.html" title="Holds memory of xmachine bank." alt="" coords="483,71,653,99"/>
+<area shape="rect" id="node4" href="$structxmachine__memory__jpoffice.html" title="Holds memory of xmachine jpoffice." alt="" coords="476,123,660,151"/>
+<area shape="rect" id="node5" href="$structxmachine__memory__mall.html" title="Holds memory of xmachine mall." alt="" coords="485,175,651,203"/>
+<area shape="rect" id="node6" href="$structtransaction.html" title="transaction" alt="" coords="181,222,267,250"/>
+<area shape="rect" id="node7" href="$structxmachine__memory__reagency.html" title="Holds memory of xmachine reagency." alt="" coords="470,227,666,255"/>
+<area shape="rect" id="node15" href="$structxmachine__memory__centralbank.html" title="Holds memory of xmachine centralbank." alt="" coords="463,279,673,307"/>
+<area shape="rect" id="node8" href="$structxmachine__memory__government.html" title="Holds memory of xmachine government." alt="" coords="462,331,674,359"/>
+<area shape="rect" id="node9" href="$structxmachine__memory__firm.html" title="Holds memory of xmachine firm." alt="" coords="486,383,650,411"/>
+<area shape="rect" id="node10" href="$structint__array.html" title="Dynamic array to hold integers." alt="" coords="187,331,261,359"/>
+<area shape="rect" id="node11" href="$structloan.html" title="loan" alt="" coords="201,383,247,411"/>
+<area shape="rect" id="node12" href="$structxmachine__memory__household.html" title="Holds memory of xmachine household." alt="" coords="467,435,669,463"/>
+<area shape="rect" id="node13" href="$structmortgage__array.html" title="Dynamic array to hold mortgages." alt="" coords="166,435,282,463"/>
+<area shape="rect" id="node14" href="$structmortgage.html" title="mortgage" alt="" coords="5,435,83,463"/>
+</map>

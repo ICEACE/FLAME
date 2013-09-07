@@ -1,0 +1,4 @@
+<map id="bank_credit_do_balance_sheet" name="bank_credit_do_balance_sheet">
+<area shape="rect" id="node2" href="$header_8h.html#a441052055b44655c5987e825e9f4073b" title="Add debt_request message by calling internal and processing." alt="" coords="222,5,413,33"/>
+<area shape="rect" id="node3" href="$header_8h.html#a1d003eb8e0a6c64abeb05583d9f5289d" title="Add bank_centralbank_debt_payment message by calling internal and processing." alt="" coords="230,57,405,101"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="add_mortgage" name="add_mortgage">
+<area shape="rect" id="node2" href="$household__functions__credit_8c.html#a8e2c38bf8340cf525e45d08a480faaf6" title="household_credit_update\l_mortgage_rates" alt="" coords="598,5,770,49"/>
+<area shape="rect" id="node4" href="$household__functions__housing_8c.html#a1cb3329caa6a81f8fe13c0b404e7be8a" title="household_housing_buy" alt="" coords="378,73,544,101"/>
+<area shape="rect" id="node5" href="$household__functions__housing_8c.html#a378a6ad95e0fe07e0f67bc98d12238b3" title="household_housing_collect\l_sale_revenue" alt="" coords="593,125,775,169"/>
+<area shape="rect" id="node6" href="$household__functions__housing_8c.html#a51d60cb9793d816642ef5fb40fdbf948" title="household_housing_debt\l_writeoff" alt="" coords="160,177,331,221"/>
+<area shape="rect" id="node7" href="$memory_8c.html#aca12a57460055a8ca8c933f737bc78f9" title="copy_mortgage_array" alt="" coords="170,245,321,273"/>
+<area shape="rect" id="node9" href="$xml_8c.html#a7d54f951072743d59c55565251c5897d" title="read_mortgage_dynamic\l_array" alt="" coords="161,297,330,341"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="824,133,874,161"/>
+<area shape="rect" id="node8" href="$memory_8c.html#ae337b26ce255d3c88ae22d9cd3f3e468" title="Add household X&#45;machine to the current being used X&#45;machine list." alt="" coords="385,245,538,273"/>
+<area shape="rect" id="node10" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="406,301,516,329"/>
+<area shape="rect" id="node11" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="627,273,741,301"/>
+</map>
