@@ -4,26 +4,21 @@
 # current directory is: gh-page branch, i.e., /Users/bulent/Documents/workspace/iceace/FLAME/html
 cd /Users/bulent/Documents/AWorkspace/iceace/FLAME/html
 
-rm -r ./doxy/*.map
-rm -r ./doxy/*.md5
-rm -r ./doxy/*.png
-rm -r ./doxy/*.html
-rm -r ./doxy/*.pdf
-rm -r ./doxy/*.js
-rm -r ./doxy/*.css
-rm -r ./doxy/*
+git rm  ./doxy/*.map
+git rm  ./doxy/*.md5
+git rm  ./doxy/*.png
+git rm  ./doxy/*.html
+git rm  ./doxy/*.pdf
+git rm  ./doxy/*.js
+git rm  ./doxy/*.css
+git rm  ./doxy/*
 
 echo "Files remained under ./doxy/ :"
-ls
+ls ./doxy
 
-rm -r ./doxy/*.map
-rm -r ./doxy/*.md5
-rm -r ./doxy/*.png
-rm -r ./doxy/*.html
-rm -r ./doxy/*.pdf
-rm -r ./doxy/*.js
-rm -r ./doxy/*.css
-rm -r ./doxy/*
+git commit -a -m "Removing old code documentation related files."
+git push origin gh-pages
+
 
 mv -f ../docs/html/*.map ./doxy/
 mv -f ../docs/html/*.md5 ./doxy/

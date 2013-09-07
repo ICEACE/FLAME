@@ -32,3 +32,7 @@ make vclean
 #git add newname
 #git rm oldname
 
+### to run specific commands:
+#cat compile_simulation_model.sh|grep xparser|sh
+#cat compile_simulation_model.sh|grep LIBM |sh
+#cat compile_simulation_model.sh|grep main|sh
