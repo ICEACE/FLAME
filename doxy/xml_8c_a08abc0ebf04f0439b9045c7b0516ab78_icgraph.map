@@ -1,7 +1,0 @@
-<map id="read_mortgage" name="read_mortgage">
-<area shape="rect" id="node2" href="$xml_8c.html#a7d54f951072743d59c55565251c5897d" title="read_mortgage_dynamic\l_array" alt="" coords="166,5,335,49"/>
-<area shape="rect" id="node6" href="$xml_8c.html#a4000c86e134f6ca3e4f9b13b7fc7e73c" title="read_mortgage_static\l_array" alt="" coords="176,73,326,117"/>
-<area shape="rect" id="node3" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="385,13,495,41"/>
-<area shape="rect" id="node4" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="544,13,658,41"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="707,13,757,41"/>
-</map>

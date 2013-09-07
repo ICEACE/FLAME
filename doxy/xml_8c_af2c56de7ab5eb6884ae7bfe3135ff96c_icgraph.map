@@ -1,8 +1,0 @@
-<map id="write_loan" name="write_loan">
-<area shape="rect" id="node2" href="$xml_8c.html#a8756fb9a2eb8a34abd06cdbd581b2b0c" title="write_loan_static_array" alt="" coords="137,5,295,33"/>
-<area shape="rect" id="node7" href="$xml_8c.html#a75aba6c9846e7ee47793c5bc6bef1e71" title="write_loan_dynamic\l_array" alt="" coords="146,57,286,101"/>
-<area shape="rect" id="node3" href="$xml_8c.html#a0c5d1f8e6f217c7e5fd38626251843d7" title="write_firm_agent" alt="" coords="344,5,464,33"/>
-<area shape="rect" id="node4" href="$xml_8c.html#ad48628bfc281002883a57dbd39954214" title="FLAME_write_xml" alt="" coords="513,5,642,33"/>
-<area shape="rect" id="node5" href="$xml_8c.html#ac00089b686fe85d1e8211100ae0b8cf2" title="Save X&#45;machine memory to a file." alt="" coords="691,5,813,33"/>
-<area shape="rect" id="node6" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="862,5,912,33"/>
-</map>

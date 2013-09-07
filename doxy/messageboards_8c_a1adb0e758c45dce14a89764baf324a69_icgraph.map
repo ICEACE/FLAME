@@ -1,5 +1,0 @@
-<map id="add_firm_net_profit_message" name="add_firm_net_profit_message">
-<area shape="rect" id="node2" href="$firm__functions__accounting_8c.html#aedf58b4af6ec85c6130ba5e022bc18df" title="firm_accounting_distribute\l_net_profit" alt="" coords="190,5,367,49"/>
-<area shape="rect" id="node3" href="$firm__functions__credit_8c.html#ae0246fe8c0c545454cbb07cd1c8ccd8e" title="firm_credit_distribute\l_net_profit" alt="" coords="206,73,351,117"/>
-<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="416,81,466,109"/>
-</map>

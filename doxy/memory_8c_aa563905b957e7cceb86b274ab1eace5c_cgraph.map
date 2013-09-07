@@ -1,6 +1,0 @@
-<map id="add_mall_agent" name="add_mall_agent">
-<area shape="rect" id="node2" href="$header_8h.html#a3eb12873555479f24e7c9274d02463e8" title="init_mall_agent" alt="" coords="199,5,310,33"/>
-<area shape="rect" id="node4" href="$header_8h.html#a08347b7c1d882e2222f47d9177f605c2" title="add_mall_agent_internal" alt="" coords="171,57,338,85"/>
-<area shape="rect" id="node5" href="$header_8h.html#ac9c1770353e56ab1413ffc243c7de856" title="copy_transaction" alt="" coords="194,109,316,137"/>
-<area shape="rect" id="node3" href="$header_8h.html#a34793a45065281dbd53aafce970f578a" title="init_transaction" alt="" coords="387,5,498,33"/>
-</map>

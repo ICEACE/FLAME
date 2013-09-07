@@ -1,8 +1,0 @@
-<map id="init_seller" name="init_seller">
-<area shape="rect" id="node2" href="$memory_8c.html#a8b49edc8c5d9f8cd4e6fff52df788be1" title="init_seller_static\l_array" alt="" coords="131,5,247,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#aabd2d6a024b5e404d1428f75519adb2c" title="Add an seller to the dynamic seller array." alt="" coords="148,73,231,101"/>
-<area shape="rect" id="node4" href="$mall__functions__consumption_8c.html#ad20ef1bc7b3ee683eb03be6c79f13bf6" title="mall_consumption_shopping" alt="" coords="297,21,487,49"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a7f53770432085b75cf9786c8a788ed02" title="copy_seller_array" alt="" coords="329,73,455,101"/>
-<area shape="rect" id="node7" href="$xml_8c.html#a0e9789e2086c32299c3723aec458feed" title="read_seller_dynamic\l_array" alt="" coords="320,125,464,169"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="536,21,586,49"/>
-</map>

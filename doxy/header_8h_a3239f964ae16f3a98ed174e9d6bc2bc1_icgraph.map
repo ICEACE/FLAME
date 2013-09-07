@@ -1,7 +1,0 @@
-<map id="free_hbank" name="free_hbank">
-<area shape="rect" id="node2" href="$memory_8c.html#ad8b5722ed852c0b0cc3fa7882ee647f3" title="free_hbank_static_array" alt="" coords="142,5,306,33"/>
-<area shape="rect" id="node3" href="$memory_8c.html#adb5e9b42ca1c7a2c302f77b664268d4b" title="Free the memory of a dynamic hbank array." alt="" coords="161,57,287,85"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a7373f17a9238c7dba4d1d98ac6bd7b04" title="Remove an hbank from a dynamic hbank array." alt="" coords="169,109,279,137"/>
-<area shape="rect" id="node4" href="$reagency__functions__housing_8c.html#a296f9213f938eba77b8190a19c9815d9" title="reagency_housing_process" alt="" coords="354,83,539,111"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="587,83,637,111"/>
-</map>

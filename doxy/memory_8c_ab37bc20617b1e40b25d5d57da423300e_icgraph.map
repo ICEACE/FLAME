@@ -1,7 +1,0 @@
-<map id="free_employee" name="free_employee">
-<area shape="rect" id="node2" href="$memory_8c.html#ac9772bd869ffd7228015566c19d1de83" title="free_employee_static\l_array" alt="" coords="163,5,311,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a85d77fe62f84bc1ab1d23f1ee9fc0c70" title="Free the memory of a dynamic employee array." alt="" coords="164,73,311,101"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a2f20671096bfd8b11cb8f5af12bfa017" title="Remove an employee from a dynamic employee array." alt="" coords="172,125,303,153"/>
-<area shape="rect" id="node4" href="$jpoffice__functions__labour_8c.html#a7dde36d0f32ecbe8036b24edbd408fa0" title="jpoffice_labour_stage1" alt="" coords="361,73,516,101"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="566,73,616,101"/>
-</map>

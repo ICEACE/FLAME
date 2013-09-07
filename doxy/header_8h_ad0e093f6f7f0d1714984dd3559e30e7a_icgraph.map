@@ -1,6 +1,0 @@
-<map id="free_centralbank_agent" name="free_centralbank_agent">
-<area shape="rect" id="node2" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="715,6,765,34"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a9a26d725ac9a29d181aa352e8ca9850e" title="free_centralbank_agents" alt="" coords="216,31,384,59"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a71a58d5746770621880907688097afef" title="Free the currently being used X&#45;machine list." alt="" coords="433,31,541,59"/>
-<area shape="rect" id="node5" href="$memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7" title="Add a node to the node list." alt="" coords="590,31,666,59"/>
-</map>

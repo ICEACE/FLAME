@@ -1,7 +1,0 @@
-<map id="free_hbuyer" name="free_hbuyer">
-<area shape="rect" id="node2" href="$memory_8c.html#ada7878c1637906c6e6072c8bcd7f2772" title="free_hbuyer_static\l_array" alt="" coords="146,5,278,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a28a9767dd28a63ee90347eb6c8514672" title="Free the memory of a dynamic hbuyer array." alt="" coords="147,73,277,101"/>
-<area shape="rect" id="node6" href="$memory_8c.html#ac1e63999beeccc4190fc6566e0fd06cd" title="Remove an hbuyer from a dynamic hbuyer array." alt="" coords="155,125,269,153"/>
-<area shape="rect" id="node4" href="$reagency__functions__housing_8c.html#a296f9213f938eba77b8190a19c9815d9" title="reagency_housing_process" alt="" coords="325,99,510,127"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="558,99,608,127"/>
-</map>

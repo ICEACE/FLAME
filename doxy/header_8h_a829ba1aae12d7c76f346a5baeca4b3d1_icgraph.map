@@ -1,9 +1,0 @@
-<map id="init_vacancy" name="init_vacancy">
-<area shape="rect" id="node2" href="$memory_8c.html#ad7a6ce4b8ba3d710005c1efdfd044c96" title="init_vacancy_static\l_array" alt="" coords="149,15,283,59"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a42f66e8bcc79967a5e63a70486662285" title="Add an vacancy to the dynamic vacancy array." alt="" coords="166,83,266,111"/>
-<area shape="rect" id="node4" href="$jpoffice__functions__labour_8c.html#a7dde36d0f32ecbe8036b24edbd408fa0" title="jpoffice_labour_stage1" alt="" coords="334,5,490,33"/>
-<area shape="rect" id="node6" href="$jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="334,57,490,85"/>
-<area shape="rect" id="node7" href="$memory_8c.html#a5d0ace6774dc87798f906ceb42909e50" title="copy_vacancy_array" alt="" coords="340,109,484,137"/>
-<area shape="rect" id="node8" href="$xml_8c.html#a4122d80060b6c5d15d6ab7acb0c0d854" title="read_vacancy_dynamic\l_array" alt="" coords="331,161,493,205"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="542,31,592,59"/>
-</map>

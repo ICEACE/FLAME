@@ -1,8 +1,0 @@
-<map id="init_hbuyer" name="init_hbuyer">
-<area shape="rect" id="node2" href="$memory_8c.html#aa40c3121c91e42396d156b67f6755980" title="init_hbuyer_static\l_array" alt="" coords="141,5,267,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a400f2da376f6a7cd08acebd4b598c213" title="Add an hbuyer to the dynamic hbuyer array." alt="" coords="158,73,250,101"/>
-<area shape="rect" id="node4" href="$reagency__functions__housing_8c.html#a296f9213f938eba77b8190a19c9815d9" title="reagency_housing_process" alt="" coords="314,21,499,49"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a133c202dfec6d984cfd3ca6adb68f3c1" title="copy_hbuyer_array" alt="" coords="339,73,474,101"/>
-<area shape="rect" id="node7" href="$xml_8c.html#a7bcd78e3d0f40aa77827936e10bb6a61" title="read_hbuyer_dynamic\l_array" alt="" coords="330,125,483,169"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="547,21,597,49"/>
-</map>

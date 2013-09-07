@@ -1,6 +1,0 @@
-<map id="free_government_agent" name="free_government_agent">
-<area shape="rect" id="node2" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="718,6,768,34"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a23bd1005ee8b4c3e7b0026fe764ce42f" title="free_government_agents" alt="" coords="217,31,386,59"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a71a58d5746770621880907688097afef" title="Free the currently being used X&#45;machine list." alt="" coords="435,31,543,59"/>
-<area shape="rect" id="node5" href="$memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7" title="Add a node to the node list." alt="" coords="593,31,668,59"/>
-</map>
