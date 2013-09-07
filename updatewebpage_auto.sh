@@ -33,15 +33,19 @@ mv -f ../docs/html/* ./doxy/
 git add ./doxy/*.map
 git commit -m "Design documents are updated, reflecting the integrated implementation."
 git push origin gh-pages
+
 git add ./doxy/*.md5
 git commit -m "Design documents are updated, reflecting the integrated implementation."
 git push origin gh-pages
+
 git add ./doxy/*.png
 git commit -m "Design documents are updated, reflecting the integrated implementation."
 git push origin gh-pages
+
 git add ./doxy/*.html
 git commit -m "Design documents are updated, reflecting the integrated implementation."
 git push origin gh-pages
+
 git add ./doxy/*.js
 git commit -m "Design documents are updated, reflecting the integrated implementation."
 git push origin gh-pages
@@ -67,6 +71,8 @@ git push origin gh-pages
 dot -Tpdf ../stategraph.dot -o ./doxy/stategraph.pdf
 dot -Tpdf ../stategraph_colour.dot -o ./doxy/stategraph_colour.pdf
 dot -Tpdf ../process_order_graph.dot -o ./doxy/process_order_graph.pdf
+git commit -a -m "Adding state graph pdf files."
+git push origin gh-pages
 
 sed 's|Author names to add|Bulent Ozel - bulent.ozel@gmail.com|' ../latex.tex > ../newlatex.tex
 mv ../newlatex.tex ../latex.tex
@@ -76,7 +82,7 @@ pdflatex ../latex.tex
 mv latex.pdf ./doxy/summary.pdf
 rm latex.*
 git add ./doxy/*.pdf
-git commit -a -m "Design documents are updated, reflecting a newer implementation."
+git commit -a -m "Adding model manual file."
 git push origin gh-pages
 
 cp ./doxy/stategraph.pdf ../docs/
