@@ -1,0 +1,872 @@
+digraph state_graph {
+	rankdir=TB;
+	size="8,5;"
+	layer_0 [shape=plaintext, label="layer 0"];
+	layer_1 [shape=plaintext, label="layer 1"];
+	layer_0 -> layer_1 [style=invis];
+	layer_2 [shape=plaintext, label="layer 2"];
+	layer_1 -> layer_2 [style=invis];
+	layer_3 [shape=plaintext, label="layer 3"];
+	layer_2 -> layer_3 [style=invis];
+	layer_4 [shape=plaintext, label="layer 4"];
+	layer_3 -> layer_4 [style=invis];
+	layer_5 [shape=plaintext, label="layer 5"];
+	layer_4 -> layer_5 [style=invis];
+	layer_6 [shape=plaintext, label="layer 6"];
+	layer_5 -> layer_6 [style=invis];
+	layer_7 [shape=plaintext, label="layer 7"];
+	layer_6 -> layer_7 [style=invis];
+	layer_8 [shape=plaintext, label="layer 8"];
+	layer_7 -> layer_8 [style=invis];
+	layer_9 [shape=plaintext, label="layer 9"];
+	layer_8 -> layer_9 [style=invis];
+	layer_10 [shape=plaintext, label="layer 10"];
+	layer_9 -> layer_10 [style=invis];
+	layer_11 [shape=plaintext, label="layer 11"];
+	layer_10 -> layer_11 [style=invis];
+	layer_12 [shape=plaintext, label="layer 12"];
+	layer_11 -> layer_12 [style=invis];
+	layer_13 [shape=plaintext, label="layer 13"];
+	layer_12 -> layer_13 [style=invis];
+	layer_14 [shape=plaintext, label="layer 14"];
+	layer_13 -> layer_14 [style=invis];
+	layer_15 [shape=plaintext, label="layer 15"];
+	layer_14 -> layer_15 [style=invis];
+	layer_16 [shape=plaintext, label="layer 16"];
+	layer_15 -> layer_16 [style=invis];
+	layer_17 [shape=plaintext, label="layer 17"];
+	layer_16 -> layer_17 [style=invis];
+	layer_18 [shape=plaintext, label="layer 18"];
+	layer_17 -> layer_18 [style=invis];
+	layer_19 [shape=plaintext, label="layer 19"];
+	layer_18 -> layer_19 [style=invis];
+	layer_20 [shape=plaintext, label="layer 20"];
+	layer_19 -> layer_20 [style=invis];
+	layer_21 [shape=plaintext, label="layer 21"];
+	layer_20 -> layer_21 [style=invis];
+	layer_22 [shape=plaintext, label="layer 22"];
+	layer_21 -> layer_22 [style=invis];
+	layer_23 [shape=plaintext, label="layer 23"];
+	layer_22 -> layer_23 [style=invis];
+	layer_24 [shape=plaintext, label="layer 24"];
+	layer_23 -> layer_24 [style=invis];
+	layer_25 [shape=plaintext, label="layer 25"];
+	layer_24 -> layer_25 [style=invis];
+	layer_26 [shape=plaintext, label="layer 26"];
+	layer_25 -> layer_26 [style=invis];
+	layer_27 [shape=plaintext, label="layer 27"];
+	layer_26 -> layer_27 [style=invis];
+	layer_28 [shape=plaintext, label="layer 28"];
+	layer_27 -> layer_28 [style=invis];
+	layer_29 [shape=plaintext, label="layer 29"];
+	layer_28 -> layer_29 [style=invis];
+	layer_30 [shape=plaintext, label="layer 30"];
+	layer_29 -> layer_30 [style=invis];
+	layer_31 [shape=plaintext, label="layer 31"];
+	layer_30 -> layer_31 [style=invis];
+	layer_32 [shape=plaintext, label="layer 32"];
+	layer_31 -> layer_32 [style=invis];
+	layer_33 [shape=plaintext, label="layer 33"];
+	layer_32 -> layer_33 [style=invis];
+	layer_34 [shape=plaintext, label="layer 34"];
+	layer_33 -> layer_34 [style=invis];
+	layer_35 [shape=plaintext, label="layer 35"];
+	layer_34 -> layer_35 [style=invis];
+	layer_36 [shape=plaintext, label="layer 36"];
+	layer_35 -> layer_36 [style=invis];
+	layer_37 [shape=plaintext, label="layer 37"];
+	layer_36 -> layer_37 [style=invis];
+	layer_38 [shape=plaintext, label="layer 38"];
+	layer_37 -> layer_38 [style=invis];
+	layer_39 [shape=plaintext, label="layer 39"];
+	layer_38 -> layer_39 [style=invis];
+	layer_40 [shape=plaintext, label="layer 40"];
+	layer_39 -> layer_40 [style=invis];
+	layer_41 [shape=plaintext, label="layer 41"];
+	layer_40 -> layer_41 [style=invis];
+	layer_42 [shape=plaintext, label="layer 42"];
+	layer_41 -> layer_42 [style=invis];
+	layer_43 [shape=plaintext, label="layer 43"];
+	layer_42 -> layer_43 [style=invis];
+	layer_44 [shape=plaintext, label="layer 44"];
+	layer_43 -> layer_44 [style=invis];
+	layer_45 [shape=plaintext, label="layer 45"];
+	layer_44 -> layer_45 [style=invis];
+	layer_46 [shape=plaintext, label="layer 46"];
+	layer_45 -> layer_46 [style=invis];
+	layer_47 [shape=plaintext, label="layer 47"];
+	layer_46 -> layer_47 [style=invis];
+	layer_48 [shape=plaintext, label="layer 48"];
+	layer_47 -> layer_48 [style=invis];
+	layer_49 [shape=plaintext, label="layer 49"];
+	layer_48 -> layer_49 [style=invis];
+	layer_50 [shape=plaintext, label="layer 50"];
+	layer_49 -> layer_50 [style=invis];
+	layer_51 [shape=plaintext, label="layer 51"];
+	layer_50 -> layer_51 [style=invis];
+	
+	/* States */
+	firm_FirmHousingPrice [label = "FirmHousingPrice"]
+	firm_FirmHousingSell [label = "FirmHousingSell"]
+	firm_FirmHousingMarket [label = "FirmHousingMarket"]
+	firm_FirmCreditInsolvencyCheck [label = "FirmCreditInsolvencyCheck"]
+	firm_FirmCreditCheckTaxRate [label = "FirmCreditCheckTaxRate"]
+	firm_FirmCreditCheckInterestRate [label = "FirmCreditCheckInterestRate"]
+	firm_FirmCreditDividendPayments [label = "FirmCreditDividendPayments"]
+	firm_FirmCreditBalanceSheet [label = "FirmCreditBalanceSheet"]
+	firm_FirmCreditBankruptcy [label = "FirmCreditBankruptcy"]
+	firm_FirmCreditLiquidityRecheck [label = "FirmCreditLiquidityRecheck"]
+	firm_FirmCreditIlliquidityStatus [label = "FirmCreditIlliquidityStatus"]
+	firm_FirmCreditLoanBorrow2 [label = "FirmCreditLoanBorrow2"]
+	firm_FirmCreditLoanBorrow1 [label = "FirmCreditLoanBorrow1"]
+	firm_FirmCreditPayments [label = "FirmCreditPayments"]
+	firm_FirmCreditStatus [label = "FirmCreditStatus"]
+	firm_FirmCreditLiquidityNeed [label = "FirmCreditLiquidityNeed"]
+	firm_FirmCreditComputeDividends [label = "FirmCreditComputeDividends"]
+	firm_FirmCreditInvestment [label = "FirmCreditInvestment"]
+	firm_FirmConstructionLabourDemand [label = "FirmConstructionLabourDemand"]
+	firm_FirmProductionLabourDemand [label = "FirmProductionLabourDemand"]
+	firm_FirmProductionPlanning [label = "FirmProductionPlanning"]
+	firm_FirmProductionConstructor [label = "FirmProductionConstructor"]
+	firm_FirmProductionRegular [label = "FirmProductionRegular"]
+	firm_FirmProductionRoleCheck [label = "FirmProductionRoleCheck"]
+	firm_FirmProductionSkip [label = "FirmProductionSkip"]
+	firm_FirmProductionStart [label = "FirmProductionStart"]
+	firm_FirmLabourWageAdjustment [label = "FirmLabourWageAdjustment"]
+	firm_FirmLabourStage2End [label = "FirmLabourStage2End"]
+	firm_FirmLabourStage2 [label = "FirmLabourStage2"]
+	firm_FirmLabourStage1Application [label = "FirmLabourStage1Application"]
+	firm_FirmLabourStage1End [label = "FirmLabourStage1End"]
+	firm_FirmLabourStage1 [label = "FirmLabourStage1"]
+	firm_FirmLabourPayWages [label = "FirmLabourPayWages"]
+	firm_FirmLabourStart [label = "FirmLabourStart"]
+	firm_FirmConsumptionPrice [label = "FirmConsumptionPrice"]
+	firm_FirmRecieveSales [label = "FirmRecieveSales"]
+	firm_FirmHousingStart [label = "FirmHousingStart"]
+	firm_FirmConsumptionStart [label = "FirmConsumptionStart"]
+	firm_end [label = "end"]
+	firm_FirmUpdateDeposits [label = "FirmUpdateDeposits"]
+	firm_FirmCreditStart [label = "FirmCreditStart"]
+	firm_start [label = "start"]
+	household_HHHousingWriteOff [label = "HHHousingWriteOff"]
+	household_HHHousingPayments [label = "HHHousingPayments"]
+	household_HHHousingBargain [label = "HHHousingBargain"]
+	household_HHHousingRevenue [label = "HHHousingRevenue"]
+	household_HHHousingCheckWealth [label = "HHHousingCheckWealth"]
+	household_HHHousingPrice [label = "HHHousingPrice"]
+	household_HHHousingRole [label = "HHHousingRole"]
+	household_HHCreditEmployment [label = "HHCreditEmployment"]
+	household_HHCreditCheckTaxRate [label = "HHCreditCheckTaxRate"]
+	household_HHCreditCheckInterestRate [label = "HHCreditCheckInterestRate"]
+	household_HHCreditBalanceSheet [label = "HHCreditBalanceSheet"]
+	household_HHCreditIsCapitalist [label = "HHCreditIsCapitalist"]
+	household_HHCreditMonthly [label = "HHCreditMonthly"]
+	household_HHLabourPayroll [label = "HHLabourPayroll"]
+	household_HHLabourStage1Placement [label = "HHLabourStage1Placement"]
+	household_HHLabourStage1Applications [label = "HHLabourStage1Applications"]
+	household_HHLabourStage2 [label = "HHLabourStage2"]
+	household_HHLabourStage1 [label = "HHLabourStage1"]
+	household_HHLabourEmploymentStatus [label = "HHLabourEmploymentStatus"]
+	household_HHLabourStart [label = "HHLabourStart"]
+	household_HHConsumptionRecieveGoods [label = "HHConsumptionRecieveGoods"]
+	household_HHHousingStart [label = "HHHousingStart"]
+	household_HHConsumptionWeekly [label = "HHConsumptionWeekly"]
+	household_HHConsumptionStart [label = "HHConsumptionStart"]
+	household_end [label = "end"]
+	household_HouseholdUpdateDeposits [label = "HouseholdUpdateDeposits"]
+	household_HHCreditStart [label = "HHCreditStart"]
+	household_start [label = "start"]
+	equityfund_EFCreditCheckTaxRate [label = "EFCreditCheckTaxRate"]
+	equityfund_EFCreditBalanceSheet [label = "EFCreditBalanceSheet"]
+	equityfund_EFCreditShareCollectionFirms [label = "EFCreditShareCollectionFirms"]
+	equityfund_EFCreditShareCollectionBanks [label = "EFCreditShareCollectionBanks"]
+	equityfund_EFCreditDistributeShares [label = "EFCreditDistributeShares"]
+	equityfund_end [label = "end"]
+	equityfund_EFLabourMarket [label = "EFLabourMarket"]
+	equityfund_EquityFundStart [label = "EquityFundStart"]
+	equityfund_start [label = "start"]
+	bank_BankHousingWriteOff [label = "BankHousingWriteOff"]
+	bank_BankHousingMortgages [label = "BankHousingMortgages"]
+	bank_BankHousingSales [label = "BankHousingSales"]
+	bank_BankHousingCrediting [label = "BankHousingCrediting"]
+	bank_BankCreditCheckInterestRate [label = "BankCreditCheckInterestRate"]
+	bank_BankCreditLoanInterests [label = "BankCreditLoanInterests"]
+	bank_BankCreditNewEntrants [label = "BankCreditNewEntrants"]
+	bank_BankCreditLoanWriteOffs [label = "BankCreditLoanWriteOffs"]
+	bank_BankCreditRequest2 [label = "BankCreditRequest2"]
+	bank_BankCreditRequest1 [label = "BankCreditRequest1"]
+	bank_BankCreditBalanceSheet [label = "BankCreditBalanceSheet"]
+	bank_BankCreditDividends [label = "BankCreditDividends"]
+	bank_BankHousingMarket [label = "BankHousingMarket"]
+	bank_end [label = "end"]
+	bank_BankUpdateDeposits [label = "BankUpdateDeposits"]
+	bank_BankCreditStart [label = "BankCreditStart"]
+	bank_start [label = "start"]
+	government_GovernmentLabourTax [label = "GovernmentLabourTax"]
+	government_GovernmentUnemploymentBenefits [label = "GovernmentUnemploymentBenefits"]
+	government_GovernmentFiscalPolicy [label = "GovernmentFiscalPolicy"]
+	government_GovernmentBalanceSheet [label = "GovernmentBalanceSheet"]
+	government_GovernmentIncomeStatement [label = "GovernmentIncomeStatement"]
+	government_GovernmentCentralbankProfits [label = "GovernmentCentralbankProfits"]
+	government_GovernmentMonthly [label = "GovernmentMonthly"]
+	government_end [label = "end"]
+	government_GovernmentLabourStatus [label = "GovernmentLabourStatus"]
+	government_GovernmentStart [label = "GovernmentStart"]
+	government_start [label = "start"]
+	centralbank_end [label = "end"]
+	centralbank_CentralBankInterestRate [label = "CentralBankInterestRate"]
+	centralbank_CentralBankBalanceSheet [label = "CentralBankBalanceSheet"]
+	centralbank_CentralBankIncomeStatement [label = "CentralBankIncomeStatement"]
+	centralbank_CentralBankDebtRequests [label = "CentralBankDebtRequests"]
+	centralbank_CentralBankLabour [label = "CentralBankLabour"]
+	centralbank_CentralBankHousing [label = "CentralBankHousing"]
+	centralbank_CentralBankConsumption [label = "CentralBankConsumption"]
+	centralbank_CentralBankCredit [label = "CentralBankCredit"]
+	centralbank_start [label = "start"]
+	jpoffice_JPOLabourStage2 [label = "JPOLabourStage2"]
+	jpoffice_end [label = "end"]
+	jpoffice_JPOLabourMarket [label = "JPOLabourMarket"]
+	jpoffice_start [label = "start"]
+	mall_MallConsumptionSummary [label = "MallConsumptionSummary"]
+	mall_end [label = "end"]
+	mall_MallConsumptionMarket [label = "MallConsumptionMarket"]
+	mall_start [label = "start"]
+	reagency_REAgencyHousingSummary [label = "REAgencyHousingSummary"]
+	reagency_REAgencyHousingProcess [label = "REAgencyHousingProcess"]
+	reagency_end [label = "end"]
+	reagency_REAgencyHousingMarket [label = "REAgencyHousingMarket"]
+	reagency_start [label = "start"]
+	firm_firm_init_start_FirmCreditStart [label = "firm_init", shape = box,style=filled,color=antiquewhite];
+	firm_idle_FirmUpdateDeposits_end [label = "idle", shape = box,style=filled,color=antiquewhite];
+	firm_firm_update_bank_account_FirmUpdateDeposits_end [label = "firm_update_bank_account", shape = box,style=filled,color=antiquewhite];
+	firm_idle_FirmConsumptionStart_FirmHousingStart [label = "idle", shape = box,style=filled,color=aquamarine];
+	firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales [label = "firm_consumption_supply", shape = box,style=filled,color=aquamarine];
+	firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice [label = "firm_consumption_recieve_sales", shape = box,style=filled,color=aquamarine];
+	firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart [label = "firm_consumption_update_market_price", shape = box,style=filled,color=aquamarine];
+	firm_idle_FirmLabourStart_FirmLabourPayWages [label = "idle", shape = box,style=filled,color=azure3];
+	firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1 [label = "firm_labour_workforce_needed", shape = box,style=filled,color=azure3];
+	firm_idle_FirmLabourStage1_FirmLabourStage1End [label = "idle", shape = box,style=filled,color=azure3];
+	firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End [label = "firm_labour_fire", shape = box,style=filled,color=azure3];
+	firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application [label = "firm_labour_job_announcement_stage1", shape = box,style=filled,color=azure3];
+	firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End [label = "firm_labour_job_offer_stage1", shape = box,style=filled,color=azure3];
+	firm_firm_labour_update_FirmLabourStage1End_FirmLabourStage2 [label = "firm_labour_update", shape = box,style=filled,color=azure3];
+	firm_firm_labour_job_announcement_stage2_FirmLabourStage2_FirmLabourStage2End [label = "firm_labour_job_announcement_stage2", shape = box,style=filled,color=azure3];
+	firm_idle_FirmLabourStage2_FirmLabourPayWages [label = "idle", shape = box,style=filled,color=azure3];
+	firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages [label = "firm_labour_job_offer_stage2", shape = box,style=filled,color=azure3];
+	firm_idle_FirmLabourPayWages_FirmConsumptionStart [label = "idle", shape = box,style=filled,color=azure3];
+	firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment [label = "firm_labour_pay_wages", shape = box,style=filled,color=azure3];
+	firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart [label = "firm_labour_trace_wages", shape = box,style=filled,color=azure3];
+	firm_idle_FirmProductionStart_FirmLabourStart [label = "idle", shape = box,style=filled,color=brown1];
+	firm_idle_FirmProductionStart_FirmProductionSkip [label = "idle", shape = box,style=filled,color=brown1];
+	firm_firm_production_skip_FirmProductionSkip_FirmLabourStart [label = "firm_production_skip", shape = box,style=filled,color=brown1];
+	firm_idle_FirmProductionSkip_FirmProductionRoleCheck [label = "idle", shape = box,style=filled,color=brown1];
+	firm_idle_FirmProductionRoleCheck_FirmProductionRegular [label = "idle", shape = box,style=filled,color=brown1];
+	firm_idle_FirmProductionRoleCheck_FirmProductionConstructor [label = "idle", shape = box,style=filled,color=brown1];
+	firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart [label = "firm_production_produce_goods", shape = box,style=filled,color=brown1];
+	firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning [label = "firm_production_set_price", shape = box,style=filled,color=brown1];
+	firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand [label = "firm_production_plan", shape = box,style=filled,color=brown1];
+	firm_firm_production_compute_labour_demand_FirmProductionLabourDemand_FirmLabourStart [label = "firm_production_compute_labour_demand", shape = box,style=filled,color=brown1];
+	firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart [label = "firm_production_construct_houses", shape = box,style=filled,color=brown1];
+	firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand [label = "firm_production_construction_plan", shape = box,style=filled,color=brown1];
+	firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart [label = "firm_production_construction_labour_demand", shape = box,style=filled,color=brown1];
+	firm_idle_FirmCreditStart_FirmProductionStart [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInvestment [label = "firm_credit_compute_income_statement", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_investment_decisions_FirmCreditInvestment_FirmCreditComputeDividends [label = "firm_credit_investment_decisions", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_compute_dividends_FirmCreditComputeDividends_FirmCreditLiquidityNeed [label = "firm_credit_compute_dividends", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus [label = "firm_credit_check_liquidity_need", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmCreditStatus_FirmCreditPayments [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 [label = "firm_credit_demand_loans_1", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2 [label = "firm_credit_borrow_loans_1", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus [label = "firm_credit_borrow_loans_2", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck [label = "firm_credit_request_equityfund_investment", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy [label = "firm_credit_check_equityfund_investment", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmCreditBankruptcy_FirmCreditPayments [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet [label = "firm_credit_illiquidity_bankrupt", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments [label = "firm_credit_pay_interest_on_loans", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_pay_dividends_FirmCreditDividendPayments_FirmCreditBalanceSheet [label = "firm_credit_pay_dividends", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmCreditCheckInterestRate [label = "firm_credit_do_balance_sheet", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate [label = "firm_credit_check_interest_rate", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck [label = "firm_credit_check_tax_rate", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart [label = "idle", shape = box,style=filled,color=chartreuse1];
+	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart [label = "firm_credit_insolvency_bankruptcy", shape = box,style=filled,color=chartreuse1];
+	firm_idle_FirmHousingStart_FirmUpdateDeposits [label = "idle", shape = box,style=filled,color=orchid1];
+	firm_idle_FirmHousingStart_FirmHousingMarket [label = "idle", shape = box,style=filled,color=orchid1];
+	firm_idle_FirmHousingMarket_FirmUpdateDeposits [label = "idle", shape = box,style=filled,color=orchid1];
+	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell [label = "firm_housing_enter_market", shape = box,style=filled,color=orchid1];
+	firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice [label = "firm_housing_collect_sale_revenues", shape = box,style=filled,color=orchid1];
+	firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits [label = "firm_housing_update_market_price", shape = box,style=filled,color=orchid1];
+	household_household_init_start_HHCreditStart [label = "household_init", shape = box,style=filled,color=antiquewhite];
+	household_idle_HouseholdUpdateDeposits_end [label = "idle", shape = box,style=filled,color=antiquewhite];
+	household_household_update_bank_account_HouseholdUpdateDeposits_end [label = "household_update_bank_account", shape = box,style=filled,color=antiquewhite];
+	household_idle_HHConsumptionStart_HHConsumptionWeekly [label = "idle", shape = box,style=filled,color=aquamarine];
+	household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly [label = "household_consumption_compute_budget", shape = box,style=filled,color=aquamarine];
+	household_idle_HHConsumptionWeekly_HHHousingStart [label = "idle", shape = box,style=filled,color=aquamarine];
+	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods [label = "household_consumption_demand", shape = box,style=filled,color=aquamarine];
+	household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart [label = "household_consumption_recieve_goods", shape = box,style=filled,color=aquamarine];
+	household_idle_HHLabourStart_HHLabourEmploymentStatus [label = "idle", shape = box,style=filled,color=azure3];
+	household_household_labour_check_fired_HHLabourStart_HHLabourStage1 [label = "household_labour_check_fired", shape = box,style=filled,color=azure3];
+	household_household_labour_reemployment_application_HHLabourStage1_HHLabourStage2 [label = "household_labour_reemployment_application", shape = box,style=filled,color=azure3];
+	household_idle_HHLabourStage1_HHLabourStage1Applications [label = "idle", shape = box,style=filled,color=azure3];
+	household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus [label = "household_labour_turnover", shape = box,style=filled,color=azure3];
+	household_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement [label = "household_labour_employment_application", shape = box,style=filled,color=azure3];
+	household_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus [label = "household_labour_employment", shape = box,style=filled,color=azure3];
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll [label = "household_labour_report_status", shape = box,style=filled,color=azure3];
+	household_idle_HHLabourPayroll_HHConsumptionStart [label = "idle", shape = box,style=filled,color=azure3];
+	household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart [label = "household_labour_recieve_wage", shape = box,style=filled,color=azure3];
+	household_idle_HHCreditStart_HHCreditMonthly [label = "idle", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_update_mortgage_rates_HHCreditStart_HHCreditIsCapitalist [label = "household_credit_update_mortgage_rates", shape = box,style=filled,color=chartreuse1];
+	household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet [label = "idle", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet [label = "household_credit_collect_shares", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_do_balance_sheet_HHCreditBalanceSheet_HHCreditCheckInterestRate [label = "household_credit_do_balance_sheet", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate [label = "household_credit_check_interest_rate", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly [label = "household_credit_check_tax_rate", shape = box,style=filled,color=chartreuse1];
+	household_idle_HHCreditMonthly_HHLabourStart [label = "idle", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [label = "household_credit_collect_benefits", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [label = "household_credit_collect_unemployment", shape = box,style=filled,color=chartreuse1];
+	household_idle_HHCreditEmployment_HHLabourStart [label = "idle", shape = box,style=filled,color=chartreuse1];
+	household_idle_HHHousingStart_HouseholdUpdateDeposits [label = "idle", shape = box,style=filled,color=orchid1];
+	household_household_housing_market_role_HHHousingStart_HHHousingRole [label = "household_housing_market_role", shape = box,style=filled,color=orchid1];
+	household_idle_HHHousingRole_HHHousingPrice [label = "idle", shape = box,style=filled,color=orchid1];
+	household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth [label = "household_housing_check_wealth", shape = box,style=filled,color=orchid1];
+	household_household_housing_sell_HHHousingRole_HHHousingRevenue [label = "household_housing_sell", shape = box,style=filled,color=orchid1];
+	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue [label = "household_housing_fire_sell", shape = box,style=filled,color=orchid1];
+	household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [label = "household_housing_collect_sale_revenue", shape = box,style=filled,color=orchid1];
+	household_idle_HHHousingCheckWealth_HHHousingPrice [label = "idle", shape = box,style=filled,color=orchid1];
+	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain [label = "household_housing_enter_market", shape = box,style=filled,color=orchid1];
+	household_household_housing_buy_HHHousingBargain_HHHousingPrice [label = "household_housing_buy", shape = box,style=filled,color=orchid1];
+	household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments [label = "household_housing_update_market_price", shape = box,style=filled,color=orchid1];
+	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff [label = "household_housing_pay_mortgages", shape = box,style=filled,color=orchid1];
+	household_household_housing_debt_writeoff_HHHousingWriteOff_HouseholdUpdateDeposits [label = "household_housing_debt_writeoff", shape = box,style=filled,color=orchid1];
+	equityfund_equityfund_init_start_EquityFundStart [label = "equityfund_init", shape = box,style=filled,color=antiquewhite];
+	equityfund_idle_EFLabourMarket_end [label = "idle", shape = box,style=filled,color=azure3];
+	equityfund_equityfund_audit_dividends_EFLabourMarket_end [label = "equityfund_audit_dividends", shape = box,style=filled,color=azure3];
+	equityfund_idle_EquityFundStart_EFLabourMarket [label = "idle", shape = box,style=filled,color=chartreuse1];
+	equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares [label = "equityfund_credit_invest_illiquids", shape = box,style=filled,color=chartreuse1];
+	equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks [label = "equityfund_credit_distribute_shares", shape = box,style=filled,color=chartreuse1];
+	equityfund_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditShareCollectionFirms [label = "equityfund_credit_collect_bank_shares", shape = box,style=filled,color=chartreuse1];
+	equityfund_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditBalanceSheet [label = "equityfund_credit_collect_firm_shares", shape = box,style=filled,color=chartreuse1];
+	equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditCheckTaxRate [label = "equityfund_credit_do_balance_sheet", shape = box,style=filled,color=chartreuse1];
+	equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket [label = "equityfund_credit_check_tax_rate", shape = box,style=filled,color=chartreuse1];
+	bank_bank_init_start_BankCreditStart [label = "bank_init", shape = box,style=filled,color=antiquewhite];
+	bank_idle_BankUpdateDeposits_end [label = "idle", shape = box,style=filled,color=antiquewhite];
+	bank_bank_update_deposits_BankUpdateDeposits_end [label = "bank_update_deposits", shape = box,style=filled,color=antiquewhite];
+	bank_idle_BankCreditStart_BankHousingMarket [label = "idle", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_compute_income_statement_BankCreditStart_BankCreditDividends [label = "bank_credit_compute_income_statement", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_compute_dividends_BankCreditDividends_BankCreditBalanceSheet [label = "bank_credit_compute_dividends", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1 [label = "bank_credit_do_balance_sheet", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2 [label = "bank_credit_process_loan_requests_1", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs [label = "bank_credit_process_loan_requests_2", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants [label = "bank_credit_recieve_loan_writeoffs", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests [label = "bank_credit_recieve_new_entrant_loan_requests", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate [label = "bank_credit_collect_loan_interests", shape = box,style=filled,color=chartreuse1];
+	bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket [label = "bank_credit_check_interest_rate", shape = box,style=filled,color=chartreuse1];
+	bank_idle_BankHousingMarket_BankUpdateDeposits [label = "idle", shape = box,style=filled,color=orchid1];
+	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting [label = "bank_housing_compute_capital_status", shape = box,style=filled,color=orchid1];
+	bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales [label = "bank_housing_deliver_mortages", shape = box,style=filled,color=orchid1];
+	bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages [label = "bank_housing_recieve_mortgage_principals", shape = box,style=filled,color=orchid1];
+	bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff [label = "bank_housing_recieve_mortgages", shape = box,style=filled,color=orchid1];
+	bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits [label = "bank_housing_debt_writeoff", shape = box,style=filled,color=orchid1];
+	government_government_init_start_GovernmentStart [label = "government_init", shape = box,style=filled,color=antiquewhite];
+	government_government_trace_unemployment_status_GovernmentLabourStatus_end [label = "government_trace_unemployment_status", shape = box,style=filled,color=azure3];
+	government_idle_GovernmentStart_GovernmentMonthly [label = "idle", shape = box,style=filled,color=chartreuse1];
+	government_government_collect_capital_tax_GovernmentStart_GovernmentCentralbankProfits [label = "government_collect_capital_tax", shape = box,style=filled,color=chartreuse1];
+	government_government_collect_centralbank_profit_GovernmentCentralbankProfits_GovernmentIncomeStatement [label = "government_collect_centralbank_profit", shape = box,style=filled,color=chartreuse1];
+	government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet [label = "government_compute_income_statement", shape = box,style=filled,color=chartreuse1];
+	government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentFiscalPolicy [label = "government_do_balance_sheet", shape = box,style=filled,color=chartreuse1];
+	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly [label = "government_update_fiscal_policy", shape = box,style=filled,color=chartreuse1];
+	government_idle_GovernmentMonthly_end [label = "idle", shape = box,style=filled,color=chartreuse1];
+	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits [label = "government_distribute_general_benefits", shape = box,style=filled,color=chartreuse1];
+	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax [label = "government_distribute_unemployment_benefits", shape = box,style=filled,color=chartreuse1];
+	government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus [label = "government_collect_labour_tax", shape = box,style=filled,color=chartreuse1];
+	centralbank_centralbank_init_start_CentralBankCredit [label = "centralbank_init", shape = box,style=filled,color=antiquewhite];
+	centralbank_idle_CentralBankConsumption_CentralBankHousing [label = "idle", shape = box,style=filled,color=aquamarine];
+	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing [label = "centralbank_trace_goods_prices", shape = box,style=filled,color=aquamarine];
+	centralbank_idle_CentralBankLabour_CentralBankConsumption [label = "idle", shape = box,style=filled,color=azure3];
+	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption [label = "centralbank_trace_unemployment_status", shape = box,style=filled,color=azure3];
+	centralbank_idle_CentralBankCredit_CentralBankLabour [label = "idle", shape = box,style=filled,color=chartreuse1];
+	centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests [label = "centralbank_collect_interest_payments", shape = box,style=filled,color=chartreuse1];
+	centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement [label = "centralbank_process_debt_requests", shape = box,style=filled,color=chartreuse1];
+	centralbank_centralbank_compute_income_statement_CentralBankIncomeStatement_CentralBankBalanceSheet [label = "centralbank_compute_income_statement", shape = box,style=filled,color=chartreuse1];
+	centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankInterestRate [label = "centralbank_do_balance_sheet", shape = box,style=filled,color=chartreuse1];
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour [label = "centralbank_set_interest_rate", shape = box,style=filled,color=chartreuse1];
+	centralbank_idle_CentralBankHousing_end [label = "idle", shape = box,style=filled,color=orchid1];
+	centralbank_centralbank_trace_housing_prices_CentralBankHousing_end [label = "centralbank_trace_housing_prices", shape = box,style=filled,color=orchid1];
+	jpoffice_jpoffice_init_start_JPOLabourMarket [label = "jpoffice_init", shape = box,style=filled,color=antiquewhite];
+	jpoffice_idle_JPOLabourMarket_end [label = "idle", shape = box,style=filled,color=azure3];
+	jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 [label = "jpoffice_labour_stage1", shape = box,style=filled,color=azure3];
+	jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end [label = "jpoffice_labour_stage2", shape = box,style=filled,color=azure3];
+	mall_mall_init_start_MallConsumptionMarket [label = "mall_init", shape = box,style=filled,color=antiquewhite];
+	mall_idle_MallConsumptionMarket_end [label = "idle", shape = box,style=filled,color=aquamarine];
+	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [label = "mall_consumption_shopping", shape = box,style=filled,color=aquamarine];
+	mall_mall_consumption_summary_MallConsumptionSummary_end [label = "mall_consumption_summary", shape = box,style=filled,color=aquamarine];
+	reagency_reagency_init_start_REAgencyHousingMarket [label = "reagency_init", shape = box,style=filled,color=antiquewhite];
+	reagency_idle_REAgencyHousingMarket_end [label = "idle", shape = box,style=filled,color=orchid1];
+	reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess [label = "reagency_housing_check_interest_rate", shape = box,style=filled,color=orchid1];
+	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [label = "reagency_housing_process", shape = box,style=filled,color=orchid1];
+	reagency_reagency_housing_summary_REAgencyHousingSummary_end [label = "reagency_housing_summary", shape = box,style=filled,color=orchid1];
+	
+	/* Transitions */
+	firm_start -> firm_firm_init_start_FirmCreditStart;
+	firm_firm_init_start_FirmCreditStart -> firm_FirmCreditStart;
+	firm_FirmUpdateDeposits -> firm_idle_FirmUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0 )"];
+	firm_idle_FirmUpdateDeposits_end -> firm_end;
+	firm_FirmUpdateDeposits -> firm_firm_update_bank_account_FirmUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0"];
+	firm_firm_update_bank_account_FirmUpdateDeposits_end -> firm_end;
+	firm_FirmConsumptionStart -> firm_idle_FirmConsumptionStart_FirmHousingStart [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act )"];
+	firm_idle_FirmConsumptionStart_FirmHousingStart -> firm_FirmHousingStart;
+	firm_FirmConsumptionStart -> firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act"];
+	firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales -> firm_FirmRecieveSales;
+	firm_FirmRecieveSales -> firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice;
+	firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice -> firm_FirmConsumptionPrice;
+	firm_FirmConsumptionPrice -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart;
+	firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart -> firm_FirmHousingStart;
+	firm_FirmLabourStart -> firm_idle_FirmLabourStart_FirmLabourPayWages [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	firm_idle_FirmLabourStart_FirmLabourPayWages -> firm_FirmLabourPayWages;
+	firm_FirmLabourStart -> firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1 [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1 -> firm_FirmLabourStage1;
+	firm_FirmLabourStage1 -> firm_idle_FirmLabourStage1_FirmLabourStage1End [ label = "a.no_employees EQ a.employees_needed"];
+	firm_idle_FirmLabourStage1_FirmLabourStage1End -> firm_FirmLabourStage1End;
+	firm_FirmLabourStage1 -> firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End [ label = "a.no_employees GT a.employees_needed"];
+	firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End -> firm_FirmLabourStage1End;
+	firm_FirmLabourStage1 -> firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application [ label = "a.no_employees LT a.employees_needed"];
+	firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application -> firm_FirmLabourStage1Application;
+	firm_FirmLabourStage1Application -> firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End;
+	firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End -> firm_FirmLabourStage1End;
+	firm_FirmLabourStage1End -> firm_firm_labour_update_FirmLabourStage1End_FirmLabourStage2;
+	firm_firm_labour_update_FirmLabourStage1End_FirmLabourStage2 -> firm_FirmLabourStage2;
+	firm_FirmLabourStage2 -> firm_firm_labour_job_announcement_stage2_FirmLabourStage2_FirmLabourStage2End [ label = "a.vacancies GEQ 1"];
+	firm_firm_labour_job_announcement_stage2_FirmLabourStage2_FirmLabourStage2End -> firm_FirmLabourStage2End;
+	firm_FirmLabourStage2 -> firm_idle_FirmLabourStage2_FirmLabourPayWages [ label = "a.vacancies LT 1"];
+	firm_idle_FirmLabourStage2_FirmLabourPayWages -> firm_FirmLabourPayWages;
+	firm_FirmLabourStage2End -> firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages;
+	firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages -> firm_FirmLabourPayWages;
+	firm_FirmLabourPayWages -> firm_idle_FirmLabourPayWages_FirmConsumptionStart [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_wages_paid )"];
+	firm_idle_FirmLabourPayWages_FirmConsumptionStart -> firm_FirmConsumptionStart;
+	firm_FirmLabourPayWages -> firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment [ label = "Periodicity: monthly\nPhase: a->day_of_month_wages_paid"];
+	firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment -> firm_FirmLabourWageAdjustment;
+	firm_FirmLabourWageAdjustment -> firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart;
+	firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart -> firm_FirmConsumptionStart;
+	firm_FirmProductionStart -> firm_idle_FirmProductionStart_FirmLabourStart [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act OR\nPeriodicity: monthly\nPhase: a->day_of_month_production_completed )"];
+	firm_idle_FirmProductionStart_FirmLabourStart -> firm_FirmLabourStart;
+	firm_FirmProductionStart -> firm_idle_FirmProductionStart_FirmProductionSkip [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act OR\nPeriodicity: monthly\nPhase: a->day_of_month_production_completed"];
+	firm_idle_FirmProductionStart_FirmProductionSkip -> firm_FirmProductionSkip;
+	firm_FirmProductionSkip -> firm_firm_production_skip_FirmProductionSkip_FirmLabourStart [ label = "a.isinsolvent EQ 1"];
+	firm_firm_production_skip_FirmProductionSkip_FirmLabourStart -> firm_FirmLabourStart;
+	firm_FirmProductionSkip -> firm_idle_FirmProductionSkip_FirmProductionRoleCheck [ label = "a.isinsolvent NEQ 1"];
+	firm_idle_FirmProductionSkip_FirmProductionRoleCheck -> firm_FirmProductionRoleCheck;
+	firm_FirmProductionRoleCheck -> firm_idle_FirmProductionRoleCheck_FirmProductionRegular [ label = "a.isconstructor EQ 0"];
+	firm_idle_FirmProductionRoleCheck_FirmProductionRegular -> firm_FirmProductionRegular;
+	firm_FirmProductionRoleCheck -> firm_idle_FirmProductionRoleCheck_FirmProductionConstructor [ label = "a.isconstructor NEQ 0"];
+	firm_idle_FirmProductionRoleCheck_FirmProductionConstructor -> firm_FirmProductionConstructor;
+	firm_FirmProductionRegular -> firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart [ label = "Periodicity: monthly\nPhase: a->day_of_month_production_completed"];
+	firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart -> firm_FirmLabourStart;
+	firm_FirmProductionRegular -> firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning -> firm_FirmProductionPlanning;
+	firm_FirmProductionPlanning -> firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand;
+	firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand -> firm_FirmProductionLabourDemand;
+	firm_FirmProductionLabourDemand -> firm_firm_production_compute_labour_demand_FirmProductionLabourDemand_FirmLabourStart;
+	firm_firm_production_compute_labour_demand_FirmProductionLabourDemand_FirmLabourStart -> firm_FirmLabourStart;
+	firm_FirmProductionConstructor -> firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart [ label = "Periodicity: monthly\nPhase: a->day_of_month_production_completed"];
+	firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart -> firm_FirmLabourStart;
+	firm_FirmProductionConstructor -> firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand -> firm_FirmConstructionLabourDemand;
+	firm_FirmConstructionLabourDemand -> firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart;
+	firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart -> firm_FirmLabourStart;
+	firm_FirmCreditStart -> firm_idle_FirmCreditStart_FirmProductionStart [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	firm_idle_FirmCreditStart_FirmProductionStart -> firm_FirmProductionStart;
+	firm_FirmCreditStart -> firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInvestment [ label = "Periodicity: quarterly\nPhase: 1"];
+	firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInvestment -> firm_FirmCreditInvestment;
+	firm_FirmCreditInvestment -> firm_firm_credit_investment_decisions_FirmCreditInvestment_FirmCreditComputeDividends;
+	firm_firm_credit_investment_decisions_FirmCreditInvestment_FirmCreditComputeDividends -> firm_FirmCreditComputeDividends;
+	firm_FirmCreditComputeDividends -> firm_firm_credit_compute_dividends_FirmCreditComputeDividends_FirmCreditLiquidityNeed;
+	firm_firm_credit_compute_dividends_FirmCreditComputeDividends_FirmCreditLiquidityNeed -> firm_FirmCreditLiquidityNeed;
+	firm_FirmCreditLiquidityNeed -> firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus;
+	firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus -> firm_FirmCreditStatus;
+	firm_FirmCreditStatus -> firm_idle_FirmCreditStatus_FirmCreditPayments [ label = "a.liquidity_need EQ 0"];
+	firm_idle_FirmCreditStatus_FirmCreditPayments -> firm_FirmCreditPayments;
+	firm_FirmCreditStatus -> firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 [ label = "a.liquidity_need NEQ 0"];
+	firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 -> firm_FirmCreditLoanBorrow1;
+	firm_FirmCreditLoanBorrow1 -> firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2;
+	firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2 -> firm_FirmCreditLoanBorrow2;
+	firm_FirmCreditLoanBorrow2 -> firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments [ label = "a.hasloan EQ 1"];
+	firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments -> firm_FirmCreditPayments;
+	firm_FirmCreditLoanBorrow2 -> firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus [ label = "a.hasloan NEQ 1"];
+	firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus -> firm_FirmCreditIlliquidityStatus;
+	firm_FirmCreditIlliquidityStatus -> firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments [ label = "a.hasloan EQ 1"];
+	firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments -> firm_FirmCreditPayments;
+	firm_FirmCreditIlliquidityStatus -> firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck [ label = "a.hasloan NEQ 1"];
+	firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck -> firm_FirmCreditLiquidityRecheck;
+	firm_FirmCreditLiquidityRecheck -> firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments [ label = "a.liquidity_need EQ 0"];
+	firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments -> firm_FirmCreditPayments;
+	firm_FirmCreditLiquidityRecheck -> firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy [ label = "a.liquidity_need NEQ 0"];
+	firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy -> firm_FirmCreditBankruptcy;
+	firm_FirmCreditBankruptcy -> firm_idle_FirmCreditBankruptcy_FirmCreditPayments [ label = "a.hasinvestment EQ 1"];
+	firm_idle_FirmCreditBankruptcy_FirmCreditPayments -> firm_FirmCreditPayments;
+	firm_FirmCreditBankruptcy -> firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet [ label = "a.hasinvestment NEQ 1"];
+	firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet -> firm_FirmCreditBalanceSheet;
+	firm_FirmCreditPayments -> firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments;
+	firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments -> firm_FirmCreditDividendPayments;
+	firm_FirmCreditDividendPayments -> firm_firm_credit_pay_dividends_FirmCreditDividendPayments_FirmCreditBalanceSheet;
+	firm_firm_credit_pay_dividends_FirmCreditDividendPayments_FirmCreditBalanceSheet -> firm_FirmCreditBalanceSheet;
+	firm_FirmCreditBalanceSheet -> firm_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmCreditCheckInterestRate;
+	firm_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmCreditCheckInterestRate -> firm_FirmCreditCheckInterestRate;
+	firm_FirmCreditCheckInterestRate -> firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate;
+	firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate -> firm_FirmCreditCheckTaxRate;
+	firm_FirmCreditCheckTaxRate -> firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck;
+	firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck -> firm_FirmCreditInsolvencyCheck;
+	firm_FirmCreditInsolvencyCheck -> firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart [ label = "a.isinsolvent NEQ 1"];
+	firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart -> firm_FirmProductionStart;
+	firm_FirmCreditInsolvencyCheck -> firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart [ label = "a.isinsolvent EQ 1"];
+	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart -> firm_FirmProductionStart;
+	firm_FirmHousingStart -> firm_idle_FirmHousingStart_FirmUpdateDeposits [ label = "a.isconstructor EQ 0"];
+	firm_idle_FirmHousingStart_FirmUpdateDeposits -> firm_FirmUpdateDeposits;
+	firm_FirmHousingStart -> firm_idle_FirmHousingStart_FirmHousingMarket [ label = "a.isconstructor NEQ 0"];
+	firm_idle_FirmHousingStart_FirmHousingMarket -> firm_FirmHousingMarket;
+	firm_FirmHousingMarket -> firm_idle_FirmHousingMarket_FirmUpdateDeposits [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	firm_idle_FirmHousingMarket_FirmUpdateDeposits -> firm_FirmUpdateDeposits;
+	firm_FirmHousingMarket -> firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> firm_FirmHousingSell;
+	firm_FirmHousingSell -> firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice;
+	firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice -> firm_FirmHousingPrice;
+	firm_FirmHousingPrice -> firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits;
+	firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits -> firm_FirmUpdateDeposits;
+	household_start -> household_household_init_start_HHCreditStart;
+	household_household_init_start_HHCreditStart -> household_HHCreditStart;
+	household_HouseholdUpdateDeposits -> household_idle_HouseholdUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0 )"];
+	household_idle_HouseholdUpdateDeposits_end -> household_end;
+	household_HouseholdUpdateDeposits -> household_household_update_bank_account_HouseholdUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0"];
+	household_household_update_bank_account_HouseholdUpdateDeposits_end -> household_end;
+	household_HHConsumptionStart -> household_idle_HHConsumptionStart_HHConsumptionWeekly [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	household_idle_HHConsumptionStart_HHConsumptionWeekly -> household_HHConsumptionWeekly;
+	household_HHConsumptionStart -> household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly -> household_HHConsumptionWeekly;
+	household_HHConsumptionWeekly -> household_idle_HHConsumptionWeekly_HHHousingStart [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act )"];
+	household_idle_HHConsumptionWeekly_HHHousingStart -> household_HHHousingStart;
+	household_HHConsumptionWeekly -> household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act"];
+	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods -> household_HHConsumptionRecieveGoods;
+	household_HHConsumptionRecieveGoods -> household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart;
+	household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart -> household_HHHousingStart;
+	household_HHLabourStart -> household_idle_HHLabourStart_HHLabourEmploymentStatus [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	household_idle_HHLabourStart_HHLabourEmploymentStatus -> household_HHLabourEmploymentStatus;
+	household_HHLabourStart -> household_household_labour_check_fired_HHLabourStart_HHLabourStage1 [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	household_household_labour_check_fired_HHLabourStart_HHLabourStage1 -> household_HHLabourStage1;
+	household_HHLabourStage1 -> household_household_labour_reemployment_application_HHLabourStage1_HHLabourStage2 [ label = "a.my_employer_id GT 0"];
+	household_household_labour_reemployment_application_HHLabourStage1_HHLabourStage2 -> household_HHLabourStage2;
+	household_HHLabourStage1 -> household_idle_HHLabourStage1_HHLabourStage1Applications [ label = "not ( a.my_employer_id GT 0 )"];
+	household_idle_HHLabourStage1_HHLabourStage1Applications -> household_HHLabourStage1Applications;
+	household_HHLabourStage2 -> household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus;
+	household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus -> household_HHLabourEmploymentStatus;
+	household_HHLabourStage1Applications -> household_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement;
+	household_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement -> household_HHLabourStage1Placement;
+	household_HHLabourStage1Placement -> household_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus;
+	household_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus -> household_HHLabourEmploymentStatus;
+	household_HHLabourEmploymentStatus -> household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll;
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> household_HHLabourPayroll;
+	household_HHLabourPayroll -> household_idle_HHLabourPayroll_HHConsumptionStart [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_wage_recieved )"];
+	household_idle_HHLabourPayroll_HHConsumptionStart -> household_HHConsumptionStart;
+	household_HHLabourPayroll -> household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart [ label = "Periodicity: monthly\nPhase: a->day_of_month_wage_recieved"];
+	household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart -> household_HHConsumptionStart;
+	household_HHCreditStart -> household_idle_HHCreditStart_HHCreditMonthly [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	household_idle_HHCreditStart_HHCreditMonthly -> household_HHCreditMonthly;
+	household_HHCreditStart -> household_household_credit_update_mortgage_rates_HHCreditStart_HHCreditIsCapitalist [ label = "Periodicity: quarterly\nPhase: 1"];
+	household_household_credit_update_mortgage_rates_HHCreditStart_HHCreditIsCapitalist -> household_HHCreditIsCapitalist;
+	household_HHCreditIsCapitalist -> household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet [ label = "a.n_shares EQ 0"];
+	household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet -> household_HHCreditBalanceSheet;
+	household_HHCreditIsCapitalist -> household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet [ label = "a.n_shares GT 0"];
+	household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet -> household_HHCreditBalanceSheet;
+	household_HHCreditBalanceSheet -> household_household_credit_do_balance_sheet_HHCreditBalanceSheet_HHCreditCheckInterestRate;
+	household_household_credit_do_balance_sheet_HHCreditBalanceSheet_HHCreditCheckInterestRate -> household_HHCreditCheckInterestRate;
+	household_HHCreditCheckInterestRate -> household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate;
+	household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate -> household_HHCreditCheckTaxRate;
+	household_HHCreditCheckTaxRate -> household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly;
+	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly -> household_HHCreditMonthly;
+	household_HHCreditMonthly -> household_idle_HHCreditMonthly_HHLabourStart [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_wage_recieved )"];
+	household_idle_HHCreditMonthly_HHLabourStart -> household_HHLabourStart;
+	household_HHCreditMonthly -> household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [ label = "Periodicity: monthly\nPhase: a->day_of_month_wage_recieved"];
+	household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment -> household_HHCreditEmployment;
+	household_HHCreditEmployment -> household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [ label = "a.my_employer_id EQ 0"];
+	household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart -> household_HHLabourStart;
+	household_HHCreditEmployment -> household_idle_HHCreditEmployment_HHLabourStart [ label = "a.my_employer_id NEQ 0"];
+	household_idle_HHCreditEmployment_HHLabourStart -> household_HHLabourStart;
+	household_HHHousingStart -> household_idle_HHHousingStart_HouseholdUpdateDeposits [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	household_idle_HHHousingStart_HouseholdUpdateDeposits -> household_HouseholdUpdateDeposits;
+	household_HHHousingStart -> household_household_housing_market_role_HHHousingStart_HHHousingRole [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	household_household_housing_market_role_HHHousingStart_HHHousingRole -> household_HHHousingRole;
+	household_HHHousingRole -> household_idle_HHHousingRole_HHHousingPrice [ label = "a.hmarket_role EQ 0"];
+	household_idle_HHHousingRole_HHHousingPrice -> household_HHHousingPrice;
+	household_HHHousingRole -> household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth [ label = "a.hmarket_role EQ 3"];
+	household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth -> household_HHHousingCheckWealth;
+	household_HHHousingRole -> household_household_housing_sell_HHHousingRole_HHHousingRevenue [ label = "a.hmarket_role EQ 2"];
+	household_household_housing_sell_HHHousingRole_HHHousingRevenue -> household_HHHousingRevenue;
+	household_HHHousingRole -> household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue [ label = "a.hmarket_role EQ 1"];
+	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue -> household_HHHousingRevenue;
+	household_HHHousingRevenue -> household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice;
+	household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice -> household_HHHousingPrice;
+	household_HHHousingCheckWealth -> household_idle_HHHousingCheckWealth_HHHousingPrice [ label = "a.equity_ratio LT a.minimum_equity_ratio"];
+	household_idle_HHHousingCheckWealth_HHHousingPrice -> household_HHHousingPrice;
+	household_HHHousingCheckWealth -> household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain [ label = "a.equity_ratio GEQ a.minimum_equity_ratio"];
+	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain -> household_HHHousingBargain;
+	household_HHHousingBargain -> household_household_housing_buy_HHHousingBargain_HHHousingPrice;
+	household_household_housing_buy_HHHousingBargain_HHHousingPrice -> household_HHHousingPrice;
+	household_HHHousingPrice -> household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments;
+	household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments -> household_HHHousingPayments;
+	household_HHHousingPayments -> household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff;
+	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff -> household_HHHousingWriteOff;
+	household_HHHousingWriteOff -> household_household_housing_debt_writeoff_HHHousingWriteOff_HouseholdUpdateDeposits;
+	household_household_housing_debt_writeoff_HHHousingWriteOff_HouseholdUpdateDeposits -> household_HouseholdUpdateDeposits;
+	equityfund_start -> equityfund_equityfund_init_start_EquityFundStart;
+	equityfund_equityfund_init_start_EquityFundStart -> equityfund_EquityFundStart;
+	equityfund_EFLabourMarket -> equityfund_idle_EFLabourMarket_end [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	equityfund_idle_EFLabourMarket_end -> equityfund_end;
+	equityfund_EFLabourMarket -> equityfund_equityfund_audit_dividends_EFLabourMarket_end [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	equityfund_equityfund_audit_dividends_EFLabourMarket_end -> equityfund_end;
+	equityfund_EquityFundStart -> equityfund_idle_EquityFundStart_EFLabourMarket [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	equityfund_idle_EquityFundStart_EFLabourMarket -> equityfund_EFLabourMarket;
+	equityfund_EquityFundStart -> equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares [ label = "Periodicity: quarterly\nPhase: 1"];
+	equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares -> equityfund_EFCreditDistributeShares;
+	equityfund_EFCreditDistributeShares -> equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks;
+	equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks -> equityfund_EFCreditShareCollectionBanks;
+	equityfund_EFCreditShareCollectionBanks -> equityfund_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditShareCollectionFirms;
+	equityfund_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditShareCollectionFirms -> equityfund_EFCreditShareCollectionFirms;
+	equityfund_EFCreditShareCollectionFirms -> equityfund_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditBalanceSheet;
+	equityfund_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditBalanceSheet -> equityfund_EFCreditBalanceSheet;
+	equityfund_EFCreditBalanceSheet -> equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditCheckTaxRate;
+	equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditCheckTaxRate -> equityfund_EFCreditCheckTaxRate;
+	equityfund_EFCreditCheckTaxRate -> equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket;
+	equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket -> equityfund_EFLabourMarket;
+	bank_start -> bank_bank_init_start_BankCreditStart;
+	bank_bank_init_start_BankCreditStart -> bank_BankCreditStart;
+	bank_BankUpdateDeposits -> bank_idle_BankUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0 )"];
+	bank_idle_BankUpdateDeposits_end -> bank_end;
+	bank_BankUpdateDeposits -> bank_bank_update_deposits_BankUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0"];
+	bank_bank_update_deposits_BankUpdateDeposits_end -> bank_end;
+	bank_BankCreditStart -> bank_idle_BankCreditStart_BankHousingMarket [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	bank_idle_BankCreditStart_BankHousingMarket -> bank_BankHousingMarket;
+	bank_BankCreditStart -> bank_bank_credit_compute_income_statement_BankCreditStart_BankCreditDividends [ label = "Periodicity: quarterly\nPhase: 1"];
+	bank_bank_credit_compute_income_statement_BankCreditStart_BankCreditDividends -> bank_BankCreditDividends;
+	bank_BankCreditDividends -> bank_bank_credit_compute_dividends_BankCreditDividends_BankCreditBalanceSheet;
+	bank_bank_credit_compute_dividends_BankCreditDividends_BankCreditBalanceSheet -> bank_BankCreditBalanceSheet;
+	bank_BankCreditBalanceSheet -> bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1;
+	bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1 -> bank_BankCreditRequest1;
+	bank_BankCreditRequest1 -> bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2;
+	bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2 -> bank_BankCreditRequest2;
+	bank_BankCreditRequest2 -> bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs;
+	bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs -> bank_BankCreditLoanWriteOffs;
+	bank_BankCreditLoanWriteOffs -> bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants;
+	bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants -> bank_BankCreditNewEntrants;
+	bank_BankCreditNewEntrants -> bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests;
+	bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests -> bank_BankCreditLoanInterests;
+	bank_BankCreditLoanInterests -> bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate;
+	bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate -> bank_BankCreditCheckInterestRate;
+	bank_BankCreditCheckInterestRate -> bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket;
+	bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket -> bank_BankHousingMarket;
+	bank_BankHousingMarket -> bank_idle_BankHousingMarket_BankUpdateDeposits [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	bank_idle_BankHousingMarket_BankUpdateDeposits -> bank_BankUpdateDeposits;
+	bank_BankHousingMarket -> bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> bank_BankHousingCrediting;
+	bank_BankHousingCrediting -> bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales;
+	bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales -> bank_BankHousingSales;
+	bank_BankHousingSales -> bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages;
+	bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages -> bank_BankHousingMortgages;
+	bank_BankHousingMortgages -> bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff;
+	bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff -> bank_BankHousingWriteOff;
+	bank_BankHousingWriteOff -> bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits;
+	bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits -> bank_BankUpdateDeposits;
+	government_start -> government_government_init_start_GovernmentStart;
+	government_government_init_start_GovernmentStart -> government_GovernmentStart;
+	government_GovernmentLabourStatus -> government_government_trace_unemployment_status_GovernmentLabourStatus_end;
+	government_government_trace_unemployment_status_GovernmentLabourStatus_end -> government_end;
+	government_GovernmentStart -> government_idle_GovernmentStart_GovernmentMonthly [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	government_idle_GovernmentStart_GovernmentMonthly -> government_GovernmentMonthly;
+	government_GovernmentStart -> government_government_collect_capital_tax_GovernmentStart_GovernmentCentralbankProfits [ label = "Periodicity: quarterly\nPhase: 1"];
+	government_government_collect_capital_tax_GovernmentStart_GovernmentCentralbankProfits -> government_GovernmentCentralbankProfits;
+	government_GovernmentCentralbankProfits -> government_government_collect_centralbank_profit_GovernmentCentralbankProfits_GovernmentIncomeStatement;
+	government_government_collect_centralbank_profit_GovernmentCentralbankProfits_GovernmentIncomeStatement -> government_GovernmentIncomeStatement;
+	government_GovernmentIncomeStatement -> government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet;
+	government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet -> government_GovernmentBalanceSheet;
+	government_GovernmentBalanceSheet -> government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentFiscalPolicy;
+	government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentFiscalPolicy -> government_GovernmentFiscalPolicy;
+	government_GovernmentFiscalPolicy -> government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly;
+	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> government_GovernmentMonthly;
+	government_GovernmentMonthly -> government_idle_GovernmentMonthly_end [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_wages_paid )"];
+	government_idle_GovernmentMonthly_end -> government_end;
+	government_GovernmentMonthly -> government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits [ label = "Periodicity: monthly\nPhase: a->day_of_month_wages_paid"];
+	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits -> government_GovernmentUnemploymentBenefits;
+	government_GovernmentUnemploymentBenefits -> government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax;
+	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax -> government_GovernmentLabourTax;
+	government_GovernmentLabourTax -> government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus;
+	government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus -> government_GovernmentLabourStatus;
+	centralbank_start -> centralbank_centralbank_init_start_CentralBankCredit;
+	centralbank_centralbank_init_start_CentralBankCredit -> centralbank_CentralBankCredit;
+	centralbank_CentralBankConsumption -> centralbank_idle_CentralBankConsumption_CentralBankHousing [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act )"];
+	centralbank_idle_CentralBankConsumption_CentralBankHousing -> centralbank_CentralBankHousing;
+	centralbank_CentralBankConsumption -> centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act"];
+	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing -> centralbank_CentralBankHousing;
+	centralbank_CentralBankLabour -> centralbank_idle_CentralBankLabour_CentralBankConsumption [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	centralbank_idle_CentralBankLabour_CentralBankConsumption -> centralbank_CentralBankConsumption;
+	centralbank_CentralBankLabour -> centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption -> centralbank_CentralBankConsumption;
+	centralbank_CentralBankCredit -> centralbank_idle_CentralBankCredit_CentralBankLabour [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	centralbank_idle_CentralBankCredit_CentralBankLabour -> centralbank_CentralBankLabour;
+	centralbank_CentralBankCredit -> centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests [ label = "Periodicity: quarterly\nPhase: 1"];
+	centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests -> centralbank_CentralBankDebtRequests;
+	centralbank_CentralBankDebtRequests -> centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement;
+	centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement -> centralbank_CentralBankIncomeStatement;
+	centralbank_CentralBankIncomeStatement -> centralbank_centralbank_compute_income_statement_CentralBankIncomeStatement_CentralBankBalanceSheet;
+	centralbank_centralbank_compute_income_statement_CentralBankIncomeStatement_CentralBankBalanceSheet -> centralbank_CentralBankBalanceSheet;
+	centralbank_CentralBankBalanceSheet -> centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankInterestRate;
+	centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankInterestRate -> centralbank_CentralBankInterestRate;
+	centralbank_CentralBankInterestRate -> centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour;
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> centralbank_CentralBankLabour;
+	centralbank_CentralBankHousing -> centralbank_idle_CentralBankHousing_end [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	centralbank_idle_CentralBankHousing_end -> centralbank_end;
+	centralbank_CentralBankHousing -> centralbank_centralbank_trace_housing_prices_CentralBankHousing_end [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	centralbank_centralbank_trace_housing_prices_CentralBankHousing_end -> centralbank_end;
+	jpoffice_start -> jpoffice_jpoffice_init_start_JPOLabourMarket;
+	jpoffice_jpoffice_init_start_JPOLabourMarket -> jpoffice_JPOLabourMarket;
+	jpoffice_JPOLabourMarket -> jpoffice_idle_JPOLabourMarket_end [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	jpoffice_idle_JPOLabourMarket_end -> jpoffice_end;
+	jpoffice_JPOLabourMarket -> jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 -> jpoffice_JPOLabourStage2;
+	jpoffice_JPOLabourStage2 -> jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end;
+	jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end -> jpoffice_end;
+	mall_start -> mall_mall_init_start_MallConsumptionMarket;
+	mall_mall_init_start_MallConsumptionMarket -> mall_MallConsumptionMarket;
+	mall_MallConsumptionMarket -> mall_idle_MallConsumptionMarket_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act )"];
+	mall_idle_MallConsumptionMarket_end -> mall_end;
+	mall_MallConsumptionMarket -> mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act"];
+	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> mall_MallConsumptionSummary;
+	mall_MallConsumptionSummary -> mall_mall_consumption_summary_MallConsumptionSummary_end;
+	mall_mall_consumption_summary_MallConsumptionSummary_end -> mall_end;
+	reagency_start -> reagency_reagency_init_start_REAgencyHousingMarket;
+	reagency_reagency_init_start_REAgencyHousingMarket -> reagency_REAgencyHousingMarket;
+	reagency_REAgencyHousingMarket -> reagency_idle_REAgencyHousingMarket_end [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
+	reagency_idle_REAgencyHousingMarket_end -> reagency_end;
+	reagency_REAgencyHousingMarket -> reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess -> reagency_REAgencyHousingProcess;
+	reagency_REAgencyHousingProcess -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary;
+	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> reagency_REAgencyHousingSummary;
+	reagency_REAgencyHousingSummary -> reagency_reagency_housing_summary_REAgencyHousingSummary_end;
+	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> reagency_end;
+	
+	/* Communications */
+	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "mortgaging_capacity" color="#00ff00" constraint=false];
+	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
+	household_household_housing_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
+	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
+	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "buy_housing" color="#00ff00" constraint=false];
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess [ label = "interest_rate" color="#00ff00" constraint=false];
+	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods -> mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ label = "buy" color="#00ff00" constraint=false];
+	firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales -> mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ label = "sell" color="#00ff00" constraint=false];
+	household_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement -> jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end [ label = "job_application_stage2" color="#00ff00" constraint=false];
+	firm_firm_labour_job_announcement_stage2_FirmLabourStage2_FirmLabourStage2End -> jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end [ label = "vacancy_stage2" color="#00ff00" constraint=false];
+	household_household_labour_reemployment_application_HHLabourStage1_HHLabourStage2 -> jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 [ label = "job_application_stage1" color="#00ff00" constraint=false];
+	firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application -> jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 [ label = "vacancy_stage1" color="#00ff00" constraint=false];
+	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> centralbank_centralbank_trace_housing_prices_CentralBankHousing_end [ label = "housing_transactions_summary" color="#00ff00" constraint=false];
+	bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1 -> centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement [ label = "bank_centralbank_debt_payment" color="#00ff00" constraint=false];
+	bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1 -> centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement [ label = "debt_request" color="#00ff00" constraint=false];
+	bank_bank_credit_compute_income_statement_BankCreditStart_BankCreditDividends -> centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests [ label = "bank_centralbank_interest_payment" color="#00ff00" constraint=false];
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption [ label = "employment_status" color="#00ff00" constraint=false];
+	mall_mall_consumption_summary_MallConsumptionSummary_end -> centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing [ label = "goods_transactions_summary" color="#00ff00" constraint=false];
+	firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment -> government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus [ label = "labour_tax" color="#00ff00" constraint=false];
+	centralbank_centralbank_compute_income_statement_CentralBankIncomeStatement_CentralBankBalanceSheet -> government_government_collect_centralbank_profit_GovernmentCentralbankProfits_GovernmentIncomeStatement [ label = "centralbank_government_profit" color="#00ff00" constraint=false];
+	equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks -> government_government_collect_capital_tax_GovernmentStart_GovernmentCentralbankProfits [ label = "capital_tax" color="#00ff00" constraint=false];
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> government_government_trace_unemployment_status_GovernmentLabourStatus_end [ label = "employment_status" color="#00ff00" constraint=false];
+	household_household_housing_debt_writeoff_HHHousingWriteOff_HouseholdUpdateDeposits -> bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits [ label = "mortgage_writeoff" color="#00ff00" constraint=false];
+	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff -> bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff [ label = "mortgage_payment" color="#00ff00" constraint=false];
+	household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice -> bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages [ label = "mortgage_payment_from_sale" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales [ label = "mortgage_requests" color="#00ff00" constraint=false];
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket [ label = "interest_rate" color="#00ff00" constraint=false];
+	firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments -> bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate [ label = "interest_on_loan" color="#00ff00" constraint=false];
+	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart -> bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests [ label = "new_entrant_loan" color="#00ff00" constraint=false];
+	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart -> bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants [ label = "loan_writeoff" color="#00ff00" constraint=false];
+	firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet -> bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants [ label = "loan_writeoff" color="#00ff00" constraint=false];
+	firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2 -> bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs [ label = "loan_request_2" color="#00ff00" constraint=false];
+	firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 -> bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2 [ label = "loan_request_1" color="#00ff00" constraint=false];
+	firm_firm_update_bank_account_FirmUpdateDeposits_end -> bank_bank_update_deposits_BankUpdateDeposits_end [ label = "firm_bank_update_deposit" color="#00ff00" constraint=false];
+	household_household_update_bank_account_HouseholdUpdateDeposits_end -> bank_bank_update_deposits_BankUpdateDeposits_end [ label = "household_bank_update_deposit" color="#00ff00" constraint=false];
+	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket [ label = "tax_rate" color="#00ff00" constraint=false];
+	firm_firm_credit_pay_dividends_FirmCreditDividendPayments_FirmCreditBalanceSheet -> equityfund_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditBalanceSheet [ label = "firm_net_profit" color="#00ff00" constraint=false];
+	bank_bank_credit_compute_dividends_BankCreditDividends_BankCreditBalanceSheet -> equityfund_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditShareCollectionFirms [ label = "bank_net_profit" color="#00ff00" constraint=false];
+	firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck -> equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares [ label = "fund_request" color="#00ff00" constraint=false];
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> equityfund_equityfund_audit_dividends_EFLabourMarket_end [ label = "employment_status" color="#00ff00" constraint=false];
+	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments [ label = "housing_price" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> household_household_housing_buy_HHHousingBargain_HHHousingPrice [ label = "bought_housing" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
+	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax -> household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [ label = "unemployment_benefit" color="#00ff00" constraint=false];
+	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits -> household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [ label = "general_benefit" color="#00ff00" constraint=false];
+	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly [ label = "tax_rate" color="#00ff00" constraint=false];
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate [ label = "interest_rate" color="#00ff00" constraint=false];
+	equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks -> household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet [ label = "household_share" color="#00ff00" constraint=false];
+	jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end -> household_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus [ label = "job_match_stage2" color="#00ff00" constraint=false];
+	jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 -> household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus [ label = "job_match_stage1" color="#00ff00" constraint=false];
+	firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End -> household_household_labour_check_fired_HHLabourStart_HHLabourStage1 [ label = "fired" color="#00ff00" constraint=false];
+	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart [ label = "bought" color="#00ff00" constraint=false];
+	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits [ label = "housing_price" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
+	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck [ label = "tax_rate" color="#00ff00" constraint=false];
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate [ label = "interest_rate" color="#00ff00" constraint=false];
+	equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares -> firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy [ label = "fund_request_ack" color="#00ff00" constraint=false];
+	bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs -> firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus [ label = "loan_acknowledge_2" color="#00ff00" constraint=false];
+	bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2 -> firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2 [ label = "loan_acknowledge_1" color="#00ff00" constraint=false];
+	jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end -> firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages [ label = "job_match_stage2" color="#00ff00" constraint=false];
+	household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus -> firm_firm_labour_update_FirmLabourStage1End_FirmLabourStage2 [ label = "job_change" color="#00ff00" constraint=false];
+	jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 -> firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End [ label = "job_match_stage1" color="#00ff00" constraint=false];
+	mall_mall_consumption_summary_MallConsumptionSummary_end -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart [ label = "goods_transactions_summary" color="#00ff00" constraint=false];
+	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice [ label = "sold" color="#00ff00" constraint=false];
+	{ rank=same; layer_0;  firm_firm_init_start_FirmCreditStart;  household_household_init_start_HHCreditStart;  equityfund_equityfund_init_start_EquityFundStart;  bank_bank_init_start_BankCreditStart;  government_government_init_start_GovernmentStart;  centralbank_centralbank_init_start_CentralBankCredit;  jpoffice_jpoffice_init_start_JPOLabourMarket;  mall_mall_init_start_MallConsumptionMarket;  reagency_reagency_init_start_REAgencyHousingMarket; }
+	{ rank=same; layer_1;  firm_idle_FirmCreditStart_FirmProductionStart;  firm_firm_credit_compute_income_statement_FirmCreditStart_FirmCreditInvestment;  household_idle_HHCreditStart_HHCreditMonthly;  household_household_credit_update_mortgage_rates_HHCreditStart_HHCreditIsCapitalist;  equityfund_idle_EquityFundStart_EFLabourMarket;  bank_idle_BankCreditStart_BankHousingMarket;  bank_bank_credit_compute_income_statement_BankCreditStart_BankCreditDividends;  government_idle_GovernmentStart_GovernmentMonthly;  centralbank_idle_CentralBankCredit_CentralBankLabour;  jpoffice_idle_JPOLabourMarket_end;  mall_idle_MallConsumptionMarket_end;  reagency_idle_REAgencyHousingMarket_end; }
+	{ rank=same; layer_2;  firm_firm_credit_investment_decisions_FirmCreditInvestment_FirmCreditComputeDividends;  household_idle_HHCreditIsCapitalist_HHCreditBalanceSheet;  bank_bank_credit_compute_dividends_BankCreditDividends_BankCreditBalanceSheet;  centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests; }
+	{ rank=same; layer_3;  firm_firm_credit_compute_dividends_FirmCreditComputeDividends_FirmCreditLiquidityNeed;  bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1; }
+	{ rank=same; layer_4;  firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus;  centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement; }
+	{ rank=same; layer_5;  firm_idle_FirmCreditStatus_FirmCreditPayments;  firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1;  centralbank_centralbank_compute_income_statement_CentralBankIncomeStatement_CentralBankBalanceSheet; }
+	{ rank=same; layer_6;  bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2;  centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankInterestRate; }
+	{ rank=same; layer_7;  firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2;  centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour; }
+	{ rank=same; layer_8;  firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments;  bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs;  centralbank_idle_CentralBankLabour_CentralBankConsumption;  reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess; }
+	{ rank=same; layer_9;  firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus; }
+	{ rank=same; layer_10;  firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments;  firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck; }
+	{ rank=same; layer_11;  firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments;  equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares; }
+	{ rank=same; layer_12;  firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy;  equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks; }
+	{ rank=same; layer_13;  firm_idle_FirmCreditBankruptcy_FirmCreditPayments;  firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet;  household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet;  equityfund_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditShareCollectionFirms;  government_government_collect_capital_tax_GovernmentStart_GovernmentCentralbankProfits; }
+	{ rank=same; layer_14;  firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments;  household_household_credit_do_balance_sheet_HHCreditBalanceSheet_HHCreditCheckInterestRate;  government_government_collect_centralbank_profit_GovernmentCentralbankProfits_GovernmentIncomeStatement; }
+	{ rank=same; layer_15;  firm_firm_credit_pay_dividends_FirmCreditDividendPayments_FirmCreditBalanceSheet;  household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate;  government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet; }
+	{ rank=same; layer_16;  firm_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmCreditCheckInterestRate;  equityfund_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditBalanceSheet;  government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentFiscalPolicy; }
+	{ rank=same; layer_17;  firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate;  equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditCheckTaxRate;  government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly; }
+	{ rank=same; layer_18;  firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck;  household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly;  equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket;  government_idle_GovernmentMonthly_end;  government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits; }
+	{ rank=same; layer_19;  firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart;  firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart;  household_idle_HHCreditMonthly_HHLabourStart;  household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment;  equityfund_idle_EFLabourMarket_end;  government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax; }
+	{ rank=same; layer_20;  firm_idle_FirmProductionStart_FirmLabourStart;  firm_idle_FirmProductionStart_FirmProductionSkip;  household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart;  household_idle_HHCreditEmployment_HHLabourStart;  bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants; }
+	{ rank=same; layer_21;  firm_firm_production_skip_FirmProductionSkip_FirmLabourStart;  firm_idle_FirmProductionSkip_FirmProductionRoleCheck;  household_idle_HHLabourStart_HHLabourEmploymentStatus;  bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests; }
+	{ rank=same; layer_22;  firm_idle_FirmProductionRoleCheck_FirmProductionRegular;  firm_idle_FirmProductionRoleCheck_FirmProductionConstructor;  bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate; }
+	{ rank=same; layer_23;  firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart;  firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning;  firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart;  firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand;  bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket; }
+	{ rank=same; layer_24;  firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand;  firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart;  bank_idle_BankHousingMarket_BankUpdateDeposits;  bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting; }
+	{ rank=same; layer_25;  firm_firm_production_compute_labour_demand_FirmProductionLabourDemand_FirmLabourStart; }
+	{ rank=same; layer_26;  firm_idle_FirmLabourStart_FirmLabourPayWages;  firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1; }
+	{ rank=same; layer_27;  firm_idle_FirmLabourStage1_FirmLabourStage1End;  firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End;  firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application; }
+	{ rank=same; layer_28;  household_household_labour_check_fired_HHLabourStart_HHLabourStage1; }
+	{ rank=same; layer_29;  household_household_labour_reemployment_application_HHLabourStage1_HHLabourStage2;  household_idle_HHLabourStage1_HHLabourStage1Applications; }
+	{ rank=same; layer_30;  household_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement;  jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2; }
+	{ rank=same; layer_31;  firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End;  household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus; }
+	{ rank=same; layer_32;  firm_firm_labour_update_FirmLabourStage1End_FirmLabourStage2; }
+	{ rank=same; layer_33;  firm_firm_labour_job_announcement_stage2_FirmLabourStage2_FirmLabourStage2End;  firm_idle_FirmLabourStage2_FirmLabourPayWages; }
+	{ rank=same; layer_34;  jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end; }
+	{ rank=same; layer_35;  firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages;  household_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus; }
+	{ rank=same; layer_36;  firm_idle_FirmLabourPayWages_FirmConsumptionStart;  firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment;  household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll; }
+	{ rank=same; layer_37;  firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart;  household_idle_HHLabourPayroll_HHConsumptionStart;  household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart;  equityfund_equityfund_audit_dividends_EFLabourMarket_end;  government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus;  centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption; }
+	{ rank=same; layer_38;  firm_idle_FirmConsumptionStart_FirmHousingStart;  firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales;  household_idle_HHConsumptionStart_HHConsumptionWeekly;  household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly;  government_government_trace_unemployment_status_GovernmentLabourStatus_end;  centralbank_idle_CentralBankConsumption_CentralBankHousing; }
+	{ rank=same; layer_39;  household_idle_HHConsumptionWeekly_HHHousingStart;  household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods; }
+	{ rank=same; layer_40;  mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary; }
+	{ rank=same; layer_41;  firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice;  household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart;  mall_mall_consumption_summary_MallConsumptionSummary_end; }
+	{ rank=same; layer_42;  firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart;  household_idle_HHHousingStart_HouseholdUpdateDeposits;  household_household_housing_market_role_HHHousingStart_HHHousingRole;  centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing; }
+	{ rank=same; layer_43;  firm_idle_FirmHousingStart_FirmUpdateDeposits;  firm_idle_FirmHousingStart_FirmHousingMarket;  household_idle_HHHousingRole_HHHousingPrice;  household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth;  household_household_housing_sell_HHHousingRole_HHHousingRevenue;  household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue;  centralbank_idle_CentralBankHousing_end; }
+	{ rank=same; layer_44;  firm_idle_FirmHousingMarket_FirmUpdateDeposits;  firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell;  household_idle_HHHousingCheckWealth_HHHousingPrice;  household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain; }
+	{ rank=same; layer_45;  reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary; }
+	{ rank=same; layer_46;  firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice;  household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice;  household_household_housing_buy_HHHousingBargain_HHHousingPrice;  bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales;  reagency_reagency_housing_summary_REAgencyHousingSummary_end; }
+	{ rank=same; layer_47;  firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits;  household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments;  bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages;  centralbank_centralbank_trace_housing_prices_CentralBankHousing_end; }
+	{ rank=same; layer_48;  firm_idle_FirmUpdateDeposits_end;  firm_firm_update_bank_account_FirmUpdateDeposits_end;  household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff; }
+	{ rank=same; layer_49;  household_household_housing_debt_writeoff_HHHousingWriteOff_HouseholdUpdateDeposits;  bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff; }
+	{ rank=same; layer_50;  household_idle_HouseholdUpdateDeposits_end;  household_household_update_bank_account_HouseholdUpdateDeposits_end;  bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits; }
+	{ rank=same; layer_51;  bank_idle_BankUpdateDeposits_end;  bank_bank_update_deposits_BankUpdateDeposits_end; }
+}
