@@ -27,6 +27,9 @@
 /** \def DAY_OF_MONTH_TO_ACT
  * \brief Direct access to day_of_month_to_act of government agent memory variable. */
 #define DAY_OF_MONTH_TO_ACT (current_xmachine_government->day_of_month_to_act)
+/** \def DAY_OF_MONTH_WAGES_PAID
+ * \brief Direct access to day_of_month_wages_paid of government agent memory variable. */
+#define DAY_OF_MONTH_WAGES_PAID (current_xmachine_government->day_of_month_wages_paid)
 /** \def GOV_TAX_RATE
  * \brief Direct access to gov_tax_rate of government agent memory variable. */
 #define GOV_TAX_RATE (current_xmachine_government->gov_tax_rate)

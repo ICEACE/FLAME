@@ -497,11 +497,11 @@
                     <nextState>FirmLabourStage2End</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
-                        <op>LT</op>
+                        <op>GEQ</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                     <outputs>
@@ -517,11 +517,11 @@
                     <nextState>FirmLabourPayWages</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
-                        <op>GEQ</op>
+                        <op>LT</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                 </function>

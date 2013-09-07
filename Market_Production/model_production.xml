@@ -47,7 +47,7 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>production_estimate</name>
+                    <name>expected_sales</name>
                     <description>An estimate of production for incoming period.</description>
                 </variable>
                 <variable>
@@ -59,6 +59,11 @@
                     <type>double</type>
                     <name>unit_goods_price</name>
                     <description>Price of a unit of goods produced by a firm.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unit_cost</name>
+                    <description>Unit production cost of a consumption good.</description>
                 </variable>
                 <variable>
                     <type>int</type>
@@ -93,7 +98,7 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>projects[13]</name>
+                    <name>projects[12]</name>
                     <description>Holds projects under construction. Indices denote number of months left for completion.</description>
                 </variable>
             </memory>

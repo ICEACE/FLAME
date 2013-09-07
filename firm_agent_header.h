@@ -54,15 +54,18 @@
 /** \def PRODUCTION_CURRENT
  * \brief Direct access to production_current of firm agent memory variable. */
 #define PRODUCTION_CURRENT (current_xmachine_firm->production_current)
-/** \def PRODUCTION_ESTIMATE
- * \brief Direct access to production_estimate of firm agent memory variable. */
-#define PRODUCTION_ESTIMATE (current_xmachine_firm->production_estimate)
+/** \def EXPECTED_SALES
+ * \brief Direct access to expected_sales of firm agent memory variable. */
+#define EXPECTED_SALES (current_xmachine_firm->expected_sales)
 /** \def PRODUCTION_PLAN
  * \brief Direct access to production_plan of firm agent memory variable. */
 #define PRODUCTION_PLAN (current_xmachine_firm->production_plan)
 /** \def UNIT_GOODS_PRICE
  * \brief Direct access to unit_goods_price of firm agent memory variable. */
 #define UNIT_GOODS_PRICE (current_xmachine_firm->unit_goods_price)
+/** \def UNIT_COST
+ * \brief Direct access to unit_cost of firm agent memory variable. */
+#define UNIT_COST (current_xmachine_firm->unit_cost)
 /** \def DAY_OF_MONTH_PRODUCTION_COMPLETED
  * \brief Direct access to day_of_month_production_completed of firm agent memory variable. */
 #define DAY_OF_MONTH_PRODUCTION_COMPLETED (current_xmachine_firm->day_of_month_production_completed)

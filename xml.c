@@ -1491,7 +1491,6 @@ int readEnvironmentXML(char * location)
 	int in_production_markup = 0;
 	int in_price_markup = 0;
 	int in_firm_memory_persistance = 0;
-	int in_ratio_debt_firm = 0;
 	int in_ratio_fiscal_policy = 0;
 	int in_ratio_capitalist_households = 0;
 	int in_inflation_target = 0;
@@ -1542,8 +1541,6 @@ int readEnvironmentXML(char * location)
 			if(strcmp(buffer, "/price_markup") == 0) in_price_markup = 0;
 			if(strcmp(buffer, "firm_memory_persistance") == 0) in_firm_memory_persistance = 1;
 			if(strcmp(buffer, "/firm_memory_persistance") == 0) in_firm_memory_persistance = 0;
-			if(strcmp(buffer, "ratio_debt_firm") == 0) in_ratio_debt_firm = 1;
-			if(strcmp(buffer, "/ratio_debt_firm") == 0) in_ratio_debt_firm = 0;
 			if(strcmp(buffer, "ratio_fiscal_policy") == 0) in_ratio_fiscal_policy = 1;
 			if(strcmp(buffer, "/ratio_fiscal_policy") == 0) in_ratio_fiscal_policy = 0;
 			if(strcmp(buffer, "ratio_capitalist_households") == 0) in_ratio_capitalist_households = 1;
@@ -1590,7 +1587,6 @@ int readEnvironmentXML(char * location)
 				if(in_production_markup == 1) { FLAME_environment_variable_production_markup = atof(buffer); }
 				if(in_price_markup == 1) { FLAME_environment_variable_price_markup = atof(buffer); }
 				if(in_firm_memory_persistance == 1) { FLAME_environment_variable_firm_memory_persistance = atof(buffer); }
-				if(in_ratio_debt_firm == 1) { FLAME_environment_variable_ratio_debt_firm = atof(buffer); }
 				if(in_ratio_fiscal_policy == 1) { FLAME_environment_variable_ratio_fiscal_policy = atof(buffer); }
 				if(in_ratio_capitalist_households == 1) { FLAME_environment_variable_ratio_capitalist_households = atof(buffer); }
 				if(in_inflation_target == 1) { FLAME_environment_variable_inflation_target = atof(buffer); }
@@ -1668,9 +1664,10 @@ int readAgentXML(char * location,
 	int in_day_of_month_wages_paid = 0;
 	int in_labour_productivity = 0;
 	int in_production_current = 0;
-	int in_production_estimate = 0;
+	int in_expected_sales = 0;
 	int in_production_plan = 0;
 	int in_unit_goods_price = 0;
+	int in_unit_cost = 0;
 	int in_day_of_month_production_completed = 0;
 	int in_unit_house_price = 0;
 	int in_labour_productivity_construction = 0;
@@ -2306,12 +2303,14 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/labour_productivity") == 0) { in_labour_productivity = 0; }
 			if(strcmp(buffer, "production_current") == 0) { in_production_current = 1; }
 			if(strcmp(buffer, "/production_current") == 0) { in_production_current = 0; }
-			if(strcmp(buffer, "production_estimate") == 0) { in_production_estimate = 1; }
-			if(strcmp(buffer, "/production_estimate") == 0) { in_production_estimate = 0; }
+			if(strcmp(buffer, "expected_sales") == 0) { in_expected_sales = 1; }
+			if(strcmp(buffer, "/expected_sales") == 0) { in_expected_sales = 0; }
 			if(strcmp(buffer, "production_plan") == 0) { in_production_plan = 1; }
 			if(strcmp(buffer, "/production_plan") == 0) { in_production_plan = 0; }
 			if(strcmp(buffer, "unit_goods_price") == 0) { in_unit_goods_price = 1; }
 			if(strcmp(buffer, "/unit_goods_price") == 0) { in_unit_goods_price = 0; }
+			if(strcmp(buffer, "unit_cost") == 0) { in_unit_cost = 1; }
+			if(strcmp(buffer, "/unit_cost") == 0) { in_unit_cost = 0; }
 			if(strcmp(buffer, "day_of_month_production_completed") == 0) { in_day_of_month_production_completed = 1; }
 			if(strcmp(buffer, "/day_of_month_production_completed") == 0) { in_day_of_month_production_completed = 0; }
 			if(strcmp(buffer, "unit_house_price") == 0) { in_unit_house_price = 1; }
@@ -2581,9 +2580,10 @@ int readAgentXML(char * location,
 					if(in_day_of_month_wages_paid) { current_firm_agent->day_of_month_wages_paid = atoi(buffer); }
 					if(in_labour_productivity) { current_firm_agent->labour_productivity = atof(buffer); }
 					if(in_production_current) { current_firm_agent->production_current = atoi(buffer); }
-					if(in_production_estimate) { current_firm_agent->production_estimate = atoi(buffer); }
+					if(in_expected_sales) { current_firm_agent->expected_sales = atoi(buffer); }
 					if(in_production_plan) { current_firm_agent->production_plan = atoi(buffer); }
 					if(in_unit_goods_price) { current_firm_agent->unit_goods_price = atof(buffer); }
+					if(in_unit_cost) { current_firm_agent->unit_cost = atof(buffer); }
 					if(in_day_of_month_production_completed) { current_firm_agent->day_of_month_production_completed = atoi(buffer); }
 					if(in_unit_house_price) { current_firm_agent->unit_house_price = atof(buffer); }
 					if(in_labour_productivity_construction) { current_firm_agent->labour_productivity_construction = atof(buffer); }
@@ -2591,7 +2591,7 @@ int readAgentXML(char * location,
 					if(in_capital_construction) { current_firm_agent->capital_construction = atof(buffer); }
 					if(in_physical_capital) { current_firm_agent->physical_capital = atof(buffer); }
 					if(in_projects) { j = 0;
-						rc = read_int_static_array(buffer, index, &j, current_firm_agent->projects, 13);
+						rc = read_int_static_array(buffer, index, &j, current_firm_agent->projects, 12);
 						if(rc != 0) { printf("Error: reading 'firm' agent variable 'projects' of type 'int'\n"); exit(0); } }
 					if(in_loans_interest_rate) { current_firm_agent->loans_interest_rate = atof(buffer); }
 					if(in_debt) { current_firm_agent->debt = atof(buffer); }
@@ -2704,6 +2704,7 @@ int readAgentXML(char * location,
 					if(in_equity) { current_government_agent->equity = atof(buffer); }
 					if(in_liquidity) { current_government_agent->liquidity = atof(buffer); }
 					if(in_day_of_month_to_act) { current_government_agent->day_of_month_to_act = atoi(buffer); }
+					if(in_day_of_month_wages_paid) { current_government_agent->day_of_month_wages_paid = atoi(buffer); }
 					if(in_gov_tax_rate) { current_government_agent->gov_tax_rate = atof(buffer); }
 					if(in_labour_tax_income) { current_government_agent->labour_tax_income = atof(buffer); }
 					if(in_capital_tax_income) { current_government_agent->capital_tax_income = atof(buffer); }
@@ -2884,7 +2885,6 @@ void readinitialstates(char * filename, char * filelocation, int * itno, double 
 	FLAME_environment_variable_production_markup = 0.0;
 	FLAME_environment_variable_price_markup = 0.0;
 	FLAME_environment_variable_firm_memory_persistance = 0.0;
-	FLAME_environment_variable_ratio_debt_firm = 0.0;
 	FLAME_environment_variable_ratio_fiscal_policy = 0.0;
 	FLAME_environment_variable_ratio_capitalist_households = 0.0;
 	FLAME_environment_variable_inflation_target = 0.0;
@@ -3867,10 +3867,10 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	sprintf(data, "%i", current->production_current);
 	fputs(data, file);
 	fputs("</production_current>\n", file);
-		fputs("<production_estimate>", file);
-	sprintf(data, "%i", current->production_estimate);
+		fputs("<expected_sales>", file);
+	sprintf(data, "%i", current->expected_sales);
 	fputs(data, file);
-	fputs("</production_estimate>\n", file);
+	fputs("</expected_sales>\n", file);
 		fputs("<production_plan>", file);
 	sprintf(data, "%i", current->production_plan);
 	fputs(data, file);
@@ -3879,6 +3879,10 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	sprintf(data, "%f", current->unit_goods_price);
 	fputs(data, file);
 	fputs("</unit_goods_price>\n", file);
+		fputs("<unit_cost>", file);
+	sprintf(data, "%f", current->unit_cost);
+	fputs(data, file);
+	fputs("</unit_cost>\n", file);
 		fputs("<day_of_month_production_completed>", file);
 	sprintf(data, "%i", current->day_of_month_production_completed);
 	fputs(data, file);
@@ -3904,7 +3908,7 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 	fputs(data, file);
 	fputs("</physical_capital>\n", file);
 		fputs("<projects>", file);
-	write_int_static_array(file, current->projects, 13);
+	write_int_static_array(file, current->projects, 12);
 	fputs("</projects>\n", file);
 		fputs("<loans_interest_rate>", file);
 	sprintf(data, "%f", current->loans_interest_rate);
@@ -4318,6 +4322,10 @@ void write_government_agent(FILE *file, xmachine_memory_government * current)
 	sprintf(data, "%i", current->day_of_month_to_act);
 	fputs(data, file);
 	fputs("</day_of_month_to_act>\n", file);
+		fputs("<day_of_month_wages_paid>", file);
+	sprintf(data, "%i", current->day_of_month_wages_paid);
+	fputs(data, file);
+	fputs("</day_of_month_wages_paid>\n", file);
 		fputs("<gov_tax_rate>", file);
 	sprintf(data, "%f", current->gov_tax_rate);
 	fputs(data, file);
@@ -4568,10 +4576,6 @@ void FLAME_write_xml(char * location, int iteration_number, int * output_types, 
 		sprintf(data, "%f", FLAME_environment_variable_firm_memory_persistance);
 		fputs(data, file);
 		fputs("</firm_memory_persistance>\n", file);
-			fputs("<ratio_debt_firm>", file);
-		sprintf(data, "%f", FLAME_environment_variable_ratio_debt_firm);
-		fputs(data, file);
-		fputs("</ratio_debt_firm>\n", file);
 			fputs("<ratio_fiscal_policy>", file);
 		sprintf(data, "%f", FLAME_environment_variable_ratio_fiscal_policy);
 		fputs(data, file);

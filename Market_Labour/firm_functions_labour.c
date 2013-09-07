@@ -35,6 +35,10 @@ int firm_labour_workforce_needed()
     
     */
     
+    /* Make sure you have at least one employee per firm. */
+    if (NO_EMPLOYEES < 1) {
+        EMPLOYEES_NEEDED = 1;
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -54,11 +58,17 @@ int firm_labour_fire()
     
     n_to_fire = NO_EMPLOYEES - EMPLOYEES_NEEDED;
     
+    /* Keep at least one employee at the firm.*/
+    if (n_to_fire == NO_EMPLOYEES) {
+        n_to_fire -= 1;
+    }
+    
     for (i = 0; i < n_to_fire; i++) {
         index = EMPLOYEES.size - 1;
         add_fired_message(EMPLOYEES.array[index]);
         remove_int(&EMPLOYEES, index);
     }
+    
     
     //printf("Firm Id = %d has layed off %d employees. \n", ID, n_to_fire);
     
@@ -92,14 +102,14 @@ int firm_labour_job_announcement_stage1()
  */
 int firm_labour_job_offer_stage1()
 {
-    int n_hired, candidate;
+    int n_hired, new_employer;
 
     // Recieve job application messages.
     n_hired = 0;
     
     START_JOB_MATCH_STAGE1_MESSAGE_LOOP
-    candidate = job_match_stage1_message->employee_id;
-    add_int(&EMPLOYEES, candidate);
+    new_employer = job_match_stage1_message->employee_id;
+    add_int(&EMPLOYEES, new_employer);
     n_hired +=1;
     //printf("Stage 1: Firm Id = %d has hired Household Id = %d \n", ID, candidate);
 	FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP
@@ -138,7 +148,7 @@ int firm_labour_update()
     
     NO_EMPLOYEES = EMPLOYEES.size;
     VACANCIES += n_resigned;
-    
+ 
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -162,7 +172,7 @@ int firm_labour_job_announcement_stage2()
 
 /*
  * \fn: int firm_labour_job_offer_stage2()
- * \brief: the firm recieves job application messages in the second round. 
+ * \brief: the firm recieves job application messages in the second round.
  * Messages are sorted by employee ids. Applicants with lower indices 
  * (employee ids) are hired.
  * This leads to a type of deterministic sampling. An employee applies to a
