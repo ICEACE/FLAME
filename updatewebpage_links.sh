@@ -12,5 +12,5 @@ sed 's|<tr id="row_0_" class="even"><td class="entry"><img src="ftv2lastnode.png
 ./doxy/pages.html > ./doxy/newpages.html
 mv newpages.html pages.html
 
-git commit -a -m "Design documents are updated, reflecting a newer implementation."
+git commit -a -m "Links to pdf documentation files are added."
 git push origin gh-pages
