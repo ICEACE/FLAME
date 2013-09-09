@@ -9,7 +9,7 @@ int bank_init()
 {
 	// Read from memory
 	//printf("Bank Id = %d\n", ID);
-    //comment EJE
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 
