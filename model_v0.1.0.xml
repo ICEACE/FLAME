@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://flame.ac.uk/schema/xmml_v2.xsd">
   <!-- Model descriptions  -->
@@ -310,11 +311,17 @@
     </message>
   </messages>
 =======
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
 <xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
     <!-- Model descriptions  -->
     <name>ICEACE</name>
+<<<<<<< HEAD
     <version>Version 0.9.1, 30/08/2013</version>
+=======
+    <version>Version 0.1.1, 02/05/2012</version>
+>>>>>>> parent of 5e6cc2b... trial (EJE)
     <description>'ICEACE - Labour Market, Production Market, Consumption Market, Credit Market and Balance Sheet Accounting </description>
     <models>
         <model>
@@ -417,11 +424,14 @@
                 </variable>
                 <variable>
                     <type>int</type>
+<<<<<<< HEAD
                     <name>bank_id</name>
                     <description>Primary bank of a firm.</description>
                 </variable>
                 <variable>
                     <type>int</type>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
                     <name>isconstructor</name>
                     <description>Identifies if the firm is a constractor firm or not.</description>
                 </variable>
@@ -435,15 +445,19 @@
                     <name>isinsolvent</name>
                     <description>The variable indicates if the firm is a replacement of an insolvent producer.</description>
                 </variable>
+<<<<<<< HEAD
                 <variable>
                     <type>int</type>
                     <name>it_no</name>
                     <description>Current iteration. Incremented daily bais.</description>
                 </variable>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             </memory>
             <functions>
                 <function>
                     <name>firm_init</name>
+<<<<<<< HEAD
                     <description>Does run time initializations.</description>
                     <currentState>start</currentState>
                     <nextState>FirmCreditStart</nextState>
@@ -487,6 +501,12 @@
                         </output>
                     </outputs>
                 </function>
+=======
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>FirmCreditStart</nextState>
+                </function>
+>>>>>>> parent of 5e6cc2b... trial (EJE)
              </functions>
         </xagent>
         <xagent>
@@ -498,11 +518,14 @@
                     <name>id</name>
                     <description>Agent ID.</description>
                 </variable>
+<<<<<<< HEAD
                 <variable>
                     <type>int</type>
                     <name>bank_id</name>
                     <description>The ID of the bank an household has. Household applies to her bank for mortgage and deposits.</description>
                 </variable>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             </memory>
             <functions>
                 <function>
@@ -511,6 +534,7 @@
                     <currentState>start</currentState>
                     <nextState>HHCreditStart</nextState>
                 </function>
+<<<<<<< HEAD
                 <function>
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
@@ -550,6 +574,8 @@
                         </output>
                     </outputs>
                 </function>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             </functions>
         </xagent>
         <xagent>
@@ -585,11 +611,14 @@
                     <name>day_of_month_to_act</name>
                     <description>Activation day.</description>
                 </variable>
+<<<<<<< HEAD
                 <variable>
                     <type>int</type>
                     <name>day_of_week_to_act</name>
                     <description>Day of the week to act.</description>
                 </variable>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             </memory>
             <functions>
                 <function>
@@ -598,6 +627,7 @@
                     <currentState>start</currentState>
                     <nextState>BankCreditStart</nextState>
                 </function>
+<<<<<<< HEAD
                 <function>
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
@@ -652,6 +682,8 @@
                         </input>
                     </inputs>
                 </function>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             </functions>
         </xagent>
         <xagent>
@@ -687,6 +719,7 @@
                     <name>day_of_month_to_act</name>
                     <description>Day of the month to act.</description>
                 </variable>
+<<<<<<< HEAD
                 <variable>
                     <type>double</type>
                     <name>unemployment_rate</name>
@@ -697,6 +730,8 @@
                     <name>consumption_goods_prices[12]</name>
                     <description>Unemployment rate. It is updated monthly</description>
                 </variable>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             </memory>
             <functions>
                 <function>
@@ -772,6 +807,7 @@
     </agents>
     <messages>
         <message>
+<<<<<<< HEAD
             <name>firm_bank_update_deposit</name>
             <description>Firm sends out its liquid money to bank.</description>
             <variables>
@@ -804,6 +840,8 @@
             </variables>
         </message>
         <message>
+=======
+>>>>>>> parent of 5e6cc2b... trial (EJE)
             <name>interest_rate</name>
             <description>The interest rate sent by the central bank.</description>
             <variables>
@@ -814,6 +852,7 @@
                 </variable>
             </variables>
         </message>
+<<<<<<< HEAD
         <message>
             <name>tax_rate</name>
             <description>Flat tax rate both on wage income and capital income.</description>
@@ -827,4 +866,7 @@
         </message>
     </messages>
 >>>>>>> 296e0b86c5d67f45294975fcda605cf15934337c
+=======
+    </messages>
+>>>>>>> parent of 5e6cc2b... trial (EJE)
 </xmodel>
