@@ -10,16 +10,17 @@
 int firm_housing_enter_market()
 {
     double price_difference, price;
+    int i = 1;
     
-    price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
-    
-    price = UNIT_HOUSE_PRICE * (1 + price_difference);
-    
-    add_sell_housing_message(ID, price, INVENTORY);
+    while (i <= INVENTORY) {
+        price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
+        price = UNIT_HOUSE_PRICE * (1 + price_difference);
+        add_sell_housing_message(ID, price, 1);
+        i++;
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }
-//
 /*
  * \fn: int firm_housing_collect_sale_revenues()
  * \brief: The contructor firm checks its ID from the message board and 
@@ -46,7 +47,7 @@ int firm_housing_collect_sale_revenues()
     //update revenue and liquidity
     sales_income = n_sold_units * sale_unit_price;
     LIQUIDITY += sales_income;
-    REVENUE += sales_income;
+    REVENUES += sales_income;
     
 	FINISH_SOLD_HOUSING_MESSAGE_LOOP
     

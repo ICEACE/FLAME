@@ -11,11 +11,13 @@ int reagency_housing_check_interest_rate()
 {
     
     START_INTEREST_RATE_MESSAGE_LOOP
-    MORTGAGES_INTEREST_RATE = interest_rate_message->rate;
+    MORTGAGES_INTEREST_RATE = interest_rate_message->rate + 0.02;
 	FINISH_INTEREST_RATE_MESSAGE_LOOP
+    
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
 
 /*
  * \fn: int reagency_housing_process()
@@ -92,7 +94,7 @@ int reagency_housing_process()
     double annuity;
     double d1, d2;
     d1 = MORTGAGES_INTEREST_RATE/4;
-    d2 = d1 * pow((1 + d1), 40);
+    d2 = d1 * pow((1 + d1), 160);
     annuity = 1/d1 - 1/d2;
     
     int nsold = 0;
@@ -108,9 +110,9 @@ int reagency_housing_process()
         if (nsold == quantity){
             add_sold_housing_message(id, nsold, price);
             remove_hseller(&sellers_list, 0);
-            nsold = 0;
             transaction_quantity += nsold;
             transaction_volume += nsold * price;
+            nsold = 0;
             continue;
         }
         id = buyers_list.array[0].buyer_id;
@@ -153,14 +155,11 @@ int reagency_housing_process()
         // after new requested mortgage.
         risk += mortgage_request;
         
-        // equity before the round.
-        double equity = banks_list.array[i].equity;
-        // equity decreased at current round so far/
-        equity -= banks_list.array[i].amount_mortgaged;
-        // after new request.
-        equity -= mortgage_request;
         
-        if (equity < BANK_RISKY_ASSETS_RATIO * risk) {
+        double equity = banks_list.array[i].equity;
+        
+        
+        if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
             remove_hbuyer(&buyers_list, 0);
             remove_hbank(&banks_list, i);
             continue;
@@ -190,9 +189,11 @@ int reagency_housing_process()
         transaction_volume += nsold * price;
     }
     
-    HOUSING_TRANSACTIONS.quantity = transaction_quantity;
-    HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
-    
+    if (transaction_quantity > 0) {
+        HOUSING_TRANSACTIONS.quantity = transaction_quantity;
+        HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;        
+    }
+        
     /* Garbage Collection */
     free_hseller_array(&sellers_list);
     free_hbuyer_array(&buyers_list);

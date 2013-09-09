@@ -18,6 +18,8 @@
             <file>firm_functions_labour.c</file>
             <file>jpoffice_functions_labour.c</file>
             <file>centralbank_functions_labour.c</file>
+            <file>government_functions_labour.c</file>
+            <file>equityfund_functions_labour.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -342,6 +344,11 @@
                     <description>Monthly wage offer.</description>
                 </variable>
                 <variable>
+                    <type>double</type>
+                    <name>average_wage</name>
+                    <description>Average wage in the market.</description>
+                </variable>
+                <variable>
                     <type>int</type>
                     <name>no_employees</name>
                     <description>Number of employees</description>
@@ -490,11 +497,11 @@
                     <nextState>FirmLabourStage2End</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
-                        <op>LT</op>
+                        <op>GEQ</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                     <outputs>
@@ -510,11 +517,11 @@
                     <nextState>FirmLabourPayWages</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
-                        <op>GEQ</op>
+                        <op>LT</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                 </function>
@@ -551,13 +558,24 @@
                     <name>firm_labour_pay_wages</name>
                     <description>Pay wages and update liquidity.</description>
                     <currentState>FirmLabourPayWages</currentState>
-                    <nextState>FirmConsumptionStart</nextState>
+                    <nextState>FirmLabourWageAdjustment</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_wages_paid</phase>
                         </time>
                     </condition>
+                    <outputs>
+                        <output>
+                            <messageName>labour_tax</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_labour_trace_wages</name>
+                    <description>Firm checks wage in the market and updates its wage offer.</description>
+                    <currentState>FirmLabourWageAdjustment</currentState>
+                    <nextState>FirmConsumptionStart</nextState>
                 </function>
             </functions>
         </xagent>
@@ -565,13 +583,6 @@
             <name>centralbank</name>
             <description>A Central Bank agent.</description>
             <!-- Agent memory holding a list of variables -->
-            <memory>
-                <variable>
-                    <type>double</type>
-                    <name>unemployment_rate</name>
-                    <description>Monthly rate</description>
-                </variable>
-            </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
@@ -591,6 +602,86 @@
                     <description>Makes a sensus on employment status.</description>
                     <currentState>CentralBankLabour</currentState>
                     <nextState>CentralBankConsumption</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>employment_status</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>government</name>
+            <description>The government agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>average_wage</name>
+                    <description>Average wage for employed households.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unemployment_rate</name>
+                    <description>The unemployment rate</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>population_size</name>
+                    <description>Number of households.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>government_trace_unemployment_status</name>
+                    <description>Makes a sensus on employment status.</description>
+                    <currentState>GovernmentLabourStatus</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>employment_status</messageName>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>equityfund</name>
+            <description>The funding agency.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day for the shareholder audition.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a month.</description>
+                    <currentState>EFLabourMarket</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>equityfund_audit_dividends</name>
+                    <description>Makes a sensus on size of dividends.</description>
+                    <currentState>EFLabourMarket</currentState>
+                    <nextState>end</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -743,6 +834,16 @@
                     <type>int</type>
                     <name>employer_id</name>
                     <description>The employer. O stands for unemployed case.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Current wage of an household.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>nshares</name>
+                    <description>Number of shares one own.</description>
                 </variable>
             </variables>
         </message>

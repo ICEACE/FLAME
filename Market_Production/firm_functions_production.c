@@ -39,21 +39,19 @@ int firm_production_produce_goods()
 int firm_production_set_price()
 {
     int goods_to_sale = 0;
-    double costs = 0;
-    double unit_cost;
+    double unit_cost_old, unit_cost_new;
+    
+    unit_cost_old = UNIT_COST;
     
     goods_to_sale = INVENTORY + PRODUCTION_CURRENT;
-    costs = UNIT_GOODS_PRICE * (double)INVENTORY;
-    costs += WAGE_OFFER * (double)NO_EMPLOYEES;
-    costs += DEBT * RATIO_DEBT_FIRM;
     
+    unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
+    unit_cost_new += DEBT * LOANS_INTEREST_RATE / 3;
+   
     if (goods_to_sale != 0) {
-        unit_cost = costs / (double)goods_to_sale;
-        UNIT_GOODS_PRICE = (1 + PRICE_MARKUP) * unit_cost;
+        UNIT_COST = ((INVENTORY * unit_cost_old) + (PRODUCTION_CURRENT * unit_cost_new) ) / goods_to_sale;
+        UNIT_GOODS_PRICE = (1 + PRICE_MARKUP) * UNIT_COST;
     }
-    
-    //printf("Firm ID = %d\n", ID);
-    //printf("    New unit price = %f\n", UNIT_GOODS_PRICE);
     
     return 0; /* Returning zero means the agent is not removed */
 }
@@ -65,16 +63,16 @@ int firm_production_set_price()
  */
 int firm_production_plan()
 {
-
-    
+   
     // Estimate the production for next period.
     if (INVENTORY == 0) {
-        PRODUCTION_ESTIMATE = (int)(1.0 + PRODUCTION_MARKUP) * SALES;
+        EXPECTED_SALES = (int)(1.0 + PRODUCTION_MARKUP) * SALES;
     }
-    else if (INVENTORY < PRODUCTION_CURRENT) {
-        PRODUCTION_ESTIMATE = SALES;
-
+    //else if (INVENTORY < PRODUCTION_CURRENT) {
+    else{
+        EXPECTED_SALES = SALES;
     }
+    /*
     else if ((PRODUCTION_CURRENT <= INVENTORY) && (INVENTORY <= (2 * PRODUCTION_CURRENT))) {
         PRODUCTION_ESTIMATE = 2 * SALES - INVENTORY;
     }
@@ -82,12 +80,19 @@ int firm_production_plan()
     else {
         PRODUCTION_ESTIMATE = 0;
     }
+     */
     //printf("    Production Estimate = %d\n", PRODUCTION_ESTIMATE);
+    
+    if (INVENTORY > EXPECTED_SALES) {
+        PRODUCTION_PLAN = EXPECTED_SALES - (INVENTORY - EXPECTED_SALES);
+    }
+    else {
+        PRODUCTION_PLAN = EXPECTED_SALES;
+    }
     
     // compute production plan considering firm memory persistance
     // and production estimates.
-    PRODUCTION_PLAN = (int) (FIRM_MEMORY_PERSISTANCE * (double)PRODUCTION_CURRENT);
-    PRODUCTION_PLAN += (int)((1.0 - FIRM_MEMORY_PERSISTANCE) * (double)PRODUCTION_ESTIMATE);
+    PRODUCTION_PLAN = FIRM_MEMORY_PERSISTANCE * PRODUCTION_CURRENT + (1.0 - FIRM_MEMORY_PERSISTANCE) * PRODUCTION_PLAN;
     
     //printf("    Production Plan = %d\n", PRODUCTION_PLAN);
     
@@ -109,7 +114,8 @@ int firm_production_plan()
  */
 int firm_production_compute_labour_demand()
 {
-    EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+    // +1 is done for a pseudo ceiling purpose.
+    EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY) + 1;
     //printf("    Employees Needed = %d\n", EMPLOYEES_NEEDED);
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -127,33 +133,48 @@ int firm_production_compute_labour_demand()
  */
 int firm_production_construct_houses()
 {
-    int capital, labour, units_produced;
+    int capital, labour, units_to_produce;
     //printf("Constructor Firm ID = %d\n", ID);
     //printf("    Houses not sold = %d\n", INVENTORY);
     
     labour = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION);
     capital = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
     //Lentoif production function:
-    units_produced = min_int(labour, capital);
+    units_to_produce = min_int(labour, capital);
     
     //make sure that finished goods were transfered to inventories.
     //unfinished housing units are advanced one at a time.
     PROJECTS[0] = 0;
-    for (int i = 1; i<=12; i++) {
-        if (units_produced == 0) { break; }
-        if (PROJECTS[i] <= units_produced) {
-            PROJECTS[i-1] += PROJECTS[i];
-            units_produced -= PROJECTS[i];
-            PROJECTS[i] = 0;
-        } else {
-            PROJECTS[i-1] += units_produced;
-            PROJECTS[i] -= units_produced;
-            units_produced = 0;
+    while (units_to_produce > 0) {
+        for(int i = 0; i<=10; i++) {
+            if (units_to_produce <= 0) {break;}
+            if (PROJECTS[i+1] == 0) {continue;}
+            PROJECTS[i] += 1;
+            PROJECTS[i+1] -= 1;
+            units_to_produce -=1;
+        }
+        if (units_to_produce > 0) {
+            PROJECTS[11] += 1;
+            units_to_produce -= 1;
         }
     }
-    if (units_produced > 0) {
-        PROJECTS[12] += units_produced;
+    /*
+    for (int i = 1; i<=12; i++) {
+        if (units_to_produce == 0) { break; }
+        if (PROJECTS[i] <= units_to_produce) {
+            PROJECTS[i-1] += PROJECTS[i];
+            units_to_produce -= PROJECTS[i];
+            PROJECTS[i] = 0;
+        } else {
+            PROJECTS[i-1] += units_to_produce;
+            PROJECTS[i] -= units_to_produce;
+            units_to_produce = 0;
+        }
     }
+    if (units_to_produce > 0) {
+        PROJECTS[12] += units_to_produce;
+    }
+    */
     
     PRODUCTION_CURRENT = PROJECTS[0];
     
@@ -185,7 +206,7 @@ int firm_production_construction_plan()
     //Get number of ongoing projects.
     work_in_progress = 0;
     //printf("    Projects[");
-    for (int i = 1; i<=12; i++) {
+    for (int i = 1; i<=11; i++) {
         work_in_progress += PROJECTS[i];
         //printf("%d ", PROJECTS[i]);
     }

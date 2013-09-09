@@ -45,9 +45,22 @@ int firm_consumption_recieve_sales()
 	FINISH_SOLD_MESSAGE_LOOP
     
     LIQUIDITY += weekly_sales_income;
-    REVENUE += weekly_sales_income;
+    REVENUES += weekly_sales_income;
     
     //printf("Firm Id = %d Quantity Sold = %d Weekly Revenue = %f\n", ID, quantity_sold, weekly_sales_income);
     
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int firm_consumption_update_market_price()
+ * \brief: The producer firm gets average market price per good.
+ */
+int firm_consumption_update_market_price()
+{
+    START_GOODS_TRANSACTIONS_SUMMARY_MESSAGE_LOOP
+    AVERAGE_GOODS_PRICE = goods_transactions_summary_message->avg_price;
+	FINISH_GOODS_TRANSACTIONS_SUMMARY_MESSAGE_LOOP
+
 	return 0; /* Returning zero means the agent is not removed */
 }

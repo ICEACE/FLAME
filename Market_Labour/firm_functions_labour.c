@@ -35,6 +35,10 @@ int firm_labour_workforce_needed()
     
     */
     
+    /* Make sure you have at least one employee per firm. */
+    if (NO_EMPLOYEES < 1) {
+        EMPLOYEES_NEEDED = 1;
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -54,11 +58,17 @@ int firm_labour_fire()
     
     n_to_fire = NO_EMPLOYEES - EMPLOYEES_NEEDED;
     
+    /* Keep at least one employee at the firm.*/
+    if (n_to_fire == NO_EMPLOYEES) {
+        n_to_fire -= 1;
+    }
+    
     for (i = 0; i < n_to_fire; i++) {
         index = EMPLOYEES.size - 1;
         add_fired_message(EMPLOYEES.array[index]);
         remove_int(&EMPLOYEES, index);
     }
+    
     
     //printf("Firm Id = %d has layed off %d employees. \n", ID, n_to_fire);
     
@@ -73,7 +83,7 @@ int firm_labour_fire()
 int firm_labour_job_announcement_stage1()
 {
     int i;
-    
+    //update the WAGE_OFFER looking 
     for (i = 0; i < VACANCIES; i++) {
         add_vacancy_stage1_message(ID,WAGE_OFFER);
     }
@@ -92,14 +102,14 @@ int firm_labour_job_announcement_stage1()
  */
 int firm_labour_job_offer_stage1()
 {
-    int n_hired, candidate;
+    int n_hired, new_employer;
 
     // Recieve job application messages.
     n_hired = 0;
     
     START_JOB_MATCH_STAGE1_MESSAGE_LOOP
-    candidate = job_match_stage1_message->employee_id;
-    add_int(&EMPLOYEES, candidate);
+    new_employer = job_match_stage1_message->employee_id;
+    add_int(&EMPLOYEES, new_employer);
     n_hired +=1;
     //printf("Stage 1: Firm Id = %d has hired Household Id = %d \n", ID, candidate);
 	FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP
@@ -138,7 +148,7 @@ int firm_labour_update()
     
     NO_EMPLOYEES = EMPLOYEES.size;
     VACANCIES += n_resigned;
-    
+ 
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -162,7 +172,7 @@ int firm_labour_job_announcement_stage2()
 
 /*
  * \fn: int firm_labour_job_offer_stage2()
- * \brief: the firm recieves job application messages in the second round. 
+ * \brief: the firm recieves job application messages in the second round.
  * Messages are sorted by employee ids. Applicants with lower indices 
  * (employee ids) are hired.
  * This leads to a type of deterministic sampling. An employee applies to a
@@ -192,16 +202,55 @@ int firm_labour_job_offer_stage2()
 }
 
 
+
 /*
  * \fn: int firm_labour_pay_wages()
- * \brief: a firm pays wages.
+ * \brief: a firm pays wages and taxes on wages.
  */
 int firm_labour_pay_wages()
 {
     double payrolls;
+    double labour_tax = 0;
+    
     payrolls = (double)(WAGE_OFFER * NO_EMPLOYEES);
+    labour_tax = payrolls * TAX_RATE;
+    add_labour_tax_message(labour_tax);
     LIQUIDITY -= payrolls;
-    COSTS += payrolls;
+    LABOUR_COSTS += payrolls;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int firm_labour_trace_wages()
+ * \brief: The firm traces wages in the market and update.
+ */
+int firm_labour_trace_wages(){
+    int unemployed = 0;
+    double total_wages = 0;
+    double total = 0;
+    int id;
+    START_EMPLOYMENT_STATUS_MESSAGE_LOOP
+    id = employment_status_message->employer_id;
+    if (id == 0) {
+        unemployed++;
+    }
+    else{
+        total_wages += employment_status_message->wage;
+    }
+    total++;
+    FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
+    if (total == 0 || unemployed == total) {
+        AVERAGE_WAGE = 0;
+    } else {
+        AVERAGE_WAGE = total_wages / (total - unemployed);
+    }
+    
+    if (WAGE_OFFER < AVERAGE_WAGE) {
+        /* %10 increase */
+        WAGE_OFFER = WAGE_OFFER * 1.1;
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }

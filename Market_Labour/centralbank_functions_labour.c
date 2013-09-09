@@ -15,7 +15,7 @@ int centralbank_trace_unemployment_status(){
         total++;
     FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
     if (total == 0) {
-        UNEMPLOYMENT_RATE = 1.0;
+        UNEMPLOYMENT_RATE = 0;
     } else {
         UNEMPLOYMENT_RATE = unemployed / total;
     }
