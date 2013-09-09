@@ -1,312 +1,311 @@
-<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
-    <!-- Model descriptions  -->
-    <name>ICEACE</name>
-    <version>Version 0.1.1, 02/05/2012</version>
-    <description>'ICEACE - Labour Market, Production Market, Consumption Market, Credit Market and Balance Sheet Accounting </description>
-    <models>
-        <model>
-            <file>Market_Consumption/model_consumption.xml</file>
-            <enabled>true</enabled>
-        </model>
-        <model>
-            <file>Market_Labour/model_labour.xml</file>
-            <enabled>true</enabled>
-        </model>
-        <model>
-            <file>Market_Production/model_production.xml</file>
-            <enabled>true</enabled>
-        </model>
-        <model>
-            <file>Accounting/model_accounting.xml</file>
-            <enabled>false</enabled>
-        </model>
-        <model>
-            <file>Market_Credit/model_credit.xml</file>
-            <enabled>true</enabled>
-        </model>
-        <model>
-            <file>Market_Housing/model_housing.xml</file>
-            <enabled>true</enabled>
-        </model>
-    </models>
-    <environment>
-        <constants/>
-        <functionFiles>
-        <!-- List of C files that hold agent functions -->
-            <file>library_functions.c</file>
-            <file>firm_functions_top.c</file>
-            <file>household_functions_top.c</file>
-            <file>bank_functions_top.c</file>
-            <file>government_functions_top.c</file>
-            <file>centralbank_functions_top.c</file>
-            <file>equityfund_functions_top.c</file>
-            <file>jpoffice_functions_top.c</file>
-            <file>mall_functions_top.c</file>
-            <file>reagency_functions_top.c</file>
-        </functionFiles>
-        <dataTypes>
-            <dataType>
-                <name>transaction</name>
-                <description>A generic transaction data structure.</description>
-                <variables>
-                    <variable>
-                        <type>int</type>
-                        <name>quantity</name>
-                        <description>Number of items within a period.</description>
-                    </variable>
-                    <variable>
-                        <type>double</type>
-                        <name>avg_price</name>
-                        <description>Average price on overall transactions.</description>
-                    </variable>
-                </variables>
-            </dataType>
-        </dataTypes>
-        <timeUnits>
-            <timeUnit>
-                <name>daily</name>
-                <unit>iteration</unit>
-                <period>1</period>
-            </timeUnit>
-            <timeUnit>
-                <name>weekly</name>
-                <unit>daily</unit>
-                <period>5</period>
-            </timeUnit>
-            <timeUnit>
-                <name>monthly</name>
-                <unit>weekly</unit>
-                <period>4</period>
-            </timeUnit>
-            <timeUnit>
-                <name>quarterly</name>
-                <unit>monthly</unit>
-                <period>3</period>
-            </timeUnit>
-            <timeUnit>
-                <name>yearly</name>
-                <unit>monthly</unit>
-                <period>12</period>
-            </timeUnit>
-        </timeUnits>
-    </environment>
-
-	<!-- List of agents -->
-    <agents>
-        <xagent>
-            <name>firm</name>
-            <description>Firm agent.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>isconstructor</name>
-                    <description>Identifies if the firm is a constractor firm or not.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>day_of_month_to_act</name>
-                    <description>The day of the month to act at production and labour.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>isinsolvent</name>
-                    <description>The variable indicates if the firm is a replacement of an insolvent producer.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>firm_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>FirmCreditStart</nextState>
-                </function>
-             </functions>
-        </xagent>
-        <xagent>
-            <name>household</name>
-            <description>A consumer and labourer agent.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>household_init</name>
-                    <description>Notifies its id..</description>
-                    <currentState>start</currentState>
-                    <nextState>HHCreditStart</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>equityfund</name>
-            <description>Equity Fund agency.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>equityfund_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>EquityFundStart</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>bank</name>
-            <description>A simple bank agent.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>day_of_month_to_act</name>
-                    <description>Activation day.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>bank_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>BankCreditStart</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>government</name>
-            <description>A simple government agent.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>government_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>GovernmentStart</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>centralbank</name>
-            <description>A simple central bank agent.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>day_of_month_to_act</name>
-                    <description>Day of the month to act.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>centralbank_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>CentralBankCredit</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>jpoffice</name>
-            <description>Job placement office.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>jpoffice_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>JPOLabourMarket</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>mall</name>
-            <description>Shopping mall.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>mall_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>MallConsumptionMarket</nextState>
-                </function>
-            </functions>
-        </xagent>
-        <xagent>
-            <name>reagency</name>
-            <description>Real Estate Agency.</description>
-            <memory>
-                <variable>
-                    <type>int</type>
-                    <name>id</name>
-                    <description>Agent ID.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>day_of_month_to_act</name>
-                    <description>Activation day.</description>
-                </variable>
-            </memory>
-            <functions>
-                <function>
-                    <name>reagency_init</name>
-                    <description>Notifies its id.</description>
-                    <currentState>start</currentState>
-                    <nextState>REAgencyHousingMarket</nextState>
-                </function>
-            </functions>
-        </xagent>
-    </agents>
-    <messages>
-        <message>
-            <name>interest_rate</name>
-            <description>The interest rate sent by the central bank.</description>
-            <variables>
-                <variable>
-                    <type>double</type>
-                    <name>rate</name>
-                    <description>The rate.</description>
-                </variable>
-            </variables>
-        </message>
-    </messages>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://flame.ac.uk/schema/xmml_v2.xsd">
+  <!-- Model descriptions  -->
+  <name>ICEACE</name>
+  <version>Version 0.1.1, 02/05/2012</version>
+  <description>'ICEACE - Labour Market, Production Market, Consumption Market, Credit Market and Balance Sheet Accounting </description>
+  <models>
+    <model>
+      <file>Market_Consumption/model_consumption.xml</file>
+      <enabled>true</enabled>
+    </model>
+    <model>
+      <file>Market_Labour/model_labour.xml</file>
+      <enabled>true</enabled>
+    </model>
+    <model>
+      <file>Market_Production/model_production.xml</file>
+      <enabled>true</enabled>
+    </model>
+    <model>
+      <file>Accounting/model_accounting.xml</file>
+      <enabled>false</enabled>
+    </model>
+    <model>
+      <file>Market_Credit/model_credit.xml</file>
+      <enabled>true</enabled>
+    </model>
+    <model>
+      <file>Market_Housing/model_housing.xml</file>
+      <enabled>true</enabled>
+    </model>
+  </models>
+  <environment>
+    <constants />
+    <functionFiles>
+      <!-- List of C files that hold agent functions -->
+      <file>library_functions.c</file>
+      <file>firm_functions_top.c</file>
+      <file>household_functions_top.c</file>
+      <file>bank_functions_top.c</file>
+      <file>government_functions_top.c</file>
+      <file>centralbank_functions_top.c</file>
+      <file>equityfund_functions_top.c</file>
+      <file>jpoffice_functions_top.c</file>
+      <file>mall_functions_top.c</file>
+      <file>reagency_functions_top.c</file>
+    </functionFiles>
+    <dataTypes>
+      <dataType>
+        <name>transaction</name>
+        <description>A generic transaction data structure.</description>
+        <variables>
+          <variable>
+            <type>int</type>
+            <name>quantity</name>
+            <description>Number of items within a period.</description>
+          </variable>
+          <variable>
+            <type>double</type>
+            <name>avg_price</name>
+            <description>Average price on overall transactions.</description>
+          </variable>
+        </variables>
+      </dataType>
+    </dataTypes>
+    <timeUnits>
+      <timeUnit>
+        <name>daily</name>
+        <unit>iteration</unit>
+        <period>1</period>
+      </timeUnit>
+      <timeUnit>
+        <name>weekly</name>
+        <unit>daily</unit>
+        <period>5</period>
+      </timeUnit>
+      <timeUnit>
+        <name>monthly</name>
+        <unit>weekly</unit>
+        <period>4</period>
+      </timeUnit>
+      <timeUnit>
+        <name>quarterly</name>
+        <unit>monthly</unit>
+        <period>3</period>
+      </timeUnit>
+      <timeUnit>
+        <name>yearly</name>
+        <unit>monthly</unit>
+        <period>12</period>
+      </timeUnit>
+    </timeUnits>
+  </environment>
+  <!-- List of agents -->
+  <agents>
+    <xagent>
+      <name>firm</name>
+      <description>Firm agent.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+        <variable>
+          <type>int</type>
+          <name>isconstructor</name>
+          <description>Identifies if the firm is a constractor firm or not.</description>
+        </variable>
+        <variable>
+          <type>int</type>
+          <name>day_of_month_to_act</name>
+          <description>The day of the month to act at production and labour.</description>
+        </variable>
+        <variable>
+          <type>int</type>
+          <name>isinsolvent</name>
+          <description>The variable indicates if the firm is a replacement of an insolvent producer.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>firm_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>FirmCreditStart</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>household</name>
+      <description>A consumer and labourer agent.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>household_init</name>
+          <description>Notifies its id..</description>
+          <currentState>start</currentState>
+          <nextState>HHCreditStart</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>equityfund</name>
+      <description>Equity Fund agency.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>equityfund_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>EquityFundStart</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>bank</name>
+      <description>A simple bank agent.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+        <variable>
+          <type>int</type>
+          <name>day_of_month_to_act</name>
+          <description>Activation day.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>bank_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>BankCreditStart</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>government</name>
+      <description>A simple government agent.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>government_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>GovernmentStart</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>centralbank</name>
+      <description>A simple central bank agent.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+        <variable>
+          <type>int</type>
+          <name>day_of_month_to_act</name>
+          <description>Day of the month to act.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>centralbank_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>CentralBankCredit</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>jpoffice</name>
+      <description>Job placement office.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>jpoffice_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>JPOLabourMarket</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>mall</name>
+      <description>Shopping mall.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>mall_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>MallConsumptionMarket</nextState>
+        </function>
+      </functions>
+    </xagent>
+    <xagent>
+      <name>reagency</name>
+      <description>Real Estate Agency.</description>
+      <memory>
+        <variable>
+          <type>int</type>
+          <name>id</name>
+          <description>Agent ID.</description>
+        </variable>
+        <variable>
+          <type>int</type>
+          <name>day_of_month_to_act</name>
+          <description>Activation day.</description>
+        </variable>
+      </memory>
+      <functions>
+        <function>
+          <name>reagency_init</name>
+          <description>Notifies its id.</description>
+          <currentState>start</currentState>
+          <nextState>REAgencyHousingMarket</nextState>
+        </function>
+      </functions>
+    </xagent>
+  </agents>
+  <messages>
+    <message>
+      <name>interest_rate</name>
+      <description>The interest rate sent by the central bank.</description>
+      <variables>
+        <variable>
+          <type>double</type>
+          <name>rate</name>
+          <description>The rate.</description>
+        </variable>
+      </variables>
+    </message>
+  </messages>
 </xmodel>
