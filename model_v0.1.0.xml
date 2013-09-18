@@ -149,7 +149,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -166,7 +166,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></rhs>
                     </condition>
                     <outputs>
@@ -191,6 +191,11 @@
                     <name>bank_id</name>
                     <description>The ID of the bank an household has. Household applies to her bank for mortgage and deposits.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -212,7 +217,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -229,7 +234,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></rhs>
                     </condition>
                     <outputs>
@@ -248,6 +253,11 @@
                     <type>int</type>
                     <name>id</name>
                     <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
                 </variable>
             </memory>
             <functions>
@@ -278,6 +288,11 @@
                     <name>day_of_week_to_act</name>
                     <description>Day of the week to act.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -299,7 +314,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -316,7 +331,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>0</phase>
+                            <phase>1</phase>
                         </time></rhs>
                     </condition>
                     <inputs>
@@ -350,6 +365,11 @@
                     <type>int</type>
                     <name>id</name>
                     <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
                 </variable>
             </memory>
             <functions>
@@ -385,6 +405,11 @@
                     <name>consumption_goods_prices[12]</name>
                     <description>Unemployment rate. It is updated monthly</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -404,6 +429,11 @@
                     <name>id</name>
                     <description>Agent ID.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
             </memory>
             <functions>
                 <function>
@@ -422,6 +452,11 @@
                     <type>int</type>
                     <name>id</name>
                     <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
                 </variable>
             </memory>
             <functions>
@@ -446,6 +481,11 @@
                     <type>int</type>
                     <name>day_of_month_to_act</name>
                     <description>Activation day.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
                 </variable>
             </memory>
             <functions>
@@ -503,8 +543,19 @@
             </variables>
         </message>
         <message>
-            <name>tax_rate</name>
-            <description>Flat tax rate both on wage income and capital income.</description>
+            <name>capital_tax_rate</name>
+            <description>Government tax rate on capital income.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>value</name>
+                    <description>Rate of the tax.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>labour_tax_rate</name>
+            <description>Government tax rate on labour income.</description>
             <variables>
                 <variable>
                     <type>double</type>

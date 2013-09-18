@@ -72,7 +72,7 @@ void* cparams_create(int agent_number, int * agent_count, size_t * agent_struct_
  */
 int FLAME_condition_firm_idle_FirmUpdateDeposits_end(xmachine_memory_firm *a)
 {
-	if(!((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 0))) return 1;
+	if(!((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 1))) return 1;
 	else return 0;
 }
 
@@ -84,7 +84,7 @@ int FLAME_condition_firm_idle_FirmUpdateDeposits_end(xmachine_memory_firm *a)
  */
 int FLAME_condition_firm_firm_update_bank_account_FirmUpdateDeposits_end(xmachine_memory_firm *a)
 {
-	if(((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 0))) return 1;
+	if(((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 1))) return 1;
 	else return 0;
 }
 
@@ -564,7 +564,7 @@ int FLAME_condition_firm_firm_housing_enter_market_FirmHousingMarket_FirmHousing
  */
 int FLAME_condition_household_idle_HouseholdUpdateDeposits_end(xmachine_memory_household *a)
 {
-	if(!((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 0))) return 1;
+	if(!((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 1))) return 1;
 	else return 0;
 }
 
@@ -576,7 +576,7 @@ int FLAME_condition_household_idle_HouseholdUpdateDeposits_end(xmachine_memory_h
  */
 int FLAME_condition_household_household_update_bank_account_HouseholdUpdateDeposits_end(xmachine_memory_household *a)
 {
-	if(((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 0))) return 1;
+	if(((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 1))) return 1;
 	else return 0;
 }
 
@@ -948,7 +948,7 @@ int FLAME_condition_equityfund_equityfund_credit_invest_illiquids_EquityFundStar
  */
 int FLAME_condition_bank_idle_BankUpdateDeposits_end(xmachine_memory_bank *a)
 {
-	if(!((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 0))) return 1;
+	if(!((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 1))) return 1;
 	else return 0;
 }
 
@@ -960,7 +960,7 @@ int FLAME_condition_bank_idle_BankUpdateDeposits_end(xmachine_memory_bank *a)
  */
 int FLAME_condition_bank_bank_update_deposits_BankUpdateDeposits_end(xmachine_memory_bank *a)
 {
-	if(((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 0))) return 1;
+	if(((iteration_loop%5 == a->day_of_week_to_act) || (iteration_loop%5 == 1))) return 1;
 	else return 0;
 }
 

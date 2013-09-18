@@ -1698,7 +1698,7 @@ int readAgentXML(char * location,
 	int in_planned_investment_costs = 0;
 	int in_liquidity_need = 0;
 	int in_loan_list = 0;
-	int in_tax_rate = 0;
+	int in_labour_tax_rate = 0;
 	int in_delta_housing_price = 0;
 	int in_weekly_consumption_budget = 0;
 	int in_planned_consumption_budget = 0;
@@ -1727,6 +1727,7 @@ int readAgentXML(char * location,
 	int in_dividends_recieved = 0;
 	int in_dividends_retained = 0;
 	int in_firm_investment = 0;
+	int in_capital_tax_rate = 0;
 	int in_loans = 0;
 	int in_deposits = 0;
 	int in_centralbank_debt = 0;
@@ -1738,7 +1739,6 @@ int readAgentXML(char * location,
 	int in_total_costs = 0;
 	int in_unemployment_rate = 0;
 	int in_population_size = 0;
-	int in_gov_tax_rate = 0;
 	int in_labour_tax_income = 0;
 	int in_capital_tax_income = 0;
 	int in_gov_general_benefit_rate = 0;
@@ -2371,8 +2371,8 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/liquidity_need") == 0) { in_liquidity_need = 0; }
 			if(strcmp(buffer, "loan_list") == 0) { in_loan_list = 1; }
 			if(strcmp(buffer, "/loan_list") == 0) { in_loan_list = 0; }
-			if(strcmp(buffer, "tax_rate") == 0) { in_tax_rate = 1; }
-			if(strcmp(buffer, "/tax_rate") == 0) { in_tax_rate = 0; }
+			if(strcmp(buffer, "labour_tax_rate") == 0) { in_labour_tax_rate = 1; }
+			if(strcmp(buffer, "/labour_tax_rate") == 0) { in_labour_tax_rate = 0; }
 			if(strcmp(buffer, "delta_housing_price") == 0) { in_delta_housing_price = 1; }
 			if(strcmp(buffer, "/delta_housing_price") == 0) { in_delta_housing_price = 0; }
 			if(strcmp(buffer, "weekly_consumption_budget") == 0) { in_weekly_consumption_budget = 1; }
@@ -2429,6 +2429,8 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/dividends_retained") == 0) { in_dividends_retained = 0; }
 			if(strcmp(buffer, "firm_investment") == 0) { in_firm_investment = 1; }
 			if(strcmp(buffer, "/firm_investment") == 0) { in_firm_investment = 0; }
+			if(strcmp(buffer, "capital_tax_rate") == 0) { in_capital_tax_rate = 1; }
+			if(strcmp(buffer, "/capital_tax_rate") == 0) { in_capital_tax_rate = 0; }
 			if(strcmp(buffer, "loans") == 0) { in_loans = 1; }
 			if(strcmp(buffer, "/loans") == 0) { in_loans = 0; }
 			if(strcmp(buffer, "deposits") == 0) { in_deposits = 1; }
@@ -2451,8 +2453,6 @@ int readAgentXML(char * location,
 			if(strcmp(buffer, "/unemployment_rate") == 0) { in_unemployment_rate = 0; }
 			if(strcmp(buffer, "population_size") == 0) { in_population_size = 1; }
 			if(strcmp(buffer, "/population_size") == 0) { in_population_size = 0; }
-			if(strcmp(buffer, "gov_tax_rate") == 0) { in_gov_tax_rate = 1; }
-			if(strcmp(buffer, "/gov_tax_rate") == 0) { in_gov_tax_rate = 0; }
 			if(strcmp(buffer, "labour_tax_income") == 0) { in_labour_tax_income = 1; }
 			if(strcmp(buffer, "/labour_tax_income") == 0) { in_labour_tax_income = 0; }
 			if(strcmp(buffer, "capital_tax_income") == 0) { in_capital_tax_income = 1; }
@@ -2618,12 +2618,13 @@ int readAgentXML(char * location,
 					if(in_loan_list) { j = 0;
 						rc = read_loan_static_array(buffer, index, &j, current_firm_agent->loan_list, 2);
 						if(rc != 0) { printf("Error: reading 'firm' agent variable 'loan_list' of type 'loan'\n"); exit(0); } }
-					if(in_tax_rate) { current_firm_agent->tax_rate = atof(buffer); }
+					if(in_labour_tax_rate) { current_firm_agent->labour_tax_rate = atof(buffer); }
 					if(in_delta_housing_price) { current_firm_agent->delta_housing_price = atof(buffer); }
 				 }else if(in_household_agent == 1)
 				{
 					if(in_id) { current_household_agent->id = atoi(buffer); }
 					if(in_bank_id) { current_household_agent->bank_id = atoi(buffer); }
+					if(in_it_no) { current_household_agent->it_no = atoi(buffer); }
 					if(in_day_of_week_to_act) { current_household_agent->day_of_week_to_act = atoi(buffer); }
 					if(in_weekly_consumption_budget) { current_household_agent->weekly_consumption_budget = atof(buffer); }
 					if(in_planned_consumption_budget) { current_household_agent->planned_consumption_budget = atof(buffer); }
@@ -2632,7 +2633,7 @@ int readAgentXML(char * location,
 					if(in_day_of_month_to_act) { current_household_agent->day_of_month_to_act = atoi(buffer); }
 					if(in_day_of_month_wage_recieved) { current_household_agent->day_of_month_wage_recieved = atoi(buffer); }
 					if(in_mortgages_interest_rate) { current_household_agent->mortgages_interest_rate = atof(buffer); }
-					if(in_tax_rate) { current_household_agent->tax_rate = atof(buffer); }
+					if(in_labour_tax_rate) { current_household_agent->labour_tax_rate = atof(buffer); }
 					if(in_mortgages_list) { j = 0;
 						rc = read_mortgage_dynamic_array(buffer, index, &j, &current_household_agent->mortgages_list);
 						if(rc != 0) { printf("Error: reading 'household' agent variable 'mortgages_list' of type 'mortgage_array'\n"); exit(0); } }
@@ -2660,6 +2661,7 @@ int readAgentXML(char * location,
 				 }else if(in_equityfund_agent == 1)
 				{
 					if(in_id) { current_equityfund_agent->id = atoi(buffer); }
+					if(in_it_no) { current_equityfund_agent->it_no = atoi(buffer); }
 					if(in_day_of_month_to_act) { current_equityfund_agent->day_of_month_to_act = atoi(buffer); }
 					if(in_share_firms) { current_equityfund_agent->share_firms = atof(buffer); }
 					if(in_share_construction_firms) { current_equityfund_agent->share_construction_firms = atof(buffer); }
@@ -2671,12 +2673,13 @@ int readAgentXML(char * location,
 					if(in_dividends_retained) { current_equityfund_agent->dividends_retained = atof(buffer); }
 					if(in_dividends_paid) { current_equityfund_agent->dividends_paid = atof(buffer); }
 					if(in_firm_investment) { current_equityfund_agent->firm_investment = atof(buffer); }
-					if(in_tax_rate) { current_equityfund_agent->tax_rate = atof(buffer); }
+					if(in_capital_tax_rate) { current_equityfund_agent->capital_tax_rate = atof(buffer); }
 				 }else if(in_bank_agent == 1)
 				{
 					if(in_id) { current_bank_agent->id = atoi(buffer); }
 					if(in_day_of_month_to_act) { current_bank_agent->day_of_month_to_act = atoi(buffer); }
 					if(in_day_of_week_to_act) { current_bank_agent->day_of_week_to_act = atoi(buffer); }
+					if(in_it_no) { current_bank_agent->it_no = atoi(buffer); }
 					if(in_total_assets) { current_bank_agent->total_assets = atof(buffer); }
 					if(in_loans) { current_bank_agent->loans = atof(buffer); }
 					if(in_mortgages) { current_bank_agent->mortgages = atof(buffer); }
@@ -2697,6 +2700,7 @@ int readAgentXML(char * location,
 				 }else if(in_government_agent == 1)
 				{
 					if(in_id) { current_government_agent->id = atoi(buffer); }
+					if(in_it_no) { current_government_agent->it_no = atoi(buffer); }
 					if(in_average_wage) { current_government_agent->average_wage = atof(buffer); }
 					if(in_unemployment_rate) { current_government_agent->unemployment_rate = atof(buffer); }
 					if(in_population_size) { current_government_agent->population_size = atoi(buffer); }
@@ -2705,7 +2709,8 @@ int readAgentXML(char * location,
 					if(in_liquidity) { current_government_agent->liquidity = atof(buffer); }
 					if(in_day_of_month_to_act) { current_government_agent->day_of_month_to_act = atoi(buffer); }
 					if(in_day_of_month_wages_paid) { current_government_agent->day_of_month_wages_paid = atoi(buffer); }
-					if(in_gov_tax_rate) { current_government_agent->gov_tax_rate = atof(buffer); }
+					if(in_capital_tax_rate) { current_government_agent->capital_tax_rate = atof(buffer); }
+					if(in_labour_tax_rate) { current_government_agent->labour_tax_rate = atof(buffer); }
 					if(in_labour_tax_income) { current_government_agent->labour_tax_income = atof(buffer); }
 					if(in_capital_tax_income) { current_government_agent->capital_tax_income = atof(buffer); }
 					if(in_gov_general_benefit_rate) { current_government_agent->gov_general_benefit_rate = atof(buffer); }
@@ -2723,6 +2728,7 @@ int readAgentXML(char * location,
 					if(in_consumption_goods_prices) { j = 0;
 						rc = read_double_static_array(buffer, index, &j, current_centralbank_agent->consumption_goods_prices, 12);
 						if(rc != 0) { printf("Error: reading 'centralbank' agent variable 'consumption_goods_prices' of type 'double'\n"); exit(0); } }
+					if(in_it_no) { current_centralbank_agent->it_no = atoi(buffer); }
 					if(in_day_of_week_to_act) { current_centralbank_agent->day_of_week_to_act = atoi(buffer); }
 					if(in_goods) { j = 0;
 						rc = read_transaction(buffer, index, &j, &current_centralbank_agent->goods);
@@ -2750,10 +2756,12 @@ int readAgentXML(char * location,
 				 }else if(in_jpoffice_agent == 1)
 				{
 					if(in_id) { current_jpoffice_agent->id = atoi(buffer); }
+					if(in_it_no) { current_jpoffice_agent->it_no = atoi(buffer); }
 					if(in_day_of_month_to_act) { current_jpoffice_agent->day_of_month_to_act = atoi(buffer); }
 				 }else if(in_mall_agent == 1)
 				{
 					if(in_id) { current_mall_agent->id = atoi(buffer); }
+					if(in_it_no) { current_mall_agent->it_no = atoi(buffer); }
 					if(in_day_of_week_to_act) { current_mall_agent->day_of_week_to_act = atoi(buffer); }
 					if(in_goods_transactions) { j = 0;
 						rc = read_transaction(buffer, index, &j, &current_mall_agent->goods_transactions);
@@ -2762,6 +2770,7 @@ int readAgentXML(char * location,
 				{
 					if(in_id) { current_reagency_agent->id = atoi(buffer); }
 					if(in_day_of_month_to_act) { current_reagency_agent->day_of_month_to_act = atoi(buffer); }
+					if(in_it_no) { current_reagency_agent->it_no = atoi(buffer); }
 					if(in_mortgages_interest_rate) { current_reagency_agent->mortgages_interest_rate = atof(buffer); }
 					if(in_housing_transactions) { j = 0;
 						rc = read_transaction(buffer, index, &j, &current_reagency_agent->housing_transactions);
@@ -4001,10 +4010,10 @@ void write_firm_agent(FILE *file, xmachine_memory_firm * current)
 		fputs("<loan_list>", file);
 	write_loan_static_array(file, current->loan_list, 2);
 	fputs("</loan_list>\n", file);
-		fputs("<tax_rate>", file);
-	sprintf(data, "%f", current->tax_rate);
+		fputs("<labour_tax_rate>", file);
+	sprintf(data, "%f", current->labour_tax_rate);
 	fputs(data, file);
-	fputs("</tax_rate>\n", file);
+	fputs("</labour_tax_rate>\n", file);
 		fputs("<delta_housing_price>", file);
 	sprintf(data, "%f", current->delta_housing_price);
 	fputs(data, file);
@@ -4026,6 +4035,10 @@ void write_household_agent(FILE *file, xmachine_memory_household * current)
 	sprintf(data, "%i", current->bank_id);
 	fputs(data, file);
 	fputs("</bank_id>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<day_of_week_to_act>", file);
 	sprintf(data, "%i", current->day_of_week_to_act);
 	fputs(data, file);
@@ -4058,10 +4071,10 @@ void write_household_agent(FILE *file, xmachine_memory_household * current)
 	sprintf(data, "%f", current->mortgages_interest_rate);
 	fputs(data, file);
 	fputs("</mortgages_interest_rate>\n", file);
-		fputs("<tax_rate>", file);
-	sprintf(data, "%f", current->tax_rate);
+		fputs("<labour_tax_rate>", file);
+	sprintf(data, "%f", current->labour_tax_rate);
 	fputs(data, file);
-	fputs("</tax_rate>\n", file);
+	fputs("</labour_tax_rate>\n", file);
 		fputs("<mortgages_list>", file);
 	write_mortgage_dynamic_array(file, &current->mortgages_list);
 	fputs("</mortgages_list>\n", file);
@@ -4144,6 +4157,10 @@ void write_equityfund_agent(FILE *file, xmachine_memory_equityfund * current)
 	sprintf(data, "%i", current->id);
 	fputs(data, file);
 	fputs("</id>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<day_of_month_to_act>", file);
 	sprintf(data, "%i", current->day_of_month_to_act);
 	fputs(data, file);
@@ -4188,10 +4205,10 @@ void write_equityfund_agent(FILE *file, xmachine_memory_equityfund * current)
 	sprintf(data, "%f", current->firm_investment);
 	fputs(data, file);
 	fputs("</firm_investment>\n", file);
-		fputs("<tax_rate>", file);
-	sprintf(data, "%f", current->tax_rate);
+		fputs("<capital_tax_rate>", file);
+	sprintf(data, "%f", current->capital_tax_rate);
 	fputs(data, file);
-	fputs("</tax_rate>\n", file);
+	fputs("</capital_tax_rate>\n", file);
 
 	fputs("</xagent>\n", file);
 }
@@ -4213,6 +4230,10 @@ void write_bank_agent(FILE *file, xmachine_memory_bank * current)
 	sprintf(data, "%i", current->day_of_week_to_act);
 	fputs(data, file);
 	fputs("</day_of_week_to_act>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<total_assets>", file);
 	sprintf(data, "%f", current->total_assets);
 	fputs(data, file);
@@ -4294,6 +4315,10 @@ void write_government_agent(FILE *file, xmachine_memory_government * current)
 	sprintf(data, "%i", current->id);
 	fputs(data, file);
 	fputs("</id>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<average_wage>", file);
 	sprintf(data, "%f", current->average_wage);
 	fputs(data, file);
@@ -4326,10 +4351,14 @@ void write_government_agent(FILE *file, xmachine_memory_government * current)
 	sprintf(data, "%i", current->day_of_month_wages_paid);
 	fputs(data, file);
 	fputs("</day_of_month_wages_paid>\n", file);
-		fputs("<gov_tax_rate>", file);
-	sprintf(data, "%f", current->gov_tax_rate);
+		fputs("<capital_tax_rate>", file);
+	sprintf(data, "%f", current->capital_tax_rate);
 	fputs(data, file);
-	fputs("</gov_tax_rate>\n", file);
+	fputs("</capital_tax_rate>\n", file);
+		fputs("<labour_tax_rate>", file);
+	sprintf(data, "%f", current->labour_tax_rate);
+	fputs(data, file);
+	fputs("</labour_tax_rate>\n", file);
 		fputs("<labour_tax_income>", file);
 	sprintf(data, "%f", current->labour_tax_income);
 	fputs(data, file);
@@ -4390,6 +4419,10 @@ void write_centralbank_agent(FILE *file, xmachine_memory_centralbank * current)
 		fputs("<consumption_goods_prices>", file);
 	write_double_static_array(file, current->consumption_goods_prices, 12);
 	fputs("</consumption_goods_prices>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<day_of_week_to_act>", file);
 	sprintf(data, "%i", current->day_of_week_to_act);
 	fputs(data, file);
@@ -4472,6 +4505,10 @@ void write_jpoffice_agent(FILE *file, xmachine_memory_jpoffice * current)
 	sprintf(data, "%i", current->id);
 	fputs(data, file);
 	fputs("</id>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<day_of_month_to_act>", file);
 	sprintf(data, "%i", current->day_of_month_to_act);
 	fputs(data, file);
@@ -4489,6 +4526,10 @@ void write_mall_agent(FILE *file, xmachine_memory_mall * current)
 	sprintf(data, "%i", current->id);
 	fputs(data, file);
 	fputs("</id>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<day_of_week_to_act>", file);
 	sprintf(data, "%i", current->day_of_week_to_act);
 	fputs(data, file);
@@ -4513,6 +4554,10 @@ void write_reagency_agent(FILE *file, xmachine_memory_reagency * current)
 	sprintf(data, "%i", current->day_of_month_to_act);
 	fputs(data, file);
 	fputs("</day_of_month_to_act>\n", file);
+		fputs("<it_no>", file);
+	sprintf(data, "%i", current->it_no);
+	fputs(data, file);
+	fputs("</it_no>\n", file);
 		fputs("<mortgages_interest_rate>", file);
 	sprintf(data, "%f", current->mortgages_interest_rate);
 	fputs(data, file);

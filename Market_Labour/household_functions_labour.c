@@ -116,7 +116,7 @@ int household_labour_recieve_wage()
 {
     double net_wage = 0;
     
-    net_wage = WAGE * TAX_RATE;
+    net_wage = WAGE * (1 - LABOUR_TAX_RATE);
     
     LIQUIDITY += net_wage;
     

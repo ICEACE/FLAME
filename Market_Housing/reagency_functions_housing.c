@@ -147,21 +147,28 @@ int reagency_housing_process()
             remove_hbuyer(&buyers_list, 0);
             continue;
         }
-        double mortgage_request = price - money;
+        
+        double equity = banks_list.array[i].equity;
+
         // risky asssets before the market opened.
         risk = banks_list.array[i].risky_assets;
         // mortagages given so far at current round.
         risk += banks_list.array[i].amount_mortgaged;
-        // after new requested mortgage.
-        risk += mortgage_request;
-        
-        
-        double equity = banks_list.array[i].equity;
-        
         
         if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
             remove_hbuyer(&buyers_list, 0);
             remove_hbank(&banks_list, i);
+            continue;
+        }
+        
+        double mortgage_request = price - money;
+        // risk updated after new requested mortgage.
+        risk += mortgage_request;
+        
+        //The bank cannot mortgage this buyer but it may some others in the rest of
+        //the queue.
+        if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
+            remove_hbuyer(&buyers_list, 0);
             continue;
         }
         
@@ -180,6 +187,8 @@ int reagency_housing_process()
         add_bought_housing_message(id, money, mortgage_request, annuity);
         remove_hbuyer(&buyers_list, 0);
         nsold++;
+        //The risk of the bank is increased incrementally.
+        banks_list.array[i].amount_mortgaged += mortgage_request;
     } while (1);
     
     if (nsold > 0 && sellers_list.size > 0) {

@@ -15,6 +15,9 @@
 /** \def CONSUMPTION_GOODS_PRICES
  * \brief Direct access to consumption_goods_prices of centralbank agent memory variable. */
 #define CONSUMPTION_GOODS_PRICES (current_xmachine_centralbank->consumption_goods_prices)
+/** \def IT_NO
+ * \brief Direct access to it_no of centralbank agent memory variable. */
+#define IT_NO (current_xmachine_centralbank->it_no)
 /** \def DAY_OF_WEEK_TO_ACT
  * \brief Direct access to day_of_week_to_act of centralbank agent memory variable. */
 #define DAY_OF_WEEK_TO_ACT (current_xmachine_centralbank->day_of_week_to_act)

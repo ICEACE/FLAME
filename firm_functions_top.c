@@ -12,9 +12,19 @@ int firm_init()
     
     filename = malloc(40*sizeof(char));
     filename[0]=0;
-    strcpy(filename, "./outputs/data/Firm_labour_size.txt");
+    strcpy(filename, "./outputs/data/Firm_snapshot.txt");
+    
+    if (IT_NO == 0) {
+        file1 = fopen(filename,"w");
+        fprintf(file1,"%s %s %s %s %s %s %s %s %s\n","IT_NO","ID","ISCONSTRUCTOR","NO_EMPLOYEES","REVENUES","TOTAL_ASSETS","LIQUIDITY","DEBT","INVENTORY");
+        fclose(file1);
+        free(filename);
+        IT_NO++;
+        return 0;
+    }
+    
     file1 = fopen(filename,"a");
-    fprintf(file1,"\n %d %d %d %d",IT_NO,ID,NO_EMPLOYEES,VACANCIES);
+    fprintf(file1,"%d %d %d %d %f %f %f %f %d\n",IT_NO,ID,ISCONSTRUCTOR,NO_EMPLOYEES,REVENUES,TOTAL_ASSETS,LIQUIDITY,DEBT,INVENTORY);
     fclose(file1);
     free(filename);
     

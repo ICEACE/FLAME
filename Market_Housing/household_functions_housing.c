@@ -48,18 +48,19 @@ int household_housing_market_role()
 int household_housing_check_wealth()
 {
     double wealth = 0;
-    double housing = 0;
-    
-    // Housing assets.
-    housing = HOUSING_UNITS * HOUSING_PRICE;
     
     //Capital incomes CAPITAL_INCOME are liquidified as sooon as they are recieved.
-    wealth = LIQUIDITY + housing;
+    wealth = LIQUIDITY + HOUSING_VALUE;
     
-    if (wealth <= 0){
+    if (wealth == 0){
         EQUITY_RATIO = 0;
     } else {
         EQUITY_RATIO = EQUITY / wealth;
+    }
+    
+    // Print this to a file:
+    if (EQUITY_RATIO <= 0 ) {
+       printf("Equity Ratio Household %d --> %f/n", ID, EQUITY_RATIO); 
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -270,13 +271,13 @@ int household_housing_collect_sale_revenue()
  */
 int household_housing_update_market_price()
 {
-    printf("HousingMarket Household Old Housing Price = %f\n", HOUSING_PRICE);
+    //printf("HousingMarket Household Old Housing Price = %f\n", HOUSING_PRICE);
  
     START_HOUSING_PRICE_MESSAGE_LOOP
     HOUSING_PRICE = housing_price_message->price;
 	FINISH_HOUSING_PRICE_MESSAGE_LOOP
     
-    printf("HousingMarket Household New Housing Price = %f\n", HOUSING_PRICE);
+    //printf("HousingMarket Household New Housing Price = %f\n", HOUSING_PRICE);
 	    
 	return 0; /* Returning zero means the agent is not removed */
 }

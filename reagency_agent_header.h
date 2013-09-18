@@ -9,6 +9,9 @@
 /** \def DAY_OF_MONTH_TO_ACT
  * \brief Direct access to day_of_month_to_act of reagency agent memory variable. */
 #define DAY_OF_MONTH_TO_ACT (current_xmachine_reagency->day_of_month_to_act)
+/** \def IT_NO
+ * \brief Direct access to it_no of reagency agent memory variable. */
+#define IT_NO (current_xmachine_reagency->it_no)
 /** \def MORTGAGES_INTEREST_RATE
  * \brief Direct access to mortgages_interest_rate of reagency agent memory variable. */
 #define MORTGAGES_INTEREST_RATE (current_xmachine_reagency->mortgages_interest_rate)

@@ -156,9 +156,9 @@
 /** \def LOAN_LIST
  * \brief Direct access to loan_list of firm agent memory variable. */
 #define LOAN_LIST (current_xmachine_firm->loan_list)
-/** \def TAX_RATE
- * \brief Direct access to tax_rate of firm agent memory variable. */
-#define TAX_RATE (current_xmachine_firm->tax_rate)
+/** \def LABOUR_TAX_RATE
+ * \brief Direct access to labour_tax_rate of firm agent memory variable. */
+#define LABOUR_TAX_RATE (current_xmachine_firm->labour_tax_rate)
 /** \def DELTA_HOUSING_PRICE
  * \brief Direct access to delta_housing_price of firm agent memory variable. */
 #define DELTA_HOUSING_PRICE (current_xmachine_firm->delta_housing_price)

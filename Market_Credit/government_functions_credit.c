@@ -19,24 +19,33 @@ int government_update_fiscal_policy()
     if (balance < 0) {
         dTax = RATIO_FISCAL_POLICY * 0.05;
         dBenefit = (1- RATIO_FISCAL_POLICY) * 0.05;
-        GOV_TAX_RATE = GOV_TAX_RATE + dTax;
+        LABOUR_TAX_RATE = LABOUR_TAX_RATE + dTax;
+        CAPITAL_TAX_RATE = CAPITAL_TAX_RATE + dTax;
         GOV_GENERAL_BENEFIT_RATE = GOV_GENERAL_BENEFIT_RATE - dBenefit;
     }
     
     // The increment portion (0.05) and threshold below (500) is picked from the model description.
-    // However, I suggest this be parameterized and be treated as one of policy parameters.
+    // However, I suggest this be parameterized and be treated as one of policy parameters. bulent.
     if (balance > 500){
         dTax = (1 - RATIO_FISCAL_POLICY) * 0.05;
         dBenefit =  RATIO_FISCAL_POLICY * 0.05;
-        GOV_TAX_RATE = GOV_TAX_RATE - dTax;
+        LABOUR_TAX_RATE = LABOUR_TAX_RATE - dTax;
+        CAPITAL_TAX_RATE = CAPITAL_TAX_RATE - dTax;
         GOV_GENERAL_BENEFIT_RATE = GOV_GENERAL_BENEFIT_RATE + dBenefit;
     }
     
-    if (GOV_TAX_RATE > 0.5) {
-        GOV_TAX_RATE = 0.5;
+    if (CAPITAL_TAX_RATE > 0.5) {
+        CAPITAL_TAX_RATE = 0.5;
     }
-    if (GOV_TAX_RATE < 0.1) {
-        GOV_TAX_RATE = 0.1;
+    if (CAPITAL_TAX_RATE < 0.1) {
+        CAPITAL_TAX_RATE = 0.1;
+    }
+    
+    if (LABOUR_TAX_RATE > 0.5) {
+        LABOUR_TAX_RATE = 0.5;
+    }
+    if (LABOUR_TAX_RATE < 0.1) {
+        LABOUR_TAX_RATE = 0.1;
     }
     
     if (GOV_GENERAL_BENEFIT_RATE > 0.4){
@@ -48,7 +57,8 @@ int government_update_fiscal_policy()
     }
 
     
-    add_tax_rate_message(GOV_TAX_RATE);
+    add_labour_tax_rate_message(LABOUR_TAX_RATE);
+    add_capital_tax_rate_message(CAPITAL_TAX_RATE);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

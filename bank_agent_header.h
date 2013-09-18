@@ -12,6 +12,9 @@
 /** \def DAY_OF_WEEK_TO_ACT
  * \brief Direct access to day_of_week_to_act of bank agent memory variable. */
 #define DAY_OF_WEEK_TO_ACT (current_xmachine_bank->day_of_week_to_act)
+/** \def IT_NO
+ * \brief Direct access to it_no of bank agent memory variable. */
+#define IT_NO (current_xmachine_bank->it_no)
 /** \def TOTAL_ASSETS
  * \brief Direct access to total_assets of bank agent memory variable. */
 #define TOTAL_ASSETS (current_xmachine_bank->total_assets)

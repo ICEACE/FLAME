@@ -6,6 +6,9 @@
 /** \def ID
  * \brief Direct access to id of equityfund agent memory variable. */
 #define ID (current_xmachine_equityfund->id)
+/** \def IT_NO
+ * \brief Direct access to it_no of equityfund agent memory variable. */
+#define IT_NO (current_xmachine_equityfund->it_no)
 /** \def DAY_OF_MONTH_TO_ACT
  * \brief Direct access to day_of_month_to_act of equityfund agent memory variable. */
 #define DAY_OF_MONTH_TO_ACT (current_xmachine_equityfund->day_of_month_to_act)
@@ -39,6 +42,6 @@
 /** \def FIRM_INVESTMENT
  * \brief Direct access to firm_investment of equityfund agent memory variable. */
 #define FIRM_INVESTMENT (current_xmachine_equityfund->firm_investment)
-/** \def TAX_RATE
- * \brief Direct access to tax_rate of equityfund agent memory variable. */
-#define TAX_RATE (current_xmachine_equityfund->tax_rate)
+/** \def CAPITAL_TAX_RATE
+ * \brief Direct access to capital_tax_rate of equityfund agent memory variable. */
+#define CAPITAL_TAX_RATE (current_xmachine_equityfund->capital_tax_rate)

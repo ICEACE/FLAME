@@ -230,7 +230,7 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>tax_rate</name>
+                    <name>labour_tax_rate</name>
                     <description>Tax rate to be used to pay labour tax.</description>
                 </variable>
             </memory>
@@ -534,7 +534,7 @@
                     <nextState>FirmCreditInsolvencyCheck</nextState>
                     <inputs>
                         <input>
-                            <messageName>tax_rate</messageName>
+                            <messageName>labour_tax_rate</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -990,7 +990,7 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>tax_rate</name>
+                    <name>labour_tax_rate</name>
                     <description>Rate of tax set by the government.</description>
                 </variable>
                 <variable>
@@ -1141,7 +1141,7 @@
                     <nextState>HHCreditMonthly</nextState>
                     <inputs>
                         <input>
-                            <messageName>tax_rate</messageName>
+                            <messageName>labour_tax_rate</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -1260,8 +1260,8 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>tax_rate</name>
-                    <description>Tax rate to be used to pay labour tax.</description>
+                    <name>capital_tax_rate</name>
+                    <description>Tax rate used at determining amount of tax on dividends.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->
@@ -1350,7 +1350,7 @@
                     <nextState>EFLabourMarket</nextState>
                     <inputs>
                         <input>
-                            <messageName>tax_rate</messageName>
+                            <messageName>capital_tax_rate</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -1388,8 +1388,13 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>gov_tax_rate</name>
-                    <description>Government rate on taxes.</description>
+                    <name>capital_tax_rate</name>
+                    <description>Government rate on capital income.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>labour_tax_rate</name>
+                    <description>Government rate on labour income.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -1498,7 +1503,10 @@
                     <nextState>GovernmentMonthly</nextState>
                     <outputs>
                         <output>
-                            <messageName>tax_rate</messageName>
+                            <messageName>capital_tax_rate</messageName>
+                        </output>
+                        <output>
+                            <messageName>labour_tax_rate</messageName>
                         </output>
                     </outputs>
                 </function>

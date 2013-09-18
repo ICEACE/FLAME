@@ -9,9 +9,9 @@
 int equityfund_credit_check_tax_rate()
 {
     
-    START_TAX_RATE_MESSAGE_LOOP
-    TAX_RATE = tax_rate_message->value;
-	FINISH_TAX_RATE_MESSAGE_LOOP
+    START_CAPITAL_TAX_RATE_MESSAGE_LOOP
+    CAPITAL_TAX_RATE = capital_tax_rate_message->value;
+	FINISH_CAPITAL_TAX_RATE_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -52,7 +52,7 @@ int equityfund_credit_distribute_shares()
     if (DIVIDENDS_PAID < 0) {
         DIVIDENDS_PAID = 0;
         add_household_share_message(per_share);
-        add_capital_tax_message(DIVIDENDS_PAID * TAX_RATE);
+        add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
         
         return 0;
     }
@@ -60,14 +60,14 @@ int equityfund_credit_distribute_shares()
     if (N_SHARES > 0) {
         per_share = DIVIDENDS_PAID / N_SHARES;
         LIQUIDITY -= DIVIDENDS_PAID;
-        per_share -= per_share * TAX_RATE;
+        per_share -= per_share * CAPITAL_TAX_RATE;
     }
     else{
         per_share = 0;
         DIVIDENDS_PAID = 0;
     }
     add_household_share_message(per_share);
-    add_capital_tax_message(DIVIDENDS_PAID * TAX_RATE);
+    add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

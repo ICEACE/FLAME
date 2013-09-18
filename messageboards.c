@@ -418,38 +418,38 @@ m_interest_rate * get_next_interest_rate_message(m_interest_rate * current)
 
 
 
-union pu_tax_rate 
+union pu_capital_tax_rate 
 {
-    m_tax_rate *ptr;
+    m_capital_tax_rate *ptr;
     void *ptr_anon;
 };
 
-/** \fn void add_tax_rate_message(double value)
- * \brief Add tax_rate message by calling internal and processing.
+/** \fn void add_capital_tax_rate_message(double value)
+ * \brief Add capital_tax_rate message by calling internal and processing.
  * \param value Message variable.
  */
-void add_tax_rate_message(double value)
+void add_capital_tax_rate_message(double value)
 {
     int rc;
-	m_tax_rate msg;
+	m_capital_tax_rate msg;
     
     msg.value = value;
     
     
-    rc = MB_AddMessage(b_tax_rate, &msg);
+    rc = MB_AddMessage(b_capital_tax_rate, &msg);
     #ifdef ERRCHECK
     if (rc != MB_SUCCESS)
     {
-       fprintf(stderr, "ERROR: Could not add message to 'tax_rate' board\n");
+       fprintf(stderr, "ERROR: Could not add message to 'capital_tax_rate' board\n");
        switch(rc) {
            case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'tax_rate' board has not been created?\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board has not been created?\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
                break;
            case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
                break;
            case MB_ERR_INTERNAL:
                fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -465,10 +465,10 @@ void add_tax_rate_message(double value)
     #endif
 }
 
-inline static m_tax_rate* getInternalMessage_tax_rate(void)
+inline static m_capital_tax_rate* getInternalMessage_capital_tax_rate(void)
 {
-    static m_tax_rate *msg_prev = NULL;
-    union pu_tax_rate msg_pu;
+    static m_capital_tax_rate *msg_prev = NULL;
+    union pu_capital_tax_rate msg_pu;
     int rc;
     
     /* deallocate previously returned message */
@@ -478,14 +478,14 @@ inline static m_tax_rate* getInternalMessage_tax_rate(void)
     }
     else 
     {
-        rc = MB_Iterator_Rewind(i_tax_rate); 
+        rc = MB_Iterator_Rewind(i_capital_tax_rate); 
         #ifdef ERRCHECK
         if (rc != MB_SUCCESS)
         {
-            fprintf(stderr, "ERROR: Could not rewind 'tax_rate' Iterator\n");
+            fprintf(stderr, "ERROR: Could not rewind 'capital_tax_rate' Iterator\n");
             switch(rc) {
                 case MB_ERR_INVALID:
-                    fprintf(stderr, "\t reason: 'tax_rate' Iterator has not been created?\n");
+                    fprintf(stderr, "\t reason: 'capital_tax_rate' Iterator has not been created?\n");
                     break;
 	            default:
                     fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
@@ -499,14 +499,14 @@ inline static m_tax_rate* getInternalMessage_tax_rate(void)
     }
     
     /* get next message from iterator */
-    rc = MB_Iterator_GetMessage(i_tax_rate, &(msg_pu.ptr_anon));
+    rc = MB_Iterator_GetMessage(i_capital_tax_rate, &(msg_pu.ptr_anon));
     #ifdef ERRCHECK
     if (rc != MB_SUCCESS)
     {
-       fprintf(stderr, "ERROR: Could not get message from 'tax_rate' Iterator\n");
+       fprintf(stderr, "ERROR: Could not get message from 'capital_tax_rate' Iterator\n");
        switch(rc) {
            case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'tax_rate' Iterator has not been created?\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' Iterator has not been created?\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
@@ -527,23 +527,157 @@ inline static m_tax_rate* getInternalMessage_tax_rate(void)
     return msg_pu.ptr;
 }
 
-/** \fn xmachine_message_tax_rate * get_first_tax_rate_message()
- * \brief Get the first tax_rate message in the tax_rate message list.
+/** \fn xmachine_message_capital_tax_rate * get_first_capital_tax_rate_message()
+ * \brief Get the first capital_tax_rate message in the capital_tax_rate message list.
  * \return The first message in the list.
  */
-m_tax_rate * get_first_tax_rate_message()
+m_capital_tax_rate * get_first_capital_tax_rate_message()
 {
-	return getInternalMessage_tax_rate();
+	return getInternalMessage_capital_tax_rate();
 }
 
-/** \fn xmachine_message_tax_rate * get_next_tax_rate_message(xmachine_message_tax_rate * current)
- * \brief Get the next tax_rate message in the tax_rate message list after the current message.
+/** \fn xmachine_message_capital_tax_rate * get_next_capital_tax_rate_message(xmachine_message_capital_tax_rate * current)
+ * \brief Get the next capital_tax_rate message in the capital_tax_rate message list after the current message.
  * \param current The current message in the list.
  * \return The next message in the list.
  */
-m_tax_rate * get_next_tax_rate_message(m_tax_rate * current)
+m_capital_tax_rate * get_next_capital_tax_rate_message(m_capital_tax_rate * current)
 {
-	return getInternalMessage_tax_rate();
+	return getInternalMessage_capital_tax_rate();
+}
+
+
+/* Box filtering functions */
+
+
+
+
+union pu_labour_tax_rate 
+{
+    m_labour_tax_rate *ptr;
+    void *ptr_anon;
+};
+
+/** \fn void add_labour_tax_rate_message(double value)
+ * \brief Add labour_tax_rate message by calling internal and processing.
+ * \param value Message variable.
+ */
+void add_labour_tax_rate_message(double value)
+{
+    int rc;
+	m_labour_tax_rate msg;
+    
+    msg.value = value;
+    
+    
+    rc = MB_AddMessage(b_labour_tax_rate, &msg);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not add message to 'labour_tax_rate' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_AddMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	   }
+	      
+	   
+       exit(rc);
+    }
+    #endif
+}
+
+inline static m_labour_tax_rate* getInternalMessage_labour_tax_rate(void)
+{
+    static m_labour_tax_rate *msg_prev = NULL;
+    union pu_labour_tax_rate msg_pu;
+    int rc;
+    
+    /* deallocate previously returned message */
+    if (msg_prev != NULL) 
+    {
+        free(msg_prev);
+    }
+    else 
+    {
+        rc = MB_Iterator_Rewind(i_labour_tax_rate); 
+        #ifdef ERRCHECK
+        if (rc != MB_SUCCESS)
+        {
+            fprintf(stderr, "ERROR: Could not rewind 'labour_tax_rate' Iterator\n");
+            switch(rc) {
+                case MB_ERR_INVALID:
+                    fprintf(stderr, "\t reason: 'labour_tax_rate' Iterator has not been created?\n");
+                    break;
+	            default:
+                    fprintf(stderr, "\t MB_Iterator_Rewind returned error code: %d (see libmboard docs for details)\n", rc);
+                    break;
+	        }
+	       
+	       
+       	   exit(rc);
+        }
+        #endif
+    }
+    
+    /* get next message from iterator */
+    rc = MB_Iterator_GetMessage(i_labour_tax_rate, &(msg_pu.ptr_anon));
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not get message from 'labour_tax_rate' Iterator\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' Iterator has not been created?\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Iterator_GetMessage returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+	       
+	       
+       	   exit(rc);
+    }
+    #endif
+    
+    /* store pointer so memory can be deallocated later */
+    msg_prev = msg_pu.ptr;
+    
+    return msg_pu.ptr;
+}
+
+/** \fn xmachine_message_labour_tax_rate * get_first_labour_tax_rate_message()
+ * \brief Get the first labour_tax_rate message in the labour_tax_rate message list.
+ * \return The first message in the list.
+ */
+m_labour_tax_rate * get_first_labour_tax_rate_message()
+{
+	return getInternalMessage_labour_tax_rate();
+}
+
+/** \fn xmachine_message_labour_tax_rate * get_next_labour_tax_rate_message(xmachine_message_labour_tax_rate * current)
+ * \brief Get the next labour_tax_rate message in the labour_tax_rate message list after the current message.
+ * \param current The current message in the list.
+ * \return The next message in the list.
+ */
+m_labour_tax_rate * get_next_labour_tax_rate_message(m_labour_tax_rate * current)
+{
+	return getInternalMessage_labour_tax_rate();
 }
 
 

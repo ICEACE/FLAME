@@ -589,17 +589,17 @@ void unittest_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolv
 	int rc;
 	
 	
-	rc = MB_Iterator_Create(b_tax_rate, &i_tax_rate);
+	rc = MB_Iterator_Create(b_labour_tax_rate, &i_labour_tax_rate);
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'tax_rate'\n");
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'labour_tax_rate'\n");
 	   switch(rc) {
 	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+	           fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
 	           break;
 	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
@@ -1027,17 +1027,17 @@ void unittest_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonth
 	int rc;
 	
 	
-	rc = MB_Iterator_Create(b_tax_rate, &i_tax_rate);
+	rc = MB_Iterator_Create(b_labour_tax_rate, &i_labour_tax_rate);
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'tax_rate'\n");
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'labour_tax_rate'\n");
 	   switch(rc) {
 	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+	           fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
 	           break;
 	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
@@ -1446,17 +1446,17 @@ void unittest_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMark
 	int rc;
 	
 	
-	rc = MB_Iterator_Create(b_tax_rate, &i_tax_rate);
+	rc = MB_Iterator_Create(b_capital_tax_rate, &i_capital_tax_rate);
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not create Iterator for 'tax_rate'\n");
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'capital_tax_rate'\n");
 	   switch(rc) {
 	       case MB_ERR_INVALID:
-	           fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+	           fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
 	           break;
 	       case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
                break;
            case MB_ERR_MEMALLOC:
                fprintf(stderr, "\t reason: out of memory\n");
@@ -2686,17 +2686,42 @@ void free_messages()
 	    }
 	    #endif
 	
-	    rc = MB_Clear(b_tax_rate);
+	    rc = MB_Clear(b_capital_tax_rate);
 	    #ifdef ERRCHECK
 	    if (rc != MB_SUCCESS)
 	    {
-	       fprintf(stderr, "ERROR: Could not clear 'tax_rate' board\n");
+	       fprintf(stderr, "ERROR: Could not clear 'capital_tax_rate' board\n");
 	       switch(rc) {
 	           case MB_ERR_INVALID:
-	               fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+	               fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
 	               break;
 	           case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+	               fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+                   fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+                   break;
+	       }
+
+	       
+       	   exit(rc);
+	    }
+	    #endif
+	
+	    rc = MB_Clear(b_labour_tax_rate);
+	    #ifdef ERRCHECK
+	    if (rc != MB_SUCCESS)
+	    {
+	       fprintf(stderr, "ERROR: Could not clear 'labour_tax_rate' board\n");
+	       switch(rc) {
+	           case MB_ERR_INVALID:
+	               fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
+	               break;
+	           case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
 	               break;
 	           case MB_ERR_INTERNAL:
 	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -3930,13 +3955,41 @@ int rc;
 	    #endif
 	
 	/* Initialise message sync composite params as NULL */
-	FLAME_m_tax_rate_composite_params = NULL;
+	FLAME_m_capital_tax_rate_composite_params = NULL;
 
-	    rc = MB_Create(&b_tax_rate, sizeof(m_tax_rate));
+	    rc = MB_Create(&b_capital_tax_rate, sizeof(m_capital_tax_rate));
 	    #ifdef ERRCHECK
 	    if (rc != MB_SUCCESS)
 	    {
-	       fprintf(stderr, "ERROR: Could not create 'tax_rate' board\n");
+	       fprintf(stderr, "ERROR: Could not create 'capital_tax_rate' board\n");
+	       switch(rc) {
+	           case MB_ERR_INVALID:
+	               fprintf(stderr, "\t reason: Invalid message size\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+                   fprintf(stderr, "\t MB_Create returned error code: %d (see libmboard docs for details)\n", rc);
+                   break;
+	       }
+
+	       
+       	   exit(rc);
+	    }
+	    #endif
+	
+	/* Initialise message sync composite params as NULL */
+	FLAME_m_labour_tax_rate_composite_params = NULL;
+
+	    rc = MB_Create(&b_labour_tax_rate, sizeof(m_labour_tax_rate));
+	    #ifdef ERRCHECK
+	    if (rc != MB_SUCCESS)
+	    {
+	       fprintf(stderr, "ERROR: Could not create 'labour_tax_rate' board\n");
 	       switch(rc) {
 	           case MB_ERR_INVALID:
 	               fprintf(stderr, "\t reason: Invalid message size\n");
@@ -6159,7 +6212,7 @@ xmachine_memory_firm * init_firm_agent()
 	current->planned_investment_costs = 0.0;
 	current->liquidity_need = 0.0;
 	init_loan_static_array(current->loan_list, 2);
-	current->tax_rate = 0.0;
+	current->labour_tax_rate = 0.0;
 	current->delta_housing_price = 0.0;
 
 	return current;
@@ -6235,7 +6288,7 @@ void unittest_init_firm_agent()
 		current_xmachine_firm->planned_investment_costs = 0.0;
 		current_xmachine_firm->liquidity_need = 0.0;
 		init_loan_static_array(current_xmachine_firm->loan_list, 2);
-		current_xmachine_firm->tax_rate = 0.0;
+		current_xmachine_firm->labour_tax_rate = 0.0;
 		current_xmachine_firm->delta_housing_price = 0.0;
 	
 }
@@ -6659,7 +6712,7 @@ void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_
 
 }
 
-/** \fn void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_act, int isinsolvent, int it_no, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int expected_sales, int production_plan, double unit_goods_price, double unit_cost, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], double loans_interest_rate, double debt, int inventory, int sales, double revenues, double total_assets, double operating_costs, double labour_costs, double total_interest_payments, double dividends_paid, double dividends_to_be_paid, double retained_earnings, double net_earnings, double ebit, double equity, double liquidity, double capital_goods, double capital_goods_price, int hasloan, int hasinvestment, double planned_investment_costs, double liquidity_need, loan ** loan_list, double tax_rate, double delta_housing_price)
+/** \fn void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_act, int isinsolvent, int it_no, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int expected_sales, int production_plan, double unit_goods_price, double unit_cost, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], double loans_interest_rate, double debt, int inventory, int sales, double revenues, double total_assets, double operating_costs, double labour_costs, double total_interest_payments, double dividends_paid, double dividends_to_be_paid, double retained_earnings, double net_earnings, double ebit, double equity, double liquidity, double capital_goods, double capital_goods_price, int hasloan, int hasinvestment, double planned_investment_costs, double liquidity_need, loan ** loan_list, double labour_tax_rate, double delta_housing_price)
  * \brief Add firm X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
  * \param bank_id Variable for the X-machine memory.
@@ -6712,10 +6765,10 @@ void add_firm_agent_internal(xmachine_memory_firm * agent, xmachine_memory_firm_
  * \param planned_investment_costs Variable for the X-machine memory.
  * \param liquidity_need Variable for the X-machine memory.
  * \param loan_list Variable for the X-machine memory.
- * \param tax_rate Variable for the X-machine memory.
+ * \param labour_tax_rate Variable for the X-machine memory.
  * \param delta_housing_price Variable for the X-machine memory.
  */
-void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_act, int isinsolvent, int it_no, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int expected_sales, int production_plan, double unit_goods_price, double unit_cost, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], double loans_interest_rate, double debt, int inventory, int sales, double revenues, double total_assets, double operating_costs, double labour_costs, double total_interest_payments, double dividends_paid, double dividends_to_be_paid, double retained_earnings, double net_earnings, double ebit, double equity, double liquidity, double capital_goods, double capital_goods_price, int hasloan, int hasinvestment, double planned_investment_costs, double liquidity_need, loan loan_list[], double tax_rate, double delta_housing_price)
+void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_act, int isinsolvent, int it_no, int day_of_week_to_act, double average_goods_price, int_array * employees, double wage_offer, double average_wage, int no_employees, int vacancies, int employees_needed, int day_of_month_wages_paid, double labour_productivity, int production_current, int expected_sales, int production_plan, double unit_goods_price, double unit_cost, int day_of_month_production_completed, double unit_house_price, double labour_productivity_construction, double capital_productivity_construction, double capital_construction, double physical_capital, int projects[], double loans_interest_rate, double debt, int inventory, int sales, double revenues, double total_assets, double operating_costs, double labour_costs, double total_interest_payments, double dividends_paid, double dividends_to_be_paid, double retained_earnings, double net_earnings, double ebit, double equity, double liquidity, double capital_goods, double capital_goods_price, int hasloan, int hasinvestment, double planned_investment_costs, double liquidity_need, loan loan_list[], double labour_tax_rate, double delta_housing_price)
 {
 	xmachine_memory_firm * current;
 
@@ -6775,7 +6828,7 @@ void add_firm_agent(int id, int bank_id, int isconstructor, int day_of_month_to_
 	current->planned_investment_costs = planned_investment_costs;
 	current->liquidity_need = liquidity_need;
 	copy_loan_static_array(loan_list, current->loan_list, 2);
-	current->tax_rate = tax_rate;
+	current->labour_tax_rate = labour_tax_rate;
 	current->delta_housing_price = delta_housing_price;
 }
 
@@ -6797,6 +6850,7 @@ xmachine_memory_household * init_household_agent()
 
 	current->id = 0;
 	current->bank_id = 0;
+	current->it_no = 0;
 	current->day_of_week_to_act = 0;
 	current->weekly_consumption_budget = 0.0;
 	current->planned_consumption_budget = 0.0;
@@ -6805,7 +6859,7 @@ xmachine_memory_household * init_household_agent()
 	current->day_of_month_to_act = 0;
 	current->day_of_month_wage_recieved = 0;
 	current->mortgages_interest_rate = 0.0;
-	current->tax_rate = 0.0;
+	current->labour_tax_rate = 0.0;
 	init_mortgage_array(&current->mortgages_list);
 	current->mortgages = 0.0;
 	current->housing_payment = 0.0;
@@ -6848,6 +6902,7 @@ void unittest_init_household_agent()
 
 		current_xmachine_household->id = 0;
 		current_xmachine_household->bank_id = 0;
+		current_xmachine_household->it_no = 0;
 		current_xmachine_household->day_of_week_to_act = 0;
 		current_xmachine_household->weekly_consumption_budget = 0.0;
 		current_xmachine_household->planned_consumption_budget = 0.0;
@@ -6856,7 +6911,7 @@ void unittest_init_household_agent()
 		current_xmachine_household->day_of_month_to_act = 0;
 		current_xmachine_household->day_of_month_wage_recieved = 0;
 		current_xmachine_household->mortgages_interest_rate = 0.0;
-		current_xmachine_household->tax_rate = 0.0;
+		current_xmachine_household->labour_tax_rate = 0.0;
 		init_mortgage_array(&current_xmachine_household->mortgages_list);
 		current_xmachine_household->mortgages = 0.0;
 		current_xmachine_household->housing_payment = 0.0;
@@ -7170,10 +7225,11 @@ void add_household_agent_internal(xmachine_memory_household * agent, xmachine_me
 
 }
 
-/** \fn void add_household_agent(int id, int bank_id, int day_of_week_to_act, double weekly_consumption_budget, double planned_consumption_budget, int my_employer_id, double wage, int day_of_month_to_act, int day_of_month_wage_recieved, double mortgages_interest_rate, double tax_rate, mortgage_array * mortgages_list, double mortgages, double housing_payment, double equity, double housing_price, int housing_units, int n_shares, double liquidity, double capital_income, int previous_wages[], double labour_income, double total_assets, double housing_value, double delta_housing_value, int hmarket_role, double equity_ratio, double minimum_equity_ratio, double mortgage_costs[])
+/** \fn void add_household_agent(int id, int bank_id, int it_no, int day_of_week_to_act, double weekly_consumption_budget, double planned_consumption_budget, int my_employer_id, double wage, int day_of_month_to_act, int day_of_month_wage_recieved, double mortgages_interest_rate, double labour_tax_rate, mortgage_array * mortgages_list, double mortgages, double housing_payment, double equity, double housing_price, int housing_units, int n_shares, double liquidity, double capital_income, int previous_wages[], double labour_income, double total_assets, double housing_value, double delta_housing_value, int hmarket_role, double equity_ratio, double minimum_equity_ratio, double mortgage_costs[])
  * \brief Add household X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
  * \param bank_id Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param day_of_week_to_act Variable for the X-machine memory.
  * \param weekly_consumption_budget Variable for the X-machine memory.
  * \param planned_consumption_budget Variable for the X-machine memory.
@@ -7182,7 +7238,7 @@ void add_household_agent_internal(xmachine_memory_household * agent, xmachine_me
  * \param day_of_month_to_act Variable for the X-machine memory.
  * \param day_of_month_wage_recieved Variable for the X-machine memory.
  * \param mortgages_interest_rate Variable for the X-machine memory.
- * \param tax_rate Variable for the X-machine memory.
+ * \param labour_tax_rate Variable for the X-machine memory.
  * \param mortgages_list Variable for the X-machine memory.
  * \param mortgages Variable for the X-machine memory.
  * \param housing_payment Variable for the X-machine memory.
@@ -7202,7 +7258,7 @@ void add_household_agent_internal(xmachine_memory_household * agent, xmachine_me
  * \param minimum_equity_ratio Variable for the X-machine memory.
  * \param mortgage_costs Variable for the X-machine memory.
  */
-void add_household_agent(int id, int bank_id, int day_of_week_to_act, double weekly_consumption_budget, double planned_consumption_budget, int my_employer_id, double wage, int day_of_month_to_act, int day_of_month_wage_recieved, double mortgages_interest_rate, double tax_rate, mortgage_array * mortgages_list, double mortgages, double housing_payment, double equity, double housing_price, int housing_units, int n_shares, double liquidity, double capital_income, int previous_wages[], double labour_income, double total_assets, double housing_value, double delta_housing_value, int hmarket_role, double equity_ratio, double minimum_equity_ratio, double mortgage_costs[])
+void add_household_agent(int id, int bank_id, int it_no, int day_of_week_to_act, double weekly_consumption_budget, double planned_consumption_budget, int my_employer_id, double wage, int day_of_month_to_act, int day_of_month_wage_recieved, double mortgages_interest_rate, double labour_tax_rate, mortgage_array * mortgages_list, double mortgages, double housing_payment, double equity, double housing_price, int housing_units, int n_shares, double liquidity, double capital_income, int previous_wages[], double labour_income, double total_assets, double housing_value, double delta_housing_value, int hmarket_role, double equity_ratio, double minimum_equity_ratio, double mortgage_costs[])
 {
 	xmachine_memory_household * current;
 
@@ -7213,6 +7269,7 @@ void add_household_agent(int id, int bank_id, int day_of_week_to_act, double wee
 
 	current->id = id;
 	current->bank_id = bank_id;
+	current->it_no = it_no;
 	current->day_of_week_to_act = day_of_week_to_act;
 	current->weekly_consumption_budget = weekly_consumption_budget;
 	current->planned_consumption_budget = planned_consumption_budget;
@@ -7221,7 +7278,7 @@ void add_household_agent(int id, int bank_id, int day_of_week_to_act, double wee
 	current->day_of_month_to_act = day_of_month_to_act;
 	current->day_of_month_wage_recieved = day_of_month_wage_recieved;
 	current->mortgages_interest_rate = mortgages_interest_rate;
-	current->tax_rate = tax_rate;
+	current->labour_tax_rate = labour_tax_rate;
 	copy_mortgage_array(mortgages_list, &current->mortgages_list);
 	current->mortgages = mortgages;
 	current->housing_payment = housing_payment;
@@ -7259,6 +7316,7 @@ xmachine_memory_equityfund * init_equityfund_agent()
 	CHECK_POINTER(current);
 
 	current->id = 0;
+	current->it_no = 0;
 	current->day_of_month_to_act = 0;
 	current->share_firms = 0.0;
 	current->share_construction_firms = 0.0;
@@ -7270,7 +7328,7 @@ xmachine_memory_equityfund * init_equityfund_agent()
 	current->dividends_retained = 0.0;
 	current->dividends_paid = 0.0;
 	current->firm_investment = 0.0;
-	current->tax_rate = 0.0;
+	current->capital_tax_rate = 0.0;
 
 	return current;
 }
@@ -7293,6 +7351,7 @@ void unittest_init_equityfund_agent()
 	CHECK_POINTER(current);
 
 		current_xmachine_equityfund->id = 0;
+		current_xmachine_equityfund->it_no = 0;
 		current_xmachine_equityfund->day_of_month_to_act = 0;
 		current_xmachine_equityfund->share_firms = 0.0;
 		current_xmachine_equityfund->share_construction_firms = 0.0;
@@ -7304,7 +7363,7 @@ void unittest_init_equityfund_agent()
 		current_xmachine_equityfund->dividends_retained = 0.0;
 		current_xmachine_equityfund->dividends_paid = 0.0;
 		current_xmachine_equityfund->firm_investment = 0.0;
-		current_xmachine_equityfund->tax_rate = 0.0;
+		current_xmachine_equityfund->capital_tax_rate = 0.0;
 	
 }
 
@@ -7428,9 +7487,10 @@ void add_equityfund_agent_internal(xmachine_memory_equityfund * agent, xmachine_
 
 }
 
-/** \fn void add_equityfund_agent(int id, int day_of_month_to_act, double share_firms, double share_construction_firms, double share_banks, double equity, double liquidity, int n_shares, double dividends_recieved, double dividends_retained, double dividends_paid, double firm_investment, double tax_rate)
+/** \fn void add_equityfund_agent(int id, int it_no, int day_of_month_to_act, double share_firms, double share_construction_firms, double share_banks, double equity, double liquidity, int n_shares, double dividends_recieved, double dividends_retained, double dividends_paid, double firm_investment, double capital_tax_rate)
  * \brief Add equityfund X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param day_of_month_to_act Variable for the X-machine memory.
  * \param share_firms Variable for the X-machine memory.
  * \param share_construction_firms Variable for the X-machine memory.
@@ -7442,9 +7502,9 @@ void add_equityfund_agent_internal(xmachine_memory_equityfund * agent, xmachine_
  * \param dividends_retained Variable for the X-machine memory.
  * \param dividends_paid Variable for the X-machine memory.
  * \param firm_investment Variable for the X-machine memory.
- * \param tax_rate Variable for the X-machine memory.
+ * \param capital_tax_rate Variable for the X-machine memory.
  */
-void add_equityfund_agent(int id, int day_of_month_to_act, double share_firms, double share_construction_firms, double share_banks, double equity, double liquidity, int n_shares, double dividends_recieved, double dividends_retained, double dividends_paid, double firm_investment, double tax_rate)
+void add_equityfund_agent(int id, int it_no, int day_of_month_to_act, double share_firms, double share_construction_firms, double share_banks, double equity, double liquidity, int n_shares, double dividends_recieved, double dividends_retained, double dividends_paid, double firm_investment, double capital_tax_rate)
 {
 	xmachine_memory_equityfund * current;
 
@@ -7454,6 +7514,7 @@ void add_equityfund_agent(int id, int day_of_month_to_act, double share_firms, d
 	add_equityfund_agent_internal(current, current_xmachine_equityfund_next_state);
 
 	current->id = id;
+	current->it_no = it_no;
 	current->day_of_month_to_act = day_of_month_to_act;
 	current->share_firms = share_firms;
 	current->share_construction_firms = share_construction_firms;
@@ -7465,7 +7526,7 @@ void add_equityfund_agent(int id, int day_of_month_to_act, double share_firms, d
 	current->dividends_retained = dividends_retained;
 	current->dividends_paid = dividends_paid;
 	current->firm_investment = firm_investment;
-	current->tax_rate = tax_rate;
+	current->capital_tax_rate = capital_tax_rate;
 }
 
 xmachine_memory_bank_state * init_bank_state()
@@ -7487,6 +7548,7 @@ xmachine_memory_bank * init_bank_agent()
 	current->id = 0;
 	current->day_of_month_to_act = 0;
 	current->day_of_week_to_act = 0;
+	current->it_no = 0;
 	current->total_assets = 0.0;
 	current->loans = 0.0;
 	current->mortgages = 0.0;
@@ -7528,6 +7590,7 @@ void unittest_init_bank_agent()
 		current_xmachine_bank->id = 0;
 		current_xmachine_bank->day_of_month_to_act = 0;
 		current_xmachine_bank->day_of_week_to_act = 0;
+		current_xmachine_bank->it_no = 0;
 		current_xmachine_bank->total_assets = 0.0;
 		current_xmachine_bank->loans = 0.0;
 		current_xmachine_bank->mortgages = 0.0;
@@ -7740,11 +7803,12 @@ void add_bank_agent_internal(xmachine_memory_bank * agent, xmachine_memory_bank_
 
 }
 
-/** \fn void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, double total_assets, double loans, double mortgages, double deposits, double centralbank_debt, double equity, double liquidity, double revenues, double total_writeoffs, double interest_rate, double interests_accrued, double interests_paid, double dividends_paid, double total_dividends, double retained_earnings, double net_earnings, double total_costs)
+/** \fn void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, int it_no, double total_assets, double loans, double mortgages, double deposits, double centralbank_debt, double equity, double liquidity, double revenues, double total_writeoffs, double interest_rate, double interests_accrued, double interests_paid, double dividends_paid, double total_dividends, double retained_earnings, double net_earnings, double total_costs)
  * \brief Add bank X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
  * \param day_of_month_to_act Variable for the X-machine memory.
  * \param day_of_week_to_act Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param total_assets Variable for the X-machine memory.
  * \param loans Variable for the X-machine memory.
  * \param mortgages Variable for the X-machine memory.
@@ -7763,7 +7827,7 @@ void add_bank_agent_internal(xmachine_memory_bank * agent, xmachine_memory_bank_
  * \param net_earnings Variable for the X-machine memory.
  * \param total_costs Variable for the X-machine memory.
  */
-void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, double total_assets, double loans, double mortgages, double deposits, double centralbank_debt, double equity, double liquidity, double revenues, double total_writeoffs, double interest_rate, double interests_accrued, double interests_paid, double dividends_paid, double total_dividends, double retained_earnings, double net_earnings, double total_costs)
+void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, int it_no, double total_assets, double loans, double mortgages, double deposits, double centralbank_debt, double equity, double liquidity, double revenues, double total_writeoffs, double interest_rate, double interests_accrued, double interests_paid, double dividends_paid, double total_dividends, double retained_earnings, double net_earnings, double total_costs)
 {
 	xmachine_memory_bank * current;
 
@@ -7775,6 +7839,7 @@ void add_bank_agent(int id, int day_of_month_to_act, int day_of_week_to_act, dou
 	current->id = id;
 	current->day_of_month_to_act = day_of_month_to_act;
 	current->day_of_week_to_act = day_of_week_to_act;
+	current->it_no = it_no;
 	current->total_assets = total_assets;
 	current->loans = loans;
 	current->mortgages = mortgages;
@@ -7811,6 +7876,7 @@ xmachine_memory_government * init_government_agent()
 	CHECK_POINTER(current);
 
 	current->id = 0;
+	current->it_no = 0;
 	current->average_wage = 0.0;
 	current->unemployment_rate = 0.0;
 	current->population_size = 0;
@@ -7819,7 +7885,8 @@ xmachine_memory_government * init_government_agent()
 	current->liquidity = 0.0;
 	current->day_of_month_to_act = 0;
 	current->day_of_month_wages_paid = 0;
-	current->gov_tax_rate = 0.0;
+	current->capital_tax_rate = 0.0;
+	current->labour_tax_rate = 0.0;
 	current->labour_tax_income = 0.0;
 	current->capital_tax_income = 0.0;
 	current->gov_general_benefit_rate = 0.0;
@@ -7851,6 +7918,7 @@ void unittest_init_government_agent()
 	CHECK_POINTER(current);
 
 		current_xmachine_government->id = 0;
+		current_xmachine_government->it_no = 0;
 		current_xmachine_government->average_wage = 0.0;
 		current_xmachine_government->unemployment_rate = 0.0;
 		current_xmachine_government->population_size = 0;
@@ -7859,7 +7927,8 @@ void unittest_init_government_agent()
 		current_xmachine_government->liquidity = 0.0;
 		current_xmachine_government->day_of_month_to_act = 0;
 		current_xmachine_government->day_of_month_wages_paid = 0;
-		current_xmachine_government->gov_tax_rate = 0.0;
+		current_xmachine_government->capital_tax_rate = 0.0;
+		current_xmachine_government->labour_tax_rate = 0.0;
 		current_xmachine_government->labour_tax_income = 0.0;
 		current_xmachine_government->capital_tax_income = 0.0;
 		current_xmachine_government->gov_general_benefit_rate = 0.0;
@@ -8010,9 +8079,10 @@ void add_government_agent_internal(xmachine_memory_government * agent, xmachine_
 
 }
 
-/** \fn void add_government_agent(int id, double average_wage, double unemployment_rate, int population_size, double debt, double equity, double liquidity, int day_of_month_to_act, int day_of_month_wages_paid, double gov_tax_rate, double labour_tax_income, double capital_tax_income, double gov_general_benefit_rate, double gov_unemployment_rate, double general_benefits, double unemployment_benefits, double earnings, double centralbank_income, double expenditures)
+/** \fn void add_government_agent(int id, int it_no, double average_wage, double unemployment_rate, int population_size, double debt, double equity, double liquidity, int day_of_month_to_act, int day_of_month_wages_paid, double capital_tax_rate, double labour_tax_rate, double labour_tax_income, double capital_tax_income, double gov_general_benefit_rate, double gov_unemployment_rate, double general_benefits, double unemployment_benefits, double earnings, double centralbank_income, double expenditures)
  * \brief Add government X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param average_wage Variable for the X-machine memory.
  * \param unemployment_rate Variable for the X-machine memory.
  * \param population_size Variable for the X-machine memory.
@@ -8021,7 +8091,8 @@ void add_government_agent_internal(xmachine_memory_government * agent, xmachine_
  * \param liquidity Variable for the X-machine memory.
  * \param day_of_month_to_act Variable for the X-machine memory.
  * \param day_of_month_wages_paid Variable for the X-machine memory.
- * \param gov_tax_rate Variable for the X-machine memory.
+ * \param capital_tax_rate Variable for the X-machine memory.
+ * \param labour_tax_rate Variable for the X-machine memory.
  * \param labour_tax_income Variable for the X-machine memory.
  * \param capital_tax_income Variable for the X-machine memory.
  * \param gov_general_benefit_rate Variable for the X-machine memory.
@@ -8032,7 +8103,7 @@ void add_government_agent_internal(xmachine_memory_government * agent, xmachine_
  * \param centralbank_income Variable for the X-machine memory.
  * \param expenditures Variable for the X-machine memory.
  */
-void add_government_agent(int id, double average_wage, double unemployment_rate, int population_size, double debt, double equity, double liquidity, int day_of_month_to_act, int day_of_month_wages_paid, double gov_tax_rate, double labour_tax_income, double capital_tax_income, double gov_general_benefit_rate, double gov_unemployment_rate, double general_benefits, double unemployment_benefits, double earnings, double centralbank_income, double expenditures)
+void add_government_agent(int id, int it_no, double average_wage, double unemployment_rate, int population_size, double debt, double equity, double liquidity, int day_of_month_to_act, int day_of_month_wages_paid, double capital_tax_rate, double labour_tax_rate, double labour_tax_income, double capital_tax_income, double gov_general_benefit_rate, double gov_unemployment_rate, double general_benefits, double unemployment_benefits, double earnings, double centralbank_income, double expenditures)
 {
 	xmachine_memory_government * current;
 
@@ -8042,6 +8113,7 @@ void add_government_agent(int id, double average_wage, double unemployment_rate,
 	add_government_agent_internal(current, current_xmachine_government_next_state);
 
 	current->id = id;
+	current->it_no = it_no;
 	current->average_wage = average_wage;
 	current->unemployment_rate = unemployment_rate;
 	current->population_size = population_size;
@@ -8050,7 +8122,8 @@ void add_government_agent(int id, double average_wage, double unemployment_rate,
 	current->liquidity = liquidity;
 	current->day_of_month_to_act = day_of_month_to_act;
 	current->day_of_month_wages_paid = day_of_month_wages_paid;
-	current->gov_tax_rate = gov_tax_rate;
+	current->capital_tax_rate = capital_tax_rate;
+	current->labour_tax_rate = labour_tax_rate;
 	current->labour_tax_income = labour_tax_income;
 	current->capital_tax_income = capital_tax_income;
 	current->gov_general_benefit_rate = gov_general_benefit_rate;
@@ -8082,6 +8155,7 @@ xmachine_memory_centralbank * init_centralbank_agent()
 	current->day_of_month_to_act = 0;
 	current->unemployment_rate = 0.0;
 	init_double_static_array(current->consumption_goods_prices, 12);
+	current->it_no = 0;
 	current->day_of_week_to_act = 0;
 	init_transaction(&current->goods);
 	init_double_static_array(current->weekly_price_averages, 4);
@@ -8127,6 +8201,7 @@ void unittest_init_centralbank_agent()
 		current_xmachine_centralbank->day_of_month_to_act = 0;
 		current_xmachine_centralbank->unemployment_rate = 0.0;
 		init_double_static_array(current_xmachine_centralbank->consumption_goods_prices, 12);
+		current_xmachine_centralbank->it_no = 0;
 		current_xmachine_centralbank->day_of_week_to_act = 0;
 		init_transaction(&current_xmachine_centralbank->goods);
 		init_double_static_array(current_xmachine_centralbank->weekly_price_averages, 4);
@@ -8279,12 +8354,13 @@ void add_centralbank_agent_internal(xmachine_memory_centralbank * agent, xmachin
 
 }
 
-/** \fn void add_centralbank_agent(int id, int day_of_month_to_act, double unemployment_rate, double consumption_goods_prices[], int day_of_week_to_act, transaction * goods, double weekly_price_averages[], double interest_rate, double liquidity, double loans_banks, double loans_government, double fiat_money, double equity, double liquidity_banks, double liquidity_government, double total_assets, double total_writeoffs, double interests_accrued, double revenues, double net_earnings, double total_costs, transaction * houses)
+/** \fn void add_centralbank_agent(int id, int day_of_month_to_act, double unemployment_rate, double consumption_goods_prices[], int it_no, int day_of_week_to_act, transaction * goods, double weekly_price_averages[], double interest_rate, double liquidity, double loans_banks, double loans_government, double fiat_money, double equity, double liquidity_banks, double liquidity_government, double total_assets, double total_writeoffs, double interests_accrued, double revenues, double net_earnings, double total_costs, transaction * houses)
  * \brief Add centralbank X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
  * \param day_of_month_to_act Variable for the X-machine memory.
  * \param unemployment_rate Variable for the X-machine memory.
  * \param consumption_goods_prices Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param day_of_week_to_act Variable for the X-machine memory.
  * \param goods Variable for the X-machine memory.
  * \param weekly_price_averages Variable for the X-machine memory.
@@ -8304,7 +8380,7 @@ void add_centralbank_agent_internal(xmachine_memory_centralbank * agent, xmachin
  * \param total_costs Variable for the X-machine memory.
  * \param houses Variable for the X-machine memory.
  */
-void add_centralbank_agent(int id, int day_of_month_to_act, double unemployment_rate, double consumption_goods_prices[], int day_of_week_to_act, transaction goods, double weekly_price_averages[], double interest_rate, double liquidity, double loans_banks, double loans_government, double fiat_money, double equity, double liquidity_banks, double liquidity_government, double total_assets, double total_writeoffs, double interests_accrued, double revenues, double net_earnings, double total_costs, transaction houses)
+void add_centralbank_agent(int id, int day_of_month_to_act, double unemployment_rate, double consumption_goods_prices[], int it_no, int day_of_week_to_act, transaction goods, double weekly_price_averages[], double interest_rate, double liquidity, double loans_banks, double loans_government, double fiat_money, double equity, double liquidity_banks, double liquidity_government, double total_assets, double total_writeoffs, double interests_accrued, double revenues, double net_earnings, double total_costs, transaction houses)
 {
 	xmachine_memory_centralbank * current;
 
@@ -8317,6 +8393,7 @@ void add_centralbank_agent(int id, int day_of_month_to_act, double unemployment_
 	current->day_of_month_to_act = day_of_month_to_act;
 	current->unemployment_rate = unemployment_rate;
 	memcpy(current->consumption_goods_prices, consumption_goods_prices, 12*sizeof(double));
+	current->it_no = it_no;
 	current->day_of_week_to_act = day_of_week_to_act;
 	copy_transaction(&goods, &current->goods);
 	memcpy(current->weekly_price_averages, weekly_price_averages, 4*sizeof(double));
@@ -8354,6 +8431,7 @@ xmachine_memory_jpoffice * init_jpoffice_agent()
 	CHECK_POINTER(current);
 
 	current->id = 0;
+	current->it_no = 0;
 	current->day_of_month_to_act = 0;
 
 	return current;
@@ -8377,6 +8455,7 @@ void unittest_init_jpoffice_agent()
 	CHECK_POINTER(current);
 
 		current_xmachine_jpoffice->id = 0;
+		current_xmachine_jpoffice->it_no = 0;
 		current_xmachine_jpoffice->day_of_month_to_act = 0;
 	
 }
@@ -8456,12 +8535,13 @@ void add_jpoffice_agent_internal(xmachine_memory_jpoffice * agent, xmachine_memo
 
 }
 
-/** \fn void add_jpoffice_agent(int id, int day_of_month_to_act)
+/** \fn void add_jpoffice_agent(int id, int it_no, int day_of_month_to_act)
  * \brief Add jpoffice X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param day_of_month_to_act Variable for the X-machine memory.
  */
-void add_jpoffice_agent(int id, int day_of_month_to_act)
+void add_jpoffice_agent(int id, int it_no, int day_of_month_to_act)
 {
 	xmachine_memory_jpoffice * current;
 
@@ -8471,6 +8551,7 @@ void add_jpoffice_agent(int id, int day_of_month_to_act)
 	add_jpoffice_agent_internal(current, current_xmachine_jpoffice_next_state);
 
 	current->id = id;
+	current->it_no = it_no;
 	current->day_of_month_to_act = day_of_month_to_act;
 }
 
@@ -8491,6 +8572,7 @@ xmachine_memory_mall * init_mall_agent()
 	CHECK_POINTER(current);
 
 	current->id = 0;
+	current->it_no = 0;
 	current->day_of_week_to_act = 0;
 	init_transaction(&current->goods_transactions);
 
@@ -8516,6 +8598,7 @@ void unittest_init_mall_agent()
 	CHECK_POINTER(current);
 
 		current_xmachine_mall->id = 0;
+		current_xmachine_mall->it_no = 0;
 		current_xmachine_mall->day_of_week_to_act = 0;
 		init_transaction(&current_xmachine_mall->goods_transactions);
 	
@@ -8597,13 +8680,14 @@ void add_mall_agent_internal(xmachine_memory_mall * agent, xmachine_memory_mall_
 
 }
 
-/** \fn void add_mall_agent(int id, int day_of_week_to_act, transaction * goods_transactions)
+/** \fn void add_mall_agent(int id, int it_no, int day_of_week_to_act, transaction * goods_transactions)
  * \brief Add mall X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param day_of_week_to_act Variable for the X-machine memory.
  * \param goods_transactions Variable for the X-machine memory.
  */
-void add_mall_agent(int id, int day_of_week_to_act, transaction goods_transactions)
+void add_mall_agent(int id, int it_no, int day_of_week_to_act, transaction goods_transactions)
 {
 	xmachine_memory_mall * current;
 
@@ -8613,6 +8697,7 @@ void add_mall_agent(int id, int day_of_week_to_act, transaction goods_transactio
 	add_mall_agent_internal(current, current_xmachine_mall_next_state);
 
 	current->id = id;
+	current->it_no = it_no;
 	current->day_of_week_to_act = day_of_week_to_act;
 	copy_transaction(&goods_transactions, &current->goods_transactions);
 }
@@ -8635,6 +8720,7 @@ xmachine_memory_reagency * init_reagency_agent()
 
 	current->id = 0;
 	current->day_of_month_to_act = 0;
+	current->it_no = 0;
 	current->mortgages_interest_rate = 0.0;
 	init_transaction(&current->housing_transactions);
 
@@ -8661,6 +8747,7 @@ void unittest_init_reagency_agent()
 
 		current_xmachine_reagency->id = 0;
 		current_xmachine_reagency->day_of_month_to_act = 0;
+		current_xmachine_reagency->it_no = 0;
 		current_xmachine_reagency->mortgages_interest_rate = 0.0;
 		init_transaction(&current_xmachine_reagency->housing_transactions);
 	
@@ -8751,14 +8838,15 @@ void add_reagency_agent_internal(xmachine_memory_reagency * agent, xmachine_memo
 
 }
 
-/** \fn void add_reagency_agent(int id, int day_of_month_to_act, double mortgages_interest_rate, transaction * housing_transactions)
+/** \fn void add_reagency_agent(int id, int day_of_month_to_act, int it_no, double mortgages_interest_rate, transaction * housing_transactions)
  * \brief Add reagency X-machine to the current being used X-machine list.
  * \param id Variable for the X-machine memory.
  * \param day_of_month_to_act Variable for the X-machine memory.
+ * \param it_no Variable for the X-machine memory.
  * \param mortgages_interest_rate Variable for the X-machine memory.
  * \param housing_transactions Variable for the X-machine memory.
  */
-void add_reagency_agent(int id, int day_of_month_to_act, double mortgages_interest_rate, transaction housing_transactions)
+void add_reagency_agent(int id, int day_of_month_to_act, int it_no, double mortgages_interest_rate, transaction housing_transactions)
 {
 	xmachine_memory_reagency * current;
 
@@ -8769,6 +8857,7 @@ void add_reagency_agent(int id, int day_of_month_to_act, double mortgages_intere
 
 	current->id = id;
 	current->day_of_month_to_act = day_of_month_to_act;
+	current->it_no = it_no;
 	current->mortgages_interest_rate = mortgages_interest_rate;
 	copy_transaction(&housing_transactions, &current->housing_transactions);
 }
@@ -8942,6 +9031,14 @@ int get_isinsolvent()
 void set_it_no(int it_no)
 {
 	if(current_xmachine->xmachine_firm) (*current_xmachine->xmachine_firm).it_no = it_no;
+	if(current_xmachine->xmachine_household) (*current_xmachine->xmachine_household).it_no = it_no;
+	if(current_xmachine->xmachine_equityfund) (*current_xmachine->xmachine_equityfund).it_no = it_no;
+	if(current_xmachine->xmachine_bank) (*current_xmachine->xmachine_bank).it_no = it_no;
+	if(current_xmachine->xmachine_government) (*current_xmachine->xmachine_government).it_no = it_no;
+	if(current_xmachine->xmachine_centralbank) (*current_xmachine->xmachine_centralbank).it_no = it_no;
+	if(current_xmachine->xmachine_jpoffice) (*current_xmachine->xmachine_jpoffice).it_no = it_no;
+	if(current_xmachine->xmachine_mall) (*current_xmachine->xmachine_mall).it_no = it_no;
+	if(current_xmachine->xmachine_reagency) (*current_xmachine->xmachine_reagency).it_no = it_no;
 }
 
 /** \fn int get_it_no()
@@ -8951,6 +9048,14 @@ void set_it_no(int it_no)
 int get_it_no()
 {
 	if(current_xmachine->xmachine_firm) return (*current_xmachine->xmachine_firm).it_no;
+	if(current_xmachine->xmachine_household) return (*current_xmachine->xmachine_household).it_no;
+	if(current_xmachine->xmachine_equityfund) return (*current_xmachine->xmachine_equityfund).it_no;
+	if(current_xmachine->xmachine_bank) return (*current_xmachine->xmachine_bank).it_no;
+	if(current_xmachine->xmachine_government) return (*current_xmachine->xmachine_government).it_no;
+	if(current_xmachine->xmachine_centralbank) return (*current_xmachine->xmachine_centralbank).it_no;
+	if(current_xmachine->xmachine_jpoffice) return (*current_xmachine->xmachine_jpoffice).it_no;
+	if(current_xmachine->xmachine_mall) return (*current_xmachine->xmachine_mall).it_no;
+	if(current_xmachine->xmachine_reagency) return (*current_xmachine->xmachine_reagency).it_no;
 
     // suppress compiler warning by returning dummy value /
     // this statement should rightfully NEVER be reached /
@@ -9974,26 +10079,26 @@ loan * get_loan_list()
     return NULL;
 }
 
-/** \fn void set_tax_rate(double tax_rate)
- * \brief Set tax_rate memory variable for current X-machine.
- * \param tax_rate New value for variable.
+/** \fn void set_labour_tax_rate(double labour_tax_rate)
+ * \brief Set labour_tax_rate memory variable for current X-machine.
+ * \param labour_tax_rate New value for variable.
  */
-void set_tax_rate(double tax_rate)
+void set_labour_tax_rate(double labour_tax_rate)
 {
-	if(current_xmachine->xmachine_firm) (*current_xmachine->xmachine_firm).tax_rate = tax_rate;
-	if(current_xmachine->xmachine_household) (*current_xmachine->xmachine_household).tax_rate = tax_rate;
-	if(current_xmachine->xmachine_equityfund) (*current_xmachine->xmachine_equityfund).tax_rate = tax_rate;
+	if(current_xmachine->xmachine_firm) (*current_xmachine->xmachine_firm).labour_tax_rate = labour_tax_rate;
+	if(current_xmachine->xmachine_household) (*current_xmachine->xmachine_household).labour_tax_rate = labour_tax_rate;
+	if(current_xmachine->xmachine_government) (*current_xmachine->xmachine_government).labour_tax_rate = labour_tax_rate;
 }
 
-/** \fn double get_tax_rate()
- * \brief Get tax_rate memory variable from current X-machine.
+/** \fn double get_labour_tax_rate()
+ * \brief Get labour_tax_rate memory variable from current X-machine.
  * \return Value for variable.
  */
-double get_tax_rate()
+double get_labour_tax_rate()
 {
-	if(current_xmachine->xmachine_firm) return (*current_xmachine->xmachine_firm).tax_rate;
-	if(current_xmachine->xmachine_household) return (*current_xmachine->xmachine_household).tax_rate;
-	if(current_xmachine->xmachine_equityfund) return (*current_xmachine->xmachine_equityfund).tax_rate;
+	if(current_xmachine->xmachine_firm) return (*current_xmachine->xmachine_firm).labour_tax_rate;
+	if(current_xmachine->xmachine_household) return (*current_xmachine->xmachine_household).labour_tax_rate;
+	if(current_xmachine->xmachine_government) return (*current_xmachine->xmachine_government).labour_tax_rate;
 
     // suppress compiler warning by returning dummy value /
     // this statement should rightfully NEVER be reached /
@@ -10595,6 +10700,30 @@ double get_firm_investment()
     return (double)0;
 }
 
+/** \fn void set_capital_tax_rate(double capital_tax_rate)
+ * \brief Set capital_tax_rate memory variable for current X-machine.
+ * \param capital_tax_rate New value for variable.
+ */
+void set_capital_tax_rate(double capital_tax_rate)
+{
+	if(current_xmachine->xmachine_equityfund) (*current_xmachine->xmachine_equityfund).capital_tax_rate = capital_tax_rate;
+	if(current_xmachine->xmachine_government) (*current_xmachine->xmachine_government).capital_tax_rate = capital_tax_rate;
+}
+
+/** \fn double get_capital_tax_rate()
+ * \brief Get capital_tax_rate memory variable from current X-machine.
+ * \return Value for variable.
+ */
+double get_capital_tax_rate()
+{
+	if(current_xmachine->xmachine_equityfund) return (*current_xmachine->xmachine_equityfund).capital_tax_rate;
+	if(current_xmachine->xmachine_government) return (*current_xmachine->xmachine_government).capital_tax_rate;
+
+    // suppress compiler warning by returning dummy value /
+    // this statement should rightfully NEVER be reached /
+    return (double)0;
+}
+
 /** \fn void set_loans(double loans)
  * \brief Set loans memory variable for current X-machine.
  * \param loans New value for variable.
@@ -10845,28 +10974,6 @@ int get_population_size()
     // suppress compiler warning by returning dummy value /
     // this statement should rightfully NEVER be reached /
     return (int)0;
-}
-
-/** \fn void set_gov_tax_rate(double gov_tax_rate)
- * \brief Set gov_tax_rate memory variable for current X-machine.
- * \param gov_tax_rate New value for variable.
- */
-void set_gov_tax_rate(double gov_tax_rate)
-{
-	if(current_xmachine->xmachine_government) (*current_xmachine->xmachine_government).gov_tax_rate = gov_tax_rate;
-}
-
-/** \fn double get_gov_tax_rate()
- * \brief Get gov_tax_rate memory variable from current X-machine.
- * \return Value for variable.
- */
-double get_gov_tax_rate()
-{
-	if(current_xmachine->xmachine_government) return (*current_xmachine->xmachine_government).gov_tax_rate;
-
-    // suppress compiler warning by returning dummy value /
-    // this statement should rightfully NEVER be reached /
-    return (double)0;
 }
 
 /** \fn void set_labour_tax_income(double labour_tax_income)
@@ -11386,7 +11493,8 @@ void add_node(int node_id, double minx, double maxx, double miny, double maxy, d
 	current->firm_bank_update_deposit_messages = NULL;
 	current->household_bank_update_deposit_messages = NULL;
 	current->interest_rate_messages = NULL;
-	current->tax_rate_messages = NULL;
+	current->capital_tax_rate_messages = NULL;
+	current->labour_tax_rate_messages = NULL;
 	current->buy_messages = NULL;
 	current->bought_messages = NULL;
 	current->sell_messages = NULL;
@@ -11569,17 +11677,42 @@ void clean_up(int code)
     }
     #endif
 
-	rc = MB_Delete(&b_tax_rate);
+	rc = MB_Delete(&b_capital_tax_rate);
 	#ifdef ERRCHECK
     if (rc != MB_SUCCESS)
     {
-       fprintf(stderr, "ERROR: Could not delete 'tax_rate' board\n");
+       fprintf(stderr, "ERROR: Could not delete 'capital_tax_rate' board\n");
        switch(rc) {
            case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'tax_rate' board has not been created?\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board has not been created?\n");
                break;
            case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	       default:
+               fprintf(stderr, "\t MB_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+	       }
+
+	       
+       	   exit(rc);
+    }
+    #endif
+
+	rc = MB_Delete(&b_labour_tax_rate);
+	#ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not delete 'labour_tax_rate' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board has not been created?\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
                break;
            case MB_ERR_INTERNAL:
                fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");

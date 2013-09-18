@@ -42,8 +42,10 @@ int main(int argc, char * argv[])
 	int FLAME_household_bank_update_deposit_message_board_read;
 	int FLAME_interest_rate_message_board_write;
 	int FLAME_interest_rate_message_board_read;
-	int FLAME_tax_rate_message_board_write;
-	int FLAME_tax_rate_message_board_read;
+	int FLAME_capital_tax_rate_message_board_write;
+	int FLAME_capital_tax_rate_message_board_read;
+	int FLAME_labour_tax_rate_message_board_write;
+	int FLAME_labour_tax_rate_message_board_read;
 	int FLAME_buy_message_board_write;
 	int FLAME_buy_message_board_read;
 	int FLAME_bought_message_board_write;
@@ -505,39 +507,84 @@ printf("Iterations: %i\n", iteration_total);
 		   exit(rc);
 	}
 	#endif
-	FLAME_tax_rate_message_board_write = 0;
-	FLAME_tax_rate_message_board_read = 0;
+	FLAME_capital_tax_rate_message_board_write = 0;
+	FLAME_capital_tax_rate_message_board_read = 0;
 	/* Sending agents */
-	if(government_start_state->agents != NULL) FLAME_tax_rate_message_board_write = 1;
+	if(government_start_state->agents != NULL) FLAME_capital_tax_rate_message_board_write = 1;
 	
 	/* Reading agents */
-	if(firm_start_state->agents != NULL) FLAME_tax_rate_message_board_read = 1;
-	if(household_start_state->agents != NULL) FLAME_tax_rate_message_board_read = 1;
-	if(equityfund_start_state->agents != NULL) FLAME_tax_rate_message_board_read = 1;
+	if(equityfund_start_state->agents != NULL) FLAME_capital_tax_rate_message_board_read = 1;
 	
 	/* Call message board library with details */
-	if(FLAME_tax_rate_message_board_write == 0 &&
-		FLAME_tax_rate_message_board_read == 0)
-			rc = MB_SetAccessMode(b_tax_rate, MB_MODE_IDLE);
-	if(FLAME_tax_rate_message_board_write == 1 &&
-		FLAME_tax_rate_message_board_read == 0)
-			rc = MB_SetAccessMode(b_tax_rate, MB_MODE_WRITEONLY);
-	if(FLAME_tax_rate_message_board_write == 0 &&
-		FLAME_tax_rate_message_board_read == 1)
-			rc = MB_SetAccessMode(b_tax_rate, MB_MODE_READONLY);
-	if(FLAME_tax_rate_message_board_write == 1 &&
-		FLAME_tax_rate_message_board_read == 1)
-			rc = MB_SetAccessMode(b_tax_rate, MB_MODE_READWRITE);
+	if(FLAME_capital_tax_rate_message_board_write == 0 &&
+		FLAME_capital_tax_rate_message_board_read == 0)
+			rc = MB_SetAccessMode(b_capital_tax_rate, MB_MODE_IDLE);
+	if(FLAME_capital_tax_rate_message_board_write == 1 &&
+		FLAME_capital_tax_rate_message_board_read == 0)
+			rc = MB_SetAccessMode(b_capital_tax_rate, MB_MODE_WRITEONLY);
+	if(FLAME_capital_tax_rate_message_board_write == 0 &&
+		FLAME_capital_tax_rate_message_board_read == 1)
+			rc = MB_SetAccessMode(b_capital_tax_rate, MB_MODE_READONLY);
+	if(FLAME_capital_tax_rate_message_board_write == 1 &&
+		FLAME_capital_tax_rate_message_board_read == 1)
+			rc = MB_SetAccessMode(b_capital_tax_rate, MB_MODE_READWRITE);
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not set access mode of 'tax_rate' board\n");
+	   fprintf(stderr, "ERROR: Could not set access mode of 'capital_tax_rate' board\n");
 	   switch(rc) {
 		   case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+			   fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
 			   break;
 		   case MB_ERR_LOCKED:
-			   fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+			   fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+		   
+		   exit(rc);
+	}
+	#endif
+	FLAME_labour_tax_rate_message_board_write = 0;
+	FLAME_labour_tax_rate_message_board_read = 0;
+	/* Sending agents */
+	if(government_start_state->agents != NULL) FLAME_labour_tax_rate_message_board_write = 1;
+	
+	/* Reading agents */
+	if(firm_start_state->agents != NULL) FLAME_labour_tax_rate_message_board_read = 1;
+	if(household_start_state->agents != NULL) FLAME_labour_tax_rate_message_board_read = 1;
+	
+	/* Call message board library with details */
+	if(FLAME_labour_tax_rate_message_board_write == 0 &&
+		FLAME_labour_tax_rate_message_board_read == 0)
+			rc = MB_SetAccessMode(b_labour_tax_rate, MB_MODE_IDLE);
+	if(FLAME_labour_tax_rate_message_board_write == 1 &&
+		FLAME_labour_tax_rate_message_board_read == 0)
+			rc = MB_SetAccessMode(b_labour_tax_rate, MB_MODE_WRITEONLY);
+	if(FLAME_labour_tax_rate_message_board_write == 0 &&
+		FLAME_labour_tax_rate_message_board_read == 1)
+			rc = MB_SetAccessMode(b_labour_tax_rate, MB_MODE_READONLY);
+	if(FLAME_labour_tax_rate_message_board_write == 1 &&
+		FLAME_labour_tax_rate_message_board_read == 1)
+			rc = MB_SetAccessMode(b_labour_tax_rate, MB_MODE_READWRITE);
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not set access mode of 'labour_tax_rate' board\n");
+	   switch(rc) {
+		   case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
+			   break;
+		   case MB_ERR_LOCKED:
+			   fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
 			   break;
 		   case MB_ERR_MEMALLOC:
 			   fprintf(stderr, "\t reason: out of memory\n");
@@ -2759,24 +2806,61 @@ printf("Iterations: %i\n", iteration_total);
 		}
 		
 		/* Start sync message boards that don't write */
-		if(FLAME_tax_rate_message_board_write == 0)
+		if(FLAME_capital_tax_rate_message_board_write == 0)
 		{
-			/*printf("%d> tax_rate message board sync start early as no agents sending any messages of this type\n", node_number);*/
+			/*printf("%d> capital_tax_rate message board sync start early as no agents sending any messages of this type\n", node_number);*/
 			
 			/* ********** sync message board here **********  */
-			if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_tax_rate)\n");
-			rc = MB_SyncStart(b_tax_rate);
-			if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_tax_rate)\n");
+			if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_capital_tax_rate)\n");
+			rc = MB_SyncStart(b_capital_tax_rate);
+			if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_capital_tax_rate)\n");
 			#ifdef ERRCHECK
 			if (rc != MB_SUCCESS)
 			{
-			   fprintf(stderr, "ERROR: Could not start sync of 'tax_rate' board\n");
+			   fprintf(stderr, "ERROR: Could not start sync of 'capital_tax_rate' board\n");
 			   switch(rc) {
 				   case MB_ERR_INVALID:
-					   fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+					   fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
 					   break;
 				   case MB_ERR_LOCKED:
-					   fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+					   fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
+					   break;
+				   case MB_ERR_MEMALLOC:
+					   fprintf(stderr, "\t reason: out of memory\n");
+					   break;
+				   case MB_ERR_INTERNAL:
+					   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+					   break;
+				   default:
+					   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+					   break;
+			   }
+			   
+					   
+					   exit(rc);
+			   }
+			   #endif
+		}
+		
+		/* Start sync message boards that don't write */
+		if(FLAME_labour_tax_rate_message_board_write == 0)
+		{
+			/*printf("%d> labour_tax_rate message board sync start early as no agents sending any messages of this type\n", node_number);*/
+			
+			/* ********** sync message board here **********  */
+			if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_labour_tax_rate)\n");
+			rc = MB_SyncStart(b_labour_tax_rate);
+			if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_labour_tax_rate)\n");
+			#ifdef ERRCHECK
+			if (rc != MB_SUCCESS)
+			{
+			   fprintf(stderr, "ERROR: Could not start sync of 'labour_tax_rate' board\n");
+			   switch(rc) {
+				   case MB_ERR_INVALID:
+					   fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
+					   break;
+				   case MB_ERR_LOCKED:
+					   fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
 					   break;
 				   case MB_ERR_MEMALLOC:
 					   fprintf(stderr, "\t reason: out of memory\n");
@@ -10538,22 +10622,57 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 	}
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish government_update_fiscal_policy\n");
 
-	if(FLAME_tax_rate_message_board_write == 1)
+	if(FLAME_labour_tax_rate_message_board_write == 1)
 	{
 
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_tax_rate)\n");
-		rc = MB_SyncStart(b_tax_rate);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_tax_rate)\n");
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_labour_tax_rate)\n");
+		rc = MB_SyncStart(b_labour_tax_rate);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_labour_tax_rate)\n");
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not start sync of 'tax_rate' board\n");
+		   fprintf(stderr, "ERROR: Could not start sync of 'labour_tax_rate' board\n");
 		   switch(rc) {
 			   case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+				   fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
 				   break;
 			   case MB_ERR_LOCKED:
-				   fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+				   fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncStart returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+
+			
+			exit(rc);
+		}
+		#endif
+    }
+    
+
+	if(FLAME_capital_tax_rate_message_board_write == 1)
+	{
+
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncStart(b_capital_tax_rate)\n");
+		rc = MB_SyncStart(b_capital_tax_rate);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finish MB_SyncStart(b_capital_tax_rate)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not start sync of 'capital_tax_rate' board\n");
+		   switch(rc) {
+			   case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
+				   break;
+			   case MB_ERR_LOCKED:
+				   fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
 				   break;
 			   case MB_ERR_MEMALLOC:
 				   fprintf(stderr, "\t reason: out of memory\n");
@@ -10875,18 +10994,18 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 
 
 	/* If mb is not read then leave sync complete until last possible moment */
-	if(FLAME_tax_rate_message_board_read == 1)
+	if(FLAME_labour_tax_rate_message_board_read == 1)
 	{
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_tax_rate)\n");
-		rc = MB_SyncComplete(b_tax_rate);
-		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_tax_rate)\n");
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_labour_tax_rate)\n");
+		rc = MB_SyncComplete(b_labour_tax_rate);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_labour_tax_rate)\n");
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not complete sync of 'tax_rate' board\n");
+		   fprintf(stderr, "ERROR: Could not complete sync of 'labour_tax_rate' board\n");
 		   switch(rc) {
 				case MB_ERR_INVALID:
-				   fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+				   fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
 				   break;
 			   case MB_ERR_MEMALLOC:
 				   fprintf(stderr, "\t reason: out of memory\n");
@@ -10932,19 +11051,19 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 		
 		
 		
-		  rc = MB_Iterator_Create(b_tax_rate, &i_tax_rate);
+		  rc = MB_Iterator_Create(b_labour_tax_rate, &i_labour_tax_rate);
 		  
 		
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'tax_rate'\n");
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'labour_tax_rate'\n");
 		   switch(rc) {
 		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+		           fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
 		           break;
 		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+	               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
 	               break;
 	           case MB_ERR_MEMALLOC:
 	               fprintf(stderr, "\t reason: out of memory\n");
@@ -10970,14 +11089,14 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 			i = firm_credit_check_tax_rate();
 
 		
-		    rc = MB_Iterator_Delete(&i_tax_rate);
+		    rc = MB_Iterator_Delete(&i_labour_tax_rate);
 		    #ifdef ERRCHECK
 		    if (rc != MB_SUCCESS)
 		    {
-		       fprintf(stderr, "ERROR: Could not delete 'tax_rate' iterator\n");
+		       fprintf(stderr, "ERROR: Could not delete 'labour_tax_rate' iterator\n");
 		       switch(rc) {
 		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'tax_rate' iterator is invalid\n");
+		               fprintf(stderr, "\t reason: 'labour_tax_rate' iterator is invalid\n");
 		               break;
 		           case MB_ERR_INTERNAL:
 		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -11034,19 +11153,19 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 		
 		
 		
-		  rc = MB_Iterator_Create(b_tax_rate, &i_tax_rate);
+		  rc = MB_Iterator_Create(b_labour_tax_rate, &i_labour_tax_rate);
 		  
 		
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'tax_rate'\n");
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'labour_tax_rate'\n");
 		   switch(rc) {
 		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+		           fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
 		           break;
 		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+	               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
 	               break;
 	           case MB_ERR_MEMALLOC:
 	               fprintf(stderr, "\t reason: out of memory\n");
@@ -11072,14 +11191,14 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 			i = household_credit_check_tax_rate();
 
 		
-		    rc = MB_Iterator_Delete(&i_tax_rate);
+		    rc = MB_Iterator_Delete(&i_labour_tax_rate);
 		    #ifdef ERRCHECK
 		    if (rc != MB_SUCCESS)
 		    {
-		       fprintf(stderr, "ERROR: Could not delete 'tax_rate' iterator\n");
+		       fprintf(stderr, "ERROR: Could not delete 'labour_tax_rate' iterator\n");
 		       switch(rc) {
 		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'tax_rate' iterator is invalid\n");
+		               fprintf(stderr, "\t reason: 'labour_tax_rate' iterator is invalid\n");
 		               break;
 		           case MB_ERR_INTERNAL:
 		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -11112,6 +11231,40 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish household_credit_check_tax_rate\n");
 
 
+	/* If mb is not read then leave sync complete until last possible moment */
+	if(FLAME_capital_tax_rate_message_board_read == 1)
+	{
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_capital_tax_rate)\n");
+		rc = MB_SyncComplete(b_capital_tax_rate);
+		if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_capital_tax_rate)\n");
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not complete sync of 'capital_tax_rate' board\n");
+		   switch(rc) {
+				case MB_ERR_INVALID:
+				   fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
+				   break;
+			   case MB_ERR_MEMALLOC:
+				   fprintf(stderr, "\t reason: out of memory\n");
+				   break;
+			   case MB_ERR_INTERNAL:
+				   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+				   break;
+			   default:
+				   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+				   break;
+		   }
+	
+		   
+		   exit(rc);
+		}
+		#endif
+    
+    
+    
+	}
+	
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start equityfund_credit_check_tax_rate\n");
 	current_xmachine_equityfund_holder = equityfund_EFCreditCheckTaxRate_state->agents;
 	while(current_xmachine_equityfund_holder)
@@ -11136,19 +11289,19 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 		
 		
 		
-		  rc = MB_Iterator_Create(b_tax_rate, &i_tax_rate);
+		  rc = MB_Iterator_Create(b_capital_tax_rate, &i_capital_tax_rate);
 		  
 		
 		#ifdef ERRCHECK
 		if (rc != MB_SUCCESS)
 		{
-		   fprintf(stderr, "ERROR: Could not create Iterator for 'tax_rate'\n");
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'capital_tax_rate'\n");
 		   switch(rc) {
 		       case MB_ERR_INVALID:
-		           fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+		           fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
 		           break;
 		       case MB_ERR_LOCKED:
-	               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+	               fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
 	               break;
 	           case MB_ERR_MEMALLOC:
 	               fprintf(stderr, "\t reason: out of memory\n");
@@ -11174,14 +11327,14 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 			i = equityfund_credit_check_tax_rate();
 
 		
-		    rc = MB_Iterator_Delete(&i_tax_rate);
+		    rc = MB_Iterator_Delete(&i_capital_tax_rate);
 		    #ifdef ERRCHECK
 		    if (rc != MB_SUCCESS)
 		    {
-		       fprintf(stderr, "ERROR: Could not delete 'tax_rate' iterator\n");
+		       fprintf(stderr, "ERROR: Could not delete 'capital_tax_rate' iterator\n");
 		       switch(rc) {
 		           case MB_ERR_INVALID:
-		               fprintf(stderr, "\t reason: 'tax_rate' iterator is invalid\n");
+		               fprintf(stderr, "\t reason: 'capital_tax_rate' iterator is invalid\n");
 		               break;
 		           case MB_ERR_INTERNAL:
 		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
@@ -11219,20 +11372,20 @@ if(FLAME_firm_net_profit_message_board_read == 0)
 /* Clear message boards that have finished being used
  * and sync complete if doing late sync complete */
 
-if(FLAME_tax_rate_message_board_read == 0)
+if(FLAME_capital_tax_rate_message_board_read == 0)
 {
-	/*printf("%d> tax_rate message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	/*printf("%d> capital_tax_rate message board sync complete late as no agents reading any messages of this type\n", node_number);*/
 	
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_tax_rate)\n");
-	rc = MB_SyncComplete(b_tax_rate);
-	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_tax_rate)\n");
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_capital_tax_rate)\n");
+	rc = MB_SyncComplete(b_capital_tax_rate);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_capital_tax_rate)\n");
 	#ifdef ERRCHECK
 	if (rc != MB_SUCCESS)
 	{
-	   fprintf(stderr, "ERROR: Could not complete sync of 'tax_rate' board\n");
+	   fprintf(stderr, "ERROR: Could not complete sync of 'capital_tax_rate' board\n");
 	   switch(rc) {
 			case MB_ERR_INVALID:
-			   fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+			   fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
 			   break;
 		   case MB_ERR_MEMALLOC:
 			   fprintf(stderr, "\t reason: out of memory\n");
@@ -11253,17 +11406,77 @@ if(FLAME_tax_rate_message_board_read == 0)
 
     /* Delete any search trees */
 
-    rc = MB_Clear(b_tax_rate);
+    rc = MB_Clear(b_capital_tax_rate);
     #ifdef ERRCHECK
     if (rc != MB_SUCCESS)
     {
-       fprintf(stderr, "ERROR: Could not clear 'tax_rate' board\n");
+       fprintf(stderr, "ERROR: Could not clear 'capital_tax_rate' board\n");
        switch(rc) {
            case MB_ERR_INVALID:
-               fprintf(stderr, "\t reason: 'tax_rate' board is invalid\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board is invalid\n");
                break;
            case MB_ERR_LOCKED:
-               fprintf(stderr, "\t reason: 'tax_rate' board is locked\n");
+               fprintf(stderr, "\t reason: 'capital_tax_rate' board is locked\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+           default:
+               fprintf(stderr, "\t MB_Clear returned error code: %d (see libmboard docs for details)\n", rc);
+               break;
+
+       }
+
+       
+       exit(rc);
+    }
+    #endif
+
+if(FLAME_labour_tax_rate_message_board_read == 0)
+{
+	/*printf("%d> labour_tax_rate message board sync complete late as no agents reading any messages of this type\n", node_number);*/
+	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("start MB_SyncComplete(b_labour_tax_rate)\n");
+	rc = MB_SyncComplete(b_labour_tax_rate);
+	if(FLAME_TEST_PRINT_START_AND_END_OF_LIBMBOARD_CALLS) printf("finsh MB_SyncComplete(b_labour_tax_rate)\n");
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not complete sync of 'labour_tax_rate' board\n");
+	   switch(rc) {
+			case MB_ERR_INVALID:
+			   fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
+			   break;
+		   case MB_ERR_MEMALLOC:
+			   fprintf(stderr, "\t reason: out of memory\n");
+			   break;
+		   case MB_ERR_INTERNAL:
+			   fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+			   break;
+		   default:
+			   fprintf(stderr, "\t MB_SyncComplete returned error code: %d (see libmboard docs for details)\n", rc);
+			   break;
+	   }
+
+	   
+	   exit(rc);
+	}
+	#endif
+}
+
+    /* Delete any search trees */
+
+    rc = MB_Clear(b_labour_tax_rate);
+    #ifdef ERRCHECK
+    if (rc != MB_SUCCESS)
+    {
+       fprintf(stderr, "ERROR: Could not clear 'labour_tax_rate' board\n");
+       switch(rc) {
+           case MB_ERR_INVALID:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board is invalid\n");
+               break;
+           case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'labour_tax_rate' board is locked\n");
                break;
            case MB_ERR_INTERNAL:
                fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");

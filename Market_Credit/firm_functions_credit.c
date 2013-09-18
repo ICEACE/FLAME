@@ -26,9 +26,9 @@ int firm_credit_check_interest_rate()
 int firm_credit_check_tax_rate()
 {
 
-    START_TAX_RATE_MESSAGE_LOOP
-    TAX_RATE = tax_rate_message->value;
-	FINISH_TAX_RATE_MESSAGE_LOOP
+    START_LABOUR_TAX_RATE_MESSAGE_LOOP
+    LABOUR_TAX_RATE = labour_tax_rate_message->value;
+	FINISH_LABOUR_TAX_RATE_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }

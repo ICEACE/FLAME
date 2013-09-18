@@ -9,6 +9,9 @@
 /** \def BANK_ID
  * \brief Direct access to bank_id of household agent memory variable. */
 #define BANK_ID (current_xmachine_household->bank_id)
+/** \def IT_NO
+ * \brief Direct access to it_no of household agent memory variable. */
+#define IT_NO (current_xmachine_household->it_no)
 /** \def DAY_OF_WEEK_TO_ACT
  * \brief Direct access to day_of_week_to_act of household agent memory variable. */
 #define DAY_OF_WEEK_TO_ACT (current_xmachine_household->day_of_week_to_act)
@@ -33,9 +36,9 @@
 /** \def MORTGAGES_INTEREST_RATE
  * \brief Direct access to mortgages_interest_rate of household agent memory variable. */
 #define MORTGAGES_INTEREST_RATE (current_xmachine_household->mortgages_interest_rate)
-/** \def TAX_RATE
- * \brief Direct access to tax_rate of household agent memory variable. */
-#define TAX_RATE (current_xmachine_household->tax_rate)
+/** \def LABOUR_TAX_RATE
+ * \brief Direct access to labour_tax_rate of household agent memory variable. */
+#define LABOUR_TAX_RATE (current_xmachine_household->labour_tax_rate)
 /** \def MORTGAGES_LIST
  * \brief Direct access to mortgages_list of household agent memory variable. */
 #define MORTGAGES_LIST (current_xmachine_household->mortgages_list)

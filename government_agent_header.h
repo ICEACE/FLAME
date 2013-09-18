@@ -6,6 +6,9 @@
 /** \def ID
  * \brief Direct access to id of government agent memory variable. */
 #define ID (current_xmachine_government->id)
+/** \def IT_NO
+ * \brief Direct access to it_no of government agent memory variable. */
+#define IT_NO (current_xmachine_government->it_no)
 /** \def AVERAGE_WAGE
  * \brief Direct access to average_wage of government agent memory variable. */
 #define AVERAGE_WAGE (current_xmachine_government->average_wage)
@@ -30,9 +33,12 @@
 /** \def DAY_OF_MONTH_WAGES_PAID
  * \brief Direct access to day_of_month_wages_paid of government agent memory variable. */
 #define DAY_OF_MONTH_WAGES_PAID (current_xmachine_government->day_of_month_wages_paid)
-/** \def GOV_TAX_RATE
- * \brief Direct access to gov_tax_rate of government agent memory variable. */
-#define GOV_TAX_RATE (current_xmachine_government->gov_tax_rate)
+/** \def CAPITAL_TAX_RATE
+ * \brief Direct access to capital_tax_rate of government agent memory variable. */
+#define CAPITAL_TAX_RATE (current_xmachine_government->capital_tax_rate)
+/** \def LABOUR_TAX_RATE
+ * \brief Direct access to labour_tax_rate of government agent memory variable. */
+#define LABOUR_TAX_RATE (current_xmachine_government->labour_tax_rate)
 /** \def LABOUR_TAX_INCOME
  * \brief Direct access to labour_tax_income of government agent memory variable. */
 #define LABOUR_TAX_INCOME (current_xmachine_government->labour_tax_income)
