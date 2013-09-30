@@ -256,7 +256,30 @@ void unittest_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment(
 
 void unittest_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart()
 {
+	int rc;
 	
+	
+	rc = MB_Iterator_Create(b_employment_status, &i_employment_status);
+	#ifdef ERRCHECK
+	if (rc != MB_SUCCESS)
+	{
+	   fprintf(stderr, "ERROR: Could not create Iterator for 'employment_status'\n");
+	   switch(rc) {
+	       case MB_ERR_INVALID:
+	           fprintf(stderr, "\t reason: 'employment_status' board is invalid\n");
+	           break;
+	       case MB_ERR_LOCKED:
+               fprintf(stderr, "\t reason: 'employment_status' board is locked\n");
+               break;
+           case MB_ERR_MEMALLOC:
+               fprintf(stderr, "\t reason: out of memory\n");
+               break;
+           case MB_ERR_INTERNAL:
+               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+               break;
+	   }
+	}
+	#endif
 	
 	//return firm_labour_trace_wages();
 }

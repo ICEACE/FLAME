@@ -7,16 +7,18 @@
  */
 int firm_consumption_supply()
 {
+    
     if (ISCONSTRUCTOR == 1) {
         return 0;
     }
     
+    printf("Firm Id = %d at Consumption Market\n", ID);
     if (UNIT_GOODS_PRICE == 0) {
         return 0;
     }
     if (INVENTORY > 0) {
         add_sell_message(ID, UNIT_GOODS_PRICE, INVENTORY);
-        //printf("Firm Id = %d Sends = %d Goods to Mall with a price = %f\n", ID, INVENTORY, UNIT_GOODS_PRICE);
+        printf("Firm Id = %d Sends = %d Goods to Mall with a price = %f\n", ID, INVENTORY, UNIT_GOODS_PRICE);
     }
 
 	return 0; /* Returning zero means the agent is not removed */

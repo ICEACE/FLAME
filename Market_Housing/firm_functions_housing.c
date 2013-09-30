@@ -12,6 +12,8 @@ int firm_housing_enter_market()
     double price_difference, price;
     int i = 1;
     
+    printf("Firm Id = %d at Housing Market\n", ID);
+    
     while (i <= INVENTORY) {
         price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
         price = UNIT_HOUSE_PRICE * (1 + price_difference);

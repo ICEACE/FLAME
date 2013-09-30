@@ -39,7 +39,10 @@ int firm_labour_workforce_needed()
     if (NO_EMPLOYEES < 1) {
         EMPLOYEES_NEEDED = 1;
     }
-	return 0; /* Returning zero means the agent is not removed */
+    
+    printf("Firm %d is at Labour Market EMPLOYEES_NEEDED is %d\n", ID, EMPLOYEES_NEEDED);
+    
+    return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
@@ -218,6 +221,7 @@ int firm_labour_pay_wages()
     LIQUIDITY -= payrolls;
     LABOUR_COSTS += payrolls;
     
+    printf("Firm ID = %d LABOUR COST for the month is %f\n", ID, LABOUR_COSTS);
 	return 0; /* Returning zero means the agent is not removed */
 }
 

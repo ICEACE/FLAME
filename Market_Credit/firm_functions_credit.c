@@ -44,6 +44,8 @@ int firm_credit_compute_income_statement()
     
     TOTAL_INTEREST_PAYMENTS = 0;
     
+    printf("Firm %d at Credit Market %d\n", ID, IT_NO);
+    
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE / 4;

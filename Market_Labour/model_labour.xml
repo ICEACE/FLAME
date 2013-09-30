@@ -576,6 +576,11 @@
                     <description>Firm checks wage in the market and updates its wage offer.</description>
                     <currentState>FirmLabourWageAdjustment</currentState>
                     <nextState>FirmConsumptionStart</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>employment_status</messageName>
+                        </input>
+                    </inputs>
                 </function>
             </functions>
         </xagent>

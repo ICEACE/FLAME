@@ -43,5 +43,7 @@ int firm_update_bank_account()
         add_firm_bank_update_deposit_message(BANK_ID, LIQUIDITY);
     }
     
+    printf("Firm ID = %d Liquidity amount = %f\n", ID, LIQUIDITY);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }

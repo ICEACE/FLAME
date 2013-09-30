@@ -1207,6 +1207,7 @@ printf("Iterations: %i\n", iteration_total);
 	if(household_start_state->agents != NULL) FLAME_employment_status_message_board_write = 1;
 	
 	/* Reading agents */
+	if(firm_start_state->agents != NULL) FLAME_employment_status_message_board_read = 1;
 	if(equityfund_start_state->agents != NULL) FLAME_employment_status_message_board_read = 1;
 	if(government_start_state->agents != NULL) FLAME_employment_status_message_board_read = 1;
 	if(centralbank_start_state->agents != NULL) FLAME_employment_status_message_board_read = 1;
@@ -16955,50 +16956,6 @@ if(FLAME_job_match_stage2_message_board_read == 0)
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish idle\n");
 
 
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_trace_wages\n");
-	current_xmachine_firm_holder = firm_FirmLabourWageAdjustment_state->agents;
-	while(current_xmachine_firm_holder)
-	{
-		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
-		current_xmachine_firm = current_xmachine_firm_holder->agent;
-		current_xmachine_firm_next_state = firm_FirmConsumptionStart_state;
-		/* For backwards compatibility set current_xmachine */
-		current_xmachine->xmachine_firm = NULL;
-		current_xmachine->xmachine_household = NULL;
-		current_xmachine->xmachine_equityfund = NULL;
-		current_xmachine->xmachine_bank = NULL;
-		current_xmachine->xmachine_government = NULL;
-		current_xmachine->xmachine_centralbank = NULL;
-		current_xmachine->xmachine_jpoffice = NULL;
-		current_xmachine->xmachine_mall = NULL;
-		current_xmachine->xmachine_reagency = NULL;
-		current_xmachine->xmachine_firm = current_xmachine_firm;
-
-		
-
-		
-
-			i = firm_labour_trace_wages();
-
-		
-
-			if(i == 1)
-			{
-				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourWageAdjustment_state);
-			}
-			else
-			{
-				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourWageAdjustment_state, firm_FirmConsumptionStart_state);
-			}
-		
-
-		current_xmachine_firm = NULL;
-
-		current_xmachine_firm_holder = temp_xmachine_firm_holder;
-	}
-	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_trace_wages\n");
-
-
 	/* If mb is not read then leave sync complete until last possible moment */
 	if(FLAME_employment_status_message_board_read == 1)
 	{
@@ -17033,6 +16990,108 @@ if(FLAME_job_match_stage2_message_board_read == 0)
     
 	}
 	
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start firm_labour_trace_wages\n");
+	current_xmachine_firm_holder = firm_FirmLabourWageAdjustment_state->agents;
+	while(current_xmachine_firm_holder)
+	{
+		temp_xmachine_firm_holder = current_xmachine_firm_holder->next;
+		current_xmachine_firm = current_xmachine_firm_holder->agent;
+		current_xmachine_firm_next_state = firm_FirmConsumptionStart_state;
+		/* For backwards compatibility set current_xmachine */
+		current_xmachine->xmachine_firm = NULL;
+		current_xmachine->xmachine_household = NULL;
+		current_xmachine->xmachine_equityfund = NULL;
+		current_xmachine->xmachine_bank = NULL;
+		current_xmachine->xmachine_government = NULL;
+		current_xmachine->xmachine_centralbank = NULL;
+		current_xmachine->xmachine_jpoffice = NULL;
+		current_xmachine->xmachine_mall = NULL;
+		current_xmachine->xmachine_reagency = NULL;
+		current_xmachine->xmachine_firm = current_xmachine_firm;
+
+		
+
+		
+		
+		
+		  rc = MB_Iterator_Create(b_employment_status, &i_employment_status);
+		  
+		
+		#ifdef ERRCHECK
+		if (rc != MB_SUCCESS)
+		{
+		   fprintf(stderr, "ERROR: Could not create Iterator for 'employment_status'\n");
+		   switch(rc) {
+		       case MB_ERR_INVALID:
+		           fprintf(stderr, "\t reason: 'employment_status' board is invalid\n");
+		           break;
+		       case MB_ERR_LOCKED:
+	               fprintf(stderr, "\t reason: 'employment_status' board is locked\n");
+	               break;
+	           case MB_ERR_MEMALLOC:
+	               fprintf(stderr, "\t reason: out of memory\n");
+	               break;
+	           case MB_ERR_INTERNAL:
+	               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+	               break;
+	           default:
+	           
+               
+                   fprintf(stderr, "\t MB_Iterator_Create returned error code: %d (see libmboard docs for details)\n", rc);
+               
+                   break;
+		   }
+
+		   
+           exit(rc);
+		}
+		#endif
+		
+		
+
+			i = firm_labour_trace_wages();
+
+		
+		    rc = MB_Iterator_Delete(&i_employment_status);
+		    #ifdef ERRCHECK
+		    if (rc != MB_SUCCESS)
+		    {
+		       fprintf(stderr, "ERROR: Could not delete 'employment_status' iterator\n");
+		       switch(rc) {
+		           case MB_ERR_INVALID:
+		               fprintf(stderr, "\t reason: 'employment_status' iterator is invalid\n");
+		               break;
+		           case MB_ERR_INTERNAL:
+		               fprintf(stderr, "\t reason: internal error. Recompile libmoard in debug mode for more info \n");
+		               break;
+		           default:
+                       fprintf(stderr, "\t MB_Iterator_Delete returned error code: %d (see libmboard docs for details)\n", rc);
+                       break;
+		       }
+
+		       
+               exit(rc);
+		    }
+		    #endif
+		
+
+			if(i == 1)
+			{
+				free_firm_agent(current_xmachine_firm_holder, firm_FirmLabourWageAdjustment_state);
+			}
+			else
+			{
+				transition_firm_agent(current_xmachine_firm_holder, firm_FirmLabourWageAdjustment_state, firm_FirmConsumptionStart_state);
+			}
+		
+
+		current_xmachine_firm = NULL;
+
+		current_xmachine_firm_holder = temp_xmachine_firm_holder;
+	}
+	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("finish firm_labour_trace_wages\n");
+
+
 	if(FLAME_TEST_PRINT_START_AND_END_OF_MODEL_FUNCTIONS) printf("start equityfund_audit_dividends\n");
 	current_xmachine_equityfund_holder = equityfund_EFLabourMarket_state->agents;
 	while(current_xmachine_equityfund_holder)

@@ -149,7 +149,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -166,7 +166,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></rhs>
                     </condition>
                     <outputs>
@@ -217,7 +217,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -234,7 +234,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></rhs>
                     </condition>
                     <outputs>
@@ -314,7 +314,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -331,7 +331,7 @@
                         <op>OR</op>
                         <rhs><time>
                             <period>weekly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></rhs>
                     </condition>
                     <inputs>

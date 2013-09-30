@@ -27,7 +27,7 @@ int firm_production_produce_goods()
      of labour.
      */
     PRODUCTION_CURRENT = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
-    //printf("    New goods available for the market = %d\n", PRODUCTION_CURRENT);
+    printf("    Firm %d produces %d items at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -101,6 +101,7 @@ int firm_production_plan()
     PRODUCTION_CURRENT = 0;
     //printf("    Total INVENTORY available for sale = %d\n", INVENTORY);
     
+    printf("Firm %d plans %d units to be produced. IT NO: %d\n", ID, PRODUCTION_PLAN, IT_NO);
     //Sales are monthly.
     SALES = 0;
     
@@ -178,7 +179,7 @@ int firm_production_construct_houses()
     
     PRODUCTION_CURRENT = PROJECTS[0];
     
-    
+    printf("    Constructor Firm %d produces %d houses at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
     //printf("    New housing units available for the market = %d\n", PRODUCTION_CURRENT);
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -240,6 +241,8 @@ int firm_production_construction_plan()
             PRODUCTION_PLAN = random_int(1, work_in_progress);
         }
     }
+    
+    printf("Constructor Firm %d plans %d units to be produced. IT NO: %d\n", ID, PRODUCTION_PLAN, IT_NO);
 
     //printf("    Planned number of new houses for the next term = %d\n", PRODUCTION_PLAN);
 	return 0; /* Returning zero means the agent is not removed */

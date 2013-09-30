@@ -411,9 +411,9 @@ digraph state_graph {
 	/* Transitions */
 	firm_start -> firm_firm_init_start_FirmCreditStart;
 	firm_firm_init_start_FirmCreditStart -> firm_FirmCreditStart;
-	firm_FirmUpdateDeposits -> firm_idle_FirmUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 1 )"];
+	firm_FirmUpdateDeposits -> firm_idle_FirmUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0 )"];
 	firm_idle_FirmUpdateDeposits_end -> firm_end;
-	firm_FirmUpdateDeposits -> firm_firm_update_bank_account_FirmUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 1"];
+	firm_FirmUpdateDeposits -> firm_firm_update_bank_account_FirmUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0"];
 	firm_firm_update_bank_account_FirmUpdateDeposits_end -> firm_end;
 	firm_FirmConsumptionStart -> firm_idle_FirmConsumptionStart_FirmHousingStart [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act )"];
 	firm_idle_FirmConsumptionStart_FirmHousingStart -> firm_FirmHousingStart;
@@ -535,9 +535,9 @@ digraph state_graph {
 	firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits -> firm_FirmUpdateDeposits;
 	household_start -> household_household_init_start_HHCreditStart;
 	household_household_init_start_HHCreditStart -> household_HHCreditStart;
-	household_HouseholdUpdateDeposits -> household_idle_HouseholdUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 1 )"];
+	household_HouseholdUpdateDeposits -> household_idle_HouseholdUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0 )"];
 	household_idle_HouseholdUpdateDeposits_end -> household_end;
-	household_HouseholdUpdateDeposits -> household_household_update_bank_account_HouseholdUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 1"];
+	household_HouseholdUpdateDeposits -> household_household_update_bank_account_HouseholdUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0"];
 	household_household_update_bank_account_HouseholdUpdateDeposits_end -> household_end;
 	household_HHConsumptionStart -> household_idle_HHConsumptionStart_HHConsumptionWeekly [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
 	household_idle_HHConsumptionStart_HHConsumptionWeekly -> household_HHConsumptionWeekly;
@@ -639,9 +639,9 @@ digraph state_graph {
 	equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket -> equityfund_EFLabourMarket;
 	bank_start -> bank_bank_init_start_BankCreditStart;
 	bank_bank_init_start_BankCreditStart -> bank_BankCreditStart;
-	bank_BankUpdateDeposits -> bank_idle_BankUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 1 )"];
+	bank_BankUpdateDeposits -> bank_idle_BankUpdateDeposits_end [ label = "not ( Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0 )"];
 	bank_idle_BankUpdateDeposits_end -> bank_end;
-	bank_BankUpdateDeposits -> bank_bank_update_deposits_BankUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 1"];
+	bank_BankUpdateDeposits -> bank_bank_update_deposits_BankUpdateDeposits_end [ label = "Periodicity: weekly\nPhase: a->day_of_week_to_act OR\nPeriodicity: weekly\nPhase: 0"];
 	bank_bank_update_deposits_BankUpdateDeposits_end -> bank_end;
 	bank_BankCreditStart -> bank_idle_BankCreditStart_BankHousingMarket [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
 	bank_idle_BankCreditStart_BankHousingMarket -> bank_BankHousingMarket;
@@ -812,6 +812,7 @@ digraph state_graph {
 	equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares -> firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy [ label = "fund_request_ack" color="#00ff00" constraint=false];
 	bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs -> firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus [ label = "loan_acknowledge_2" color="#00ff00" constraint=false];
 	bank_bank_credit_process_loan_requests_1_BankCreditRequest1_BankCreditRequest2 -> firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2 [ label = "loan_acknowledge_1" color="#00ff00" constraint=false];
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart [ label = "employment_status" color="#00ff00" constraint=false];
 	jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end -> firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages [ label = "job_match_stage2" color="#00ff00" constraint=false];
 	household_household_labour_turnover_HHLabourStage2_HHLabourEmploymentStatus -> firm_firm_labour_update_FirmLabourStage1End_FirmLabourStage2 [ label = "job_change" color="#00ff00" constraint=false];
 	jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 -> firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End [ label = "job_match_stage1" color="#00ff00" constraint=false];
