@@ -1,14 +1,53 @@
 #include "header.h"
 #include "household_agent_header.h"
 
+
 /*
- * \fn: int household_init()
- * \brief: notifies its id by printing out agent id.
+ * \fn: int household_init_post_id()
+ * \brief:
  */
-int household_init()
+int household_init_post_id()
 {
-    // Read from memory
-	//printf(("Household Id: %d\n", ID);
+    add_household_jpoffice_id_message(ID);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int household_init_employment()
+ * \brief:
+ */
+int household_init_employment()
+{
+    START_JPOFFICE_HOUSEHOLD_EMPLOYER_MESSAGE_LOOP
+    MY_EMPLOYER_ID = jpoffice_household_employer_message->employer_id;
+    FINISH_JPOFFICE_HOUSEHOLD_EMPLOYER_MESSAGE_LOOP
+    
+    printf("Household: %d employed at %d \n", ID, MY_EMPLOYER_ID);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int household_init_balancesheet()
+ * \brief: 
+ */
+int household_init_balancesheet()
+{
+    /*The firms are initiliazed loans only with their preferred banks.
+     */
+    add_household_bank_init_mortgages_message(BANK_ID, MORTGAGES);
+    add_household_bank_init_deposit_message(BANK_ID, LIQUIDITY);
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int household_iterate()
+ * \brief: Resumes its regular functions.
+ */
+int household_iterate()
+{
     
     char * filename;
     FILE * file1;

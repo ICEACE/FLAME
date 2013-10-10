@@ -27,7 +27,7 @@ int firm_production_produce_goods()
      of labour.
      */
     PRODUCTION_CURRENT = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
-    printf("    Firm %d produces %d items at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
+    printf("Firm %d produces %d items at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -47,6 +47,8 @@ int firm_production_set_price()
     
     unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
     unit_cost_new += DEBT * LOANS_INTEREST_RATE / 3;
+    
+    unit_cost_new = unit_cost_new / PRODUCTION_CURRENT;
    
     if (goods_to_sale != 0) {
         UNIT_COST = ((INVENTORY * unit_cost_old) + (PRODUCTION_CURRENT * unit_cost_new) ) / goods_to_sale;
@@ -135,17 +137,18 @@ int firm_production_compute_labour_demand()
 int firm_production_construct_houses()
 {
     int capital, labour, units_to_produce;
-    //printf("Constructor Firm ID = %d\n", ID);
-    //printf("    Houses not sold = %d\n", INVENTORY);
+    
     
     labour = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION);
     capital = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
+    
     //Lentoif production function:
     units_to_produce = min_int(labour, capital);
     
     //make sure that finished goods were transfered to inventories.
     //unfinished housing units are advanced one at a time.
     PROJECTS[0] = 0;
+    
     while (units_to_produce > 0) {
         for(int i = 0; i<=10; i++) {
             if (units_to_produce <= 0) {break;}
@@ -179,7 +182,7 @@ int firm_production_construct_houses()
     
     PRODUCTION_CURRENT = PROJECTS[0];
     
-    printf("    Constructor Firm %d produces %d houses at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
+    printf("Constructor Firm %d produces %d houses at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
     //printf("    New housing units available for the market = %d\n", PRODUCTION_CURRENT);
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -200,19 +203,15 @@ int firm_production_construction_plan()
     INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
     
-    //printf("Constructor Firm ID = %d\n", ID);
-    //printf("    Total inventories available for sale = %d\n", INVENTORY);
     
-        
     //Get number of ongoing projects.
     work_in_progress = 0;
-    //printf("    Projects[");
+    
     for (int i = 1; i<=11; i++) {
         work_in_progress += PROJECTS[i];
-        //printf("%d ", PROJECTS[i]);
     }
-    //printf("]\n");
-    //printf("    Work in progress = %d \n", work_in_progress);
+    
+    printf("Constructor %d has %d works in progress.\n", ID, work_in_progress);
     
     maxsize = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
     //printf("    Maxsize = %d \n", maxsize);
@@ -220,11 +219,11 @@ int firm_production_construction_plan()
     //printf("    New Price = %f \n", new_price);
     //printf("    No Employees = %d \n", NO_EMPLOYEES);
     //printf("    Productivity = %f \n", LABOUR_PRODUCTIVITY_CONSTRUCTION);
-    //printf("    Nemployees * productivity = %d \n", (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION));
+    //printf("Firm Id = %d productivity", (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION));
     
     
     //Some conditions are added to the model! Needs to be chekced.
-    if (maxsize == 0){
+    if (maxsize <= 0){
         PRODUCTION_PLAN = 0;
     }
     else if (DELTA_HOUSING_PRICE >= 0) {
@@ -242,9 +241,9 @@ int firm_production_construction_plan()
         }
     }
     
-    printf("Constructor Firm %d plans %d units to be produced. IT NO: %d\n", ID, PRODUCTION_PLAN, IT_NO);
+    printf("Constructor Firm %d plans %d units to be processed. \n", ID, PRODUCTION_PLAN);
 
-    //printf("    Planned number of new houses for the next term = %d\n", PRODUCTION_PLAN);
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 

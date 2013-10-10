@@ -1,11 +1,33 @@
 #include "header.h"
 #include "centralbank_agent_header.h"
 
+
 /*
- * \fn: int centralbank_init()
- * \brief: notifies its id by printing out agent id.
+ * \fn: int centralbank_init_balancesheet()
+ * \brief:
  */
-int centralbank_init()
+int centralbank_init_balancesheet()
+{
+    
+    LOANS_BANKS = 0;
+    
+    START_BANK_CENTRALBANK_INIT_DEBT_MESSAGE_LOOP
+    LOANS_BANKS += bank_centralbank_init_debt_message->amount;
+    FINISH_BANK_CENTRALBANK_INIT_DEBT_MESSAGE_LOOP
+    
+    
+    LIQUIDITY = LOANS_BANKS;
+    LIQUIDITY_BANKS = LOANS_BANKS;
+    TOTAL_ASSETS = LIQUIDITY;
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int centralbank_iterate()
+ * \brief: 
+ */
+int centralbank_iterate()
 {
 	// Read from memory
 	//printf("Central Bank Id = %d\n", ID);

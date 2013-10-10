@@ -52,6 +52,8 @@ int household_housing_check_wealth()
     //Capital incomes CAPITAL_INCOME are liquidified as sooon as they are recieved.
     wealth = LIQUIDITY + HOUSING_VALUE;
     
+    printf("Household: %d Equity %f, Liquidity = %f, Housing Value = %f, Wealth = %f \n", ID, EQUITY, LIQUIDITY, HOUSING_VALUE, wealth);
+    
     if (wealth == 0){
         EQUITY_RATIO = 0;
     } else {
@@ -60,7 +62,7 @@ int household_housing_check_wealth()
     
     // Print this to a file:
     if (EQUITY_RATIO <= 0 ) {
-       printf("Equity Ratio Household %d --> %f/n", ID, EQUITY_RATIO); 
+        printf("Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
     }
     
 	return 0; /* Returning zero means the agent is not removed */

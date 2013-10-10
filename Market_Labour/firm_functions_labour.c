@@ -105,14 +105,14 @@ int firm_labour_job_announcement_stage1()
  */
 int firm_labour_job_offer_stage1()
 {
-    int n_hired, new_employer;
+    int n_hired, new_employee;
 
     // Recieve job application messages.
     n_hired = 0;
     
     START_JOB_MATCH_STAGE1_MESSAGE_LOOP
-    new_employer = job_match_stage1_message->employee_id;
-    add_int(&EMPLOYEES, new_employer);
+    new_employee = job_match_stage1_message->employee_id;
+    add_int(&EMPLOYEES, new_employee);
     n_hired +=1;
     //printf("Stage 1: Firm Id = %d has hired Household Id = %d \n", ID, candidate);
 	FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP

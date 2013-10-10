@@ -291,7 +291,7 @@ int firm_credit_pay_interest_on_loans()
 int firm_credit_pay_dividends()
 {
     if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
-        printf("Logical Error: Firm_credit_pay_dividends \n");
+        printf("Firm ID = %d, Dividends to Be Paid = %f, Logical Error: Firm_credit_pay_dividends \n", ID, DIVIDENDS_TO_BE_PAID);
     }
     else{
         DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
