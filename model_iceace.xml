@@ -1,0 +1,1004 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>Version 1.0.0, 10/10/2013</version>
+    <description>'ICEACE - Labour Market, Production Market, Consumption Market, Credit Market and Housing Market </description>
+    <models>
+        <model>
+            <file>Market_Consumption/model_consumption.xml</file>
+            <enabled>true</enabled>
+        </model>
+        <model>
+            <file>Market_Labour/model_labour.xml</file>
+            <enabled>true</enabled>
+        </model>
+        <model>
+            <file>Market_Production/model_production.xml</file>
+            <enabled>true</enabled>
+        </model>
+        <model>
+            <file>Market_Credit/model_credit.xml</file>
+            <enabled>true</enabled>
+        </model>
+        <model>
+            <file>Market_Housing/model_housing.xml</file>
+            <enabled>true</enabled>
+        </model>
+    </models>
+    <environment>
+        <constants/>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>library_functions.c</file>
+            <file>firm_functions_top.c</file>
+            <file>household_functions_top.c</file>
+            <file>bank_functions_top.c</file>
+            <file>government_functions_top.c</file>
+            <file>centralbank_functions_top.c</file>
+            <file>equityfund_functions_top.c</file>
+            <file>jpoffice_functions_top.c</file>
+            <file>mall_functions_top.c</file>
+            <file>reagency_functions_top.c</file>
+        </functionFiles>
+        <dataTypes>
+            <dataType>
+                <name>transaction</name>
+                <description>A generic transaction data structure.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>quantity</name>
+                        <description>Number of items within a period.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>avg_price</name>
+                        <description>Average price on overall transactions.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
+        <timeUnits>
+            <timeUnit>
+                <name>daily</name>
+                <unit>iteration</unit>
+                <period>1</period>
+            </timeUnit>
+            <timeUnit>
+                <name>weekly</name>
+                <unit>daily</unit>
+                <period>5</period>
+            </timeUnit>
+            <timeUnit>
+                <name>monthly</name>
+                <unit>weekly</unit>
+                <period>4</period>
+            </timeUnit>
+            <timeUnit>
+                <name>quarterly</name>
+                <unit>monthly</unit>
+                <period>3</period>
+            </timeUnit>
+            <timeUnit>
+                <name>yearly</name>
+                <unit>monthly</unit>
+                <period>12</period>
+            </timeUnit>
+        </timeUnits>
+    </environment>
+
+	<!-- List of agents -->
+    <agents>
+        <xagent>
+            <name>firm</name>
+            <description>Firm agent.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Primary bank of a firm.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isconstructor</name>
+                    <description>Identifies if the firm is a constractor firm or not.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>The day of the month to act at production and labour.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isinsolvent</name>
+                    <description>The variable indicates if the firm is a replacement of an insolvent producer.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Agent initilialization.</description>
+                    <currentState>start</currentState>
+                    <nextState>FirmInitPostId</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>FirmLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_init_post_id</name>
+                    <description>Firm posts its Id for employment initilialization.</description>
+                    <currentState>FirmInitPostId</currentState>
+                    <nextState>FirmInitEmployment</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>firm_jpoffice_id</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_init_employment</name>
+                    <description>Firm recieves its list of employees.</description>
+                    <currentState>FirmInitEmployment</currentState>
+                    <nextState>FirmInitBalanceSheet</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>jpoffice_firm_employee</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.firm_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>firm_init_balancesheet</name>
+                    <description>Synchronizing the mortgage debt and deposit with respective banks.</description>
+                    <currentState>FirmInitBalanceSheet</currentState>
+                    <nextState>FirmLoop</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>firm_bank_init_loans</messageName>
+                        </output>
+                        <output>
+                            <messageName>firm_bank_init_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_iterate</name>
+                    <description>Resumes with its regular iteration loop.</description>
+                    <currentState>FirmLoop</currentState>
+                    <nextState>FirmCreditStart</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>FirmUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><lhs><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_update_bank_account</name>
+                    <description>Deposits/updates its liquidity to bank.</description>
+                    <currentState>FirmUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <lhs><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>firm_bank_update_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+             </functions>
+        </xagent>
+        <xagent>
+            <name>household</name>
+            <description>A consumer and labourer agent.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The ID of the bank an household has. Household applies to her bank for mortgage and deposits.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Agent initilialization.</description>
+                    <currentState>start</currentState>
+                    <nextState>HouseholdInitPostId</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>HouseholdLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_init_post_id</name>
+                    <description>Household posts its Id for employment initilialization.</description>
+                    <currentState>HouseholdInitPostId</currentState>
+                    <nextState>HouseholdInitEmployment</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>household_jpoffice_id</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>household_init_employment</name>
+                    <description>Household recieves agent Id of his employer.</description>
+                    <currentState>HouseholdInitEmployment</currentState>
+                    <nextState>HouseholdInitBalanceSheet</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>jpoffice_household_employer</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.household_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>household_init_balancesheet</name>
+                    <description>Synchronizing the mortgage debt and deposit with respective banks.</description>
+                    <currentState>HouseholdInitBalanceSheet</currentState>
+                    <nextState>HouseholdLoop</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>household_bank_init_mortgages</messageName>
+                        </output>
+                        <output>
+                            <messageName>household_bank_init_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>household_iterate</name>
+                    <description>Resumes its regular iteration.</description>
+                    <currentState>HouseholdLoop</currentState>
+                    <nextState>HHCreditStart</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>HouseholdUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><lhs><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_update_bank_account</name>
+                    <description>Deposits/updates its liquidity to bank.</description>
+                    <currentState>HouseholdUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <lhs><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>household_bank_update_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>equityfund</name>
+            <description>Equity Fund agency.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>equityfund_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>EquityFundStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>bank</name>
+            <description>A simple bank agent.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Agent initilialization.</description>
+                    <currentState>start</currentState>
+                    <nextState>BankInitLoans</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>BankLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>bank_init_loans</name>
+                    <description>Gathers loans from firms.</description>
+                    <currentState>BankInitLoans</currentState>
+                    <nextState>BankInitMortgages</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>firm_bank_init_loans</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>bank_init_mortgages</name>
+                    <description>Gather mortgages from households.</description>
+                    <currentState>BankInitMortgages</currentState>
+                    <nextState>BankInitDeposits</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>household_bank_init_mortgages</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>bank_init_deposits</name>
+                    <description>Gather deposits from firms and households.</description>
+                    <currentState>BankInitDeposits</currentState>
+                    <nextState>BankInitBalanceSheet</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>household_bank_init_deposit</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                        <input>
+                            <messageName>firm_bank_init_deposit</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>bank_init_balancesheet</name>
+                    <description>Bank initializes total assets, equity, debt to central bank and liquidity.</description>
+                    <currentState>BankInitBalanceSheet</currentState>
+                    <nextState>BankLoop</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>bank_centralbank_init_debt</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>bank_iterate</name>
+                    <description>Bank resumes its iterative functions.</description>
+                    <currentState>BankLoop</currentState>
+                    <nextState>BankCreditStart</nextState>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>BankUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><lhs><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>bank_update_deposits</name>
+                    <description>Deposits/updates its liquidity to bank.</description>
+                    <currentState>BankUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <lhs><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></lhs>
+                        <op>OR</op>
+                        <rhs><time>
+                            <period>weekly</period>
+                            <phase>0</phase>
+                        </time></rhs>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>household_bank_update_deposit</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                        <input>
+                            <messageName>firm_bank_update_deposit</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>government</name>
+            <description>A simple government agent.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>government_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>GovernmentStart</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A simple central bank agent.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Day of the month to act.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unemployment_rate</name>
+                    <description>Unemployment rate. It is updated monthly</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>consumption_goods_prices[12]</name>
+                    <description>Unemployment rate. It is updated monthly</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Agent initilialization.</description>
+                    <currentState>start</currentState>
+                    <nextState>CentralBankInitBalanceSheet</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>CentralBankLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_init_balancesheet</name>
+                    <description>Synchronizing the bank debts.</description>
+                    <currentState>CentralBankInitBalanceSheet</currentState>
+                    <nextState>CentralBankLoop</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>bank_centralbank_init_debt</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>centralbank_iterate</name>
+                    <description>Resumes its regular iteration.</description>
+                    <currentState>CentralBankLoop</currentState>
+                    <nextState>CentralBankCredit</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>jpoffice</name>
+            <description>Job placement office.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>Agent initilialization.</description>
+                    <currentState>start</currentState>
+                    <nextState>JPOfficeInitEmployment</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>JPOfficeLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>jpoffice_init_employment</name>
+                    <description>Job placement office collects household and firm ids and forms network of initial employment.</description>
+                    <currentState>JPOfficeInitEmployment</currentState>
+                    <nextState>JPOfficeLoop</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>household_jpoffice_id</messageName>
+                            <sort>
+                                <key>household_id</key>
+                                <order>ascend</order>
+                            </sort>
+                        </input>
+                        <input>
+                            <messageName>firm_jpoffice_id</messageName>
+                            <sort>
+                                <key>firm_id</key>
+                                <order>ascend</order>
+                            </sort>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>jpoffice_household_employer</messageName>
+                        </output>
+                        <output>
+                            <messageName>jpoffice_firm_employee</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>jpoffice_iterate</name>
+                    <description>Notifies its id.</description>
+                    <currentState>JPOfficeLoop</currentState>
+                    <nextState>JPOLabourMarket</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>mall</name>
+            <description>Shopping mall.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>mall_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>MallConsumptionMarket</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>reagency</name>
+            <description>Real Estate Agency.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>reagency_init</name>
+                    <description>Notifies its id.</description>
+                    <currentState>start</currentState>
+                    <nextState>REAgencyHousingMarket</nextState>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>firm_bank_init_loans</name>
+            <description>Firm sends out its initialized loan info to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank from which initial loan has gotten. </description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of loan.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_bank_init_deposit</name>
+            <description>Firm sends out its liquid money to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank where liquid money to be deposited.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_bank_update_deposit</name>
+            <description>Firm sends out its liquid money to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank where liquid money to be deposited.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>household_bank_init_mortgages</name>
+            <description>Household sends out its initialized amount of mortgage info to its bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank from which initial mortgage has been acquired.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of mortgage.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>household_bank_init_deposit</name>
+            <description>Household sends out its liquid money to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank where liquid money to be deposited.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>household_bank_update_deposit</name>
+            <description>Household sends out its liquid money to bank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The bank where liquid money to be deposited.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>bank_centralbank_init_debt</name>
+            <description>Bank informs its centralbank debt for initilialization.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of debt.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>interest_rate</name>
+            <description>The interest rate sent by the central bank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>rate</name>
+                    <description>The rate.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>capital_tax_rate</name>
+            <description>Government tax rate on capital income.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>value</name>
+                    <description>Rate of the tax.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>labour_tax_rate</name>
+            <description>Government tax rate on labour income.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>value</name>
+                    <description>Rate of the tax.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>household_jpoffice_id</name>
+            <description>Household notifies his/her id.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>household_id</name>
+                    <description>The agent id.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>jpoffice_household_employer</name>
+            <description>Firm notifies its id.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>household_id</name>
+                    <description>The agent id.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>employer_id</name>
+                    <description>The agent id.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_jpoffice_id</name>
+            <description>Firm notifies its id.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The agent id.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isconstructor</name>
+                    <description>Firm type.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>jpoffice_firm_employee</name>
+            <description>Firm notifies its id.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The agent id.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>employee_id</name>
+                    <description>The agent id.</description>
+                </variable>
+            </variables>
+        </message>
+    </messages>
+</xmodel>
