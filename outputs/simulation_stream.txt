@@ -1,0 +1,2675 @@
+[libmboard] Version        : 0.3.0 (SERIAL)
+[libmboard] Build date     : Wed Apr  3 07:00:00 EEST 2013
+[libmboard] Config options :  '--prefix=/Users/bulent/Documents/workspace/iceace/libmbdir' '--disable-parallel' '--disable-tests'
+
+[libmboard] +++ This is a DEBUG version +++
+[libmboard] <settings> MBOARD_MEMPOOL_RECYCLE = 0 (default)
+[libmboard] <settings> MBOARD_MEMPOOL_BLOCKSIZE = 512 (default)
+FLAME Application: ICEACE 
+Debug mode enabled 
+Iterations: 70
+Using output frequency of: 10
+xml: Geometric partitioning
+Reading initial data file: ./outputs/model_v0.9.6.xml
+Reading environment data from: ./outputs/model_v0.9.6.xml
+Reading agent data from: ./outputs/model_v0.9.6.xml
+output: type='snapshot' format='xml' location='./outputs/' period='1' phase='0'
+xdiv=0 ydiv=1
+Iteration - 1
+nRFirms: 12 nCFirms: 3, nHH: 800
+nCFirm Size: 20, nEmployment: 720
+No of total employement 721
+
+Firm 15 --> employed:  36  102  109  170  179  185  196  205  242  249  278  291  316  328  351  354  383  388  417  454  486  497  509  523  552  554  558  560  574  589  596  606  609  614  615  629  644  662  671  712  716  718  731  736  737  741 
+Firm 14 --> employed:  35  98  154  155  164  169  175  187  210  221  222  224  226  243  245  259  262  263  269  290  320  339  353  360  376  396  419  430  435  441  449  488  489  493  495  501  528  569  575  580  607  610  616  630  647  649  658  659  660  665  673  704  739  740 
+Firm 13 --> employed:  34  116  119  129  133  156  160  168  176  180  191  194  195  201  229  237  279  288  304  313  329  342  349  362  363  364  365  369  377  381  384  386  392  401  405  415  424  425  426  443  450  451  452  464  474  476  484  506  525  531  548  555  565  593  601  605  628  633  645  663  666  679  696  698  701  707  726  734 
+Firm 12 --> employed:  33  99  122  126  135  140  151  157  181  197  212  213  240  244  251  261  276  284  285  297  315  325  334  340  366  367  368  375  378  407  423  431  434  447  472  482  487  490  492  512  519  522  532  534  550  553  557  566  572  581  583  595  617  641  646  651  657  675  678  689  714  724  725  727  742 
+Firm 11 --> employed:  32  94  110  123  127  130  134  141  153  166  211  218  228  241  266  272  282  286  295  300  305  314  319  330  335  355  359  387  411  432  438  442  453  457  458  469  475  481  491  499  500  503  505  543  573  591  597  608  612  613  619  624  680  693  697  700  720  730 
+Firm 10 --> employed:  31  121  142  152  183  202  216  223  248  253  258  265  267  337  373  409  413  428  437  448  455  470  478  498  508  510  539  544  545  584  654  667  670  687  728 
+Firm 9 --> employed:  30  96  105  117  138  139  144  145  158  172  173  178  186  198  204  206  220  233  256  301  302  306  333  347  356  379  390  394  406  410  416  421  444  446  461  496  526  530  533  537  547  549  563  564  570  571  579  600  621  632  638  642  669  692  702  703  705  732 
+Firm 8 --> employed:  29  112  113  118  146  147  148  190  217  227  231  238  268  280  283  324  327  341  361  374  380  395  402  418  427  477  480  483  536  538  582  585  588  598  603  627  631  643  652  668  674  683  699  717  719 
+Firm 7 --> employed:  28  108  114  120  132  174  182  207  208  230  232  235  246  247  254  271  273  277  287  292  299  309  318  321  331  336  338  343  348  350  352  389  404  414  422  433  436  459  460  462  463  465  479  517  521  524  535  541  559  561  568  594  599  636  639  650  653  656  676  677  685  688  691  694  695  721  722  723  729  738 
+Firm 6 --> employed:  27  97  101  107  125  128  149  189  192  199  209  234  236  239  255  257  264  270  289  296  307  308  326  345  372  382  391  397  400  403  408  412  439  445  468  471  485  504  507  515  520  529  546  551  556  562  567  592  604  618  655  664  690  708  710  711  713 
+Firm 5 --> employed:  26  95  103  111  115  124  131  136  143  159  163  165  167  177  200  215  225  250  252  274  275  281  303  311  312  323  332  358  385  420  456  467  494  511  542  576  577  578  611  622  623  634  637  661  684  686  709  715  735 
+Firm 4 --> employed:  25  100  104  106  137  150  161  162  171  184  188  193  203  214  219  260  293  294  298  310  317  322  344  346  357  370  371  393  398  399  429  440  466  473  502  513  514  516  518  527  540  586  587  590  602  620  625  626  635  640  648  672  681  682  706  733 
+Firm 3 --> employed:  24  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93 
+Firm 2 --> employed:  23  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74 
+Firm 1 --> employed:  22  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55 Household: 821 employed at 0 
+Household: 820 employed at 0 
+Household: 819 employed at 0 
+Household: 818 employed at 0 
+Household: 817 employed at 0 
+Household: 816 employed at 0 
+Household: 815 employed at 0 
+Household: 814 employed at 0 
+Household: 813 employed at 0 
+Household: 812 employed at 0 
+Household: 811 employed at 0 
+Household: 810 employed at 0 
+Household: 809 employed at 0 
+Household: 808 employed at 0 
+Household: 807 employed at 0 
+Household: 806 employed at 0 
+Household: 805 employed at 0 
+Household: 804 employed at 0 
+Household: 803 employed at 0 
+Household: 802 employed at 0 
+Household: 801 employed at 0 
+Household: 800 employed at 0 
+Household: 799 employed at 0 
+Household: 798 employed at 0 
+Household: 797 employed at 0 
+Household: 796 employed at 0 
+Household: 795 employed at 0 
+Household: 794 employed at 0 
+Household: 793 employed at 0 
+Household: 792 employed at 0 
+Household: 791 employed at 0 
+Household: 790 employed at 0 
+Household: 789 employed at 0 
+Household: 788 employed at 0 
+Household: 787 employed at 0 
+Household: 786 employed at 0 
+Household: 785 employed at 0 
+Household: 784 employed at 0 
+Household: 783 employed at 0 
+Household: 782 employed at 0 
+Household: 781 employed at 0 
+Household: 780 employed at 0 
+Household: 779 employed at 0 
+Household: 778 employed at 0 
+Household: 777 employed at 0 
+Household: 776 employed at 0 
+Household: 775 employed at 0 
+Household: 774 employed at 0 
+Household: 773 employed at 0 
+Household: 772 employed at 0 
+Household: 771 employed at 0 
+Household: 770 employed at 0 
+Household: 769 employed at 0 
+Household: 768 employed at 0 
+Household: 767 employed at 0 
+Household: 766 employed at 0 
+Household: 765 employed at 0 
+Household: 764 employed at 0 
+Household: 763 employed at 0 
+Household: 762 employed at 0 
+Household: 761 employed at 0 
+Household: 760 employed at 0 
+Household: 759 employed at 0 
+Household: 758 employed at 0 
+Household: 757 employed at 0 
+Household: 756 employed at 0 
+Household: 755 employed at 0 
+Household: 754 employed at 0 
+Household: 753 employed at 0 
+Household: 752 employed at 0 
+Household: 751 employed at 0 
+Household: 750 employed at 0 
+Household: 749 employed at 0 
+Household: 748 employed at 0 
+Household: 747 employed at 0 
+Household: 746 employed at 0 
+Household: 745 employed at 0 
+Household: 744 employed at 0 
+Household: 743 employed at 0 
+Household: 742 employed at 12 
+Household: 741 employed at 15 
+Household: 740 employed at 14 
+Household: 739 employed at 14 
+Household: 738 employed at 7 
+Household: 737 employed at 15 
+Household: 736 employed at 15 
+Household: 735 employed at 5 
+Household: 734 employed at 13 
+Household: 733 employed at 4 
+Household: 732 employed at 9 
+Household: 731 employed at 15 
+Household: 730 employed at 11 
+Household: 729 employed at 7 
+Household: 728 employed at 10 
+Household: 727 employed at 12 
+Household: 726 employed at 13 
+Household: 725 employed at 12 
+Household: 724 employed at 12 
+Household: 723 employed at 7 
+Household: 722 employed at 7 
+Household: 721 employed at 7 
+Household: 720 employed at 11 
+Household: 719 employed at 8 
+Household: 718 employed at 15 
+Household: 717 employed at 8 
+Household: 716 employed at 15 
+Household: 715 employed at 5 
+Household: 714 employed at 12 
+Household: 713 employed at 6 
+Household: 712 employed at 15 
+Household: 711 employed at 6 
+Household: 710 employed at 6 
+Household: 709 employed at 5 
+Household: 708 employed at 6 
+Household: 707 employed at 13 
+Household: 706 employed at 4 
+Household: 705 employed at 9 
+Household: 704 employed at 14 
+Household: 703 employed at 9 
+Household: 702 employed at 9 
+Household: 701 employed at 13 
+Household: 700 employed at 11 
+Household: 699 employed at 8 
+Household: 698 employed at 13 
+Household: 697 employed at 11 
+Household: 696 employed at 13 
+Household: 695 employed at 7 
+Household: 694 employed at 7 
+Household: 693 employed at 11 
+Household: 692 employed at 9 
+Household: 691 employed at 7 
+Household: 690 employed at 6 
+Household: 689 employed at 12 
+Household: 688 employed at 7 
+Household: 687 employed at 10 
+Household: 686 employed at 5 
+Household: 685 employed at 7 
+Household: 684 employed at 5 
+Household: 683 employed at 8 
+Household: 682 employed at 4 
+Household: 681 employed at 4 
+Household: 680 employed at 11 
+Household: 679 employed at 13 
+Household: 678 employed at 12 
+Household: 677 employed at 7 
+Household: 676 employed at 7 
+Household: 675 employed at 12 
+Household: 674 employed at 8 
+Household: 673 employed at 14 
+Household: 672 employed at 4 
+Household: 671 employed at 15 
+Household: 670 employed at 10 
+Household: 669 employed at 9 
+Household: 668 employed at 8 
+Household: 667 employed at 10 
+Household: 666 employed at 13 
+Household: 665 employed at 14 
+Household: 664 employed at 6 
+Household: 663 employed at 13 
+Household: 662 employed at 15 
+Household: 661 employed at 5 
+Household: 660 employed at 14 
+Household: 659 employed at 14 
+Household: 658 employed at 14 
+Household: 657 employed at 12 
+Household: 656 employed at 7 
+Household: 655 employed at 6 
+Household: 654 employed at 10 
+Household: 653 employed at 7 
+Household: 652 employed at 8 
+Household: 651 employed at 12 
+Household: 650 employed at 7 
+Household: 649 employed at 14 
+Household: 648 employed at 4 
+Household: 647 employed at 14 
+Household: 646 employed at 12 
+Household: 645 employed at 13 
+Household: 644 employed at 15 
+Household: 643 employed at 8 
+Household: 642 employed at 9 
+Household: 641 employed at 12 
+Household: 640 employed at 4 
+Household: 639 employed at 7 
+Household: 638 employed at 9 
+Household: 637 employed at 5 
+Household: 636 employed at 7 
+Household: 635 employed at 4 
+Household: 634 employed at 5 
+Household: 633 employed at 13 
+Household: 632 employed at 9 
+Household: 631 employed at 8 
+Household: 630 employed at 14 
+Household: 629 employed at 15 
+Household: 628 employed at 13 
+Household: 627 employed at 8 
+Household: 626 employed at 4 
+Household: 625 employed at 4 
+Household: 624 employed at 11 
+Household: 623 employed at 5 
+Household: 622 employed at 5 
+Household: 621 employed at 9 
+Household: 620 employed at 4 
+Household: 619 employed at 11 
+Household: 618 employed at 6 
+Household: 617 employed at 12 
+Household: 616 employed at 14 
+Household: 615 employed at 15 
+Household: 614 employed at 15 
+Household: 613 employed at 11 
+Household: 612 employed at 11 
+Household: 611 employed at 5 
+Household: 610 employed at 14 
+Household: 609 employed at 15 
+Household: 608 employed at 11 
+Household: 607 employed at 14 
+Household: 606 employed at 15 
+Household: 605 employed at 13 
+Household: 604 employed at 6 
+Household: 603 employed at 8 
+Household: 602 employed at 4 
+Household: 601 employed at 13 
+Household: 600 employed at 9 
+Household: 599 employed at 7 
+Household: 598 employed at 8 
+Household: 597 employed at 11 
+Household: 596 employed at 15 
+Household: 595 employed at 12 
+Household: 594 employed at 7 
+Household: 593 employed at 13 
+Household: 592 employed at 6 
+Household: 591 employed at 11 
+Household: 590 employed at 4 
+Household: 589 employed at 15 
+Household: 588 employed at 8 
+Household: 587 employed at 4 
+Household: 586 employed at 4 
+Household: 585 employed at 8 
+Household: 584 employed at 10 
+Household: 583 employed at 12 
+Household: 582 employed at 8 
+Household: 581 employed at 12 
+Household: 580 employed at 14 
+Household: 579 employed at 9 
+Household: 578 employed at 5 
+Household: 577 employed at 5 
+Household: 576 employed at 5 
+Household: 575 employed at 14 
+Household: 574 employed at 15 
+Household: 573 employed at 11 
+Household: 572 employed at 12 
+Household: 571 employed at 9 
+Household: 570 employed at 9 
+Household: 569 employed at 14 
+Household: 568 employed at 7 
+Household: 567 employed at 6 
+Household: 566 employed at 12 
+Household: 565 employed at 13 
+Household: 564 employed at 9 
+Household: 563 employed at 9 
+Household: 562 employed at 6 
+Household: 561 employed at 7 
+Household: 560 employed at 15 
+Household: 559 employed at 7 
+Household: 558 employed at 15 
+Household: 557 employed at 12 
+Household: 556 employed at 6 
+Household: 555 employed at 13 
+Household: 554 employed at 15 
+Household: 553 employed at 12 
+Household: 552 employed at 15 
+Household: 551 employed at 6 
+Household: 550 employed at 12 
+Household: 549 employed at 9 
+Household: 548 employed at 13 
+Household: 547 employed at 9 
+Household: 546 employed at 6 
+Household: 545 employed at 10 
+Household: 544 employed at 10 
+Household: 543 employed at 11 
+Household: 542 employed at 5 
+Household: 541 employed at 7 
+Household: 540 employed at 4 
+Household: 539 employed at 10 
+Household: 538 employed at 8 
+Household: 537 employed at 9 
+Household: 536 employed at 8 
+Household: 535 employed at 7 
+Household: 534 employed at 12 
+Household: 533 employed at 9 
+Household: 532 employed at 12 
+Household: 531 employed at 13 
+Household: 530 employed at 9 
+Household: 529 employed at 6 
+Household: 528 employed at 14 
+Household: 527 employed at 4 
+Household: 526 employed at 9 
+Household: 525 employed at 13 
+Household: 524 employed at 7 
+Household: 523 employed at 15 
+Household: 522 employed at 12 
+Household: 521 employed at 7 
+Household: 520 employed at 6 
+Household: 519 employed at 12 
+Household: 518 employed at 4 
+Household: 517 employed at 7 
+Household: 516 employed at 4 
+Household: 515 employed at 6 
+Household: 514 employed at 4 
+Household: 513 employed at 4 
+Household: 512 employed at 12 
+Household: 511 employed at 5 
+Household: 510 employed at 10 
+Household: 509 employed at 15 
+Household: 508 employed at 10 
+Household: 507 employed at 6 
+Household: 506 employed at 13 
+Household: 505 employed at 11 
+Household: 504 employed at 6 
+Household: 503 employed at 11 
+Household: 502 employed at 4 
+Household: 501 employed at 14 
+Household: 500 employed at 11 
+Household: 499 employed at 11 
+Household: 498 employed at 10 
+Household: 497 employed at 15 
+Household: 496 employed at 9 
+Household: 495 employed at 14 
+Household: 494 employed at 5 
+Household: 493 employed at 14 
+Household: 492 employed at 12 
+Household: 491 employed at 11 
+Household: 490 employed at 12 
+Household: 489 employed at 14 
+Household: 488 employed at 14 
+Household: 487 employed at 12 
+Household: 486 employed at 15 
+Household: 485 employed at 6 
+Household: 484 employed at 13 
+Household: 483 employed at 8 
+Household: 482 employed at 12 
+Household: 481 employed at 11 
+Household: 480 employed at 8 
+Household: 479 employed at 7 
+Household: 478 employed at 10 
+Household: 477 employed at 8 
+Household: 476 employed at 13 
+Household: 475 employed at 11 
+Household: 474 employed at 13 
+Household: 473 employed at 4 
+Household: 472 employed at 12 
+Household: 471 employed at 6 
+Household: 470 employed at 10 
+Household: 469 employed at 11 
+Household: 468 employed at 6 
+Household: 467 employed at 5 
+Household: 466 employed at 4 
+Household: 465 employed at 7 
+Household: 464 employed at 13 
+Household: 463 employed at 7 
+Household: 462 employed at 7 
+Household: 461 employed at 9 
+Household: 460 employed at 7 
+Household: 459 employed at 7 
+Household: 458 employed at 11 
+Household: 457 employed at 11 
+Household: 456 employed at 5 
+Household: 455 employed at 10 
+Household: 454 employed at 15 
+Household: 453 employed at 11 
+Household: 452 employed at 13 
+Household: 451 employed at 13 
+Household: 450 employed at 13 
+Household: 449 employed at 14 
+Household: 448 employed at 10 
+Household: 447 employed at 12 
+Household: 446 employed at 9 
+Household: 445 employed at 6 
+Household: 444 employed at 9 
+Household: 443 employed at 13 
+Household: 442 employed at 11 
+Household: 441 employed at 14 
+Household: 440 employed at 4 
+Household: 439 employed at 6 
+Household: 438 employed at 11 
+Household: 437 employed at 10 
+Household: 436 employed at 7 
+Household: 435 employed at 14 
+Household: 434 employed at 12 
+Household: 433 employed at 7 
+Household: 432 employed at 11 
+Household: 431 employed at 12 
+Household: 430 employed at 14 
+Household: 429 employed at 4 
+Household: 428 employed at 10 
+Household: 427 employed at 8 
+Household: 426 employed at 13 
+Household: 425 employed at 13 
+Household: 424 employed at 13 
+Household: 423 employed at 12 
+Household: 422 employed at 7 
+Household: 421 employed at 9 
+Household: 420 employed at 5 
+Household: 419 employed at 14 
+Household: 418 employed at 8 
+Household: 417 employed at 15 
+Household: 416 employed at 9 
+Household: 415 employed at 13 
+Household: 414 employed at 7 
+Household: 413 employed at 10 
+Household: 412 employed at 6 
+Household: 411 employed at 11 
+Household: 410 employed at 9 
+Household: 409 employed at 10 
+Household: 408 employed at 6 
+Household: 407 employed at 12 
+Household: 406 employed at 9 
+Household: 405 employed at 13 
+Household: 404 employed at 7 
+Household: 403 employed at 6 
+Household: 402 employed at 8 
+Household: 401 employed at 13 
+Household: 400 employed at 6 
+Household: 399 employed at 4 
+Household: 398 employed at 4 
+Household: 397 employed at 6 
+Household: 396 employed at 14 
+Household: 395 employed at 8 
+Household: 394 employed at 9 
+Household: 393 employed at 4 
+Household: 392 employed at 13 
+Household: 391 employed at 6 
+Household: 390 employed at 9 
+Household: 389 employed at 7 
+Household: 388 employed at 15 
+Household: 387 employed at 11 
+Household: 386 employed at 13 
+Household: 385 employed at 5 
+Household: 384 employed at 13 
+Household: 383 employed at 15 
+Household: 382 employed at 6 
+Household: 381 employed at 13 
+Household: 380 employed at 8 
+Household: 379 employed at 9 
+Household: 378 employed at 12 
+Household: 377 employed at 13 
+Household: 376 employed at 14 
+Household: 375 employed at 12 
+Household: 374 employed at 8 
+Household: 373 employed at 10 
+Household: 372 employed at 6 
+Household: 371 employed at 4 
+Household: 370 employed at 4 
+Household: 369 employed at 13 
+Household: 368 employed at 12 
+Household: 367 employed at 12 
+Household: 366 employed at 12 
+Household: 365 employed at 13 
+Household: 364 employed at 13 
+Household: 363 employed at 13 
+Household: 362 employed at 13 
+Household: 361 employed at 8 
+Household: 360 employed at 14 
+Household: 359 employed at 11 
+Household: 358 employed at 5 
+Household: 357 employed at 4 
+Household: 356 employed at 9 
+Household: 355 employed at 11 
+Household: 354 employed at 15 
+Household: 353 employed at 14 
+Household: 352 employed at 7 
+Household: 351 employed at 15 
+Household: 350 employed at 7 
+Household: 349 employed at 13 
+Household: 348 employed at 7 
+Household: 347 employed at 9 
+Household: 346 employed at 4 
+Household: 345 employed at 6 
+Household: 344 employed at 4 
+Household: 343 employed at 7 
+Household: 342 employed at 13 
+Household: 341 employed at 8 
+Household: 340 employed at 12 
+Household: 339 employed at 14 
+Household: 338 employed at 7 
+Household: 337 employed at 10 
+Household: 336 employed at 7 
+Household: 335 employed at 11 
+Household: 334 employed at 12 
+Household: 333 employed at 9 
+Household: 332 employed at 5 
+Household: 331 employed at 7 
+Household: 330 employed at 11 
+Household: 329 employed at 13 
+Household: 328 employed at 15 
+Household: 327 employed at 8 
+Household: 326 employed at 6 
+Household: 325 employed at 12 
+Household: 324 employed at 8 
+Household: 323 employed at 5 
+Household: 322 employed at 4 
+Household: 321 employed at 7 
+Household: 320 employed at 14 
+Household: 319 employed at 11 
+Household: 318 employed at 7 
+Household: 317 employed at 4 
+Household: 316 employed at 15 
+Household: 315 employed at 12 
+Household: 314 employed at 11 
+Household: 313 employed at 13 
+Household: 312 employed at 5 
+Household: 311 employed at 5 
+Household: 310 employed at 4 
+Household: 309 employed at 7 
+Household: 308 employed at 6 
+Household: 307 employed at 6 
+Household: 306 employed at 9 
+Household: 305 employed at 11 
+Household: 304 employed at 13 
+Household: 303 employed at 5 
+Household: 302 employed at 9 
+Household: 301 employed at 9 
+Household: 300 employed at 11 
+Household: 299 employed at 7 
+Household: 298 employed at 4 
+Household: 297 employed at 12 
+Household: 296 employed at 6 
+Household: 295 employed at 11 
+Household: 294 employed at 4 
+Household: 293 employed at 4 
+Household: 292 employed at 7 
+Household: 291 employed at 15 
+Household: 290 employed at 14 
+Household: 289 employed at 6 
+Household: 288 employed at 13 
+Household: 287 employed at 7 
+Household: 286 employed at 11 
+Household: 285 employed at 12 
+Household: 284 employed at 12 
+Household: 283 employed at 8 
+Household: 282 employed at 11 
+Household: 281 employed at 5 
+Household: 280 employed at 8 
+Household: 279 employed at 13 
+Household: 278 employed at 15 
+Household: 277 employed at 7 
+Household: 276 employed at 12 
+Household: 275 employed at 5 
+Household: 274 employed at 5 
+Household: 273 employed at 7 
+Household: 272 employed at 11 
+Household: 271 employed at 7 
+Household: 270 employed at 6 
+Household: 269 employed at 14 
+Household: 268 employed at 8 
+Household: 267 employed at 10 
+Household: 266 employed at 11 
+Household: 265 employed at 10 
+Household: 264 employed at 6 
+Household: 263 employed at 14 
+Household: 262 employed at 14 
+Household: 261 employed at 12 
+Household: 260 employed at 4 
+Household: 259 employed at 14 
+Household: 258 employed at 10 
+Household: 257 employed at 6 
+Household: 256 employed at 9 
+Household: 255 employed at 6 
+Household: 254 employed at 7 
+Household: 253 employed at 10 
+Household: 252 employed at 5 
+Household: 251 employed at 12 
+Household: 250 employed at 5 
+Household: 249 employed at 15 
+Household: 248 employed at 10 
+Household: 247 employed at 7 
+Household: 246 employed at 7 
+Household: 245 employed at 14 
+Household: 244 employed at 12 
+Household: 243 employed at 14 
+Household: 242 employed at 15 
+Household: 241 employed at 11 
+Household: 240 employed at 12 
+Household: 239 employed at 6 
+Household: 238 employed at 8 
+Household: 237 employed at 13 
+Household: 236 employed at 6 
+Household: 235 employed at 7 
+Household: 234 employed at 6 
+Household: 233 employed at 9 
+Household: 232 employed at 7 
+Household: 231 employed at 8 
+Household: 230 employed at 7 
+Household: 229 employed at 13 
+Household: 228 employed at 11 
+Household: 227 employed at 8 
+Household: 226 employed at 14 
+Household: 225 employed at 5 
+Household: 224 employed at 14 
+Household: 223 employed at 10 
+Household: 222 employed at 14 
+Household: 221 employed at 14 
+Household: 220 employed at 9 
+Household: 219 employed at 4 
+Household: 218 employed at 11 
+Household: 217 employed at 8 
+Household: 216 employed at 10 
+Household: 215 employed at 5 
+Household: 214 employed at 4 
+Household: 213 employed at 12 
+Household: 212 employed at 12 
+Household: 211 employed at 11 
+Household: 210 employed at 14 
+Household: 209 employed at 6 
+Household: 208 employed at 7 
+Household: 207 employed at 7 
+Household: 206 employed at 9 
+Household: 205 employed at 15 
+Household: 204 employed at 9 
+Household: 203 employed at 4 
+Household: 202 employed at 10 
+Household: 201 employed at 13 
+Household: 200 employed at 5 
+Household: 199 employed at 6 
+Household: 198 employed at 9 
+Household: 197 employed at 12 
+Household: 196 employed at 15 
+Household: 195 employed at 13 
+Household: 194 employed at 13 
+Household: 193 employed at 4 
+Household: 192 employed at 6 
+Household: 191 employed at 13 
+Household: 190 employed at 8 
+Household: 189 employed at 6 
+Household: 188 employed at 4 
+Household: 187 employed at 14 
+Household: 186 employed at 9 
+Household: 185 employed at 15 
+Household: 184 employed at 4 
+Household: 183 employed at 10 
+Household: 182 employed at 7 
+Household: 181 employed at 12 
+Household: 180 employed at 13 
+Household: 179 employed at 15 
+Household: 178 employed at 9 
+Household: 177 employed at 5 
+Household: 176 employed at 13 
+Household: 175 employed at 14 
+Household: 174 employed at 7 
+Household: 173 employed at 9 
+Household: 172 employed at 9 
+Household: 171 employed at 4 
+Household: 170 employed at 15 
+Household: 169 employed at 14 
+Household: 168 employed at 13 
+Household: 167 employed at 5 
+Household: 166 employed at 11 
+Household: 165 employed at 5 
+Household: 164 employed at 14 
+Household: 163 employed at 5 
+Household: 162 employed at 4 
+Household: 161 employed at 4 
+Household: 160 employed at 13 
+Household: 159 employed at 5 
+Household: 158 employed at 9 
+Household: 157 employed at 12 
+Household: 156 employed at 13 
+Household: 155 employed at 14 
+Household: 154 employed at 14 
+Household: 153 employed at 11 
+Household: 152 employed at 10 
+Household: 151 employed at 12 
+Household: 150 employed at 4 
+Household: 149 employed at 6 
+Household: 148 employed at 8 
+Household: 147 employed at 8 
+Household: 146 employed at 8 
+Household: 145 employed at 9 
+Household: 144 employed at 9 
+Household: 143 employed at 5 
+Household: 142 employed at 10 
+Household: 141 employed at 11 
+Household: 140 employed at 12 
+Household: 139 employed at 9 
+Household: 138 employed at 9 
+Household: 137 employed at 4 
+Household: 136 employed at 5 
+Household: 135 employed at 12 
+Household: 134 employed at 11 
+Household: 133 employed at 13 
+Household: 132 employed at 7 
+Household: 131 employed at 5 
+Household: 130 employed at 11 
+Household: 129 employed at 13 
+Household: 128 employed at 6 
+Household: 127 employed at 11 
+Household: 126 employed at 12 
+Household: 125 employed at 6 
+Household: 124 employed at 5 
+Household: 123 employed at 11 
+Household: 122 employed at 12 
+Household: 121 employed at 10 
+Household: 120 employed at 7 
+Household: 119 employed at 13 
+Household: 118 employed at 8 
+Household: 117 employed at 9 
+Household: 116 employed at 13 
+Household: 115 employed at 5 
+Household: 114 employed at 7 
+Household: 113 employed at 8 
+Household: 112 employed at 8 
+Household: 111 employed at 5 
+Household: 110 employed at 11 
+Household: 109 employed at 15 
+Household: 108 employed at 7 
+Household: 107 employed at 6 
+Household: 106 employed at 4 
+Household: 105 employed at 9 
+Household: 104 employed at 4 
+Household: 103 employed at 5 
+Household: 102 employed at 15 
+Household: 101 employed at 6 
+Household: 100 employed at 4 
+Household: 99 employed at 12 
+Household: 98 employed at 14 
+Household: 97 employed at 6 
+Household: 96 employed at 9 
+Household: 95 employed at 5 
+Household: 94 employed at 11 
+Household: 93 employed at 3 
+Household: 92 employed at 3 
+Household: 91 employed at 3 
+Household: 90 employed at 3 
+Household: 89 employed at 3 
+Household: 88 employed at 3 
+Household: 87 employed at 3 
+Household: 86 employed at 3 
+Household: 85 employed at 3 
+Household: 84 employed at 3 
+Household: 83 employed at 3 
+Household: 82 employed at 3 
+Household: 81 employed at 3 
+Household: 80 employed at 3 
+Household: 79 employed at 3 
+Household: 78 employed at 3 
+Household: 77 employed at 3 
+Household: 76 employed at 3 
+Household: 75 employed at 3 
+Household: 74 employed at 2 
+Household: 73 employed at 2 
+Household: 72 employed at 2 
+Household: 71 employed at 2 
+Household: 70 employed at 2 
+Household: 69 employed at 2 
+Household: 68 employed at 2 
+Household: 67 employed at 2 
+Household: 66 employed at 2 
+Household: 65 employed at 2 
+Household: 64 employed at 2 
+Household: 63 employed at 2 
+Household: 62 employed at 2 
+Household: 61 employed at 2 
+Household: 60 employed at 2 
+Household: 59 employed at 2 
+Household: 58 employed at 2 
+Household: 57 employed at 2 
+Household: 56 employed at 2 
+Household: 55 employed at 1 
+Household: 54 employed at 1 
+Household: 53 employed at 1 
+Household: 52 employed at 1 
+Household: 51 employed at 1 
+Household: 50 employed at 1 
+Household: 49 employed at 1 
+Household: 48 employed at 1 
+Household: 47 employed at 1 
+Household: 46 employed at 1 
+Household: 45 employed at 1 
+Household: 44 employed at 1 
+Household: 43 employed at 1 
+Household: 42 employed at 1 
+Household: 41 employed at 1 
+Household: 40 employed at 1 
+Household: 39 employed at 1 
+Household: 38 employed at 1 
+Household: 37 employed at 1 
+Household: 36 employed at 15 
+Household: 35 employed at 14 
+Household: 34 employed at 13 
+Household: 33 employed at 12 
+Household: 32 employed at 11 
+Household: 31 employed at 10 
+Household: 30 employed at 9 
+Household: 29 employed at 8 
+Household: 28 employed at 7 
+Household: 27 employed at 6 
+Household: 26 employed at 5 
+Household: 25 employed at 4 
+Household: 24 employed at 3 
+Household: 23 employed at 2 
+Household: 22 employed at 1 
+Firm 1 at Credit Market 1
+Firm 2 at Credit Market 1
+Firm 3 at Credit Market 1
+Firm 4 at Credit Market 1
+Firm 5 at Credit Market 1
+Firm 6 at Credit Market 1
+Firm 7 at Credit Market 1
+Firm 8 at Credit Market 1
+Firm 9 at Credit Market 1
+Firm 10 at Credit Market 1
+Firm 11 at Credit Market 1
+Firm 12 at Credit Market 1
+Firm 13 at Credit Market 1
+Firm 14 at Credit Market 1
+Firm 15 at Credit Market 1
+Constructor 3 has 10 works in progress.
+Constructor Firm 3 plans 635 units to be processed. 
+Constructor 2 has 14 works in progress.
+Constructor Firm 2 plans 1001 units to be processed. 
+Constructor 1 has 10 works in progress.
+Constructor Firm 1 plans 297 units to be processed. 
+Firm 15 plans 46000 units to be produced. IT NO: 1
+Firm 14 plans 54000 units to be produced. IT NO: 1
+Firm 13 plans 68000 units to be produced. IT NO: 1
+Firm 12 plans 65000 units to be produced. IT NO: 1
+Firm 11 plans 58000 units to be produced. IT NO: 1
+Firm 10 plans 35000 units to be produced. IT NO: 1
+Firm 9 plans 58000 units to be produced. IT NO: 1
+Firm 8 plans 45000 units to be produced. IT NO: 1
+Firm 7 plans 70000 units to be produced. IT NO: 1
+Firm 6 plans 57000 units to be produced. IT NO: 1
+Firm 5 plans 49000 units to be produced. IT NO: 1
+Firm 4 plans 56000 units to be produced. IT NO: 1
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is 47
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is 55
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is 69
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is 66
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is 59
+Firm 10 is at Labour Market EMPLOYEES_NEEDED is 36
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is 59
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is 46
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is 71
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is 58
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is 50
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is 57
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 907
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 1430
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 424
+Firm Id = 3 at Housing Market
+Firm Id = 2 at Housing Market
+Firm Id = 1 at Housing Market
+Iteration - 2
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 3
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 4
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 5
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 92000 Goods to Mall with a price = 0.005642
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 108000 Goods to Mall with a price = 0.005642
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 136000 Goods to Mall with a price = 0.005642
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 130000 Goods to Mall with a price = 0.005642
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 70000 Goods to Mall with a price = 0.005642
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 90000 Goods to Mall with a price = 0.005642
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 140000 Goods to Mall with a price = 0.005642
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 114000 Goods to Mall with a price = 0.005642
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 98000 Goods to Mall with a price = 0.005642
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 112000 Goods to Mall with a price = 0.005642
+Iteration - 6
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 7
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 8
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 9
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 10
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 92000 Goods to Mall with a price = 0.005642
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 108000 Goods to Mall with a price = 0.005642
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 136000 Goods to Mall with a price = 0.005642
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 130000 Goods to Mall with a price = 0.005642
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 70000 Goods to Mall with a price = 0.005642
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 90000 Goods to Mall with a price = 0.005642
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 140000 Goods to Mall with a price = 0.005642
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 114000 Goods to Mall with a price = 0.005642
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 98000 Goods to Mall with a price = 0.005642
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 112000 Goods to Mall with a price = 0.005642
+Iteration - 11
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 12
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 13
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 14
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 15
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 92000 Goods to Mall with a price = 0.005642
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 108000 Goods to Mall with a price = 0.005642
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 136000 Goods to Mall with a price = 0.005642
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 130000 Goods to Mall with a price = 0.005642
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 70000 Goods to Mall with a price = 0.005642
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 90000 Goods to Mall with a price = 0.005642
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 140000 Goods to Mall with a price = 0.005642
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 114000 Goods to Mall with a price = 0.005642
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 98000 Goods to Mall with a price = 0.005642
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 112000 Goods to Mall with a price = 0.005642
+Iteration - 16
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 17
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 18
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 19
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 20
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Constructor Firm 1 produces 2 houses at IT NO: 20
+Constructor Firm 2 produces 2 houses at IT NO: 20
+Constructor Firm 3 produces 0 houses at IT NO: 20
+Firm 15 produces 46000 items at IT NO: 20
+Firm 14 produces 54000 items at IT NO: 20
+Firm 13 produces 68000 items at IT NO: 20
+Firm 12 produces 65000 items at IT NO: 20
+Firm 11 produces 58000 items at IT NO: 20
+Firm 10 produces 35000 items at IT NO: 20
+Firm 9 produces 58000 items at IT NO: 20
+Firm 8 produces 45000 items at IT NO: 20
+Firm 7 produces 70000 items at IT NO: 20
+Firm 6 produces 57000 items at IT NO: 20
+Firm 5 produces 49000 items at IT NO: 20
+Firm 4 produces 56000 items at IT NO: 20
+Firm ID = 1 LABOUR COST for the month is 200.000000
+Firm ID = 2 LABOUR COST for the month is 200.000000
+Firm ID = 3 LABOUR COST for the month is 200.000000
+Firm ID = 15 LABOUR COST for the month is 460.000000
+Firm ID = 14 LABOUR COST for the month is 540.000000
+Firm ID = 13 LABOUR COST for the month is 680.000000
+Firm ID = 12 LABOUR COST for the month is 650.000000
+Firm ID = 11 LABOUR COST for the month is 580.000000
+Firm ID = 10 LABOUR COST for the month is 350.000000
+Firm ID = 9 LABOUR COST for the month is 580.000000
+Firm ID = 8 LABOUR COST for the month is 450.000000
+Firm ID = 7 LABOUR COST for the month is 700.000000
+Firm ID = 6 LABOUR COST for the month is 570.000000
+Firm ID = 5 LABOUR COST for the month is 490.000000
+Firm ID = 4 LABOUR COST for the month is 560.000000
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 92000 Goods to Mall with a price = 0.005642
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 108000 Goods to Mall with a price = 0.005642
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 136000 Goods to Mall with a price = 0.005642
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 130000 Goods to Mall with a price = 0.005642
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 70000 Goods to Mall with a price = 0.005642
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 116000 Goods to Mall with a price = 0.005642
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 90000 Goods to Mall with a price = 0.005642
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 140000 Goods to Mall with a price = 0.005642
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 114000 Goods to Mall with a price = 0.005642
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 98000 Goods to Mall with a price = 0.005642
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 112000 Goods to Mall with a price = 0.005642
+Iteration - 21
+Firm 4 Size = 56, 56 
+Firm 5 Size = 49, 49 
+Firm 6 Size = 57, 57 
+Firm 7 Size = 70, 70 
+Firm 8 Size = 45, 45 
+Firm 9 Size = 58, 58 
+Firm 10 Size = 35, 35 
+Firm 11 Size = 58, 58 
+Firm 12 Size = 65, 65 
+Firm 13 Size = 68, 68 
+Firm 14 Size = 54, 54 
+Firm 15 Size = 46, 46 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Constructor 3 has 11 works in progress.
+Constructor Firm 3 plans 251 units to be processed. 
+Constructor 2 has 13 works in progress.
+Constructor Firm 2 plans 994 units to be processed. 
+Constructor 1 has 9 works in progress.
+Constructor Firm 1 plans 205 units to be processed. 
+Firm 4 plans 39200 units to be produced. IT NO: 21
+Firm 5 plans 34300 units to be produced. IT NO: 21
+Firm 6 plans 39900 units to be produced. IT NO: 21
+Firm 7 plans 49000 units to be produced. IT NO: 21
+Firm 8 plans 31500 units to be produced. IT NO: 21
+Firm 9 plans 40600 units to be produced. IT NO: 21
+Firm 10 plans 24500 units to be produced. IT NO: 21
+Firm 11 plans 40600 units to be produced. IT NO: 21
+Firm 12 plans 45500 units to be produced. IT NO: 21
+Firm 13 plans 47600 units to be produced. IT NO: 21
+Firm 14 plans 37800 units to be produced. IT NO: 21
+Firm 15 plans 32200 units to be produced. IT NO: 21
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is 40
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is 35
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is 40
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is 50
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is 32
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is 41
+Firm 10 is at Labour Market EMPLOYEES_NEEDED is 25
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is 41
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is 46
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is 48
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is 38
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is 33
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 358
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 1420
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 292
+Firm Id = 3 at Housing Market
+Firm Id = 2 at Housing Market
+Firm Id = 1 at Housing Market
+Iteration - 22
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 23
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 24
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 25
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 138000 Goods to Mall with a price = 0.005656
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 162000 Goods to Mall with a price = 0.005656
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 204000 Goods to Mall with a price = 0.005656
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 195000 Goods to Mall with a price = 0.005656
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 105000 Goods to Mall with a price = 0.005656
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 135000 Goods to Mall with a price = 0.005656
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 210000 Goods to Mall with a price = 0.005656
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 171000 Goods to Mall with a price = 0.005656
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 147000 Goods to Mall with a price = 0.005656
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 168000 Goods to Mall with a price = 0.005656
+Iteration - 26
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 27
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 28
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 29
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 30
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 138000 Goods to Mall with a price = 0.005656
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 162000 Goods to Mall with a price = 0.005656
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 204000 Goods to Mall with a price = 0.005656
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 195000 Goods to Mall with a price = 0.005656
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 105000 Goods to Mall with a price = 0.005656
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 135000 Goods to Mall with a price = 0.005656
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 210000 Goods to Mall with a price = 0.005656
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 171000 Goods to Mall with a price = 0.005656
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 147000 Goods to Mall with a price = 0.005656
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 168000 Goods to Mall with a price = 0.005656
+Iteration - 31
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 32
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 33
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 34
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 35
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 138000 Goods to Mall with a price = 0.005656
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 162000 Goods to Mall with a price = 0.005656
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 204000 Goods to Mall with a price = 0.005656
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 195000 Goods to Mall with a price = 0.005656
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 105000 Goods to Mall with a price = 0.005656
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 135000 Goods to Mall with a price = 0.005656
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 210000 Goods to Mall with a price = 0.005656
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 171000 Goods to Mall with a price = 0.005656
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 147000 Goods to Mall with a price = 0.005656
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 168000 Goods to Mall with a price = 0.005656
+Iteration - 36
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 37
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 38
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 39
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 40
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Constructor Firm 1 produces 2 houses at IT NO: 40
+Constructor Firm 2 produces 2 houses at IT NO: 40
+Constructor Firm 3 produces 2 houses at IT NO: 40
+Firm 15 produces 33000 items at IT NO: 40
+Firm 14 produces 38000 items at IT NO: 40
+Firm 13 produces 48000 items at IT NO: 40
+Firm 12 produces 46000 items at IT NO: 40
+Firm 11 produces 41000 items at IT NO: 40
+Firm 10 produces 25000 items at IT NO: 40
+Firm 9 produces 41000 items at IT NO: 40
+Firm 8 produces 32000 items at IT NO: 40
+Firm 7 produces 50000 items at IT NO: 40
+Firm 6 produces 40000 items at IT NO: 40
+Firm 5 produces 35000 items at IT NO: 40
+Firm 4 produces 40000 items at IT NO: 40
+Firm ID = 1 LABOUR COST for the month is 300.000000
+Firm ID = 2 LABOUR COST for the month is 300.000000
+Firm ID = 3 LABOUR COST for the month is 300.000000
+Firm ID = 15 LABOUR COST for the month is 625.000000
+Firm ID = 14 LABOUR COST for the month is 730.000000
+Firm ID = 13 LABOUR COST for the month is 920.000000
+Firm ID = 12 LABOUR COST for the month is 880.000000
+Firm ID = 11 LABOUR COST for the month is 785.000000
+Firm ID = 10 LABOUR COST for the month is 475.000000
+Firm ID = 9 LABOUR COST for the month is 785.000000
+Firm ID = 8 LABOUR COST for the month is 610.000000
+Firm ID = 7 LABOUR COST for the month is 950.000000
+Firm ID = 6 LABOUR COST for the month is 770.000000
+Firm ID = 5 LABOUR COST for the month is 665.000000
+Firm ID = 4 LABOUR COST for the month is 760.000000
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 138000 Goods to Mall with a price = 0.005656
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 162000 Goods to Mall with a price = 0.005656
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 204000 Goods to Mall with a price = 0.005656
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 195000 Goods to Mall with a price = 0.005656
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 105000 Goods to Mall with a price = 0.005656
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 174000 Goods to Mall with a price = 0.005656
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 135000 Goods to Mall with a price = 0.005656
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 210000 Goods to Mall with a price = 0.005656
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 171000 Goods to Mall with a price = 0.005656
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 147000 Goods to Mall with a price = 0.005656
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 168000 Goods to Mall with a price = 0.005656
+Iteration - 41
+Firm 4 Size = 40, 40 
+Firm 5 Size = 35, 35 
+Firm 6 Size = 40, 40 
+Firm 7 Size = 50, 50 
+Firm 8 Size = 32, 32 
+Firm 9 Size = 41, 41 
+Firm 10 Size = 25, 25 
+Firm 11 Size = 41, 41 
+Firm 12 Size = 46, 46 
+Firm 13 Size = 48, 48 
+Firm 14 Size = 38, 38 
+Firm 15 Size = 33, 33 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Constructor 3 has 10 works in progress.
+Constructor Firm 3 plans 485 units to be processed. 
+Constructor 2 has 12 works in progress.
+Constructor Firm 2 plans 641 units to be processed. 
+Constructor 1 has 8 works in progress.
+Constructor Firm 1 plans 977 units to be processed. 
+Firm 4 plans 19200 units to be produced. IT NO: 41
+Firm 5 plans 16800 units to be produced. IT NO: 41
+Firm 6 plans 18900 units to be produced. IT NO: 41
+Firm 7 plans 24000 units to be produced. IT NO: 41
+Firm 8 plans 15300 units to be produced. IT NO: 41
+Firm 9 plans 19500 units to be produced. IT NO: 41
+Firm 10 plans 12000 units to be produced. IT NO: 41
+Firm 11 plans 19500 units to be produced. IT NO: 41
+Firm 12 plans 21900 units to be produced. IT NO: 41
+Firm 13 plans 22800 units to be produced. IT NO: 41
+Firm 14 plans 18000 units to be produced. IT NO: 41
+Firm 15 plans 15900 units to be produced. IT NO: 41
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is 20
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is 17
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is 19
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is 25
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is 16
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is 20
+Firm 10 is at Labour Market EMPLOYEES_NEEDED is 13
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is 20
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is 22
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is 23
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is 19
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is 16
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 692
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 915
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 1395
+Firm Id = 3 at Housing Market
+Firm Id = 2 at Housing Market
+Firm Id = 1 at Housing Market
+Iteration - 42
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 43
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 44
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 45
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 171000 Goods to Mall with a price = 0.005675
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 200000 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 252000 Goods to Mall with a price = 0.005675
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 241000 Goods to Mall with a price = 0.005675
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 130000 Goods to Mall with a price = 0.005675
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 167000 Goods to Mall with a price = 0.005675
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 260000 Goods to Mall with a price = 0.005675
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 211000 Goods to Mall with a price = 0.005676
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 182000 Goods to Mall with a price = 0.005675
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 208000 Goods to Mall with a price = 0.005675
+Iteration - 46
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 47
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 48
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 49
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 50
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 171000 Goods to Mall with a price = 0.005675
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 200000 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 252000 Goods to Mall with a price = 0.005675
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 241000 Goods to Mall with a price = 0.005675
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 130000 Goods to Mall with a price = 0.005675
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 167000 Goods to Mall with a price = 0.005675
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 260000 Goods to Mall with a price = 0.005675
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 211000 Goods to Mall with a price = 0.005676
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 182000 Goods to Mall with a price = 0.005675
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 208000 Goods to Mall with a price = 0.005675
+Iteration - 51
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 52
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 53
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 54
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 55
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 171000 Goods to Mall with a price = 0.005675
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 200000 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 252000 Goods to Mall with a price = 0.005675
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 241000 Goods to Mall with a price = 0.005675
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 130000 Goods to Mall with a price = 0.005675
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 167000 Goods to Mall with a price = 0.005675
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 260000 Goods to Mall with a price = 0.005675
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 211000 Goods to Mall with a price = 0.005676
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 182000 Goods to Mall with a price = 0.005675
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 208000 Goods to Mall with a price = 0.005675
+Iteration - 56
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 57
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 58
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 59
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 60
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Constructor Firm 1 produces 2 houses at IT NO: 60
+Constructor Firm 2 produces 2 houses at IT NO: 60
+Constructor Firm 3 produces 1 houses at IT NO: 60
+Firm 15 produces 16000 items at IT NO: 60
+Firm 14 produces 19000 items at IT NO: 60
+Firm 13 produces 23000 items at IT NO: 60
+Firm 12 produces 22000 items at IT NO: 60
+Firm 11 produces 20000 items at IT NO: 60
+Firm 10 produces 13000 items at IT NO: 60
+Firm 9 produces 20000 items at IT NO: 60
+Firm 8 produces 16000 items at IT NO: 60
+Firm 7 produces 25000 items at IT NO: 60
+Firm 6 produces 19000 items at IT NO: 60
+Firm 5 produces 17000 items at IT NO: 60
+Firm 4 produces 20000 items at IT NO: 60
+Firm ID = 1 LABOUR COST for the month is 400.000000
+Firm ID = 2 LABOUR COST for the month is 400.000000
+Firm ID = 3 LABOUR COST for the month is 400.000000
+Firm ID = 15 LABOUR COST for the month is 705.000000
+Firm ID = 14 LABOUR COST for the month is 825.000000
+Firm ID = 13 LABOUR COST for the month is 1035.000000
+Firm ID = 12 LABOUR COST for the month is 990.000000
+Firm ID = 11 LABOUR COST for the month is 885.000000
+Firm ID = 10 LABOUR COST for the month is 540.000000
+Firm ID = 9 LABOUR COST for the month is 885.000000
+Firm ID = 8 LABOUR COST for the month is 690.000000
+Firm ID = 7 LABOUR COST for the month is 1075.000000
+Firm ID = 6 LABOUR COST for the month is 865.000000
+Firm ID = 5 LABOUR COST for the month is 750.000000
+Firm ID = 4 LABOUR COST for the month is 860.000000
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 171000 Goods to Mall with a price = 0.005675
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 200000 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 252000 Goods to Mall with a price = 0.005675
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 241000 Goods to Mall with a price = 0.005675
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 130000 Goods to Mall with a price = 0.005675
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 215000 Goods to Mall with a price = 0.005675
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 167000 Goods to Mall with a price = 0.005675
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 260000 Goods to Mall with a price = 0.005675
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 211000 Goods to Mall with a price = 0.005676
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 182000 Goods to Mall with a price = 0.005675
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 208000 Goods to Mall with a price = 0.005675
+Iteration - 61
+Firm 4 Size = 20, 20 
+Firm 5 Size = 17, 17 
+Firm 6 Size = 19, 19 
+Firm 7 Size = 25, 25 
+Firm 8 Size = 16, 16 
+Firm 9 Size = 20, 20 
+Firm 10 Size = 13, 13 
+Firm 11 Size = 20, 20 
+Firm 12 Size = 22, 22 
+Firm 13 Size = 23, 23 
+Firm 14 Size = 19, 19 
+Firm 15 Size = 16, 16 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm 3 at Credit Market 61
+Firm 2 at Credit Market 61
+Firm 1 at Credit Market 61
+Firm 15 at Credit Market 61
+Firm 14 at Credit Market 61
+Firm 13 at Credit Market 61
+Firm 12 at Credit Market 61
+Firm 11 at Credit Market 61
+Firm 10 at Credit Market 61
+Firm 9 at Credit Market 61
+Firm 8 at Credit Market 61
+Firm 7 at Credit Market 61
+Firm 6 at Credit Market 61
+Firm 5 at Credit Market 61
+Firm 4 at Credit Market 61
+Constructor 3 has 10 works in progress.
+Constructor Firm 3 plans 670 units to be processed. 
+Constructor 2 has 11 works in progress.
+Constructor Firm 2 plans 649 units to be processed. 
+Constructor 1 has 7 works in progress.
+Constructor Firm 1 plans 348 units to be processed. 
+Firm 4 plans -2799 units to be produced. IT NO: 61
+Firm 5 plans -2899 units to be produced. IT NO: 61
+Firm 6 plans -3999 units to be produced. IT NO: 61
+Firm 7 plans -3499 units to be produced. IT NO: 61
+Firm 8 plans -2299 units to be produced. IT NO: 61
+Firm 9 plans -3499 units to be produced. IT NO: 61
+Firm 10 plans -1299 units to be produced. IT NO: 61
+Firm 11 plans -3499 units to be produced. IT NO: 61
+Firm 12 plans -4299 units to be produced. IT NO: 61
+Firm 13 plans -4499 units to be produced. IT NO: 61
+Firm 14 plans -2899 units to be produced. IT NO: 61
+Firm 15 plans -2699 units to be produced. IT NO: 61
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is -1
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is -1
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is -2
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is -2
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is -1
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is -2
+Firm 10 is at Labour Market EMPLOYEES_NEEDED is 0
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is -2
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is -3
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is -3
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is -1
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is -1
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 957
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 927
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 497
+Household: 37 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 44 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 46 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 49 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 53 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 69 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 77 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 83 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 250 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 311 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 327 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 332 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 336 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 340 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 359 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 365 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 370 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 375 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 380 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 383 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 390 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 393 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 398 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 405 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 408 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 410 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 417 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 425 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 443 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 446 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 455 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 464 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 474 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 493 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 499 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 502 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 508 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 517 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 521 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 530 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 534 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 541 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 559 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 560 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 569 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 585 Equity 272.500000, Liquidity = 30.000000, Housing Value = 500.000000, Wealth = 530.000000 
+Household: 745 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 752 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 759 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 761 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 773 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 776 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 803 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 805 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 809 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 814 Equity 262.000000, Liquidity = 12.000000, Housing Value = 500.000000, Wealth = 512.000000 
+Household: 740 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 734 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 730 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 729 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 727 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 723 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 720 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 714 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 707 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 706 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 697 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 691 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 689 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 688 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 683 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 680 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 676 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 674 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 666 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 656 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 652 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 641 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 639 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 637 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 635 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 634 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 620 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 604 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 602 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 601 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 600 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 573 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 571 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 568 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 562 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 548 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 529 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 510 Equity 271.000000, Liquidity = 28.500000, Housing Value = 500.000000, Wealth = 528.500000 
+Household: 331 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 321 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 294 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 283 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 282 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 278 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 277 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 262 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 249 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 243 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 240 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 239 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 236 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 230 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 229 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 212 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 206 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 203 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 196 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 193 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 191 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 190 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 186 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 173 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 172 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 166 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 144 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 143 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 139 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 137 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 112 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 108 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 107 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 103 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 101 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 100 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 96 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 36 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 28 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Household: 26 Equity 274.000000, Liquidity = 31.500000, Housing Value = 500.000000, Wealth = 531.500000 
+Firm Id = 3 at Housing Market
+Firm Id = 2 at Housing Market
+Firm Id = 1 at Housing Market
+Iteration - 62
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 63
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 64
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 65
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 187000 Goods to Mall with a price = 0.005705
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 219000 Goods to Mall with a price = 0.005705
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 275000 Goods to Mall with a price = 0.005706
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 263000 Goods to Mall with a price = 0.005706
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 235000 Goods to Mall with a price = 0.005706
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 143000 Goods to Mall with a price = 0.005704
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 235000 Goods to Mall with a price = 0.005706
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 183000 Goods to Mall with a price = 0.005705
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 285000 Goods to Mall with a price = 0.005705
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 230000 Goods to Mall with a price = 0.005707
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 199000 Goods to Mall with a price = 0.005705
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 228000 Goods to Mall with a price = 0.005705
+Iteration - 66
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 67
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 68
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Iteration - 69
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 1 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 3 Size = 20, 20 
+Iteration - 70
+Firm 4 Size = -1, -1 
+Firm 5 Size = -1, -1 
+Firm 6 Size = -2, -2 
+Firm 7 Size = -2, -2 
+Firm 8 Size = -1, -1 
+Firm 9 Size = -2, -2 
+Firm 10 Size = 1, 1 
+Firm 11 Size = -2, -2 
+Firm 12 Size = -3, -3 
+Firm 13 Size = -3, -3 
+Firm 14 Size = -1, -1 
+Firm 15 Size = -1, -1 
+Firm 3 Size = 20, 20 
+Firm 2 Size = 20, 20 
+Firm 1 Size = 20, 20 
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 179566 Goods to Mall with a price = 0.005705
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 210936 Goods to Mall with a price = 0.005705
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 266235 Goods to Mall with a price = 0.005706
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 252558 Goods to Mall with a price = 0.005706
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 227358 Goods to Mall with a price = 0.005706
+Firm Id = 10 at Consumption Market
+Firm Id = 10 Sends = 123291 Goods to Mall with a price = 0.005704
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 225937 Goods to Mall with a price = 0.005706
+Firm Id = 8 at Consumption Market
+Firm Id = 8 Sends = 175506 Goods to Mall with a price = 0.005705
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 274372 Goods to Mall with a price = 0.005705
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 223452 Goods to Mall with a price = 0.005707
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 189036 Goods to Mall with a price = 0.005705
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 220034 Goods to Mall with a price = 0.005705
+Execution time - 0:23:300 [mins:secs:msecs]
