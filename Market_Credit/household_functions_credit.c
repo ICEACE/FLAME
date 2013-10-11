@@ -49,15 +49,22 @@ int household_credit_update_mortgage_rates()
     
     size = MORTGAGES_LIST.size;
     
+    if (ID == 42) {
+        printf("Household: %d at Credit Market, updating %d mortgage payment info. \n", ID, size);
+    }
+    
+
     if (size == 0) {
         free_mortgage(&mort);
         return 0;
     }
     
-    for (i = 0; i < size - 1; i++) {
+    for (i = 0; i < size; i++) {
         mort = MORTGAGES_LIST.array[i];
         principle = mort.principal;
-        quarters_left = mort.quarters_left - 1;
+        quarters_left = mort.quarters_left;
+        quarters_left = quarters_left - 1;
+        
         
         d1 = MORTGAGES_INTEREST_RATE/4;
         d2 = d1 * pow((1 + d1), quarters_left);
@@ -66,14 +73,13 @@ int household_credit_update_mortgage_rates()
         new_quarterly_interest = principle * d1;
         new_quarterly_principal = (principle / annuity) - new_quarterly_interest;
         
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, quarters_left, principle, new_quarterly_interest, new_quarterly_principal);
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, principle, quarters_left, new_quarterly_interest, new_quarterly_principal);
     }
     
     //updates above added to the array, code snippet below remove redundant entries. No in place mutation is done.
-    for (i = 0; i < size - 1; i++) {
+    for (i = 0; i < size; i++) {
         remove_mortgage(&MORTGAGES_LIST, i);
     }
-    
     free_mortgage(&mort);
 	return 0; /* Returning zero means the agent is not removed */
 }

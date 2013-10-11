@@ -35,6 +35,7 @@ int firm_init_employment()
     TOTAL_ASSETS = DEBT + EQUITY;
     LOAN_LIST[0].amount = DEBT;
     
+                                                                               
     if (ISCONSTRUCTOR == 0) {
         PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY;
         INVENTORY = PRODUCTION_CURRENT;
@@ -45,8 +46,9 @@ int firm_init_employment()
         LIQUIDITY = NET_EARNINGS;
         // this should be fixed as int and we will get the ceiling value.
         PHYSICAL_CAPITAL = (TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE;
-        CAPITAL_CONSTRUCTION = 0;
         CAPITAL_GOODS = PHYSICAL_CAPITAL;
+        CAPITAL_CONSTRUCTION = 0;
+        CAPITAL_PRODUCTIVITY_CONSTRUCTION = 0;
     } else {
         PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION / 12;
         INVENTORY = PRODUCTION_CURRENT;
@@ -60,12 +62,17 @@ int firm_init_employment()
         // this should be fixed as int and we will get the ceiling value.
         CAPITAL_CONSTRUCTION = (TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE;
         CAPITAL_GOODS = CAPITAL_CONSTRUCTION;
+        CAPITAL_PRODUCTIVITY_CONSTRUCTION = LABOUR_PRODUCTIVITY_CONSTRUCTION * NO_EMPLOYEES / (0.7 * CAPITAL_CONSTRUCTION);
     }
     
-    printf("\nFirm %d --> employed: ", ID);
+    
+    
+    printf("Firm %d --> Size = %d \n", ID, NO_EMPLOYEES);
+    /*printf("\nFirm %d --> employed: ", ID);
     for (int i = 0; i < EMPLOYEES.size; i++) {
         printf(" %d ", EMPLOYEES.array[i]);
     }
+     */
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -113,7 +120,7 @@ int firm_iterate()
     
     IT_NO++;
     
-    printf("Firm %d Size = %d, %d \n", ID, NO_EMPLOYEES, EMPLOYEES.size);
+    printf("Firm %d Size = %d \n", ID, NO_EMPLOYEES);
     
     
    

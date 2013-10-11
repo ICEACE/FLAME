@@ -211,15 +211,8 @@ int firm_production_construction_plan()
         work_in_progress += PROJECTS[i];
     }
     
-    printf("Constructor %d has %d works in progress.\n", ID, work_in_progress);
     
     maxsize = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
-    //printf("    Maxsize = %d \n", maxsize);
-    //printf("    Old Price = %f \n", old_price);
-    //printf("    New Price = %f \n", new_price);
-    //printf("    No Employees = %d \n", NO_EMPLOYEES);
-    //printf("    Productivity = %f \n", LABOUR_PRODUCTIVITY_CONSTRUCTION);
-    //printf("Firm Id = %d productivity", (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION));
     
     
     //Some conditions are added to the model! Needs to be chekced.
@@ -241,7 +234,7 @@ int firm_production_construction_plan()
         }
     }
     
-    printf("Constructor Firm %d plans %d units to be processed. \n", ID, PRODUCTION_PLAN);
+    printf("Constructor %d -> dPrice: %f, Inventory: %d, WIP: %d, Max Capacity = %d,  Planned: %d, Productivity = %f, Capital = %f \n", ID, DELTA_HOUSING_PRICE, INVENTORY, work_in_progress, maxsize, PRODUCTION_PLAN, CAPITAL_PRODUCTIVITY_CONSTRUCTION, CAPITAL_CONSTRUCTION);
 
 
 	return 0; /* Returning zero means the agent is not removed */

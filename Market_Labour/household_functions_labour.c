@@ -46,10 +46,10 @@ int household_labour_reemployment_application()
 int household_labour_turnover()
 {
     int previous_employer, new_employer;
-    double pre_wage;
+    //double pre_wage;
     
     previous_employer = MY_EMPLOYER_ID;
-    pre_wage = WAGE;
+    //pre_wage = WAGE;
     
 	START_JOB_MATCH_STAGE1_MESSAGE_LOOP
     // Checking if recently applied position is offered.

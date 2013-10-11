@@ -23,7 +23,7 @@ int household_init_employment()
     MY_EMPLOYER_ID = jpoffice_household_employer_message->employer_id;
     FINISH_JPOFFICE_HOUSEHOLD_EMPLOYER_MESSAGE_LOOP
     
-    printf("Household: %d employed at %d \n", ID, MY_EMPLOYER_ID);
+    //printf("Household: %d employed at %d \n", ID, MY_EMPLOYER_ID);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

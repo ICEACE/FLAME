@@ -122,7 +122,7 @@ int household_housing_buy()
         
         // update mortgages array.
         
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, 160, mortgage_used, quarterly_interest, quarterly_principal);
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, mortgage_used, 160, quarterly_interest, quarterly_principal);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -221,7 +221,7 @@ int household_housing_collect_sale_revenue()
             
             add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
             // I was not sure of data mutation here, for safety reasons, the updated entry is removed and a new entry is added to the list.
-            add_mortgage(&MORTGAGES_LIST, BANK_ID, mort.quarters_left, new_principle, new_quarterly_interest, new_quarterly_principal);
+            add_mortgage(&MORTGAGES_LIST, BANK_ID, new_principle, mort.quarters_left, new_quarterly_interest, new_quarterly_principal);
         }
         remove_mortgage(&MORTGAGES_LIST, ind);
         free_mortgage(&mort);
@@ -256,7 +256,7 @@ int household_housing_collect_sale_revenue()
             add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
             
             // I was not sure of data mutation here, for safety reasons, the updated entry is removed and a new entry is added to the list.
-            add_mortgage(&MORTGAGES_LIST, BANK_ID, mort.quarters_left, new_principle, new_quarterly_interest, new_quarterly_principal);
+            add_mortgage(&MORTGAGES_LIST, BANK_ID, new_principle, mort.quarters_left, new_quarterly_interest, new_quarterly_principal);
         }
        remove_mortgage(&MORTGAGES_LIST, ind); 
     }
@@ -371,7 +371,7 @@ int household_housing_debt_writeoff()
         quarterly_interest = MORTGAGES * MORTGAGES_INTEREST_RATE / 4;
         quarterly_principal = (MORTGAGES / annuity) - quarterly_interest;
         
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, 160, MORTGAGES, quarterly_interest, quarterly_principal);
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, MORTGAGES, 160, quarterly_interest, quarterly_principal);
     }
     
     free_mortgage(&mort);
