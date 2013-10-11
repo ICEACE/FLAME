@@ -17,7 +17,7 @@ cp ./initialization/iceace_model_v1.0.0.xml ./outputs/its/0.xml
 ../xparser-0.17.0/xparser model_iceace.xml
 cp ./stategraph_colour.dot ./docs/
 make LIBMBOARD_DIR=/Users/bulent/Documents/AWorkspace/iceace/libmbdir
-./main 245 ./outputs/its/0.xml -f 1 > ./outputs/simulation_stream.txt
+./main 65 ./outputs/its/0.xml -f 1 > ./outputs/simulation_stream.txt
 ../html/updatewebpage.sh
 make vclean
 

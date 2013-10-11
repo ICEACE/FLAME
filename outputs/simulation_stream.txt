@@ -2194,4 +2194,4 @@ Firm Id = 10 at Consumption Market
 Firm Id = 10 Sends = 61223 Goods to Mall with a price = 0.005680
 Firm Id = 8 at Consumption Market
 Firm Id = 8 Sends = 73634 Goods to Mall with a price = 0.005683
-Execution time - 0:34:018 [mins:secs:msecs]
+Execution time - 0:24:441 [mins:secs:msecs]
