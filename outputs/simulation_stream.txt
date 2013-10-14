@@ -395,29 +395,29 @@ Firm 1 Size = 20
 Firm 3 Size = 20 
 Firm 2 Size = 20 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 82000 Goods to Mall with a price = 0.005642
+Firm Id = 15 Sends = 84889 Goods to Mall with a price = 0.005642
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 102454 Goods to Mall with a price = 0.005642
+Firm Id = 14 Sends = 101358 Goods to Mall with a price = 0.005642
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 117859 Goods to Mall with a price = 0.005642
+Firm Id = 13 Sends = 123544 Goods to Mall with a price = 0.005642
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 122254 Goods to Mall with a price = 0.005642
+Firm Id = 12 Sends = 123873 Goods to Mall with a price = 0.005642
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 108126 Goods to Mall with a price = 0.005642
+Firm Id = 11 Sends = 109679 Goods to Mall with a price = 0.005642
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 63298 Goods to Mall with a price = 0.005642
+Firm Id = 10 Sends = 61291 Goods to Mall with a price = 0.005642
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 108060 Goods to Mall with a price = 0.005642
+Firm Id = 9 Sends = 109812 Goods to Mall with a price = 0.005642
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 81545 Goods to Mall with a price = 0.005642
+Firm Id = 8 Sends = 84335 Goods to Mall with a price = 0.005642
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 131485 Goods to Mall with a price = 0.005642
+Firm Id = 7 Sends = 132268 Goods to Mall with a price = 0.005642
 Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 106087 Goods to Mall with a price = 0.005642
+Firm Id = 6 Sends = 107558 Goods to Mall with a price = 0.005642
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 88656 Goods to Mall with a price = 0.005642
+Firm Id = 5 Sends = 92461 Goods to Mall with a price = 0.005642
 Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 102989 Goods to Mall with a price = 0.005642
+Firm Id = 4 Sends = 105425 Goods to Mall with a price = 0.005642
 Iteration - 11
 Firm 4 Size = 56 
 Firm 5 Size = 49 
@@ -499,29 +499,29 @@ Firm 2 Size = 20
 Firm 3 Size = 20 
 Firm 1 Size = 20 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 73671 Goods to Mall with a price = 0.005642
+Firm Id = 15 Sends = 78557 Goods to Mall with a price = 0.005642
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 94706 Goods to Mall with a price = 0.005642
+Firm Id = 14 Sends = 95360 Goods to Mall with a price = 0.005642
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 104291 Goods to Mall with a price = 0.005642
+Firm Id = 13 Sends = 112312 Goods to Mall with a price = 0.005642
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 111217 Goods to Mall with a price = 0.005642
+Firm Id = 12 Sends = 115997 Goods to Mall with a price = 0.005642
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 99218 Goods to Mall with a price = 0.005642
+Firm Id = 11 Sends = 103351 Goods to Mall with a price = 0.005642
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 54514 Goods to Mall with a price = 0.005642
+Firm Id = 10 Sends = 53477 Goods to Mall with a price = 0.005642
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 100960 Goods to Mall with a price = 0.005642
+Firm Id = 9 Sends = 102840 Goods to Mall with a price = 0.005642
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 73731 Goods to Mall with a price = 0.005642
+Firm Id = 8 Sends = 79039 Goods to Mall with a price = 0.005642
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 124708 Goods to Mall with a price = 0.005642
+Firm Id = 7 Sends = 126523 Goods to Mall with a price = 0.005642
 Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 99049 Goods to Mall with a price = 0.005642
+Firm Id = 6 Sends = 100974 Goods to Mall with a price = 0.005642
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 79242 Goods to Mall with a price = 0.005642
+Firm Id = 5 Sends = 84841 Goods to Mall with a price = 0.005642
 Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 92203 Goods to Mall with a price = 0.005642
+Firm Id = 4 Sends = 97618 Goods to Mall with a price = 0.005642
 Iteration - 16
 Firm 4 Size = 56 
 Firm 5 Size = 49 
@@ -633,29 +633,29 @@ Firm ID = 6 LABOUR COST for the month is 570.000000
 Firm ID = 5 LABOUR COST for the month is 490.000000
 Firm ID = 4 LABOUR COST for the month is 560.000000
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 64755 Goods to Mall with a price = 0.005642
+Firm Id = 15 Sends = 69641 Goods to Mall with a price = 0.005642
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 87020 Goods to Mall with a price = 0.005642
+Firm Id = 14 Sends = 89936 Goods to Mall with a price = 0.005642
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 87115 Goods to Mall with a price = 0.005642
+Firm Id = 13 Sends = 97852 Goods to Mall with a price = 0.005642
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 102755 Goods to Mall with a price = 0.005642
+Firm Id = 12 Sends = 109669 Goods to Mall with a price = 0.005642
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 92824 Goods to Mall with a price = 0.005642
+Firm Id = 11 Sends = 96771 Goods to Mall with a price = 0.005642
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 45796 Goods to Mall with a price = 0.005642
+Firm Id = 10 Sends = 46113 Goods to Mall with a price = 0.005642
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 93278 Goods to Mall with a price = 0.005642
+Firm Id = 9 Sends = 97684 Goods to Mall with a price = 0.005642
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 63853 Goods to Mall with a price = 0.005642
+Firm Id = 8 Sends = 74329 Goods to Mall with a price = 0.005642
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 115738 Goods to Mall with a price = 0.005642
+Firm Id = 7 Sends = 120389 Goods to Mall with a price = 0.005642
 Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 91763 Goods to Mall with a price = 0.005642
+Firm Id = 6 Sends = 94708 Goods to Mall with a price = 0.005642
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 71176 Goods to Mall with a price = 0.005642
+Firm Id = 5 Sends = 78707 Goods to Mall with a price = 0.005642
 Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 84129 Goods to Mall with a price = 0.005642
+Firm Id = 4 Sends = 89482 Goods to Mall with a price = 0.005642
 Iteration - 21
 Firm 4 Size = 56 
 Firm 5 Size = 49 
@@ -672,1526 +672,1570 @@ Firm 15 Size = 46
 Firm 2 Size = 20 
 Firm 3 Size = 20 
 Firm 1 Size = 20 
-Constructor 1 -> dPrice: 0.000000, Inventory: 1, WIP: 12, Max Capacity = 20,  Planned: 17, Productivity = 0.013360, Capital = 1497.023810 
-Constructor 3 -> dPrice: 0.000000, Inventory: 1, WIP: 10, Max Capacity = 20,  Planned: 14, Productivity = 0.013360, Capital = 1497.023810 
-Constructor 2 -> dPrice: 0.000000, Inventory: 1, WIP: 14, Max Capacity = 20,  Planned: 17, Productivity = 0.013360, Capital = 1497.023810 
-Firm 4 plans 52076 units to be produced. IT NO: 21
-Firm 5 plans 49448 units to be produced. IT NO: 21
-Firm 6 plans 51226 units to be produced. IT NO: 21
-Firm 7 plans 61456 units to be produced. IT NO: 21
-Firm 8 plans 44230 units to be produced. IT NO: 21
-Firm 9 plans 52353 units to be produced. IT NO: 21
-Firm 10 plans 35707 units to be produced. IT NO: 21
-Firm 11 plans 51872 units to be produced. IT NO: 21
-Firm 12 plans 60835 units to be produced. IT NO: 21
-Firm 13 plans 69543 units to be produced. IT NO: 21
-Firm 14 plans 49423 units to be produced. IT NO: 21
-Firm 15 plans 44029 units to be produced. IT NO: 21
-Firm 4 is at Labour Market EMPLOYEES_NEEDED is 53
-Firm 5 is at Labour Market EMPLOYEES_NEEDED is 50
-Firm 6 is at Labour Market EMPLOYEES_NEEDED is 52
-Firm 7 is at Labour Market EMPLOYEES_NEEDED is 62
-Firm 8 is at Labour Market EMPLOYEES_NEEDED is 45
-Firm 9 is at Labour Market EMPLOYEES_NEEDED is 53
+Constructor 1 -> dPrice: 0.000000, Inventory: 1, WIP: 12, Max Capacity = 20,  Planned: 18, Productivity = 0.013360, Capital = 1497.023810 
+Constructor 3 -> dPrice: 0.000000, Inventory: 1, WIP: 10, Max Capacity = 20,  Planned: 18, Productivity = 0.013360, Capital = 1497.023810 
+Constructor 2 -> dPrice: 0.000000, Inventory: 1, WIP: 14, Max Capacity = 20,  Planned: 16, Productivity = 0.013360, Capital = 1497.023810 
+Firm 4 plans 50992 units to be produced. IT NO: 21
+Firm 5 plans 45182 units to be produced. IT NO: 21
+Firm 6 plans 50226 units to be produced. IT NO: 21
+Firm 7 plans 60253 units to be produced. IT NO: 21
+Firm 8 plans 40411 units to be produced. IT NO: 21
+Firm 9 plans 49530 units to be produced. IT NO: 21
+Firm 10 plans 35313 units to be produced. IT NO: 21
+Firm 11 plans 50905 units to be produced. IT NO: 21
+Firm 12 plans 56622 units to be produced. IT NO: 21
+Firm 13 plans 68534 units to be produced. IT NO: 21
+Firm 14 plans 46628 units to be produced. IT NO: 21
+Firm 15 plans 42866 units to be produced. IT NO: 21
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is 51
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is 46
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is 51
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is 61
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is 41
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is 50
 Firm 10 is at Labour Market EMPLOYEES_NEEDED is 36
-Firm 11 is at Labour Market EMPLOYEES_NEEDED is 52
-Firm 12 is at Labour Market EMPLOYEES_NEEDED is 61
-Firm 13 is at Labour Market EMPLOYEES_NEEDED is 70
-Firm 14 is at Labour Market EMPLOYEES_NEEDED is 50
-Firm 15 is at Labour Market EMPLOYEES_NEEDED is 45
-Firm 1 is at Labour Market EMPLOYEES_NEEDED is 24
-Firm 3 is at Labour Market EMPLOYEES_NEEDED is 20
-Firm 2 is at Labour Market EMPLOYEES_NEEDED is 24
-Household: 661 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 626 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 609 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 563 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 498 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 464 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 446 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 440 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 417 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 384 Equity 257.500000, Liquidity = 2.336458, Housing Value = 500.000000, Wealth = 502.336458 
-Household: 360 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 308 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 257 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 215 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is 51
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is 57
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is 69
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is 47
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is 43
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 25
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 25
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 22
+Household: 634 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 630 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 621 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 599 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 574 Equity 257.500000, Liquidity = 1.256056, Housing Value = 600.000000, Wealth = 601.256056 
+Household: 564 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 510 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 483 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 464 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 437 Equity 257.500000, Liquidity = 1.256056, Housing Value = 600.000000, Wealth = 601.256056 
+Household: 402 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 366 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 344 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 339 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 305 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 289 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 250 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
 Household: 194 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 177 Equity 257.500000, Liquidity = 2.336458, Housing Value = 500.000000, Wealth = 502.336458 
-Household: 153 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 145 Equity 257.500000, Liquidity = 2.336458, Housing Value = 500.000000, Wealth = 502.336458 
-Household: 142 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 140 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 91 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 53 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 45 Equity 257.500000, Liquidity = 0.835774, Housing Value = 500.000000, Wealth = 500.835774 
-Household: 28 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 38 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 46 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 77 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 83 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 112 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 120 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 125 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 129 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 147 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 155 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 190 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 209 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 216 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 226 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 246 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 255 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 285 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 292 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 296 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 300 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 301 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 302 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 363 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 368 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 376 Equity 257.500000, Liquidity = 17.095171, Housing Value = 500.000000, Wealth = 517.095171 
-Household: 463 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 470 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 472 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 552 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 659 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 729 Equity 257.500000, Liquidity = 15.594488, Housing Value = 500.000000, Wealth = 515.594488 
-Household: 736 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 732 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 718 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 708 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 133 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 101 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 96 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 89 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 72 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 45 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 27 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 28 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 56 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 95 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 99 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 112 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 117 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 125 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 137 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 155 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 165 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 241 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 246 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 275 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 310 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 357 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 444 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 449 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 461 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 470 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 472 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 479 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 518 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 624 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 631 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 659 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 729 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
 Household: 686 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 682 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 678 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 676 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 673 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 660 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 654 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 644 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 638 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 663 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 658 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 645 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 633 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 623 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 604 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 601 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 592 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 590 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 620 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 597 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 593 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 587 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 582 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 576 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 566 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 565 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 561 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 586 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 585 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 578 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 572 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 562 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 554 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 551 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 549 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 548 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 545 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 537 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 529 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 516 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 541 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 512 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 505 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 489 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 485 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 508 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 499 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 494 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 493 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 491 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 487 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 477 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 473 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 467 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 455 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 454 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 453 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 450 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 433 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 431 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 428 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 396 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 392 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 390 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 380 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 369 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 362 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 353 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 371 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 358 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 355 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 354 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 346 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 343 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 341 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 338 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 336 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 333 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 323 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 315 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 313 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 309 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 307 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 274 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 273 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 269 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 335 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 332 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 328 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 324 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 317 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 312 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 281 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 278 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 266 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 243 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 239 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 234 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 230 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 264 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 256 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 249 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 231 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 229 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 225 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 223 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 221 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 218 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 212 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 211 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
 Household: 208 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 206 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 205 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 201 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 193 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 198 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 195 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 192 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 158 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 152 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 143 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 123 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 93 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
-Household: 90 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 87 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 80 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 74 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 73 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 62 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 188 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 186 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 185 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 182 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 171 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 151 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 121 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 119 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 116 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 114 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 82 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 78 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 71 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 64 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 61 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 60 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 59 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
 Household: 48 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 36 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Household: 817 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 816 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 815 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 807 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 798 Equity 250.000000, Liquidity = 2.054041, Housing Value = 500.000000, Wealth = 502.054041 
-Household: 781 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 771 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 764 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 763 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 47 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 42 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 32 Equity 257.500000, Liquidity = 16.536707, Housing Value = 500.000000, Wealth = 516.536707 
+Household: 30 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 819 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 801 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 799 Equity 250.000000, Liquidity = 2.054041, Housing Value = 500.000000, Wealth = 502.054041 
+Household: 793 Equity 250.000000, Liquidity = 2.054041, Housing Value = 500.000000, Wealth = 502.054041 
+Household: 786 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 778 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 777 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 775 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
+Household: 769 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
 Household: 761 Equity 250.000000, Liquidity = 0.553358, Housing Value = 500.000000, Wealth = 500.553358 
-Household: 757 Equity 250.000000, Liquidity = 2.054041, Housing Value = 500.000000, Wealth = 502.054041 
-Household: 772 Equity 250.000000, Liquidity = 1.105209, Housing Value = 500.000000, Wealth = 501.105209 
-Household: 782 Equity 250.000000, Liquidity = 1.105209, Housing Value = 500.000000, Wealth = 501.105209 
-Household: 784 Equity 250.000000, Liquidity = 1.105209, Housing Value = 500.000000, Wealth = 501.105209 
-Household: 813 Equity 250.000000, Liquidity = 1.105209, Housing Value = 500.000000, Wealth = 501.105209 
-Household: 814 Equity 250.000000, Liquidity = 1.105209, Housing Value = 500.000000, Wealth = 501.105209 
-Household: 818 Equity 250.000000, Liquidity = 1.272114, Housing Value = 500.000000, Wealth = 501.272114 
-Household: 795 Equity 250.000000, Liquidity = 1.272114, Housing Value = 500.000000, Wealth = 501.272114 
-Household: 701 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 753 Equity 250.000000, Liquidity = 2.054041, Housing Value = 500.000000, Wealth = 502.054041 
+Household: 759 Equity 250.000000, Liquidity = -146.000000, Housing Value = 400.000000, Wealth = 254.000000 
+Household: 790 Equity 250.000000, Liquidity = 0.223180, Housing Value = 600.000000, Wealth = 600.223180 
+Household: 787 Equity 250.000000, Liquidity = 0.223180, Housing Value = 600.000000, Wealth = 600.223180 
+Household: 665 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 694 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
 Household: 705 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
-Firm Id = 3 at Housing Market
+Household: 710 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 731 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 737 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 738 Equity 257.500000, Liquidity = 15.036023, Housing Value = 500.000000, Wealth = 515.036023 
+Household: 711 Equity 257.500000, Liquidity = -137.000000, Housing Value = 400.000000, Wealth = 263.000000 
+Household: 661 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
+Household: 692 Equity 257.500000, Liquidity = 1.256056, Housing Value = 600.000000, Wealth = 601.256056 
+Household: 726 Equity 257.500000, Liquidity = 0.003606, Housing Value = 600.000000, Wealth = 600.003606 
 Firm Id = 1 at Housing Market
+Firm Id = 3 at Housing Market
 Firm Id = 2 at Housing Market
+Household ID = 667, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 177.055863 
+Household ID = 535, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 177.055863 
+Household ID = 468, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 177.055863 
+Household ID = 23, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 177.055863 
 Iteration - 22
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 23
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 24
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 25
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 98569 Goods to Mall with a price = 0.005661
+Firm Id = 15 Sends = 102444 Goods to Mall with a price = 0.005660
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 123255 Goods to Mall with a price = 0.005660
+Firm Id = 14 Sends = 132572 Goods to Mall with a price = 0.005659
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 143881 Goods to Mall with a price = 0.005660
+Firm Id = 12 Sends = 157925 Goods to Mall with a price = 0.005659
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 136424 Goods to Mall with a price = 0.005659
+Firm Id = 11 Sends = 139649 Goods to Mall with a price = 0.005659
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 134822 Goods to Mall with a price = 0.005660
-Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 168479 Goods to Mall with a price = 0.005659
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 133244 Goods to Mall with a price = 0.005659
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 125080 Goods to Mall with a price = 0.005660
+Firm Id = 9 Sends = 144232 Goods to Mall with a price = 0.005658
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 92565 Goods to Mall with a price = 0.005662
+Firm Id = 8 Sends = 105295 Goods to Mall with a price = 0.005659
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 172487 Goods to Mall with a price = 0.005659
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 136579 Goods to Mall with a price = 0.005659
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 93514 Goods to Mall with a price = 0.005663
+Firm Id = 5 Sends = 110724 Goods to Mall with a price = 0.005660
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 128691 Goods to Mall with a price = 0.005660
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 62922 Goods to Mall with a price = 0.005665
+Firm Id = 10 Sends = 66867 Goods to Mall with a price = 0.005663
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 120561 Goods to Mall with a price = 0.005665
+Firm Id = 13 Sends = 130660 Goods to Mall with a price = 0.005663
 Iteration - 26
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 27
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 28
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 29
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 30
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 91334 Goods to Mall with a price = 0.005661
+Firm Id = 15 Sends = 98635 Goods to Mall with a price = 0.005660
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 118717 Goods to Mall with a price = 0.005660
+Firm Id = 14 Sends = 128880 Goods to Mall with a price = 0.005659
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 137474 Goods to Mall with a price = 0.005660
+Firm Id = 12 Sends = 154225 Goods to Mall with a price = 0.005659
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 128873 Goods to Mall with a price = 0.005659
+Firm Id = 11 Sends = 134965 Goods to Mall with a price = 0.005659
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 125923 Goods to Mall with a price = 0.005660
-Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 155964 Goods to Mall with a price = 0.005659
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 126647 Goods to Mall with a price = 0.005659
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 118535 Goods to Mall with a price = 0.005660
+Firm Id = 9 Sends = 134533 Goods to Mall with a price = 0.005658
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 86150 Goods to Mall with a price = 0.005662
+Firm Id = 8 Sends = 101267 Goods to Mall with a price = 0.005659
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 167366 Goods to Mall with a price = 0.005659
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 132180 Goods to Mall with a price = 0.005659
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 86227 Goods to Mall with a price = 0.005663
+Firm Id = 5 Sends = 105703 Goods to Mall with a price = 0.005660
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 124117 Goods to Mall with a price = 0.005660
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 57383 Goods to Mall with a price = 0.005665
+Firm Id = 10 Sends = 62772 Goods to Mall with a price = 0.005663
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 113690 Goods to Mall with a price = 0.005665
+Firm Id = 13 Sends = 127107 Goods to Mall with a price = 0.005663
 Iteration - 31
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 32
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 33
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 34
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 35
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 85647 Goods to Mall with a price = 0.005661
+Firm Id = 15 Sends = 92982 Goods to Mall with a price = 0.005660
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 110665 Goods to Mall with a price = 0.005660
+Firm Id = 14 Sends = 124255 Goods to Mall with a price = 0.005659
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 131676 Goods to Mall with a price = 0.005660
+Firm Id = 12 Sends = 149099 Goods to Mall with a price = 0.005659
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 122207 Goods to Mall with a price = 0.005659
+Firm Id = 11 Sends = 132137 Goods to Mall with a price = 0.005659
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 118490 Goods to Mall with a price = 0.005660
-Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 142268 Goods to Mall with a price = 0.005659
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 120441 Goods to Mall with a price = 0.005659
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 113003 Goods to Mall with a price = 0.005660
+Firm Id = 9 Sends = 127040 Goods to Mall with a price = 0.005658
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 79736 Goods to Mall with a price = 0.005662
+Firm Id = 8 Sends = 97351 Goods to Mall with a price = 0.005659
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 161989 Goods to Mall with a price = 0.005659
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 128745 Goods to Mall with a price = 0.005659
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 79114 Goods to Mall with a price = 0.005663
+Firm Id = 5 Sends = 101168 Goods to Mall with a price = 0.005660
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 119930 Goods to Mall with a price = 0.005660
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 49625 Goods to Mall with a price = 0.005665
+Firm Id = 10 Sends = 57354 Goods to Mall with a price = 0.005663
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 108371 Goods to Mall with a price = 0.005665
+Firm Id = 13 Sends = 124090 Goods to Mall with a price = 0.005663
 Iteration - 36
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 37
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 38
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Iteration - 39
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
+Firm 1 Size = 20 
 Iteration - 40
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
-Firm 3 Size = 20 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 1 Size = 20 
+Firm 3 Size = 20 
 Firm 2 Size = 20 
 Constructor Firm 2 produces 2 houses at IT NO: 40
-Constructor Firm 1 produces 2 houses at IT NO: 40
 Constructor Firm 3 produces 1 houses at IT NO: 40
-Firm 15 produces 45000 items at IT NO: 40
-Firm 14 produces 50000 items at IT NO: 40
-Firm 12 produces 61000 items at IT NO: 40
-Firm 11 produces 52000 items at IT NO: 40
-Firm 9 produces 53000 items at IT NO: 40
-Firm 7 produces 62000 items at IT NO: 40
-Firm 6 produces 52000 items at IT NO: 40
-Firm 4 produces 53000 items at IT NO: 40
-Firm 8 produces 45000 items at IT NO: 40
-Firm 5 produces 49000 items at IT NO: 40
+Constructor Firm 1 produces 2 houses at IT NO: 40
+Firm 15 produces 43000 items at IT NO: 40
+Firm 14 produces 47000 items at IT NO: 40
+Firm 12 produces 57000 items at IT NO: 40
+Firm 11 produces 51000 items at IT NO: 40
+Firm 9 produces 50000 items at IT NO: 40
+Firm 8 produces 41000 items at IT NO: 40
+Firm 7 produces 61000 items at IT NO: 40
+Firm 6 produces 51000 items at IT NO: 40
+Firm 5 produces 46000 items at IT NO: 40
+Firm 4 produces 51000 items at IT NO: 40
 Firm 10 produces 35000 items at IT NO: 40
 Firm 13 produces 68000 items at IT NO: 40
 Firm ID = 2 LABOUR COST for the month is 300.000000
-Firm ID = 1 LABOUR COST for the month is 300.000000
 Firm ID = 3 LABOUR COST for the month is 300.000000
-Firm ID = 15 LABOUR COST for the month is 685.000000
-Firm ID = 14 LABOUR COST for the month is 790.000000
-Firm ID = 12 LABOUR COST for the month is 955.000000
-Firm ID = 11 LABOUR COST for the month is 840.000000
-Firm ID = 9 LABOUR COST for the month is 845.000000
-Firm ID = 7 LABOUR COST for the month is 1010.000000
-Firm ID = 6 LABOUR COST for the month is 830.000000
-Firm ID = 4 LABOUR COST for the month is 825.000000
-Firm ID = 8 LABOUR COST for the month is 675.000000
-Firm ID = 5 LABOUR COST for the month is 735.000000
+Firm ID = 1 LABOUR COST for the month is 300.000000
+Firm ID = 15 LABOUR COST for the month is 675.000000
+Firm ID = 14 LABOUR COST for the month is 775.000000
+Firm ID = 12 LABOUR COST for the month is 935.000000
+Firm ID = 11 LABOUR COST for the month is 835.000000
+Firm ID = 9 LABOUR COST for the month is 830.000000
+Firm ID = 8 LABOUR COST for the month is 655.000000
+Firm ID = 7 LABOUR COST for the month is 1005.000000
+Firm ID = 6 LABOUR COST for the month is 825.000000
+Firm ID = 5 LABOUR COST for the month is 720.000000
+Firm ID = 4 LABOUR COST for the month is 815.000000
 Firm ID = 10 LABOUR COST for the month is 525.000000
 Firm ID = 13 LABOUR COST for the month is 1020.000000
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 79215 Goods to Mall with a price = 0.005661
+Firm Id = 15 Sends = 88714 Goods to Mall with a price = 0.005660
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 105193 Goods to Mall with a price = 0.005660
+Firm Id = 14 Sends = 119654 Goods to Mall with a price = 0.005659
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 125414 Goods to Mall with a price = 0.005660
+Firm Id = 12 Sends = 143588 Goods to Mall with a price = 0.005659
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 116757 Goods to Mall with a price = 0.005659
+Firm Id = 11 Sends = 128094 Goods to Mall with a price = 0.005659
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 113686 Goods to Mall with a price = 0.005660
-Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 127834 Goods to Mall with a price = 0.005659
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 111982 Goods to Mall with a price = 0.005659
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 106264 Goods to Mall with a price = 0.005660
+Firm Id = 9 Sends = 117814 Goods to Mall with a price = 0.005658
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 72252 Goods to Mall with a price = 0.005662
+Firm Id = 8 Sends = 93185 Goods to Mall with a price = 0.005659
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 158169 Goods to Mall with a price = 0.005659
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 124740 Goods to Mall with a price = 0.005659
 Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 72514 Goods to Mall with a price = 0.005663
+Firm Id = 5 Sends = 96737 Goods to Mall with a price = 0.005660
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 116152 Goods to Mall with a price = 0.005660
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 42328 Goods to Mall with a price = 0.005665
+Firm Id = 10 Sends = 54695 Goods to Mall with a price = 0.005663
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 103118 Goods to Mall with a price = 0.005665
+Firm Id = 13 Sends = 119617 Goods to Mall with a price = 0.005663
 Iteration - 41
 Firm 13 Size = 68 
 Firm 10 Size = 35 
-Firm 5 Size = 49 
-Firm 8 Size = 45 
-Firm 4 Size = 53 
-Firm 6 Size = 52 
-Firm 7 Size = 62 
-Firm 9 Size = 53 
-Firm 11 Size = 52 
-Firm 12 Size = 61 
-Firm 14 Size = 50 
-Firm 15 Size = 45 
+Firm 4 Size = 51 
+Firm 5 Size = 46 
+Firm 6 Size = 51 
+Firm 7 Size = 61 
+Firm 8 Size = 41 
+Firm 9 Size = 50 
+Firm 11 Size = 51 
+Firm 12 Size = 57 
+Firm 14 Size = 47 
+Firm 15 Size = 43 
 Firm 2 Size = 20 
-Firm 1 Size = 20 
 Firm 3 Size = 20 
-Constructor 3 -> dPrice: 0.000000, Inventory: 2, WIP: 10, Max Capacity = 20,  Planned: 19, Productivity = 0.013360, Capital = 1497.023810 
-Constructor 1 -> dPrice: 0.000000, Inventory: 3, WIP: 11, Max Capacity = 20,  Planned: 14, Productivity = 0.013360, Capital = 1497.023810 
-Constructor 2 -> dPrice: 0.000000, Inventory: 2, WIP: 13, Max Capacity = 20,  Planned: 13, Productivity = 0.013360, Capital = 1497.023810 
-Firm 13 plans 59456 units to be produced. IT NO: 41
-Firm 10 plans 35629 units to be produced. IT NO: 41
-Firm 5 plans 46316 units to be produced. IT NO: 41
-Firm 8 plans 42944 units to be produced. IT NO: 41
-Firm 4 plans 47201 units to be produced. IT NO: 41
-Firm 6 plans 44621 units to be produced. IT NO: 41
-Firm 7 plans 61654 units to be produced. IT NO: 41
-Firm 9 plans 45717 units to be produced. IT NO: 41
-Firm 11 plans 44044 units to be produced. IT NO: 41
-Firm 12 plans 51674 units to be produced. IT NO: 41
-Firm 14 plans 42844 units to be produced. IT NO: 41
-Firm 15 plans 42374 units to be produced. IT NO: 41
-Firm 13 is at Labour Market EMPLOYEES_NEEDED is 60
-Firm 10 is at Labour Market EMPLOYEES_NEEDED is 36
-Firm 5 is at Labour Market EMPLOYEES_NEEDED is 47
-Firm 8 is at Labour Market EMPLOYEES_NEEDED is 43
-Firm 4 is at Labour Market EMPLOYEES_NEEDED is 48
-Firm 6 is at Labour Market EMPLOYEES_NEEDED is 45
-Firm 7 is at Labour Market EMPLOYEES_NEEDED is 62
-Firm 9 is at Labour Market EMPLOYEES_NEEDED is 46
-Firm 11 is at Labour Market EMPLOYEES_NEEDED is 45
-Firm 12 is at Labour Market EMPLOYEES_NEEDED is 52
-Firm 14 is at Labour Market EMPLOYEES_NEEDED is 43
-Firm 15 is at Labour Market EMPLOYEES_NEEDED is 43
-Firm 3 is at Labour Market EMPLOYEES_NEEDED is 27
-Firm 1 is at Labour Market EMPLOYEES_NEEDED is 20
-Firm 2 is at Labour Market EMPLOYEES_NEEDED is 18
-Household: 36 Equity 257.500000, Liquidity = 1.255163, Housing Value = 500.000000, Wealth = 501.255163 
-Household: 93 Equity 257.500000, Liquidity = 18.440601, Housing Value = 500.000000, Wealth = 518.440601 
-Household: 123 Equity 257.500000, Liquidity = 1.255163, Housing Value = 500.000000, Wealth = 501.255163 
-Household: 201 Equity 257.500000, Liquidity = 1.251997, Housing Value = 500.000000, Wealth = 501.251997 
-Household: 243 Equity 257.500000, Liquidity = 1.255443, Housing Value = 500.000000, Wealth = 501.255443 
-Household: 309 Equity 257.500000, Liquidity = 18.441238, Housing Value = 500.000000, Wealth = 518.441238 
-Household: 369 Equity 257.500000, Liquidity = 18.440210, Housing Value = 500.000000, Wealth = 518.440210 
-Household: 380 Equity 257.500000, Liquidity = 1.255821, Housing Value = 500.000000, Wealth = 501.255821 
-Household: 392 Equity 257.500000, Liquidity = 1.252938, Housing Value = 500.000000, Wealth = 501.252938 
-Household: 428 Equity 257.500000, Liquidity = 1.256103, Housing Value = 500.000000, Wealth = 501.256103 
-Household: 529 Equity 257.500000, Liquidity = 1.255045, Housing Value = 500.000000, Wealth = 501.255045 
-Household: 565 Equity 257.500000, Liquidity = 1.251770, Housing Value = 500.000000, Wealth = 501.251770 
-Household: 590 Equity 257.500000, Liquidity = 1.255674, Housing Value = 500.000000, Wealth = 501.255674 
-Household: 678 Equity 257.500000, Liquidity = 1.255674, Housing Value = 500.000000, Wealth = 501.255674 
-Household: 732 Equity 257.500000, Liquidity = 18.441345, Housing Value = 500.000000, Wealth = 518.441345 
-Household: 729 Equity 257.500000, Liquidity = 1.071200, Housing Value = 500.000000, Wealth = 501.071200 
-Household: 472 Equity 257.500000, Liquidity = 1.070216, Housing Value = 500.000000, Wealth = 501.070216 
-Household: 463 Equity 257.500000, Liquidity = 1.067887, Housing Value = 500.000000, Wealth = 501.067887 
-Household: 302 Equity 257.500000, Liquidity = 1.066901, Housing Value = 500.000000, Wealth = 501.066901 
-Household: 296 Equity 257.500000, Liquidity = 1.066901, Housing Value = 500.000000, Wealth = 501.066901 
-Household: 120 Equity 257.500000, Liquidity = 1.070751, Housing Value = 500.000000, Wealth = 501.070751 
-Household: 91 Equity 257.500000, Liquidity = 1.439829, Housing Value = 500.000000, Wealth = 501.439829 
-Household: 153 Equity 257.500000, Liquidity = 1.440970, Housing Value = 500.000000, Wealth = 501.440970 
-Household: 360 Equity 257.500000, Liquidity = 1.440239, Housing Value = 500.000000, Wealth = 501.440239 
-Household: 464 Equity 257.500000, Liquidity = 1.440350, Housing Value = 500.000000, Wealth = 501.440350 
-Household: 540 Equity 257.500000, Liquidity = 16.521970, Housing Value = 500.000000, Wealth = 516.521970 
-Household: 503 Equity 257.500000, Liquidity = 16.522043, Housing Value = 500.000000, Wealth = 516.522043 
-Household: 200 Equity 257.500000, Liquidity = 19.472031, Housing Value = 500.000000, Wealth = 519.472031 
-Household: 356 Equity 257.500000, Liquidity = 19.702198, Housing Value = 500.000000, Wealth = 519.702198 
-Household: 717 Equity 257.500000, Liquidity = 16.752548, Housing Value = 500.000000, Wealth = 516.752548 
-Household: 713 Equity 257.500000, Liquidity = 16.049605, Housing Value = 500.000000, Wealth = 516.049605 
-Household: 471 Equity 257.500000, Liquidity = 16.049577, Housing Value = 500.000000, Wealth = 516.049577 
-Household: 340 Equity 257.500000, Liquidity = 16.050306, Housing Value = 500.000000, Wealth = 516.050306 
-Household: 312 Equity 257.500000, Liquidity = 16.050320, Housing Value = 500.000000, Wealth = 516.050320 
-Household: 283 Equity 257.500000, Liquidity = 16.049086, Housing Value = 500.000000, Wealth = 516.049086 
-Household: 256 Equity 257.500000, Liquidity = 16.049556, Housing Value = 500.000000, Wealth = 516.049556 
-Household: 212 Equity 257.500000, Liquidity = 18.999206, Housing Value = 500.000000, Wealth = 518.999206 
-Household: 195 Equity 257.500000, Liquidity = 16.050471, Housing Value = 500.000000, Wealth = 516.050471 
-Household: 179 Equity 257.500000, Liquidity = 16.049769, Housing Value = 500.000000, Wealth = 516.049769 
-Household: 113 Equity 257.500000, Liquidity = 16.049101, Housing Value = 500.000000, Wealth = 516.049101 
-Household: 71 Equity 257.500000, Liquidity = 16.049529, Housing Value = 500.000000, Wealth = 516.049529 
-Household: 24 Equity 257.500000, Liquidity = 15.491769, Housing Value = 500.000000, Wealth = 515.491769 
-Household: 30 Equity 257.500000, Liquidity = 15.490158, Housing Value = 500.000000, Wealth = 515.490158 
-Household: 44 Equity 257.500000, Liquidity = 15.490715, Housing Value = 500.000000, Wealth = 515.490715 
-Household: 82 Equity 257.500000, Liquidity = 15.490976, Housing Value = 500.000000, Wealth = 515.490976 
-Household: 85 Equity 257.500000, Liquidity = 15.489550, Housing Value = 500.000000, Wealth = 515.489550 
-Household: 98 Equity 257.500000, Liquidity = 15.490485, Housing Value = 500.000000, Wealth = 515.490485 
-Household: 105 Equity 257.500000, Liquidity = 15.491756, Housing Value = 500.000000, Wealth = 515.491756 
-Household: 106 Equity 257.500000, Liquidity = 15.491741, Housing Value = 500.000000, Wealth = 515.491741 
-Household: 107 Equity 257.500000, Liquidity = 18.440326, Housing Value = 500.000000, Wealth = 518.440326 
-Household: 127 Equity 257.500000, Liquidity = 18.440230, Housing Value = 500.000000, Wealth = 518.440230 
-Household: 139 Equity 257.500000, Liquidity = 18.441468, Housing Value = 500.000000, Wealth = 518.441468 
-Household: 159 Equity 257.500000, Liquidity = 15.489841, Housing Value = 500.000000, Wealth = 515.489841 
-Household: 160 Equity 257.500000, Liquidity = 18.440750, Housing Value = 500.000000, Wealth = 518.440750 
-Household: 171 Equity 257.500000, Liquidity = 15.490349, Housing Value = 500.000000, Wealth = 515.490349 
-Household: 191 Equity 257.500000, Liquidity = 15.492001, Housing Value = 500.000000, Wealth = 515.492001 
-Household: 198 Equity 257.500000, Liquidity = 15.490096, Housing Value = 500.000000, Wealth = 515.490096 
-Household: 204 Equity 257.500000, Liquidity = 15.490517, Housing Value = 500.000000, Wealth = 515.490517 
-Household: 207 Equity 257.500000, Liquidity = 15.491649, Housing Value = 500.000000, Wealth = 515.491649 
-Household: 211 Equity 257.500000, Liquidity = 18.441130, Housing Value = 500.000000, Wealth = 518.441130 
-Household: 235 Equity 257.500000, Liquidity = 15.490602, Housing Value = 500.000000, Wealth = 515.490602 
-Household: 258 Equity 257.500000, Liquidity = 18.439826, Housing Value = 500.000000, Wealth = 518.439826 
-Household: 278 Equity 257.500000, Liquidity = 15.491013, Housing Value = 500.000000, Wealth = 515.491013 
-Household: 290 Equity 257.500000, Liquidity = 15.491021, Housing Value = 500.000000, Wealth = 515.491021 
-Household: 304 Equity 257.500000, Liquidity = 15.491188, Housing Value = 500.000000, Wealth = 515.491188 
-Household: 317 Equity 257.500000, Liquidity = 15.490691, Housing Value = 500.000000, Wealth = 515.490691 
-Household: 320 Equity 257.500000, Liquidity = 15.490837, Housing Value = 500.000000, Wealth = 515.490837 
-Household: 326 Equity 257.500000, Liquidity = 15.491159, Housing Value = 500.000000, Wealth = 515.491159 
-Household: 328 Equity 257.500000, Liquidity = 15.490696, Housing Value = 500.000000, Wealth = 515.490696 
-Household: 332 Equity 257.500000, Liquidity = 15.491262, Housing Value = 500.000000, Wealth = 515.491262 
-Household: 334 Equity 257.500000, Liquidity = 15.492115, Housing Value = 500.000000, Wealth = 515.492115 
-Household: 341 Equity 257.500000, Liquidity = 15.490400, Housing Value = 500.000000, Wealth = 515.490400 
-Household: 365 Equity 257.500000, Liquidity = 15.491399, Housing Value = 500.000000, Wealth = 515.491399 
-Household: 374 Equity 257.500000, Liquidity = 18.440497, Housing Value = 500.000000, Wealth = 518.440497 
-Household: 399 Equity 257.500000, Liquidity = 15.490284, Housing Value = 500.000000, Wealth = 515.490284 
-Household: 408 Equity 257.500000, Liquidity = 18.440842, Housing Value = 500.000000, Wealth = 518.440842 
-Household: 410 Equity 257.500000, Liquidity = 18.439905, Housing Value = 500.000000, Wealth = 518.439905 
-Household: 419 Equity 257.500000, Liquidity = 15.490019, Housing Value = 500.000000, Wealth = 515.490019 
-Household: 454 Equity 257.500000, Liquidity = 15.490665, Housing Value = 500.000000, Wealth = 515.490665 
-Household: 476 Equity 257.500000, Liquidity = 15.490517, Housing Value = 500.000000, Wealth = 515.490517 
-Household: 482 Equity 257.500000, Liquidity = 18.440676, Housing Value = 500.000000, Wealth = 518.440676 
-Household: 484 Equity 257.500000, Liquidity = 15.490943, Housing Value = 500.000000, Wealth = 515.490943 
-Household: 515 Equity 257.500000, Liquidity = 15.490875, Housing Value = 500.000000, Wealth = 515.490875 
-Household: 542 Equity 257.500000, Liquidity = 18.441264, Housing Value = 500.000000, Wealth = 518.441264 
-Household: 571 Equity 257.500000, Liquidity = 15.490117, Housing Value = 500.000000, Wealth = 515.490117 
-Household: 577 Equity 257.500000, Liquidity = 18.440831, Housing Value = 500.000000, Wealth = 518.440831 
-Household: 586 Equity 257.500000, Liquidity = 15.489466, Housing Value = 500.000000, Wealth = 515.489466 
-Household: 608 Equity 257.500000, Liquidity = 18.440474, Housing Value = 500.000000, Wealth = 518.440474 
-Household: 646 Equity 257.500000, Liquidity = 15.489993, Housing Value = 500.000000, Wealth = 515.489993 
-Household: 669 Equity 257.500000, Liquidity = 15.489841, Housing Value = 500.000000, Wealth = 515.489841 
-Household: 671 Equity 257.500000, Liquidity = 15.489817, Housing Value = 500.000000, Wealth = 515.489817 
-Household: 685 Equity 257.500000, Liquidity = 15.489342, Housing Value = 500.000000, Wealth = 515.489342 
-Household: 689 Equity 257.500000, Liquidity = 15.490965, Housing Value = 500.000000, Wealth = 515.490965 
-Household: 710 Equity 257.500000, Liquidity = 15.490536, Housing Value = 500.000000, Wealth = 515.490536 
-Household: 700 Equity 257.500000, Liquidity = 16.420198, Housing Value = 500.000000, Wealth = 516.420198 
-Household: 517 Equity 257.500000, Liquidity = 19.371174, Housing Value = 500.000000, Wealth = 519.371174 
-Household: 495 Equity 257.500000, Liquidity = 16.421600, Housing Value = 500.000000, Wealth = 516.421600 
-Household: 480 Equity 257.500000, Liquidity = 16.421252, Housing Value = 500.000000, Wealth = 516.421252 
-Household: 445 Equity 257.500000, Liquidity = 16.420638, Housing Value = 500.000000, Wealth = 516.420638 
-Household: 382 Equity 257.500000, Liquidity = 16.422345, Housing Value = 500.000000, Wealth = 516.422345 
-Household: 270 Equity 257.500000, Liquidity = 19.370424, Housing Value = 500.000000, Wealth = 519.370424 
-Household: 220 Equity 257.500000, Liquidity = 16.420143, Housing Value = 500.000000, Wealth = 516.420143 
-Household: 144 Equity 257.500000, Liquidity = 22.320614, Housing Value = 500.000000, Wealth = 522.320614 
-Household: 65 Equity 257.500000, Liquidity = 16.420837, Housing Value = 500.000000, Wealth = 516.420837 
-Household: 54 Equity 257.500000, Liquidity = 16.420578, Housing Value = 500.000000, Wealth = 516.420578 
-Household: 31 Equity 257.500000, Liquidity = 16.419011, Housing Value = 500.000000, Wealth = 516.419011 
-Household: 29 Equity 257.500000, Liquidity = 1.242378, Housing Value = 500.000000, Wealth = 501.242378 
-Household: 72 Equity 257.500000, Liquidity = 1.243374, Housing Value = 500.000000, Wealth = 501.243374 
-Household: 197 Equity 257.500000, Liquidity = 1.243037, Housing Value = 500.000000, Wealth = 501.243037 
-Household: 339 Equity 257.500000, Liquidity = 1.242489, Housing Value = 500.000000, Wealth = 501.242489 
-Household: 422 Equity 257.500000, Liquidity = 1.243037, Housing Value = 500.000000, Wealth = 501.243037 
-Household: 426 Equity 257.500000, Liquidity = 1.243109, Housing Value = 500.000000, Wealth = 501.243109 
-Household: 437 Equity 257.500000, Liquidity = 4.927938, Housing Value = 500.000000, Wealth = 504.927938 
-Household: 441 Equity 257.500000, Liquidity = 1.242489, Housing Value = 500.000000, Wealth = 501.242489 
-Household: 478 Equity 257.500000, Liquidity = 1.242970, Housing Value = 500.000000, Wealth = 501.242970 
-Household: 488 Equity 257.500000, Liquidity = 1.243109, Housing Value = 500.000000, Wealth = 501.243109 
-Household: 513 Equity 257.500000, Liquidity = 4.928077, Housing Value = 500.000000, Wealth = 504.928077 
-Household: 594 Equity 257.500000, Liquidity = 1.243374, Housing Value = 500.000000, Wealth = 501.243374 
-Household: 688 Equity 257.500000, Liquidity = 1.241434, Housing Value = 500.000000, Wealth = 501.241434 
-Household: 810 Equity 250.000000, Liquidity = 1.194474, Housing Value = 500.000000, Wealth = 501.194474 
-Household: 802 Equity 250.000000, Liquidity = 1.195423, Housing Value = 500.000000, Wealth = 501.195423 
-Household: 758 Equity 250.000000, Liquidity = 1.198818, Housing Value = 500.000000, Wealth = 501.198818 
-Household: 759 Equity 250.000000, Liquidity = 3.374457, Housing Value = 500.000000, Wealth = 503.374457 
-Household: 800 Equity 250.000000, Liquidity = 1.345895, Housing Value = 500.000000, Wealth = 501.345895 
-Household: 746 Equity 250.000000, Liquidity = 1.345971, Housing Value = 500.000000, Wealth = 501.345971 
-Household: 696 Equity 257.500000, Liquidity = 13.987706, Housing Value = 500.000000, Wealth = 513.987706 
-Household: 722 Equity 257.500000, Liquidity = 13.986881, Housing Value = 500.000000, Wealth = 513.986881 
-Household: 730 Equity 257.500000, Liquidity = 0.003112, Housing Value = 500.000000, Wealth = 500.003112 
-Household: 796 Equity 250.000000, Liquidity = 1.346299, Housing Value = 500.000000, Wealth = 501.346299 
-Household: 805 Equity 250.000000, Liquidity = 3.422276, Housing Value = 500.000000, Wealth = 503.422276 
-Household: 815 Equity 250.000000, Liquidity = 1.193832, Housing Value = 500.000000, Wealth = 501.193832 
-Household: 807 Equity 250.000000, Liquidity = 1.193832, Housing Value = 500.000000, Wealth = 501.193832 
-Household: 781 Equity 250.000000, Liquidity = 1.195125, Housing Value = 500.000000, Wealth = 501.195125 
-Household: 763 Equity 250.000000, Liquidity = 1.195057, Housing Value = 500.000000, Wealth = 501.195057 
-Household: 701 Equity 257.500000, Liquidity = 0.000639, Housing Value = 500.000000, Wealth = 500.000639 
-Household: 642 Equity 257.500000, Liquidity = 16.421166, Housing Value = 500.000000, Wealth = 516.421166 
-Household: 727 Equity 257.500000, Liquidity = 15.490946, Housing Value = 500.000000, Wealth = 515.490946 
-Household: 656 Equity 257.500000, Liquidity = 18.441189, Housing Value = 500.000000, Wealth = 518.441189 
-Household: 625 Equity 257.500000, Liquidity = 15.492021, Housing Value = 500.000000, Wealth = 515.492021 
-Household: 605 Equity 257.500000, Liquidity = 15.489830, Housing Value = 500.000000, Wealth = 515.489830 
-Household: 636 Equity 257.500000, Liquidity = 16.049359, Housing Value = 500.000000, Wealth = 516.049359 
-Household: 641 Equity 257.500000, Liquidity = 16.049529, Housing Value = 500.000000, Wealth = 516.049529 
-Household: 660 Equity 257.500000, Liquidity = 1.255744, Housing Value = 500.000000, Wealth = 501.255744 
-Household: 74 Equity 257.500000, Liquidity = 1.256103, Housing Value = 500.000000, Wealth = 501.256103 
-Firm Id = 2 at Housing Market
+Firm 1 Size = 20 
+Constructor 1 -> dPrice: 0.000000, Inventory: 3, WIP: 11, Max Capacity = 20,  Planned: 13, Productivity = 0.013360, Capital = 1497.023810 
+Constructor 3 -> dPrice: 0.000000, Inventory: 1, WIP: 10, Max Capacity = 20,  Planned: 17, Productivity = 0.013360, Capital = 1497.023810 
+Constructor 2 -> dPrice: 0.000000, Inventory: 2, WIP: 13, Max Capacity = 20,  Planned: 20, Productivity = 0.013360, Capital = 1497.023810 
+Firm 13 plans 56444 units to be produced. IT NO: 41
+Firm 10 plans 32289 units to be produced. IT NO: 41
+Firm 4 plans 40947 units to be produced. IT NO: 41
+Firm 5 plans 39818 units to be produced. IT NO: 41
+Firm 6 plans 38983 units to be produced. IT NO: 41
+Firm 7 plans 45902 units to be produced. IT NO: 41
+Firm 8 plans 34864 units to be produced. IT NO: 41
+Firm 9 plans 47708 units to be produced. IT NO: 41
+Firm 11 plans 40565 units to be produced. IT NO: 41
+Firm 12 plans 44508 units to be produced. IT NO: 41
+Firm 14 plans 36641 units to be produced. IT NO: 41
+Firm 15 plans 36017 units to be produced. IT NO: 41
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is 57
+Firm 10 is at Labour Market EMPLOYEES_NEEDED is 33
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is 41
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is 40
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is 39
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is 46
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is 35
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is 48
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is 41
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is 45
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is 37
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is 37
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 18
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 24
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 28
+Household: 47 Equity 257.500000, Liquidity = 0.175354, Housing Value = 600.000000, Wealth = 600.175354 
+Household: 59 Equity 257.500000, Liquidity = 18.441173, Housing Value = 500.000000, Wealth = 518.441173 
+Household: 119 Equity 257.500000, Liquidity = 0.175127, Housing Value = 600.000000, Wealth = 600.175127 
+Household: 182 Equity 257.500000, Liquidity = 0.175706, Housing Value = 600.000000, Wealth = 600.175706 
+Household: 188 Equity 257.500000, Liquidity = 18.441720, Housing Value = 500.000000, Wealth = 518.441720 
+Household: 205 Equity 257.500000, Liquidity = 0.170156, Housing Value = 600.000000, Wealth = 600.170156 
+Household: 231 Equity 257.500000, Liquidity = 0.170156, Housing Value = 600.000000, Wealth = 600.170156 
+Household: 281 Equity 257.500000, Liquidity = 18.441420, Housing Value = 500.000000, Wealth = 518.441420 
+Household: 328 Equity 257.500000, Liquidity = 0.172553, Housing Value = 600.000000, Wealth = 600.172553 
+Household: 371 Equity 257.500000, Liquidity = 0.170432, Housing Value = 600.000000, Wealth = 600.170432 
+Household: 487 Equity 257.500000, Liquidity = 0.174723, Housing Value = 600.000000, Wealth = 600.174723 
+Household: 461 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 444 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 246 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 137 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 89 Equity 257.500000, Liquidity = 18.441601, Housing Value = 500.000000, Wealth = 518.441601 
+Household: 133 Equity 257.500000, Liquidity = 1.228245, Housing Value = 700.000000, Wealth = 701.228245 
+Household: 464 Equity 257.500000, Liquidity = 1.227369, Housing Value = 700.000000, Wealth = 701.227369 
+Household: 483 Equity 257.500000, Liquidity = 1.227208, Housing Value = 700.000000, Wealth = 701.227208 
+Household: 510 Equity 257.500000, Liquidity = 1.228374, Housing Value = 700.000000, Wealth = 701.228374 
+Household: 417 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 197 Equity 257.500000, Liquidity = 16.946076, Housing Value = 500.000000, Wealth = 516.946076 
+Household: 70 Equity 257.500000, Liquidity = 19.658615, Housing Value = 500.000000, Wealth = 519.658615 
+Household: 129 Equity 257.500000, Liquidity = 99968.497920, Housing Value = 300.000000, Wealth = 100268.497920 
+Household: 196 Equity 257.500000, Liquidity = 99968.497920, Housing Value = 300.000000, Wealth = 100268.497920 
+Household: 268 Equity 257.500000, Liquidity = 99968.497920, Housing Value = 300.000000, Wealth = 100268.497920 
+Household: 394 Equity 257.500000, Liquidity = 99968.497920, Housing Value = 300.000000, Wealth = 100268.497920 
+Household: 517 Equity 257.500000, Liquidity = 99968.497920, Housing Value = 300.000000, Wealth = 100268.497920 
+Household: 566 Equity 257.500000, Liquidity = -135.243305, Housing Value = 400.000000, Wealth = 264.756695 
+Household: 543 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 469 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 433 Equity 257.500000, Liquidity = -135.243305, Housing Value = 400.000000, Wealth = 264.756695 
+Household: 414 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 393 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 271 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 267 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 253 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 238 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 115 Equity 257.500000, Liquidity = 15.491335, Housing Value = 500.000000, Wealth = 515.491335 
+Household: 107 Equity 257.500000, Liquidity = 18.441645, Housing Value = 500.000000, Wealth = 518.441645 
+Household: 90 Equity 257.500000, Liquidity = 15.491371, Housing Value = 500.000000, Wealth = 515.491371 
+Household: 535 Equity 257.500000, Liquidity = 21.390938, Housing Value = 500.000000, Wealth = 521.390938 
+Household: 85 Equity 257.500000, Liquidity = 15.491139, Housing Value = 500.000000, Wealth = 515.491139 
+Household: 100 Equity 257.500000, Liquidity = 15.492282, Housing Value = 500.000000, Wealth = 515.492282 
+Household: 106 Equity 257.500000, Liquidity = 15.491629, Housing Value = 500.000000, Wealth = 515.491629 
+Household: 108 Equity 257.500000, Liquidity = 15.486987, Housing Value = 500.000000, Wealth = 515.486987 
+Household: 109 Equity 257.500000, Liquidity = 15.492207, Housing Value = 500.000000, Wealth = 515.492207 
+Household: 150 Equity 257.500000, Liquidity = 15.490363, Housing Value = 500.000000, Wealth = 515.490363 
+Household: 180 Equity 257.500000, Liquidity = 18.441117, Housing Value = 500.000000, Wealth = 518.441117 
+Household: 193 Equity 257.500000, Liquidity = 15.491169, Housing Value = 500.000000, Wealth = 515.491169 
+Household: 228 Equity 257.500000, Liquidity = 15.492229, Housing Value = 500.000000, Wealth = 515.492229 
+Household: 273 Equity 257.500000, Liquidity = 15.491589, Housing Value = 500.000000, Wealth = 515.491589 
+Household: 309 Equity 257.500000, Liquidity = 18.440947, Housing Value = 500.000000, Wealth = 518.440947 
+Household: 327 Equity 257.500000, Liquidity = 15.491488, Housing Value = 500.000000, Wealth = 515.491488 
+Household: 329 Equity 257.500000, Liquidity = 15.486733, Housing Value = 500.000000, Wealth = 515.486733 
+Household: 347 Equity 257.500000, Liquidity = 15.491042, Housing Value = 500.000000, Wealth = 515.491042 
+Household: 361 Equity 257.500000, Liquidity = 15.489947, Housing Value = 500.000000, Wealth = 515.489947 
+Household: 375 Equity 257.500000, Liquidity = 15.492029, Housing Value = 500.000000, Wealth = 515.492029 
+Household: 396 Equity 257.500000, Liquidity = 18.440457, Housing Value = 500.000000, Wealth = 518.440457 
+Household: 400 Equity 257.500000, Liquidity = 15.491308, Housing Value = 500.000000, Wealth = 515.491308 
+Household: 407 Equity 257.500000, Liquidity = 15.490753, Housing Value = 500.000000, Wealth = 515.490753 
+Household: 490 Equity 257.500000, Liquidity = 15.492228, Housing Value = 500.000000, Wealth = 515.492228 
+Household: 492 Equity 257.500000, Liquidity = 15.490417, Housing Value = 500.000000, Wealth = 515.490417 
+Household: 501 Equity 257.500000, Liquidity = 15.486822, Housing Value = 500.000000, Wealth = 515.486822 
+Household: 528 Equity 257.500000, Liquidity = 15.491331, Housing Value = 500.000000, Wealth = 515.491331 
+Household: 534 Equity 257.500000, Liquidity = 15.491543, Housing Value = 500.000000, Wealth = 515.491543 
+Household: 571 Equity 257.500000, Liquidity = 15.492120, Housing Value = 500.000000, Wealth = 515.492120 
+Household: 579 Equity 257.500000, Liquidity = 15.490604, Housing Value = 500.000000, Wealth = 515.490604 
+Household: 580 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 416 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 382 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 376 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 318 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 302 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 292 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 270 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 255 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 166 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 54 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 31 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 57 Equity 257.500000, Liquidity = 1.560979, Housing Value = 600.000000, Wealth = 601.560979 
+Household: 131 Equity 257.500000, Liquidity = 1.562054, Housing Value = 600.000000, Wealth = 601.562054 
+Household: 163 Equity 257.500000, Liquidity = 1.561324, Housing Value = 600.000000, Wealth = 601.561324 
+Household: 202 Equity 257.500000, Liquidity = 1.561817, Housing Value = 600.000000, Wealth = 601.561817 
+Household: 277 Equity 257.500000, Liquidity = 1.561910, Housing Value = 600.000000, Wealth = 601.561910 
+Household: 348 Equity 257.500000, Liquidity = 1.562054, Housing Value = 600.000000, Wealth = 601.562054 
+Household: 360 Equity 257.500000, Liquidity = 1.561518, Housing Value = 600.000000, Wealth = 601.561518 
+Household: 370 Equity 257.500000, Liquidity = 1.559128, Housing Value = 600.000000, Wealth = 601.559128 
+Household: 440 Equity 257.500000, Liquidity = 1.561518, Housing Value = 600.000000, Wealth = 601.561518 
+Household: 478 Equity 257.500000, Liquidity = 1.562146, Housing Value = 600.000000, Wealth = 601.562146 
+Household: 498 Equity 257.500000, Liquidity = 1.561140, Housing Value = 600.000000, Wealth = 601.561140 
+Household: 509 Equity 257.500000, Liquidity = 1.561910, Housing Value = 600.000000, Wealth = 601.561910 
+Household: 520 Equity 257.500000, Liquidity = 1.562054, Housing Value = 600.000000, Wealth = 601.562054 
+Household: 815 Equity 250.000000, Liquidity = 1.195836, Housing Value = 500.000000, Wealth = 501.195836 
+Household: 810 Equity 250.000000, Liquidity = 1.195810, Housing Value = 500.000000, Wealth = 501.195810 
+Household: 808 Equity 250.000000, Liquidity = 1.193841, Housing Value = 500.000000, Wealth = 501.193841 
+Household: 797 Equity 250.000000, Liquidity = 1.195470, Housing Value = 500.000000, Wealth = 501.195470 
+Household: 794 Equity 250.000000, Liquidity = 1.195898, Housing Value = 500.000000, Wealth = 501.195898 
+Household: 764 Equity 250.000000, Liquidity = 1.195213, Housing Value = 500.000000, Wealth = 501.195213 
+Household: 760 Equity 250.000000, Liquidity = 1.195898, Housing Value = 500.000000, Wealth = 501.195898 
+Household: 757 Equity 250.000000, Liquidity = 4.144915, Housing Value = 500.000000, Wealth = 504.144915 
+Household: 784 Equity 250.000000, Liquidity = -142.005548, Housing Value = 400.000000, Wealth = 257.994452 
+Household: 779 Equity 250.000000, Liquidity = 1.195641, Housing Value = 500.000000, Wealth = 501.195641 
+Household: 751 Equity 250.000000, Liquidity = 4.145006, Housing Value = 500.000000, Wealth = 504.145006 
+Household: 750 Equity 250.000000, Liquidity = 1.366817, Housing Value = 600.000000, Wealth = 601.366817 
+Household: 682 Equity 257.500000, Liquidity = 13.988520, Housing Value = 500.000000, Wealth = 513.988520 
+Household: 698 Equity 257.500000, Liquidity = 13.988644, Housing Value = 500.000000, Wealth = 513.988644 
+Household: 700 Equity 257.500000, Liquidity = -133.005548, Housing Value = 400.000000, Wealth = 266.994452 
+Household: 742 Equity 257.500000, Liquidity = 0.057857, Housing Value = 600.000000, Wealth = 600.057857 
+Household: 666 Equity 257.500000, Liquidity = -133.005548, Housing Value = 400.000000, Wealth = 266.994452 
+Household: 639 Equity 257.500000, Liquidity = 16.938209, Housing Value = 500.000000, Wealth = 516.938209 
+Household: 762 Equity 250.000000, Liquidity = 1.195675, Housing Value = 500.000000, Wealth = 501.195675 
+Household: 694 Equity 257.500000, Liquidity = 0.002281, Housing Value = 600.000000, Wealth = 600.002281 
+Household: 731 Equity 257.500000, Liquidity = 0.002058, Housing Value = 600.000000, Wealth = 600.002058 
+Household: 737 Equity 257.500000, Liquidity = 0.002352, Housing Value = 600.000000, Wealth = 600.002352 
+Household: 661 Equity 257.500000, Liquidity = 0.002170, Housing Value = 700.000000, Wealth = 700.002170 
+Household: 726 Equity 257.500000, Liquidity = 0.001247, Housing Value = 700.000000, Wealth = 700.001247 
+Household: 581 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 648 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 657 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 699 Equity 257.500000, Liquidity = 15.491569, Housing Value = 500.000000, Wealth = 515.491569 
+Household: 685 Equity 257.500000, Liquidity = 15.491461, Housing Value = 500.000000, Wealth = 515.491461 
+Household: 675 Equity 257.500000, Liquidity = 15.491967, Housing Value = 500.000000, Wealth = 515.491967 
+Household: 664 Equity 257.500000, Liquidity = 15.492198, Housing Value = 500.000000, Wealth = 515.492198 
+Household: 656 Equity 257.500000, Liquidity = 18.441710, Housing Value = 500.000000, Wealth = 518.441710 
+Household: 650 Equity 257.500000, Liquidity = 18.441622, Housing Value = 500.000000, Wealth = 518.441622 
+Household: 600 Equity 257.500000, Liquidity = 15.491935, Housing Value = 500.000000, Wealth = 515.491935 
+Household: 588 Equity 257.500000, Liquidity = 15.490262, Housing Value = 500.000000, Wealth = 515.490262 
+Household: 582 Equity 257.500000, Liquidity = 15.492297, Housing Value = 500.000000, Wealth = 515.492297 
+Household: 568 Equity 257.500000, Liquidity = 15.492024, Housing Value = 500.000000, Wealth = 515.492024 
+Household: 504 Equity 257.500000, Liquidity = 15.490728, Housing Value = 500.000000, Wealth = 515.490728 
+Household: 667 Equity 257.500000, Liquidity = 21.390939, Housing Value = 500.000000, Wealth = 521.390939 
+Household: 547 Equity 257.500000, Liquidity = -135.243305, Housing Value = 400.000000, Wealth = 264.756695 
+Household: 592 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 653 Equity 257.500000, Liquidity = -136.743989, Housing Value = 400.000000, Wealth = 263.256011 
+Household: 627 Equity 257.500000, Liquidity = 99968.497920, Housing Value = 300.000000, Wealth = 100268.497920 
+Household: 56 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 659 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 729 Equity 257.500000, Liquidity = -131.502080, Housing Value = 400.000000, Wealth = 268.497920 
+Household: 663 Equity 257.500000, Liquidity = 0.170324, Housing Value = 600.000000, Wealth = 600.170324 
 Firm Id = 1 at Housing Market
 Firm Id = 3 at Housing Market
+Firm Id = 2 at Housing Market
+Household ID = 811, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.353199 
+Household ID = 806, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.353199 
+Household ID = 804, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.353199 
+Household ID = 798, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.353199 
+Household ID = 789, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.353199 
+Household ID = 679, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 176.833795 
+Household ID = 693, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 176.833795 
+Household ID = 707, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 176.833795 
+Household ID = 743, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.353199 
+Household ID = 799, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.353199 
 Iteration - 42
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 43
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 44
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 45
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 104465 Goods to Mall with a price = 0.005672
+Firm Id = 15 Sends = 120237 Goods to Mall with a price = 0.005673
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 139354 Goods to Mall with a price = 0.005674
+Firm Id = 14 Sends = 154243 Goods to Mall with a price = 0.005674
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 167671 Goods to Mall with a price = 0.005673
+Firm Id = 12 Sends = 184923 Goods to Mall with a price = 0.005674
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 152135 Goods to Mall with a price = 0.005675
+Firm Id = 11 Sends = 161880 Goods to Mall with a price = 0.005675
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 149491 Goods to Mall with a price = 0.005674
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 148090 Goods to Mall with a price = 0.005674
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 138048 Goods to Mall with a price = 0.005673
+Firm Id = 9 Sends = 137125 Goods to Mall with a price = 0.005678
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 98563 Goods to Mall with a price = 0.005672
-Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 103956 Goods to Mall with a price = 0.005673
-Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 154186 Goods to Mall with a price = 0.005673
+Firm Id = 8 Sends = 117981 Goods to Mall with a price = 0.005674
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 154804 Goods to Mall with a price = 0.005678
+Firm Id = 7 Sends = 205982 Goods to Mall with a price = 0.005674
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 165108 Goods to Mall with a price = 0.005673
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 125089 Goods to Mall with a price = 0.005673
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 153302 Goods to Mall with a price = 0.005674
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 56632 Goods to Mall with a price = 0.005676
+Firm Id = 10 Sends = 76945 Goods to Mall with a price = 0.005673
+Firm Id = 13 at Consumption Market
+Firm Id = 13 Sends = 170958 Goods to Mall with a price = 0.005671
 Iteration - 46
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 47
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 48
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 49
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 50
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 98760 Goods to Mall with a price = 0.005672
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 133978 Goods to Mall with a price = 0.005674
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 162555 Goods to Mall with a price = 0.005673
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 147053 Goods to Mall with a price = 0.005675
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 143999 Goods to Mall with a price = 0.005674
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 142623 Goods to Mall with a price = 0.005674
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 133063 Goods to Mall with a price = 0.005673
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 87488 Goods to Mall with a price = 0.005672
-Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 96628 Goods to Mall with a price = 0.005673
-Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 147494 Goods to Mall with a price = 0.005673
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 147104 Goods to Mall with a price = 0.005678
+Firm Id = 6 at Consumption Market
+Firm Id = 5 at Consumption Market
+Firm Id = 4 at Consumption Market
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 52918 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
 Iteration - 51
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 52
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 53
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 54
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 55
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 94626 Goods to Mall with a price = 0.005672
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 128734 Goods to Mall with a price = 0.005674
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 156530 Goods to Mall with a price = 0.005673
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 142109 Goods to Mall with a price = 0.005675
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 136985 Goods to Mall with a price = 0.005674
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 136337 Goods to Mall with a price = 0.005674
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 129278 Goods to Mall with a price = 0.005673
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 72664 Goods to Mall with a price = 0.005672
-Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 92777 Goods to Mall with a price = 0.005673
-Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 143681 Goods to Mall with a price = 0.005673
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 142498 Goods to Mall with a price = 0.005678
+Firm Id = 6 at Consumption Market
+Firm Id = 5 at Consumption Market
+Firm Id = 4 at Consumption Market
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 45812 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
 Iteration - 56
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 57
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 58
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 59
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 60
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
+Constructor Firm 2 produces 1 houses at IT NO: 60
 Constructor Firm 3 produces 2 houses at IT NO: 60
 Constructor Firm 1 produces 1 houses at IT NO: 60
-Constructor Firm 2 produces 1 houses at IT NO: 60
-Firm 15 produces 43000 items at IT NO: 60
-Firm 14 produces 43000 items at IT NO: 60
-Firm 12 produces 52000 items at IT NO: 60
-Firm 11 produces 45000 items at IT NO: 60
-Firm 9 produces 46000 items at IT NO: 60
-Firm 6 produces 45000 items at IT NO: 60
-Firm 4 produces 48000 items at IT NO: 60
-Firm 8 produces 43000 items at IT NO: 60
-Firm 5 produces 47000 items at IT NO: 60
-Firm 13 produces 60000 items at IT NO: 60
-Firm 7 produces 62000 items at IT NO: 60
-Firm 10 produces 35000 items at IT NO: 60
+Firm 15 produces 37000 items at IT NO: 60
+Firm 14 produces 37000 items at IT NO: 60
+Firm 12 produces 45000 items at IT NO: 60
+Firm 11 produces 41000 items at IT NO: 60
+Firm 9 produces 48000 items at IT NO: 60
+Firm 8 produces 35000 items at IT NO: 60
+Firm 7 produces 46000 items at IT NO: 60
+Firm 6 produces 39000 items at IT NO: 60
+Firm 5 produces 40000 items at IT NO: 60
+Firm 4 produces 41000 items at IT NO: 60
+Firm 10 produces 33000 items at IT NO: 60
+Firm 13 produces 57000 items at IT NO: 60
+Firm ID = 2 LABOUR COST for the month is 400.000000
 Firm ID = 3 LABOUR COST for the month is 400.000000
-Firm ID = 1 LABOUR COST for the month is 400.000000
-Firm ID = 2 LABOUR COST for the month is 390.000000
-Firm ID = 15 LABOUR COST for the month is 900.000000
-Firm ID = 14 LABOUR COST for the month is 1005.000000
-Firm ID = 12 LABOUR COST for the month is 1215.000000
-Firm ID = 11 LABOUR COST for the month is 1065.000000
-Firm ID = 9 LABOUR COST for the month is 1075.000000
-Firm ID = 6 LABOUR COST for the month is 1055.000000
-Firm ID = 4 LABOUR COST for the month is 1065.000000
-Firm ID = 8 LABOUR COST for the month is 890.000000
-Firm ID = 5 LABOUR COST for the month is 970.000000
-Firm ID = 13 LABOUR COST for the month is 1320.000000
-Firm ID = 7 LABOUR COST for the month is 1320.000000
-Firm ID = 10 LABOUR COST for the month is 700.000000
+Firm ID = 1 LABOUR COST for the month is 390.000000
+Firm ID = 15 LABOUR COST for the month is 860.000000
+Firm ID = 14 LABOUR COST for the month is 960.000000
+Firm ID = 12 LABOUR COST for the month is 1160.000000
+Firm ID = 11 LABOUR COST for the month is 1040.000000
+Firm ID = 9 LABOUR COST for the month is 1070.000000
+Firm ID = 8 LABOUR COST for the month is 830.000000
+Firm ID = 7 LABOUR COST for the month is 1235.000000
+Firm ID = 6 LABOUR COST for the month is 1020.000000
+Firm ID = 5 LABOUR COST for the month is 920.000000
+Firm ID = 4 LABOUR COST for the month is 1020.000000
+Firm ID = 10 LABOUR COST for the month is 690.000000
+Firm ID = 13 LABOUR COST for the month is 1305.000000
 Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 89121 Goods to Mall with a price = 0.005672
 Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 124122 Goods to Mall with a price = 0.005674
 Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 151055 Goods to Mall with a price = 0.005673
 Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 136441 Goods to Mall with a price = 0.005675
 Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 129866 Goods to Mall with a price = 0.005674
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 130918 Goods to Mall with a price = 0.005674
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 123326 Goods to Mall with a price = 0.005673
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 61269 Goods to Mall with a price = 0.005672
-Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 88689 Goods to Mall with a price = 0.005673
-Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 137797 Goods to Mall with a price = 0.005673
 Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 137957 Goods to Mall with a price = 0.005678
+Firm Id = 6 at Consumption Market
+Firm Id = 5 at Consumption Market
+Firm Id = 4 at Consumption Market
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 40079 Goods to Mall with a price = 0.005676
+Firm Id = 13 at Consumption Market
 Iteration - 61
-Firm 10 Size = 35 
-Firm 7 Size = 62 
-Firm 13 Size = 60 
-Firm 5 Size = 47 
-Firm 8 Size = 43 
-Firm 4 Size = 48 
-Firm 6 Size = 45 
-Firm 9 Size = 46 
-Firm 11 Size = 45 
-Firm 12 Size = 52 
-Firm 14 Size = 43 
-Firm 15 Size = 43 
+Firm 13 Size = 57 
+Firm 10 Size = 33 
+Firm 4 Size = 41 
+Firm 5 Size = 40 
+Firm 6 Size = 39 
+Firm 7 Size = 46 
+Firm 8 Size = 35 
+Firm 9 Size = 48 
+Firm 11 Size = 41 
+Firm 12 Size = 45 
+Firm 14 Size = 37 
+Firm 15 Size = 37 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Household: 42 at Credit Market, updating 1 mortgage payment info. 
-Firm 2 at Credit Market 61
 Firm 1 at Credit Market 61
 Firm 3 at Credit Market 61
+Firm 2 at Credit Market 61
 Firm 15 at Credit Market 61
 Firm 14 at Credit Market 61
 Firm 12 at Credit Market 61
 Firm 11 at Credit Market 61
 Firm 9 at Credit Market 61
-Firm 6 at Credit Market 61
-Firm 4 at Credit Market 61
 Firm 8 at Credit Market 61
-Firm 5 at Credit Market 61
-Firm 13 at Credit Market 61
 Firm 7 at Credit Market 61
+Firm 6 at Credit Market 61
+Firm 5 at Credit Market 61
+Firm 4 at Credit Market 61
 Firm 10 at Credit Market 61
-Constructor 2 -> dPrice: 0.000000, Inventory: 3, WIP: 13, Max Capacity = 20,  Planned: 14, Productivity = 0.013360, Capital = 1497.023810 
-Constructor 1 -> dPrice: 0.000000, Inventory: 4, WIP: 11, Max Capacity = 20,  Planned: 15, Productivity = 0.013360, Capital = 1497.023810 
-Constructor 3 -> dPrice: 0.000000, Inventory: 2, WIP: 9, Max Capacity = 20,  Planned: 19, Productivity = 0.013360, Capital = 1497.023810 
-Firm 10 plans 34540 units to be produced. IT NO: 61
-Firm 7 plans 49675 units to be produced. IT NO: 61
-Firm 13 plans 47920 units to be produced. IT NO: 61
-Firm 5 plans 41681 units to be produced. IT NO: 61
-Firm 8 plans 45492 units to be produced. IT NO: 61
-Firm 4 plans 38456 units to be produced. IT NO: 61
-Firm 6 plans 36139 units to be produced. IT NO: 61
-Firm 9 plans 37178 units to be produced. IT NO: 61
-Firm 11 plans 35684 units to be produced. IT NO: 61
-Firm 12 plans 41742 units to be produced. IT NO: 61
-Firm 14 plans 33440 units to be produced. IT NO: 61
-Firm 15 plans 38148 units to be produced. IT NO: 61
-Firm 10 is at Labour Market EMPLOYEES_NEEDED is 35
-Firm 7 is at Labour Market EMPLOYEES_NEEDED is 50
-Firm 13 is at Labour Market EMPLOYEES_NEEDED is 48
-Firm 5 is at Labour Market EMPLOYEES_NEEDED is 42
-Firm 8 is at Labour Market EMPLOYEES_NEEDED is 46
-Firm 4 is at Labour Market EMPLOYEES_NEEDED is 39
-Firm 6 is at Labour Market EMPLOYEES_NEEDED is 37
-Firm 9 is at Labour Market EMPLOYEES_NEEDED is 38
-Firm 11 is at Labour Market EMPLOYEES_NEEDED is 36
-Firm 12 is at Labour Market EMPLOYEES_NEEDED is 42
-Firm 14 is at Labour Market EMPLOYEES_NEEDED is 34
-Firm 15 is at Labour Market EMPLOYEES_NEEDED is 39
-Firm 2 is at Labour Market EMPLOYEES_NEEDED is 20
-Firm 1 is at Labour Market EMPLOYEES_NEEDED is 21
-Firm 3 is at Labour Market EMPLOYEES_NEEDED is 27
-Household: 441 Equity 244.983574, Liquidity = 1.934041, Housing Value = 700.000000, Wealth = 701.934041 
-Household: 339 Equity 244.984073, Liquidity = 1.934540, Housing Value = 700.000000, Wealth = 701.934540 
-Household: 65 Equity 244.287665, Liquidity = 1.298204, Housing Value = 500.000000, Wealth = 501.298204 
-Household: 495 Equity 244.287383, Liquidity = 1.297923, Housing Value = 500.000000, Wealth = 501.297923 
-Household: 671 Equity 244.707838, Liquidity = 1.660731, Housing Value = 600.000000, Wealth = 601.660731 
-Household: 577 Equity 263.870760, Liquidity = 20.704554, Housing Value = 500.000000, Wealth = 520.704554 
-Household: 408 Equity 263.870518, Liquidity = 20.704313, Housing Value = 500.000000, Wealth = 520.704313 
-Household: 328 Equity 244.709977, Liquidity = 1.662871, Housing Value = 600.000000, Wealth = 601.662871 
-Household: 304 Equity 244.709978, Liquidity = 1.662872, Housing Value = 600.000000, Wealth = 601.662872 
-Household: 290 Equity 244.706250, Liquidity = 1.659144, Housing Value = 600.000000, Wealth = 601.659144 
-Household: 106 Equity 244.705325, Liquidity = 1.658219, Housing Value = 600.000000, Wealth = 601.658219 
-Household: 71 Equity 244.495617, Liquidity = 1.477448, Housing Value = 500.000000, Wealth = 501.477448 
-Household: 113 Equity 244.497173, Liquidity = 1.479003, Housing Value = 500.000000, Wealth = 501.479003 
-Household: 503 Equity 229.314565, Liquidity = 1.387216, Housing Value = 600.000000, Wealth = 601.387216 
-Household: 464 Equity 244.462185, Liquidity = 1.617702, Housing Value = 800.000000, Wealth = 801.617702 
-Household: 360 Equity 244.461977, Liquidity = 1.617494, Housing Value = 800.000000, Wealth = 801.617494 
-Household: 91 Equity 244.462440, Liquidity = 1.617957, Housing Value = 800.000000, Wealth = 801.617957 
-Household: 120 Equity 244.601571, Liquidity = 1.684377, Housing Value = 600.000000, Wealth = 601.684377 
-Household: 296 Equity 244.602451, Liquidity = 1.685251, Housing Value = 600.000000, Wealth = 601.685251 
-Household: 380 Equity 244.795155, Liquidity = 1.849249, Housing Value = 700.000000, Wealth = 701.849249 
-Household: 369 Equity 244.613976, Liquidity = 1.570463, Housing Value = 600.000000, Wealth = 601.570463 
-Household: 201 Equity 244.792438, Liquidity = 1.846527, Housing Value = 700.000000, Wealth = 701.846527 
-Household: 229 Equity 264.399988, Liquidity = 21.262039, Housing Value = 400.000000, Wealth = 421.262039 
-Household: 307 Equity 245.397642, Liquidity = 17.386005, Housing Value = 500.000000, Wealth = 517.386005 
-Household: 623 Equity 264.401071, Liquidity = 21.263122, Housing Value = 400.000000, Wealth = 421.263122 
-Household: 300 Equity 263.617293, Liquidity = 20.658912, Housing Value = 300.000000, Wealth = 320.658912 
-Household: 257 Equity 246.825640, Liquidity = 4.611385, Housing Value = 600.000000, Wealth = 604.611385 
-Household: 459 Equity 260.601198, Liquidity = 17.614561, Housing Value = 300.000000, Wealth = 317.614561 
-Household: 64 Equity 262.897356, Liquidity = 19.759407, Housing Value = 400.000000, Wealth = 419.759407 
-Household: 115 Equity 260.048119, Liquidity = 16.910169, Housing Value = 400.000000, Wealth = 416.910169 
-Household: 116 Equity 260.048022, Liquidity = 16.910073, Housing Value = 400.000000, Wealth = 416.910073 
-Household: 562 Equity 260.044404, Liquidity = 16.906455, Housing Value = 400.000000, Wealth = 416.906455 
-Household: 597 Equity 260.044820, Liquidity = 16.906871, Housing Value = 400.000000, Wealth = 416.906871 
-Household: 684 Equity 260.044127, Liquidity = 16.906177, Housing Value = 400.000000, Wealth = 416.906177 
-Household: 460 Equity 260.762312, Liquidity = 17.803931, Housing Value = 300.000000, Wealth = 317.803931 
-Household: 232 Equity 260.762681, Liquidity = 17.804299, Housing Value = 300.000000, Wealth = 317.804299 
-Household: 94 Equity 260.761923, Liquidity = 17.803542, Housing Value = 300.000000, Wealth = 317.803542 
-Household: 101 Equity 245.572255, Liquidity = 17.420983, Housing Value = 500.000000, Wealth = 517.420983 
-Household: 366 Equity 245.574552, Liquidity = 17.423280, Housing Value = 500.000000, Wealth = 517.423280 
-Household: 527 Equity 249.134646, Liquidity = 20.983374, Housing Value = 500.000000, Wealth = 520.983374 
-Household: 599 Equity 245.391932, Liquidity = 2.137092, Housing Value = 600.000000, Wealth = 602.137092 
-Household: 509 Equity 245.398356, Liquidity = 2.143517, Housing Value = 600.000000, Wealth = 602.143517 
-Household: 447 Equity 245.397141, Liquidity = 2.142301, Housing Value = 600.000000, Wealth = 602.142301 
-Household: 254 Equity 245.393700, Liquidity = 2.138860, Housing Value = 600.000000, Wealth = 602.138860 
-Household: 137 Equity 260.555219, Liquidity = 17.473782, Housing Value = 400.000000, Wealth = 417.473782 
-Household: 175 Equity 260.553912, Liquidity = 17.472475, Housing Value = 400.000000, Wealth = 417.472475 
-Household: 349 Equity 260.556136, Liquidity = 17.474699, Housing Value = 400.000000, Wealth = 417.474699 
-Household: 416 Equity 260.554375, Liquidity = 17.472938, Housing Value = 400.000000, Wealth = 417.472938 
-Household: 479 Equity 260.555193, Liquidity = 17.473756, Housing Value = 400.000000, Wealth = 417.473756 
-Household: 589 Equity 259.513837, Liquidity = 16.347631, Housing Value = 500.000000, Wealth = 516.347631 
-Household: 493 Equity 259.513108, Liquidity = 16.346902, Housing Value = 500.000000, Wealth = 516.346902 
-Household: 487 Equity 259.517779, Liquidity = 16.351574, Housing Value = 500.000000, Wealth = 516.351574 
-Household: 477 Equity 259.518857, Liquidity = 16.352652, Housing Value = 500.000000, Wealth = 516.352652 
-Household: 475 Equity 259.512682, Liquidity = 16.346476, Housing Value = 500.000000, Wealth = 516.346476 
-Household: 457 Equity 259.518746, Liquidity = 16.352541, Housing Value = 500.000000, Wealth = 516.352541 
-Household: 413 Equity 259.519895, Liquidity = 16.353690, Housing Value = 500.000000, Wealth = 516.353690 
-Household: 411 Equity 259.520013, Liquidity = 16.353807, Housing Value = 500.000000, Wealth = 516.353807 
-Household: 403 Equity 259.514934, Liquidity = 16.348728, Housing Value = 500.000000, Wealth = 516.348728 
-Household: 401 Equity 263.870949, Liquidity = 20.704743, Housing Value = 500.000000, Wealth = 520.704743 
-Household: 398 Equity 259.519453, Liquidity = 16.353247, Housing Value = 500.000000, Wealth = 516.353247 
-Household: 371 Equity 259.514267, Liquidity = 16.348062, Housing Value = 500.000000, Wealth = 516.348062 
-Household: 355 Equity 259.514234, Liquidity = 16.348029, Housing Value = 500.000000, Wealth = 516.348029 
-Household: 354 Equity 259.513072, Liquidity = 16.346867, Housing Value = 500.000000, Wealth = 516.346867 
-Household: 347 Equity 259.514052, Liquidity = 16.347847, Housing Value = 500.000000, Wealth = 516.347847 
-Household: 345 Equity 259.517245, Liquidity = 16.351039, Housing Value = 500.000000, Wealth = 516.351039 
-Household: 324 Equity 259.518385, Liquidity = 16.352179, Housing Value = 500.000000, Wealth = 516.352179 
-Household: 316 Equity 259.520062, Liquidity = 16.353857, Housing Value = 500.000000, Wealth = 516.353857 
-Household: 297 Equity 259.515069, Liquidity = 16.348863, Housing Value = 500.000000, Wealth = 516.348863 
-Household: 295 Equity 259.513045, Liquidity = 16.346840, Housing Value = 500.000000, Wealth = 516.346840 
-Household: 260 Equity 259.518470, Liquidity = 16.352265, Housing Value = 500.000000, Wealth = 516.352265 
-Household: 245 Equity 263.870603, Liquidity = 20.704397, Housing Value = 500.000000, Wealth = 520.704397 
-Household: 228 Equity 259.514168, Liquidity = 16.347963, Housing Value = 500.000000, Wealth = 516.347963 
-Household: 223 Equity 259.517978, Liquidity = 16.351773, Housing Value = 500.000000, Wealth = 516.351773 
-Household: 217 Equity 259.518756, Liquidity = 16.352551, Housing Value = 500.000000, Wealth = 516.352551 
-Household: 210 Equity 259.513544, Liquidity = 16.347339, Housing Value = 500.000000, Wealth = 516.347339 
-Household: 206 Equity 259.520071, Liquidity = 16.353865, Housing Value = 500.000000, Wealth = 516.353865 
-Household: 180 Equity 263.865432, Liquidity = 20.699226, Housing Value = 500.000000, Wealth = 520.699226 
-Household: 164 Equity 259.519572, Liquidity = 16.353367, Housing Value = 500.000000, Wealth = 516.353367 
-Household: 111 Equity 259.514019, Liquidity = 16.347814, Housing Value = 500.000000, Wealth = 516.347814 
-Household: 100 Equity 259.520303, Liquidity = 16.354097, Housing Value = 500.000000, Wealth = 516.354097 
-Household: 78 Equity 259.514121, Liquidity = 16.347916, Housing Value = 500.000000, Wealth = 516.347916 
-Household: 68 Equity 263.870944, Liquidity = 20.704739, Housing Value = 500.000000, Wealth = 520.704739 
-Household: 60 Equity 259.514690, Liquidity = 16.348485, Housing Value = 500.000000, Wealth = 516.348485 
-Household: 124 Equity 260.393322, Liquidity = 17.283629, Housing Value = 400.000000, Wealth = 417.283629 
-Household: 169 Equity 260.391012, Liquidity = 17.281319, Housing Value = 400.000000, Wealth = 417.281319 
-Household: 335 Equity 260.392564, Liquidity = 17.282871, Housing Value = 400.000000, Wealth = 417.282871 
-Household: 381 Equity 263.240271, Liquidity = 20.130578, Housing Value = 400.000000, Wealth = 420.130578 
-Household: 453 Equity 260.391964, Liquidity = 17.282271, Housing Value = 400.000000, Wealth = 417.282271 
-Household: 233 Equity 245.155089, Liquidity = 17.107385, Housing Value = 500.000000, Wealth = 517.107385 
-Household: 672 Equity 245.398198, Liquidity = 2.143359, Housing Value = 600.000000, Wealth = 602.143359 
-Household: 53 Equity 244.865521, Liquidity = 1.694666, Housing Value = 700.000000, Wealth = 701.694666 
-Household: 83 Equity 247.723599, Liquidity = 4.630288, Housing Value = 500.000000, Wealth = 504.630288 
-Household: 485 Equity 262.366871, Liquidity = 19.200665, Housing Value = 500.000000, Wealth = 519.200665 
-Household: 455 Equity 245.220059, Liquidity = 2.068875, Housing Value = 600.000000, Wealth = 602.068875 
-Household: 336 Equity 245.217757, Liquidity = 2.066573, Housing Value = 600.000000, Wealth = 602.066573 
-Household: 80 Equity 245.220418, Liquidity = 2.069234, Housing Value = 600.000000, Wealth = 602.069234 
-Household: 683 Equity 244.760117, Liquidity = 1.727346, Housing Value = 600.000000, Wealth = 601.727346 
-Household: 705 Equity 244.568279, Liquidity = 1.639163, Housing Value = 600.000000, Wealth = 601.639163 
-Household: 652 Equity 243.898622, Liquidity = 0.643782, Housing Value = 600.000000, Wealth = 600.643782 
-Household: 649 Equity 243.896913, Liquidity = 0.642074, Housing Value = 600.000000, Wealth = 600.642074 
-Household: 593 Equity 258.017990, Liquidity = 14.851785, Housing Value = 500.000000, Wealth = 514.851785 
-Household: 650 Equity 261.740050, Liquidity = 18.630357, Housing Value = 400.000000, Wealth = 418.630357 
-Household: 670 Equity 258.893967, Liquidity = 15.784274, Housing Value = 400.000000, Wealth = 415.784274 
-Household: 618 Equity 259.362886, Liquidity = 16.527560, Housing Value = 300.000000, Wealth = 316.527560 
-Household: 592 Equity 243.721782, Liquidity = 0.570598, Housing Value = 600.000000, Wealth = 600.570598 
-Household: 601 Equity 243.717201, Liquidity = 0.566017, Housing Value = 600.000000, Wealth = 600.566017 
-Household: 609 Equity 243.361909, Liquidity = 0.191054, Housing Value = 700.000000, Wealth = 700.191054 
-Household: 697 Equity 262.369870, Liquidity = 19.203665, Housing Value = 500.000000, Wealth = 519.203665 
-Household: 613 Equity 243.894120, Liquidity = 0.639280, Housing Value = 600.000000, Wealth = 600.639280 
-Household: 740 Equity 244.755381, Liquidity = 1.722610, Housing Value = 600.000000, Wealth = 601.722610 
-Household: 627 Equity 260.863408, Liquidity = 18.028082, Housing Value = 300.000000, Wealth = 318.028082 
-Household: 558 Equity 263.865396, Liquidity = 20.699190, Housing Value = 500.000000, Wealth = 520.699190 
-Household: 588 Equity 259.518191, Liquidity = 16.351986, Housing Value = 500.000000, Wealth = 516.351986 
-Household: 602 Equity 259.519732, Liquidity = 16.353527, Housing Value = 500.000000, Wealth = 516.353527 
-Household: 603 Equity 259.518824, Liquidity = 16.352619, Housing Value = 500.000000, Wealth = 516.352619 
-Household: 651 Equity 259.514936, Liquidity = 16.348731, Housing Value = 500.000000, Wealth = 516.348731 
-Household: 502 Equity 260.555892, Liquidity = 17.474455, Housing Value = 400.000000, Wealth = 417.474455 
-Household: 569 Equity 245.393911, Liquidity = 2.139071, Housing Value = 600.000000, Wealth = 602.139071 
-Household: 611 Equity 245.396889, Liquidity = 2.142050, Housing Value = 600.000000, Wealth = 602.142050 
-Household: 634 Equity 245.396605, Liquidity = 2.141766, Housing Value = 600.000000, Wealth = 602.141766 
-Household: 606 Equity 260.049910, Liquidity = 16.911961, Housing Value = 400.000000, Wealth = 416.911961 
-Household: 662 Equity 260.599964, Liquidity = 17.613326, Housing Value = 300.000000, Wealth = 317.613326 
-Household: 713 Equity 244.494645, Liquidity = 1.476476, Housing Value = 500.000000, Wealth = 501.476476 
-Household: 685 Equity 244.705781, Liquidity = 1.658673, Housing Value = 600.000000, Wealth = 601.658673 
-Household: 594 Equity 244.983151, Liquidity = 1.933618, Housing Value = 700.000000, Wealth = 701.933618 
-Firm Id = 2 at Housing Market
+Firm 13 at Credit Market 61
+Constructor 1 -> dPrice: 0.000000, Inventory: 4, WIP: 11, Max Capacity = 20,  Planned: 13, Productivity = 0.013360, Capital = 1497.023810 
+Constructor 3 -> dPrice: 0.000000, Inventory: 3, WIP: 9, Max Capacity = 20,  Planned: 16, Productivity = 0.013360, Capital = 1497.023810 
+Constructor 2 -> dPrice: 0.000000, Inventory: 2, WIP: 13, Max Capacity = 20,  Planned: 17, Productivity = 0.013360, Capital = 1497.023810 
+Firm 13 plans 68395 units to be produced. IT NO: 61
+Firm 10 plans 37394 units to be produced. IT NO: 61
+Firm 4 plans 52230 units to be produced. IT NO: 61
+Firm 5 plans 48508 units to be produced. IT NO: 61
+Firm 6 plans 51610 units to be produced. IT NO: 61
+Firm 7 plans 61998 units to be produced. IT NO: 61
+Firm 8 plans 43298 units to be produced. IT NO: 61
+Firm 9 plans 56912 units to be produced. IT NO: 61
+Firm 11 plans 53088 units to be produced. IT NO: 61
+Firm 12 plans 58992 units to be produced. IT NO: 61
+Firm 14 plans 48724 units to be produced. IT NO: 61
+Firm 15 plans 45323 units to be produced. IT NO: 61
+Firm 13 is at Labour Market EMPLOYEES_NEEDED is 69
+Firm 10 is at Labour Market EMPLOYEES_NEEDED is 38
+Firm 4 is at Labour Market EMPLOYEES_NEEDED is 53
+Firm 5 is at Labour Market EMPLOYEES_NEEDED is 49
+Firm 6 is at Labour Market EMPLOYEES_NEEDED is 52
+Firm 7 is at Labour Market EMPLOYEES_NEEDED is 62
+Firm 8 is at Labour Market EMPLOYEES_NEEDED is 44
+Firm 9 is at Labour Market EMPLOYEES_NEEDED is 57
+Firm 11 is at Labour Market EMPLOYEES_NEEDED is 54
+Firm 12 is at Labour Market EMPLOYEES_NEEDED is 59
+Firm 14 is at Labour Market EMPLOYEES_NEEDED is 49
+Firm 15 is at Labour Market EMPLOYEES_NEEDED is 46
+Firm 1 is at Labour Market EMPLOYEES_NEEDED is 18
+Firm 3 is at Labour Market EMPLOYEES_NEEDED is 22
+Firm 2 is at Labour Market EMPLOYEES_NEEDED is 24
+Household: 277 Equity 263.951786, Liquidity = 5.711881, Housing Value = 600.000000, Wealth = 605.711881 
+Household: 202 Equity 264.740422, Liquidity = 6.500516, Housing Value = 600.000000, Wealth = 606.500516 
+Household: 31 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 302 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 571 Equity 263.077923, Liquidity = 19.911718, Housing Value = 500.000000, Wealth = 519.911718 
+Household: 329 Equity 263.072537, Liquidity = 19.906331, Housing Value = 500.000000, Wealth = 519.906331 
+Household: 327 Equity 262.186898, Liquidity = 19.020692, Housing Value = 500.000000, Wealth = 519.020692 
+Household: 273 Equity 262.192252, Liquidity = 19.026046, Housing Value = 500.000000, Wealth = 519.026046 
+Household: 193 Equity 263.076972, Liquidity = 19.910767, Housing Value = 500.000000, Wealth = 519.910767 
+Household: 100 Equity 262.192852, Liquidity = 19.026646, Housing Value = 500.000000, Wealth = 519.026646 
+Household: 238 Equity 268.756011, Liquidity = -131.243989, Housing Value = 400.000000, Wealth = 268.756011 
+Household: 393 Equity 268.756011, Liquidity = -131.243989, Housing Value = 400.000000, Wealth = 268.756011 
+Household: 394 Equity -559.945264, Liquidity = 99040.054736, Housing Value = 400.000000, Wealth = 99440.054736 
+Household 394 has a negative equity ratio = -0.005631 
+Household: 510 Equity 263.989492, Liquidity = 5.502301, Housing Value = 700.000000, Wealth = 705.502301 
+Household: 461 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 487 Equity 263.404390, Liquidity = 5.113659, Housing Value = 600.000000, Wealth = 605.113659 
+Household: 47 Equity 263.405021, Liquidity = 5.114291, Housing Value = 600.000000, Wealth = 605.114291 
+Household: 206 Equity 263.582381, Liquidity = 20.534720, Housing Value = 500.000000, Wealth = 520.534720 
+Household: 450 Equity 263.405373, Liquidity = 5.114642, Housing Value = 600.000000, Wealth = 605.114642 
+Household: 512 Equity 266.026983, Liquidity = 22.860778, Housing Value = 500.000000, Wealth = 522.860778 
+Household: 101 Equity 264.321155, Liquidity = 5.833965, Housing Value = 700.000000, Wealth = 705.833965 
+Household: 141 Equity 273.997920, Liquidity = 99973.997920, Housing Value = 300.000000, Wealth = 100273.997920 
+Household: 306 Equity 268.756011, Liquidity = -131.243989, Housing Value = 400.000000, Wealth = 268.756011 
+Household: 69 Equity 266.026988, Liquidity = 22.860783, Housing Value = 500.000000, Wealth = 522.860783 
+Household: 230 Equity 262.191671, Liquidity = 19.025465, Housing Value = 500.000000, Wealth = 519.025465 
+Household: 245 Equity 265.488458, Liquidity = 22.322253, Housing Value = 500.000000, Wealth = 522.322253 
+Household: 316 Equity 263.077174, Liquidity = 19.910968, Housing Value = 500.000000, Wealth = 519.910968 
+Household: 232 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 303 Equity 263.949238, Liquidity = 5.709332, Housing Value = 600.000000, Wealth = 605.709332 
+Household: 527 Equity 267.382731, Liquidity = 9.142825, Housing Value = 600.000000, Wealth = 609.142825 
+Household: 488 Equity 263.949176, Liquidity = 5.709270, Housing Value = 600.000000, Wealth = 605.709270 
+Household: 425 Equity 263.950817, Liquidity = 5.710912, Housing Value = 600.000000, Wealth = 605.710912 
+Household: 372 Equity 263.948463, Liquidity = 5.708557, Housing Value = 600.000000, Wealth = 605.708557 
+Household: 308 Equity 265.488365, Liquidity = 22.322160, Housing Value = 500.000000, Wealth = 522.322160 
+Household: 58 Equity 263.952061, Liquidity = 5.712155, Housing Value = 600.000000, Wealth = 605.712155 
+Household: 184 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 287 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 296 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 391 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 405 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 495 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 671 Equity 263.076322, Liquidity = 19.910117, Housing Value = 500.000000, Wealth = 519.910117 
+Household: 496 Equity 262.192496, Liquidity = 19.026291, Housing Value = 500.000000, Wealth = 519.026291 
+Household: 485 Equity 265.113957, Liquidity = 21.947752, Housing Value = 500.000000, Wealth = 521.947752 
+Household: 474 Equity 263.077285, Liquidity = 19.911079, Housing Value = 500.000000, Wealth = 519.911079 
+Household: 458 Equity 263.075577, Liquidity = 19.909371, Housing Value = 500.000000, Wealth = 519.909371 
+Household: 457 Equity 263.077277, Liquidity = 19.911071, Housing Value = 500.000000, Wealth = 519.911071 
+Household: 439 Equity 263.077476, Liquidity = 19.911270, Housing Value = 500.000000, Wealth = 519.911270 
+Household: 424 Equity 263.077261, Liquidity = 19.911056, Housing Value = 500.000000, Wealth = 519.911056 
+Household: 415 Equity 263.077620, Liquidity = 19.911415, Housing Value = 500.000000, Wealth = 519.911415 
+Household: 413 Equity 262.192791, Liquidity = 19.026586, Housing Value = 500.000000, Wealth = 519.026586 
+Household: 403 Equity 263.077797, Liquidity = 19.911592, Housing Value = 500.000000, Wealth = 519.911592 
+Household: 380 Equity 263.077438, Liquidity = 19.911232, Housing Value = 500.000000, Wealth = 519.911232 
+Household: 367 Equity 262.192641, Liquidity = 19.026435, Housing Value = 500.000000, Wealth = 519.026435 
+Household: 353 Equity 266.027428, Liquidity = 22.861223, Housing Value = 500.000000, Wealth = 522.861223 
+Household: 321 Equity 265.488381, Liquidity = 22.322175, Housing Value = 500.000000, Wealth = 522.322175 
+Household: 314 Equity 263.077905, Liquidity = 19.911700, Housing Value = 500.000000, Wealth = 519.911700 
+Household: 263 Equity 265.113753, Liquidity = 21.947548, Housing Value = 500.000000, Wealth = 521.947548 
+Household: 260 Equity 262.192024, Liquidity = 19.025818, Housing Value = 500.000000, Wealth = 519.025818 
+Household: 251 Equity 263.076338, Liquidity = 19.910133, Housing Value = 500.000000, Wealth = 519.910133 
+Household: 247 Equity 263.077887, Liquidity = 19.911681, Housing Value = 500.000000, Wealth = 519.911681 
+Household: 173 Equity 262.191844, Liquidity = 19.025639, Housing Value = 500.000000, Wealth = 519.025639 
+Household: 164 Equity 262.191817, Liquidity = 19.025612, Housing Value = 500.000000, Wealth = 519.025612 
+Household: 161 Equity 265.488029, Liquidity = 22.321823, Housing Value = 500.000000, Wealth = 522.321823 
+Household: 152 Equity 266.026255, Liquidity = 22.860049, Housing Value = 500.000000, Wealth = 522.860049 
+Household: 127 Equity 266.026724, Liquidity = 22.860518, Housing Value = 500.000000, Wealth = 522.860518 
+Household: 126 Equity 265.113136, Liquidity = 21.946931, Housing Value = 500.000000, Wealth = 521.946931 
+Household: 122 Equity 266.027423, Liquidity = 22.861218, Housing Value = 500.000000, Wealth = 522.861218 
+Household: 105 Equity 263.078058, Liquidity = 19.911853, Housing Value = 500.000000, Wealth = 519.911853 
+Household: 62 Equity 263.078081, Liquidity = 19.911876, Housing Value = 500.000000, Wealth = 519.911876 
+Household: 52 Equity 263.077917, Liquidity = 19.911712, Housing Value = 500.000000, Wealth = 519.911712 
+Household: 44 Equity 263.078048, Liquidity = 19.911842, Housing Value = 500.000000, Wealth = 519.911842 
+Household: 374 Equity 270.256695, Liquidity = -129.743305, Housing Value = 400.000000, Wealth = 270.256695 
+Household: 386 Equity 268.756011, Liquidity = -131.243989, Housing Value = 400.000000, Wealth = 268.756011 
+Household: 388 Equity 270.256695, Liquidity = -129.743305, Housing Value = 400.000000, Wealth = 270.256695 
+Household: 110 Equity 264.157260, Liquidity = 21.228057, Housing Value = 500.000000, Wealth = 521.228057 
+Household: 187 Equity 265.093840, Liquidity = 22.164637, Housing Value = 500.000000, Wealth = 522.164637 
+Household: 384 Equity 267.222361, Liquidity = 24.293158, Housing Value = 500.000000, Wealth = 524.293158 
+Household: 564 Equity 264.323969, Liquidity = 5.836778, Housing Value = 700.000000, Wealth = 705.836778 
+Household: 402 Equity 263.989143, Liquidity = 5.501952, Housing Value = 700.000000, Wealth = 705.501952 
+Household: 250 Equity 263.988457, Liquidity = 5.501266, Housing Value = 700.000000, Wealth = 705.501266 
+Household: 241 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 275 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 472 Equity 273.997920, Liquidity = -126.002080, Housing Value = 400.000000, Wealth = 273.997920 
+Household: 551 Equity 263.405373, Liquidity = 5.114642, Housing Value = 600.000000, Wealth = 605.114642 
+Household: 477 Equity 263.399991, Liquidity = 5.109260, Housing Value = 600.000000, Wealth = 605.109260 
+Household: 312 Equity 263.400099, Liquidity = 5.109368, Housing Value = 600.000000, Wealth = 605.109368 
+Household: 223 Equity 263.400099, Liquidity = 5.109368, Housing Value = 600.000000, Wealth = 605.109368 
+Household: 221 Equity 263.404579, Liquidity = 5.113848, Housing Value = 600.000000, Wealth = 605.113848 
+Household: 212 Equity 266.026814, Liquidity = 22.860608, Housing Value = 500.000000, Wealth = 522.860608 
+Household: 211 Equity 266.027198, Liquidity = 22.860992, Housing Value = 500.000000, Wealth = 522.860992 
+Household: 186 Equity 263.405021, Liquidity = 5.114291, Housing Value = 600.000000, Wealth = 605.114291 
+Household: 185 Equity 263.402307, Liquidity = 5.111576, Housing Value = 600.000000, Wealth = 605.111576 
+Household: 114 Equity 263.404579, Liquidity = 5.113848, Housing Value = 600.000000, Wealth = 605.113848 
+Household: 48 Equity 263.399947, Liquidity = 5.109217, Housing Value = 600.000000, Wealth = 605.109217 
+Household: 32 Equity 266.026897, Liquidity = 22.860691, Housing Value = 500.000000, Wealth = 522.860691 
+Household: 30 Equity 263.404390, Liquidity = 5.113659, Housing Value = 600.000000, Wealth = 605.113659 
+Household: 695 Equity 270.994452, Liquidity = -129.005548, Housing Value = 400.000000, Wealth = 270.994452 
+Household: 735 Equity 266.699910, Liquidity = 8.460005, Housing Value = 600.000000, Wealth = 608.460005 
+Household: 642 Equity 272.497920, Liquidity = -127.502080, Housing Value = 400.000000, Wealth = 272.497920 
+Household: 713 Equity 261.578042, Liquidity = 18.411837, Housing Value = 500.000000, Wealth = 518.411837 
+Household: 708 Equity 261.577201, Liquidity = 18.410996, Housing Value = 500.000000, Wealth = 518.410996 
+Household: 687 Equity 261.577807, Liquidity = 18.411601, Housing Value = 500.000000, Wealth = 518.411601 
+Household: 662 Equity 260.691350, Liquidity = 17.525145, Housing Value = 500.000000, Wealth = 517.525145 
+Household: 622 Equity 260.681865, Liquidity = 17.515660, Housing Value = 500.000000, Wealth = 517.515660 
+Household: 619 Equity 261.577454, Liquidity = 18.411248, Housing Value = 500.000000, Wealth = 518.411248 
+Household: 591 Equity 261.577201, Liquidity = 18.410995, Housing Value = 500.000000, Wealth = 518.410995 
+Household: 506 Equity 260.692814, Liquidity = 17.526609, Housing Value = 500.000000, Wealth = 517.526609 
+Household: 669 Equity 267.256011, Liquidity = -132.743989, Housing Value = 400.000000, Wealth = 267.256011 
+Household: 587 Equity 261.902307, Liquidity = 3.611576, Housing Value = 600.000000, Wealth = 603.611576 
+Household: 562 Equity 261.900099, Liquidity = 3.609368, Housing Value = 600.000000, Wealth = 603.609368 
+Household: 620 Equity 261.900099, Liquidity = 3.609368, Housing Value = 600.000000, Wealth = 603.609368 
+Household: 678 Equity 261.905373, Liquidity = 3.614642, Housing Value = 600.000000, Wealth = 603.614642 
+Household: 636 Equity 261.578033, Liquidity = 18.411827, Housing Value = 500.000000, Wealth = 518.411827 
+Household: 632 Equity 262.449041, Liquidity = 4.209135, Housing Value = 600.000000, Wealth = 604.209135 
+Household: 581 Equity 272.497920, Liquidity = -127.502080, Housing Value = 400.000000, Wealth = 272.497920 
+Household: 664 Equity 260.692782, Liquidity = 17.526577, Housing Value = 500.000000, Wealth = 517.526577 
+Household: 650 Equity 264.527426, Liquidity = 21.361220, Housing Value = 500.000000, Wealth = 521.361220 
+Household: 600 Equity 261.577738, Liquidity = 18.411533, Housing Value = 500.000000, Wealth = 518.411533 
+Household: 582 Equity 261.578100, Liquidity = 18.411895, Housing Value = 500.000000, Wealth = 518.411895 
+Household: 504 Equity 261.576531, Liquidity = 18.410326, Housing Value = 500.000000, Wealth = 518.410326 
+Household: 653 Equity 267.256011, Liquidity = -132.743989, Housing Value = 400.000000, Wealth = 267.256011 
+Household: 659 Equity 272.497920, Liquidity = -127.502080, Housing Value = 400.000000, Wealth = 272.497920 
 Firm Id = 1 at Housing Market
 Firm Id = 3 at Housing Market
+Firm Id = 2 at Housing Market
+Household ID = 820, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 817, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 812, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 809, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 803, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 785, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 783, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 781, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 780, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 776, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 774, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 773, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 771, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 766, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 765, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 763, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 758, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 756, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 755, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 752, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 748, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 818, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 21 amounts to 348.930730 
+Household ID = 800, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 796, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 21 amounts to 348.930730 
+Household ID = 747, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 746, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 21 amounts to 348.930730 
+Household ID = 754, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 770, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 821, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 745, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 802, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 807, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 822, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 801, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 793, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 786, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 778, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 777, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 775, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 769, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 753, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 790, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 787, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 819, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 795, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 22 amounts to 348.930730 
+Household ID = 768, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 792, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 805, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 816, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 815, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 810, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 808, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 797, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 794, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 764, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 760, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 757, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 779, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 21 amounts to 249.043294 
+Household ID = 751, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
+Household ID = 750, has his debts written off -> # of mortgages = 2. Loss on Bank ID = 21 amounts to 348.930730 
+Household ID = 762, has his debts written off -> # of mortgages = 1. Loss on Bank ID = 22 amounts to 249.043294 
 Iteration - 62
-Firm 8 Size = 43 
-Firm 10 Size = 35 
-Firm 7 Size = 50 
-Firm 13 Size = 48 
-Firm 5 Size = 42 
-Firm 4 Size = 39 
-Firm 6 Size = 37 
-Firm 9 Size = 38 
-Firm 11 Size = 36 
-Firm 12 Size = 42 
-Firm 14 Size = 34 
-Firm 15 Size = 39 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 15 Size = 37 
+Firm 14 Size = 37 
+Firm 12 Size = 45 
+Firm 11 Size = 41 
+Firm 9 Size = 48 
+Firm 8 Size = 35 
+Firm 7 Size = 46 
+Firm 6 Size = 39 
+Firm 5 Size = 40 
+Firm 4 Size = 41 
+Firm 10 Size = 33 
+Firm 13 Size = 57 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 63
-Firm 8 Size = 43 
-Firm 10 Size = 35 
-Firm 7 Size = 50 
-Firm 13 Size = 48 
-Firm 5 Size = 42 
-Firm 4 Size = 39 
-Firm 6 Size = 37 
-Firm 9 Size = 38 
-Firm 11 Size = 36 
-Firm 12 Size = 42 
-Firm 14 Size = 34 
-Firm 15 Size = 39 
+Firm 15 Size = 37 
+Firm 14 Size = 37 
+Firm 12 Size = 45 
+Firm 11 Size = 41 
+Firm 9 Size = 48 
+Firm 8 Size = 35 
+Firm 7 Size = 46 
+Firm 6 Size = 39 
+Firm 5 Size = 40 
+Firm 4 Size = 41 
+Firm 10 Size = 33 
+Firm 13 Size = 57 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
+Firm 1 Size = 18 
 Iteration - 64
-Firm 8 Size = 43 
-Firm 10 Size = 35 
-Firm 7 Size = 50 
-Firm 13 Size = 48 
-Firm 5 Size = 42 
-Firm 4 Size = 39 
-Firm 6 Size = 37 
-Firm 9 Size = 38 
-Firm 11 Size = 36 
-Firm 12 Size = 42 
-Firm 14 Size = 34 
-Firm 15 Size = 39 
-Firm 2 Size = 18 
-Firm 1 Size = 20 
+Firm 15 Size = 37 
+Firm 14 Size = 37 
+Firm 12 Size = 45 
+Firm 11 Size = 41 
+Firm 9 Size = 48 
+Firm 8 Size = 35 
+Firm 7 Size = 46 
+Firm 6 Size = 39 
+Firm 5 Size = 40 
+Firm 4 Size = 41 
+Firm 10 Size = 33 
+Firm 13 Size = 57 
+Firm 1 Size = 18 
 Firm 3 Size = 20 
+Firm 2 Size = 20 
 Iteration - 65
-Firm 8 Size = 43 
-Firm 10 Size = 35 
-Firm 7 Size = 50 
-Firm 13 Size = 48 
-Firm 5 Size = 42 
-Firm 4 Size = 39 
-Firm 6 Size = 37 
-Firm 9 Size = 38 
-Firm 11 Size = 36 
-Firm 12 Size = 42 
-Firm 14 Size = 34 
-Firm 15 Size = 39 
+Firm 15 Size = 37 
+Firm 14 Size = 37 
+Firm 12 Size = 45 
+Firm 11 Size = 41 
+Firm 9 Size = 48 
+Firm 8 Size = 35 
+Firm 7 Size = 46 
+Firm 6 Size = 39 
+Firm 5 Size = 40 
+Firm 4 Size = 41 
+Firm 10 Size = 33 
+Firm 13 Size = 57 
+Firm 2 Size = 20 
 Firm 3 Size = 20 
-Firm 1 Size = 20 
-Firm 2 Size = 18 
-Firm Id = 15 at Consumption Market
-Firm Id = 15 Sends = 114483 Goods to Mall with a price = 0.005681
-Firm Id = 14 at Consumption Market
-Firm Id = 14 Sends = 153434 Goods to Mall with a price = 0.005689
-Firm Id = 12 at Consumption Market
-Firm Id = 12 Sends = 180640 Goods to Mall with a price = 0.005689
-Firm Id = 11 at Consumption Market
-Firm Id = 11 Sends = 162475 Goods to Mall with a price = 0.005692
-Firm Id = 9 at Consumption Market
-Firm Id = 9 Sends = 159732 Goods to Mall with a price = 0.005691
-Firm Id = 6 at Consumption Market
-Firm Id = 6 Sends = 158262 Goods to Mall with a price = 0.005691
-Firm Id = 4 at Consumption Market
-Firm Id = 4 Sends = 155845 Goods to Mall with a price = 0.005686
-Firm Id = 5 at Consumption Market
-Firm Id = 5 Sends = 118367 Goods to Mall with a price = 0.005680
+Firm 1 Size = 18 
 Firm Id = 13 at Consumption Market
-Firm Id = 13 Sends = 183055 Goods to Mall with a price = 0.005685
-Firm Id = 7 at Consumption Market
-Firm Id = 7 Sends = 185619 Goods to Mall with a price = 0.005688
+Firm Id = 13 Sends = 57000 Goods to Mall with a price = 0.005719
 Firm Id = 10 at Consumption Market
-Firm Id = 10 Sends = 61223 Goods to Mall with a price = 0.005680
+Firm Id = 10 Sends = 33000 Goods to Mall with a price = 0.005694
+Firm Id = 4 at Consumption Market
+Firm Id = 4 Sends = 41000 Goods to Mall with a price = 0.005750
+Firm Id = 5 at Consumption Market
+Firm Id = 5 Sends = 40000 Goods to Mall with a price = 0.005725
+Firm Id = 6 at Consumption Market
+Firm Id = 6 Sends = 39000 Goods to Mall with a price = 0.005768
+Firm Id = 7 at Consumption Market
+Firm Id = 7 Sends = 46000 Goods to Mall with a price = 0.005779
 Firm Id = 8 at Consumption Market
-Firm Id = 8 Sends = 73634 Goods to Mall with a price = 0.005683
-Execution time - 0:24:441 [mins:secs:msecs]
+Firm Id = 8 Sends = 35000 Goods to Mall with a price = 0.005736
+Firm Id = 9 at Consumption Market
+Firm Id = 9 Sends = 48000 Goods to Mall with a price = 0.005722
+Firm Id = 11 at Consumption Market
+Firm Id = 11 Sends = 41000 Goods to Mall with a price = 0.005759
+Firm Id = 12 at Consumption Market
+Firm Id = 12 Sends = 45000 Goods to Mall with a price = 0.005765
+Firm Id = 14 at Consumption Market
+Firm Id = 14 Sends = 37000 Goods to Mall with a price = 0.005768
+Firm Id = 15 at Consumption Market
+Firm Id = 15 Sends = 37000 Goods to Mall with a price = 0.005728
+Execution time - 0:26:096 [mins:secs:msecs]

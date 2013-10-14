@@ -9,15 +9,12 @@
  */
 int household_housing_market_role()
 {
-    double quarterly_mortgage_costs;
     double quarterly_income;
     
     quarterly_income = LABOUR_INCOME + CAPITAL_INCOME;
     
-    quarterly_mortgage_costs = MORTGAGE_COSTS[0] + MORTGAGE_COSTS[1] + MORTGAGE_COSTS[2];
-    
     // check financial distress for the file sale case.
-    if (quarterly_mortgage_costs > FIRE_SALE_THRESHOLD * quarterly_income){
+    if (HOUSING_PAYMENT > FIRE_SALE_THRESHOLD * quarterly_income){
         if (HOUSING_UNITS == 0) { HMARKET_ROLE = 0; } else { HMARKET_ROLE  = 1;}
         return 0;
     }
@@ -75,14 +72,11 @@ int household_housing_check_wealth()
  */
 int household_housing_enter_market()
 {
-    double mortgage_costs;
     double income;
     
     income = LABOUR_INCOME + CAPITAL_INCOME;
     
-    mortgage_costs = MORTGAGE_COSTS[0] + MORTGAGE_COSTS[1] + MORTGAGE_COSTS[2];
-    
-    add_buy_housing_message(ID, BANK_ID, LIQUIDITY, income, mortgage_costs);
+    add_buy_housing_message(ID, BANK_ID, LIQUIDITY, income, HOUSING_PAYMENT);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -106,7 +100,6 @@ int household_housing_buy()
     
     if (mortgage_used + liquidity_spent > 0){
         HOUSING_UNITS += 1;
-        MORTGAGES += mortgage_used + liquidity_spent;
     }
     
     if (liquidity_spent > 0){
@@ -119,10 +112,9 @@ int household_housing_buy()
         
         quarterly_interest = mortgage_used * MORTGAGES_INTEREST_RATE / 4;
         quarterly_principal = (mortgage_used / annuity) - quarterly_interest;
-        
         // update mortgages array.
-        
         add_mortgage(&MORTGAGES_LIST, BANK_ID, mortgage_used, 160, quarterly_interest, quarterly_principal);
+        MORTGAGES += mortgage_used;
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -184,26 +176,37 @@ int household_housing_collect_sale_revenue()
     sale_price = sold_housing_message->price_sold;
     FINISH_SOLD_HOUSING_MESSAGE_LOOP
     
-    if (sold == 0){
-        return 0;
-    }
+    if (sold == 0){ return 0; }
     
     int ind;
     mortgage mort;
     init_mortgage(&mort);
-    double new_principle;
-    double new_quarterly_interest;
-    double new_quarterly_principal;
-    double annuity;
-    double d1, d2;
     
-    HOUSING_UNITS -= 1;
-    
+    // In current implementation sold = 1;
+    HOUSING_UNITS -= sold;
+    // Latest mortgage is sold.
+    ind = MORTGAGES_LIST.size - 1;
+    mort = MORTGAGES_LIST.array[ind];
+    MORTGAGES -= mort.principal;
+    // If the sale is lower than the principal amount. The liquid asset is used.
+    add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
+    LIQUIDITY += sale_price - mort.principal;
+    remove_mortgage(&MORTGAGES_LIST, ind);
+    free_mortgage(&mort);
+    return 0;
+
+    /* The process below can be applied for finer managemnt of money from hoouse sails.
+     double new_principle;
+     double new_quarterly_interest;
+     double new_quarterly_principal;
+     double annuity;
+     double d1, d2;
+     
     //Regular seller:
     if (HMARKET_ROLE == 2){
         ind = MORTGAGES_LIST.size - 1;
         mort = MORTGAGES_LIST.array[ind];
-        if (mort.principal < sale_price){
+        if (mort.principal <= sale_price){
             MORTGAGES -= mort.principal;
             LIQUIDITY += sale_price - mort.principal;
             add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
@@ -260,11 +263,11 @@ int household_housing_collect_sale_revenue()
         }
        remove_mortgage(&MORTGAGES_LIST, ind); 
     }
-    
     LIQUIDITY += sale_price;
-    
+
     free_mortgage(&mort);
-	return 0; /* Returning zero means the agent is not removed */
+	return 0;
+    */
 }
 
 /*
@@ -278,6 +281,8 @@ int household_housing_update_market_price()
     START_HOUSING_PRICE_MESSAGE_LOOP
     HOUSING_PRICE = housing_price_message->price;
 	FINISH_HOUSING_PRICE_MESSAGE_LOOP
+    
+    HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
     
     //printf("HousingMarket Household New Housing Price = %f\n", HOUSING_PRICE);
 	    
@@ -300,21 +305,24 @@ int household_housing_pay_mortgages()
     
     double total_interest_paid = 0;
     double total_principal_paid = 0;
-    double interest;
-    double principal;
-    while (size > 0) {
-        ind = size - 1;
+    double interest_paid;
+    double principal_paid;
+    
+    ind = 0;
+    while (ind < size) {
         mort = MORTGAGES_LIST.array[ind];
-        interest = mort.quarterly_interest / 3;
-        principal = mort.quarterly_principal / 3;
-        total_interest_paid += interest;
-        total_principal_paid += principal;
-        if ((total_interest_paid + total_principal_paid) > LIQUIDITY) {
-            break;
-        }
-        add_mortgage_payment_message(mort.bank_id, interest, principal);
-        size = ind;
+        interest_paid = mort.quarterly_interest / 3;
+        principal_paid = mort.quarterly_principal / 3;
+        total_interest_paid += interest_paid;
+        total_principal_paid += principal_paid;
+        //if ((total_interest_paid + total_principal_paid) > LIQUIDITY) {break;}
+        add_mortgage_payment_message(mort.bank_id, interest_paid, principal_paid);
+        add_mortgage(&MORTGAGES_LIST, BANK_ID, mort.principal - principal_paid, mort.quarters_left, mort.quarterly_interest, mort.quarterly_principal);
+        ind++;
     }
+    
+    //updates above added to the array, code snippet below remove redundant entries. No in place mutation is done.
+    for (ind = 0; ind < size; ind++) { remove_mortgage(&MORTGAGES_LIST, ind);}
     
     MORTGAGE_COSTS[2] = MORTGAGE_COSTS[1];
     MORTGAGE_COSTS[1] = MORTGAGE_COSTS[0];
@@ -323,13 +331,18 @@ int household_housing_pay_mortgages()
     MORTGAGES -= total_principal_paid;
     LIQUIDITY -= MORTGAGE_COSTS[0];
     
+    HOUSING_PAYMENT = 0;
+    for (ind = 0; ind < 3; ind++) {
+        HOUSING_PAYMENT += MORTGAGE_COSTS[ind];
+    }
+    
     free_mortgage(&mort);
 	return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
  * \fn: household_housing_debt_writeoff()
- * \brief: if household pays a significant amount of his to
+ * \brief: if household pays a significant amount of his income
  * to mortgages a debt write off occures and its mortgage
  * is restructured.
  */
@@ -337,6 +350,7 @@ int household_housing_debt_writeoff()
 {
     int size, ind;
     double total_income;
+    double pre_mortgages, writeoff;
     
     size = MORTGAGES_LIST.size;
     if (size == 0){ return 0;}
@@ -345,13 +359,12 @@ int household_housing_debt_writeoff()
     init_mortgage(&mort);
     
     double mortgage_costs = 0;
-    
-    while (size > 0) {
-        ind = size - 1;
+    ind = 0;
+    while (ind < size) {
         mort = MORTGAGES_LIST.array[ind];
         mortgage_costs += mort.quarterly_interest;
         mortgage_costs += mort.quarterly_principal;
-        size = ind;
+        ind++;
     }
     
     total_income = LABOUR_INCOME + CAPITAL_INCOME;
@@ -360,18 +373,27 @@ int household_housing_debt_writeoff()
         double quarterly_principal, quarterly_interest;
         double annuity, d1, d2;
         
-        for (ind = 0; ind < size; ind++){remove_mortgage(&MORTGAGES_LIST, ind);}
-        
+        pre_mortgages = MORTGAGES;
         MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income / MORTGAGES_INTEREST_RATE;
+        writeoff = pre_mortgages - MORTGAGES;
+        
+        for (ind = 0; ind < size; ind++){remove_mortgage(&MORTGAGES_LIST, ind);}
         
         d1 = MORTGAGES_INTEREST_RATE/4;
         d2 = d1 * pow((1 + d1), 160);
         annuity = 1/d1 - 1/d2;
         
         quarterly_interest = MORTGAGES * MORTGAGES_INTEREST_RATE / 4;
-        quarterly_principal = (MORTGAGES / annuity) - quarterly_interest;
+        quarterly_principal = MORTGAGES / annuity - quarterly_interest;
         
         add_mortgage(&MORTGAGES_LIST, BANK_ID, MORTGAGES, 160, quarterly_interest, quarterly_principal);
+        
+        //This holds as with current implementation all mortgages are acquired from the same bank.
+        add_mortgage_writeoff_message(BANK_ID, writeoff);
+
+        printf("Household ID = %d, has his debts written off -> # of mortgages = %d. Loss on Bank ID = %d amounts to %f \n", ID, size, BANK_ID, writeoff);
+        
+        
     }
     
     free_mortgage(&mort);
