@@ -107,6 +107,8 @@ int reagency_housing_process()
         quantity = sellers_list.array[0].quantity;
         id = sellers_list.array[0].seller_id;
         price = sellers_list.array[0].price;
+        
+        printf("Housing with a price of %f is being processed. \n", price);
         if (nsold == quantity){
             add_sold_housing_message(id, nsold, price);
             remove_hseller(&sellers_list, 0);
@@ -127,12 +129,13 @@ int reagency_housing_process()
         /* The household needs mortgage
          */
         
-        //No banks in the market is able to give mortgage credit.
+        /* No banks in the market is able to give mortgage credit. */
         if (banks_list.size == 0 ){
             remove_hbuyer(&buyers_list, 0);
             continue;
         }
-        /* Check lending possibility of the bank */
+        
+        /* Check available lending capacity of the bank */
         bank = buyers_list.array[0].bank_id;
         int i = 0;
         int flag = 0;
@@ -150,9 +153,9 @@ int reagency_housing_process()
         
         double equity = banks_list.array[i].equity;
 
-        // risky asssets before the market opened.
+        /* Risky asssets before the market has opened. */
         risk = banks_list.array[i].risky_assets;
-        // mortagages given so far at current round.
+        /* Mortagages given so far at current round. */
         risk += banks_list.array[i].amount_mortgaged;
         
         if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
@@ -162,11 +165,11 @@ int reagency_housing_process()
         }
         
         double mortgage_request = price - money;
-        // risk updated after new requested mortgage.
+        /* Risk is updated after the new requested mortgage. */
         risk += mortgage_request;
         
-        //The bank cannot mortgage this buyer but it may some others in the rest of
-        //the queue.
+        /* The bank cannot mortgage this buyer. But the bank may be able credit
+         some others in the rest of the queue. */
         if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
             remove_hbuyer(&buyers_list, 0);
             continue;
@@ -185,6 +188,7 @@ int reagency_housing_process()
         
         /* Mortgage used */
         add_bought_housing_message(id, money, mortgage_request, annuity);
+        printf("Household ID = %d has used %f amount of mortgage along with her %f amount of cash. \n", id, mortgage_request, money);
         remove_hbuyer(&buyers_list, 0);
         nsold++;
         //The risk of the bank is increased incrementally.

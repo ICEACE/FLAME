@@ -92,7 +92,7 @@ int household_housing_buy()
     liquidity_spent = 0;
     
     START_BOUGHT_HOUSING_MESSAGE_LOOP
-    //The message is filtered via xmml.
+    /* The message is filtered via xmml. */
     mortgage_used = bought_housing_message->mortgage_used;
     liquidity_spent = bought_housing_message->liquidity_spent;
     annuity = bought_housing_message->annuity;
@@ -306,23 +306,27 @@ int household_housing_pay_mortgages()
     double total_interest_paid = 0;
     double total_principal_paid = 0;
     double interest_paid;
-    double principal_paid;
+    double principal_paid, principal_left;
     
-    ind = 0;
-    while (ind < size) {
-        mort = MORTGAGES_LIST.array[ind];
+    for (int i = 0; i < size; i++) {
+        mort = MORTGAGES_LIST.array[i];
         interest_paid = mort.quarterly_interest / 3;
         principal_paid = mort.quarterly_principal / 3;
-        total_interest_paid += interest_paid;
-        total_principal_paid += principal_paid;
+        principal_left = mort.principal - principal_paid;
+        MORTGAGES_LIST.array[i].principal = principal_left;
         //if ((total_interest_paid + total_principal_paid) > LIQUIDITY) {break;}
         add_mortgage_payment_message(mort.bank_id, interest_paid, principal_paid);
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, mort.principal - principal_paid, mort.quarters_left, mort.quarterly_interest, mort.quarterly_principal);
-        ind++;
+        //add_mortgage(&MORTGAGES_LIST, BANK_ID, principal_left, mort.quarters_left, mort.quarterly_interest, mort.quarterly_principal);
+        total_interest_paid += interest_paid;
+        total_principal_paid += principal_paid;
     }
     
-    //updates above added to the array, code snippet below remove redundant entries. No in place mutation is done.
-    for (ind = 0; ind < size; ind++) { remove_mortgage(&MORTGAGES_LIST, ind);}
+    /* Updates are done for above entries. No in place mutation is done.
+    for (ind = 0; ind < size; ind++){
+        remove_mortgage(&MORTGAGES_LIST, ind);
+    }
+    */
+    
     
     MORTGAGE_COSTS[2] = MORTGAGE_COSTS[1];
     MORTGAGE_COSTS[1] = MORTGAGE_COSTS[0];
