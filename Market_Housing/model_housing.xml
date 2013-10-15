@@ -608,25 +608,16 @@
                     </condition>
                 </function>
                 <function>
-                    <name>reagency_housing_check_interest_rate</name>
-                    <description>It is the first day of the month.</description>
+                    <name>reagency_housing_process</name>
+                    <description>The agent collects requests and does the matchings.</description>
                     <currentState>REAgencyHousingMarket</currentState>
-                    <nextState>REAgencyHousingProcess</nextState>
+                    <nextState>REAgencyHousingSummary</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_to_act</phase>
                         </time>
                     </condition>
-                    <input>
-                        <messageName>interest_rate</messageName>
-                    </input>
-                </function>
-                <function>
-                    <name>reagency_housing_process</name>
-                    <description>The agent collects requests and does the matchings.</description>
-                    <currentState>REAgencyHousingProcess</currentState>
-                    <nextState>REAgencyHousingSummary</nextState>
                     <inputs>
                         <input>
                             <messageName>buy_housing</messageName>

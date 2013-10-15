@@ -263,9 +263,9 @@ digraph state_graph {
 	mall_MallConsumptionMarket [label = "MallConsumptionMarket"]
 	mall_start [label = "start"]
 	reagency_REAgencyHousingSummary [label = "REAgencyHousingSummary"]
-	reagency_REAgencyHousingProcess [label = "REAgencyHousingProcess"]
 	reagency_end [label = "end"]
 	reagency_REAgencyHousingMarket [label = "REAgencyHousingMarket"]
+	reagency_REAgencyCreditMarket [label = "REAgencyCreditMarket"]
 	reagency_start [label = "start"]
 	firm_idle_start_FirmInitPostId [label = "idle", shape = box,style=filled,color=antiquewhite];
 	firm_idle_start_FirmLoop [label = "idle", shape = box,style=filled,color=antiquewhite];
@@ -455,10 +455,11 @@ digraph state_graph {
 	mall_idle_MallConsumptionMarket_end [label = "idle", shape = box,style=filled,color=aquamarine];
 	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [label = "mall_consumption_shopping", shape = box,style=filled,color=aquamarine];
 	mall_mall_consumption_summary_MallConsumptionSummary_end [label = "mall_consumption_summary", shape = box,style=filled,color=aquamarine];
-	reagency_reagency_init_start_REAgencyHousingMarket [label = "reagency_init", shape = box,style=filled,color=antiquewhite];
+	reagency_reagency_init_start_REAgencyCreditMarket [label = "reagency_init", shape = box,style=filled,color=antiquewhite];
+	reagency_idle_REAgencyCreditMarket_REAgencyHousingMarket [label = "idle", shape = box,style=filled,color=chartreuse1];
+	reagency_reagency_check_interest_rate_REAgencyCreditMarket_REAgencyHousingMarket [label = "reagency_check_interest_rate", shape = box,style=filled,color=chartreuse1];
 	reagency_idle_REAgencyHousingMarket_end [label = "idle", shape = box,style=filled,color=orchid1];
-	reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess [label = "reagency_housing_check_interest_rate", shape = box,style=filled,color=orchid1];
-	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [label = "reagency_housing_process", shape = box,style=filled,color=orchid1];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [label = "reagency_housing_process", shape = box,style=filled,color=orchid1];
 	reagency_reagency_housing_summary_REAgencyHousingSummary_end [label = "reagency_housing_summary", shape = box,style=filled,color=orchid1];
 	
 	/* Transitions */
@@ -838,24 +839,26 @@ digraph state_graph {
 	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> mall_MallConsumptionSummary;
 	mall_MallConsumptionSummary -> mall_mall_consumption_summary_MallConsumptionSummary_end;
 	mall_mall_consumption_summary_MallConsumptionSummary_end -> mall_end;
-	reagency_start -> reagency_reagency_init_start_REAgencyHousingMarket;
-	reagency_reagency_init_start_REAgencyHousingMarket -> reagency_REAgencyHousingMarket;
+	reagency_start -> reagency_reagency_init_start_REAgencyCreditMarket;
+	reagency_reagency_init_start_REAgencyCreditMarket -> reagency_REAgencyCreditMarket;
+	reagency_REAgencyCreditMarket -> reagency_idle_REAgencyCreditMarket_REAgencyHousingMarket [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
+	reagency_idle_REAgencyCreditMarket_REAgencyHousingMarket -> reagency_REAgencyHousingMarket;
+	reagency_REAgencyCreditMarket -> reagency_reagency_check_interest_rate_REAgencyCreditMarket_REAgencyHousingMarket [ label = "Periodicity: quarterly\nPhase: 1"];
+	reagency_reagency_check_interest_rate_REAgencyCreditMarket_REAgencyHousingMarket -> reagency_REAgencyHousingMarket;
 	reagency_REAgencyHousingMarket -> reagency_idle_REAgencyHousingMarket_end [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
 	reagency_idle_REAgencyHousingMarket_end -> reagency_end;
-	reagency_REAgencyHousingMarket -> reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
-	reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess -> reagency_REAgencyHousingProcess;
-	reagency_REAgencyHousingProcess -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary;
-	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> reagency_REAgencyHousingSummary;
+	reagency_REAgencyHousingMarket -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> reagency_REAgencyHousingSummary;
 	reagency_REAgencyHousingSummary -> reagency_reagency_housing_summary_REAgencyHousingSummary_end;
 	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> reagency_end;
 	
 	/* Communications */
-	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "mortgaging_capacity" color="#00ff00" constraint=false];
-	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
-	household_household_housing_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
-	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
-	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain -> reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary [ label = "buy_housing" color="#00ff00" constraint=false];
-	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess [ label = "interest_rate" color="#00ff00" constraint=false];
+	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "mortgaging_capacity" color="#00ff00" constraint=false];
+	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
+	household_household_housing_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
+	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
+	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "buy_housing" color="#00ff00" constraint=false];
+	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> reagency_reagency_check_interest_rate_REAgencyCreditMarket_REAgencyHousingMarket [ label = "interest_rate" color="#00ff00" constraint=false];
 	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods -> mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ label = "buy" color="#00ff00" constraint=false];
 	firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales -> mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ label = "sell" color="#00ff00" constraint=false];
 	household_household_labour_employment_application_HHLabourStage1Applications_HHLabourStage1Placement -> jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end [ label = "job_application_stage2" color="#00ff00" constraint=false];
@@ -878,7 +881,7 @@ digraph state_graph {
 	household_household_housing_debt_writeoff_HHHousingWriteOff_HouseholdUpdateDeposits -> bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits [ label = "mortgage_writeoff" color="#00ff00" constraint=false];
 	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff -> bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff [ label = "mortgage_payment" color="#00ff00" constraint=false];
 	household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice -> bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages [ label = "mortgage_payment_from_sale" color="#00ff00" constraint=false];
-	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales [ label = "mortgage_requests" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales [ label = "mortgage_requests" color="#00ff00" constraint=false];
 	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket [ label = "interest_rate" color="#00ff00" constraint=false];
 	firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments -> bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate [ label = "interest_on_loan" color="#00ff00" constraint=false];
 	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart -> bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests [ label = "new_entrant_loan" color="#00ff00" constraint=false];
@@ -898,8 +901,8 @@ digraph state_graph {
 	firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck -> equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares [ label = "fund_request" color="#00ff00" constraint=false];
 	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> equityfund_equityfund_audit_dividends_EFLabourMarket_end [ label = "employment_status" color="#00ff00" constraint=false];
 	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments [ label = "housing_price" color="#00ff00" constraint=false];
-	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> household_household_housing_buy_HHHousingBargain_HHHousingPrice [ label = "bought_housing" color="#00ff00" constraint=false];
-	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> household_household_housing_buy_HHHousingBargain_HHHousingPrice [ label = "bought_housing" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
 	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax -> household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [ label = "unemployment_benefit" color="#00ff00" constraint=false];
 	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits -> household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [ label = "general_benefit" color="#00ff00" constraint=false];
 	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly [ label = "labour_tax_rate" color="#00ff00" constraint=false];
@@ -911,7 +914,7 @@ digraph state_graph {
 	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart [ label = "bought" color="#00ff00" constraint=false];
 	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop -> household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet [ label = "jpoffice_household_employer" color="#00ff00" constraint=false];
 	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits [ label = "housing_price" color="#00ff00" constraint=false];
-	reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary -> firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
 	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck [ label = "labour_tax_rate" color="#00ff00" constraint=false];
 	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate [ label = "interest_rate" color="#00ff00" constraint=false];
 	equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares -> firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy [ label = "fund_request_ack" color="#00ff00" constraint=false];
@@ -924,8 +927,8 @@ digraph state_graph {
 	mall_mall_consumption_summary_MallConsumptionSummary_end -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart [ label = "goods_transactions_summary" color="#00ff00" constraint=false];
 	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice [ label = "sold" color="#00ff00" constraint=false];
 	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop -> firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet [ label = "jpoffice_firm_employee" color="#00ff00" constraint=false];
-	{ rank=same; layer_0;  firm_idle_start_FirmInitPostId;  firm_idle_start_FirmLoop;  household_idle_start_HouseholdInitPostId;  household_idle_start_HouseholdLoop;  equityfund_equityfund_init_start_EquityFundStart;  bank_idle_start_BankInitLoans;  bank_idle_start_BankLoop;  government_government_init_start_GovernmentStart;  centralbank_idle_start_CentralBankInitBalanceSheet;  centralbank_idle_start_CentralBankLoop;  jpoffice_idle_start_JPOfficeInitEmployment;  jpoffice_idle_start_JPOfficeLoop;  mall_mall_init_start_MallConsumptionMarket;  reagency_reagency_init_start_REAgencyHousingMarket; }
-	{ rank=same; layer_1;  firm_firm_init_post_id_FirmInitPostId_FirmInitEmployment;  household_household_init_post_id_HouseholdInitPostId_HouseholdInitEmployment;  equityfund_idle_EquityFundStart_EFLabourMarket;  government_idle_GovernmentStart_GovernmentMonthly;  mall_idle_MallConsumptionMarket_end;  reagency_idle_REAgencyHousingMarket_end; }
+	{ rank=same; layer_0;  firm_idle_start_FirmInitPostId;  firm_idle_start_FirmLoop;  household_idle_start_HouseholdInitPostId;  household_idle_start_HouseholdLoop;  equityfund_equityfund_init_start_EquityFundStart;  bank_idle_start_BankInitLoans;  bank_idle_start_BankLoop;  government_government_init_start_GovernmentStart;  centralbank_idle_start_CentralBankInitBalanceSheet;  centralbank_idle_start_CentralBankLoop;  jpoffice_idle_start_JPOfficeInitEmployment;  jpoffice_idle_start_JPOfficeLoop;  mall_mall_init_start_MallConsumptionMarket;  reagency_reagency_init_start_REAgencyCreditMarket; }
+	{ rank=same; layer_1;  firm_firm_init_post_id_FirmInitPostId_FirmInitEmployment;  household_household_init_post_id_HouseholdInitPostId_HouseholdInitEmployment;  equityfund_idle_EquityFundStart_EFLabourMarket;  government_idle_GovernmentStart_GovernmentMonthly;  mall_idle_MallConsumptionMarket_end;  reagency_idle_REAgencyCreditMarket_REAgencyHousingMarket; }
 	{ rank=same; layer_2;  jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop; }
 	{ rank=same; layer_3;  firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet;  household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet;  jpoffice_jpoffice_iterate_JPOfficeLoop_JPOLabourMarket; }
 	{ rank=same; layer_4;  firm_firm_init_balancesheet_FirmInitBalanceSheet_FirmLoop;  household_household_init_balancesheet_HouseholdInitBalanceSheet_HouseholdLoop;  jpoffice_idle_JPOLabourMarket_end; }
@@ -941,8 +944,8 @@ digraph state_graph {
 	{ rank=same; layer_14;  firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2;  centralbank_centralbank_compute_income_statement_CentralBankIncomeStatement_CentralBankBalanceSheet; }
 	{ rank=same; layer_15;  firm_idle_FirmCreditLoanBorrow2_FirmCreditPayments;  bank_bank_credit_process_loan_requests_2_BankCreditRequest2_BankCreditLoanWriteOffs;  centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankInterestRate; }
 	{ rank=same; layer_16;  firm_firm_credit_borrow_loans_2_FirmCreditLoanBorrow2_FirmCreditIlliquidityStatus;  centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour; }
-	{ rank=same; layer_17;  firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments;  firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck;  centralbank_idle_CentralBankLabour_CentralBankConsumption;  reagency_reagency_housing_check_interest_rate_REAgencyHousingMarket_REAgencyHousingProcess; }
-	{ rank=same; layer_18;  firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments;  equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares; }
+	{ rank=same; layer_17;  firm_idle_FirmCreditIlliquidityStatus_FirmCreditPayments;  firm_firm_credit_request_equityfund_investment_FirmCreditIlliquidityStatus_FirmCreditLiquidityRecheck;  centralbank_idle_CentralBankLabour_CentralBankConsumption;  reagency_reagency_check_interest_rate_REAgencyCreditMarket_REAgencyHousingMarket; }
+	{ rank=same; layer_18;  firm_idle_FirmCreditLiquidityRecheck_FirmCreditPayments;  equityfund_equityfund_credit_invest_illiquids_EquityFundStart_EFCreditDistributeShares;  reagency_idle_REAgencyHousingMarket_end; }
 	{ rank=same; layer_19;  firm_firm_credit_check_equityfund_investment_FirmCreditLiquidityRecheck_FirmCreditBankruptcy;  equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks; }
 	{ rank=same; layer_20;  firm_idle_FirmCreditBankruptcy_FirmCreditPayments;  firm_firm_credit_illiquidity_bankrupt_FirmCreditBankruptcy_FirmCreditBalanceSheet;  household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet;  equityfund_equityfund_credit_collect_bank_shares_EFCreditShareCollectionBanks_EFCreditShareCollectionFirms;  government_government_collect_capital_tax_GovernmentStart_GovernmentCentralbankProfits; }
 	{ rank=same; layer_21;  firm_firm_credit_pay_interest_on_loans_FirmCreditPayments_FirmCreditDividendPayments;  household_household_credit_do_balance_sheet_HHCreditBalanceSheet_HHCreditCheckInterestRate;  government_government_collect_centralbank_profit_GovernmentCentralbankProfits_GovernmentIncomeStatement; }
@@ -976,7 +979,7 @@ digraph state_graph {
 	{ rank=same; layer_49;  firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart;  household_idle_HHHousingStart_HouseholdUpdateDeposits;  household_household_housing_market_role_HHHousingStart_HHHousingRole;  centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing; }
 	{ rank=same; layer_50;  firm_idle_FirmHousingStart_FirmUpdateDeposits;  firm_idle_FirmHousingStart_FirmHousingMarket;  household_idle_HHHousingRole_HHHousingPrice;  household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth;  household_household_housing_sell_HHHousingRole_HHHousingRevenue;  household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue;  centralbank_idle_CentralBankHousing_end; }
 	{ rank=same; layer_51;  firm_idle_FirmHousingMarket_FirmUpdateDeposits;  firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell;  household_idle_HHHousingCheckWealth_HHHousingPrice;  household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain; }
-	{ rank=same; layer_52;  reagency_reagency_housing_process_REAgencyHousingProcess_REAgencyHousingSummary; }
+	{ rank=same; layer_52;  reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; }
 	{ rank=same; layer_53;  firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice;  household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice;  household_household_housing_buy_HHHousingBargain_HHHousingPrice;  bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales;  reagency_reagency_housing_summary_REAgencyHousingSummary_end; }
 	{ rank=same; layer_54;  firm_firm_housing_update_market_price_FirmHousingPrice_FirmUpdateDeposits;  household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments;  bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages;  centralbank_centralbank_trace_housing_prices_CentralBankHousing_end; }
 	{ rank=same; layer_55;  firm_idle_FirmUpdateDeposits_end;  firm_firm_update_bank_account_FirmUpdateDeposits_end;  household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff; }

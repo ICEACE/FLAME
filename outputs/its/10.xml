@@ -27363,7 +27363,7 @@
 <day_of_week_to_act>0</day_of_week_to_act>
 <goods>{85604, 0.005642}</goods>
 <weekly_price_averages>{0.005600, 0.005600, 0.005642, 0.005642}</weekly_price_averages>
-<interest_rate>0.020000</interest_rate>
+<interest_rate>0.005000</interest_rate>
 <liquidity>216422.650000</liquidity>
 <loans_banks>197807.769667</loans_banks>
 <loans_government>0.000000</loans_government>

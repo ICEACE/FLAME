@@ -3,21 +3,6 @@
 #include "../library_header.h"
 #include <math.h> 
 
-/*
- * \fn: int reagency_housing_check_interest_rate()
- * \brief:
- */
-int reagency_housing_check_interest_rate()
-{
-    
-    START_INTEREST_RATE_MESSAGE_LOOP
-    MORTGAGES_INTEREST_RATE = interest_rate_message->rate + 0.02;
-	FINISH_INTEREST_RATE_MESSAGE_LOOP
-    
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
-
 
 /*
  * \fn: int reagency_housing_process()
@@ -53,23 +38,23 @@ int reagency_housing_process()
     
     /* Queue the households */
     int bank;
-    double money, income, mortgage;
+    double cash, income, mortgage;
     START_BUY_HOUSING_MESSAGE_LOOP
         id = buy_housing_message->buyer_id;
         bank = buy_housing_message->bank_id;
-        money = buy_housing_message->liquidity;
+        cash = buy_housing_message->liquidity;
         income = buy_housing_message->quarterly_income;
         mortgage = buy_housing_message->quarterly_mortgage_paid;
-        add_hbuyer(&buyers_list,id,bank,money,income, mortgage);
+        add_hbuyer(&buyers_list,id,bank,cash,income, mortgage);
 	FINISH_BUY_HOUSING_MESSAGE_LOOP
     
     /* Queue the banks */
     double risk;
     START_MORTGAGING_CAPACITY_MESSAGE_LOOP
         id = mortgaging_capacity_message->bank_id;
-        money = mortgaging_capacity_message->equity;
+        cash = mortgaging_capacity_message->equity;
         risk = mortgaging_capacity_message->risky_assets;
-        add_hbank(&banks_list, id, money, risk, 0);
+        add_hbank(&banks_list, id, cash, risk, 0);
 	FINISH_MORTGAGING_CAPACITY_MESSAGE_LOOP
     
     
@@ -108,7 +93,6 @@ int reagency_housing_process()
         id = sellers_list.array[0].seller_id;
         price = sellers_list.array[0].price;
         
-        printf("Housing with a price of %f is being processed. \n", price);
         if (nsold == quantity){
             add_sold_housing_message(id, nsold, price);
             remove_hseller(&sellers_list, 0);
@@ -118,8 +102,8 @@ int reagency_housing_process()
             continue;
         }
         id = buyers_list.array[0].buyer_id;
-        money = buyers_list.array[0].liquidity;
-        if (money >= price) {
+        cash = buyers_list.array[0].liquidity;
+        if (cash >= price) {
             add_bought_housing_message(id, price, 0, 0);
             nsold++;
             remove_hbuyer(&buyers_list, 0);
@@ -164,7 +148,13 @@ int reagency_housing_process()
             continue;
         }
         
-        double mortgage_request = price - money;
+        double mortgage_request = 0;
+        if (cash > 0) {
+            mortgage_request = price - cash;
+        } else {
+            mortgage_request = price;
+        }
+        
         /* Risk is updated after the new requested mortgage. */
         risk += mortgage_request;
         
@@ -186,9 +176,11 @@ int reagency_housing_process()
             continue;
         }
         
-        /* Mortgage used */
-        add_bought_housing_message(id, money, mortgage_request, annuity);
-        printf("Household ID = %d has used %f amount of mortgage along with her %f amount of cash. \n", id, mortgage_request, money);
+        /* Mortgage is used. Cash at hand by household while enetering the market
+         assumed to be non-negative.
+         */
+        add_bought_housing_message(id, cash, mortgage_request, annuity);
+        printf("Household ID = %d has used %f amount of mortgage along with her %f amount of cash. \n", id, mortgage_request, cash);
         remove_hbuyer(&buyers_list, 0);
         nsold++;
         //The risk of the bank is increased incrementally.
@@ -202,9 +194,9 @@ int reagency_housing_process()
         transaction_volume += nsold * price;
     }
     
+    HOUSING_TRANSACTIONS.quantity = transaction_quantity;
     if (transaction_quantity > 0) {
-        HOUSING_TRANSACTIONS.quantity = transaction_quantity;
-        HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;        
+        HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
     }
         
     /* Garbage Collection */

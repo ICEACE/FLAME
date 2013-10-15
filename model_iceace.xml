@@ -795,7 +795,7 @@
                     <name>reagency_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>REAgencyHousingMarket</nextState>
+                    <nextState>REAgencyCreditMarket</nextState>
                 </function>
             </functions>
         </xagent>

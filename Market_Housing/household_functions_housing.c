@@ -49,7 +49,7 @@ int household_housing_check_wealth()
     //Capital incomes CAPITAL_INCOME are liquidified as sooon as they are recieved.
     wealth = LIQUIDITY + HOUSING_VALUE;
     
-    printf("Household: %d Equity %f, Liquidity = %f, Housing Value = %f, Wealth = %f \n", ID, EQUITY, LIQUIDITY, HOUSING_VALUE, wealth);
+    printf("Household: %d Mortgages %f, Liquidity = %f, Housing Value = %f \n", ID, MORTGAGES, LIQUIDITY, HOUSING_VALUE);
     
     if (wealth == 0){
         EQUITY_RATIO = 0;
@@ -72,11 +72,16 @@ int household_housing_check_wealth()
  */
 int household_housing_enter_market()
 {
-    double income;
+    double income, cash;
     
     income = LABOUR_INCOME + CAPITAL_INCOME;
     
-    add_buy_housing_message(ID, BANK_ID, LIQUIDITY, income, HOUSING_PAYMENT);
+    if (LIQUIDITY > 0) {
+        cash = LIQUIDITY;
+    } else {
+        cash = 0;
+    }
+    add_buy_housing_message(ID, BANK_ID, cash, income, HOUSING_PAYMENT);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -171,24 +176,29 @@ int household_housing_collect_sale_revenue()
     int sold = 0;
     
     START_SOLD_HOUSING_MESSAGE_LOOP
-    //The message is filtered via xmml.
+    /*The message is filtered via xmml. */
     sold = sold_housing_message->quantity_sold;
     sale_price = sold_housing_message->price_sold;
     FINISH_SOLD_HOUSING_MESSAGE_LOOP
     
     if (sold == 0){ return 0; }
+    /* In current implementation sold = 1 */
+    HOUSING_UNITS -= sold;
+    
+    if (MORTGAGES_LIST.size == 0) {
+        LIQUIDITY += sale_price;
+        return 0;
+    }
     
     int ind;
     mortgage mort;
     init_mortgage(&mort);
     
-    // In current implementation sold = 1;
-    HOUSING_UNITS -= sold;
-    // Latest mortgage is sold.
+    /* The most recent mortgage is sold. */
     ind = MORTGAGES_LIST.size - 1;
     mort = MORTGAGES_LIST.array[ind];
     MORTGAGES -= mort.principal;
-    // If the sale is lower than the principal amount. The liquid asset is used.
+    /* If the sale is lower than the principal amount, the liquid asset is to be used. */
     add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
     LIQUIDITY += sale_price - mort.principal;
     remove_mortgage(&MORTGAGES_LIST, ind);
@@ -276,16 +286,13 @@ int household_housing_collect_sale_revenue()
  */
 int household_housing_update_market_price()
 {
-    //printf("HousingMarket Household Old Housing Price = %f\n", HOUSING_PRICE);
- 
+    
     START_HOUSING_PRICE_MESSAGE_LOOP
     HOUSING_PRICE = housing_price_message->price;
 	FINISH_HOUSING_PRICE_MESSAGE_LOOP
     
     HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
     
-    //printf("HousingMarket Household New Housing Price = %f\n", HOUSING_PRICE);
-	    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

@@ -18,18 +18,18 @@ int centralbank_set_interest_rate()
     }
     price_avg = prices / 4;
     
-    for(i = 0; i < 11; i++){
-        CONSUMPTION_GOODS_PRICES[i] = CONSUMPTION_GOODS_PRICES[i+1];
+    for(i = 11; i > 0; i--){
+        CONSUMPTION_GOODS_PRICES[i] = CONSUMPTION_GOODS_PRICES[i-1];
     }
-    CONSUMPTION_GOODS_PRICES[11] = price_avg;
+    CONSUMPTION_GOODS_PRICES[0] = price_avg;
     
     double inflation, rcb;
     
-    if (CONSUMPTION_GOODS_PRICES[0] == 0) {
-        inflation = CONSUMPTION_GOODS_PRICES[11];
+    if (CONSUMPTION_GOODS_PRICES[11] == 0) {
+        inflation = CONSUMPTION_GOODS_PRICES[0];
     }
     else {
-    inflation = (CONSUMPTION_GOODS_PRICES[11] - CONSUMPTION_GOODS_PRICES[0]) / CONSUMPTION_GOODS_PRICES[0];
+    inflation = (CONSUMPTION_GOODS_PRICES[0] - CONSUMPTION_GOODS_PRICES[11]) / CONSUMPTION_GOODS_PRICES[11];
     }
     
     // Taylors Rule:
@@ -37,9 +37,11 @@ int centralbank_set_interest_rate()
     rcb += (inflation - INFLATION_TARGET) / 2;
     rcb -=  UNEMPLOYMENT_RATE / 2;
     
-    if (rcb < 0.005){ rcb = 0.005;}
+    if (rcb < 0.005){rcb = 0.005;}
     
-    add_interest_rate_message(rcb);
+    INTEREST_RATE = rcb;
+    
+    add_interest_rate_message(INTEREST_RATE);
 
 	return 0; /* Returning zero means the agent is not removed */
 }

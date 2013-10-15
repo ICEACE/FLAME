@@ -50,6 +50,7 @@
             <file>bank_functions_credit.c</file>
             <file>centralbank_functions_credit.c</file>
             <file>equityfund_functions_credit.c</file>
+            <file>reagency_functions_credit.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -108,6 +109,39 @@
     </environment>
 	<!-- List of agents -->
     <agents>
+        <xagent>
+            <name>reagency</name>
+            <description>Real Estate Agency.</description>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the start of a quarter.</description>
+                    <currentState>REAgencyCreditMarket</currentState>
+                    <nextState>REAgencyHousingMarket</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>reagency_check_interest_rate</name>
+                    <description>It checks interest rate.</description>
+                    <currentState>REAgencyCreditMarket</currentState>
+                    <nextState>REAgencyHousingMarket</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <input>
+                        <messageName>interest_rate</messageName>
+                    </input>
+                </function>
+            </functions>
+        </xagent>
         <xagent>
             <name>firm</name>
             <description>A firm agent.</description>

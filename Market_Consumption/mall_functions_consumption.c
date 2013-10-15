@@ -155,10 +155,10 @@ int mall_consumption_shopping()
     }
     
 
-    //indeed keeps unsold quantities.
+    /* Indeed keeps unsold quantities. */
     total_sold = 0;
     quantity = 0;
-    // Send out revenue information.
+    /* Send out revenue information. */
     for (i =0; i < sellers_list.size; i++) {
         firm_id = sellers_list.array[i].id;
         quantity = sellers_list.array[i].inventory;
@@ -166,7 +166,7 @@ int mall_consumption_shopping()
         total_sold += quantity;
     }
     quantity = 0;
-    // Send out goods information.
+    /* Send out goods information. */
     for (i =0; i < buyers_list.size; i++) {
         hh_id = buyers_list.array[i].id;
         budget = buyers_list.array[i].budget;
@@ -174,10 +174,9 @@ int mall_consumption_shopping()
         add_bought_message(hh_id, budget, quantity);
     }
     
-    // Finish
-    //printf("Mall: Total Goods Not Sold= %d\n", total_sold);
+    /* Finish */
+    GOODS_TRANSACTIONS.quantity = transaction_quantity;
     if (transaction_quantity > 0) {
-        GOODS_TRANSACTIONS.quantity = transaction_quantity;
         GOODS_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
     }
     
