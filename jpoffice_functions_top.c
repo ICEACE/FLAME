@@ -8,7 +8,7 @@
  */
 int jpoffice_init_employment()
 {
-    // Initialize
+    /* Initialize */
     
     /* Allocate firms and household arrays. */
     int_array household_list;
@@ -21,13 +21,13 @@ int jpoffice_init_employment()
     int nemployed = 0;
     int i,j;
     
-    /* initialize */
+    /* initialize arrays */
     init_int_array(&household_list);
     init_int_array(&regular_firm_list);
     init_int_array(&constructor_firm_list);
     
     
-    // Collect households
+    /* Collect household IDs */
     START_HOUSEHOLD_JPOFFICE_ID_MESSAGE_LOOP
     household_id = household_jpoffice_id_message->household_id;
     add_int(&household_list, household_id);
@@ -42,7 +42,7 @@ int jpoffice_init_employment()
         return 0;
     }
     
-    // Collect firms
+    /* Collect firm IDs */
     START_FIRM_JPOFFICE_ID_MESSAGE_LOOP
     firm_id = firm_jpoffice_id_message->firm_id;
     firm_type = firm_jpoffice_id_message->isconstructor;
@@ -69,7 +69,9 @@ int jpoffice_init_employment()
     /* Each constructor is assigned one employee */
     for (i = 0; i < ncfirms; i++) {
         if (nemployed > employment_size) {
-            printf("Experiment Error: There are more constructor firms then employable number of households.");
+            if (PRINT_DEBUG_MODE) {
+                printf("Experiment Error: There are more constructor firms then employable number of households.");
+            }
             free_int_array(&household_list);
             free_int_array(&regular_firm_list);
             free_int_array(&constructor_firm_list);
@@ -86,7 +88,9 @@ int jpoffice_init_employment()
     /* Each regular firm is assigned one employee */
     for (i = 0; i < nrfirms; i++) {
         if (nemployed > employment_size) {
-            printf("Experiment Error: There are more firms then employable number of households.");
+            if (PRINT_DEBUG_MODE) {
+                printf("Experiment Error: There are more firms then employable number of households.");
+            }
             free_int_array(&household_list);
             free_int_array(&regular_firm_list);
             free_int_array(&constructor_firm_list);
@@ -105,7 +109,9 @@ int jpoffice_init_employment()
         firm_id = constructor_firm_list.array[0];
         for (j = 1; j < constructor_firm_size; j++) {
             if (nemployed > employment_size) {
-                printf("Experiment Warning: Household shortage is observed at assigning additional labour to constructor firms.");
+                if (PRINT_DEBUG_MODE) {
+                   printf("Experiment Warning: Household shortage is observed at assigning additional labour to constructor firms."); 
+                }
                 free_int_array(&household_list);
                 free_int_array(&regular_firm_list);
                 free_int_array(&constructor_firm_list);
@@ -138,8 +144,11 @@ int jpoffice_init_employment()
         nemployed++;
     } while (1);
     
-    printf("No of total employement %d\n", nemployed);
-    // Finish
+    if (PRINT_DEBUG_MODE) {
+        printf("No of total employement %d\n", nemployed);
+    }
+    
+    /* Finish */
     free_int_array(&household_list);
     free_int_array(&regular_firm_list);
     free_int_array(&constructor_firm_list);

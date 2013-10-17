@@ -27,7 +27,18 @@
         </model>
     </models>
     <environment>
-        <constants/>
+        <constants>
+            <variable>
+                <type>int</type>
+                <name>print_debug_mode</name>
+                <description>Flag, 0 or 1.  To record simulation process stages and selected states for debugging purposes, thid needs to be set to 1.</description>
+            </variable>
+            <variable>
+                <type>int</type>
+                <name>data_collection_mode</name>
+                <description>Flag, 0 or 1. To record simulation data, it needs to be set to 1.</description>
+            </variable>
+        </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
             <file>library_functions.c</file>
@@ -615,7 +626,12 @@
                 <variable>
                     <type>double</type>
                     <name>unemployment_rate</name>
-                    <description>Unemployment rate. It is updated monthly</description>
+                    <description>Unemployment rate. It is updated monthly.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>inflation_rate</name>
+                    <description>inflation rate. It is updated quarterly.</description>
                 </variable>
                 <variable>
                     <type>double</type>

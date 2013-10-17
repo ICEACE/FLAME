@@ -87,14 +87,14 @@
                     <description>Capital productivity in construction sector.</description>
                 </variable>
                 <variable>
-                    <type>double</type>
-                    <name>capital_construction</name>
-                    <description>Upper amount of constraction capital in housing.</description>
+                    <type>int</type>
+                    <name>physical_capital_construction</name>
+                    <description>Physical capital owned by a construction firm in units.</description>
                 </variable>
                 <variable>
-                    <type>double</type>
+                    <type>int</type>
                     <name>physical_capital</name>
-                    <description>physical capital owned by a firm.</description>
+                    <description>Physical capital owned by a regular firm in units.</description>
                 </variable>
                 <variable>
                     <type>int</type>

@@ -12,13 +12,14 @@ int firm_consumption_supply()
         return 0;
     }
     
-    printf("Firm Id = %d at Consumption Market\n", ID);
     if (UNIT_GOODS_PRICE == 0) {
         return 0;
     }
     if (INVENTORY > 0) {
         add_sell_message(ID, UNIT_GOODS_PRICE, INVENTORY);
-        printf("Firm Id = %d Sends = %d Goods to Mall with a price = %f\n", ID, INVENTORY, UNIT_GOODS_PRICE);
+        if (PRINT_DEBUG_MODE) {
+         printf("Firm Id = %d Sends = %d Goods to Mall with a price = %f\n", ID, INVENTORY, UNIT_GOODS_PRICE);   
+        }
     }
 
 	return 0; /* Returning zero means the agent is not removed */
@@ -37,19 +38,19 @@ int firm_consumption_recieve_sales()
     START_SOLD_MESSAGE_LOOP
     quantity_sold = INVENTORY - sold_message->unsold_quantities;
     weekly_sales_income = quantity_sold * UNIT_GOODS_PRICE;
-    
-    //update inventory.
+    /* Updating the inventory. */
     INVENTORY = sold_message->unsold_quantities;
-    
-    //update sales.
+    /* Updating the sales. */
     SALES += quantity_sold;
-    
 	FINISH_SOLD_MESSAGE_LOOP
     
     LIQUIDITY += weekly_sales_income;
     REVENUES += weekly_sales_income;
     
-    //printf("Firm Id = %d Quantity Sold = %d Weekly Revenue = %f\n", ID, quantity_sold, weekly_sales_income);
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d Quantity Sold = %d Weekly Revenue = %f\n", ID, quantity_sold, weekly_sales_income);
+    }
+
     
 	return 0; /* Returning zero means the agent is not removed */
 }

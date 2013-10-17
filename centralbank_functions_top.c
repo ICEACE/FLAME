@@ -29,27 +29,22 @@ int centralbank_init_balancesheet()
  */
 int centralbank_iterate()
 {
-	// Read from memory
-	//printf("Central Bank Id = %d\n", ID);
-    char * filename;
-    FILE * file1;
-    
-    filename = malloc(40*sizeof(char));
-    filename[0]=0;
-    strcpy(filename, "./outputs/data/CentralBank_snapshot.txt");
-    if (IT_NO == 0) {
-        file1 = fopen(filename,"w");
-        fprintf(file1,"%s %s %s\n","IT_NO","ID","INTEREST_RATE");
-        fclose(file1);
-        free(filename);
-        IT_NO++;
-        return 0;
+    if (DATA_COLLECTION_MODE) {
+        if (IT_NO == 0) {
+            char * filename;
+            FILE * file1;
+            
+            /* @/fn: centralbank_do_balance_sheet() */
+            filename = malloc(40*sizeof(char));
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/CentralBank_snapshot.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "INTEREST_RATE", "INFLATION_RATE", "REVENUES", "TOTAL_COSTS", "NET_EARNINGS", "TOTAL_ASSETS", "LIQUIDITY", "LOANS_BANKS", "LOANS_GOVERNMENT", "EQUITY","FIAT_MONEY", "LIQUIDITY_BANKS", "LIQUIDITY_GOVERNMENT");
+            fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, INTEREST_RATE, INFLATION_RATE, REVENUES, TOTAL_COSTS, NET_EARNINGS, TOTAL_ASSETS, LIQUIDITY, LOANS_BANKS, LOANS_GOVERNMENT, EQUITY,FIAT_MONEY, LIQUIDITY_BANKS, LIQUIDITY_GOVERNMENT);
+            fclose(file1);
+            free(filename);
+        }
     }
-    
-    file1 = fopen(filename,"a");
-    fprintf(file1,"%d %d %f\n",IT_NO,ID,INTEREST_RATE);
-    fclose(file1);
-    free(filename);
     
     IT_NO++;
 	return 0; /* Returning zero means the agent is not removed */

@@ -10,9 +10,6 @@
 int household_labour_check_fired()
 {
     START_FIRED_MESSAGE_LOOP
-    // Recieving announced fired messages.
-    //printf("Household %d is fired now! \n", ID);
-    // resetting wage and employment status.
     WAGE = 0;
     MY_EMPLOYER_ID = 0;
     FINISH_FIRED_MESSAGE_LOOP
@@ -31,7 +28,6 @@ int household_labour_reemployment_application()
 {
     if (random_int(0,99) < TURNOVER_PROBABILITY * 100){
         add_job_application_stage1_message(ID, WAGE);
-        //printf("Stage 1: Household %d sends application (current wage: %d) \n", ID, (int)WAGE);
     }
  
 	return 0; /* Returning zero means the agent is not removed */
@@ -46,18 +42,15 @@ int household_labour_reemployment_application()
 int household_labour_turnover()
 {
     int previous_employer, new_employer;
-    //double pre_wage;
     
     previous_employer = MY_EMPLOYER_ID;
-    //pre_wage = WAGE;
+    
     
 	START_JOB_MATCH_STAGE1_MESSAGE_LOOP
-    // Checking if recently applied position is offered.
     new_employer = job_match_stage1_message->employer_id;
     WAGE = job_match_stage1_message->wage;
     MY_EMPLOYER_ID  = new_employer;
     add_job_change_message(previous_employer, ID);
-    //printf("Stage 1: Household %d job change: %d --> %d wage change %f --> %f\n",ID, previous_employer, MY_EMPLOYER_ID,pre_wage, WAGE);
     FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -71,8 +64,7 @@ int household_labour_turnover()
 int household_labour_employment_application()
 {  
     add_job_application_stage2_message(ID);
-    //printf("Stage 2: Unemployed Household %d sends an application. \n", ID);
-    
+        
     return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -85,10 +77,8 @@ int household_labour_employment_application()
 int household_labour_employment()
 {    
 	START_JOB_MATCH_STAGE2_MESSAGE_LOOP
-    // Checking if recently applied position is offered.
     MY_EMPLOYER_ID = job_match_stage2_message->employer_id;
     WAGE = job_match_stage2_message->wage;
-    //printf("Stage 2: Unemployed Household %d is now employed at Firm %d with a wage %f\n",ID,MY_EMPLOYER_ID,WAGE);
     FINISH_JOB_MATCH_STAGE2_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -116,7 +106,7 @@ int household_labour_recieve_wage()
 {
     double net_wage = 0;
     
-    net_wage = WAGE * (1 - LABOUR_TAX_RATE);
+    net_wage = WAGE * (1.0 - LABOUR_TAX_RATE);
     
     LIQUIDITY += net_wage;
     

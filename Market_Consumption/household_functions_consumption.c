@@ -20,15 +20,14 @@ int household_consumption_compute_budget()
     budget = disposable_income;
     budget += CONSUMPTION_ADJUSTMENT_SPEED * (LIQUIDITY - RATIO_LIQUIDITY * disposable_income);
     budget += WEALTH_EFFECT * DELTA_HOUSING_VALUE;
-    // here instead equity use delta-assets for the wealth effect.
-    // wealth effect amount is quarterly it should be divided by 3 for monthly budget.
+    
     if (budget < 0) {
         WEEKLY_CONSUMPTION_BUDGET = 0;
     } else {
         WEEKLY_CONSUMPTION_BUDGET = budget / 12;
     }
     
-    PLANNED_CONSUMPTION_BUDGET = 0;
+    MALL_BUDGET = 0;
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -38,16 +37,22 @@ int household_consumption_compute_budget()
  */
 int household_consumption_demand()
 {
-    PLANNED_CONSUMPTION_BUDGET += WEEKLY_CONSUMPTION_BUDGET;
+    MALL_BUDGET += WEEKLY_CONSUMPTION_BUDGET;
     
-    if (LIQUIDITY < 0 ) { return 0; }
+    if (LIQUIDITY < 0 ) {
+        if (PRINT_DEBUG_MODE){
+            printf("Household ID = %d has no money to go to the mall!\n", ID);
+        }
+        return 0;
+    }
     
-    // This may happen that liquidty of an household is drawn due to housing expenditures, etc.
-    if (PLANNED_CONSUMPTION_BUDGET > LIQUIDITY) {
-        PLANNED_CONSUMPTION_BUDGET = LIQUIDITY;
+    /* Below case may occur when liquidty of an household is taken down by housing expenditures, etc.
+     */
+    if (MALL_BUDGET > LIQUIDITY) {
+        MALL_BUDGET = LIQUIDITY;
         add_buy_message(ID, LIQUIDITY);
     } else {
-        add_buy_message(ID, PLANNED_CONSUMPTION_BUDGET);
+        add_buy_message(ID, MALL_BUDGET);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -60,18 +65,31 @@ int household_consumption_demand()
 int household_consumption_recieve_goods()
 {
     double money_spent = 0;
+    double money_to_spend;
     int quantity_bought = 0;
     
+    money_to_spend = MALL_BUDGET;
+    
     START_BOUGHT_MESSAGE_LOOP
-    // household recieves this only when she/he went shopping with a budget.
-    // there should be at most a single message. 
-    money_spent = PLANNED_CONSUMPTION_BUDGET - bought_message->money_left;
-    // The amount of goods consumed can be used later...
+    money_spent = MALL_BUDGET - bought_message->money_left;
     quantity_bought = bought_message->recieved_quantity;
-    PLANNED_CONSUMPTION_BUDGET = bought_message->money_left;
-    //update liquidity.
-    LIQUIDITY  -= money_spent;
 	FINISH_BOUGHT_MESSAGE_LOOP
+    
+    MALL_BUDGET = bought_message->money_left;
+    LIQUIDITY  -= money_spent;
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Household_Weekly.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %f %f %f\n",IT_NO, ID, LIQUIDITY, WEEKLY_CONSUMPTION_BUDGET, money_to_spend, money_spent);
+        fclose(file1);
+        free(filename);
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }

@@ -98,14 +98,28 @@ int government_collect_centralbank_profit()
 
 /*
  * \fn: int government_compute_income_statement()
- * \brief: Government does the balance sheet accounting.
+ * \brief: Government computes income statement.
  */
 int government_compute_income_statement()
 {
     EARNINGS = CAPITAL_TAX_INCOME + LABOUR_TAX_INCOME + CENTRALBANK_INCOME;
     EXPENDITURES = UNEMPLOYMENT_BENEFITS + GENERAL_BENEFITS;
-    // These values can be kept longer to be able to implement
-    // long term government fiscal policy decisons.
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Government_snapshot.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, UNEMPLOYMENT_RATE, LABOUR_TAX_RATE, CAPITAL_TAX_RATE, GOV_GENERAL_BENEFIT_RATE, LABOUR_TAX_INCOME,  CAPITAL_TAX_INCOME, CENTRALBANK_INCOME, UNEMPLOYMENT_BENEFITS, GENERAL_BENEFITS, LIQUIDITY, DEBT);
+        fclose(file1);
+        free(filename);
+    }
+    
+    /* These values can be kept longer to be able to implement long term government fiscal policy decisons.
+     */
     CAPITAL_TAX_INCOME = 0;
     LABOUR_TAX_INCOME = 0;
     GENERAL_BENEFITS = 0;

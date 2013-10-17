@@ -31,7 +31,20 @@ int bank_credit_compute_income_statement()
     REVENUES = INTERESTS_ACCRUED;
     TOTAL_COSTS = TOTAL_WRITEOFFS + INTERESTS_PAID;
     NET_EARNINGS = REVENUES - TOTAL_COSTS;
-    // output revenues, interests collected and paid, writeoffs
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Bank_IncomeStatement.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %f %f %f %f %f %f %f\n",IT_NO, ID, REVENUES, INTERESTS_ACCRUED, TOTAL_COSTS, TOTAL_WRITEOFFS, INTERESTS_PAID, NET_EARNINGS, RETAINED_EARNINGS, TOTAL_DIVIDENDS);
+        fclose(file1);
+        free(filename);
+    }
+    
     INTERESTS_ACCRUED = 0;
     TOTAL_WRITEOFFS = 0;
     INTERESTS_PAID = 0;
@@ -52,7 +65,7 @@ int bank_credit_compute_dividends()
         RETAINED_EARNINGS = 0;
         return 0;
     }
-    // determine if dividends retained.
+    /* determine if dividends retained.*/
     
     if (TOTAL_ASSETS > 0) {
         if ((EQUITY / TOTAL_ASSETS) < (CAPITAL_ADEQUECY_RATIO + CAR_BUFFER_THRESHOLD)){
@@ -66,11 +79,11 @@ int bank_credit_compute_dividends()
     }
     else
     {
-        // stytem exit: put log file the information.
-        printf("Total Asset of Bank = %d is Negative or Zero!!!\n", ID);
+        if (PRINT_DEBUG_MODE){
+            printf("Total Asset of Bank = %d is Negative or Zero!!!\n", ID);
+        }
     }
     
-    //add_bank_fund_dividends_message()
     LIQUIDITY -= TOTAL_DIVIDENDS;
     add_bank_net_profit_message(ID, TOTAL_DIVIDENDS);
     // data: retained_earnings, total_dividends.
@@ -113,6 +126,19 @@ int bank_credit_do_balance_sheet()
     TOTAL_ASSETS = LIQUIDITY + LOANS + MORTGAGES;
     EQUITY = TOTAL_ASSETS - DEPOSITS - CENTRALBANK_DEBT;
     
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Bank_BalanceSheet.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %f %f %f %f %f %f\n",IT_NO, ID, TOTAL_ASSETS, LIQUIDITY, LOANS, MORTGAGES, DEPOSITS, CENTRALBANK_DEBT, EQUITY);
+        fclose(file1);
+        free(filename);
+    }
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -145,7 +171,9 @@ int bank_credit_process_loan_requests_1()
         add_loan_acknowledge_1_message(ID, firm, amount);
     }
     else {
-        printf("Error: bank_credit_process_loan_requests1 risk weighted assest below ZERO!!!");
+        if (PRINT_DEBUG_MODE){
+            printf("Error: Bank ID = %d at bank_credit_process_loan_requests1 risk weighted assest below ZERO!!!", ID);
+        }
     }
     FINISH_LOAN_REQUEST_1_MESSAGE_LOOP
     
@@ -181,7 +209,9 @@ int bank_credit_process_loan_requests_2()
         add_loan_acknowledge_2_message(ID, firm, amount);
     }
     else {
-        printf("Error: bank_credit_process_loan_requests_2 risk weighted assest below ZERO!!!");
+        if (PRINT_DEBUG_MODE){
+            printf("Error: Bank ID = %d at bank_credit_process_loan_requests2 risk weighted assest below ZERO!!!", ID);
+        }
     }
     FINISH_LOAN_REQUEST_2_MESSAGE_LOOP
 

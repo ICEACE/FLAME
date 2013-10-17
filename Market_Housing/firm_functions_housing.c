@@ -5,15 +5,13 @@
 /*
  * \fn: int firm_housing_enter_market()
  * \brief: The construction firm enters the market buy number housing inventory
- *          and a stochastically determined price increase.
+ * and a stochastically determined price increase.
  */
 int firm_housing_enter_market()
 {
     double price_difference, price;
+    
     int i = 1;
-    
-    printf("Firm Id = %d at Housing Market\n", ID);
-    
     while (i <= INVENTORY) {
         price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
         price = UNIT_HOUSE_PRICE * (1 + price_difference);
@@ -26,8 +24,8 @@ int firm_housing_enter_market()
 /*
  * \fn: int firm_housing_collect_sale_revenues()
  * \brief: The contructor firm checks its ID from the message board and 
- *          updates its inventory, revenue, sales and liquidity when monthly
- *          housing markets is closed.
+ * updates its inventory, revenue, sales and liquidity when monthly
+ * housing markets is closed.
  */
 int firm_housing_collect_sale_revenues()
 {
@@ -36,17 +34,17 @@ int firm_housing_collect_sale_revenues()
     
     
     START_SOLD_HOUSING_MESSAGE_LOOP
-    //The message is filtered via xmml.
+    /* The message is filtered via xmml. */
     n_sold_units = sold_housing_message->quantity_sold;
     sale_unit_price = sold_housing_message->price_sold;
     
-    //update inventory.
+    /* Updating inventory. */
     INVENTORY -= n_sold_units;
     
-    //update sales.
+    /* Updating sales. */
     SALES += n_sold_units;
     
-    //update revenue and liquidity
+    /* Updating revenue and liquidity */
     sales_income = n_sold_units * sale_unit_price;
     LIQUIDITY += sales_income;
     REVENUES += sales_income;
@@ -60,7 +58,7 @@ int firm_housing_collect_sale_revenues()
 /*
  * \fn: int firm_housing_update_market_price()
  * \brief: The construction firm updated unit housing price based on
- *          recieved average market price.
+ * recieved average market price.
  */
 int firm_housing_update_market_price()
 {

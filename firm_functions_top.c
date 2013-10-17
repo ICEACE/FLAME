@@ -1,5 +1,6 @@
 #include "header.h"
 #include "firm_agent_header.h"
+#include <math.h>
 
 /*
  * \fn: int firm_init_post_id()
@@ -44,10 +45,9 @@ int firm_init_employment()
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - OPERATING_COSTS;
         LIQUIDITY = NET_EARNINGS;
-        // this should be fixed as int and we will get the ceiling value.
-        PHYSICAL_CAPITAL = (TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE;
+        PHYSICAL_CAPITAL = (int) ceil((TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
         CAPITAL_GOODS = PHYSICAL_CAPITAL;
-        CAPITAL_CONSTRUCTION = 0;
+        PHYSICAL_CAPITAL_CONSTRUCTION = 0;
         CAPITAL_PRODUCTIVITY_CONSTRUCTION = 0;
     } else {
         PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION / 12;
@@ -58,11 +58,9 @@ int firm_init_employment()
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - OPERATING_COSTS;
         LIQUIDITY = NET_EARNINGS;
-
-        // this should be fixed as int and we will get the ceiling value.
-        CAPITAL_CONSTRUCTION = (TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE;
-        CAPITAL_GOODS = CAPITAL_CONSTRUCTION;
-        CAPITAL_PRODUCTIVITY_CONSTRUCTION = LABOUR_PRODUCTIVITY_CONSTRUCTION * NO_EMPLOYEES / (0.7 * CAPITAL_CONSTRUCTION);
+        PHYSICAL_CAPITAL_CONSTRUCTION = (int) ceil((TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
+        CAPITAL_GOODS = PHYSICAL_CAPITAL_CONSTRUCTION;
+        CAPITAL_PRODUCTIVITY_CONSTRUCTION = LABOUR_PRODUCTIVITY_CONSTRUCTION * NO_EMPLOYEES / (0.7 * PHYSICAL_CAPITAL_CONSTRUCTION);
     }
     
     
@@ -97,33 +95,52 @@ int firm_init_balancesheet()
  */
 int firm_iterate()
 {
-    char * filename;
-    FILE * file1;
-    
-    filename = malloc(40*sizeof(char));
-    filename[0]=0;
-    strcpy(filename, "./outputs/data/Firm_snapshot.txt");
-    
-    if (IT_NO == 0) {
-        file1 = fopen(filename,"w");
-        fprintf(file1,"%s %s %s %s %s %s %s %s %s\n","IT_NO","ID","ISCONSTRUCTOR","NO_EMPLOYEES","REVENUES","TOTAL_ASSETS","LIQUIDITY","DEBT","INVENTORY");
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        
+        /* @\fn: int firm_labour_workforce_needed() */
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Monthly.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
+        fprintf(file1,"%d %d %d %d %d %d %d\n",IT_NO, ID, ISCONSTRUCTOR, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
         fclose(file1);
+        
+        
+        /* @\fn: int firm_credit_compute_income_statement() */
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "REVENUES", "OPERATING_COSTS", "LABOUR_COSTS", "TOTAL_INTEREST_PAYMENTS", "EBIT", "NET_EARNINGS");
+        fprintf(file1,"%d %d %d %f %f %f %f %f %f\n", IT_NO, ID, ISCONSTRUCTOR, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
+        fclose(file1);
+        
+        /* @\fn: int firm_credit_compute_dividends() */
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "DIVIDENDS_PAID", "DIVIDENDS_TO_BE_PAID");
+        fprintf(file1,"%d %d %d %f %f\n", IT_NO, ID, ISCONSTRUCTOR, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+        fclose(file1);
+        
+        /* @\fn: int firm_credit_do_balance_sheet() */
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_GOODS_PRICE", "UNIT_HOUSE_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "PHYSICAL_CAPITAL_CONSTRUCTION", "DEBT");
+        fprintf(file1,"%d %d %d %d %d %f %f %d %f %f %f %d %d %f\n",IT_NO, ID, ISCONSTRUCTOR, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
+        fclose(file1);
+    
+        
         free(filename);
-        IT_NO++;
-        return 0;
     }
     
-    file1 = fopen(filename,"a");
-    fprintf(file1,"%d %d %d %d %f %f %f %f %d\n",IT_NO,ID,ISCONSTRUCTOR,NO_EMPLOYEES,REVENUES,TOTAL_ASSETS,LIQUIDITY,DEBT,INVENTORY);
-    fclose(file1);
-    free(filename);
-    
     IT_NO++;
-    
-    printf("Firm %d Size = %d \n", ID, NO_EMPLOYEES);
-    
-    
-   
 	return 0; /* Returning zero means the agent is not removed */
 }
 

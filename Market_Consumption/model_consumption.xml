@@ -169,7 +169,7 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>planned_consumption_budget</name>
+                    <name>mall_budget</name>
                     <description>Consumption budget that can be spent for the week.</description>
                 </variable>
             </memory>

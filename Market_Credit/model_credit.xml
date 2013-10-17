@@ -228,9 +228,9 @@
                     <description>Liquidity.</description>
                 </variable>
                 <variable>
-                    <type>double</type>
+                    <type>int</type>
                     <name>capital_goods</name>
-                    <description>Capital goods units</description>
+                    <description>Capital goods in units.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -246,6 +246,11 @@
                     <type>int</type>
                     <name>hasinvestment</name>
                     <description>The variable holds wheather a firm has recieved investment from the fund for its liquidity need.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>isilliquid</name>
+                    <description>Flag 0 or 1. Tells whether the firm ended up in illiquidity bankruptcy.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -1193,9 +1198,9 @@
                 </function>
                 <function>
                     <name>household_credit_collect_benefits</name>
-                    <description>Collect general transfer benefits from the government.</description>
+                    <description>Collect general transfer benefits and/or unemployment benefit from the government.</description>
                     <currentState>HHCreditMonthly</currentState>
-                    <nextState>HHCreditEmployment</nextState>
+                    <nextState>HHLabourStart</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -1206,34 +1211,10 @@
                         <input>
                             <messageName>general_benefit</messageName>
                         </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>household_credit_collect_unemployment</name>
-                    <description>Collect unemployment transfer benefits from the government.</description>
-                    <currentState>HHCreditEmployment</currentState>
-                    <nextState>HHLabourStart</nextState>
-                    <condition>
-                        <lhs><value>a.my_employer_id</value></lhs>
-                        <op>EQ</op>
-                        <rhs><value>0</value></rhs>
-                    </condition>
-                    <inputs>
                         <input>
                             <messageName>unemployment_benefit</messageName>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>Paying labour income tax.</description>
-                    <currentState>HHCreditEmployment</currentState>
-                    <nextState>HHLabourStart</nextState>
-                    <condition>
-                        <lhs><value>a.my_employer_id</value></lhs>
-                        <op>NEQ</op>
-                        <rhs><value>0</value></rhs>
-                    </condition>
                 </function>
             </functions>
         </xagent>

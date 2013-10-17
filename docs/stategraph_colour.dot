@@ -173,7 +173,6 @@ digraph state_graph {
 	household_HHHousingCheckWealth [label = "HHHousingCheckWealth"]
 	household_HHHousingPrice [label = "HHHousingPrice"]
 	household_HHHousingRole [label = "HHHousingRole"]
-	household_HHCreditEmployment [label = "HHCreditEmployment"]
 	household_HHCreditCheckTaxRate [label = "HHCreditCheckTaxRate"]
 	household_HHCreditCheckInterestRate [label = "HHCreditCheckInterestRate"]
 	household_HHCreditBalanceSheet [label = "HHCreditBalanceSheet"]
@@ -365,9 +364,7 @@ digraph state_graph {
 	household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate [label = "household_credit_check_interest_rate", shape = box,style=filled,color=chartreuse1];
 	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly [label = "household_credit_check_tax_rate", shape = box,style=filled,color=chartreuse1];
 	household_idle_HHCreditMonthly_HHLabourStart [label = "idle", shape = box,style=filled,color=chartreuse1];
-	household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [label = "household_credit_collect_benefits", shape = box,style=filled,color=chartreuse1];
-	household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [label = "household_credit_collect_unemployment", shape = box,style=filled,color=chartreuse1];
-	household_idle_HHCreditEmployment_HHLabourStart [label = "idle", shape = box,style=filled,color=chartreuse1];
+	household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [label = "household_credit_collect_benefits", shape = box,style=filled,color=chartreuse1];
 	household_idle_HHHousingStart_HouseholdUpdateDeposits [label = "idle", shape = box,style=filled,color=orchid1];
 	household_household_housing_market_role_HHHousingStart_HHHousingRole [label = "household_housing_market_role", shape = box,style=filled,color=orchid1];
 	household_idle_HHHousingRole_HHHousingPrice [label = "idle", shape = box,style=filled,color=orchid1];
@@ -659,12 +656,8 @@ digraph state_graph {
 	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly -> household_HHCreditMonthly;
 	household_HHCreditMonthly -> household_idle_HHCreditMonthly_HHLabourStart [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_wage_recieved )"];
 	household_idle_HHCreditMonthly_HHLabourStart -> household_HHLabourStart;
-	household_HHCreditMonthly -> household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [ label = "Periodicity: monthly\nPhase: a->day_of_month_wage_recieved"];
-	household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment -> household_HHCreditEmployment;
-	household_HHCreditEmployment -> household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [ label = "a.my_employer_id EQ 0"];
-	household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart -> household_HHLabourStart;
-	household_HHCreditEmployment -> household_idle_HHCreditEmployment_HHLabourStart [ label = "a.my_employer_id NEQ 0"];
-	household_idle_HHCreditEmployment_HHLabourStart -> household_HHLabourStart;
+	household_HHCreditMonthly -> household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [ label = "Periodicity: monthly\nPhase: a->day_of_month_wage_recieved"];
+	household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart -> household_HHLabourStart;
 	household_HHHousingStart -> household_idle_HHHousingStart_HouseholdUpdateDeposits [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
 	household_idle_HHHousingStart_HouseholdUpdateDeposits -> household_HouseholdUpdateDeposits;
 	household_HHHousingStart -> household_household_housing_market_role_HHHousingStart_HHHousingRole [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
@@ -903,8 +896,8 @@ digraph state_graph {
 	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments [ label = "housing_price" color="#00ff00" constraint=false];
 	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> household_household_housing_buy_HHHousingBargain_HHHousingPrice [ label = "bought_housing" color="#00ff00" constraint=false];
 	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [ label = "sold_housing" color="#00ff00" constraint=false];
-	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax -> household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart [ label = "unemployment_benefit" color="#00ff00" constraint=false];
-	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits -> household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment [ label = "general_benefit" color="#00ff00" constraint=false];
+	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax -> household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [ label = "unemployment_benefit" color="#00ff00" constraint=false];
+	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits -> household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [ label = "general_benefit" color="#00ff00" constraint=false];
 	government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly -> household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly [ label = "labour_tax_rate" color="#00ff00" constraint=false];
 	centralbank_centralbank_set_interest_rate_CentralBankInterestRate_CentralBankLabour -> household_household_credit_check_interest_rate_HHCreditCheckInterestRate_HHCreditCheckTaxRate [ label = "interest_rate" color="#00ff00" constraint=false];
 	equityfund_equityfund_credit_distribute_shares_EFCreditDistributeShares_EFCreditShareCollectionBanks -> household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet [ label = "household_share" color="#00ff00" constraint=false];
@@ -953,8 +946,8 @@ digraph state_graph {
 	{ rank=same; layer_23;  firm_firm_credit_do_balance_sheet_FirmCreditBalanceSheet_FirmCreditCheckInterestRate;  equityfund_equityfund_credit_collect_firm_shares_EFCreditShareCollectionFirms_EFCreditBalanceSheet;  government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentFiscalPolicy; }
 	{ rank=same; layer_24;  firm_firm_credit_check_interest_rate_FirmCreditCheckInterestRate_FirmCreditCheckTaxRate;  equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditCheckTaxRate;  government_government_update_fiscal_policy_GovernmentFiscalPolicy_GovernmentMonthly; }
 	{ rank=same; layer_25;  firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_FirmCreditInsolvencyCheck;  household_household_credit_check_tax_rate_HHCreditCheckTaxRate_HHCreditMonthly;  equityfund_equityfund_credit_check_tax_rate_EFCreditCheckTaxRate_EFLabourMarket;  government_idle_GovernmentMonthly_end;  government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits; }
-	{ rank=same; layer_26;  firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart;  firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart;  household_idle_HHCreditMonthly_HHLabourStart;  household_household_credit_collect_benefits_HHCreditMonthly_HHCreditEmployment;  equityfund_idle_EFLabourMarket_end;  government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax; }
-	{ rank=same; layer_27;  firm_idle_FirmProductionStart_FirmLabourStart;  firm_idle_FirmProductionStart_FirmProductionSkip;  household_household_credit_collect_unemployment_HHCreditEmployment_HHLabourStart;  household_idle_HHCreditEmployment_HHLabourStart;  bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants; }
+	{ rank=same; layer_26;  firm_idle_FirmCreditInsolvencyCheck_FirmProductionStart;  firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart;  household_idle_HHCreditMonthly_HHLabourStart;  equityfund_idle_EFLabourMarket_end;  government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax; }
+	{ rank=same; layer_27;  firm_idle_FirmProductionStart_FirmLabourStart;  firm_idle_FirmProductionStart_FirmProductionSkip;  household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart;  bank_bank_credit_recieve_loan_writeoffs_BankCreditLoanWriteOffs_BankCreditNewEntrants; }
 	{ rank=same; layer_28;  firm_firm_production_skip_FirmProductionSkip_FirmLabourStart;  firm_idle_FirmProductionSkip_FirmProductionRoleCheck;  household_idle_HHLabourStart_HHLabourEmploymentStatus;  bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests; }
 	{ rank=same; layer_29;  firm_idle_FirmProductionRoleCheck_FirmProductionRegular;  firm_idle_FirmProductionRoleCheck_FirmProductionConstructor;  bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankCreditCheckInterestRate; }
 	{ rank=same; layer_30;  firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart;  firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning;  firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart;  firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand;  bank_bank_credit_check_interest_rate_BankCreditCheckInterestRate_BankHousingMarket; }

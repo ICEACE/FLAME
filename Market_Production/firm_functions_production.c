@@ -1,6 +1,7 @@
 #include "../header.h"
 #include "../firm_agent_header.h"
 #include "../library_header.h"
+#include <math.h>
 
 /*
  * \fn: int firm_production_skip()
@@ -20,15 +21,13 @@ int firm_production_skip()
  */
 int firm_production_produce_goods()
 {
-    //printf("Firm ID = %d\n", ID);   
     /*
      Production amount based on Lentoif production function.
      Capital productivity is set to inf. This results in a production solely based on availability
      of labour.
      */
     PRODUCTION_CURRENT = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
-    printf("Firm %d produces %d items at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
-        
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -66,7 +65,7 @@ int firm_production_set_price()
 int firm_production_plan()
 {
    
-    // Estimate the production for next period.
+    /* Estimate the production for next period. */
     if (INVENTORY == 0) {
         EXPECTED_SALES = (int)(1.0 + PRODUCTION_MARKUP) * SALES;
     }
@@ -83,7 +82,7 @@ int firm_production_plan()
         PRODUCTION_ESTIMATE = 0;
     }
      */
-    //printf("    Production Estimate = %d\n", PRODUCTION_ESTIMATE);
+    
     
     if (INVENTORY > EXPECTED_SALES) {
         PRODUCTION_PLAN = EXPECTED_SALES - (INVENTORY - EXPECTED_SALES);
@@ -92,19 +91,16 @@ int firm_production_plan()
         PRODUCTION_PLAN = EXPECTED_SALES;
     }
     
-    // compute production plan considering firm memory persistance
-    // and production estimates.
+    /* Computing production plan considering firm memory persistance
+    and production estimates.
+     */
     PRODUCTION_PLAN = FIRM_MEMORY_PERSISTANCE * PRODUCTION_CURRENT + (1.0 - FIRM_MEMORY_PERSISTANCE) * PRODUCTION_PLAN;
     
-    //printf("    Production Plan = %d\n", PRODUCTION_PLAN);
-    
-    // INVENTORY available for sell is updated.
+    /* Updating the inventory available for sell. */
     INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
-    //printf("    Total INVENTORY available for sale = %d\n", INVENTORY);
     
-    printf("Firm %d plans %d units to be produced. IT NO: %d\n", ID, PRODUCTION_PLAN, IT_NO);
-    //Sales are monthly.
+    /* Sales are reset to 0 for monthly periods. */
     SALES = 0;
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -117,9 +113,7 @@ int firm_production_plan()
  */
 int firm_production_compute_labour_demand()
 {
-    // +1 is done for a pseudo ceiling purpose.
-    EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY) + 1;
-    //printf("    Employees Needed = %d\n", EMPLOYEES_NEEDED);
+    EMPLOYEES_NEEDED = (int) ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -140,13 +134,14 @@ int firm_production_construct_houses()
     
     
     labour = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION);
-    capital = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
+    capital = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * PHYSICAL_CAPITAL_CONSTRUCTION);
     
-    //Lentoif production function:
+    /* Lentoif production function: */
     units_to_produce = min_int(labour, capital);
     
-    //make sure that finished goods were transfered to inventories.
-    //unfinished housing units are advanced one at a time.
+    /* Finished goods were transfered to inventories.
+     Unfinished housing units are advanced one at a time.
+     */
     PROJECTS[0] = 0;
     
     while (units_to_produce > 0) {
@@ -182,8 +177,9 @@ int firm_production_construct_houses()
     
     PRODUCTION_CURRENT = PROJECTS[0];
     
-    printf("Constructor Firm %d produces %d houses at IT NO: %d\n", ID, PRODUCTION_CURRENT, IT_NO);
-    //printf("    New housing units available for the market = %d\n", PRODUCTION_CURRENT);
+    if (PRINT_DEBUG_MODE) {
+        printf("Constructor Firm %d produces %d houses.\n", ID, PRODUCTION_CURRENT);
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -198,13 +194,14 @@ int firm_production_construction_plan()
     int work_in_progress;
     int maxsize;
 
-    // New housing units produced in previous month
-    // is made available for sale at the start of current month.
+    /* Those housing units which are produced in previous month are made
+     available for sale at the start of current month.
+     */
     INVENTORY += PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
     
     
-    //Get number of ongoing projects.
+    /* Getting number of ongoing projects. */
     work_in_progress = 0;
     
     for (int i = 1; i<=11; i++) {
@@ -212,10 +209,10 @@ int firm_production_construction_plan()
     }
     
     
-    maxsize = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * CAPITAL_CONSTRUCTION);
+    maxsize = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * PHYSICAL_CAPITAL_CONSTRUCTION);
     
     
-    //Some conditions are added to the model! Needs to be chekced.
+    /* Some conditions are added to the model! Needs to be double chekced.*/
     if (maxsize <= 0){
         PRODUCTION_PLAN = 0;
     }
@@ -234,9 +231,6 @@ int firm_production_construction_plan()
         }
     }
     
-    printf("Constructor %d -> dPrice: %f, Inventory: %d, WIP: %d, Max Capacity = %d,  Planned: %d, Productivity = %f, Capital = %f \n", ID, DELTA_HOUSING_PRICE, INVENTORY, work_in_progress, maxsize, PRODUCTION_PLAN, CAPITAL_PRODUCTIVITY_CONSTRUCTION, CAPITAL_CONSTRUCTION);
-
-
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -248,7 +242,6 @@ int firm_production_construction_plan()
 int firm_production_construction_labour_demand()
 {
     EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
-    //printf("    Number of Constructor Workers Needed = %d\n", EMPLOYEES_NEEDED);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

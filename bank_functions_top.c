@@ -80,26 +80,33 @@ int bank_init_balancesheet()
  */
 int bank_iterate()
 {
-    char * filename;
-    FILE * file1;
-    
-    filename = malloc(40*sizeof(char));
-    filename[0]=0;
-    strcpy(filename, "./outputs/data/Bank_snapshot.txt");
-    
-    if (IT_NO == 0) {
-        file1 = fopen(filename,"w");
-        fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO","ID","MORTGAGES","LOANS","DEPOSITS","INTERESTS_ACCRUED","TOTAL_WRITEOFFS");
-        fclose(file1);
-        free(filename);
-        IT_NO++;
-        return 0;
+    if (DATA_COLLECTION_MODE) {
+        if (IT_NO == 0) {
+            char * filename;
+            FILE * file1;
+            
+            /* @\fn: bank_credit_compute_income_statement() */
+            filename = malloc(40*sizeof(char));
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Bank_IncomeStatement.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "REVENUES", "INTERESTS_ACCRUED", "TOTAL_COSTS", "TOTAL_WRITEOFFS", "INTERESTS_PAID", "NET_EARNINGS", "RETAINED_EARNINGS", "TOTAL_DIVIDENDS");
+            fprintf(file1,"%d %d %f %f %f %f %f %f %f %f\n",IT_NO, ID, REVENUES, INTERESTS_ACCRUED, TOTAL_COSTS, TOTAL_WRITEOFFS, INTERESTS_PAID, NET_EARNINGS, RETAINED_EARNINGS, TOTAL_DIVIDENDS);
+            fclose(file1);
+            
+            
+            /* @\fn: bank_credit_do_balance_sheet() */
+            filename = malloc(40*sizeof(char));
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Bank_BalanceSheet.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "TOTAL_ASSETS", "LIQUIDITY", "LOANS", "MORTGAGES", "DEPOSITS", "CENTRALBANK_DEBT", "EQUITY");
+            fprintf(file1,"%d %d %f %f %f %f %f %f %f\n",IT_NO, ID, TOTAL_ASSETS, LIQUIDITY, LOANS, MORTGAGES, DEPOSITS, CENTRALBANK_DEBT, EQUITY);
+            fclose(file1);
+            
+            free(filename);
+        }
     }
-    
-    file1 = fopen(filename,"a");
-    fprintf(file1,"%d %d %f %f %f %f %f\n",IT_NO,ID,MORTGAGES,LOANS,DEPOSITS,INTERESTS_ACCRUED,TOTAL_WRITEOFFS);
-    fclose(file1);
-    free(filename);
     
     IT_NO++;
 	return 0; /* Returning zero means the agent is not removed */

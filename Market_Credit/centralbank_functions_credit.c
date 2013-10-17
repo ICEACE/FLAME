@@ -39,6 +39,7 @@ int centralbank_set_interest_rate()
     
     if (rcb < 0.005){rcb = 0.005;}
     
+    INFLATION_RATE = inflation;
     INTEREST_RATE = rcb;
     
     add_interest_rate_message(INTEREST_RATE);
@@ -120,6 +121,19 @@ int centralbank_do_balance_sheet()
     TOTAL_ASSETS = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
     liabilities = FIAT_MONEY + LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT;
     EQUITY = TOTAL_ASSETS - liabilities;
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/CentralBank_snapshot.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, INTEREST_RATE, INFLATION_RATE, REVENUES, TOTAL_COSTS, NET_EARNINGS, TOTAL_ASSETS, LIQUIDITY, LOANS_BANKS, LOANS_GOVERNMENT, EQUITY,FIAT_MONEY, LIQUIDITY_BANKS, LIQUIDITY_GOVERNMENT);
+        fclose(file1);
+        free(filename);
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }

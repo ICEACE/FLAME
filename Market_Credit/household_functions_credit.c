@@ -10,7 +10,7 @@ int household_credit_check_interest_rate()
 {
 
     START_INTEREST_RATE_MESSAGE_LOOP
-    // 2 percent increase determined by the model.
+    /* 2 percent increase determined by the model. */
     MORTGAGES_INTEREST_RATE = interest_rate_message->rate + 0.02;
     
 	FINISH_INTEREST_RATE_MESSAGE_LOOP
@@ -71,14 +71,7 @@ int household_credit_update_mortgage_rates()
         MORTGAGES_LIST.array[i].quarters_left = quarters_left;
         MORTGAGES_LIST.array[i].quarterly_interest = new_quarterly_interest;
         MORTGAGES_LIST.array[i].quarterly_principal = new_quarterly_principal;
-        //add_mortgage(&MORTGAGES_LIST, BANK_ID, principle, quarters_left, new_quarterly_interest, new_quarterly_principal);
     }
-    
-    /* Updates above added to the array, code snippet below remove redundant entries. No in place mutation is done.*/
-//    for (i = 0; i < size; i++) {
-//        remove_mortgage(&MORTGAGES_LIST, i);
-//    }
-    
     
     free_mortgage(&mort);
 	return 0; /* Returning zero means the agent is not removed */
@@ -90,15 +83,11 @@ int household_credit_update_mortgage_rates()
  */
 int household_credit_collect_shares()
 {
-    double amount = 0;
     
     CAPITAL_INCOME = 0;
     
     START_HOUSEHOLD_SHARE_MESSAGE_LOOP
-    amount = N_SHARES * household_share_message->amount;
-    CAPITAL_INCOME += amount;
-    //Shares are liquidified.
-    LIQUIDITY += amount;
+    CAPITAL_INCOME += N_SHARES * household_share_message->amount;
 	FINISH_HOUSEHOLD_SHARE_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -115,51 +104,68 @@ int household_credit_do_balance_sheet()
     
     old_housing = HOUSING_VALUE;
 
-    // use a delta asset to be used to incorporate wealth effect on consumption.
-    // Updating value of housing assets.
-    HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
+    /* Updating value of housing assets.
+     It is up to date. Update is done monthly.
+     */
+    // HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
     DELTA_HOUSING_VALUE = HOUSING_VALUE - old_housing;
-    // do the same for total_assets, equity.
     
-    //Liquidity contains fund shares the capital goods.
-    
-    TOTAL_ASSETS = LIQUIDITY +  HOUSING_VALUE;
+    /* Liquidity contains capital income recieved via EquityFund. */
+    TOTAL_ASSETS = LIQUIDITY +  HOUSING_VALUE + CAPITAL_INCOME;
     EQUITY = TOTAL_ASSETS - MORTGAGES;
+
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Household_Quarterly.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %f %f %f %f %f %f\n",IT_NO, ID, TOTAL_ASSETS, LIQUIDITY, HOUSING_VALUE, CAPITAL_INCOME, MORTGAGES, HOUSING_PAYMENT, EQUITY);
+        fclose(file1);
+        free(filename);
+    }
     
-    //printf(" Household Id = %d, Equity %f \n", ID, EQUITY);
-    
+    /* Shares are liquidified. */
+    LIQUIDITY += CAPITAL_INCOME;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
  * \fn: int household_credit_collect_benefits()
- * \brief: Collect general transfer benefits from the government.
+ * \brief: Collect general transfer benefits and/or unemployment benefits from the government.
  */
 int household_credit_collect_benefits()
 {
-    double benefit = 0;
+    double general_benefit = 0;
     
     START_GENERAL_BENEFIT_MESSAGE_LOOP
-    benefit = general_benefit_message->amount;
-    LIQUIDITY += benefit;
+    general_benefit = general_benefit_message->amount;
+    LIQUIDITY += general_benefit;
 	FINISH_GENERAL_BENEFIT_MESSAGE_LOOP
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
 
-/*
- * \fn: int household_credit_collect_unemployment()
- * \brief: Collect unemployment payment from the government.
- */
-int household_credit_collect_unemployment()
-{
-    double benefit = 0;
+    double unemployment_benefit = 0;
     
-    START_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
-    benefit = unemployment_benefit_message->amount;
-    LIQUIDITY += benefit;
-	FINISH_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
+    if (MY_EMPLOYER_ID == 0) {
+        START_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
+        unemployment_benefit = unemployment_benefit_message->amount;
+        LIQUIDITY += unemployment_benefit;
+        FINISH_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
+    }
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Household_Monthly_LastDay.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %d %f %f %f\n",IT_NO, ID, MY_EMPLOYER_ID, WAGE, unemployment_benefit, general_benefit);
+        fclose(file1);
+        free(filename);
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }

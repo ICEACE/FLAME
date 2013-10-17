@@ -221,5 +221,17 @@ int reagency_housing_summary()
     add_housing_price_message(price);
     add_housing_transactions_summary_message(quantity, price);
     
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/REAgency_snapshot.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f\n",IT_NO, quantity, price);
+        fclose(file1);
+        free(filename);
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }

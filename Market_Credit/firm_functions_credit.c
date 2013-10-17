@@ -9,7 +9,7 @@ int firm_credit_check_interest_rate()
 {
     double rcb;
     START_INTEREST_RATE_MESSAGE_LOOP
-    // 1 percent increase determined by the model.
+    /* The 1 percent increase is determined by the model. */
     rcb = interest_rate_message->rate;
     LOANS_INTEREST_RATE = rcb + 0.01;
     
@@ -44,8 +44,6 @@ int firm_credit_compute_income_statement()
     
     TOTAL_INTEREST_PAYMENTS = 0;
     
-    printf("Firm %d at Credit Market %d\n", ID, IT_NO);
-    
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE / 4;
@@ -53,14 +51,26 @@ int firm_credit_compute_income_statement()
         TOTAL_INTEREST_PAYMENTS += to_be_paid;
     }
 
-    // Labour cost is decremented from liquidity on a monthly basis.
-    // Costs (wages) and revenues (from sales) are updated incrementally.
+    /* Labour cost is decremented from liquidity on a monthly basis.
+     Costs (wages) and revenues (from sales) are updated incrementally.
+     */
     
     OPERATING_COSTS = LABOUR_COSTS;
     EBIT = REVENUES - OPERATING_COSTS;
     NET_EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
 
-    // data: REVENEU, COSTS, TOTAL_INTEREST_PAYMENTS, DIVIDENDS_PAID, DIVIDENDS_RETAINED.
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %d %f %f %f %f %f %f\n", IT_NO, ID, ISCONSTRUCTOR, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
+        fclose(file1);
+        free(filename);
+    }
+    
     REVENUES = 0;
     OPERATING_COSTS = 0;
     
@@ -87,7 +97,19 @@ int firm_credit_investment_decisions()
 int firm_credit_compute_dividends()
 {
     DIVIDENDS_TO_BE_PAID = NET_EARNINGS - RETAINED_EARNINGS;
-    // data:
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %d %f %f\n", IT_NO, ID, ISCONSTRUCTOR, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+        fclose(file1);
+        free(filename);
+    }
+    
     DIVIDENDS_PAID = 0;
     RETAINED_EARNINGS = 0;
         
@@ -143,7 +165,7 @@ int firm_credit_borrow_loans_1()
         LOAN_LIST[0].amount += amount;
         HASLOAN = 1;
     }
-    // Shall we allow partial loans?
+    /* Shall we allow partial loans? */
     else{
         HASLOAN = 0;
         add_loan_request_2_message(LOAN_LIST[1].bank_id, ID, LIQUIDITY_NEED);
@@ -238,13 +260,19 @@ int firm_credit_illiquidity_bankrupt()
     
     current_loans = DEBT;
         
-    /* maximum amount debts that can be paid.
+    /* Maximum amount of debts that can be paid.
      */
-    if (EBIT < 0){ new_loans = 0;}
-    else { new_loans = EBIT / LOANS_INTEREST_RATE;}
+    if (EBIT < 0){
+        new_loans = 0;}
+    else {
+        new_loans = EBIT / LOANS_INTEREST_RATE;
+    }
     
-    if (current_loans == 0) { ratio = 0;}
-    else { ratio = new_loans / current_loans;}
+    if (current_loans){
+        ratio = new_loans / current_loans;}
+    else {
+        ratio = 0;
+    }
     
     DEBT = new_loans;
     
@@ -256,6 +284,8 @@ int firm_credit_illiquidity_bankrupt()
         delta_amount = current_amount - new_amount;
         add_loan_writeoff_message(bank, delta_amount);
     }
+    
+    ISILLIQUID = 0;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -291,7 +321,9 @@ int firm_credit_pay_interest_on_loans()
 int firm_credit_pay_dividends()
 {
     if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
-        printf("Firm ID = %d, Dividends to Be Paid = %f, Logical Error: Firm_credit_pay_dividends \n", ID, DIVIDENDS_TO_BE_PAID);
+        if (PRINT_DEBUG_MODE) {
+         printf("Firm ID = %d, Dividends to Be Paid = %f, Logical Error: Firm_credit_pay_dividends \n", ID, DIVIDENDS_TO_BE_PAID);   
+        }
     }
     else{
         DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
@@ -312,9 +344,9 @@ int firm_credit_pay_dividends()
 int firm_credit_do_balance_sheet()
 {
     
-    if (ISCONSTRUCTOR == 1) {
+    if (ISCONSTRUCTOR) {
         TOTAL_ASSETS  = INVENTORY * UNIT_HOUSE_PRICE;
-        TOTAL_ASSETS += LIQUIDITY + CAPITAL_CONSTRUCTION * CAPITAL_GOODS_PRICE;
+        TOTAL_ASSETS += LIQUIDITY + PHYSICAL_CAPITAL_CONSTRUCTION * CAPITAL_GOODS_PRICE;
     } else {
         TOTAL_ASSETS = INVENTORY * UNIT_GOODS_PRICE;
         TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
@@ -327,6 +359,19 @@ int firm_credit_do_balance_sheet()
     } else {
         ISINSOLVENT = 0;
     }
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %d %d %d %f %f %d %f %f %f %d %d %f\n",IT_NO, ID, ISCONSTRUCTOR, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
+        fclose(file1);
+        free(filename);
+    }
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

@@ -199,6 +199,19 @@ int mall_consumption_summary()
     price = GOODS_TRANSACTIONS.avg_price;
     quantity = GOODS_TRANSACTIONS.quantity;
     
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Mall_snapshot.txt");
+        
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f\n",IT_NO, quantity, price);
+        fclose(file1);
+        free(filename);
+    }
+    
     add_goods_transactions_summary_message(quantity, price);
     
 	return 0; /* Returning zero means the agent is not removed */

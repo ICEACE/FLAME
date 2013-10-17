@@ -13,25 +13,25 @@ int household_housing_market_role()
     
     quarterly_income = LABOUR_INCOME + CAPITAL_INCOME;
     
-    // check financial distress for the file sale case.
+    /* Checking the financial distress for the file sale case. */
     if (HOUSING_PAYMENT > FIRE_SALE_THRESHOLD * quarterly_income){
         if (HOUSING_UNITS == 0) { HMARKET_ROLE = 0; } else { HMARKET_ROLE  = 1;}
         return 0;
     }
     
-    // inactive:
+    /* Inactive */
     if (random_int(0, 99) < (100 - 2 * HOUSING_MARKET_ENTRANCE_PROB * 100)) {
         HMARKET_ROLE = 0;
         return 0;
     }
     
-    // set a regular buyer or seller role, flip the coin.
+    /* Seting a regular buyer or seller role, via flipping the coin. */
     if (random_int(0, 99) > 50) {
-        //regular seller.
+        /* Regular seller.*/
         if (HOUSING_UNITS == 0) { HMARKET_ROLE = 0;} else { HMARKET_ROLE  = 2;}
     }
     else {
-        //buyer
+        /* Buyer */
         HMARKET_ROLE = 3;
     }
     
@@ -46,10 +46,9 @@ int household_housing_check_wealth()
 {
     double wealth = 0;
     
-    //Capital incomes CAPITAL_INCOME are liquidified as sooon as they are recieved.
+    /* Capital income is not in the equation as it is liquidified quarterly as sooon as it is recieved.
+     */
     wealth = LIQUIDITY + HOUSING_VALUE;
-    
-    printf("Household: %d Mortgages %f, Liquidity = %f, Housing Value = %f \n", ID, MORTGAGES, LIQUIDITY, HOUSING_VALUE);
     
     if (wealth == 0){
         EQUITY_RATIO = 0;
@@ -57,9 +56,10 @@ int household_housing_check_wealth()
         EQUITY_RATIO = EQUITY / wealth;
     }
     
-    // Print this to a file:
     if (EQUITY_RATIO <= 0 ) {
-        printf("Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
+        if (PRINT_DEBUG_MODE) {
+            printf("Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
+        }
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -72,12 +72,16 @@ int household_housing_check_wealth()
  */
 int household_housing_enter_market()
 {
-    double income, cash;
+    double income, cash, cash_allowance;
     
     income = LABOUR_INCOME + CAPITAL_INCOME;
     
-    if (LIQUIDITY > 0) {
-        cash = LIQUIDITY;
+    /* Cash rich households are allowed to use cash to finance housing.
+     This needs to be checked with the model design.
+     */
+    cash_allowance = 0.5 * HOUSING_PRICE;
+    if (LIQUIDITY > cash_allowance) {
+        cash = LIQUIDITY - cash_allowance;
     } else {
         cash = 0;
     }
@@ -117,7 +121,7 @@ int household_housing_buy()
         
         quarterly_interest = mortgage_used * MORTGAGES_INTEREST_RATE / 4;
         quarterly_principal = (mortgage_used / annuity) - quarterly_interest;
-        // update mortgages array.
+        /* Adding to mortgages array. */
         add_mortgage(&MORTGAGES_LIST, BANK_ID, mortgage_used, 160, quarterly_interest, quarterly_principal);
         MORTGAGES += mortgage_used;
     }
@@ -323,17 +327,9 @@ int household_housing_pay_mortgages()
         MORTGAGES_LIST.array[i].principal = principal_left;
         //if ((total_interest_paid + total_principal_paid) > LIQUIDITY) {break;}
         add_mortgage_payment_message(mort.bank_id, interest_paid, principal_paid);
-        //add_mortgage(&MORTGAGES_LIST, BANK_ID, principal_left, mort.quarters_left, mort.quarterly_interest, mort.quarterly_principal);
         total_interest_paid += interest_paid;
         total_principal_paid += principal_paid;
     }
-    
-    /* Updates are done for above entries. No in place mutation is done.
-    for (ind = 0; ind < size; ind++){
-        remove_mortgage(&MORTGAGES_LIST, ind);
-    }
-    */
-    
     
     MORTGAGE_COSTS[2] = MORTGAGE_COSTS[1];
     MORTGAGE_COSTS[1] = MORTGAGE_COSTS[0];
@@ -399,12 +395,24 @@ int household_housing_debt_writeoff()
         
         add_mortgage(&MORTGAGES_LIST, BANK_ID, MORTGAGES, 160, quarterly_interest, quarterly_principal);
         
-        //This holds as with current implementation all mortgages are acquired from the same bank.
+        /* All mortgages are acquired from the same bank. */
         add_mortgage_writeoff_message(BANK_ID, writeoff);
-
-        printf("Household ID = %d, has his debts written off -> # of mortgages = %d. Loss on Bank ID = %d amounts to %f \n", ID, size, BANK_ID, writeoff);
-        
-        
+        if (PRINT_DEBUG_MODE) {
+            printf("Household ID = %d, has his debts written off -> # of mortgages = %d. Loss on Bank ID = %d amounts to %f \n", ID, size, BANK_ID, writeoff);
+        }
+    }
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/Household_Monthly_FirstDay.txt");
+        file1 = fopen(filename,"a");
+        double mcost = MORTGAGE_COSTS[0];
+        fprintf(file1,"%d %d %f %f %d %f %f %f\n",IT_NO, ID, MORTGAGES, mcost, HOUSING_UNITS, HOUSING_VALUE, EQUITY_RATIO, LIQUIDITY);
+        fclose(file1);
+        free(filename);
     }
     
     free_mortgage(&mort);
