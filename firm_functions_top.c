@@ -64,13 +64,10 @@ int firm_init_employment()
     }
     
     
-    
-    printf("Firm %d --> Size = %d \n", ID, NO_EMPLOYEES);
-    /*printf("\nFirm %d --> employed: ", ID);
-    for (int i = 0; i < EMPLOYEES.size; i++) {
-        printf(" %d ", EMPLOYEES.array[i]);
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm %d --> Size = %d \n", ID, NO_EMPLOYEES);
     }
-     */
+
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -153,7 +150,9 @@ int firm_update_bank_account()
         add_firm_bank_update_deposit_message(BANK_ID, LIQUIDITY);
     }
     
-    //printf("Firm ID = %d Liquidity amount = %f\n", ID, LIQUIDITY);
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d Liquidity amount = %f\n", ID, LIQUIDITY);
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }

@@ -35,7 +35,9 @@ int jpoffice_init_employment()
     
     nhouseholds = household_list.size;
     if (nhouseholds == 0 ) {
-        printf("Experiment Error: No household is detected at initiliazation.\n");
+        if (PRINT_DEBUG_MODE) {
+            printf("Experiment Error: No household is detected at initiliazation.\n");    
+        }
         free_int_array(&household_list);
         free_int_array(&regular_firm_list);
         free_int_array(&constructor_firm_list);
@@ -63,8 +65,10 @@ int jpoffice_init_employment()
     constructor_firm_size = (int) (nhouseholds * 0.075 / ncfirms);
     employment_size = (int) (nhouseholds * 0.9);
     
-    printf("nRFirms: %d nCFirms: %d, nHH: %d\n", nrfirms, ncfirms, nhouseholds);
-    printf("nCFirm Size: %d, nEmployment: %d\n", constructor_firm_size, employment_size);
+    if (PRINT_DEBUG_MODE) {
+        printf("nRFirms: %d nCFirms: %d, nHH: %d\n", nrfirms, ncfirms, nhouseholds);
+        printf("nCFirm Size: %d, nEmployment: %d\n", constructor_firm_size, employment_size);
+    }
     
     /* Each constructor is assigned one employee */
     for (i = 0; i < ncfirms; i++) {
