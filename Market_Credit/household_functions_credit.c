@@ -49,8 +49,6 @@ int household_credit_update_mortgage_rates()
     
     size = MORTGAGES_LIST.size;
     
-    //if (ID == 70) {printf("Household: %d at Credit Market, updating %d mortgage payment info. \n", ID, size);}
-    
     if (size == 0) {
         free_mortgage(&mort);
         return 0;

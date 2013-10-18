@@ -86,7 +86,10 @@ int household_housing_enter_market()
         cash = 0;
     }
     add_buy_housing_message(ID, BANK_ID, cash, income, HOUSING_PAYMENT);
-    
+    if (PRINT_DEBUG_MODE) {
+        printf("Household ID = %d goes to Real Estate Agency to buy a house. \n", ID);
+    }
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -100,6 +103,7 @@ int household_housing_buy()
     mortgage_used = 0;
     liquidity_spent = 0;
     
+        
     START_BOUGHT_HOUSING_MESSAGE_LOOP
     /* The message is filtered via xmml. */
     mortgage_used = bought_housing_message->mortgage_used;
@@ -109,6 +113,9 @@ int household_housing_buy()
     
     if (mortgage_used + liquidity_spent > 0){
         HOUSING_UNITS += 1;
+        if (PRINT_DEBUG_MODE) {
+            printf("Household ID = %d has bought a new housing unit for %f. \n", ID, mortgage_used + liquidity_spent);
+        }
     }
     
     if (liquidity_spent > 0){
@@ -124,6 +131,9 @@ int household_housing_buy()
         /* Adding to mortgages array. */
         add_mortgage(&MORTGAGES_LIST, BANK_ID, mortgage_used, 160, quarterly_interest, quarterly_principal);
         MORTGAGES += mortgage_used;
+        if (PRINT_DEBUG_MODE) {
+            printf("Household ID = %d a new mortgage debt of %f. \n", ID, mortgage_used);
+        }
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -144,7 +154,7 @@ int household_housing_sell()
     
     price = HOUSING_PRICE * (1 + price_difference);
     
-    add_sell_housing_message(ID, price, 1);
+    //add_sell_housing_message(ID, price, 1);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -186,8 +196,12 @@ int household_housing_collect_sale_revenue()
     FINISH_SOLD_HOUSING_MESSAGE_LOOP
     
     if (sold == 0){ return 0; }
-    /* In current implementation sold = 1 */
+    
+    /* In current implementation sold is either 0 or 1 */
     HOUSING_UNITS -= sold;
+    if (PRINT_DEBUG_MODE) {
+        printf("Household ID = %d has gotten a house unit sold for %f \n", ID, sale_price);
+    }
     
     if (MORTGAGES_LIST.size == 0) {
         LIQUIDITY += sale_price;
@@ -198,90 +212,97 @@ int household_housing_collect_sale_revenue()
     mortgage mort;
     init_mortgage(&mort);
     
-    /* The most recent mortgage is sold. */
-    ind = MORTGAGES_LIST.size - 1;
-    mort = MORTGAGES_LIST.array[ind];
-    MORTGAGES -= mort.principal;
-    /* If the sale is lower than the principal amount, the liquid asset is to be used. */
-    add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
-    LIQUIDITY += sale_price - mort.principal;
-    remove_mortgage(&MORTGAGES_LIST, ind);
-    free_mortgage(&mort);
-    return 0;
-
-    /* The process below can be applied for finer managemnt of money from hoouse sails.
-     double new_principle;
-     double new_quarterly_interest;
-     double new_quarterly_principal;
-     double annuity;
-     double d1, d2;
-     
-    //Regular seller:
+//    /* The most recent mortgage is assumed to be sold. */
+//    ind = MORTGAGES_LIST.size - 1;
+//    mort = MORTGAGES_LIST.array[ind];
+//    MORTGAGES -= mort.principal;
+//    /* If the sale is lower than the principal amount, the liquid asset is to be used. */
+//    add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
+//    LIQUIDITY += sale_price - mort.principal;
+//    remove_mortgage(&MORTGAGES_LIST, ind);
+//    free_mortgage(&mort);
+//    return 0;
+    
+    double new_principle;
+    double new_quarterly_interest;
+    double new_quarterly_principal;
+    double annuity;
+    double d1, d2;
+    
+    /* Regular seller: */
     if (HMARKET_ROLE == 2){
         ind = MORTGAGES_LIST.size - 1;
         mort = MORTGAGES_LIST.array[ind];
         if (mort.principal <= sale_price){
+            add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
             MORTGAGES -= mort.principal;
             LIQUIDITY += sale_price - mort.principal;
-            add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
+            remove_mortgage(&MORTGAGES_LIST, ind);
         }
         else {
+            add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
             MORTGAGES -= sale_price;
-            new_principle = mort.principal - sale_price;
             
+            new_principle = mort.principal - sale_price;
             d1 = MORTGAGES_INTEREST_RATE/4;
             d2 = d1 * pow((1 + d1), mort.quarters_left);
             annuity = 1/d1 - 1/d2;
-            
             new_quarterly_interest = new_principle * d1;
             new_quarterly_principal = (new_principle / annuity) - new_quarterly_interest;
-            
-            add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
-            // I was not sure of data mutation here, for safety reasons, the updated entry is removed and a new entry is added to the list.
-            add_mortgage(&MORTGAGES_LIST, BANK_ID, new_principle, mort.quarters_left, new_quarterly_interest, new_quarterly_principal);
+            MORTGAGES_LIST.array[ind].principal = new_principle;
+            MORTGAGES_LIST.array[ind].quarterly_interest = new_quarterly_interest;
+            MORTGAGES_LIST.array[ind].quarterly_principal = new_quarterly_principal;
         }
-        remove_mortgage(&MORTGAGES_LIST, ind);
         free_mortgage(&mort);
         return 0;
     }
     
-    //Fire seller:
-    //Pay mortgage while sold amount available to pay mortgages.
+    /* Fire seller:
+       Pays mortgages as long as sale revenue is enough to clear additional mortgages.
+     */
+    
     while (sale_price > 0) {
         
         if (MORTGAGES_LIST.size == 0){ break;}
         
-        //pay the newest mortgage first!
+        /* pays the newest mortgage first! */
         ind = MORTGAGES_LIST.size - 1;
         mort = MORTGAGES_LIST.array[ind];
+        
         if (mort.principal < sale_price){
             MORTGAGES -= mort.principal;
             add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
+            remove_mortgage(&MORTGAGES_LIST, ind);
             sale_price -= mort.principal;
+            if (PRINT_DEBUG_MODE) {
+             printf("Fire Seller = %d has removed the mortgage debt = %f \n", ID, mort.principal);   
+            }
         }
         else {
+            add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
             MORTGAGES -= sale_price;
-            new_principle = mort.principal - sale_price;
             
+            new_principle = mort.principal - sale_price;
+            if (PRINT_DEBUG_MODE) {
+                printf("Fire Seller = %d decreases a mortgage debt from = %f to %f \n", ID, mort.principal, new_principle);
+            }
             d1 = MORTGAGES_INTEREST_RATE/4;
             d2 = d1 * pow((1 + d1), mort.quarters_left);
             annuity = 1/d1 - 1/d2;
-            
             new_quarterly_interest = new_principle * d1;
             new_quarterly_principal = (new_principle / annuity) - new_quarterly_interest;
-                    
-            add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
-            
-            // I was not sure of data mutation here, for safety reasons, the updated entry is removed and a new entry is added to the list.
-            add_mortgage(&MORTGAGES_LIST, BANK_ID, new_principle, mort.quarters_left, new_quarterly_interest, new_quarterly_principal);
+            MORTGAGES_LIST.array[ind].principal = new_principle;
+            MORTGAGES_LIST.array[ind].quarterly_interest = new_quarterly_interest;
+            MORTGAGES_LIST.array[ind].quarterly_principal = new_quarterly_principal;
+            sale_price = 0;
         }
-       remove_mortgage(&MORTGAGES_LIST, ind); 
     }
-    LIQUIDITY += sale_price;
-
+    
+    if (sale_price > 0) {
+        LIQUIDITY += sale_price;
+    }
     free_mortgage(&mort);
 	return 0;
-    */
 }
 
 /*

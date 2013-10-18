@@ -219,8 +219,8 @@
                         </time></lhs>
                         <op>OR</op>
                         <rhs><time>
-                            <period>weekly</period>
-                            <phase>0</phase>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -236,8 +236,8 @@
                         </time></lhs>
                         <op>OR</op>
                         <rhs><time>
-                            <period>weekly</period>
-                            <phase>0</phase>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
                         </time></rhs>
                     </condition>
                     <outputs>
@@ -351,8 +351,8 @@
                         </time></lhs>
                         <op>OR</op>
                         <rhs><time>
-                            <period>weekly</period>
-                            <phase>0</phase>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -368,8 +368,8 @@
                         </time></lhs>
                         <op>OR</op>
                         <rhs><time>
-                            <period>weekly</period>
-                            <phase>0</phase>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
                         </time></rhs>
                     </condition>
                     <outputs>
@@ -541,8 +541,8 @@
                         </time></lhs>
                         <op>OR</op>
                         <rhs><time>
-                            <period>weekly</period>
-                            <phase>0</phase>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
                         </time></rhs></not>
                     </condition>
                 </function>
@@ -558,8 +558,8 @@
                         </time></lhs>
                         <op>OR</op>
                         <rhs><time>
-                            <period>weekly</period>
-                            <phase>0</phase>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
                         </time></rhs>
                     </condition>
                     <inputs>

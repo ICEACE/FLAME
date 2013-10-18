@@ -48,6 +48,7 @@ int reagency_housing_process()
         add_hbuyer(&buyers_list,id,bank,cash,income, mortgage);
 	FINISH_BUY_HOUSING_MESSAGE_LOOP
     
+    
     /* Queue the banks */
     double risk;
     START_MORTGAGING_CAPACITY_MESSAGE_LOOP
@@ -68,14 +69,18 @@ int reagency_housing_process()
         return 0;
     }
     
+    if (PRINT_DEBUG_MODE) {
+        printf("\n Real Estate Agency Reports: Day= %d, Buyers = %d, Sellers = %d, Banks = %d \n", IT_NO, buyers_list.size, sellers_list.size, banks_list.size);
+    }
+    
     /* Do the matching *
      * Input assumptions:
-     * sellers are sorted ascendingly by price.
-     * buyers are randomly queued
-     * this is done at message filtering stage.
+     * - sellers are sorted ascendingly by price.
+     * - buyers are randomly queued
+     * These are arranged at message filtering stage.
      */
     
-    //Compute annuity for possible mortgages.
+    /* Compute annuity for possible mortgages. */
     double annuity;
     double d1, d2;
     d1 = MORTGAGES_INTEREST_RATE/4;
@@ -106,20 +111,28 @@ int reagency_housing_process()
         if (cash >= price) {
             add_bought_housing_message(id, price, 0, 0);
             nsold++;
+            
+            if (PRINT_DEBUG_MODE) {
+                printf("Real Estate Agency Reports: Buyer ID = %d, bought a housing unit for %f right away! \n", id, price);
+            }
             remove_hbuyer(&buyers_list, 0);
             continue;
         }
         
-        /* The household needs mortgage
+        /* The household needs mortgage.
          */
         
         /* No banks in the market is able to give mortgage credit. */
         if (banks_list.size == 0 ){
+            if (PRINT_DEBUG_MODE) {
+                printf("Real Estate Agency Reports: No more more banks is available to offer mortgage! \n");
+            }
             remove_hbuyer(&buyers_list, 0);
+            /* It is possible that some other buyers are able to buy without any credit. */
             continue;
         }
         
-        /* Check available lending capacity of the bank */
+        /* Check available mortgaging capacity of the bank. */
         bank = buyers_list.array[0].bank_id;
         int i = 0;
         int flag = 0;
@@ -132,6 +145,9 @@ int reagency_housing_process()
         } while (i < banks_list.size);
         if (flag == 0){
             remove_hbuyer(&buyers_list, 0);
+            if (PRINT_DEBUG_MODE) {
+                printf("Bank of Household ID = %d is not available any more for crediting the mortgage.\n", id);
+            }
             continue;
         }
         
@@ -145,6 +161,9 @@ int reagency_housing_process()
         if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
             remove_hbuyer(&buyers_list, 0);
             remove_hbank(&banks_list, i);
+            if (PRINT_DEBUG_MODE) {
+                printf("Bank ID = %d, was not allowed to give mortgages any more.\n", banks_list.array[i].id);
+            }
             continue;
         }
         
@@ -158,10 +177,13 @@ int reagency_housing_process()
         /* Risk is updated after the new requested mortgage. */
         risk += mortgage_request;
         
-        /* The bank cannot mortgage this buyer. But the bank may be able credit
-         some others in the rest of the queue. */
+        /* The bank cannot mortgage this buyer. But the bank may be able to credit
+         some others waiting in the queue. */
         if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
             remove_hbuyer(&buyers_list, 0);
+            if (PRINT_DEBUG_MODE) {
+                printf("Bank ID = %d, was not allowed to give mortgages to Household ID = %d. \n", banks_list.array[i].id, id);
+            }
             continue;
         }
         
@@ -173,6 +195,9 @@ int reagency_housing_process()
         
         if (mortgage > HOUSEHOLD_BUDGET_CONSTRAINT * income) {
             remove_hbuyer(&buyers_list, 0);
+            if (PRINT_DEBUG_MODE) {
+                printf("Household ID = %d mortgage request is denied by Bank ID = %d \n", id, banks_list.array[i].id);
+            }
             continue;
         }
         
@@ -180,10 +205,12 @@ int reagency_housing_process()
          assumed to be non-negative.
          */
         add_bought_housing_message(id, cash, mortgage_request, annuity);
-        printf("Household ID = %d has used %f amount of mortgage along with her %f amount of cash. \n", id, mortgage_request, cash);
+        if (PRINT_DEBUG_MODE) {
+            printf("Household ID = %d has gotten %f from Bank ID = %d along with her own %f amount of cash. \n", id, mortgage_request, banks_list.array[i].id, cash);
+        }
         remove_hbuyer(&buyers_list, 0);
         nsold++;
-        //The risk of the bank is increased incrementally.
+        /* The risk of the bank is increased incrementally. */
         banks_list.array[i].amount_mortgaged += mortgage_request;
     } while (1);
     

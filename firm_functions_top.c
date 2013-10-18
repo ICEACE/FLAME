@@ -24,7 +24,7 @@ int firm_init_employment()
     START_JPOFFICE_FIRM_EMPLOYEE_MESSAGE_LOOP
     new_employee = jpoffice_firm_employee_message->employee_id;
     add_int(&EMPLOYEES, new_employee);
-	FINISH_JPOFFICE_FIRM_EMPLOYEE_MESSAGE_LOOP
+    FINISH_JPOFFICE_FIRM_EMPLOYEE_MESSAGE_LOOP
     
     NO_EMPLOYEES = EMPLOYEES.size;
     EMPLOYEES_NEEDED = NO_EMPLOYEES;
@@ -93,48 +93,48 @@ int firm_init_balancesheet()
 int firm_iterate()
 {
     if (DATA_COLLECTION_MODE) {
-        char * filename;
-        FILE * file1;
-        
-        /* @\fn: int firm_labour_workforce_needed() */
-        filename = malloc(40*sizeof(char));
-        filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Monthly.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
-        fprintf(file1,"%d %d %d %d %d %d %d\n",IT_NO, ID, ISCONSTRUCTOR, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
-        fclose(file1);
-        
-        
-        /* @\fn: int firm_credit_compute_income_statement() */
-        filename = malloc(40*sizeof(char));
-        filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "REVENUES", "OPERATING_COSTS", "LABOUR_COSTS", "TOTAL_INTEREST_PAYMENTS", "EBIT", "NET_EARNINGS");
-        fprintf(file1,"%d %d %d %f %f %f %f %f %f\n", IT_NO, ID, ISCONSTRUCTOR, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
-        fclose(file1);
-        
-        /* @\fn: int firm_credit_compute_dividends() */
-        filename = malloc(40*sizeof(char));
-        filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "DIVIDENDS_PAID", "DIVIDENDS_TO_BE_PAID");
-        fprintf(file1,"%d %d %d %f %f\n", IT_NO, ID, ISCONSTRUCTOR, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
-        fclose(file1);
-        
-        /* @\fn: int firm_credit_do_balance_sheet() */
-        filename = malloc(40*sizeof(char));
-        filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_GOODS_PRICE", "UNIT_HOUSE_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "PHYSICAL_CAPITAL_CONSTRUCTION", "DEBT");
-        fprintf(file1,"%d %d %d %d %d %f %f %d %f %f %f %d %d %f\n",IT_NO, ID, ISCONSTRUCTOR, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
-        fclose(file1);
-    
-        
-        free(filename);
+        if (IT_NO == 0) {
+            
+            char * filename;
+            FILE * file1;
+            filename = malloc(100*sizeof(char));
+            
+            /* @\fn: int firm_labour_workforce_needed() */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Firm_Monthly.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
+            //fprintf(file1,"%d %d %d %d %d %d %d\n",IT_NO, ID, ISCONSTRUCTOR, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+            fclose(file1);
+            
+            
+            /* @\fn: int firm_credit_compute_income_statement() */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "REVENUES", "OPERATING_COSTS", "LABOUR_COSTS", "TOTAL_INTEREST_PAYMENTS", "EBIT", "NET_EARNINGS");
+            //fprintf(file1,"%d %d %d %f %f %f %f %f %f\n", IT_NO, ID, ISCONSTRUCTOR, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
+            fclose(file1);
+           
+            
+            /* @\fn: int firm_credit_compute_dividends() */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "DIVIDENDS_PAID", "DIVIDENDS_TO_BE_PAID");
+            //fprintf(file1,"%d %d %d %f %f\n", IT_NO, ID, ISCONSTRUCTOR, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+            fclose(file1);
+            
+            /* @\fn: int firm_credit_do_balance_sheet() */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_GOODS_PRICE", "UNIT_HOUSE_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "PHYSICAL_CAPITAL_CONSTRUCTION", "DEBT");
+            //fprintf(file1,"%d %d %d %d %d %f %f %d %f %f %f %d %d %f\n",IT_NO, ID, ISCONSTRUCTOR, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
+            
+            
+            free(filename);
+        }
     }
     
     IT_NO++;
@@ -151,7 +151,7 @@ int firm_update_bank_account()
     }
     
     if (PRINT_DEBUG_MODE) {
-        printf("Firm ID = %d Liquidity amount = %f\n", ID, LIQUIDITY);
+        printf("Firm ID = %d a liquidity amount = %f has deposited to bank.\n", ID, LIQUIDITY);
     }
     
 	return 0; /* Returning zero means the agent is not removed */

@@ -50,12 +50,12 @@ int equityfund_credit_distribute_shares()
     DIVIDENDS_PAID = DIVIDENDS_RECIEVED - FIRM_INVESTMENT;
     
     if (DIVIDENDS_PAID < 0) {
+        if (PRINT_DEBUG_MODE) {
+            printf("Equity Fund Reports: No shares for Households. Dividends Recieved = %f, Firm Investment = %f \n", DIVIDENDS_RECIEVED, FIRM_INVESTMENT);
+        }
         DIVIDENDS_PAID = 0;
         add_household_share_message(per_share);
         add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
-        if (PRINT_DEBUG_MODE) {
-            printf("Equity Fund: Dividends Paid = %f, Per Share = %f \n", DIVIDENDS_PAID, per_share);
-        }
         return 0;
     }
     
@@ -68,11 +68,12 @@ int equityfund_credit_distribute_shares()
         per_share = 0;
         DIVIDENDS_PAID = 0;
     }
+    
+    add_household_share_message(per_share);
+    add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
     if (PRINT_DEBUG_MODE) {
         printf("Equity Fund: Dividends Paid = %f, Per Share = %f \n", DIVIDENDS_PAID, per_share);
     }
-    add_household_share_message(per_share);
-    add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -90,10 +91,15 @@ int equityfund_credit_collect_firm_shares()
     double constructors = 0;
     
     START_FIRM_NET_PROFIT_MESSAGE_LOOP
+    
+    if (PRINT_DEBUG_MODE) {
+        printf("Equity Fund receives Firm shares. \n");
+    }
+    
     if (firm_net_profit_message->isconstructor == 1) {
-         constructors = firm_net_profit_message->net_income;
+         constructors += firm_net_profit_message->net_income;
     } else {
-        producers = firm_net_profit_message->net_income;
+        producers += firm_net_profit_message->net_income;
     }
 	FINISH_FIRM_NET_PROFIT_MESSAGE_LOOP
     
@@ -115,7 +121,10 @@ int equityfund_credit_collect_bank_shares()
     double shares = 0;
        
     START_BANK_NET_PROFIT_MESSAGE_LOOP
-    shares = bank_net_profit_message->net_income;
+    if (PRINT_DEBUG_MODE) {
+        printf("Equity Fund receives Bank shares. \n");
+    }
+    shares += bank_net_profit_message->net_income;
 	FINISH_BANK_NET_PROFIT_MESSAGE_LOOP
 
     SHARE_BANKS += shares;
@@ -126,10 +135,10 @@ int equityfund_credit_collect_bank_shares()
 
 
 /*
- * \fn: int eqyuityfund_compute_income_statement()
+ * \fn: int eqyuityfund_credit_compute_income_statement()
  * \brief: fund computes the income statement.
  */
-int equityfund_compute_income_statement()
+int equityfund_credit_compute_income_statement()
 {
     DIVIDENDS_RECIEVED = SHARE_BANKS + SHARE_FIRMS + SHARE_CONSTRUCTION_FIRMS;
     DIVIDENDS_RETAINED = FIRM_INVESTMENT;

@@ -1345,12 +1345,18 @@
                     <name>equityfund_credit_collect_firm_shares</name>
                     <description>At the end of a quarter collect net income from the firms in the market.</description>
                     <currentState>EFCreditShareCollectionFirms</currentState>
-                    <nextState>EFCreditBalanceSheet</nextState>
+                    <nextState>EFCreditIncomeStatement</nextState>
                     <inputs>
                         <input>
                             <messageName>firm_net_profit</messageName>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_compute_income_statement</name>
+                    <description>Equity Fund computes the income statement.</description>
+                    <currentState>EFCreditIncomeStatement</currentState>
+                    <nextState>EFCreditBalanceSheet</nextState>
                 </function>
                 <function>
                     <name>equityfund_credit_do_balance_sheet</name>

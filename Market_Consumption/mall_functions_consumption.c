@@ -214,6 +214,11 @@ int mall_consumption_summary()
     
     add_goods_transactions_summary_message(quantity, price);
     
+    if (PRINT_DEBUG_MODE) {
+        printf("Mall posts weekly transaction summaries. \n");
+    }
+
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

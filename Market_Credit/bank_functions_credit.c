@@ -59,7 +59,7 @@ int bank_credit_compute_income_statement()
  */
 int bank_credit_compute_dividends()
 {
-    
+
     if (NET_EARNINGS <= 0) {
         TOTAL_DIVIDENDS = 0;
         RETAINED_EARNINGS = 0;
@@ -84,11 +84,15 @@ int bank_credit_compute_dividends()
         }
     }
     
-    LIQUIDITY -= TOTAL_DIVIDENDS;
-    add_bank_net_profit_message(ID, TOTAL_DIVIDENDS);
-    // data: retained_earnings, total_dividends.
+    if (TOTAL_DIVIDENDS > 0) {
+        LIQUIDITY -= TOTAL_DIVIDENDS;
+        add_bank_net_profit_message(ID, TOTAL_DIVIDENDS);
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID= %d has earnings to send to the Fund. \n", ID);
+        }
+    }
     
-	return 0; /* Returning zero means the agent is not removed */
+    return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
@@ -152,14 +156,14 @@ int bank_credit_process_loan_requests_1()
     double risk_weighted_assets, amount;
     int firm;
     
-    //Liquidity may need to be removed from equation!!
+    /* Liquidity may need to be removed from equation!! */
     risk_weighted_assets = LOANS + MORTGAGES + LIQUIDITY;
     
     START_LOAN_REQUEST_1_MESSAGE_LOOP
     amount = loan_request_1_message->amount;
     firm = loan_request_1_message->firm_id;
     
-    // code redundancy is to prevent division by zero error. 
+    /* Code redundancy below is to prevent division by zero error. */
     if (risk_weighted_assets == 0) {
         LOANS += amount;
         LIQUIDITY -= amount;
@@ -190,14 +194,14 @@ int bank_credit_process_loan_requests_2()
     double risk_weighted_assets, amount;
     int firm;
     
-    //Liquidity may need to be removed from equation!!
+    /* Liquidity may need to be removed from equation!! */
     risk_weighted_assets = LOANS + MORTGAGES + LIQUIDITY;
     
     START_LOAN_REQUEST_2_MESSAGE_LOOP
     amount = loan_request_2_message->amount;
     firm = loan_request_2_message->firm_id;
     
-    // code redundancy is to prevent division by zero error.
+    /* Code redundancy is to prevent division by zero error. */
     if (risk_weighted_assets == 0) {
         LOANS += amount;
         LIQUIDITY -= amount;

@@ -19,6 +19,9 @@ int firm_housing_enter_market()
         i++;
     }
     
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d goes to housing market with %d housing units to sell. \n", ID, INVENTORY);
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }
 /*
@@ -30,6 +33,7 @@ int firm_housing_enter_market()
 int firm_housing_collect_sale_revenues()
 {
     int n_sold_units = 0;
+    int total_sold = 0;
     double sale_unit_price, sales_income;
     
     
@@ -40,6 +44,7 @@ int firm_housing_collect_sale_revenues()
     
     /* Updating inventory. */
     INVENTORY -= n_sold_units;
+    total_sold += n_sold_units;
     
     /* Updating sales. */
     SALES += n_sold_units;
@@ -50,6 +55,10 @@ int firm_housing_collect_sale_revenues()
     REVENUES += sales_income;
     
 	FINISH_SOLD_HOUSING_MESSAGE_LOOP
+    
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d has sold %d housing units at this round. \n", ID, total_sold);
+    }
     
 	return 0; /* Returning zero means the agent is not removed */
 }

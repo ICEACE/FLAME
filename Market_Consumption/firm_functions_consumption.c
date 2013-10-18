@@ -61,9 +61,14 @@ int firm_consumption_recieve_sales()
  */
 int firm_consumption_update_market_price()
 {
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d checks average goods price at the market\n", ID);
+    }
+    
     START_GOODS_TRANSACTIONS_SUMMARY_MESSAGE_LOOP
     AVERAGE_GOODS_PRICE = goods_transactions_summary_message->avg_price;
 	FINISH_GOODS_TRANSACTIONS_SUMMARY_MESSAGE_LOOP
+    
 
 	return 0; /* Returning zero means the agent is not removed */
 }

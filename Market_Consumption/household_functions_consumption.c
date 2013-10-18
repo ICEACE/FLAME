@@ -55,6 +55,12 @@ int household_consumption_demand()
         add_buy_message(ID, MALL_BUDGET);
     }
     
+    if (PRINT_DEBUG_MODE) {
+        if (ID > 50 && ID < 60) {
+            printf("Household ID = %d goes to market with a budget = %f \n", ID, MALL_BUDGET);
+        }
+    }
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -68,15 +74,28 @@ int household_consumption_recieve_goods()
     double money_to_spend;
     int quantity_bought = 0;
     
+    if (PRINT_DEBUG_MODE) {
+        if (ID > 50 && ID < 60) {
+            printf("Household ID = %d waiting to receive goods from the mall. \n", ID);
+        }
+    }
+
+    
     money_to_spend = MALL_BUDGET;
     
     START_BOUGHT_MESSAGE_LOOP
     money_spent = MALL_BUDGET - bought_message->money_left;
     quantity_bought = bought_message->recieved_quantity;
+    MALL_BUDGET = bought_message->money_left;
 	FINISH_BOUGHT_MESSAGE_LOOP
     
-    MALL_BUDGET = bought_message->money_left;
     LIQUIDITY  -= money_spent;
+    
+    if (PRINT_DEBUG_MODE) {
+        if (ID > 50 && ID < 60) {
+          printf("Household ID = %d bought %d goods \n", ID, quantity_bought);   
+        }
+    }
     
     if (DATA_COLLECTION_MODE) {
         char * filename;

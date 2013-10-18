@@ -62,7 +62,7 @@ int firm_credit_compute_income_statement()
     if (DATA_COLLECTION_MODE) {
         char * filename;
         FILE * file1;
-        filename = malloc(40*sizeof(char));
+        filename = malloc(100*sizeof(char));
         filename[0]=0;
         strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
         file1 = fopen(filename,"a");
@@ -101,7 +101,7 @@ int firm_credit_compute_dividends()
     if (DATA_COLLECTION_MODE) {
         char * filename;
         FILE * file1;
-        filename = malloc(40*sizeof(char));
+        filename = malloc(100*sizeof(char));
         filename[0]=0;
         strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
         file1 = fopen(filename,"a");
@@ -320,6 +320,16 @@ int firm_credit_pay_interest_on_loans()
  */
 int firm_credit_pay_dividends()
 {
+     
+    if (DIVIDENDS_TO_BE_PAID < 0) {
+        DIVIDENDS_TO_BE_PAID = 0;
+        DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
+        if (PRINT_DEBUG_MODE) {
+            printf("Firm ID = %d, has no positive earnings to send out to share holders. \n", ID);
+        }
+        return 0;
+    }
+    
     if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
         if (PRINT_DEBUG_MODE) {
          printf("Firm ID = %d, Dividends to Be Paid = %f, Logical Error: Firm_credit_pay_dividends \n", ID, DIVIDENDS_TO_BE_PAID);   
@@ -332,7 +342,6 @@ int firm_credit_pay_dividends()
         DIVIDENDS_TO_BE_PAID = 0;
     }
 
-    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -363,7 +372,7 @@ int firm_credit_do_balance_sheet()
     if (DATA_COLLECTION_MODE) {
         char * filename;
         FILE * file1;
-        filename = malloc(40*sizeof(char));
+        filename = malloc(100*sizeof(char));
         filename[0]=0;
         strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
         file1 = fopen(filename,"a");
