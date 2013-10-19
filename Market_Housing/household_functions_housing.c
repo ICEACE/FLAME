@@ -86,10 +86,7 @@ int household_housing_enter_market()
         cash = 0;
     }
     add_buy_housing_message(ID, BANK_ID, cash, income, HOUSING_PAYMENT);
-    if (PRINT_DEBUG_MODE) {
-        printf("Household ID = %d goes to Real Estate Agency to buy a house. \n", ID);
-    }
-
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -200,7 +197,7 @@ int household_housing_collect_sale_revenue()
     /* In current implementation sold is either 0 or 1 */
     HOUSING_UNITS -= sold;
     if (PRINT_DEBUG_MODE) {
-        printf("Household ID = %d has gotten a house unit sold for %f \n", ID, sale_price);
+        printf("Household ID = %d (%d) has gotten a house unit sold for %f \n", ID, HMARKET_ROLE, sale_price);
     }
     
     if (MORTGAGES_LIST.size == 0) {
@@ -238,6 +235,9 @@ int household_housing_collect_sale_revenue()
             MORTGAGES -= mort.principal;
             LIQUIDITY += sale_price - mort.principal;
             remove_mortgage(&MORTGAGES_LIST, ind);
+            if (PRINT_DEBUG_MODE) {
+                printf("Regular Seller = %d has removed a mortgage = %f \n", ID, mort.principal);
+            }
         }
         else {
             add_mortgage_payment_from_sale_message(BANK_ID, sale_price);
@@ -252,6 +252,9 @@ int household_housing_collect_sale_revenue()
             MORTGAGES_LIST.array[ind].principal = new_principle;
             MORTGAGES_LIST.array[ind].quarterly_interest = new_quarterly_interest;
             MORTGAGES_LIST.array[ind].quarterly_principal = new_quarterly_principal;
+            if (PRINT_DEBUG_MODE) {
+                printf("Regular Seller = %d has decreased a mortgage debt by a = %f amount. \n", ID, sale_price);
+            }
         }
         free_mortgage(&mort);
         return 0;
@@ -260,7 +263,7 @@ int household_housing_collect_sale_revenue()
     /* Fire seller:
        Pays mortgages as long as sale revenue is enough to clear additional mortgages.
      */
-    
+
     while (sale_price > 0) {
         
         if (MORTGAGES_LIST.size == 0){ break;}
@@ -269,7 +272,7 @@ int household_housing_collect_sale_revenue()
         ind = MORTGAGES_LIST.size - 1;
         mort = MORTGAGES_LIST.array[ind];
         
-        if (mort.principal < sale_price){
+        if (mort.principal <= sale_price){
             MORTGAGES -= mort.principal;
             add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
             remove_mortgage(&MORTGAGES_LIST, ind);
@@ -381,7 +384,14 @@ int household_housing_debt_writeoff()
     double pre_mortgages, writeoff;
     
     size = MORTGAGES_LIST.size;
-    if (size == 0){ return 0;}
+    if (size == 0){
+        if (PRINT_DEBUG_MODE){
+            if (MORTGAGES > 0) {
+                printf("Household ID = %d - Logical Error: No mortgage units found, that matches to existing mortgage debt!. ", ID);
+            }
+        }
+        return 0;
+    }
     
     mortgage mort;
     init_mortgage(&mort);
@@ -398,28 +408,27 @@ int household_housing_debt_writeoff()
     total_income = LABOUR_INCOME + CAPITAL_INCOME;
     if (mortgage_costs > HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * total_income)
     {
-        double quarterly_principal, quarterly_interest;
-        double annuity, d1, d2;
-        
         pre_mortgages = MORTGAGES;
         MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income / MORTGAGES_INTEREST_RATE;
         writeoff = pre_mortgages - MORTGAGES;
         
-        for (ind = 0; ind < size; ind++){remove_mortgage(&MORTGAGES_LIST, ind);}
-        
-        d1 = MORTGAGES_INTEREST_RATE/4;
-        d2 = d1 * pow((1 + d1), 160);
-        annuity = 1/d1 - 1/d2;
-        
-        quarterly_interest = MORTGAGES * MORTGAGES_INTEREST_RATE / 4;
-        quarterly_principal = MORTGAGES / annuity - quarterly_interest;
-        
-        add_mortgage(&MORTGAGES_LIST, BANK_ID, MORTGAGES, 160, quarterly_interest, quarterly_principal);
-        
         /* All mortgages are acquired from the same bank. */
         add_mortgage_writeoff_message(BANK_ID, writeoff);
         if (PRINT_DEBUG_MODE) {
-            printf("Household ID = %d, has his debts written off -> # of mortgages = %d. Loss on Bank ID = %d amounts to %f \n", ID, size, BANK_ID, writeoff);
+            printf("Household ID = %d, Debts writeoff: %d mortgages affected. Loss on Bank ID = %d amounts to %f \n", ID, size, BANK_ID, writeoff);
+        }
+        
+        for (ind = 0; ind < size; ind++) {remove_mortgage(&MORTGAGES_LIST, 0);}
+        
+        if (MORTGAGES > 0) {
+            double quarterly_principal, quarterly_interest;
+            double annuity, d1, d2;
+            d1 = MORTGAGES_INTEREST_RATE/4;
+            d2 = d1 * pow((1 + d1), 160);
+            annuity = 1/d1 - 1/d2;
+            quarterly_interest = MORTGAGES * MORTGAGES_INTEREST_RATE / 4;
+            quarterly_principal = MORTGAGES / annuity - quarterly_interest;
+            add_mortgage(&MORTGAGES_LIST, BANK_ID, MORTGAGES, 160, quarterly_interest, quarterly_principal);
         }
     }
     

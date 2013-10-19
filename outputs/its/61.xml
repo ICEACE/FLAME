@@ -1,7 +1,7 @@
 <states>
 <itno>61</itno>
 <environment>
-<print_debug_mode>1</print_debug_mode>
+<print_debug_mode>0</print_debug_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.000000</ratio_liquidity>
 <consumption_adjustment_speed>0.100000</consumption_adjustment_speed>
@@ -330,8 +330,8 @@
 <day_of_month_wages_paid>0</day_of_month_wages_paid>
 <labour_productivity>1000.000000</labour_productivity>
 <production_current>0</production_current>
-<expected_sales>30572</expected_sales>
-<production_plan>36710</production_plan>
+<expected_sales>30670</expected_sales>
+<production_plan>36739</production_plan>
 <unit_goods_price>0.005689</unit_goods_price>
 <unit_cost>0.005172</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
@@ -343,7 +343,7 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1933.333333</debt>
-<inventory>164039</inventory>
+<inventory>163941</inventory>
 <sales>0</sales>
 <revenues>0.000000</revenues>
 <total_assets>2567.250000</total_assets>
@@ -353,10 +353,10 @@
 <dividends_paid>0.000000</dividends_paid>
 <dividends_to_be_paid>0.000000</dividends_to_be_paid>
 <retained_earnings>0.000000</retained_earnings>
-<net_earnings>-464.584291</net_earnings>
-<ebit>-457.334291</ebit>
+<net_earnings>-464.028277</net_earnings>
+<ebit>-456.778277</ebit>
 <equity>633.916667</equity>
-<liquidity>-168.784291</liquidity>
+<liquidity>-168.228277</liquidity>
 <capital_goods>3700</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>0</hasloan>
@@ -444,8 +444,8 @@
 <day_of_month_wages_paid>0</day_of_month_wages_paid>
 <labour_productivity>1000.000000</labour_productivity>
 <production_current>0</production_current>
-<expected_sales>34512</expected_sales>
-<production_plan>39237</production_plan>
+<expected_sales>34708</expected_sales>
+<production_plan>39296</production_plan>
 <unit_goods_price>0.005690</unit_goods_price>
 <unit_cost>0.005173</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
@@ -457,7 +457,7 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>2166.666667</debt>
-<inventory>186646</inventory>
+<inventory>186450</inventory>
 <sales>0</sales>
 <revenues>0.000000</revenues>
 <total_assets>2884.885000</total_assets>
@@ -467,10 +467,10 @@
 <dividends_paid>0.000000</dividends_paid>
 <dividends_to_be_paid>0.000000</dividends_to_be_paid>
 <retained_earnings>0.000000</retained_earnings>
-<net_earnings>-537.971265</net_earnings>
-<ebit>-529.846265</ebit>
+<net_earnings>-536.859246</net_earnings>
+<ebit>-528.734246</ebit>
 <equity>718.218333</equity>
-<liquidity>-206.471265</liquidity>
+<liquidity>-205.359246</liquidity>
 <capital_goods>4146</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>0</hasloan>
@@ -786,8 +786,8 @@
 <day_of_month_wages_paid>0</day_of_month_wages_paid>
 <labour_productivity>1000.000000</labour_productivity>
 <production_current>0</production_current>
-<expected_sales>36141</expected_sales>
-<production_plan>35114</production_plan>
+<expected_sales>36239</expected_sales>
+<production_plan>35123</production_plan>
 <unit_goods_price>0.005679</unit_goods_price>
 <unit_cost>0.005163</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
@@ -799,7 +799,7 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1166.666667</debt>
-<inventory>64820</inventory>
+<inventory>64722</inventory>
 <sales>0</sales>
 <revenues>0.000000</revenues>
 <total_assets>1517.355000</total_assets>
@@ -809,10 +809,10 @@
 <dividends_paid>0.000000</dividends_paid>
 <dividends_to_be_paid>0.000000</dividends_to_be_paid>
 <retained_earnings>0.000000</retained_earnings>
-<net_earnings>-80.823716</net_earnings>
-<ebit>-76.448716</ebit>
+<net_earnings>-80.267664</net_earnings>
+<ebit>-75.892664</ebit>
 <equity>350.688333</equity>
-<liquidity>97.676284</liquidity>
+<liquidity>98.232336</liquidity>
 <capital_goods>2233</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>0</hasloan>
@@ -843,8 +843,8 @@
 <day_of_month_wages_paid>0</day_of_month_wages_paid>
 <labour_productivity>1000.000000</labour_productivity>
 <production_current>0</production_current>
-<expected_sales>91910</expected_sales>
-<production_plan>47891</production_plan>
+<expected_sales>92300</expected_sales>
+<production_plan>47930</production_plan>
 <unit_goods_price>0.005689</unit_goods_price>
 <unit_cost>0.005172</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
@@ -856,19 +856,19 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1500.000000</debt>
-<inventory>50011</inventory>
+<inventory>49621</inventory>
 <sales>0</sales>
 <revenues>0.000000</revenues>
-<total_assets>1877.032607</total_assets>
+<total_assets>1874.820181</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>885.000000</labour_costs>
 <total_interest_payments>5.625000</total_interest_payments>
-<dividends_paid>83.352393</dividends_paid>
+<dividends_paid>85.564819</dividends_paid>
 <dividends_to_be_paid>0.000000</dividends_to_be_paid>
 <retained_earnings>0.000000</retained_earnings>
-<net_earnings>83.352393</net_earnings>
-<ebit>88.977393</ebit>
-<equity>377.032607</equity>
+<net_earnings>85.564819</net_earnings>
+<ebit>91.189819</ebit>
+<equity>374.820181</equity>
 <liquidity>229.500000</liquidity>
 <capital_goods>2871</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
@@ -15316,7 +15316,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428009</equity>
@@ -15349,7 +15349,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428460</equity>
@@ -15382,7 +15382,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428135</equity>
@@ -15415,7 +15415,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428500</equity>
@@ -15448,7 +15448,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427498</equity>
@@ -15481,7 +15481,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427662</equity>
@@ -15547,7 +15547,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428395</equity>
@@ -15580,7 +15580,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428187</equity>
@@ -15613,7 +15613,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427955</equity>
@@ -15646,7 +15646,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428010</equity>
@@ -15679,7 +15679,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427604</equity>
@@ -15712,7 +15712,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428086</equity>
@@ -15745,7 +15745,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.432369</equity>
@@ -16141,7 +16141,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>252.527869</equity>
@@ -16174,7 +16174,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427666</equity>
@@ -16207,7 +16207,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>255.895503</equity>
@@ -16240,7 +16240,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428459</equity>
@@ -16273,7 +16273,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428327</equity>
@@ -16306,7 +16306,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428217</equity>
@@ -16339,7 +16339,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>255.895522</equity>
@@ -16372,7 +16372,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428443</equity>
@@ -16405,7 +16405,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428163</equity>
@@ -16438,7 +16438,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427679</equity>
@@ -16471,7 +16471,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428114</equity>
@@ -16504,7 +16504,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427677</equity>
@@ -16537,7 +16537,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>255.895408</equity>
@@ -16570,7 +16570,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.432362</equity>
@@ -16603,7 +16603,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427345</equity>
@@ -16636,7 +16636,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427990</equity>
@@ -16669,7 +16669,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428452</equity>
@@ -16702,7 +16702,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427358</equity>
@@ -16735,7 +16735,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428309</equity>
@@ -16768,7 +16768,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427593</equity>
@@ -16801,7 +16801,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 71.344603, 158, 0.446459, 0.266339}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.611930</housing_payment>
 <equity>253.427513</equity>
@@ -16834,7 +16834,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428147</equity>
@@ -16966,7 +16966,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428047</equity>
@@ -16999,7 +16999,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>255.895357</equity>
@@ -17032,7 +17032,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428135</equity>
@@ -17065,7 +17065,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428340</equity>
@@ -17098,7 +17098,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428464</equity>
@@ -17131,7 +17131,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428122</equity>
@@ -17164,14 +17164,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741879</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354696</liquidity>
+<liquidity>7.575212</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17181,7 +17181,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17263,14 +17263,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741786</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354603</liquidity>
+<liquidity>7.575120</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17280,7 +17280,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17296,14 +17296,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741944</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354761</liquidity>
+<liquidity>7.575277</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17313,7 +17313,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17329,14 +17329,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741922</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354739</liquidity>
+<liquidity>7.575255</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17346,7 +17346,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17362,14 +17362,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741851</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354668</liquidity>
+<liquidity>7.575184</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17379,7 +17379,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17395,14 +17395,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 0.000000, 159, 0.000000, 0.000000}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741684</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354501</liquidity>
+<liquidity>7.575017</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17412,7 +17412,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17428,14 +17428,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741960</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354777</liquidity>
+<liquidity>7.575293</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17445,7 +17445,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.500000</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17552,7 +17552,7 @@
 <bank_id>22</bank_id>
 <it_no>61</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<weekly_consumption_budget>1.058068</weekly_consumption_budget>
+<weekly_consumption_budget>1.594453</weekly_consumption_budget>
 <mall_budget>0.000000</mall_budget>
 <my_employer_id>0</my_employer_id>
 <wage>0.000000</wage>
@@ -17561,17 +17561,17 @@
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
 <mortgages_list>{}</mortgages_list>
-<mortgages>-66.584630</mortgages>
+<mortgages>0.000000</mortgages>
 <housing_payment>1.898058</housing_payment>
-<equity>410.218596</equity>
+<equity>408.000251</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>2</housing_units>
 <n_shares>1</n_shares>
-<liquidity>144.050633</liquidity>
+<liquidity>208.416917</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
-<total_assets>343.633967</total_assets>
+<total_assets>408.000251</total_assets>
 <housing_value>189.604167</housing_value>
 <delta_housing_value>0.000000</delta_housing_value>
 <hmarket_role>1</hmarket_role>
@@ -17585,7 +17585,7 @@
 <bank_id>22</bank_id>
 <it_no>61</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<weekly_consumption_budget>1.058068</weekly_consumption_budget>
+<weekly_consumption_budget>1.594455</weekly_consumption_budget>
 <mall_budget>0.000000</mall_budget>
 <my_employer_id>0</my_employer_id>
 <wage>0.000000</wage>
@@ -17594,17 +17594,17 @@
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
 <mortgages_list>{}</mortgages_list>
-<mortgages>-66.584630</mortgages>
+<mortgages>0.000000</mortgages>
 <housing_payment>1.898058</housing_payment>
-<equity>410.218661</equity>
+<equity>408.000496</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>2</housing_units>
 <n_shares>1</n_shares>
-<liquidity>144.050698</liquidity>
+<liquidity>208.417162</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
-<total_assets>343.634031</total_assets>
+<total_assets>408.000496</total_assets>
 <housing_value>189.604167</housing_value>
 <delta_housing_value>0.000000</delta_housing_value>
 <hmarket_role>1</hmarket_role>
@@ -17693,13 +17693,13 @@
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
 <mortgages_list>{}</mortgages_list>
-<mortgages>-66.297516</mortgages>
+<mortgages>0.000000</mortgages>
 <housing_payment>2.667485</housing_payment>
 <equity>406.741984</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>3</housing_units>
 <n_shares>1</n_shares>
-<liquidity>36.079885</liquidity>
+<liquidity>102.377401</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17725,14 +17725,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 0.000000, 159, 0.000000, 0.000000}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741930</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354747</liquidity>
+<liquidity>7.575263</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17742,7 +17742,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.497954</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17758,14 +17758,14 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 0.000000, 159, 0.000000, 0.000000}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
-<housing_payment>1.839068</housing_payment>
+<housing_payment>2.667485</housing_payment>
 <equity>406.741760</equity>
 <housing_price>94.802083</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>7.354577</liquidity>
+<liquidity>7.575093</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -17775,7 +17775,7 @@
 <hmarket_role>1</hmarket_role>
 <equity_ratio>0.497954</equity_ratio>
 <minimum_equity_ratio>-10000.000000</minimum_equity_ratio>
-<mortgage_costs>{0.220517, 0.569618, 1.048934}</mortgage_costs>
+<mortgage_costs>{0.569618, 1.048934, 1.048934}</mortgage_costs>
 </xagent>
 <xagent>
 <name>household</name>
@@ -17791,7 +17791,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428147</equity>
@@ -17824,7 +17824,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428348</equity>
@@ -17890,7 +17890,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427587</equity>
@@ -17923,7 +17923,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427959</equity>
@@ -17956,7 +17956,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428471</equity>
@@ -17989,7 +17989,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428180</equity>
@@ -18022,7 +18022,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428024</equity>
@@ -18055,7 +18055,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428243</equity>
@@ -18088,7 +18088,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428169</equity>
@@ -18121,7 +18121,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.432342</equity>
@@ -18286,7 +18286,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428479</equity>
@@ -18319,7 +18319,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428061</equity>
@@ -18352,7 +18352,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428128</equity>
@@ -18385,7 +18385,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427389</equity>
@@ -18484,7 +18484,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428148</equity>
@@ -18517,7 +18517,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428130</equity>
@@ -18649,7 +18649,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427606</equity>
@@ -18682,7 +18682,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428131</equity>
@@ -18847,7 +18847,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428146</equity>
@@ -18880,7 +18880,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427384</equity>
@@ -18913,7 +18913,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427478</equity>
@@ -18946,7 +18946,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428111</equity>
@@ -18979,7 +18979,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428109</equity>
@@ -19012,7 +19012,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 83.014431, 158, 0.519486, 0.309904}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427673</equity>
@@ -19045,7 +19045,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427666</equity>
@@ -19177,7 +19177,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.428321</equity>
@@ -19210,7 +19210,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{21, 83.014431, 158, 0.519486, 0.309904}, {21, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>2.927258</housing_payment>
 <equity>253.427618</equity>
@@ -27289,10 +27289,10 @@
 <share_firms>0.000000</share_firms>
 <share_construction_firms>0.000000</share_construction_firms>
 <share_banks>0.000000</share_banks>
-<equity>1105.852393</equity>
-<liquidity>1105.852393</liquidity>
+<equity>1108.064819</equity>
+<liquidity>1108.064819</liquidity>
 <n_shares>800</n_shares>
-<dividends_recieved>435.852393</dividends_recieved>
+<dividends_recieved>438.064819</dividends_recieved>
 <dividends_retained>0.000000</dividends_retained>
 <dividends_paid>0.000000</dividends_paid>
 <firm_investment>0.000000</firm_investment>
@@ -27304,17 +27304,17 @@
 <day_of_month_to_act>1</day_of_month_to_act>
 <day_of_week_to_act>0</day_of_week_to_act>
 <it_no>61</it_no>
-<total_assets>119111.767204</total_assets>
+<total_assets>119244.936463</total_assets>
 <loans>13846.916667</loans>
-<mortgages>97344.402109</mortgages>
-<deposits>7102.888359</deposits>
-<centralbank_debt>101094.057325</centralbank_debt>
+<mortgages>97543.868884</mortgages>
+<deposits>7300.018292</deposits>
+<centralbank_debt>101095.725358</centralbank_debt>
 <equity>10330.586986</equity>
-<liquidity>-12.498226</liquidity>
+<liquidity>-14.710652</liquidity>
 <revenues>1187.820058</revenues>
-<total_writeoffs>7625.081085</total_writeoffs>
+<total_writeoffs>7625.657862</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
-<interests_accrued>276.368963</interests_accrued>
+<interests_accrued>275.402125</interests_accrued>
 <interests_paid>0.000000</interests_paid>
 <dividends_paid>0.000000</dividends_paid>
 <total_dividends>0.000000</total_dividends>
@@ -27331,14 +27331,14 @@
 <total_assets>105422.244859</total_assets>
 <loans>10546.916667</loans>
 <mortgages>85539.620148</mortgages>
-<deposits>5606.142709</deposits>
+<deposits>5606.583742</deposits>
 <centralbank_debt>89264.171149</centralbank_debt>
 <equity>10027.321040</equity>
 <liquidity>-161.125000</liquidity>
 <revenues>1043.757834</revenues>
-<total_writeoffs>9214.437094</total_writeoffs>
+<total_writeoffs>9214.601888</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
-<interests_accrued>242.214011</interests_accrued>
+<interests_accrued>241.937771</interests_accrued>
 <interests_paid>0.000000</interests_paid>
 <dividends_paid>0.000000</dividends_paid>
 <total_dividends>0.000000</total_dividends>
@@ -27379,17 +27379,17 @@
 <consumption_goods_prices>{0.005674, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600}</consumption_goods_prices>
 <it_no>61</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<goods>{108647, 0.005674}</goods>
+<goods>{108841, 0.005674}</goods>
 <weekly_price_averages>{0.005674, 0.005674, 0.005674, 0.005674}</weekly_price_averages>
 <interest_rate>0.005000</interest_rate>
 <liquidity>216422.650000</liquidity>
-<loans_banks>190358.228474</loans_banks>
+<loans_banks>190359.896507</loans_banks>
 <loans_government>0.000000</loans_government>
-<fiat_money>-26064.421526</fiat_money>
+<fiat_money>-26062.753493</fiat_money>
 <equity>216422.650000</equity>
 <liquidity_banks>216422.650000</liquidity_banks>
 <liquidity_government>0.000000</liquidity_government>
-<total_assets>406780.878474</total_assets>
+<total_assets>406782.546507</total_assets>
 <total_writeoffs>0.000000</total_writeoffs>
 <interests_accrued>0.000000</interests_accrued>
 <revenues>989.038848</revenues>
@@ -27408,7 +27408,7 @@
 <id>20</id>
 <it_no>61</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<goods_transactions>{108647, 0.005674}</goods_transactions>
+<goods_transactions>{108841, 0.005674}</goods_transactions>
 </xagent>
 <xagent>
 <name>reagency</name>

@@ -51,7 +51,7 @@ int equityfund_credit_distribute_shares()
     
     if (DIVIDENDS_PAID < 0) {
         if (PRINT_DEBUG_MODE) {
-            printf("Equity Fund Reports: No shares for Households. Dividends Recieved = %f, Firm Investment = %f \n", DIVIDENDS_RECIEVED, FIRM_INVESTMENT);
+            printf("Equity Fund Reports: No shares for Households, Dividends Received = %f, Firm Investment = %f \n", DIVIDENDS_RECIEVED, FIRM_INVESTMENT);
         }
         DIVIDENDS_PAID = 0;
         add_household_share_message(per_share);

@@ -1,7 +1,7 @@
 <states>
 <itno>25</itno>
 <environment>
-<print_debug_mode>1</print_debug_mode>
+<print_debug_mode>0</print_debug_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.000000</ratio_liquidity>
 <consumption_adjustment_speed>0.100000</consumption_adjustment_speed>
@@ -11027,13 +11027,13 @@
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
 <mortgages_list>{}</mortgages_list>
-<mortgages>-66.584630</mortgages>
+<mortgages>0.000000</mortgages>
 <housing_payment>1.898058</housing_payment>
 <equity>250.000000</equity>
 <housing_price>100.000000</housing_price>
 <housing_units>3</housing_units>
 <n_shares>1</n_shares>
-<liquidity>36.844800</liquidity>
+<liquidity>103.429430</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -11060,13 +11060,13 @@
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
 <mortgages_list>{}</mortgages_list>
-<mortgages>-66.584630</mortgages>
+<mortgages>0.000000</mortgages>
 <housing_payment>1.898058</housing_payment>
 <equity>250.000000</equity>
 <housing_price>100.000000</housing_price>
 <housing_units>3</housing_units>
 <n_shares>1</n_shares>
-<liquidity>36.844800</liquidity>
+<liquidity>103.429430</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 0, 0}</previous_wages>
 <labour_income>0.000000</labour_income>
@@ -27306,8 +27306,8 @@
 <it_no>25</it_no>
 <total_assets>122539.166667</total_assets>
 <loans>13846.916667</loans>
-<mortgages>107750.396395</mortgages>
-<deposits>5876.327367</deposits>
+<mortgages>107883.565654</mortgages>
+<deposits>6009.496627</deposits>
 <centralbank_debt>105708.343833</centralbank_debt>
 <equity>11166.322833</equity>
 <liquidity>1682.285771</liquidity>

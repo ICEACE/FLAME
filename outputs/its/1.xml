@@ -1,7 +1,7 @@
 <states>
 <itno>1</itno>
 <environment>
-<print_debug_mode>1</print_debug_mode>
+<print_debug_mode>0</print_debug_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.000000</ratio_liquidity>
 <consumption_adjustment_speed>0.100000</consumption_adjustment_speed>
@@ -18319,7 +18319,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 66.584630, 159, 0.416667, 0.246111}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>1.898058</housing_payment>
 <equity>250.000000</equity>
@@ -18352,7 +18352,7 @@
 <day_of_month_wage_recieved>0</day_of_month_wage_recieved>
 <mortgages_interest_rate>0.025000</mortgages_interest_rate>
 <labour_tax_rate>0.200000</labour_tax_rate>
-<mortgages_list>{{22, 66.584630, 159, 0.416667, 0.246111}, {22, 0.000000, 160, 0.000000, 0.000000}}</mortgages_list>
+<mortgages_list>{}</mortgages_list>
 <mortgages>0.000000</mortgages>
 <housing_payment>1.898058</housing_payment>
 <equity>250.000000</equity>
