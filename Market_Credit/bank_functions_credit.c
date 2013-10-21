@@ -184,7 +184,7 @@ int bank_credit_process_loan_requests_1()
     }
     else {
         if (WARNING_MODE){
-            printf("Warning: Bank ID = %d at bank_credit_process_loan_requests1 risk weighted assets < 0, Liquidity = %f, Loans = %f, Mortgages = %f \n", ID, LIQUIDITY, LOANS, MORTGAGES);
+            printf("Warning @bank_credit_process_loan_requests1(): Bank ID = %d, Total Assets = %f, Equity = %f, CAR = %f \n", ID, risk_weighted_assets, EQUITY, CAPITAL_ADEQUECY_RATIO);
         }
     }
     FINISH_LOAN_REQUEST_1_MESSAGE_LOOP
@@ -228,7 +228,7 @@ int bank_credit_process_loan_requests_2()
     }
     else {
         if (WARNING_MODE){
-            printf("Warning: Bank ID = %d at bank_credit_process_loan_requests1 risk weighted assets < 0, Liquidity = %f, Loans = %f, Mortgages = %f \n", ID, LIQUIDITY, LOANS, MORTGAGES);
+            printf("Warning @bank_credit_process_loan_requests2(): Bank ID = %d, Total Assets = %f, Equity = %f, CAR = %f \n", ID, risk_weighted_assets, EQUITY, CAPITAL_ADEQUECY_RATIO);
         }
     }
     FINISH_LOAN_REQUEST_2_MESSAGE_LOOP

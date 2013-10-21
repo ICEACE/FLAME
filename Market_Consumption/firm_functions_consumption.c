@@ -15,7 +15,7 @@ int firm_consumption_supply()
     if (UNIT_GOODS_PRICE == 0) {
         return 0;
     }
-    if (INVENTORY > 0) {
+    if (INVENTORY > 0 && UNIT_GOODS_PRICE > 0) {
         add_sell_message(ID, UNIT_GOODS_PRICE, INVENTORY);
         if (PRINT_DEBUG_MODE) {
          printf("Firm Id = %d Sends = %d Goods to Mall with a price = %f\n", ID, INVENTORY, UNIT_GOODS_PRICE);   

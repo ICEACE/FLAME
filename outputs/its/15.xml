@@ -2,7 +2,7 @@
 <itno>15</itno>
 <environment>
 <print_debug_mode>1</print_debug_mode>
-<warning_mode>0</warning_mode>
+<warning_mode>1</warning_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.000000</ratio_liquidity>
 <consumption_adjustment_speed>0.100000</consumption_adjustment_speed>
@@ -36,7 +36,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{25, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -93,7 +93,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{23, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -150,7 +150,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{24, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -207,7 +207,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{26, 101, 105, 107, 138, 151, 162, 163, 172, 185, 189, 194, 204, 215, 220, 261, 294, 295, 299, 311, 318, 323, 345, 347, 358, 371, 372, 394, 399, 400, 430, 441, 467, 474, 503, 514, 515, 517, 519, 528, 541, 587, 588, 591, 603, 621, 626, 627, 636, 641, 649, 673, 682, 683, 707, 734}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -219,8 +219,8 @@
 <production_current>0</production_current>
 <expected_sales>56000</expected_sales>
 <production_plan>56000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -230,9 +230,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1880.666667</debt>
-<inventory>82699</inventory>
-<sales>29301</sales>
-<revenues>165.326619</revenues>
+<inventory>97355</inventory>
+<sales>14645</sales>
+<revenues>165.264554</revenues>
 <total_assets>2313.920000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>280.000000</labour_costs>
@@ -243,7 +243,7 @@
 <net_earnings>19.600000</net_earnings>
 <ebit>33.600000</ebit>
 <equity>433.253333</equity>
-<liquidity>165.326619</liquidity>
+<liquidity>165.264554</liquidity>
 <capital_goods>3572</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -264,7 +264,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{27, 96, 104, 112, 116, 125, 132, 137, 144, 160, 164, 166, 168, 178, 201, 216, 226, 251, 253, 275, 276, 282, 304, 312, 313, 324, 333, 359, 386, 421, 457, 468, 495, 512, 543, 577, 578, 579, 612, 623, 624, 635, 638, 662, 685, 687, 710, 716, 736}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -276,8 +276,8 @@
 <production_current>0</production_current>
 <expected_sales>49000</expected_sales>
 <production_plan>49000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -287,9 +287,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1645.583333</debt>
-<inventory>69992</inventory>
-<sales>28008</sales>
-<revenues>158.031056</revenues>
+<inventory>84001</inventory>
+<sales>13999</sales>
+<revenues>157.974632</revenues>
 <total_assets>2024.960000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>245.000000</labour_costs>
@@ -300,7 +300,7 @@
 <net_earnings>17.150000</net_earnings>
 <ebit>29.400000</ebit>
 <equity>379.376667</equity>
-<liquidity>158.031056</liquidity>
+<liquidity>157.974632</liquidity>
 <capital_goods>3126</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -321,7 +321,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{28, 98, 102, 108, 126, 129, 150, 190, 193, 200, 210, 235, 237, 240, 256, 258, 265, 271, 290, 297, 308, 309, 327, 346, 373, 383, 392, 398, 401, 404, 409, 413, 440, 446, 469, 472, 486, 505, 508, 516, 521, 530, 547, 552, 557, 563, 568, 593, 605, 619, 656, 665, 691, 709, 711, 712, 714}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -333,8 +333,8 @@
 <production_current>0</production_current>
 <expected_sales>57000</expected_sales>
 <production_plan>57000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -344,9 +344,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1914.250000</debt>
-<inventory>86753</inventory>
-<sales>27247</sales>
-<revenues>153.737224</revenues>
+<inventory>100380</inventory>
+<sales>13620</sales>
+<revenues>153.697728</revenues>
 <total_assets>2355.360000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>285.000000</labour_costs>
@@ -357,7 +357,7 @@
 <net_earnings>19.950000</net_earnings>
 <ebit>34.200000</ebit>
 <equity>441.110000</equity>
-<liquidity>153.737224</liquidity>
+<liquidity>153.697728</liquidity>
 <capital_goods>3636</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -378,7 +378,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{29, 109, 115, 121, 133, 175, 183, 208, 209, 231, 233, 236, 247, 248, 255, 272, 274, 278, 288, 293, 300, 310, 319, 322, 332, 337, 339, 344, 349, 351, 353, 390, 405, 415, 423, 434, 437, 460, 461, 463, 464, 466, 480, 518, 522, 525, 536, 542, 560, 562, 569, 595, 600, 637, 640, 651, 654, 657, 677, 678, 686, 689, 692, 695, 696, 722, 723, 724, 730, 739}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -390,8 +390,8 @@
 <production_current>0</production_current>
 <expected_sales>70000</expected_sales>
 <production_plan>70000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -401,9 +401,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>2350.833333</debt>
-<inventory>111347</inventory>
-<sales>28653</sales>
-<revenues>161.670374</revenues>
+<inventory>125680</inventory>
+<sales>14320</sales>
+<revenues>161.597023</revenues>
 <total_assets>2892.400000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>350.000000</labour_costs>
@@ -414,7 +414,7 @@
 <net_earnings>24.500000</net_earnings>
 <ebit>42.000000</ebit>
 <equity>541.566667</equity>
-<liquidity>161.670374</liquidity>
+<liquidity>161.597023</liquidity>
 <capital_goods>4465</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -435,7 +435,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{30, 113, 114, 119, 147, 148, 149, 191, 218, 228, 232, 239, 269, 281, 284, 325, 328, 342, 362, 375, 381, 396, 403, 419, 428, 478, 481, 484, 537, 539, 583, 586, 589, 599, 604, 628, 632, 644, 653, 669, 675, 684, 700, 718, 720}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -447,8 +447,8 @@
 <production_current>0</production_current>
 <expected_sales>45000</expected_sales>
 <production_plan>45000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -458,9 +458,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1511.250000</debt>
-<inventory>56048</inventory>
-<sales>33952</sales>
-<revenues>191.569209</revenues>
+<inventory>73029</inventory>
+<sales>16971</sales>
+<revenues>191.512785</revenues>
 <total_assets>1859.760000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>225.000000</labour_costs>
@@ -471,7 +471,7 @@
 <net_earnings>15.750000</net_earnings>
 <ebit>27.000000</ebit>
 <equity>348.510000</equity>
-<liquidity>191.569209</liquidity>
+<liquidity>191.512785</liquidity>
 <capital_goods>2871</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -492,7 +492,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{31, 97, 106, 118, 139, 140, 145, 146, 159, 173, 174, 179, 187, 199, 205, 207, 221, 234, 257, 302, 303, 307, 334, 348, 357, 380, 391, 395, 407, 411, 417, 422, 445, 447, 462, 497, 527, 531, 534, 538, 548, 550, 564, 565, 571, 572, 580, 601, 622, 633, 639, 643, 670, 693, 703, 704, 706, 733}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -504,8 +504,8 @@
 <production_current>0</production_current>
 <expected_sales>58000</expected_sales>
 <production_plan>58000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -515,9 +515,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1947.833333</debt>
-<inventory>86288</inventory>
-<sales>29712</sales>
-<revenues>167.645627</revenues>
+<inventory>101146</inventory>
+<sales>14854</sales>
+<revenues>167.623058</revenues>
 <total_assets>2396.800000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>290.000000</labour_costs>
@@ -528,7 +528,7 @@
 <net_earnings>20.300000</net_earnings>
 <ebit>34.800000</ebit>
 <equity>448.966667</equity>
-<liquidity>167.645627</liquidity>
+<liquidity>167.623058</liquidity>
 <capital_goods>3700</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -549,7 +549,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{32, 122, 143, 153, 184, 203, 217, 224, 249, 254, 259, 266, 268, 338, 374, 410, 414, 429, 438, 449, 456, 471, 479, 499, 509, 511, 540, 545, 546, 585, 655, 668, 671, 688, 729}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -561,8 +561,8 @@
 <production_current>0</production_current>
 <expected_sales>35000</expected_sales>
 <production_plan>35000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -572,9 +572,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1175.416667</debt>
-<inventory>40903</inventory>
-<sales>29097</sales>
-<revenues>164.175579</revenues>
+<inventory>55458</inventory>
+<sales>14542</sales>
+<revenues>164.102229</revenues>
 <total_assets>1446.480000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>175.000000</labour_costs>
@@ -585,7 +585,7 @@
 <net_earnings>12.250000</net_earnings>
 <ebit>21.000000</ebit>
 <equity>271.063333</equity>
-<liquidity>164.175579</liquidity>
+<liquidity>164.102229</liquidity>
 <capital_goods>2233</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -606,7 +606,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{33, 95, 111, 124, 128, 131, 135, 142, 154, 167, 212, 219, 229, 242, 267, 273, 283, 287, 296, 301, 306, 315, 320, 331, 336, 356, 360, 388, 412, 433, 439, 443, 454, 458, 459, 470, 476, 482, 492, 500, 501, 504, 506, 544, 574, 592, 598, 609, 613, 614, 620, 625, 681, 694, 698, 701, 721, 731}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -618,8 +618,8 @@
 <production_current>0</production_current>
 <expected_sales>58000</expected_sales>
 <production_plan>58000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -629,9 +629,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1947.833333</debt>
-<inventory>87416</inventory>
-<sales>28584</sales>
-<revenues>161.281052</revenues>
+<inventory>101713</inventory>
+<sales>14287</sales>
+<revenues>161.224628</revenues>
 <total_assets>2396.800000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>290.000000</labour_costs>
@@ -642,7 +642,7 @@
 <net_earnings>20.300000</net_earnings>
 <ebit>34.800000</ebit>
 <equity>448.966667</equity>
-<liquidity>161.281052</liquidity>
+<liquidity>161.224628</liquidity>
 <capital_goods>3700</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -663,7 +663,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{34, 100, 123, 127, 136, 141, 152, 158, 182, 198, 213, 214, 241, 245, 252, 262, 277, 285, 286, 298, 316, 326, 335, 341, 367, 368, 369, 376, 379, 408, 424, 432, 435, 448, 473, 483, 488, 491, 493, 513, 520, 523, 533, 535, 551, 554, 558, 567, 573, 582, 584, 596, 618, 642, 647, 652, 658, 676, 679, 690, 715, 725, 726, 728, 743}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -675,8 +675,8 @@
 <production_current>0</production_current>
 <expected_sales>65000</expected_sales>
 <production_plan>65000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -686,9 +686,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>2182.916667</debt>
-<inventory>99655</inventory>
-<sales>30345</sales>
-<revenues>171.217237</revenues>
+<inventory>114833</inventory>
+<sales>15167</sales>
+<revenues>171.155171</revenues>
 <total_assets>2685.760000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>325.000000</labour_costs>
@@ -699,7 +699,7 @@
 <net_earnings>22.750000</net_earnings>
 <ebit>39.000000</ebit>
 <equity>502.843333</equity>
-<liquidity>171.217237</liquidity>
+<liquidity>171.155171</liquidity>
 <capital_goods>4146</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -720,7 +720,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{35, 117, 120, 130, 134, 157, 161, 169, 177, 181, 192, 195, 196, 202, 230, 238, 280, 289, 305, 314, 330, 343, 350, 363, 364, 365, 366, 370, 378, 382, 385, 387, 393, 402, 406, 416, 425, 426, 427, 444, 451, 452, 453, 465, 475, 477, 485, 507, 526, 532, 549, 556, 566, 594, 602, 606, 629, 634, 646, 664, 667, 680, 697, 699, 702, 708, 727, 735}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -732,8 +732,8 @@
 <production_current>0</production_current>
 <expected_sales>68000</expected_sales>
 <production_plan>68000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -743,9 +743,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>2283.666667</debt>
-<inventory>107864</inventory>
-<sales>28136</sales>
-<revenues>158.753277</revenues>
+<inventory>121936</inventory>
+<sales>14064</sales>
+<revenues>158.708138</revenues>
 <total_assets>2810.080000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>340.000000</labour_costs>
@@ -756,7 +756,7 @@
 <net_earnings>23.800000</net_earnings>
 <ebit>40.800000</ebit>
 <equity>526.413333</equity>
-<liquidity>158.753277</liquidity>
+<liquidity>158.708138</liquidity>
 <capital_goods>4338</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -777,7 +777,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{36, 99, 155, 156, 165, 170, 176, 188, 211, 222, 223, 225, 227, 244, 246, 260, 263, 264, 270, 291, 321, 340, 354, 361, 377, 397, 420, 431, 436, 442, 450, 489, 490, 494, 496, 502, 529, 570, 576, 581, 608, 611, 617, 631, 648, 650, 659, 660, 661, 666, 674, 705, 740, 741}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -789,8 +789,8 @@
 <production_current>0</production_current>
 <expected_sales>54000</expected_sales>
 <production_plan>54000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -800,9 +800,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1813.500000</debt>
-<inventory>71184</inventory>
-<sales>36816</sales>
-<revenues>207.728911</revenues>
+<inventory>89595</inventory>
+<sales>18405</sales>
+<revenues>207.695057</revenues>
 <total_assets>2231.600000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>270.000000</labour_costs>
@@ -813,7 +813,7 @@
 <net_earnings>18.900000</net_earnings>
 <ebit>32.400000</ebit>
 <equity>418.100000</equity>
-<liquidity>207.728911</liquidity>
+<liquidity>207.695057</liquidity>
 <capital_goods>3445</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -834,7 +834,7 @@
 <isinsolvent>0</isinsolvent>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<average_goods_price>0.005642</average_goods_price>
+<average_goods_price>0.011285</average_goods_price>
 <employees>{37, 103, 110, 171, 180, 186, 197, 206, 243, 250, 279, 292, 317, 329, 352, 355, 384, 389, 418, 455, 487, 498, 510, 524, 553, 555, 559, 561, 575, 590, 597, 607, 610, 615, 616, 630, 645, 663, 672, 713, 717, 719, 732, 737, 738, 742}</employees>
 <wage_offer>5.000000</wage_offer>
 <average_wage>5.000000</average_wage>
@@ -846,8 +846,8 @@
 <production_current>0</production_current>
 <expected_sales>46000</expected_sales>
 <production_plan>46000</production_plan>
-<unit_goods_price>0.005642</unit_goods_price>
-<unit_cost>0.005129</unit_cost>
+<unit_goods_price>0.011285</unit_goods_price>
+<unit_cost>0.010259</unit_cost>
 <day_of_month_production_completed>0</day_of_month_production_completed>
 <unit_house_price>100.000000</unit_house_price>
 <labour_productivity_construction>0.700000</labour_productivity_construction>
@@ -857,9 +857,9 @@
 <projects>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</projects>
 <loans_interest_rate>0.015000</loans_interest_rate>
 <debt>1544.833333</debt>
-<inventory>31069</inventory>
-<sales>60931</sales>
-<revenues>343.794282</revenues>
+<inventory>61545</inventory>
+<sales>30455</sales>
+<revenues>343.675792</revenues>
 <total_assets>1900.640000</total_assets>
 <operating_costs>0.000000</operating_costs>
 <labour_costs>230.000000</labour_costs>
@@ -870,7 +870,7 @@
 <net_earnings>16.100000</net_earnings>
 <ebit>27.600000</ebit>
 <equity>355.806667</equity>
-<liquidity>343.794282</liquidity>
+<liquidity>343.675792</liquidity>
 <capital_goods>2934</capital_goods>
 <capital_goods_price>0.560000</capital_goods_price>
 <hasloan>1</hasloan>
@@ -1483,7 +1483,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -1497,7 +1497,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -1846,7 +1846,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -1860,7 +1860,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -1879,7 +1879,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -1893,7 +1893,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -2077,7 +2077,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -2091,7 +2091,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -2506,7 +2506,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -2520,7 +2520,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -3232,7 +3232,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -3246,7 +3246,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -3265,7 +3265,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -3279,7 +3279,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -3562,7 +3562,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -3576,7 +3576,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -3628,7 +3628,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -3642,7 +3642,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -3793,7 +3793,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -3807,7 +3807,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -3958,7 +3958,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -3972,7 +3972,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -4354,7 +4354,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -4368,7 +4368,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -4585,7 +4585,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -4599,7 +4599,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -4717,7 +4717,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -4731,7 +4731,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -4750,7 +4750,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -4764,7 +4764,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -4816,7 +4816,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -4830,7 +4830,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -4849,7 +4849,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -4863,7 +4863,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -5014,7 +5014,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -5028,7 +5028,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -5047,7 +5047,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -5061,7 +5061,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -5410,7 +5410,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>1</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -5424,7 +5424,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -5707,7 +5707,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -5721,7 +5721,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6037,7 +6037,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>3</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6051,7 +6051,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6070,7 +6070,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>3</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6084,7 +6084,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6103,7 +6103,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>3</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6117,7 +6117,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6136,7 +6136,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6150,7 +6150,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6169,7 +6169,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>15</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6183,7 +6183,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6400,7 +6400,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6414,7 +6414,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6565,7 +6565,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6579,7 +6579,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -6631,7 +6631,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -6645,7 +6645,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -7159,7 +7159,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -7173,7 +7173,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -7423,7 +7423,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -7437,7 +7437,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -7522,7 +7522,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -7536,7 +7536,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -7654,7 +7654,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -7668,7 +7668,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -8215,7 +8215,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -8229,7 +8229,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -8710,7 +8710,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -8724,7 +8724,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -9139,7 +9139,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -9153,7 +9153,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -9172,7 +9172,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -9186,7 +9186,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -9238,7 +9238,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -9252,7 +9252,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -9304,7 +9304,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -9318,7 +9318,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -9337,7 +9337,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -9351,7 +9351,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -9370,7 +9370,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -9384,7 +9384,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>4</housing_units>
 <n_shares>1</n_shares>
-<liquidity>26.285377</liquidity>
+<liquidity>26.291020</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -11878,7 +11878,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -11892,7 +11892,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -11911,7 +11911,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -11925,7 +11925,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -11944,7 +11944,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -11958,7 +11958,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12010,7 +12010,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12024,7 +12024,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12109,7 +12109,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12123,7 +12123,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12340,7 +12340,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12354,7 +12354,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12439,7 +12439,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12453,7 +12453,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12505,7 +12505,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12519,7 +12519,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12670,7 +12670,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12684,7 +12684,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12769,7 +12769,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12783,7 +12783,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -12868,7 +12868,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -12882,7 +12882,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13066,7 +13066,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13080,7 +13080,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13264,7 +13264,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13278,7 +13278,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13396,7 +13396,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13410,7 +13410,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13462,7 +13462,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13476,7 +13476,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13660,7 +13660,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13674,7 +13674,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13726,7 +13726,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13740,7 +13740,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -13792,7 +13792,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -13806,7 +13806,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -14056,7 +14056,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -14070,7 +14070,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -14188,7 +14188,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -14202,7 +14202,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -14254,7 +14254,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -14268,7 +14268,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -15211,7 +15211,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -15225,7 +15225,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -15574,7 +15574,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -15588,7 +15588,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -15772,7 +15772,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -15786,7 +15786,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -15937,7 +15937,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -15951,7 +15951,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -15970,7 +15970,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>15</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -15984,7 +15984,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -16168,7 +16168,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -16182,7 +16182,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -16333,7 +16333,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -16347,7 +16347,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -16630,7 +16630,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -16644,7 +16644,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -16729,7 +16729,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -16743,7 +16743,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -17026,7 +17026,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>15</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -17040,7 +17040,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -17290,7 +17290,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -17304,7 +17304,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -17323,7 +17323,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -17337,7 +17337,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18247,7 +18247,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18261,7 +18261,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18511,7 +18511,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18525,7 +18525,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18610,7 +18610,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18624,7 +18624,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18808,7 +18808,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18822,7 +18822,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18841,7 +18841,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>9</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18855,7 +18855,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18874,7 +18874,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18888,7 +18888,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -18973,7 +18973,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -18987,7 +18987,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19072,7 +19072,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19086,7 +19086,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19270,7 +19270,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19284,7 +19284,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19303,7 +19303,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19317,7 +19317,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19501,7 +19501,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19515,7 +19515,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19633,7 +19633,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19647,7 +19647,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19699,7 +19699,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19713,7 +19713,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19864,7 +19864,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19878,7 +19878,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -19963,7 +19963,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -19977,7 +19977,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20128,7 +20128,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20142,7 +20142,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20227,7 +20227,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20241,7 +20241,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20293,7 +20293,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20307,7 +20307,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20359,7 +20359,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20373,7 +20373,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20491,7 +20491,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20505,7 +20505,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20623,7 +20623,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20637,7 +20637,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20755,7 +20755,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20769,7 +20769,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -20821,7 +20821,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -20835,7 +20835,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -21052,7 +21052,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -21066,7 +21066,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -21184,7 +21184,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -21198,7 +21198,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -21415,7 +21415,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>4</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -21429,7 +21429,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -21547,7 +21547,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -21561,7 +21561,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -21877,7 +21877,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>12</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -21891,7 +21891,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -21943,7 +21943,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -21957,7 +21957,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -22042,7 +22042,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -22056,7 +22056,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -22207,7 +22207,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -22221,7 +22221,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -22504,7 +22504,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -22518,7 +22518,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -22603,7 +22603,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>10</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -22617,7 +22617,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -22933,7 +22933,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -22947,7 +22947,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -23065,7 +23065,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -23079,7 +23079,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -23890,7 +23890,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>6</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -23904,7 +23904,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -23923,7 +23923,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -23937,7 +23937,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -24286,7 +24286,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -24300,7 +24300,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -24583,7 +24583,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -24597,7 +24597,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -24748,7 +24748,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>14</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -24762,7 +24762,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25045,7 +25045,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>7</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25059,7 +25059,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25111,7 +25111,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>13</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25125,7 +25125,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25210,7 +25210,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>11</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25224,7 +25224,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25342,7 +25342,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25356,7 +25356,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25441,7 +25441,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>8</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25455,7 +25455,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25474,7 +25474,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>5</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25488,7 +25488,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{5, 0, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25870,7 +25870,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>3</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25884,7 +25884,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -25969,7 +25969,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>3</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -25983,7 +25983,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -26332,7 +26332,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>2</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -26346,7 +26346,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -26662,7 +26662,7 @@
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <weekly_consumption_budget>0.721177</weekly_consumption_budget>
-<mall_budget>0.002510</mall_budget>
+<mall_budget>0.008153</mall_budget>
 <my_employer_id>2</my_employer_id>
 <wage>5.000000</wage>
 <day_of_month_to_act>1</day_of_month_to_act>
@@ -26676,7 +26676,7 @@
 <housing_price>100.000000</housing_price>
 <housing_units>5</housing_units>
 <n_shares>1</n_shares>
-<liquidity>11.758577</liquidity>
+<liquidity>11.764219</liquidity>
 <capital_income>0.000000</capital_income>
 <previous_wages>{0, 5, 5}</previous_wages>
 <labour_income>10.000000</labour_income>
@@ -27308,10 +27308,10 @@
 <total_assets>122539.166667</total_assets>
 <loans>13769.166667</loans>
 <mortgages>103468.719957</mortgages>
-<deposits>6278.633530</deposits>
+<deposits>6278.537610</deposits>
 <centralbank_debt>105708.343833</centralbank_debt>
 <equity>11166.322833</equity>
-<liquidity>5878.564218</liquidity>
+<liquidity>5878.468298</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>499.568799</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
@@ -27332,10 +27332,10 @@
 <total_assets>106894.166667</total_assets>
 <loans>10444.416667</loans>
 <mortgages>91120.475839</mortgages>
-<deposits>5422.640851</deposits>
+<deposits>5422.736771</deposits>
 <centralbank_debt>92099.425833</centralbank_debt>
 <equity>9742.890833</equity>
-<liquidity>6093.292790</liquidity>
+<liquidity>6093.388710</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>0.000000</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
@@ -27380,8 +27380,8 @@
 <consumption_goods_prices>{0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600}</consumption_goods_prices>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<goods>{130308, 0.005642}</goods>
-<weekly_price_averages>{0.005600, 0.005642, 0.005642, 0.005642}</weekly_price_averages>
+<goods>{65154, 0.011285}</goods>
+<weekly_price_averages>{0.005600, 0.011285, 0.011285, 0.011285}</weekly_price_averages>
 <interest_rate>0.005000</interest_rate>
 <liquidity>216422.650000</liquidity>
 <loans_banks>197807.769667</loans_banks>
@@ -27409,7 +27409,7 @@
 <id>20</id>
 <it_no>15</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
-<goods_transactions>{130308, 0.005642}</goods_transactions>
+<goods_transactions>{65154, 0.011285}</goods_transactions>
 </xagent>
 <xagent>
 <name>reagency</name>

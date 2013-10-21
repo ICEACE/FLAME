@@ -88,9 +88,10 @@ int mall_consumption_shopping()
         if (sold_out == sellers_list.size) { break; }
         
         budget = buyers_list.array[i].budget;
-        if (budget < min_price) { continue; }
+        if (budget < min_price || budget < 0 || min_price < 0){ continue; }
         /* Filtering out households with initially insufficient budgets.
          */
+        
         
         select_prob = (double) random_int(0, sellers_list.size) / sellers_list.size;
         firm_select_prob_cum = 0;
@@ -103,7 +104,8 @@ int mall_consumption_shopping()
             if (sold_out == sellers_list.size) { break; }
             
             quantity = sellers_list.array[j].inventory;
-            if (quantity == 0) {
+        
+            if (quantity <= 0) {
             /* This is the case when goods right after min price goods have already been sold out. */
                 if (j == min_price_index) {
                     min_price_index = j+1;
@@ -129,6 +131,7 @@ int mall_consumption_shopping()
             firm_select_prob_cum += firm_select_prob;
             if ((firm_select_prob_cum - select_prob) >= 0){
                 quantity = (int) floor(budget / price);
+                
                 if (quantity >= sellers_list.array[j].inventory) {
                     quantity = sellers_list.array[j].inventory;
                     sold_out++;
@@ -138,6 +141,14 @@ int mall_consumption_shopping()
                         min_price = sellers_list.array[j+1].price;
                     }
                 }
+                
+                if (quantity < 0) {
+                    if (WARNING_MODE) {
+                        printf("Warning @mall_consumption_shopping(): Seller = %d, Buyer = %d, Vars: quantity = %d, budget = %f, price = %f, inventory = %d\n", sellers_list.array[j].id,buyers_list.array[i].id, quantity, budget, price, sellers_list.array[j].inventory);
+                    }
+                    quantity = 0;
+                }
+                
                 buyers_list.array[i].recieved_quantity += quantity;
                 sellers_list.array[j].inventory -= quantity;
                 buyers_list.array[i].budget -= quantity * price;

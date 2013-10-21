@@ -58,7 +58,7 @@ int household_housing_check_wealth()
     
     if (EQUITY_RATIO <= 0 ) {
         if (WARNING_MODE) {
-            printf("Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
+            printf("Warning @household_housing_check_wealth(): Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
         }
     }
     
@@ -330,7 +330,7 @@ int household_housing_update_market_price()
  */
 int household_housing_pay_mortgages()
 {
-    int size, ind;
+    int size, i;
     
     size = MORTGAGES_LIST.size;
     if (size == 0){ return 0;}
@@ -343,7 +343,7 @@ int household_housing_pay_mortgages()
     double interest_paid;
     double principal_paid, principal_left;
     
-    for (int i = 0; i < size; i++) {
+    for (i = 0; i < size; i++) {
         mort = MORTGAGES_LIST.array[i];
         interest_paid = mort.quarterly_interest / 3;
         principal_paid = mort.quarterly_principal / 3;
@@ -362,9 +362,26 @@ int household_housing_pay_mortgages()
     MORTGAGES -= total_principal_paid;
     LIQUIDITY -= MORTGAGE_COSTS[0];
     
+    
     HOUSING_PAYMENT = 0;
-    for (ind = 0; ind < 3; ind++) {
-        HOUSING_PAYMENT += MORTGAGE_COSTS[ind];
+    for (i = 0; i < 3; i++) {
+        HOUSING_PAYMENT += MORTGAGE_COSTS[i];
+    }
+    
+    /* Finish off very little amount of mortgages. */
+    if (MORTGAGES < LIQUIDITY) {
+        total_principal_paid = 0;
+        for (i = 0; i < size; i++) {
+            mort = MORTGAGES_LIST.array[i];
+            principal_paid = mort.quarterly_principal;
+            add_mortgage_payment_message(mort.bank_id, 0, principal_paid);
+            total_principal_paid += principal_paid;
+        }
+        LIQUIDITY -= MORTGAGES;
+        MORTGAGES = 0;
+        MORTGAGE_COSTS[0] += total_principal_paid;
+        HOUSING_PAYMENT += total_principal_paid;
+        for (i = 0; i < size; i++) {remove_mortgage(&MORTGAGES_LIST, 0);}
     }
     
     free_mortgage(&mort);

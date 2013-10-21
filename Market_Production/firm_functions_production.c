@@ -42,7 +42,7 @@ int firm_production_set_price()
     
     unit_cost_old = UNIT_COST;
     
-    goods_to_sale = INVENTORY + PRODUCTION_CURRENT;
+    goods_to_sale = INVENTORY;
     
     unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
     unit_cost_new += DEBT * LOANS_INTEREST_RATE / 3;
@@ -91,6 +91,16 @@ int firm_production_plan()
         PRODUCTION_PLAN = EXPECTED_SALES;
     }
     
+    
+    /*This case has been observed during the experiment. Production model should be revised!*/
+    if (PRODUCTION_PLAN < 0) {
+        PRODUCTION_PLAN = SALES;
+        if (WARNING_MODE) {
+            printf("Warning @firm_production_plan(): A negative production planning occurred Firm ID = %d, previous sales is targeted instead,  Sales = %d\n", ID, SALES);
+        }
+
+        
+    }
     /* Computing production plan considering firm memory persistance
     and production estimates.
      */
@@ -114,6 +124,8 @@ int firm_production_plan()
 int firm_production_compute_labour_demand()
 {
     EMPLOYEES_NEEDED = (int) ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+
+    if (EMPLOYEES_NEEDED < 1) {EMPLOYEES_NEEDED = 1;}
     
 	return 0; /* Returning zero means the agent is not removed */
 }

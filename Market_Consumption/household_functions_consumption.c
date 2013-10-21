@@ -39,7 +39,7 @@ int household_consumption_demand()
 {
     MALL_BUDGET += WEEKLY_CONSUMPTION_BUDGET;
     
-    if (LIQUIDITY < 0 ) {
+    if (LIQUIDITY <= 0 ) {
         if (PRINT_DEBUG_MODE){
             printf("Household ID = %d has no money to go to the mall!\n", ID);
         }
@@ -50,9 +50,13 @@ int household_consumption_demand()
      */
     if (MALL_BUDGET > LIQUIDITY) {
         MALL_BUDGET = LIQUIDITY;
-        add_buy_message(ID, LIQUIDITY);
+        if (LIQUIDITY > 0) {
+         add_buy_message(ID, LIQUIDITY);   
+        }
     } else {
-        add_buy_message(ID, MALL_BUDGET);
+        if (MALL_BUDGET > 0) {
+         add_buy_message(ID, MALL_BUDGET);   
+        }
     }
     
     if (PRINT_DEBUG_MODE) {
