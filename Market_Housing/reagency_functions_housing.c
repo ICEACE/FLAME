@@ -57,7 +57,7 @@ int reagency_housing_process()
         risk = mortgaging_capacity_message->risky_assets;
         add_hbank(&banks_list, id, cash, risk, 0);
 	FINISH_MORTGAGING_CAPACITY_MESSAGE_LOOP
-     
+    
     if (sellers_list.size == 0 || buyers_list.size == 0) {
         /* Free seller list */
         free_hseller_array(&sellers_list);

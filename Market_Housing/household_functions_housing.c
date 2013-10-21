@@ -57,7 +57,7 @@ int household_housing_check_wealth()
     }
     
     if (EQUITY_RATIO <= 0 ) {
-        if (PRINT_DEBUG_MODE) {
+        if (WARNING_MODE) {
             printf("Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
         }
     }
@@ -151,7 +151,7 @@ int household_housing_sell()
     
     price = HOUSING_PRICE * (1 + price_difference);
     
-    //add_sell_housing_message(ID, price, 1);
+    add_sell_housing_message(ID, price, 1);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -385,11 +385,6 @@ int household_housing_debt_writeoff()
     
     size = MORTGAGES_LIST.size;
     if (size == 0){
-        if (PRINT_DEBUG_MODE){
-            if (MORTGAGES > 0) {
-                printf("Household ID = %d - Logical Error: No mortgage units found, that matches to existing mortgage debt!. ", ID);
-            }
-        }
         return 0;
     }
     

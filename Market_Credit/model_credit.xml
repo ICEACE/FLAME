@@ -741,7 +741,7 @@
                 </function>
                 <function>
                     <name>bank_credit_compute_dividends</name>
-                    <description>Bank evaluates first loan requests.</description>
+                    <description>Bank evaluates loan requests firstly. </description>
                     <currentState>BankCreditDividends</currentState>
                     <nextState>BankCreditBalanceSheet</nextState>
                     <outputs>

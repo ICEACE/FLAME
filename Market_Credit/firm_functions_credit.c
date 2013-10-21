@@ -140,7 +140,7 @@ int firm_credit_check_liquidity_need()
 int firm_credit_demand_loans_1()
 {
     if (LIQUIDITY_NEED > 0){
-       add_loan_request_1_message(BANK_ID, ID, LIQUIDITY_NEED);
+       add_loan_request_1_message(ID, BANK_ID, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -158,6 +158,11 @@ int firm_credit_borrow_loans_1()
     amount = loan_acknowledge_1_message->amount;
  	FINISH_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
     
+    if (PRINT_DEBUG_MODE){
+        printf("Firm ID = %d @ Loan Stage 1 received %f of loans. \n", ID, amount);
+    }
+    
+    
     if (amount == LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
         LIQUIDITY += amount;
@@ -168,7 +173,7 @@ int firm_credit_borrow_loans_1()
     /* Shall we allow partial loans? */
     else{
         HASLOAN = 0;
-        add_loan_request_2_message(LOAN_LIST[1].bank_id, ID, LIQUIDITY_NEED);
+        add_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -186,6 +191,11 @@ int firm_credit_borrow_loans_2()
     amount = loan_acknowledge_2_message->amount;
  	FINISH_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
 
+    if (PRINT_DEBUG_MODE){
+        printf("Firm ID = %d @ Loan Stage 2 received %f of loans. \n", ID, amount);
+    }
+
+    
     if (amount >= LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
         LIQUIDITY += amount;
@@ -238,6 +248,10 @@ int firm_credit_check_equityfund_investment()
     amount = fund_request_ack_message->amount;
  	FINISH_FUND_REQUEST_ACK_MESSAGE_LOOP
     
+    if (PRINT_DEBUG_MODE){
+        printf("Firm ID = %d @ Loan - Equity Fund received %f amount of funding investment. \n", ID, amount);
+    }
+
     if (amount > 0) {
         LIQUIDITY += amount;
         HASINVESTMENT = 1;
@@ -276,6 +290,9 @@ int firm_credit_illiquidity_bankrupt()
     
     DEBT = new_loans;
     
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d is illiquidity bankrupt!\n", ID);
+    }
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         current_amount = LOAN_LIST[i].amount;
@@ -283,6 +300,10 @@ int firm_credit_illiquidity_bankrupt()
         LOAN_LIST[i].amount = new_amount;
         delta_amount = current_amount - new_amount;
         add_loan_writeoff_message(bank, delta_amount);
+        if (PRINT_DEBUG_MODE) {
+            printf("Firm ID = %d illiquidity bankrupt burden on Bank = %d is = %f \n",ID,bank, delta_amount);
+        }
+
     }
     
     ISILLIQUID = 0;
@@ -331,8 +352,8 @@ int firm_credit_pay_dividends()
     }
     
     if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
-        if (PRINT_DEBUG_MODE) {
-         printf("Firm ID = %d, Dividends to Be Paid = %f, Logical Error: Firm_credit_pay_dividends \n", ID, DIVIDENDS_TO_BE_PAID);   
+        if (WARNING_MODE) {
+         printf("Warning: Firm ID = %d, Dividends to be paid = %f, Liquidity = %f \n", ID, DIVIDENDS_TO_BE_PAID, LIQUIDITY);
         }
     }
     else{
@@ -399,6 +420,10 @@ int firm_credit_insolvency_bankruptcy()
      */
     int bank;
     double amount;
+    
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d is insolvent bankrupt!! \n", ID);
+    }
     
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;

@@ -4,7 +4,7 @@
 
 /*
  * \fn: int equityfund_credit_check_tax_rate()
- * \brief: Recieved from the government.
+ * \brief: Received from the government.
  */
 int equityfund_credit_check_tax_rate()
 {
@@ -18,7 +18,7 @@ int equityfund_credit_check_tax_rate()
 
 /*
  * \fn: equityfund_credit_invest_illiquids()
- * \brief: Equity Fund recieves investement request. Firms send request when they need 
+ * \brief: Equity Fund receives investement request. Firms send request when they need
  * liquidity.
  */
 int equityfund_credit_invest_illiquids()
@@ -29,8 +29,16 @@ int equityfund_credit_invest_illiquids()
     START_FUND_REQUEST_MESSAGE_LOOP
     request = fund_request_message->amount;
     firm_id = fund_request_message->firm_id;
+    
+    if (PRINT_DEBUG_MODE) {
+        printf("Equity Fund: Liquidity = %f, Liquidity request = %f from Firm ID = %d. \n",LIQUIDITY, request, firm_id);
+    }
+    
     if (LIQUIDITY > request) {
         add_fund_request_ack_message(firm_id, request);
+        if (PRINT_DEBUG_MODE) {
+            printf("Firm ID = %d receives investment from Equity Fund. \n", firm_id);
+        }
         LIQUIDITY -= request;
         FIRM_INVESTMENT += request;
     }
@@ -72,7 +80,7 @@ int equityfund_credit_distribute_shares()
     add_household_share_message(per_share);
     add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
     if (PRINT_DEBUG_MODE) {
-        printf("Equity Fund: Dividends Paid = %f, Per Share = %f \n", DIVIDENDS_PAID, per_share);
+        printf("Equity Fund: Shares %d, Dividends Paid = %f, Per Share = %f \n", N_SHARES, DIVIDENDS_PAID, per_share);
     }
     
 	return 0; /* Returning zero means the agent is not removed */

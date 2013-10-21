@@ -59,7 +59,7 @@ int bank_credit_compute_income_statement()
  */
 int bank_credit_compute_dividends()
 {
-
+    
     if (NET_EARNINGS <= 0) {
         TOTAL_DIVIDENDS = 0;
         RETAINED_EARNINGS = 0;
@@ -168,15 +168,23 @@ int bank_credit_process_loan_requests_1()
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d!\n", ID, amount, firm);
+        }
     }
     else if ((EQUITY / risk_weighted_assets) >= CAPITAL_ADEQUECY_RATIO) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
+        
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d!\n", ID, amount, firm);
+        }
+
     }
     else {
-        if (PRINT_DEBUG_MODE){
-            printf("Error: Bank ID = %d at bank_credit_process_loan_requests1 risk weighted assest below ZERO!!!", ID);
+        if (WARNING_MODE){
+            printf("Warning: Bank ID = %d at bank_credit_process_loan_requests1 risk weighted assets < 0, Liquidity = %f, Loans = %f, Mortgages = %f \n", ID, LIQUIDITY, LOANS, MORTGAGES);
         }
     }
     FINISH_LOAN_REQUEST_1_MESSAGE_LOOP
@@ -206,15 +214,21 @@ int bank_credit_process_loan_requests_2()
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID = %d Loan Stage 2: %f --> Firm ID = %d!\n", ID, amount, firm);
+        }
     }
     else if ((EQUITY / risk_weighted_assets) >= CAPITAL_ADEQUECY_RATIO) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID = %d Loan Stage 2: %f --> Firm ID = %d!\n", ID, amount, firm);
+        }
     }
     else {
-        if (PRINT_DEBUG_MODE){
-            printf("Error: Bank ID = %d at bank_credit_process_loan_requests2 risk weighted assest below ZERO!!!", ID);
+        if (WARNING_MODE){
+            printf("Warning: Bank ID = %d at bank_credit_process_loan_requests1 risk weighted assets < 0, Liquidity = %f, Loans = %f, Mortgages = %f \n", ID, LIQUIDITY, LOANS, MORTGAGES);
         }
     }
     FINISH_LOAN_REQUEST_2_MESSAGE_LOOP
