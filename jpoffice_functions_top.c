@@ -149,7 +149,7 @@ int jpoffice_init_employment()
     } while (1);
     
     if (PRINT_DEBUG_MODE) {
-        printf("No of total employement %d\n", nemployed);
+        printf("Number of total employement %d\n", nemployed);
     }
     
     /* Finish */

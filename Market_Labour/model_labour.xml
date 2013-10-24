@@ -606,7 +606,7 @@
                     <name>centralbank_trace_unemployment_status</name>
                     <description>Makes a sensus on employment status.</description>
                     <currentState>CentralBankLabour</currentState>
-                    <nextState>CentralBankConsumption</nextState>
+                    <nextState>CentralBankPrices</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -618,6 +618,12 @@
                             <messageName>employment_status</messageName>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>centralbank_update_price_indices</name>
+                    <description>The function updates monthly consumption goods prices.</description>
+                    <currentState>CentralBankPrices</currentState>
+                    <nextState>CentralBankConsumption</nextState>
                 </function>
             </functions>
         </xagent>

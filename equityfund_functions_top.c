@@ -18,7 +18,7 @@ int equityfund_init()
             strcpy(filename, "./outputs/data/EquityFund_snapshot.txt");
             file1 = fopen(filename,"w");
             fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "DIVIDENDS_RECIEVED", "SHARE_FIRMS", "SHARE_CONSTRUCTION_FIRMS", "SHARE_BANKS", "DIVIDENDS_RETAINED", "LIQUIDITY");
-            fprintf(file1,"%d %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
+            //fprintf(file1,"%d %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
             fclose(file1);
             free(filename);
         }

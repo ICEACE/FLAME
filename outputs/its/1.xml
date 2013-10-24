@@ -27307,11 +27307,11 @@
 <it_no>1</it_no>
 <total_assets>122539.166667</total_assets>
 <loans>13769.166667</loans>
-<mortgages>103468.719957</mortgages>
+<mortgages>109868.719957</mortgages>
 <deposits>6124.896306</deposits>
 <centralbank_debt>105708.343833</centralbank_debt>
 <equity>11166.322833</equity>
-<liquidity>5724.826994</liquidity>
+<liquidity>-675.173006</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>499.568799</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
@@ -27331,11 +27331,11 @@
 <it_no>1</it_no>
 <total_assets>106894.166667</total_assets>
 <loans>10444.416667</loans>
-<mortgages>91120.475839</mortgages>
+<mortgages>96620.475839</mortgages>
 <deposits>5576.378075</deposits>
 <centralbank_debt>92099.425833</centralbank_debt>
 <equity>9742.890833</equity>
-<liquidity>6247.030014</liquidity>
+<liquidity>747.030014</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>0.000000</total_writeoffs>
 <interest_rate>0.005000</interest_rate>

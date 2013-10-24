@@ -111,7 +111,6 @@ int government_compute_income_statement()
         filename = malloc(40*sizeof(char));
         filename[0]=0;
         strcpy(filename, "./outputs/data/Government_snapshot.txt");
-        
         file1 = fopen(filename,"a");
         fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, UNEMPLOYMENT_RATE, LABOUR_TAX_RATE, CAPITAL_TAX_RATE, GOV_GENERAL_BENEFIT_RATE, LABOUR_TAX_INCOME,  CAPITAL_TAX_INCOME, CENTRALBANK_INCOME, UNEMPLOYMENT_BENEFITS, GENERAL_BENEFITS, LIQUIDITY, DEBT);
         fclose(file1);

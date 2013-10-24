@@ -8,21 +8,6 @@
  */
 int centralbank_set_interest_rate()
 {
-    double price_avg, prices;
-    int i;
-
-    
-    prices = 0;
-    for(i = 0; i < 4; i++){
-        prices += WEEKLY_PRICE_AVERAGES[i];
-    }
-    price_avg = prices / 4;
-    
-    for(i = 11; i > 0; i--){
-        CONSUMPTION_GOODS_PRICES[i] = CONSUMPTION_GOODS_PRICES[i-1];
-    }
-    CONSUMPTION_GOODS_PRICES[0] = price_avg;
-    
     double inflation, rcb;
     
     if (CONSUMPTION_GOODS_PRICES[11] == 0) {

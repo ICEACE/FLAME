@@ -1,8 +1,8 @@
 <states>
 <itno>60</itno>
 <environment>
-<print_debug_mode>1</print_debug_mode>
-<warning_mode>1</warning_mode>
+<print_debug_mode>0</print_debug_mode>
+<warning_mode>0</warning_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.000000</ratio_liquidity>
 <consumption_adjustment_speed>0.100000</consumption_adjustment_speed>
@@ -27307,11 +27307,11 @@
 <it_no>60</it_no>
 <total_assets>122539.166667</total_assets>
 <loans>13769.166667</loans>
-<mortgages>90187.830596</mortgages>
+<mortgages>108082.830596</mortgages>
 <deposits>9085.167845</deposits>
 <centralbank_debt>105708.343833</centralbank_debt>
 <equity>11166.322833</equity>
-<liquidity>18975.411568</liquidity>
+<liquidity>1080.411568</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>4198.124370</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
@@ -27331,11 +27331,11 @@
 <it_no>60</it_no>
 <total_assets>106894.166667</total_assets>
 <loans>10444.416667</loans>
-<mortgages>77903.843188</mortgages>
+<mortgages>93503.843188</mortgages>
 <deposits>8065.836978</deposits>
 <centralbank_debt>92099.425833</centralbank_debt>
 <equity>9742.890833</equity>
-<liquidity>18941.741147</liquidity>
+<liquidity>3341.741147</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>3624.652643</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
@@ -27377,7 +27377,7 @@
 <day_of_month_to_act>1</day_of_month_to_act>
 <unemployment_rate>0.185000</unemployment_rate>
 <inflation_rate>0.000000</inflation_rate>
-<consumption_goods_prices>{0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600}</consumption_goods_prices>
+<consumption_goods_prices>{0.014923, 0.011285, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600, 0.005600}</consumption_goods_prices>
 <it_no>60</it_no>
 <day_of_week_to_act>0</day_of_week_to_act>
 <goods>{37691, 0.017327}</goods>

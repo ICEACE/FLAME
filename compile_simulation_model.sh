@@ -23,6 +23,9 @@ make LIBMBOARD_DIR=/Users/bulent/Documents/AWorkspace/iceace/libmbdir
 ../html/updatewebpage.sh
 make vclean
 
+### To run the analysis script:
+#Rscript ./outputs/scripts/timeseries.R
+
 ### to get back to a branch:
 #git checkout -b newbranch
 #git checkout master

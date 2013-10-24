@@ -373,7 +373,7 @@ int household_housing_pay_mortgages()
         total_principal_paid = 0;
         for (i = 0; i < size; i++) {
             mort = MORTGAGES_LIST.array[i];
-            principal_paid = mort.quarterly_principal;
+            principal_paid = mort.principal;
             add_mortgage_payment_message(mort.bank_id, 0, principal_paid);
             total_principal_paid += principal_paid;
         }
@@ -402,6 +402,18 @@ int household_housing_debt_writeoff()
     
     size = MORTGAGES_LIST.size;
     if (size == 0){
+        if (DATA_COLLECTION_MODE) {
+            char * filename;
+            FILE * file1;
+            filename = malloc(40*sizeof(char));
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/Household_Monthly_FirstDay.txt");
+            file1 = fopen(filename,"a");
+            double mcost = MORTGAGE_COSTS[0];
+            fprintf(file1,"%d %d %f %f %d %f %f %f\n",IT_NO, ID, MORTGAGES, mcost, HOUSING_UNITS, HOUSING_VALUE, EQUITY_RATIO, LIQUIDITY);
+            fclose(file1);
+            free(filename);
+        }
         return 0;
     }
     
@@ -423,6 +435,13 @@ int household_housing_debt_writeoff()
         pre_mortgages = MORTGAGES;
         MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income / MORTGAGES_INTEREST_RATE;
         writeoff = pre_mortgages - MORTGAGES;
+        
+        if (WARNING_MODE) {
+            if (writeoff < 0 || MORTGAGES < 0) {
+                printf("Warning @household_housing_debt_writeoff(): Unexpected negative values detected, Household = %d, Writeoff = %f, Mortgages = %f\n", ID, writeoff, MORTGAGES);
+            }
+        }
+
         
         /* All mortgages are acquired from the same bank. */
         add_mortgage_writeoff_message(BANK_ID, writeoff);

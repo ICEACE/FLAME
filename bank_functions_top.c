@@ -13,9 +13,8 @@ int bank_init_loans()
     START_FIRM_BANK_INIT_LOANS_MESSAGE_LOOP
     LOANS += firm_bank_init_loans_message->amount;
     FINISH_FIRM_BANK_INIT_LOANS_MESSAGE_LOOP
-
     
-	return 0; /* Returning zero means the agent is not removed */
+    return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
@@ -109,6 +108,7 @@ int bank_iterate()
     }
     
     IT_NO++;
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

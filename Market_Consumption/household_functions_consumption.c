@@ -83,7 +83,6 @@ int household_consumption_recieve_goods()
             printf("Household ID = %d waiting to receive goods from the mall. \n", ID);
         }
     }
-
     
     money_to_spend = MALL_BUDGET;
     

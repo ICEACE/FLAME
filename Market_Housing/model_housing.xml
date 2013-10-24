@@ -503,7 +503,7 @@
                     </condition>
                     <outputs>
                         <output>
-                            <messageName>mortgaging_capacity</messageName>
+                            <messageName>bank_reagency_credibility</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -631,11 +631,7 @@
                             </sort>
                         </input>
                         <input>
-                            <messageName>mortgaging_capacity</messageName>
-                            <sort>
-                                <key>bank_id</key>
-                                <order>ascend</order>
-                            </sort>
+                            <messageName>bank_reagency_credibility</messageName>
                         </input>
                     </inputs>
                     <outputs>
@@ -823,7 +819,7 @@
             </variables>
         </message>
         <message>
-            <name>mortgaging_capacity</name>
+            <name>bank_reagency_credibility</name>
             <description>Posted by a bank. It shows total amount of mortgage a bank can provide for the market.</description>
             <variables>
                 <variable>

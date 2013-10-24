@@ -1,7 +1,7 @@
 <states>
 <itno>0</itno>
 <environment>
-<print_debug_mode>1</print_debug_mode>
+<print_debug_mode>0</print_debug_mode>
 <warning_mode>1</warning_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.0</ratio_liquidity>

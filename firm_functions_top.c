@@ -81,6 +81,7 @@ int firm_init_balancesheet()
    /*The firms are initiliazed loans only with their preferred banks. 
     */
     add_firm_bank_init_loans_message(BANK_ID, LOAN_LIST[0].amount);
+    
     add_firm_bank_init_deposit_message(BANK_ID, LIQUIDITY);
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -131,7 +132,6 @@ int firm_iterate()
             file1 = fopen(filename,"w");
             fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISCONSTRUCTOR", "ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_GOODS_PRICE", "UNIT_HOUSE_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "PHYSICAL_CAPITAL_CONSTRUCTION", "DEBT");
             //fprintf(file1,"%d %d %d %d %d %f %f %d %f %f %f %d %d %f\n",IT_NO, ID, ISCONSTRUCTOR, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
-            
             
             free(filename);
         }

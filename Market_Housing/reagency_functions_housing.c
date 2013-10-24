@@ -30,33 +30,32 @@ int reagency_housing_process()
     int id;
     double price, quantity;
     START_SELL_HOUSING_MESSAGE_LOOP
-        id = sell_housing_message->seller_id;
-        price = sell_housing_message->price;
-        quantity = sell_housing_message->quantity;
-        add_hseller(&sellers_list, id, price, quantity);
+    id = sell_housing_message->seller_id;
+    price = sell_housing_message->price;
+    quantity = sell_housing_message->quantity;
+    add_hseller(&sellers_list, id, price, quantity);
 	FINISH_SELL_HOUSING_MESSAGE_LOOP
     
     /* Queue the households */
     int bank;
     double cash, income, mortgage;
     START_BUY_HOUSING_MESSAGE_LOOP
-        id = buy_housing_message->buyer_id;
-        bank = buy_housing_message->bank_id;
-        cash = buy_housing_message->liquidity;
-        income = buy_housing_message->quarterly_income;
-        mortgage = buy_housing_message->quarterly_mortgage_paid;
-        add_hbuyer(&buyers_list,id,bank,cash,income, mortgage);
+    id = buy_housing_message->buyer_id;
+    bank = buy_housing_message->bank_id;
+    cash = buy_housing_message->liquidity;
+    income = buy_housing_message->quarterly_income;
+    mortgage = buy_housing_message->quarterly_mortgage_paid;
+    add_hbuyer(&buyers_list,id,bank,cash,income, mortgage);
 	FINISH_BUY_HOUSING_MESSAGE_LOOP
-    
     
     /* Queue the banks */
     double risk;
-    START_MORTGAGING_CAPACITY_MESSAGE_LOOP
-        id = mortgaging_capacity_message->bank_id;
-        cash = mortgaging_capacity_message->equity;
-        risk = mortgaging_capacity_message->risky_assets;
-        add_hbank(&banks_list, id, cash, risk, 0);
-	FINISH_MORTGAGING_CAPACITY_MESSAGE_LOOP
+    START_BANK_REAGENCY_CREDIBILITY_MESSAGE_LOOP
+    id = bank_reagency_credibility_message->bank_id;
+    cash = bank_reagency_credibility_message->equity;
+    risk = bank_reagency_credibility_message->risky_assets;
+    add_hbank(&banks_list, id, cash, risk, 0);
+	FINISH_BANK_REAGENCY_CREDIBILITY_MESSAGE_LOOP
     
     if (sellers_list.size == 0 || buyers_list.size == 0) {
         /* Free seller list */
@@ -69,7 +68,7 @@ int reagency_housing_process()
     }
     
     if (PRINT_DEBUG_MODE) {
-        printf("\n Real Estate Agency Reports: Day= %d, Buyers = %d, Sellers = %d, Banks = %d \n", IT_NO, buyers_list.size, sellers_list.size, banks_list.size);
+        printf("\nReal Estate Agency Reports: Day= %d, Buyers = %d, Sellers = %d, Banks = %d \n", IT_NO, buyers_list.size, sellers_list.size, banks_list.size);
     }
     
     /* Do the matching *
@@ -220,6 +219,11 @@ int reagency_housing_process()
         transaction_quantity += nsold;
         transaction_volume += nsold * price;
     }
+    
+  
+    for (int i = 0; i < banks_list.size; i++) {
+        add_mortgage_requests_message(banks_list.array[i].id, banks_list.array[i].amount_mortgaged);
+        }
     
     HOUSING_TRANSACTIONS.quantity = transaction_quantity;
     if (transaction_quantity > 0) {

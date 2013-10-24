@@ -1,7 +1,7 @@
 <states>
 <itno>20</itno>
 <environment>
-<print_debug_mode>1</print_debug_mode>
+<print_debug_mode>0</print_debug_mode>
 <warning_mode>1</warning_mode>
 <data_collection_mode>1</data_collection_mode>
 <ratio_liquidity>1.000000</ratio_liquidity>
@@ -27307,11 +27307,11 @@
 <it_no>20</it_no>
 <total_assets>122539.166667</total_assets>
 <loans>13769.166667</loans>
-<mortgages>103468.719957</mortgages>
+<mortgages>109868.719957</mortgages>
 <deposits>7052.258503</deposits>
 <centralbank_debt>105708.343833</centralbank_debt>
 <equity>11166.322833</equity>
-<liquidity>6652.189191</liquidity>
+<liquidity>252.189191</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>499.568799</total_writeoffs>
 <interest_rate>0.005000</interest_rate>
@@ -27331,11 +27331,11 @@
 <it_no>20</it_no>
 <total_assets>106894.166667</total_assets>
 <loans>10444.416667</loans>
-<mortgages>91120.475839</mortgages>
+<mortgages>96620.475839</mortgages>
 <deposits>6088.045523</deposits>
 <centralbank_debt>92099.425833</centralbank_debt>
 <equity>9742.890833</equity>
-<liquidity>6758.697461</liquidity>
+<liquidity>1258.697461</liquidity>
 <revenues>0.000000</revenues>
 <total_writeoffs>0.000000</total_writeoffs>
 <interest_rate>0.005000</interest_rate>

@@ -4,14 +4,16 @@
 /*
  * \fn: int bank_housing_compute_capital_status()
  * \brief: The bank sends out its equity and risky assets.
- * The risky assets are loans to firms and mortgages to households.
+ * The risky assets are loans to firms and mortgages to households plus liquidity.
  * The message is recieved by the real estate agency to while 'counselling'
  * households regarding their mortgage applications. The policy which
  * requires a base for equity is applied. See Real Estate Agent implementation.
  */
 int bank_housing_compute_capital_status()
 {
-    add_mortgaging_capacity_message(ID,EQUITY,MORTGAGES+LOANS+LIQUIDITY);
+    double risk;
+    risk = MORTGAGES + LOANS + LIQUIDITY;
+    add_bank_reagency_credibility_message(ID,EQUITY,risk);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -25,12 +27,13 @@ int bank_housing_deliver_mortages()
     double amount = 0;
     
     START_MORTGAGE_REQUESTS_MESSAGE_LOOP
-    //The message is filtered via xmml.
-    
+    /* The message is filtered via xmml. */
     amount = mortgage_requests_message->amount;
     MORTGAGES += mortgage_requests_message->amount;
     LIQUIDITY -= amount;
-        
+    if (PRINT_DEBUG_MODE) {
+        printf("Bank ID = %d has given %f amount of mortgages. \n",ID, amount);
+    }
 	FINISH_MORTGAGE_REQUESTS_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -45,10 +48,11 @@ int bank_housing_recieve_mortgage_principals()
     double amount;
     
     START_MORTGAGE_PAYMENT_FROM_SALE_MESSAGE_LOOP
-    //The message is filtered via xmml.
+    /* The message is filtered via xmml. */
     amount = mortgage_payment_from_sale_message->amount;
-    //The amount recieved from households fire sale are considered the principal
-    // payment. It does not contain interests.
+    /* The amount recieved from households fire sale are considered solely as principal payment.
+     It does not contain interests.
+     */
     MORTGAGES -= amount;
     LIQUIDITY += amount;
     
@@ -67,7 +71,7 @@ int bank_housing_recieve_mortgages()
     double interest;
     
     START_MORTGAGE_PAYMENT_MESSAGE_LOOP
-    //The message is filtered via xmml.
+    /* The message is filtered via xmml. */
     principal = mortgage_payment_message->principal;
     interest = mortgage_payment_message->interest;
 
@@ -89,7 +93,7 @@ int bank_housing_debt_writeoff()
     double amount = 0;
     
     START_MORTGAGE_WRITEOFF_MESSAGE_LOOP
-    //The message is filtered via xmml.
+    /* The message is filtered via xmml. */
     amount = mortgage_writeoff_message->amount;
     MORTGAGES -= amount;
     TOTAL_WRITEOFFS += amount;
