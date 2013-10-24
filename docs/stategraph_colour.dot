@@ -245,6 +245,7 @@ digraph state_graph {
 	centralbank_CentralBankBalanceSheet [label = "CentralBankBalanceSheet"]
 	centralbank_CentralBankIncomeStatement [label = "CentralBankIncomeStatement"]
 	centralbank_CentralBankDebtRequests [label = "CentralBankDebtRequests"]
+	centralbank_CentralBankPrices [label = "CentralBankPrices"]
 	centralbank_CentralBankLabour [label = "CentralBankLabour"]
 	centralbank_CentralBankHousing [label = "CentralBankHousing"]
 	centralbank_CentralBankConsumption [label = "CentralBankConsumption"]
@@ -434,7 +435,8 @@ digraph state_graph {
 	centralbank_idle_CentralBankConsumption_CentralBankHousing [label = "idle", shape = box,style=filled,color=aquamarine];
 	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing [label = "centralbank_trace_goods_prices", shape = box,style=filled,color=aquamarine];
 	centralbank_idle_CentralBankLabour_CentralBankConsumption [label = "idle", shape = box,style=filled,color=azure3];
-	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption [label = "centralbank_trace_unemployment_status", shape = box,style=filled,color=azure3];
+	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPrices [label = "centralbank_trace_unemployment_status", shape = box,style=filled,color=azure3];
+	centralbank_centralbank_update_price_indices_CentralBankPrices_CentralBankConsumption [label = "centralbank_update_price_indices", shape = box,style=filled,color=azure3];
 	centralbank_idle_CentralBankCredit_CentralBankLabour [label = "idle", shape = box,style=filled,color=chartreuse1];
 	centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests [label = "centralbank_collect_interest_payments", shape = box,style=filled,color=chartreuse1];
 	centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement [label = "centralbank_process_debt_requests", shape = box,style=filled,color=chartreuse1];
@@ -796,8 +798,10 @@ digraph state_graph {
 	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing -> centralbank_CentralBankHousing;
 	centralbank_CentralBankLabour -> centralbank_idle_CentralBankLabour_CentralBankConsumption [ label = "not ( Periodicity: monthly\nPhase: a->day_of_month_to_act )"];
 	centralbank_idle_CentralBankLabour_CentralBankConsumption -> centralbank_CentralBankConsumption;
-	centralbank_CentralBankLabour -> centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
-	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption -> centralbank_CentralBankConsumption;
+	centralbank_CentralBankLabour -> centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPrices [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
+	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPrices -> centralbank_CentralBankPrices;
+	centralbank_CentralBankPrices -> centralbank_centralbank_update_price_indices_CentralBankPrices_CentralBankConsumption;
+	centralbank_centralbank_update_price_indices_CentralBankPrices_CentralBankConsumption -> centralbank_CentralBankConsumption;
 	centralbank_CentralBankCredit -> centralbank_idle_CentralBankCredit_CentralBankLabour [ label = "not ( Periodicity: quarterly\nPhase: 1 )"];
 	centralbank_idle_CentralBankCredit_CentralBankLabour -> centralbank_CentralBankLabour;
 	centralbank_CentralBankCredit -> centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests [ label = "Periodicity: quarterly\nPhase: 1"];
@@ -850,7 +854,7 @@ digraph state_graph {
 	reagency_reagency_housing_summary_REAgencyHousingSummary_end -> reagency_end;
 	
 	/* Communications */
-	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "mortgaging_capacity" color="#00ff00" constraint=false];
+	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "bank_reagency_credibility" color="#00ff00" constraint=false];
 	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
 	household_household_housing_sell_HHHousingRole_HHHousingRevenue -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
 	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ label = "sell_housing" color="#00ff00" constraint=false];
@@ -868,7 +872,7 @@ digraph state_graph {
 	bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1 -> centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement [ label = "bank_centralbank_debt_payment" color="#00ff00" constraint=false];
 	bank_bank_credit_do_balance_sheet_BankCreditBalanceSheet_BankCreditRequest1 -> centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankIncomeStatement [ label = "debt_request" color="#00ff00" constraint=false];
 	bank_bank_credit_compute_income_statement_BankCreditStart_BankCreditDividends -> centralbank_centralbank_collect_interest_payments_CentralBankCredit_CentralBankDebtRequests [ label = "bank_centralbank_interest_payment" color="#00ff00" constraint=false];
-	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption [ label = "employment_status" color="#00ff00" constraint=false];
+	household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll -> centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPrices [ label = "employment_status" color="#00ff00" constraint=false];
 	mall_mall_consumption_summary_MallConsumptionSummary_end -> centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing [ label = "goods_transactions_summary" color="#00ff00" constraint=false];
 	bank_bank_init_balancesheet_BankInitBalanceSheet_BankLoop -> centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop [ label = "bank_centralbank_init_debt" color="#00ff00" constraint=false];
 	firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment -> government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus [ label = "labour_tax" color="#00ff00" constraint=false];
@@ -968,9 +972,9 @@ digraph state_graph {
 	{ rank=same; layer_41;  jpoffice_jpoffice_labour_stage2_JPOLabourStage2_end; }
 	{ rank=same; layer_42;  firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmLabourPayWages;  household_household_labour_employment_HHLabourStage1Placement_HHLabourEmploymentStatus; }
 	{ rank=same; layer_43;  firm_idle_FirmLabourPayWages_FirmConsumptionStart;  firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment;  household_household_labour_report_status_HHLabourEmploymentStatus_HHLabourPayroll; }
-	{ rank=same; layer_44;  firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart;  household_idle_HHLabourPayroll_HHConsumptionStart;  household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart;  equityfund_equityfund_audit_dividends_EFLabourMarket_end;  government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus;  centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankConsumption; }
-	{ rank=same; layer_45;  firm_idle_FirmConsumptionStart_FirmHousingStart;  firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales;  household_idle_HHConsumptionStart_HHConsumptionWeekly;  household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly;  government_government_trace_unemployment_status_GovernmentLabourStatus_end;  centralbank_idle_CentralBankConsumption_CentralBankHousing; }
-	{ rank=same; layer_46;  household_idle_HHConsumptionWeekly_HHHousingStart;  household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods; }
+	{ rank=same; layer_44;  firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmConsumptionStart;  household_idle_HHLabourPayroll_HHConsumptionStart;  household_household_labour_recieve_wage_HHLabourPayroll_HHConsumptionStart;  equityfund_equityfund_audit_dividends_EFLabourMarket_end;  government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus;  centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPrices; }
+	{ rank=same; layer_45;  firm_idle_FirmConsumptionStart_FirmHousingStart;  firm_firm_consumption_supply_FirmConsumptionStart_FirmRecieveSales;  household_idle_HHConsumptionStart_HHConsumptionWeekly;  household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly;  government_government_trace_unemployment_status_GovernmentLabourStatus_end;  centralbank_centralbank_update_price_indices_CentralBankPrices_CentralBankConsumption; }
+	{ rank=same; layer_46;  household_idle_HHConsumptionWeekly_HHHousingStart;  household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods;  centralbank_idle_CentralBankConsumption_CentralBankHousing; }
 	{ rank=same; layer_47;  mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary; }
 	{ rank=same; layer_48;  firm_firm_consumption_recieve_sales_FirmRecieveSales_FirmConsumptionPrice;  household_household_consumption_recieve_goods_HHConsumptionRecieveGoods_HHHousingStart;  mall_mall_consumption_summary_MallConsumptionSummary_end; }
 	{ rank=same; layer_49;  firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart;  household_idle_HHHousingStart_HouseholdUpdateDeposits;  household_household_housing_market_role_HHHousingStart_HHHousingRole;  centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankHousing; }
