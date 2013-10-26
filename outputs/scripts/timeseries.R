@@ -59,8 +59,8 @@ time_series_mean(1, nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods P
 time_series_point(nWeeks, Mall$TRANSACTION_QUANTITY, "Weeks", "Number of Transactions", "Consumption Goods Market", "TransactionVolumeGoods.png")
 
 #Real Estate Agency
-time_series_point(nMonths, REAgency$AVG_HOUSING_PRICE, "Weeks", "Average Unit Housing Price", "Real Estate Market", "AvgGoodsPrice.png")
-time_series_point(nMonths, REAgency$TRANSACTION_QUANTITY, "Weeks", "Number of Housing Transactions", "Real Estate Market", "TransactionVolumeHouses.png")
+time_series_point(nMonths, REAgency$AVG_HOUSING_PRICE, "Months", "Average Unit Housing Price", "Real Estate Market", "AvgHousingPrice.png")
+time_series_point(nMonths, REAgency$TRANSACTION_QUANTITY, "Months", "Number of Housing Transactions", "Real Estate Market", "TransactionVolumeHouses.png")
 
 #Central Bank
 time_series_point(nQuarters, Centralbank$INTEREST_RATE, "Quarters", "Interest Rate", "Central Bank", "InterestRate.png")
@@ -100,6 +100,7 @@ time_series_mean(nFirms, nQuarters, FirmIncome$LABOUR_COSTS, "Quarters", "Labour
 time_series_mean(nFirms, nQuarters, FirmIncome$TOTAL_INTEREST_PAYMENTS, "Quarters", "Interest Payments (mean)", "Firms", "FirmsInterestPayments.png")
 time_series_mean(nFirms, nQuarters, FirmIncome$NET_EARNINGS, "Quarters", "Net Earnings (mean)", "Firms", "FirmsNetEarnings.png")
 
+FirmBalance <- read.csv('../data/Firm_Quarterly_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
 time_series_mean(nFirms, nQuarters, FirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Firms", "FirmsTotalAssets.png")
 time_series_mean(nFirms, nQuarters, FirmBalance$LIQUIDITY, "Quarters", "Liquidity (mean)", "Firms", "FirmsLiquidity.png")
 time_series_mean(nFirms, nQuarters, FirmBalance$DEBT, "Quarters", "Debt (mean)", "Firms", "FirmsDebt.png")

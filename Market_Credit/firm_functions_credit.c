@@ -354,8 +354,8 @@ int firm_credit_pay_dividends()
     }
     
     if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
-        if (WARNING_MODE) {
-         printf("Warning: Firm ID = %d, Dividends to be paid = %f, Liquidity = %f \n", ID, DIVIDENDS_TO_BE_PAID, LIQUIDITY);
+        if (PRINT_DEBUG_MODE) {
+         printf("Firm ID = %d, Dividends to be paid = %f, is more than liquidity = %f \n", ID, DIVIDENDS_TO_BE_PAID, LIQUIDITY);
         }
     }
     else{
