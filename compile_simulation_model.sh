@@ -18,6 +18,7 @@ cp ../initialization/popfiles/iceace_model_v1.0.0.pop ./initialization/iceace_mo
 cp ./initialization/iceace_model_v1.0.0.xml ./outputs/its/0.xml
 ../xparser-0.17.0/xparser model_iceace.xml
 cp ./stategraph_colour.dot ./docs/
+dot -Tpdf ./stategraph_colour.dot -o ./docs/stategraph_colour.pdf
 make LIBMBOARD_DIR=/Users/bulent/Documents/AWorkspace/iceace/libmbdir
 ./main 65 ./outputs/its/0.xml -f 1 > ./outputs/simulation_stream.txt
 ../html/updatewebpage.sh
