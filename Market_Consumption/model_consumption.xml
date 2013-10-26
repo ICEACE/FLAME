@@ -44,11 +44,6 @@
                         <name>budget</name>
                         <description>Consumption budget to go.</description>
                     </variable>
-                    <variable>
-                        <type>int</type>
-                        <name>recieved_quantity</name>
-                        <description>Number of items bought.</description>
-                    </variable>
                 </variables>
             </dataType>
             <dataType>
@@ -69,6 +64,11 @@
                         <type>int</type>
                         <name>inventory</name>
                         <description>Number of items available for sale.</description>
+                    </variable>
+                    <variable>
+                        <type>double</type>
+                        <name>inv_price</name>
+                        <description>Inverse of price. It is used to decrease computation time at the mall.</description>
                     </variable>
                 </variables>
             </dataType>
@@ -281,7 +281,7 @@
                     <name>firm_consumption_supply</name>
                     <description>A firm ships its goods to malls.</description>
                     <currentState>FirmConsumptionStart</currentState>
-                    <nextState>FirmRecieveSales</nextState>
+                    <nextState>FirmReceiveSales</nextState>
                         <condition>
                             <time>
                                 <period>weekly</period>
@@ -295,9 +295,9 @@
                     </outputs>
                 </function>
                 <function>
-                    <name>firm_consumption_recieve_sales</name>
+                    <name>firm_consumption_receive_sales</name>
                     <description>A firm recieves goods unsold and sales liquidity from the mall.</description>
-                    <currentState>FirmRecieveSales</currentState>
+                    <currentState>FirmReceiveSales</currentState>
                     <nextState>FirmConsumptionPrice</nextState>
                     <inputs>
                         <input>
@@ -407,12 +407,12 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>money_left</name>
-                    <description>Amount of liquid money that was not spent.</description>
+                    <name>money_spent</name>
+                    <description>Amount of liquid money that was spent.</description>
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>recieved_quantity</name>
+                    <name>received_quantity</name>
                     <description>Number of goods bought.</description>
                 </variable>
             </variables>
@@ -449,8 +449,8 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>unsold_quantities</name>
-                    <description>Number of unsold quantities.</description>
+                    <name>sold_quantities</name>
+                    <description>Number of sold quantities.</description>
                 </variable>
             </variables>
         </message>

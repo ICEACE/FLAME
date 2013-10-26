@@ -73,6 +73,8 @@ int firm_credit_compute_income_statement()
     
     REVENUES = 0;
     OPERATING_COSTS = 0;
+    LABOUR_COSTS = 0;
+    
     
 	return 0; /* Returning zero means the agent is not removed */
 }

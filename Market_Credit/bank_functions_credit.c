@@ -169,7 +169,7 @@ int bank_credit_process_loan_requests_1()
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
         if (PRINT_DEBUG_MODE){
-            printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d!\n", ID, amount, firm);
+            printf("Bank ID = %d Loan Stage 1: Total Assets = 0, %f --> Firm ID = %d!\n", ID, amount, firm);
         }
     }
     else if ((EQUITY / risk_weighted_assets) >= CAPITAL_ADEQUECY_RATIO) {
@@ -180,11 +180,10 @@ int bank_credit_process_loan_requests_1()
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d!\n", ID, amount, firm);
         }
-
     }
     else {
-        if (WARNING_MODE){
-            printf("Warning @bank_credit_process_loan_requests1(): Bank ID = %d, Total Assets = %f, Equity = %f, CAR = %f \n", ID, risk_weighted_assets, EQUITY, CAPITAL_ADEQUECY_RATIO);
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID = %d at Loan Stage 1: denies a %f amount loan request from Firm ID = %d \n", ID, amount, firm);
         }
     }
     FINISH_LOAN_REQUEST_1_MESSAGE_LOOP
@@ -227,8 +226,8 @@ int bank_credit_process_loan_requests_2()
         }
     }
     else {
-        if (WARNING_MODE){
-            printf("Warning @bank_credit_process_loan_requests2(): Bank ID = %d, Total Assets = %f, Equity = %f, CAR = %f \n", ID, risk_weighted_assets, EQUITY, CAPITAL_ADEQUECY_RATIO);
+        if (PRINT_DEBUG_MODE){
+            printf("Bank ID = %d at Loan Stage 2: denies a %f amount loan request from Firm ID = %d \n", ID, amount, firm);
         }
     }
     FINISH_LOAN_REQUEST_2_MESSAGE_LOOP

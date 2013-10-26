@@ -27,7 +27,16 @@ int firm_production_produce_goods()
      of labour.
      */
     PRODUCTION_CURRENT = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
-
+    
+    /* Update of the inventory available for sell is updated at the first day of the month.*/
+    //INVENTORY += PRODUCTION_CURRENT;
+    if (PRODUCTION_CURRENT <= 0) {
+        PRODUCTION_CURRENT = 1;
+        if (WARNING_MODE) {
+        printf("Warning @firm_production_produce_goods(): Production current is not positive!? = %d\n", ID, PRODUCTION_CURRENT);
+        }
+    }
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -39,10 +48,13 @@ int firm_production_set_price()
 {
     int goods_to_sale = 0;
     double unit_cost_old, unit_cost_new;
+    double inventory_pre;
     
+    /* Excluding newly finished goods at cost computation. */
     unit_cost_old = UNIT_COST;
     
-    goods_to_sale = INVENTORY;
+    /* The update of the inventory is not made yet. */
+    goods_to_sale = INVENTORY + PRODUCTION_CURRENT;
     
     unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
     unit_cost_new += DEBT * LOANS_INTEREST_RATE / 3;
@@ -50,7 +62,7 @@ int firm_production_set_price()
     unit_cost_new = unit_cost_new / PRODUCTION_CURRENT;
    
     if (goods_to_sale != 0) {
-        UNIT_COST = ((INVENTORY * unit_cost_old) + (PRODUCTION_CURRENT * unit_cost_new) ) / goods_to_sale;
+        UNIT_COST = ((inventory_pre * unit_cost_old) + (PRODUCTION_CURRENT * unit_cost_new) ) / goods_to_sale;
         UNIT_GOODS_PRICE = (1 + PRICE_MARKUP) * UNIT_COST;
     }
     
@@ -83,8 +95,10 @@ int firm_production_plan()
     }
      */
     
-    
-    if (INVENTORY > EXPECTED_SALES) {
+    if (INVENTORY >= 2 * EXPECTED_SALES) {
+        PRODUCTION_PLAN = 0;
+    }
+    else if (INVENTORY > EXPECTED_SALES) {
         PRODUCTION_PLAN = EXPECTED_SALES - (INVENTORY - EXPECTED_SALES);
     }
     else {
@@ -106,12 +120,11 @@ int firm_production_plan()
      */
     PRODUCTION_PLAN = FIRM_MEMORY_PERSISTANCE * PRODUCTION_CURRENT + (1.0 - FIRM_MEMORY_PERSISTANCE) * PRODUCTION_PLAN;
     
-    /* Updating the inventory available for sell. */
-    INVENTORY += PRODUCTION_CURRENT;
-    PRODUCTION_CURRENT = 0;
-    
     /* Sales are reset to 0 for monthly periods. */
     SALES = 0;
+    
+    /* Update is made here to prevent any sales of new products right at the end of the month. */
+    INVENTORY += PRODUCTION_CURRENT;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

@@ -11,7 +11,7 @@ int centralbank_set_interest_rate()
     double inflation, rcb;
     
     if (CONSUMPTION_GOODS_PRICES[11] == 0) {
-        inflation = CONSUMPTION_GOODS_PRICES[0];
+        inflation = 0;
     }
     else {
     inflation = (CONSUMPTION_GOODS_PRICES[0] - CONSUMPTION_GOODS_PRICES[11]) / CONSUMPTION_GOODS_PRICES[11];
@@ -19,8 +19,8 @@ int centralbank_set_interest_rate()
     
     // Taylors Rule:
     rcb = inflation;
-    rcb += (inflation - INFLATION_TARGET) / 2;
-    rcb -=  UNEMPLOYMENT_RATE / 2;
+    rcb += (inflation - INFLATION_TARGET) * 0.5;
+    rcb -=  UNEMPLOYMENT_RATE * 0.5;
     
     if (rcb < 0.005){rcb = 0.005;}
     

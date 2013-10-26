@@ -29,21 +29,26 @@ int firm_consumption_supply()
  * \fn: int firm_consumption_recieve_sales()
  * \brief:
  */
-int firm_consumption_recieve_sales()
+int firm_consumption_receive_sales()
 {
     int quantity_sold = 0;
     double weekly_sales_income = 0;
     
-    
     START_SOLD_MESSAGE_LOOP
-    quantity_sold = INVENTORY - sold_message->unsold_quantities;
+    quantity_sold += sold_message->sold_quantities;
+	FINISH_SOLD_MESSAGE_LOOP
     weekly_sales_income = quantity_sold * UNIT_GOODS_PRICE;
     /* Updating the inventory. */
-    INVENTORY = sold_message->unsold_quantities;
+    INVENTORY -= quantity_sold;
+    if (INVENTORY < 0){
+        if (WARNING_MODE) {
+            printf("Warning @firm_consumption_receive_sales(): More than available goods were sold Firm ID = %d, Inventory =%d \n", ID, INVENTORY);
+        }
+        INVENTORY = 0;
+    }
+    
     /* Updating the sales. */
     SALES += quantity_sold;
-	FINISH_SOLD_MESSAGE_LOOP
-    
     LIQUIDITY += weekly_sales_income;
     REVENUES += weekly_sales_income;
     
