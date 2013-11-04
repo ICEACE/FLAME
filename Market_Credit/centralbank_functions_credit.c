@@ -24,6 +24,9 @@ int centralbank_set_interest_rate()
     
     if (rcb < 0.005){rcb = 0.005;}
     
+    /* This is added temporarily for experimentation. */
+    if (rcb > 0.10) {rcb = 0.10;}
+    
     INFLATION_RATE = inflation;
     INTEREST_RATE = rcb;
     

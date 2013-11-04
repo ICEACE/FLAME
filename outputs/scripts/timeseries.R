@@ -26,13 +26,21 @@ time_series_point <- function(niter, datavector, xlabel, ylabel, title, fname){
 }
 
 
-setwd("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots")
+setwd("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/")
 
 Government <- read.csv('../data/Government_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
 Centralbank <- read.csv('../data/CentralBank_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
 Equityfund <- read.csv('../data/EquityFund_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
 Mall <- read.csv('../data/Mall_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
 REAgency<- read.csv('../data/REAgency_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+
+
+nWeeks <- length(Mall$IT_NO)
+nMonths <- length(REAgency$IT_NO)
+nQuarters <- length(Equityfund$IT_NO)
+nFirms = 150
+nHouseholds = 8000
+nBanks = 2
 
 BankBalance <- read.csv('../data/Bank_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
 BankIncome <- read.csv('../data/Bank_IncomeStatement.txt', sep = " ", header = T, stringsAsFactors = F)
@@ -46,13 +54,6 @@ HouseholdQuarterly <- read.csv('../data/Household_Quarterly.txt', sep = " ", hea
 HouseholdWeekly <- read.csv('../data/Household_Weekly.txt', sep = " ", header = T, stringsAsFactors = F)
 HouseholdMonthlyFirst <- read.csv('../data/Household_Monthly_FirstDay.txt', sep = " ", header = T, stringsAsFactors = F)
 HouseholdMonthlyLast <- read.csv('../data/Household_Monthly_LastDay.txt', sep = " ", header = T, stringsAsFactors = F)
-
-nWeeks <- length(Mall$IT_NO)
-nMonths <- length(REAgency$IT_NO)
-nQuarters <- length(Equityfund$IT_NO)
-nFirms = 15
-nHouseholds = 800
-nBanks = 2
 
 #MALL:
 time_series_mean(1, nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods Price", "Consumption Goods Market", "AvgGoodsPrice.png")
@@ -100,11 +101,23 @@ time_series_mean(nFirms, nQuarters, FirmIncome$LABOUR_COSTS, "Quarters", "Labour
 time_series_mean(nFirms, nQuarters, FirmIncome$TOTAL_INTEREST_PAYMENTS, "Quarters", "Interest Payments (mean)", "Firms", "FirmsInterestPayments.png")
 time_series_mean(nFirms, nQuarters, FirmIncome$NET_EARNINGS, "Quarters", "Net Earnings (mean)", "Firms", "FirmsNetEarnings.png")
 
-FirmBalance <- read.csv('../data/Firm_Quarterly_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
 time_series_mean(nFirms, nQuarters, FirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Firms", "FirmsTotalAssets.png")
 time_series_mean(nFirms, nQuarters, FirmBalance$LIQUIDITY, "Quarters", "Liquidity (mean)", "Firms", "FirmsLiquidity.png")
 time_series_mean(nFirms, nQuarters, FirmBalance$DEBT, "Quarters", "Debt (mean)", "Firms", "FirmsDebt.png")
 time_series_mean(nFirms, nQuarters, FirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Firms", "FirmsCapitalGoods.png")
+
+
+#Household - Quarterly
+time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (boxplot)", "Households", "HouseholdsHousingValue.png")
+time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Housing Liquidity (boxplot)", "Households", "HouseholdsLiquidityQuarterly.png")
+time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (boxplot)", "Households", "HouseholdsCapitalIncome.png")
+time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (boxplot)", "Households", "HouseholdsHousingPayment.png")
+
+#Household - Monthly
+time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$LIQUIDITY, "Months", "Liquidity (mean)", "Households", "HouseholdsLiquidityMonthly.png")
+time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGES, "Months", "Mortgages (mean)", "Households", "HouseholdsMortgagesMonthly.png")
+time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGE_COST, "Months", "Mortgage Costs (mean)", "Households", "HouseholdsMortgageCostsMonthly.png")
+time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_UNITS, "Months", "Housing Units (mean)", "Households", "HouseholdsHousingUnits.png")
 
 
 #Household - Weekly
@@ -114,20 +127,5 @@ time_series_boxplot(nHouseholds, nWeeks, HouseholdWeekly$WEEKLY_CONSUMPTION_BUDG
 time_series_mean(nHouseholds, nWeeks, HouseholdWeekly$WEEKLY_CONSUMPTION_BUDGET, "Weeks", "Consumption Goods Budget (mean)", "Households", "HouseholdsConsumptionBudgetWeekly.png")
 time_series_mean(nHouseholds, nWeeks, HouseholdWeekly$money_to_spend, "Weeks", "Money Available to Spend (mean)", "Households", "HouseholdsToSpendWeekly.png")
 time_series_mean(nHouseholds, nWeeks, HouseholdWeekly$money_spent, "Weeks", "Money Spent (mean)", "Households", "HouseholdsExpenditureWeekly.png")
-
-#Household - Monthly
-time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$LIQUIDITY, "Months", "Liquidity (mean)", "Households", "HouseholdsLiquidityMonthly.png")
-time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGES, "Months", "Mortgages (mean)", "Households", "HouseholdsMortgagesMonthly.png")
-time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGE_COST, "Months", "Mortgage Costs (mean)", "Households", "HouseholdsMortgageCostsMonthly.png")
-time_series_mean(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_UNITS, "Months", "Housing Units (mean)", "Households", "HouseholdsHousingUnits.png")
-
-#Household - Quarterly
-time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (boxplot)", "Households", "HouseholdsHousingValue.png")
-time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Housing Liquidity (boxplot)", "Households", "HouseholdsLiquidityQuarterly.png")
-time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (boxplot)", "Households", "HouseholdsCapitalIncome.png")
-time_series_boxplot(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (boxplot)", "Households", "HouseholdsHousingPayment.png")
-
-
-
 
 
