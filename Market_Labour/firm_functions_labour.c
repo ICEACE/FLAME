@@ -23,9 +23,15 @@ int firm_labour_workforce_needed()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Monthly.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %d %d %d %d %d\n",IT_NO, ID, ISCONSTRUCTOR, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+        if (ISCONSTRUCTOR) {
+            strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %d %d %d %d\n",IT_NO, ID, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+        } else {
+            strcpy(filename, "./outputs/data/Firm_Monthly.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %d %d %d %d\n",IT_NO, ID, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+        }
         fclose(file1);
         free(filename);
     }

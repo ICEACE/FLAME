@@ -64,9 +64,15 @@ int firm_credit_compute_income_statement()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %d %f %f %f %f %f %f\n", IT_NO, ID, ISCONSTRUCTOR, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
+        if (ISCONSTRUCTOR) {
+            strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_IncomeStatement.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %f %f %f %f %f %f\n", IT_NO, ID, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
+        } else {
+            strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %f %f %f %f %f %f\n", IT_NO, ID, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
+        }
         fclose(file1);
         free(filename);
     }
@@ -105,9 +111,15 @@ int firm_credit_compute_dividends()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %d %f %f\n", IT_NO, ID, ISCONSTRUCTOR, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+        if (ISCONSTRUCTOR) {
+            strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_Dividends.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+        } else {
+            strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+        }
         fclose(file1);
         free(filename);
     }
@@ -397,9 +409,15 @@ int firm_credit_do_balance_sheet()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
-        file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %d %d %d %f %f %d %f %f %f %d %d %f\n",IT_NO, ID, ISCONSTRUCTOR, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
+        if (ISCONSTRUCTOR) {
+            strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_BalanceSheet.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %d %d %f %f %d %f %f %d %d %f\n",IT_NO, ID, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
+        } else {
+            strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %d %d %f %f %d %f %f %d %d %f\n",IT_NO, ID, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT);
+        }
         fclose(file1);
         free(filename);
     }
