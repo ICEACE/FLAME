@@ -112,7 +112,7 @@ int household_credit_do_balance_sheet()
     TOTAL_ASSETS = LIQUIDITY +  HOUSING_VALUE + CAPITAL_INCOME;
     EQUITY = TOTAL_ASSETS - MORTGAGES;
 
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(40*sizeof(char));
@@ -153,7 +153,7 @@ int household_credit_collect_benefits()
         FINISH_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
     }
     
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(40*sizeof(char));

@@ -59,7 +59,7 @@ int firm_credit_compute_income_statement()
     EBIT = REVENUES - OPERATING_COSTS;
     NET_EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
 
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(100*sizeof(char));
@@ -106,7 +106,7 @@ int firm_credit_compute_dividends()
 {
     DIVIDENDS_TO_BE_PAID = NET_EARNINGS - RETAINED_EARNINGS;
     
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(100*sizeof(char));
@@ -404,7 +404,7 @@ int firm_credit_do_balance_sheet()
         ISINSOLVENT = 0;
     }
     
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(100*sizeof(char));

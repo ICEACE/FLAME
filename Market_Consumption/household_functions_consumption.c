@@ -103,7 +103,7 @@ int household_consumption_recieve_goods()
         }
     }
     
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(40*sizeof(char));

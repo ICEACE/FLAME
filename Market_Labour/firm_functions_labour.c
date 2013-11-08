@@ -18,7 +18,7 @@ int firm_labour_workforce_needed()
       printf("Firm %d is at Labour Market EMPLOYEES_NEEDED is %d\n", ID, EMPLOYEES_NEEDED);  
     }
     
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(100*sizeof(char));

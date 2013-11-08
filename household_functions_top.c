@@ -46,7 +46,7 @@ int household_init_balancesheet()
  */
 int household_iterate()
 {
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
         if (IT_NO == 0) {
             char * filename;
             FILE * file1;

@@ -1,4 +1,4 @@
-time_series_boxplot <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
+boxplot_time_series_distro_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
 	png(fname, width = 800, height = 800, pointsize=24)
 	times <- (1:niter)
 	values <- matrix(datavector, nrow = niter, ncol = nagents, byrow = T)
@@ -6,7 +6,7 @@ time_series_boxplot <- function(nagents, niter, datavector, xlabel, ylabel, titl
 	dev.off()
 }
 
-time_series_mean <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
+plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
 	png(fname, width = 800, height = 800, pointsize=24)
 	times <- (1:niter)
 	means <- (1:niter)
@@ -18,42 +18,164 @@ time_series_mean <- function(nagents, niter, datavector, xlabel, ylabel, title, 
 	dev.off()
 }
 
-time_series_point <- function(niter, datavector, xlabel, ylabel, title, fname){
+plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title, fname){
 	png(fname, width = 800, height = 800, pointsize=24)
 	times <- (1:niter)
 	plot(datavector~times, type="l", xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
+get_experiment_data_set <-function(data_dir, data_file){
+	exps <- list.files(data_dir)
+	n_exps <- length(exps)
+	dataSet <- list()
+	for (i in 1:n_exps){
+		filename = paste(data_dir,list.files(data_dir)[i], '/', data_file, sep ='')
+		dataSet[[i]] <- read.csv(filename, sep = " ", header = T, stringsAsFactors = F)
+	}
+	return(dataSet)
+}
 
-setwd("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/")
+get_points_set <- function(nexps, dataSet, memVar){
+	means <- dataSet[[1]][memVar]
+	if (nexps < 2){
+		return(means)
+		}
+	for (i in 2:nexps){
+		means <- cbind(means, dataSet[[i]][memVar]) 
+	}
+	return(as.matrix(means))
+}
 
-Government <- read.csv('../data/Government_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-Centralbank <- read.csv('../data/CentralBank_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-Equityfund <- read.csv('../data/EquityFund_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-Mall <- read.csv('../data/Mall_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-REAgency<- read.csv('../data/REAgency_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+get_mean_of_experiments <- function(niters, datamatrix){
+	times <- (1:niters)
+	mean <- (1:niters)
+	for (i in 1:niters){
+		mean[i] <- mean(datamatrix[i,]) 
+	}
+	return(mean)
+}
+
+plot_mean_experiments <- function(niter, exps){
+	iters <- (1:niter)
+	plot(exps~iters, type="l")
+}
+
+boxplot_experiments <- function(niter, exps){
+	iters <- (1:niter)
+	boxplot(exps~iters, type="l")
+}
+
+get_means <- function(nagents, niter, datavector){
+	times <- (1:niter)
+	means <- (1:niter)
+	values <- matrix(datavector, nrow = niter, ncol = nagents, byrow = T)
+	for (i in 1:niter){
+		means[i] <- mean(values[i,])
+	}
+	return(means)
+}
+
+get_means_set <- function(nexps, dataSet, memVar, nagents, niter){
+	means <- get_means(nagents, niter, dataSet[[1]][memVar][,1])
+	if (nexps < 2){
+		return(as.matrix(means))
+		}	
+	meansSet = means
+	for (i in 2:nexps){
+		means <- get_means(nagents, niter, dataSet[[i]][memVar][,1])
+		meansSet <- cbind(meansSet, means) 
+	}
+	return(as.matrix(meansSet))
+}
 
 
-nWeeks <- length(Mall$IT_NO)
-nMonths <- length(REAgency$IT_NO)
-nQuarters <- length(Equityfund$IT_NO)
-nFirms = 150
+
+
+output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
+setwd(output_dir)
+data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data/exps/"
+exps <- list.files(data_dir)
+n_exps <- length(exps)
+
+GovernmentSet <- get_experiment_data_set(data_dir, "Government_snapshot.txt")
+CentralbankSet <- get_experiment_data_set(data_dir, "CentralBank_snapshot.txt")
+EquityfundSet <- get_experiment_data_set(data_dir, "EquityFund_snapshot.txt")
+MallSet <- get_experiment_data_set(data_dir, "Mall_snapshot.txt")
+REAgencySet <- get_experiment_data_set(data_dir, "REAgency_snapshot.txt")
+
+nWeeks <- length(MallSet[[1]]$"IT_NO")
+nMonths <- length(REAgencySet[[1]]$"IT_NO")
+nQuarters <- length(EquityfundSet[[1]]$"IT_NO")
+nFirms = 120
+nCFirms = 30
 nHouseholds = 8000
 nBanks = 2
 
-BankBalance <- read.csv('../data/Bank_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
-BankIncome <- read.csv('../data/Bank_IncomeStatement.txt', sep = " ", header = T, stringsAsFactors = F)
 
-FirmMonthly <- read.csv('../data/Firm_Monthly.txt', sep = " ", header = T, stringsAsFactors = F)
-FirmBalance <- read.csv('../data/Firm_Quarterly_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
-FirmIncome <- read.csv('../data/Firm_Quarterly_IncomeStatement.txt', sep = " ", header = T, stringsAsFactors = F)
-FirmDividends <- read.csv('../data/Firm_Quarterly_Dividends.txt', sep = " ", header = T, stringsAsFactors = F)
+nIter <- nQuarters
+unemployment_set <- get_points_set(n_exps, GovernmentSet, "UNEMPLOYMENT_RATE")
+boxplot_experiments(nIter, unemployment_set)
+unemployment_mean <- get_mean_of_experiments(nIter, unemployment_set)
+plot_mean_experiments(nIter, unemployment_mean)
 
-HouseholdQuarterly <- read.csv('../data/Household_Quarterly.txt', sep = " ", header = T, stringsAsFactors = F)
-HouseholdWeekly <- read.csv('../data/Household_Weekly.txt', sep = " ", header = T, stringsAsFactors = F)
-HouseholdMonthlyFirst <- read.csv('../data/Household_Monthly_FirstDay.txt', sep = " ", header = T, stringsAsFactors = F)
-HouseholdMonthlyLast <- read.csv('../data/Household_Monthly_LastDay.txt', sep = " ", header = T, stringsAsFactors = F)
+BankBalanceSet <- get_experiment_data_set(data_dir, "Bank_BalanceSheet.txt")
+BankIncomeSet <- get_experiment_data_set(data_dir, "Bank_IncomeStatement.txt")
+
+bankrevenues_set <- get_means_set(n_exps, BankIncomeSet, "REVENUES", nBanks, nQuarters)
+boxplot_experiments(nQuarters, bankrevenues_set)
+bankrevenues_mean <- get_mean_of_experiments(nQuarters, bankrevenues_set)
+plot_mean_experiments(nQuarters, bankrevenues_mean)
+
+FirmMonthlySet <- get_experiment_data_set(data_dir, "Firm_Monthly.txt")
+FirmBalanceSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_BalanceSheet.txt")
+FirmIncomeSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_IncomeStatement.txt")
+FirmDividendsSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_Dividends.txt")
+
+CFirmMonthlySet <- get_experiment_data_set(data_dir, "Constructor_Firm_Monthly.txt")
+CFirmBalanceSet <- get_experiment_data_set(data_dir, "Constructor_Firm_Quarterly_BalanceSheet.txt")
+CFirmIncomeSet <- get_experiment_data_set(data_dir, "Constructor_Firm_Quarterly_IncomeStatement.txt")
+CFirmDividendsSet <- get_experiment_data_set(data_dir, "Constructor_Firm_Quarterly_Dividends.txt")
+
+
+cfirmdividendspaid_set <- get_means_set(n_exps, CFirmDividendsSet, "DIVIDENDS_PAID", nCFirms, nQuarters)
+boxplot_experiments(nQuarters,cfirmdividendspaid_set)
+cfirmdividendspaid_mean <- get_mean_of_experiments(nQuarters, cfirmdividendspaid_set)
+plot_mean_experiments(nQuarters, cfirmdividendspaid_mean)
+
+
+cfirmsize_set <- get_means_set(n_exps, CFirmMonthlySet, "NO_EMPLOYEES", nCFirms, nMonths)
+boxplot_experiments(nMonths,cfirmsize_set)
+cfirmsize_mean <- get_mean_of_experiments(nMonths, cfirmsize_set)
+plot_mean_experiments(nMonths, cfirmsize_mean)
+
+firmsize_set <- get_means_set(n_exps, FirmMonthlySet, "NO_EMPLOYEES", nFirms, nMonths)
+boxplot_experiments(nMonths,firmsize_set)
+firmsize_mean <- get_mean_of_experiments(nMonths, firmsize_set)
+plot_mean_experiments(nMonths, firmsize_mean)
+
+HouseholdQuarterlySet <- get_experiment_data_set(data_dir, "Household_Quarterly.txt")
+
+
+Government <- read.csv('../data/anals/Government_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+Centralbank <- read.csv('../data/anals/CentralBank_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+Equityfund <- read.csv('../data/anals/EquityFund_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+Mall <- read.csv('../data/anals/Mall_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+REAgency <- read.csv('../data/anals/REAgency_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+
+
+BankBalance <- read.csv('../data/anals/Bank_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
+BankIncome <- read.csv('../data/anals/Bank_IncomeStatement.txt', sep = " ", header = T, stringsAsFactors = F)
+
+FirmMonthly <- read.csv('../data/anals/Firm_Monthly.txt', sep = " ", header = T, stringsAsFactors = F)
+FirmBalance <- read.csv('../data/anals/Firm_Quarterly_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
+FirmIncome <- read.csv('../data/anals/Firm_Quarterly_IncomeStatement.txt', sep = " ", header = T, stringsAsFactors = F)
+FirmDividends <- read.csv('../data/anals/Firm_Quarterly_Dividends.txt', sep = " ", header = T, stringsAsFactors = F)
+
+HouseholdQuarterly <- read.csv('../data/anals/Household_Quarterly.txt', sep = " ", header = T, stringsAsFactors = F)
+HouseholdMonthlyFirst <- read.csv('../data/anals/Household_Monthly_FirstDay.txt', sep = " ", header = T, stringsAsFactors = F)
+HouseholdMonthlyLast <- read.csv('../data/anals/Household_Monthly_LastDay.txt', sep = " ", header = T, stringsAsFactors = F)
+HouseholdWeekly <- read.csv('../data/anals/Household_Weekly.txt', sep = " ", header = T, stringsAsFactors = F)
 
 #MALL:
 time_series_mean(1, nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods Price", "Consumption Goods Market", "AvgGoodsPrice.png")

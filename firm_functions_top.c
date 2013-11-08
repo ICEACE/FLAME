@@ -93,7 +93,7 @@ int firm_init_balancesheet()
  */
 int firm_iterate()
 {
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
         if (IT_NO == 0)
         {
             char * filename;

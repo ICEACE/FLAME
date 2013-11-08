@@ -43,6 +43,16 @@
                 <name>data_collection_mode</name>
                 <description>Flag, 0 or 1. To record simulation data, it needs to be set to 1.</description>
             </variable>
+            <variable>
+                <type>int</type>
+                <name>collect_household_data</name>
+                <description>Flag, 0 or 1. To record household simulation data, it needs to be set to 1.</description>
+            </variable>
+            <variable>
+                <type>int</type>
+                <name>collect_firm_data</name>
+                <description>Flag, 0 or 1. To record firm simulation data, it needs to be set to 1.</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->

@@ -402,7 +402,7 @@ int household_housing_debt_writeoff()
     
     size = MORTGAGES_LIST.size;
     if (size == 0){
-        if (DATA_COLLECTION_MODE) {
+        if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
             char * filename;
             FILE * file1;
             filename = malloc(40*sizeof(char));
@@ -463,7 +463,7 @@ int household_housing_debt_writeoff()
         }
     }
     
-    if (DATA_COLLECTION_MODE) {
+    if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
         char * filename;
         FILE * file1;
         filename = malloc(40*sizeof(char));
