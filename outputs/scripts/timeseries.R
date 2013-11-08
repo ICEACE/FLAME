@@ -193,12 +193,34 @@ writeoff_set <- get_means_set(n_exps, BankIncomeSet, "TOTAL_WRITEOFFS", nBanks, 
 boxplot_experiments(nQuarters, writeoff_set)
 boxplot_experiments_to_file(nQuarters, writeoff_set, "Iterations (quarters)", "Amount", "Bank Total Writeoffs", "BanksWriteoffs.png")
 
-bankrevenues_mean <- get_mean_of_experiments(nQuarters, bankrevenues_set)
-plot_mean_experiments(nQuarters, bankrevenues_mean)
-
-FirmMonthlySet <- get_experiment_data_set(data_dir, "Firm_Monthly.txt")
-FirmBalanceSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_BalanceSheet.txt")
+### Firms ####
+# Revenues:
 FirmIncomeSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_IncomeStatement.txt")
+
+revenue_set <- get_means_set(19, FirmIncomeSet, "REVENUES", nFirms, nQuarters)
+boxplot_experiments(nQuarters, revenue_set)
+boxplot_experiments_to_file(nQuarters, revenue_set, "Iterations (quarters)", "Amount", "Regular Firm Sale Revenues", "FirmsRevenues.png")
+
+CFirmIncomeSet <- get_experiment_data_set(data_dir, "Constructor_Firm_Quarterly_IncomeStatement.txt")
+crevenue_set <- get_means_set(19, CFirmIncomeSet, "REVENUES", nCFirms, nQuarters)
+boxplot_experiments(nQuarters, crevenue_set)
+
+# Size:
+FirmMonthlySet <- get_experiment_data_set(data_dir, "Firm_Monthly.txt")
+size_set <- get_means_set(19, FirmMonthlySet, "NO_EMPLOYEES", nFirms, nMonths)
+boxplot_experiments(nMonths, size_set)
+size_mean <- get_mean_of_experiments(nMonths, size_set)
+plot_mean_experiments_to_file(nMonths, size_mean, "Iterations (months)", "Employee Number", "Regular Firm Size", "FirmsSize.png")
+
+
+
+CFirmMonthlySet <- get_experiment_data_set(data_dir, "Constructor_Firm_Monthly.txt")
+csize_set <- get_means_set(19, CFirmMonthlySet, "NO_EMPLOYEES", nCFirms, nMonths)
+csize_mean <- get_mean_of_experiments(nMonths, csize_set)
+plot_mean_experiments_to_file(nMonths, csize_mean, "Iterations (months)", "Employee Number", "Constructor Firm Size", "CFirmsSize.png")
+
+FirmBalanceSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_BalanceSheet.txt")
+FirmMonthlySet <- get_experiment_data_set(data_dir, "Firm_Monthly.txt")
 FirmDividendsSet <- get_experiment_data_set(data_dir, "Firm_Quarterly_Dividends.txt")
 
 CFirmMonthlySet <- get_experiment_data_set(data_dir, "Constructor_Firm_Monthly.txt")
