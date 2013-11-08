@@ -6,6 +6,22 @@ boxplot_time_series_distro_file <- function(nagents, niter, datavector, xlabel, 
 	dev.off()
 }
 
+boxplot_experiments_to_file <- function(niter, exps, xlabel, ylabel, title, fname){
+	png(fname, width = 800, height = 800, pointsize=24)
+	iters <- (1:niter)
+	boxplot(exps~iters, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	dev.off()
+}
+
+
+plot_mean_experiments_to_file <- function(niter, exps, xlabel, ylabel, title, fname){
+	png(fname, width = 800, height = 800, pointsize=24)
+	iters <- (1:niter)
+	plot(exps~iters, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	dev.off()
+}
+
+
 plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
 	png(fname, width = 800, height = 800, pointsize=24)
 	times <- (1:niter)
@@ -89,9 +105,6 @@ get_means_set <- function(nexps, dataSet, memVar, nagents, niter){
 	return(as.matrix(meansSet))
 }
 
-
-
-
 output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
 data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data/exps/"
@@ -114,16 +127,72 @@ nBanks = 2
 
 
 nIter <- nQuarters
+
+### Government #####
+# Unemployment:
 unemployment_set <- get_points_set(n_exps, GovernmentSet, "UNEMPLOYMENT_RATE")
 boxplot_experiments(nIter, unemployment_set)
+boxplot_experiments_to_file(nIter, unemployment_set, "Iterations (quarters)", "Unemployment Rate", "", "UnemploymentRate.png")
 unemployment_mean <- get_mean_of_experiments(nIter, unemployment_set)
 plot_mean_experiments(nIter, unemployment_mean)
 
+#Benefits:
+benefitgeneral_set <- get_points_set(n_exps, GovernmentSet, "GENERAL_BENEFITS")
+benefitgeneral_mean <- get_mean_of_experiments(nIter, benefitgeneral_set)
+plot_mean_experiments(nIter, benefitgeneral_mean)
+plot_mean_experiments_to_file(nIter, benefitgeneral_mean, "Iterations (quarters)", "Amount", "Government General Benefits", "BenefitsGeneral.png")
+benefitunemployment_set <- get_points_set(n_exps, GovernmentSet, "UNEMPLOYMENT_BENEFITS")
+boxplot_experiments(nIter, benefitunemployment_set)
+boxplot_experiments_to_file(nIter, benefitunemployment_set, "Iterations (quarters)", "Amount", "Government Unemployment Benefits", "BenefitsUnemployment.png")
+
+### Central Bank ###
+# Inflation:
+inflation_set <- get_points_set(n_exps, CentralbankSet, "INFLATION_RATE")
+inflation_mean <- get_mean_of_experiments(nIter, inflation_set)
+plot_mean_experiments_to_file(nIter, inflation_mean, "Iterations (quarters)", "Rate", "Inflation", "Inflation.png")
+# Interest Rate:
+interest_set <- get_points_set(n_exps, CentralbankSet, "INTEREST_RATE")
+interest_mean <- get_mean_of_experiments(nIter, interest_set)
+plot_mean_experiments_to_file(nIter, interest_mean, "Iterations (quarters)", "Rate", "Central Bank Interest Rates", "InterestRate.png")
+
+### Mall ###
+# Prices:
+goodsprice_set <- get_points_set(n_exps, MallSet, "AVG_GOODS_PRICE")
+boxplot_experiments(nWeeks, goodsprice_set)
+goodsprices_mean <- get_mean_of_experiments(nWeeks, goodsprice_set)
+plot_mean_experiments_to_file(nWeeks, goodsprices_mean, "Iterations (weeks)", "Unit Price", "Average Goods Prices", "AvgGoodsPrice.png")
+# Transaction Volume:
+transactiongoods_set <- get_points_set(n_exps, MallSet, "TRANSACTION_QUANTITY")
+boxplot_experiments(nWeeks, transactiongoods_set)
+transactiongoods_mean <- get_mean_of_experiments(nWeeks, transactiongoods_set)
+plot_mean_experiments_to_file(nWeeks, transactiongoods_mean, "Iterations (weeks)", "Quantity", "Weekly Consumption Goods Sales", "TransactionVolumeGoods.png")
+
+### REAgency ###
+# Transaction Volume:
+transactionhouses_set <- get_points_set(n_exps, REAgencySet, "TRANSACTION_QUANTITY")
+boxplot_experiments(nMonths, transactionhouses_set)
+transactionhouses_mean <- get_mean_of_experiments(nMonths, transactionhouses_set)
+plot_mean_experiments_to_file(nMonths, transactionhouses_mean, "Iterations (months)", "Quantity", "Monthly Housing Unit Sales", "TransactionVolumeHouses.png")
+
+### Banks ###
 BankBalanceSet <- get_experiment_data_set(data_dir, "Bank_BalanceSheet.txt")
 BankIncomeSet <- get_experiment_data_set(data_dir, "Bank_IncomeStatement.txt")
 
-bankrevenues_set <- get_means_set(n_exps, BankIncomeSet, "REVENUES", nBanks, nQuarters)
-boxplot_experiments(nQuarters, bankrevenues_set)
+# Loans:
+loans_set <- get_means_set(n_exps, BankBalanceSet, "LOANS", nBanks, nQuarters)
+boxplot_experiments(nQuarters, loans_set)
+boxplot_experiments_to_file(nQuarters, loans_set, "Iterations (quarters)", "Amount", "Bank Loan Assets", "Loans.png")
+
+# Mortgages:
+mortgages_set <- get_means_set(n_exps, BankBalanceSet, "MORTGAGES", nBanks, nQuarters)
+boxplot_experiments(nQuarters, mortgages_set)
+boxplot_experiments_to_file(nQuarters, mortgages_set, "Iterations (quarters)", "Amount", "Bank Mortgage Assets", "Mortgages.png")
+
+# Writeoffs:
+writeoff_set <- get_means_set(n_exps, BankIncomeSet, "TOTAL_WRITEOFFS", nBanks, nQuarters)
+boxplot_experiments(nQuarters, writeoff_set)
+boxplot_experiments_to_file(nQuarters, writeoff_set, "Iterations (quarters)", "Amount", "Bank Total Writeoffs", "BanksWriteoffs.png")
+
 bankrevenues_mean <- get_mean_of_experiments(nQuarters, bankrevenues_set)
 plot_mean_experiments(nQuarters, bankrevenues_mean)
 
