@@ -107,7 +107,7 @@ get_means_set <- function(nexps, dataSet, memVar, nagents, niter){
 
 output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
-data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data/exps/"
+data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data/"
 exps <- list.files(data_dir)
 n_exps <- length(exps)
 
@@ -247,12 +247,12 @@ plot_mean_experiments(nMonths, firmsize_mean)
 
 HouseholdQuarterlySet <- get_experiment_data_set(data_dir, "Household_Quarterly.txt")
 
-
-Government <- read.csv('../data/anals/Government_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-Centralbank <- read.csv('../data/anals/CentralBank_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-Equityfund <- read.csv('../data/anals/EquityFund_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-Mall <- read.csv('../data/anals/Mall_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
-REAgency <- read.csv('../data/anals/REAgency_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+#### Single Run Anals #####
+Government <- read.csv('../data/Government_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+Centralbank <- read.csv('../data/CentralBank_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+Equityfund <- read.csv('../data/EquityFund_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+Mall <- read.csv('../data/Mall_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
+REAgency <- read.csv('../data/REAgency_snapshot.txt', sep = " ", header = T, stringsAsFactors = F)
 
 
 BankBalance <- read.csv('../data/anals/Bank_BalanceSheet.txt', sep = " ", header = T, stringsAsFactors = F)
@@ -269,7 +269,7 @@ HouseholdMonthlyLast <- read.csv('../data/anals/Household_Monthly_LastDay.txt', 
 HouseholdWeekly <- read.csv('../data/anals/Household_Weekly.txt', sep = " ", header = T, stringsAsFactors = F)
 
 #MALL:
-time_series_mean(1, nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods Price", "Consumption Goods Market", "AvgGoodsPrice.png")
+plot_time_series_mean_file(1, nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods Price", "Consumption Goods Market", "AvgGoodsPrice.png")
 time_series_point(nWeeks, Mall$TRANSACTION_QUANTITY, "Weeks", "Number of Transactions", "Consumption Goods Market", "TransactionVolumeGoods.png")
 
 #Real Estate Agency

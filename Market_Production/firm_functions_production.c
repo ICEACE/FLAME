@@ -57,7 +57,7 @@ int firm_production_set_price()
     goods_to_sale = INVENTORY + PRODUCTION_CURRENT;
     
     unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
-    unit_cost_new += DEBT * LOANS_INTEREST_RATE / 3;
+    unit_cost_new += DEBT * LOANS_INTEREST_RATE / 12;
     
     unit_cost_new = unit_cost_new / PRODUCTION_CURRENT;
    
@@ -87,11 +87,11 @@ int firm_production_plan()
     }
     /*
     else if ((PRODUCTION_CURRENT <= INVENTORY) && (INVENTORY <= (2 * PRODUCTION_CURRENT))) {
-        PRODUCTION_ESTIMATE = 2 * SALES - INVENTORY;
+        PRODUCTION_PLAN = 2 * SALES - INVENTORY;
     }
     // This case added to the model, needs to be checked!
     else {
-        PRODUCTION_ESTIMATE = 0;
+        PRODUCTION_PLAN = 0;
     }
      */
     
