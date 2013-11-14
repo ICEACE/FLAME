@@ -351,7 +351,7 @@
                     <name>idle</name>
                     <description>It is not the day of the week to act.</description>
                     <currentState>CentralBankConsumption</currentState>
-                    <nextState>CentralBankHousing</nextState>
+                    <nextState>CentralBankConsumptionPrices</nextState>
                     <condition>
                         <not><time>
                             <period>weekly</period>
@@ -363,7 +363,7 @@
                     <name>centralbank_trace_goods_prices</name>
                     <description>It is the day of the week to act.</description>
                     <currentState>CentralBankConsumption</currentState>
-                    <nextState>CentralBankHousing</nextState>
+                    <nextState>CentralBankConsumptionPrices</nextState>
                     <condition>
                         <time>
                             <period>weekly</period>
@@ -375,6 +375,30 @@
                             <messageName>goods_transactions_summary</messageName>
                         </input>
                     </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of month.</description>
+                    <currentState>CentralBankConsumptionPrices</currentState>
+                    <nextState>CentralBankHousing</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>centralbank_update_price_indices</name>
+                    <description>The central bank computes monthly price average.</description>
+                    <currentState>CentralBankConsumptionPrices</currentState>
+                    <nextState>CentralBankHousing</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
                 </function>
             </functions>
         </xagent>

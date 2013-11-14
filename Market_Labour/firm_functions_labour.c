@@ -26,11 +26,11 @@ int firm_labour_workforce_needed()
         if (ISCONSTRUCTOR) {
             strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %d %d\n",IT_NO, ID, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+            fprintf(file1,"%d %d %f %d %d %d %d\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
         } else {
             strcpy(filename, "./outputs/data/Firm_Monthly.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %d %d\n",IT_NO, ID, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+            fprintf(file1,"%d %d %f %d %d %d %d\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
         }
         fclose(file1);
         free(filename);
@@ -216,7 +216,7 @@ int firm_labour_pay_wages()
 int firm_labour_trace_wages(){
     int unemployed = 0;
     double total_wages = 0;
-    double total = 0;
+    int total = 0;
     int id;
     START_EMPLOYMENT_STATUS_MESSAGE_LOOP
     id = employment_status_message->employer_id;

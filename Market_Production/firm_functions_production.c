@@ -48,7 +48,6 @@ int firm_production_set_price()
 {
     int goods_to_sale = 0;
     double unit_cost_old, unit_cost_new;
-    double inventory_pre;
     
     /* Excluding newly finished goods at cost computation. */
     unit_cost_old = UNIT_COST;
@@ -62,7 +61,7 @@ int firm_production_set_price()
     unit_cost_new = unit_cost_new / PRODUCTION_CURRENT;
    
     if (goods_to_sale != 0) {
-        UNIT_COST = ((inventory_pre * unit_cost_old) + (PRODUCTION_CURRENT * unit_cost_new) ) / goods_to_sale;
+        UNIT_COST = ((INVENTORY * unit_cost_old) + (PRODUCTION_CURRENT * unit_cost_new) ) / goods_to_sale;
         UNIT_GOODS_PRICE = (1 + PRICE_MARKUP) * UNIT_COST;
     }
     

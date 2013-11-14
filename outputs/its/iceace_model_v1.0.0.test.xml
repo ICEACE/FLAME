@@ -4,7 +4,7 @@
     <print_debug_mode>0</print_debug_mode>
     <warning_mode>0</warning_mode>
     <data_collection_mode>1</data_collection_mode>
-    <collect_household_data>0</collect_household_data>
+    <collect_household_data>1</collect_household_data>
     <collect_firm_data>1</collect_firm_data>
     <ratio_liquidity>1.0</ratio_liquidity>
     <consumption_adjustment_speed>0.1</consumption_adjustment_speed>
@@ -936,6 +936,7 @@
   <houses>{0,100.0}</houses>
   <id>18</id>
   <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wages_paid>0</day_of_month_wages_paid>
   <unemployment_rate>0.1</unemployment_rate>
   <inflation_rate>0.02</inflation_rate>
   <consumption_goods_prices>{0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056}</consumption_goods_prices>
@@ -27407,6 +27408,7 @@
 <xagent>
 <name>equityfund</name>
   <day_of_month_to_act>1</day_of_month_to_act>
+  <day_of_month_wages_paid>0</day_of_month_wages_paid>
   <share_firms>0.0</share_firms>
   <share_construction_firms>0.0</share_construction_firms>
   <share_banks>0.0</share_banks>

@@ -105,8 +105,8 @@ int firm_iterate()
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s\n","IT_NO", "ID", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
-                //fprintf(file1,"%d %d %d %d %d %d\n",IT_NO, ID, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+                fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "WAGE_OFFER", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
+                //fprintf(file1,"%d %d %f %d %d %d %d\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
                 fclose(file1);
                 
                 
@@ -141,8 +141,9 @@ int firm_iterate()
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Firm_Monthly.txt");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s\n","IT_NO", "ID", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
-                //fprintf(file1,"%d %d %d %d %d %d\n",IT_NO, ID, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
+                file1 = fopen(filename,"w");
+                fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "WAGE_OFFER", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "INVENTORY", "PRODUCTION_PLAN");
+                //fprintf(file1,"%d %d %f %d %d %d %d\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
                 fclose(file1);
                 
                 

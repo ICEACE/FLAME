@@ -179,7 +179,7 @@
                     <name>idle</name>
                     <description>Job searching is not active.</description>
                     <currentState>HHLabourStart</currentState>
-                    <nextState>HHLabourEmploymentStatus</nextState>
+                    <nextState>HHLabourPayroll</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -247,7 +247,7 @@
                     <name>household_labour_turnover</name>
                     <description>A job turnover.</description>
                     <currentState>HHLabourStage2</currentState>
-                    <nextState>HHLabourEmploymentStatus</nextState>
+                    <nextState>HHLabourPayroll</nextState>
                     <inputs>
                         <input>
                             <messageName>job_match_stage1</messageName>
@@ -279,7 +279,7 @@
                     <name>household_labour_employment</name>
                     <description>A new employment.</description>
                     <currentState>HHLabourStage1Placement</currentState>
-                    <nextState>HHLabourEmploymentStatus</nextState>                                  
+                    <nextState>HHLabourPayroll</nextState>
                     <inputs>
                         <input>
                         <messageName>job_match_stage2</messageName>
@@ -290,17 +290,6 @@
                             </filter>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>household_labour_report_status</name>
-                    <description>Sends out its employment status.</description>
-                    <currentState>HHLabourEmploymentStatus</currentState>
-                    <nextState>HHLabourPayroll</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>employment_status</messageName>
-                        </output>
-                    </outputs>
                 </function>
                 <function>
                     <name>idle</name>
@@ -318,13 +307,24 @@
                     <name>household_labour_recieve_wage</name>
                     <description>Recieves payment and update wage history.</description>
                     <currentState>HHLabourPayroll</currentState>
-                    <nextState>HHConsumptionStart</nextState>
+                    <nextState>HHLabourEmploymentStatus</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_wage_recieved</phase>
                         </time>
                     </condition>
+                </function>
+                <function>
+                    <name>household_labour_report_status</name>
+                    <description>Sends out its employment status.</description>
+                    <currentState>HHLabourEmploymentStatus</currentState>
+                    <nextState>HHConsumptionStart</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>employment_status</messageName>
+                        </output>
+                    </outputs>
                 </function>
             </functions>
         </xagent>
@@ -588,6 +588,13 @@
             <name>centralbank</name>
             <description>A Central Bank agent.</description>
             <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_wages_paid</name>
+                    <description>The day of the month wages paid.</description>
+                </variable>
+            </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
@@ -598,7 +605,7 @@
                     <condition>
                         <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_wages_paid</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -606,11 +613,11 @@
                     <name>centralbank_trace_unemployment_status</name>
                     <description>Makes a sensus on employment status.</description>
                     <currentState>CentralBankLabour</currentState>
-                    <nextState>CentralBankPrices</nextState>
+                    <nextState>CentralBankConsumption</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_wages_paid</phase>
                         </time>
                     </condition>
                     <inputs>
@@ -618,12 +625,6 @@
                             <messageName>employment_status</messageName>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>centralbank_update_price_indices</name>
-                    <description>The function updates monthly consumption goods prices.</description>
-                    <currentState>CentralBankPrices</currentState>
-                    <nextState>CentralBankConsumption</nextState>
                 </function>
             </functions>
         </xagent>
@@ -673,6 +674,11 @@
                     <name>day_of_month_to_act</name>
                     <description>Activation day for the shareholder audition.</description>
                 </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_wages_paid</name>
+                    <description>Activation day for the shareholder audition.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
@@ -684,7 +690,7 @@
                     <condition>
                         <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_wages_paid</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -696,7 +702,7 @@
                     <condition>
                         <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_wages_paid</phase>
                         </time>
                     </condition>
                     <inputs>

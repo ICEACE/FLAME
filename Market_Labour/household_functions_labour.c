@@ -10,8 +10,8 @@
 int household_labour_check_fired()
 {
     START_FIRED_MESSAGE_LOOP
-    WAGE = 0;
     MY_EMPLOYER_ID = 0;
+    WAGE = 0;
     FINISH_FIRED_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -52,7 +52,7 @@ int household_labour_turnover()
     MY_EMPLOYER_ID  = new_employer;
     add_job_change_message(previous_employer, ID);
     FINISH_JOB_MATCH_STAGE1_MESSAGE_LOOP
-    
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -104,17 +104,22 @@ int household_labour_report_status()
  */
 int household_labour_recieve_wage()
 {
-    double net_wage = 0;
-    
-    net_wage = WAGE * (1.0 - LABOUR_TAX_RATE);
-    
-    LIQUIDITY += net_wage;
+    if (MY_EMPLOYER_ID == 0) {
+        WAGE = 0;
+    }
+    else {
+        double net_wage = 0;
+        net_wage = WAGE * (1.0 - LABOUR_TAX_RATE);
+        LIQUIDITY += net_wage;
+    }
     
     PREVIOUS_WAGES[2] = PREVIOUS_WAGES[1];
     PREVIOUS_WAGES[1] = PREVIOUS_WAGES[0];
-    PREVIOUS_WAGES[0] = net_wage;
+    PREVIOUS_WAGES[0] = WAGE;
     
     LABOUR_INCOME = PREVIOUS_WAGES[0] + PREVIOUS_WAGES[1] + PREVIOUS_WAGES[2];
+    /* Wages after labour tax is added to the income */
+    LABOUR_INCOME = (1.0 - LABOUR_TAX_RATE) * LABOUR_INCOME;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

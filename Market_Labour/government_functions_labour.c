@@ -9,7 +9,7 @@
 int government_trace_unemployment_status(){
     int unemployed = 0;
     double total_wages = 0;
-    double total = 0;
+    int total = 0;
     int id;
     START_EMPLOYMENT_STATUS_MESSAGE_LOOP
         id = employment_status_message->employer_id;
@@ -21,13 +21,16 @@ int government_trace_unemployment_status(){
         }
         total++;
     FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
+    
     if (total == 0 || unemployed == total) {
         UNEMPLOYMENT_RATE = 1.0;
         AVERAGE_WAGE = 0;
     } else {
-        UNEMPLOYMENT_RATE = unemployed / total;
+        UNEMPLOYMENT_RATE = (double) unemployed / total;
         AVERAGE_WAGE = total_wages / (total - unemployed);
     }
     POPULATION_SIZE = total;
+    
+    
 	return 0; /* Returning zero means the agent is not removed */
 }

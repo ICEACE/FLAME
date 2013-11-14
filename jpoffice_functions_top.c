@@ -35,8 +35,8 @@ int jpoffice_init_employment()
     
     nhouseholds = household_list.size;
     if (nhouseholds == 0 ) {
-        if (PRINT_DEBUG_MODE) {
-            printf("Experiment Error: No household is detected at initiliazation.\n");    
+        if (WARNING_MODE) {
+            printf("Warning @jpoffice_init_employment(): No household is detected at initiliazation.\n");    
         }
         free_int_array(&household_list);
         free_int_array(&regular_firm_list);
@@ -73,8 +73,8 @@ int jpoffice_init_employment()
     /* Each constructor is assigned one employee */
     for (i = 0; i < ncfirms; i++) {
         if (nemployed > employment_size) {
-            if (PRINT_DEBUG_MODE) {
-                printf("Experiment Error: There are more constructor firms then employable number of households.");
+            if (WARNING_MODE) {
+                printf("Warning @jpoffice_init_employment(): There are more constructor firms then employable number of households.\n");
             }
             free_int_array(&household_list);
             free_int_array(&regular_firm_list);
@@ -92,8 +92,8 @@ int jpoffice_init_employment()
     /* Each regular firm is assigned one employee */
     for (i = 0; i < nrfirms; i++) {
         if (nemployed > employment_size) {
-            if (PRINT_DEBUG_MODE) {
-                printf("Experiment Error: There are more firms then employable number of households.");
+            if (WARNING_MODE) {
+                printf("Warning @jpoffice_init_employment(): There are more firms then employable number of households.\n");
             }
             free_int_array(&household_list);
             free_int_array(&regular_firm_list);
@@ -113,8 +113,8 @@ int jpoffice_init_employment()
         firm_id = constructor_firm_list.array[0];
         for (j = 1; j < constructor_firm_size; j++) {
             if (nemployed > employment_size) {
-                if (PRINT_DEBUG_MODE) {
-                   printf("Experiment Warning: Household shortage is observed at assigning additional labour to constructor firms."); 
+                if (WARNING_MODE) {
+                   printf("Warning @jpoffice_init_employment(): Household shortage is observed at assigning additional labour to constructor firms.\n");
                 }
                 free_int_array(&household_list);
                 free_int_array(&regular_firm_list);

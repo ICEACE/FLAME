@@ -21,6 +21,14 @@ int household_init_employment()
 {
     START_JPOFFICE_HOUSEHOLD_EMPLOYER_MESSAGE_LOOP
     MY_EMPLOYER_ID = jpoffice_household_employer_message->employer_id;
+    if (WAGE == 0) {
+        if (WARNING_MODE) {
+            if ((MY_EMPLOYER_ID > 0 && WAGE == 0) || (MY_EMPLOYER_ID == 0 && WAGE > 0)) {
+                printf("Warning @household_init_employment(): Wage and employment status doesn't match at the initialization! Household ID = %d, Wage = %f, Employer = %d, Wage is set to 5.0 \n", ID, WAGE, MY_EMPLOYER_ID);
+            }
+        }
+        WAGE = 5.0;
+    }
     FINISH_JPOFFICE_HOUSEHOLD_EMPLOYER_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -53,9 +61,9 @@ int household_iterate()
             filename = malloc(80*sizeof(char));
             
             /* Writing the column names. Make sure that an household with that ID does exist. */
-            if (ID == 42) {
-                /* @\fn: int household_consumption_recieve_goods() */
+            if (ID == 542)  {
                 
+                /* @\fn: int household_consumption_recieve_goods() */
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Household_Weekly.txt");
                 file1 = fopen(filename,"w");
