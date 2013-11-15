@@ -404,11 +404,11 @@
                     <nextState>FirmLabourStage1End</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
                         <op>EQ</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>0</value>
                         </rhs>
                     </condition>
                     <inputs/>
@@ -421,11 +421,11 @@
                     <nextState>FirmLabourStage1End</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
-                        <op>GT</op>
+                        <op>LT</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>0</value>
                         </rhs>
                     </condition>
                     <outputs>
@@ -442,11 +442,11 @@
                     <nextState>FirmLabourStage1Application</nextState>
                     <condition>
                         <lhs>
-                            <value>a.no_employees</value>
+                            <value>a.vacancies</value>
                         </lhs>
-                        <op>LT</op>
+                        <op>GT</op>
                         <rhs>
-                            <value>a.employees_needed</value>
+                            <value>0</value>
                         </rhs>
                     </condition>
                     <outputs>

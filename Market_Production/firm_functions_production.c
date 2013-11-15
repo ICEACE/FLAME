@@ -33,7 +33,7 @@ int firm_production_produce_goods()
     if (PRODUCTION_CURRENT <= 0) {
         PRODUCTION_CURRENT = 1;
         if (WARNING_MODE) {
-        printf("Warning @firm_production_produce_goods(): Production current is not positive!? = %d\n", ID, PRODUCTION_CURRENT);
+        printf("Warning @firm_production_produce_goods(): Firm Id = %d, Production current is not positive!? = %d\n", ID, PRODUCTION_CURRENT);
         }
     }
     
@@ -78,32 +78,30 @@ int firm_production_plan()
    
     /* Estimate the production for next period. */
     if (INVENTORY == 0) {
-        EXPECTED_SALES = (int)(1.0 + PRODUCTION_MARKUP) * SALES;
+        EXPECTED_SALES = (int) ((1.0 + PRODUCTION_MARKUP) * SALES);
     }
-    //else if (INVENTORY < PRODUCTION_CURRENT) {
     else{
         EXPECTED_SALES = SALES;
     }
-    /*
-    else if ((PRODUCTION_CURRENT <= INVENTORY) && (INVENTORY <= (2 * PRODUCTION_CURRENT))) {
-        PRODUCTION_PLAN = 2 * SALES - INVENTORY;
-    }
-    // This case added to the model, needs to be checked!
-    else {
+    
+    int goods_to_sale = INVENTORY + PRODUCTION_CURRENT;
+    if ((goods_to_sale - EXPECTED_SALES) >= 0) {
         PRODUCTION_PLAN = 0;
+    } else {
+        PRODUCTION_PLAN = EXPECTED_SALES - (goods_to_sale - EXPECTED_SALES);
     }
+    
+    
+    /* Computing production plan considering firm memory persistance and production estimates.
      */
+     PRODUCTION_PLAN = (int) (FIRM_MEMORY_PERSISTANCE * PRODUCTION_CURRENT + (1.0 - FIRM_MEMORY_PERSISTANCE) * PRODUCTION_PLAN);
     
-    if (INVENTORY >= 2 * EXPECTED_SALES) {
-        PRODUCTION_PLAN = 0;
-    }
-    else if (INVENTORY > EXPECTED_SALES) {
-        PRODUCTION_PLAN = EXPECTED_SALES - (INVENTORY - EXPECTED_SALES);
-    }
-    else {
-        PRODUCTION_PLAN = EXPECTED_SALES;
+    if (PRINT_DEBUG_MODE) {
+       printf("Firm Id = %d, I = %d, PC = %d, GtoS = %d, S = %d, ES = %d, PP = %d\n", ID, INVENTORY, PRODUCTION_CURRENT, goods_to_sale, SALES, EXPECTED_SALES, PRODUCTION_PLAN);
     }
     
+    /* Update is made here to prevent any sales of new products right at the end of the month. */
+    INVENTORY += PRODUCTION_CURRENT;
     
     /*This case has been observed during the experiment. Production model should be revised!*/
     if (PRODUCTION_PLAN < 0) {
@@ -111,19 +109,11 @@ int firm_production_plan()
         if (WARNING_MODE) {
             printf("Warning @firm_production_plan(): A negative production planning occurred Firm ID = %d, previous sales is targeted instead,  Sales = %d\n", ID, SALES);
         }
-
-        
     }
-    /* Computing production plan considering firm memory persistance
-    and production estimates.
-     */
-    PRODUCTION_PLAN = FIRM_MEMORY_PERSISTANCE * PRODUCTION_CURRENT + (1.0 - FIRM_MEMORY_PERSISTANCE) * PRODUCTION_PLAN;
     
     /* Sales are reset to 0 for monthly periods. */
     SALES = 0;
-    
-    /* Update is made here to prevent any sales of new products right at the end of the month. */
-    INVENTORY += PRODUCTION_CURRENT;
+
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -135,7 +125,7 @@ int firm_production_plan()
  */
 int firm_production_compute_labour_demand()
 {
-    EMPLOYEES_NEEDED = (int) ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
 
     if (EMPLOYEES_NEEDED < 1) {EMPLOYEES_NEEDED = 1;}
     
@@ -265,7 +255,7 @@ int firm_production_construction_plan()
  */
 int firm_production_construction_labour_demand()
 {
-    EMPLOYEES_NEEDED = (int) (PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

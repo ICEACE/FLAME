@@ -20,7 +20,6 @@ int mall_consumption_shopping()
     int firm_id, inventory;;
     double price, inv_price;
     double denominator = 0;
-    
     START_SELL_MESSAGE_LOOP
     firm_id = sell_message->id;
     price = sell_message->price;
@@ -41,7 +40,9 @@ int mall_consumption_shopping()
             printf("Warning @mall_consumption_shopping(): An invalid price = %f is received from Firm ID = %d\n", price, firm_id);
         }
     }
+    
 	FINISH_SELL_MESSAGE_LOOP
+    
     
     /* Queue the households */
     int hh_id;

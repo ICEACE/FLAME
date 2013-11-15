@@ -14,8 +14,10 @@ int firm_labour_workforce_needed()
         EMPLOYEES_NEEDED = 1;
     }
     
+    VACANCIES = EMPLOYEES_NEEDED - NO_EMPLOYEES;
+    
     if (PRINT_DEBUG_MODE) {
-      printf("Firm %d is at Labour Market EMPLOYEES_NEEDED is %d\n", ID, EMPLOYEES_NEEDED);  
+      printf("Firm %d is at Labour Market VACANCIES is %d\n", ID, VACANCIES);
     }
     
     if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {

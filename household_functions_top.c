@@ -45,6 +45,7 @@ int household_init_balancesheet()
      */
     add_household_bank_init_mortgages_message(BANK_ID, MORTGAGES);
     add_household_bank_init_deposit_message(BANK_ID, LIQUIDITY);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

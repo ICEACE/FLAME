@@ -39,8 +39,8 @@ int firm_init_employment()
                                                                                
     if (ISCONSTRUCTOR == 0) {
         PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY;
-        INVENTORY = PRODUCTION_CURRENT;
-        SALES = INVENTORY;
+        INVENTORY = 0;
+        SALES = PRODUCTION_CURRENT;
         REVENUES = SALES * UNIT_GOODS_PRICE;
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - OPERATING_COSTS;
