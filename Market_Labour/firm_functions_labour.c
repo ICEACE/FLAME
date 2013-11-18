@@ -210,7 +210,7 @@ int firm_labour_pay_wages()
     add_labour_tax_message(labour_tax);
     LIQUIDITY -= payrolls;
     LABOUR_COSTS += payrolls;
-    
+     
 	return 0; /* Returning zero means the agent is not removed */
 }
 

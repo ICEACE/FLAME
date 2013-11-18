@@ -163,6 +163,11 @@
                     <description>Current wage earned.</description>
                 </variable>
                 <variable>
+                    <type>double</type>
+                    <name>government_benefits</name>
+                    <description>General benefit plus unemployment benefit recieved from the government.</description>
+                </variable>
+                <variable>
                     <type>int</type>
                     <name>day_of_month_to_act</name>
                     <description>The day of the month to act for seeking a job.</description>

@@ -81,7 +81,7 @@ int bank_iterate()
 {
     
     if (DATA_COLLECTION_MODE) {
-        if (IT_NO == 0) {
+        if (IT_NO == 0 || RESUME_MODE) {
             char * filename;
             FILE * file1;
             filename = malloc(40*sizeof(char));

@@ -30,6 +30,11 @@
         <constants>
             <variable>
                 <type>int</type>
+                <name>resume_mode</name>
+                <description>Flag, 0 or 1.  To re-start a simulation from a snapshot , it needs to be set to 1.</description>
+            </variable>
+            <variable>
+                <type>int</type>
                 <name>print_debug_mode</name>
                 <description>Flag, 0 or 1.  To record simulation process stages and selected states for debugging purposes, it needs to be set to 1.</description>
             </variable>

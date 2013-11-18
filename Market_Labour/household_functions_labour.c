@@ -121,6 +121,9 @@ int household_labour_recieve_wage()
     /* Wages after labour tax is added to the income */
     LABOUR_INCOME = (1.0 - LABOUR_TAX_RATE) * LABOUR_INCOME;
     
+    /* Adding government benefits, general plus unemployment benefits to the labour income. */
+    LABOUR_INCOME += GOVERNMENT_BENEFITS;
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

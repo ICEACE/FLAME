@@ -142,6 +142,7 @@ int household_credit_collect_benefits()
     START_GENERAL_BENEFIT_MESSAGE_LOOP
     general_benefit = general_benefit_message->amount;
     LIQUIDITY += general_benefit;
+    GOVERNMENT_BENEFITS = general_benefit;
 	FINISH_GENERAL_BENEFIT_MESSAGE_LOOP
 
     double unemployment_benefit = 0;
@@ -150,6 +151,7 @@ int household_credit_collect_benefits()
         START_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
         unemployment_benefit = unemployment_benefit_message->amount;
         LIQUIDITY += unemployment_benefit;
+        GOVERNMENT_BENEFITS += unemployment_benefit;
         FINISH_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
     }
     
