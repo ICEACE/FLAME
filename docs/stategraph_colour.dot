@@ -493,11 +493,11 @@ digraph state_graph {
 	firm_idle_FirmLabourStart_FirmLabourPayWages -> firm_FirmLabourPayWages;
 	firm_FirmLabourStart -> firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1 [ label = "Periodicity: monthly\nPhase: a->day_of_month_to_act"];
 	firm_firm_labour_workforce_needed_FirmLabourStart_FirmLabourStage1 -> firm_FirmLabourStage1;
-	firm_FirmLabourStage1 -> firm_idle_FirmLabourStage1_FirmLabourStage1End [ label = "a.no_employees EQ a.employees_needed"];
+	firm_FirmLabourStage1 -> firm_idle_FirmLabourStage1_FirmLabourStage1End [ label = "a.vacancies EQ 0"];
 	firm_idle_FirmLabourStage1_FirmLabourStage1End -> firm_FirmLabourStage1End;
-	firm_FirmLabourStage1 -> firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End [ label = "a.no_employees GT a.employees_needed"];
+	firm_FirmLabourStage1 -> firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End [ label = "a.vacancies LT 0"];
 	firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End -> firm_FirmLabourStage1End;
-	firm_FirmLabourStage1 -> firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application [ label = "a.no_employees LT a.employees_needed"];
+	firm_FirmLabourStage1 -> firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application [ label = "a.vacancies GT 0"];
 	firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application -> firm_FirmLabourStage1Application;
 	firm_FirmLabourStage1Application -> firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End;
 	firm_firm_labour_job_offer_stage1_FirmLabourStage1Application_FirmLabourStage1End -> firm_FirmLabourStage1End;
@@ -551,9 +551,9 @@ digraph state_graph {
 	firm_firm_credit_compute_dividends_FirmCreditComputeDividends_FirmCreditLiquidityNeed -> firm_FirmCreditLiquidityNeed;
 	firm_FirmCreditLiquidityNeed -> firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus;
 	firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus -> firm_FirmCreditStatus;
-	firm_FirmCreditStatus -> firm_idle_FirmCreditStatus_FirmCreditPayments [ label = "a.liquidity_need EQ 0"];
+	firm_FirmCreditStatus -> firm_idle_FirmCreditStatus_FirmCreditPayments [ label = "a.isliquidshort EQ 0"];
 	firm_idle_FirmCreditStatus_FirmCreditPayments -> firm_FirmCreditPayments;
-	firm_FirmCreditStatus -> firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 [ label = "a.liquidity_need NEQ 0"];
+	firm_FirmCreditStatus -> firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 [ label = "a.isliquidshort NEQ 0"];
 	firm_firm_credit_demand_loans_1_FirmCreditStatus_FirmCreditLoanBorrow1 -> firm_FirmCreditLoanBorrow1;
 	firm_FirmCreditLoanBorrow1 -> firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2;
 	firm_firm_credit_borrow_loans_1_FirmCreditLoanBorrow1_FirmCreditLoanBorrow2 -> firm_FirmCreditLoanBorrow2;
