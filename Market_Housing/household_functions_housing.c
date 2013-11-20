@@ -314,12 +314,16 @@ int household_housing_collect_sale_revenue()
  */
 int household_housing_update_market_price()
 {
+    double pre_value;
+    
+    pre_value = HOUSING_UNITS * HOUSING_PRICE;
     
     START_HOUSING_PRICE_MESSAGE_LOOP
     HOUSING_PRICE = housing_price_message->price;
 	FINISH_HOUSING_PRICE_MESSAGE_LOOP
     
     HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
+    DELTA_HOUSING_VALUE = HOUSING_VALUE - pre_value;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

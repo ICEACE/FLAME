@@ -9,7 +9,6 @@
  */
 int firm_production_skip()
 {
-    ISINSOLVENT = 0;
     EMPLOYEES_NEEDED = 1;
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -98,6 +97,22 @@ int firm_production_plan()
     
     if (PRINT_DEBUG_MODE) {
        printf("Firm Id = %d, I = %d, PC = %d, GtoS = %d, S = %d, ES = %d, PP = %d\n", ID, INVENTORY, PRODUCTION_CURRENT, goods_to_sale, SALES, EXPECTED_SALES, PRODUCTION_PLAN);
+    }
+    
+    
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(100*sizeof(char));
+        filename[0]=0;
+        int needed = EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+        if (needed < 1) {needed = 1;}
+        strcpy(filename, "./outputs/data/Firm_Monthly.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %d %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, SALES, INVENTORY, PRODUCTION_CURRENT, PRODUCTION_PLAN, AVERAGE_GOODS_PRICE);
+        
+        fclose(file1);
+        free(filename);
     }
     
     /* Update is made here to prevent any sales of new products right at the end of the month. */
@@ -207,11 +222,13 @@ int firm_production_construction_plan()
 {
     int work_in_progress;
     int maxsize;
+    int last_production;
 
     /* Those housing units which are produced in previous month are made
      available for sale at the start of current month.
      */
     INVENTORY += PRODUCTION_CURRENT;
+    last_production = PRODUCTION_CURRENT;
     PRODUCTION_CURRENT = 0;
     
     
@@ -230,7 +247,7 @@ int firm_production_construction_plan()
     if (maxsize <= 0){
         PRODUCTION_PLAN = 0;
     }
-    else if (DELTA_HOUSING_PRICE >= 0) {
+    else if (DELTA_HOUSING_PRICE >= 0){
         if (work_in_progress < maxsize) {
             PRODUCTION_PLAN = random_int(work_in_progress, maxsize);
         } else {
@@ -244,6 +261,23 @@ int firm_production_construction_plan()
             PRODUCTION_PLAN = random_int(1, work_in_progress);
         }
     }
+    
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(100*sizeof(char));
+        filename[0]=0;
+        
+        int needed = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+        if (needed < 1) {needed = 1;}
+        strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %d %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, needed, SALES, INVENTORY, last_production, PRODUCTION_PLAN, UNIT_HOUSE_PRICE);
+        
+        fclose(file1);
+        free(filename);
+    }
+
     
 	return 0; /* Returning zero means the agent is not removed */
 }

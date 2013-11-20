@@ -20,24 +20,6 @@ int firm_labour_workforce_needed()
       printf("Firm %d is at Labour Market VACANCIES is %d\n", ID, VACANCIES);
     }
     
-    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
-        char * filename;
-        FILE * file1;
-        filename = malloc(100*sizeof(char));
-        filename[0]=0;
-        if (ISCONSTRUCTOR) {
-            strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
-            file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %f %d %d %d %d\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
-        } else {
-            strcpy(filename, "./outputs/data/Firm_Monthly.txt");
-            file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %f %d %d %d %d\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, INVENTORY, PRODUCTION_PLAN);
-        }
-        fclose(file1);
-        free(filename);
-    }
-    
     return 0; /* Returning zero means the agent is not removed */
 }
 

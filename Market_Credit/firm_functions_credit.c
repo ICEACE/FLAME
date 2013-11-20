@@ -46,7 +46,7 @@ int firm_credit_compute_income_statement()
     
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
-        to_be_paid = LOAN_LIST[i].amount * LOANS_INTEREST_RATE / 4;
+        to_be_paid = LOAN_LIST[i].amount * (LOANS_INTEREST_RATE / 4);
         LOAN_LIST[i].to_be_paid = to_be_paid;
         TOTAL_INTEREST_PAYMENTS += to_be_paid;
     }
@@ -81,7 +81,6 @@ int firm_credit_compute_income_statement()
     OPERATING_COSTS = 0;
     LABOUR_COSTS = 0;
     
-    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -105,27 +104,14 @@ int firm_credit_investment_decisions()
 int firm_credit_compute_dividends()
 {
     DIVIDENDS_TO_BE_PAID = NET_EARNINGS - RETAINED_EARNINGS;
-    
-    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
-        char * filename;
-        FILE * file1;
-        filename = malloc(100*sizeof(char));
-        filename[0]=0;
-        if (ISCONSTRUCTOR) {
-            strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_Dividends.txt");
-            file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
-        } else {
-            strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
-            file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
-        }
-        fclose(file1);
-        free(filename);
-    }
-    
     DIVIDENDS_PAID = 0;
     RETAINED_EARNINGS = 0;
+    if (DIVIDENDS_TO_BE_PAID < 0) {
+        if (PRINT_DEBUG_MODE) {
+            printf("Firm ID = %d, has no positive earnings to send out to share holders. \n", ID);
+        }
+        DIVIDENDS_TO_BE_PAID = 0;
+    }
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -137,12 +123,20 @@ int firm_credit_compute_dividends()
  */
 int firm_credit_check_liquidity_need()
 {
-    
+  
     LIQUIDITY_NEED = DIVIDENDS_TO_BE_PAID + TOTAL_INTEREST_PAYMENTS + PLANNED_INVESTMENT_COSTS - LIQUIDITY;
     
-    if (LIQUIDITY_NEED < 0) {
-        LIQUIDITY_NEED = 0  ;
+    /*The variable is used for statistics as state variables. */
+    ISLIQUIDSHORT = 0;
+    HASLOAN = 0;
+    HASINVESTMENT = 0;
+    ISILLIQUID = 0;
+    ISINSOLVENT = 0;
+    
+    if (LIQUIDITY_NEED > 0) {
+        ISLIQUIDSHORT = 1;
     }
+    else{LIQUIDITY_NEED = 0;}
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -176,7 +170,6 @@ int firm_credit_borrow_loans_1()
         printf("Firm ID = %d @ Loan Stage 1 received %f of loans. \n", ID, amount);
     }
     
-    
     if (amount == LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
         LIQUIDITY += amount;
@@ -186,7 +179,6 @@ int firm_credit_borrow_loans_1()
     }
     /* Shall we allow partial loans? */
     else{
-        HASLOAN = 0;
         add_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
     }
     
@@ -209,16 +201,12 @@ int firm_credit_borrow_loans_2()
         printf("Firm ID = %d @ Loan Stage 2 received %f of loans. \n", ID, amount);
     }
 
-    
     if (amount >= LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
         LIQUIDITY += amount;
         DEBT += amount;
         LOAN_LIST[1].amount += amount;
         HASLOAN = 1;
-    }
-    else{
-        HASLOAN = 0;
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -231,9 +219,10 @@ int firm_credit_borrow_loans_2()
  */
 int firm_credit_request_equityfund_investment()
 {
+    /* New liquidity need is computed. */
     LIQUIDITY_NEED = TOTAL_INTEREST_PAYMENTS - LIQUIDITY;
     
-    if (LIQUIDITY_NEED < 0) {
+    if (LIQUIDITY_NEED <= 0) {
         DIVIDENDS_TO_BE_PAID = 0;
         PLANNED_INVESTMENT_COSTS = 0;
         LIQUIDITY_NEED = 0 ;}
@@ -256,21 +245,18 @@ int firm_credit_check_equityfund_investment()
 {
     double amount = 0;
     
-    HASINVESTMENT = 0;
-    
     START_FUND_REQUEST_ACK_MESSAGE_LOOP
     amount = fund_request_ack_message->amount;
  	FINISH_FUND_REQUEST_ACK_MESSAGE_LOOP
     
-    if (PRINT_DEBUG_MODE){
-        printf("Firm ID = %d @ Loan - Equity Fund received %f amount of funding investment. \n", ID, amount);
-    }
-
     if (amount > 0) {
         LIQUIDITY += amount;
         HASINVESTMENT = 1;
         EQUITY += amount;
         LIQUIDITY_NEED = 0;
+        if (PRINT_DEBUG_MODE){
+            printf("Firm ID = %d @ Loan - Equity Fund received %f amount of funding investment. \n", ID, amount);
+        }
     }
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -282,50 +268,52 @@ int firm_credit_check_equityfund_investment()
  */
 int firm_credit_illiquidity_bankrupt()
 {
-    double new_loans, current_loans;
+    ISILLIQUID = 1;
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d is illiquidity bankrupt!\n", ID);
+    }
+    
+    double new_loans;
     double ratio, current_amount, new_amount, delta_amount;
     int bank;
     
-    current_loans = DEBT;
-        
+    
     /* Maximum amount of debts that can be paid.
      */
     if (EBIT < 0){
         new_loans = 0;}
     else {
-        new_loans = EBIT / LOANS_INTEREST_RATE;
+        new_loans = EBIT / (LOANS_INTEREST_RATE / 4);
     }
     
-    if (current_loans){
-        ratio = new_loans / current_loans;}
+    if (DEBT > 0){
+        ratio = new_loans / DEBT;}
     else {
         ratio = 0;
     }
     
-    DEBT = new_loans;
-    
-    if (PRINT_DEBUG_MODE) {
-        printf("Firm ID = %d is illiquidity bankrupt!\n", ID);
-    }
+    DEBT = 0;
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         current_amount = LOAN_LIST[i].amount;
         new_amount = current_amount * ratio;
         LOAN_LIST[i].amount = new_amount;
+        DEBT += new_amount;
         delta_amount = current_amount - new_amount;
         add_loan_writeoff_message(bank, delta_amount);
+        if (WARNING_MODE) {
+            if (delta_amount < 0) {
+                printf("Warning @firm_credit_illiquidity_bankrupt(): The illiquid Firm ID = %d new loan request is higher than its existing loan to Bank ID = %d, The difference is = %f \n", ID, bank, delta_amount);
+            }
+        }
         if (PRINT_DEBUG_MODE) {
             printf("Firm ID = %d illiquidity bankrupt burden on Bank = %d is = %f \n",ID,bank, delta_amount);
         }
 
     }
     
-    ISILLIQUID = 0;
-    
 	return 0; /* Returning zero means the agent is not removed */
 }
-
-
 
 /*
  * \fn: int firm_credit_pay_interest_on_loans()
@@ -355,28 +343,33 @@ int firm_credit_pay_interest_on_loans()
  */
 int firm_credit_pay_dividends()
 {
-     
-    if (DIVIDENDS_TO_BE_PAID < 0) {
-        DIVIDENDS_TO_BE_PAID = 0;
-        DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
-        if (PRINT_DEBUG_MODE) {
-            printf("Firm ID = %d, has no positive earnings to send out to share holders. \n", ID);
-        }
-        return 0;
+    DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
+    
+    if (DIVIDENDS_PAID > 0) {
+        add_firm_net_profit_message(ID, ISCONSTRUCTOR, DIVIDENDS_PAID);
+        LIQUIDITY -= DIVIDENDS_PAID;
     }
     
-    if (DIVIDENDS_TO_BE_PAID > LIQUIDITY) {
-        if (PRINT_DEBUG_MODE) {
-         printf("Firm ID = %d, Dividends to be paid = %f, is more than liquidity = %f \n", ID, DIVIDENDS_TO_BE_PAID, LIQUIDITY);
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(100*sizeof(char));
+        filename[0]=0;
+        if (ISCONSTRUCTOR) {
+            strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_Dividends.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
+        } else {
+            strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
         }
+        fclose(file1);
+        free(filename);
     }
-    else{
-        DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
-        LIQUIDITY -= DIVIDENDS_TO_BE_PAID;
-        add_firm_net_profit_message(ID, ISCONSTRUCTOR, DIVIDENDS_TO_BE_PAID);
-        DIVIDENDS_TO_BE_PAID = 0;
-    }
-
+    
+    DIVIDENDS_TO_BE_PAID = 0;
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -398,11 +391,7 @@ int firm_credit_do_balance_sheet()
     
     EQUITY = TOTAL_ASSETS - DEBT;
     
-    if (EQUITY < 0) {
-        ISINSOLVENT = 1;
-    } else {
-        ISINSOLVENT = 0;
-    }
+    if (EQUITY < 0) { ISINSOLVENT = 1; }
     
     if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
         char * filename;
@@ -412,11 +401,11 @@ int firm_credit_do_balance_sheet()
         if (ISCONSTRUCTOR) {
             strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %f %f %d %f %f %d %d %f\n",IT_NO, ID, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT);
+            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT, EQUITY);
         } else {
             strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %f %f %d %f %f %d %d %f\n",IT_NO, ID, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT);
+            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
         }
         fclose(file1);
         free(filename);

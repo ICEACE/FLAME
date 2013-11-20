@@ -98,17 +98,12 @@ int household_credit_collect_shares()
  */
 int household_credit_do_balance_sheet()
 {
-    double old_housing;
-    
-    old_housing = HOUSING_VALUE;
-
     /* Updating value of housing assets.
      It is up to date. Update is done monthly.
      */
     // HOUSING_VALUE = HOUSING_UNITS * HOUSING_PRICE;
-    DELTA_HOUSING_VALUE = HOUSING_VALUE - old_housing;
     
-    /* Liquidity contains capital income recieved via EquityFund. */
+    /* Liquidity contains labour incomes. */
     TOTAL_ASSETS = LIQUIDITY +  HOUSING_VALUE + CAPITAL_INCOME;
     EQUITY = TOTAL_ASSETS - MORTGAGES;
 
@@ -120,7 +115,7 @@ int household_credit_do_balance_sheet()
         strcpy(filename, "./outputs/data/Household_Quarterly.txt");
         
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %f %f %f %f %f %f %f\n",IT_NO, ID, TOTAL_ASSETS, LIQUIDITY, HOUSING_VALUE, CAPITAL_INCOME, MORTGAGES, HOUSING_PAYMENT, EQUITY);
+        fprintf(file1,"%d %d %f %f %f %f %f %f %f %f %f\n",IT_NO, ID, TOTAL_ASSETS, LIQUIDITY, HOUSING_VALUE, LABOUR_INCOME, GOVERNMENT_BENEFITS, CAPITAL_INCOME, MORTGAGES, HOUSING_PAYMENT, EQUITY);
         fclose(file1);
         free(filename);
     }

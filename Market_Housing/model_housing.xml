@@ -265,6 +265,11 @@
                     <name>mortgage_costs[3]</name>
                     <description>Holds mortgage costs, principal plus ineterests paid for last three months.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>delta_housing_value</name>
+                    <description>Value change on housing value on a monthly basis.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>
