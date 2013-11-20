@@ -34,6 +34,32 @@ plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabe
 	dev.off()
 }
 
+plot_time_series_mean_file_v2 <- function(niter, itervector, memoryvector, xlabel, ylabel, title, fname){
+	times <- (1:niter)
+	means <- (1:niter)
+	current_iter <- itervector[1]
+	datalength <- length(memoryvector)
+	accumulator <- 0
+	nvals <- 0
+	ind <- 1
+	for (i in 1:datalength){
+		if (itervector[i] != current_iter){
+			means[ind] <- accumulator / nvals
+			ind <- ind + 1
+			nvals <- 0
+			accumulator <- 0
+			current_iter <- itervector[i]	
+		}
+		nvals <- nvals + 1
+		accumulator <- accumulator + memoryvector[i]
+	}
+	means[ind] <- accumulator / nvals
+	png(fname, width = 800, height = 800, pointsize=24)
+	plot(means~times, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	dev.off()
+}
+
+
 plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title, fname){
 	png(fname, width = 800, height = 800, pointsize=24)
 	times <- (1:niter)
@@ -124,6 +150,54 @@ plot_gdp_to_file <- function(niter, nFirms, nCFirms, firmvector, cfirmvector, fn
 	return(gdp)
 }
 
+plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, fname){
+	times <- (1:niter)
+	fsums <- (1:niter)
+	csums <- (1:niter)
+	gdp <- (1:niter)
+	
+	#Regular Firm productions
+	current_iter <- firmiters[1]
+	datalength <- length(firmvector)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:datalength){
+		if (firmiters[i] != current_iter){
+			fsums[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			current_iter <- firmiters[i]	
+		}
+		accumulator <- accumulator + firmvector[i]
+	}
+	fsums[ind] <- accumulator
+
+    #constructor Firm productions
+	current_iter <- cfirmiters[1]
+	datalength <- length(cfirmvector)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:datalength){
+		if (cfirmiters[i] != current_iter){
+			csums[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			current_iter <- cfirmiters[i]	
+		}
+		accumulator <- accumulator + cfirmvector[i]
+	}
+	csums[ind] <- accumulator
+	
+	for (i in 1:niter){
+		gdp[i] <- fsums[i] + csums[i]
+	}
+	png(fname, width = 800, height = 800, pointsize=24)
+	plot(gdp~times, type="l", xlab = "Months", ylab=" GDP (Total Production Market Value)")
+	#lines(fsums~times, type = "o")
+	dev.off()
+	return(gdp)
+}
+
 
 ########## Single Run Anals #####
 
@@ -172,12 +246,12 @@ CFirmDividends <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
 output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
-nWeeks <- length(Mall$"IT_NO")
-nMonths <- length(REAgency$"IT_NO")
-nQuarters <- length(Equityfund$"IT_NO")
-nFirms = length(FirmMonthly$"ID") / nMonths
-nCFirms = length(CFirmMonthly$"ID") / nMonths
-nBanks = length(BankIncome$"ID") / nQuarters
+nWeeks <- length(Mall$IT_NO)
+nMonths <- length(REAgency$IT_NO)
+nQuarters <- length(Equityfund$IT_NO)
+nFirms = length(FirmMonthly$ID) / nMonths
+nCFirms = length(CFirmMonthly$ID) / nMonths
+nBanks = length(BankIncome$ID) / nQuarters
 nIter <- nQuarters
 
 
@@ -211,8 +285,8 @@ plot_time_series_mean_file(nBanks, nQuarters, BankBalance$MORTGAGES, "Quarters",
 plot_time_series_mean_file(nBanks, nQuarters, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms, HH (Mean)", "Banks", "Deposits.png")
 plot_time_series_mean_file(nBanks, nQuarters, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt (Mean)", "Banks", "BanksDebt.png")
 plot_time_series_mean_file(nBanks, nQuarters, BankBalance$EQUITY, "Quarters", "Equity (Mean)", "Banks", "BanksEquity.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_ACCRUED, "Months", "Interests Collected (Mean)", "Banks", "BanksInterestsCollected.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Writeoffs(Mean)", "Banks", "BanksWriteoffs.png")
+plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_ACCRUED, "Months", "Interests Collected Mortgage + Loans (Mean)", "Banks", "BanksInterestsCollected.png")
+plot_time_series_mean_file(nBanks, nQuarters, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loans + Mortgages Writeoffs (Mean)", "Banks", "BanksWriteoffs.png")
 plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_PAID, "Months", "Interests Paid (Mean)", "Banks", "BanksInterestsPaid.png")
 plot_time_series_mean_file(nBanks, nQuarters, BankIncome$NET_EARNINGS, "Months", "Net Earnings (Mean)", "Banks", "BanksNetEarnings.png")
 
@@ -220,24 +294,6 @@ plot_time_series_mean_file(nBanks, nQuarters, BankIncome$NET_EARNINGS, "Months",
 #Firms
 plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$UNIT_GOODS_PRICE, "Quarters", "Price (mean)", "Firms", "FirmsUnitGoodPrices.png")
 plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$UNIT_HOUSE_PRICE, "Quarters", "Price (mean)", "Constructor Firms", "CFirmsUnitHousePrices.png")
-
-plot_time_series_mean_file(nFirms, nMonths, FirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Firms", "FirmsEmployeeSize.png")
-plot_time_series_mean_file(nCFirms, nMonths, CFirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Constructor Firms", "CFirmsEmployeeSize.png")
-
-plot_time_series_mean_file(nFirms, nMonths, FirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Firms", "FirmsInventory.png")
-plot_time_series_mean_file(nCFirms, nMonths, CFirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Constructor Firms", "CFirmsInventory.png")
-
-plot_time_series_mean_file(nFirms, nMonths, FirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Firms", "FirmsProductionPlan.png")
-plot_time_series_mean_file(nCFirms, nMonths, CFirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Constructor Firms", "CFirmsProductionPlan.png")
-
-plot_time_series_mean_file(nFirms, nMonths, FirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Firms", "FirmsProductionCurrent.png")
-plot_time_series_mean_file(nCFirms, nMonths, CFirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Constructor Firms", "CFirmsProductionCurrent.png")
-
-plot_time_series_mean_file(nFirms, nMonths, FirmMonthly$SALES, "Months", "Sales (mean)", "Firms", "FirmsSales.png")
-plot_time_series_mean_file(nCFirms, nMonths, CFirmMonthly$SALES, "Months", "Sales (mean)", "Constructor Firms", "CFirmsSales.png")
-
-plot_time_series_mean_file(nFirms, nQuarters, FirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Firms", "FirmsDividendsPaid.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Constructor Firms", "CFirmsDividendsPaid.png")
 
 plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$REVENUES, "Quarters", "Sale Revenues (mean)", "Firms", "FirmsRevenues.png")
 plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$REVENUES, "Quarters", "Sale Revenues (mean)", "Constructor Firms", "CFirmsRevenues.png")
@@ -263,6 +319,9 @@ plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$LIQUIDITY, "Quarters
 plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$DEBT, "Quarters", "Debt (mean)", "Firms", "FirmsDebt.png")
 plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$DEBT, "Quarters", "Debt (mean)", "Constructor Firms", "CFirmsDebt.png")
 
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$EQUITY, "Quarters", "Equity (mean)", "Firms", "FirmsEquity.png")
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$EQUITY, "Quarters", "Equity (mean)", "Constructor Firms", "CFirmsEquity.png")
+
 plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Firms", "FirmsCapitalGoods.png")
 plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Constructor Firms", "CFirmsCapitalGoods.png")
 
@@ -270,10 +329,30 @@ plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$PHYSICAL_CAPITAL, "Qua
 plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$PHYSICAL_CAPITAL_CONSTRUCTION, "Quarters", "Construction Physical Capital (mean)", "Constructor Firms", "CFirmsPhysicalCapital.png")
 
 
+plot_time_series_mean_file_v2(nQuarters, FirmDividends$IT_NO, FirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Firms", "FirmsDividendsPaid.png")
+plot_time_series_mean_file_v2(nQuarters, CFirmDividends$IT_NO, CFirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Constructor Firms", "CFirmsDividendsPaid.png")
+
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Firms", "FirmsEmployeeSize.png")
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Constructor Firms", "CFirmsEmployeeSize.png")
+
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Firms", "FirmsInventory.png")
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Constructor Firms", "CFirmsInventory.png")
+
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Firms", "FirmsProductionPlan.png")
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Constructor Firms", "CFirmsProductionPlan.png")
+
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Firms", "FirmsProductionCurrent.png")
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Constructor Firms", "CFirmsProductionCurrent.png")
+
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$SALES, "Months", "Sales (mean)", "Firms", "FirmsSales.png")
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "Months", "Sales (mean)", "Constructor Firms", "CFirmsSales.png")
+
+
 ##### Compute GDP #######
 cfirmvector <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE
 firmvector <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$AVERAGE_GOODS_PRICE
-plot_gdp_to_file(nMonths, nFirms, nCFirms, firmvector, cfirmvector, "GDP.png")
+#plot_gdp_to_file(nMonths, nFirms, nCFirms, firmvector, cfirmvector, "GDP.png")
+plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, "GDP.png")
 
 
 HouseholdQuarterly <- read.csv('../data/Household_Quarterly.txt', sep = " ", header = T, stringsAsFactors = F)
@@ -283,25 +362,47 @@ HouseholdWeekly <- read.csv('../data/Household_Weekly.txt', sep = " ", header = 
 nHouseholds = length(HouseholdQuarterly$"ID") / nQuarters
 
 #Household - Quarterly
-boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (boxplot)", "Households", "HouseholdsHousingValue.png")
-boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Household Liquidity (boxplot)", "Households", "HouseholdsLiquidityQuarterly.png")
-boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (boxplot)", "Households", "HouseholdsCapitalIncome.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (boxplot)", "Households", "HouseholdsHousingPayment.png")
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$TOTAL_ASSETS, "Quarters", "Total Assets (boxplot)", "Households", "HouseholdsTotalAssetsDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$TOTAL_ASSETS, "Quarters", "Total Assests (mean)", "Households", "HouseholdsTotalAssetsMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (boxplot)", "Households", "HouseholdsHousingValueDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (mean)", "Households", "HouseholdsHousingValueMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Household Liquidity (boxplot)", "Households", "HouseholdsLiquidityQuarterlyDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Household Liquidity (mean)", "Households", "HouseholdsLiquidityQuarterlyMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$EQUITY, "Quarters", "Equity (boxplot)", "Households", "HouseholdsEquityDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$EQUITY, "Quarters", "Equity (mean)", "Households", "HouseholdsEquityMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$MORTGAGES, "Quarters", "Mortgages (boxplot)", "Households", "HouseholdsMortgagesDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$MORTGAGES, "Quarters", "Mortgages (mean)", "Households", "HouseholdsMortgagesMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$LABOUR_INCOME, "Quarters", "Labour Income (boxplot)", "Households", "HouseholdsLabourIncomeDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$LABOUR_INCOME, "Quarters", "Labour Income (mean)", "Households", "HouseholdsLabourIncomeMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (boxplot)", "Households", "HouseholdsCapitalIncomeDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (mean)", "Households", "HouseholdsCapitalIncomeMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (boxplot)", "Households", "HouseholdsHousingPaymentDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (mean)", "Households", "HouseholdsHousingPaymentMean.png")
+
+boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (boxplot)", "Households", "HouseholdsBenefitsDistro.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (mean)", "Households", "HouseholdsBenefitsMean.png")
+
 
 #Household - Monthly
 plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$LIQUIDITY, "Months", "Liquidity (mean)", "Households", "HouseholdsLiquidityMonthly.png")
 plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGES, "Months", "Mortgages (mean)", "Households", "HouseholdsMortgagesMonthly.png")
 plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGE_COST, "Months", "Mortgage Costs (mean)", "Households", "HouseholdsMortgageCostsMonthly.png")
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_UNITS, "Months", "Housing Units (mean)", "Households", "HouseholdsHousingUnits.png")
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_UNITS, "Months", "Housing Units (mean)", "Households", "HouseholdsHousingUnitsMonthly.png")
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_VALUE, "Months", "Housing Value (mean)", "Households", "HouseholdsHousingValuesMonthly.png")
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$EQUITY_RATIO, "Months", "Eqquity Ratio (mean)", "Households", "HouseholdsEquityRatioMonthly.png")
 
 
 #Household - Weekly
-boxplot_time_series_distro_file(nHouseholds, nWeeks, HouseholdWeekly$LIQUIDITY, "Weeks", "Liquidity (distro)", "Households", "HouseholdsLiquidityWeeklyDistro.png")
 plot_time_series_mean_file(nFirms, nWeeks, HouseholdWeekly$LIQUIDITY, "Weeks", "Liquidity (mean)", "Households", "HouseholdsLiquidityWeekly.png")
-boxplot_time_series_distro_file(nHouseholds, nWeeks, HouseholdWeekly$WEEKLY_CONSUMPTION_BUDGET, "Weeks", "Consumption Goods Budget (distro)", "Households", "HouseholdsConsumptionBudgetWeeklyDistro.png")
-plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$WEEKLY_CONSUMPTION_BUDGET, "Weeks", "Consumption Goods Budget (mean)", "Households", "HouseholdsConsumptionBudgetWeekly.png")
-plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$money_to_spend, "Weeks", "Money Available to Spend (mean)", "Households", "HouseholdsToSpendWeekly.png")
-plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$money_spent, "Weeks", "Money Spent (mean)", "Households", "HouseholdsExpenditureWeekly.png")
+plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$money_to_spend, "Weeks", "Money Available to Spend (mean)", "Households", "HouseholdsMoneyToSpendWeekly.png")
+plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$money_spent, "Weeks", "Money Spent (mean)", "Households", "HouseholdsMoneySpentWeekly.png")
 
 
 ########################## Experiments #######
