@@ -249,6 +249,19 @@ int bank_credit_recieve_loan_writeoffs()
     LOANS -= amount;
     EQUITY -= amount;
     TOTAL_WRITEOFFS += amount;
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Bank", "Loans", ID, amount);
+        fclose(file1);
+        free(filename);
+    }
+    
     FINISH_LOAN_WRITEOFF_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */

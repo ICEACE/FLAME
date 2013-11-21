@@ -44,6 +44,20 @@ int centralbank_iterate()
             fclose(file1);
             free(filename);
         }
+        
+        if (IT_NO == 0) {
+            char * filename;
+            FILE * file1;
+            
+            /* @/fn: () */
+            filename = malloc(40*sizeof(char));
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s\n","IT", "ID", "Agent", "Writeoff_Type", "Bank", "Amount");
+            fclose(file1);
+            free(filename);
+        }
     }
     
     IT_NO++;

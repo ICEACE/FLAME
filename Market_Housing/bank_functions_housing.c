@@ -97,6 +97,19 @@ int bank_housing_debt_writeoff()
     amount = mortgage_writeoff_message->amount;
     MORTGAGES -= amount;
     TOTAL_WRITEOFFS += amount;
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Bank", "Mortgages", ID, amount);
+        fclose(file1);
+        free(filename);
+    }
+    
 	FINISH_MORTGAGE_WRITEOFF_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */

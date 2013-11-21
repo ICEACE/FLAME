@@ -300,16 +300,30 @@ int firm_credit_illiquidity_bankrupt()
         LOAN_LIST[i].amount = new_amount;
         DEBT += new_amount;
         delta_amount = current_amount - new_amount;
-        add_loan_writeoff_message(bank, delta_amount);
-        if (WARNING_MODE) {
-            if (delta_amount < 0) {
-                printf("Warning @firm_credit_illiquidity_bankrupt(): The illiquid Firm ID = %d new loan request is higher than its existing loan to Bank ID = %d, The difference is = %f \n", ID, bank, delta_amount);
+        
+        if (delta_amount > 0) {
+            add_loan_writeoff_message(bank, delta_amount);
+            if (WARNING_MODE) {
+                if (delta_amount < 0) {
+                    printf("Warning @firm_credit_illiquidity_bankrupt(): The illiquid Firm ID = %d new loan request is higher than its existing loan to Bank ID = %d, The difference is = %f \n", ID, bank, delta_amount);
+                }
+            }
+            if (PRINT_DEBUG_MODE) {
+                printf("Firm ID = %d illiquidity bankrupt burden on Bank = %d is = %f \n",ID,bank, delta_amount);
+            }
+            
+            if (DATA_COLLECTION_MODE) {
+                char * filename;
+                FILE * file1;
+                filename = malloc(40*sizeof(char));
+                filename[0]=0;
+                strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+                file1 = fopen(filename,"a");
+                fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Firm", "Illiquidity", bank, delta_amount);
+                fclose(file1);
+                free(filename);
             }
         }
-        if (PRINT_DEBUG_MODE) {
-            printf("Firm ID = %d illiquidity bankrupt burden on Bank = %d is = %f \n",ID,bank, delta_amount);
-        }
-
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -437,8 +451,22 @@ int firm_credit_insolvency_bankruptcy()
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         amount = LOAN_LIST[i].amount;
-        add_loan_writeoff_message(bank, amount);
-        LOAN_LIST[i].amount = 0;
+        if (amount > 0) {
+            add_loan_writeoff_message(bank, amount);
+            LOAN_LIST[i].amount = 0;
+            
+            if (DATA_COLLECTION_MODE) {
+                char * filename;
+                FILE * file1;
+                filename = malloc(40*sizeof(char));
+                filename[0]=0;
+                strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+                file1 = fopen(filename,"a");
+                fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Firm", "Insolvency", bank, amount);
+                fclose(file1);
+                free(filename);
+            }
+        }
     }
     DEBT = 0;
     LIQUIDITY = 0;

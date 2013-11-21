@@ -449,6 +449,19 @@ int household_housing_debt_writeoff()
         
         /* All mortgages are acquired from the same bank. */
         add_mortgage_writeoff_message(BANK_ID, writeoff);
+        
+        if (DATA_COLLECTION_MODE) {
+            char * filename;
+            FILE * file1;
+            filename = malloc(40*sizeof(char));
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+            file1 = fopen(filename,"a");
+            fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Household", "Mortgage", BANK_ID, writeoff);
+            fclose(file1);
+            free(filename);
+        }
+        
         if (PRINT_DEBUG_MODE) {
             printf("Household ID = %d, Debts writeoff: %d mortgages affected. Loss on Bank ID = %d amounts to %f \n", ID, size, BANK_ID, writeoff);
         }
