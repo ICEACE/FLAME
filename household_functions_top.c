@@ -31,6 +31,13 @@ int household_init_employment()
     }
     FINISH_JPOFFICE_HOUSEHOLD_EMPLOYER_MESSAGE_LOOP
     
+    for (int i = 0; i < 3; i++) {
+        if (PREVIOUS_WAGES[i] == 0) {
+            PREVIOUS_BENEFITS[i] = 4;
+        } else {
+            PREVIOUS_BENEFITS[i] = 1.5;
+        }
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }
 

@@ -13,7 +13,7 @@ int firm_housing_enter_market()
     
     int i = 1;
     while (i <= INVENTORY) {
-        price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
+        price_difference = (((double)random_int(0, 100)) / 100.0) * HOUSING_PRICE_UP_RATE;
         price = UNIT_HOUSE_PRICE * (1 + price_difference);
         add_sell_housing_message(ID, price, 1);
         i++;
@@ -73,11 +73,11 @@ int firm_housing_update_market_price()
 {
     double oldprice;
     
-    START_HOUSING_PRICE_MESSAGE_LOOP
     oldprice = UNIT_HOUSE_PRICE;
+    START_HOUSING_PRICE_MESSAGE_LOOP
     UNIT_HOUSE_PRICE = housing_price_message->price;
-    DELTA_HOUSING_PRICE = UNIT_HOUSE_PRICE - oldprice;
 	FINISH_HOUSING_PRICE_MESSAGE_LOOP
+    DELTA_HOUSING_PRICE = UNIT_HOUSE_PRICE - oldprice;
 	return 0; /* Returning zero means the agent is not removed */
 }
 

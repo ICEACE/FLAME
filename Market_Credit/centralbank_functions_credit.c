@@ -22,11 +22,25 @@ int centralbank_set_interest_rate()
     rcb += (inflation - INFLATION_TARGET) * 0.5;
     rcb -=  UNEMPLOYMENT_RATE * 0.5;
     
-    if (rcb < 0.005){rcb = 0.005;}
     
     /* This is added temporarily for experimentation. */
+    double rcb_pre, rcb_delta;
+    rcb_pre = INTEREST_RATE;
+    rcb_delta = rcb - rcb_pre;
+    
+    if (fabs(rcb_delta) > 0.01) {
+        if (rcb_delta > 0) {
+            rcb += 0.01;
+        }
+        else{
+            rcb -= 0.01;
+        }
+    }
     if (rcb > 0.05) {rcb = 0.05;}
-        
+    /* experimentation end*/
+    
+    if (rcb < 0.005){rcb = 0.005;}
+    
     INFLATION_RATE = inflation;
     INTEREST_RATE = rcb;
     

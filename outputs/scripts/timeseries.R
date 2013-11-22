@@ -198,6 +198,38 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	return(gdp)
 }
 
+plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector, xlabel, ylabel, title, fname){
+	times <- (1:niter)
+	bankA <- (1:niter)
+	bankB <- (1:niter)
+	indA <- 1;
+	indB <- 1;
+	bmin <- min(memoryvector)
+	bmax <- max(memoryvector)
+	valrange <- (1:niter)
+	valrange[1] <- bmin
+	valrange[-1] <- bmax
+	datalength <- length(memoryvector)
+	for (i in 1:datalength){
+		if (idvector[i] == bank_1){
+			bankA[indA] <- memoryvector[i]
+			indA <- indA + 1	
+		}
+		else{
+			bankB[indB] <- memoryvector[i]
+			indB <- indB + 1
+			}
+	}
+	legA = paste("Bank ID = ", as.character(bank_1),  sep ='')
+	legB = paste("Bank ID = ", as.character(bank_2),  sep ='')
+	png(fname, width = 800, height = 800, pointsize=24)
+	plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
+	lines(bankA~times, type="l", col="red", lwd=3)
+	lines(bankB~times, type="l", col="blue", lwd=3)
+	legend("topright", c(legA,legB), lty = c(1,1), lwd = c(3,3), col = c("red", "blue"))
+	dev.off()
+}
+
 
 ########## Single Run Anals #####
 
@@ -249,30 +281,30 @@ setwd(output_dir)
 nWeeks <- length(Mall$IT_NO)
 nMonths <- length(REAgency$IT_NO)
 nQuarters <- length(Equityfund$IT_NO)
-nFirms = length(FirmMonthly$ID) / nMonths
-nCFirms = length(CFirmMonthly$ID) / nMonths
+nFirms = 12
+nCFirms = 3
 nBanks = length(BankIncome$ID) / nQuarters
 nIter <- nQuarters
 
 
 #MALL:
-plot_time_series_point_file(nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods Price", "Consumption Goods Market", "AvgGoodsPrice.png")
-plot_time_series_point_file(nWeeks, Mall$TRANSACTION_QUANTITY, "Weeks", "Number of Transactions", "Consumption Goods Market", "TransactionVolumeGoods.png")
+plot_time_series_point_file(nWeeks, Mall$AVG_GOODS_PRICE, "Weeks", "Average Unit Goods Price", "Consumption Goods Market", "MallAvgGoodsPrice.png")
+plot_time_series_point_file(nWeeks, Mall$TRANSACTION_QUANTITY, "Weeks", "Number of Transactions", "Consumption Goods Market", "MallTransactionVolumeGoods.png")
 
 #Real Estate Agency
-plot_time_series_point_file(nMonths, REAgency$AVG_HOUSING_PRICE, "Months", "Average Unit Housing Price", "Real Estate Market", "AvgHousingPrice.png")
-plot_time_series_point_file(nMonths, REAgency$TRANSACTION_QUANTITY, "Months", "Number of Housing Transactions", "Real Estate Market", "TransactionVolumeHouses.png")
+plot_time_series_point_file(nMonths, REAgency$AVG_HOUSING_PRICE, "Months", "Average Unit Housing Price", "Real Estate Market", "REAgencyAvgHousingPrice.png")
+plot_time_series_point_file(nMonths, REAgency$TRANSACTION_QUANTITY, "Months", "Number of Housing Transactions", "Real Estate Market", "REAgencyTransactionVolumeHouses.png")
 
 #Central Bank
-plot_time_series_point_file(nQuarters, Centralbank$INTEREST_RATE, "Quarters", "Interest Rate", "Central Bank", "InterestRate.png")
-plot_time_series_point_file(nQuarters, Centralbank$INFLATION, "Quarters", "Inflation", "Central Bank", "Inflation.png")
+plot_time_series_point_file(nQuarters, Centralbank$INTEREST_RATE, "Quarters", "Interest Rate", "Central Bank", "CentralBankInterestRate.png")
+plot_time_series_point_file(nQuarters, Centralbank$INFLATION, "Quarters", "Inflation", "Central Bank", "CentralBankInflation.png")
 
 #Government
-plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_RATE, "Quarters", "Unemployment Rate", "Government", "UnemploymentRate.png")
-plot_time_series_point_file(nQuarters, Government$LABOUR_TAX_RATE, "Quarters", "Tax Rate (labour/Capital)", "Government", "TaxRate.png")
-plot_time_series_point_file(nQuarters, Government$GOV_GENERAL_BENEFIT_RATE, "Quarters", "General Benefits Rate", "Government", "BenefitsRate.png")
-plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_BENEFITS, "Quarters", "Unemployment Benefits", "Government", "BenefitsUnemployment.png")
-plot_time_series_point_file(nQuarters, Government$GENERAL_BENEFITS, "Quarters", "General Benefits", "Government", "BenefitsGeneral.png")
+plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_RATE, "Quarters", "Unemployment Rate", "Government", "GovernmentUnemploymentRate.png")
+plot_time_series_point_file(nQuarters, Government$LABOUR_TAX_RATE, "Quarters", "Tax Rate (labour/Capital)", "Government", "GovernmentTaxRate.png")
+plot_time_series_point_file(nQuarters, Government$GOV_GENERAL_BENEFIT_RATE, "Quarters", "General Benefits Rate", "Government", "GovernmentBenefitsRate.png")
+plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_BENEFITS, "Quarters", "Unemployment Benefits", "Government", "GovernmentBenefitsUnemployment.png")
+plot_time_series_point_file(nQuarters, Government$GENERAL_BENEFITS, "Quarters", "General Benefits", "Government", "GovernmentBenefitsGeneral.png")
 
 #Equity Fund
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Dividends Received", "Equity Fund", "FundDividendsReceived.png")
@@ -280,15 +312,26 @@ plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters"
 plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Liquidity ", "Equity Fund", "FundLiquidity.png")
 
 #Banks
-plot_time_series_mean_file(nBanks, nQuarters, BankBalance$LOANS, "Quarters", "Loans to Firms (Mean)", "Banks", "Loans.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankBalance$MORTGAGES, "Quarters", "Mortgages to Households (Mean)", "Banks", "Mortgages.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms, HH (Mean)", "Banks", "Deposits.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt (Mean)", "Banks", "BanksDebt.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankBalance$EQUITY, "Quarters", "Equity (Mean)", "Banks", "BanksEquity.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_ACCRUED, "Months", "Interests Collected Mortgage + Loans (Mean)", "Banks", "BanksInterestsCollected.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loans + Mortgages Writeoffs (Mean)", "Banks", "BanksWriteoffs.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_PAID, "Months", "Interests Paid (Mean)", "Banks", "BanksInterestsPaid.png")
-plot_time_series_mean_file(nBanks, nQuarters, BankIncome$NET_EARNINGS, "Months", "Net Earnings (Mean)", "Banks", "BanksNetEarnings.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$LOANS, "Quarters", "Loans to Firms", "Banks", "BanksLoans.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$MORTGAGES, "Quarters", "Mortgages to Households", "Banks", "BanksMortgages.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms and Households", "Banks", "BanksDeposits.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt", "Banks", "BanksDebt.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$EQUITY, "Quarters", "Equity", "Banks", "BanksEquity.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$INTERESTS_ACCRUED, "Quarters", "Interests Collected on Mortgages and Loans", "Banks", "BanksInterestsCollected.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loan and Mortgage Writeoffs", "Banks", "BanksWriteoffs.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
+
+
+#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$LOANS, "Quarters", "Loans to Firms (Mean)", "Banks", "Loans.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$MORTGAGES, "Quarters", "Mortgages to Households (Mean)", "Banks", "Mortgages.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms, HH (Mean)", "Banks", "Deposits.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt (Mean)", "Banks", "BanksDebt.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$EQUITY, "Quarters", "Equity (Mean)", "Banks", "BanksEquity.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_ACCRUED, "Months", "Interests Collected Mortgage + Loans (Mean)", "Banks", "BanksInterestsCollected.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loans + Mortgages Writeoffs (Mean)", "Banks", "BanksWriteoffs.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_PAID, "Months", "Interests Paid (Mean)", "Banks", "BanksInterestsPaid.png")
+#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$NET_EARNINGS, "Months", "Net Earnings (Mean)", "Banks", "BanksNetEarnings.png")
 
 
 #Firms

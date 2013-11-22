@@ -54,6 +54,7 @@ int household_credit_update_mortgage_rates()
         return 0;
     }
     
+    EXPECTED_HOUSING_PAYMENT = 0;
     for (i = 0; i < size; i++) {
         mort = MORTGAGES_LIST.array[i];
         principle = mort.principal;
@@ -69,6 +70,8 @@ int household_credit_update_mortgage_rates()
         MORTGAGES_LIST.array[i].quarters_left = quarters_left;
         MORTGAGES_LIST.array[i].quarterly_interest = new_quarterly_interest;
         MORTGAGES_LIST.array[i].quarterly_principal = new_quarterly_principal;
+        
+        EXPECTED_HOUSING_PAYMENT += new_quarterly_interest + new_quarterly_principal;
     }
     
     free_mortgage(&mort);
@@ -149,6 +152,11 @@ int household_credit_collect_benefits()
         GOVERNMENT_BENEFITS += unemployment_benefit;
         FINISH_UNEMPLOYMENT_BENEFIT_MESSAGE_LOOP
     }
+    
+    /* Updating history of benefits */
+    PREVIOUS_BENEFITS[2] = PREVIOUS_BENEFITS[1];
+    PREVIOUS_BENEFITS[1] = PREVIOUS_BENEFITS[0];
+    PREVIOUS_BENEFITS[0] = GOVERNMENT_BENEFITS;
     
     if (DATA_COLLECTION_MODE && COLLECT_HOUSEHOLD_DATA) {
         char * filename;

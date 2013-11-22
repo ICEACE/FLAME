@@ -8,7 +8,7 @@
 FLAME Application: ICEACE 
 Debug mode enabled 
 Iterations: 7200
-Using output frequency of: 7200
+Using output frequency of: 60
 xml: Geometric partitioning
 Reading initial data file: ./outputs/its/iceace_model_v1.0.0.test.xml
 Reading environment data from: ./outputs/its/iceace_model_v1.0.0.test.xml
@@ -16,6 +16,7 @@ Reading agent data from: ./outputs/its/iceace_model_v1.0.0.test.xml
 output: type='snapshot' format='xml' location='./outputs/its/' period='1' phase='0'
 xdiv=0 ydiv=1
 Iteration - 1
+Warning @household_init_employment(): Wage and employment status doesn't match at the initialization! Household ID = 743, Wage = 0.000000, Employer = 12, Wage is set to 5.0 
 Iteration - 2
 Iteration - 3
 Iteration - 4
@@ -7215,4 +7216,4 @@ Iteration - 7197
 Iteration - 7198
 Iteration - 7199
 Iteration - 7200
-Execution time - 0:49:802 [mins:secs:msecs]
+Execution time - 33:04:948 [mins:secs:msecs]

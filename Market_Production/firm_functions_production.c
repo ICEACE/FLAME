@@ -278,6 +278,8 @@ int firm_production_construction_plan()
         free(filename);
     }
 
+    /* Sales are reset to 0 for monthly periods. */
+    SALES = 0;
     
 	return 0; /* Returning zero means the agent is not removed */
 }

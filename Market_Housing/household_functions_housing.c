@@ -20,7 +20,7 @@ int household_housing_market_role()
     }
     
     /* Inactive */
-    if (random_int(0, 99) < (100 - 2 * HOUSING_MARKET_ENTRANCE_PROB * 100)) {
+    if (random_int(0, 99) < (int)(100 - 2 * HOUSING_MARKET_ENTRANCE_PROB * 100)) {
         HMARKET_ROLE = 0;
         return 0;
     }
@@ -147,7 +147,7 @@ int household_housing_sell()
     
     double price_difference, price;
     
-    price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_UP_RATE);
+    price_difference = (((double)random_int(0, 100)) / 100.0) * HOUSING_PRICE_UP_RATE;
     
     price = HOUSING_PRICE * (1 + price_difference);
     
@@ -166,7 +166,7 @@ int household_housing_fire_sell()
     
     double price_difference, price;
     
-    price_difference = (double)((random_int(0, 100)/100) * HOUSING_PRICE_DOWN_RATE);
+    price_difference = (((double)random_int(0, 100)) / 100.0) * HOUSING_PRICE_DOWN_RATE;
     
     price = HOUSING_PRICE * (1 - price_difference);
     
@@ -424,27 +424,26 @@ int household_housing_debt_writeoff()
     mortgage mort;
     init_mortgage(&mort);
     
-    double mortgage_costs = 0;
-    ind = 0;
-    while (ind < size) {
-        mort = MORTGAGES_LIST.array[ind];
-        mortgage_costs += mort.quarterly_interest;
-        mortgage_costs += mort.quarterly_principal;
-        ind++;
-    }
-    
     total_income = LABOUR_INCOME + CAPITAL_INCOME;
-    if (mortgage_costs > HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * total_income)
+    double new_mortgage = 0;
+    if (EXPECTED_HOUSING_PAYMENT > HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * total_income)
     {
         pre_mortgages = MORTGAGES;
-        MORTGAGES = HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income / MORTGAGES_INTEREST_RATE;
-        writeoff = pre_mortgages - MORTGAGES;
+        new_mortgage = (HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income) / (MORTGAGES_INTEREST_RATE / 4.0);
+        writeoff = pre_mortgages - new_mortgage;
         
         if (WARNING_MODE) {
             if (writeoff < 0 || MORTGAGES < 0) {
-                printf("Warning @household_housing_debt_writeoff(): Unexpected negative values detected, Household = %d, Writeoff = %f, Mortgages = %f\n", ID, writeoff, MORTGAGES);
+                printf("Warning @household_housing_debt_writeoff(): Unexpected negative values detected, Household = %d, Total income = %f, Mortgage Costs= %f, Writeoff = %f, Pre Mortgage = %f New Mortgage = %f, interest = %f. %10 percent of the mortgage cost will be written off. \n", ID, total_income, HOUSING_PAYMENT, writeoff, pre_mortgages, MORTGAGES, MORTGAGES_INTEREST_RATE);
             }
         }
+        
+        if (writeoff < 0) {
+            MORTGAGES = pre_mortgages * 0.9;
+            writeoff = pre_mortgages * 0.1;
+        }
+        
+        
 
         
         /* All mortgages are acquired from the same bank. */

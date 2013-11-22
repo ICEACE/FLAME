@@ -1083,9 +1083,14 @@
                     <description>Equity fund shares recieved quarterly.</description>
                 </variable>
                 <variable>
-                    <type>int</type>
+                    <type>double</type>
                     <name>previous_wages[3]</name>
                     <description>Holds wages earned in three previous months.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>previous_benefits[3]</name>
+                    <description>Holds benefits from the govenment in three previous months.</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -1101,6 +1106,11 @@
                     <type>double</type>
                     <name>housing_value</name>
                     <description>Monetary value of housing units owned by an household.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>expected_housing_payment</name>
+                    <description>It keeps payment amount for the incoming quarter.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->
@@ -1118,8 +1128,8 @@
                     </condition>
                 </function>
                 <function>
-                    <name>household_credit_update_mortgage_rates</name>
-                    <description>Households updates annuity, principal and interest payment amounts.</description>
+                    <name>idle</name>
+                    <description>It is the start of a quarter.</description>
                     <currentState>HHCreditStart</currentState>
                     <nextState>HHCreditIsCapitalist</nextState>
                     <condition>
@@ -1166,6 +1176,17 @@
                     <name>household_credit_check_interest_rate</name>
                     <description>Households check the interest rate which is set by CB.</description>
                     <currentState>HHCreditCheckInterestRate</currentState>
+                    <nextState>HHCreditUpdateAnnuity</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>household_credit_update_mortgage_rates</name>
+                    <description>Households updates annuity, principal and interest payment amounts.</description>
+                    <currentState>HHCreditUpdateAnnuity</currentState>
                     <nextState>HHCreditCheckTaxRate</nextState>
                     <inputs>
                         <input>
