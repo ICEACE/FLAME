@@ -317,10 +317,10 @@ plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$MORTGAGES,
 plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms and Households", "Banks", "BanksDeposits.png")
 plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt", "Banks", "BanksDebt.png")
 plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$EQUITY, "Quarters", "Equity", "Banks", "BanksEquity.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$INTERESTS_ACCRUED, "Quarters", "Interests Collected on Mortgages and Loans", "Banks", "BanksInterestsCollected.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loan and Mortgage Writeoffs", "Banks", "BanksWriteoffs.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
+plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$INTERESTS_ACCRUED, "Quarters", "Interests Collected on Mortgages and Loans", "Banks", "BanksInterestsCollected.png")
+plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loan and Mortgage Writeoffs", "Banks", "BanksWriteoffs.png")
+plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
+plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
 
 
 #plot_time_series_mean_file(nBanks, nQuarters, BankBalance$LOANS, "Quarters", "Loans to Firms (Mean)", "Banks", "Loans.png")
