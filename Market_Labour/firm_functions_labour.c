@@ -64,6 +64,7 @@ int firm_labour_fire()
  */
 int firm_labour_job_announcement_stage1()
 {
+    WAGE_OFFER = 1.01 * AVERAGE_WAGE;
     for (int i = 0; i < VACANCIES; i++) {
         add_vacancy_stage1_message(ID, WAGE_OFFER);
     }
@@ -217,15 +218,17 @@ int firm_labour_trace_wages(){
     total++;
     FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
     if (total == 0 || unemployed == total) {
-        AVERAGE_WAGE = 0;
+        
     } else {
         AVERAGE_WAGE = total_wages / (total - unemployed);
     }
     
-    if (WAGE_OFFER < AVERAGE_WAGE) {
-        /* %10 increase */
-        WAGE_OFFER = WAGE_OFFER * 1.1;
-    }
+    
+    //if (WAGE_OFFER < AVERAGE_WAGE) {
+    //    /* %1 increase */
+    //    WAGE_OFFER = WAGE_OFFER * 1.01;
+    //}
+
     
 	return 0; /* Returning zero means the agent is not removed */
 }

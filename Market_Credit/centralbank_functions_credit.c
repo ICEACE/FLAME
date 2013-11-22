@@ -36,7 +36,7 @@ int centralbank_set_interest_rate()
             rcb -= 0.01;
         }
     }
-    if (rcb > 0.05) {rcb = 0.05;}
+    if (rcb > 0.15) {rcb = 0.15;}
     /* experimentation end*/
     
     if (rcb < 0.005){rcb = 0.005;}

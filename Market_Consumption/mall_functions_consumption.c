@@ -20,9 +20,18 @@ int mall_consumption_shopping()
     int firm_id, inventory;;
     double price, inv_price;
     double denominator = 0;
+    double min_price = 5;
+    double max_price = 0;
+    
     START_SELL_MESSAGE_LOOP
     firm_id = sell_message->id;
     price = sell_message->price;
+    if (price < min_price) {
+        min_price = price;
+    }
+    if (price > max_price) {
+        max_price = price;
+    }
     inventory = sell_message->inventory;
     if (price > 0 && inventory > 0) {
         /* Add to the shelve */
@@ -42,6 +51,8 @@ int mall_consumption_shopping()
     }
     
 	FINISH_SELL_MESSAGE_LOOP
+    
+    //printf("IT_NO = %d, Mall max = %f , min = %f\n", IT_NO, max_price, min_price);
     
     
     /* Queue the households */

@@ -109,7 +109,7 @@ int firm_production_plan()
         if (needed < 1) {needed = 1;}
         strcpy(filename, "./outputs/data/Firm_Monthly.txt");
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %f %d %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, SALES, INVENTORY, PRODUCTION_CURRENT, PRODUCTION_PLAN, AVERAGE_GOODS_PRICE);
+        fprintf(file1,"%d %d %f %d %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, SALES, INVENTORY, PRODUCTION_CURRENT, PRODUCTION_PLAN, UNIT_GOODS_PRICE);
         
         fclose(file1);
         free(filename);
