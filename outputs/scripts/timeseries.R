@@ -67,6 +67,25 @@ plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title
 	dev.off()
 }
 
+plot_time_series_multiline_point_file <- function(niter, v1, v2, v3=vector(), xlabel, ylabel, title, fname, legends){
+	times <- (1:niter)
+	valrange <- (1:niter)
+	valrange[1] <- min(c(v1,v2,v3))
+	valrange[-1] <- max(c(v1,v2,v3))
+	png(fname, width = 800, height = 800, pointsize=18)
+	plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
+	lines(v1~times, type="l", col="red", lwd=3)
+	lines(v2~times, type="l", col="blue", lwd=3)
+	if (length(v3) > 1){
+		lines(v3~times, type="l", col="black", lwd=3)	
+		legend("topleft", legends, lty = c(1,1,1), lwd = c(2,2,2), col = c("red", "blue", "black"))
+	}
+	else{
+		legend("topleft", legends, lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
+		}
+	dev.off()
+}
+
 get_experiment_data_set <-function(data_dir, data_file){
 	exps <- list.files(data_dir)
 	n_exps <- length(exps)
@@ -150,7 +169,7 @@ plot_gdp_to_file <- function(niter, nFirms, nCFirms, firmvector, cfirmvector, fn
 	return(gdp)
 }
 
-plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, fname){
+plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector){
 	times <- (1:niter)
 	fsums <- (1:niter)
 	csums <- (1:niter)
@@ -191,49 +210,186 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	for (i in 1:niter){
 		gdp[i] <- fsums[i] + csums[i]
 	}
-	png(fname, width = 800, height = 800, pointsize=24)
+	fname = "GDPMonthly.png"
+	png(fname, width = 800, height = 800, pointsize=18)
 	plot(gdp~times, type="l", xlab = "Months", ylab=" GDP (Total Production Market Value)")
 	#lines(fsums~times, type = "o")
 	dev.off()
-	return(gdp)
+	
+	nquarters = niter / 3
+	quarters <- (1:nquarters)
+	gdpquarters <- (1:nquarters)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:niter){
+		if (i %% 3 == 0){
+			accumulator <- accumulator + gdp[i]
+			gdpquarters[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			}
+		else{
+			accumulator <- accumulator + gdp[i]
+			}
+	}
+	fname = "GDPQuarterly.png"
+	png(fname, width = 800, height = 800, pointsize=18)
+	plot(gdpquarters~quarters, type="l", xlab = "Quarters", ylab=" GDP (Total Production Market Value)")
+	dev.off()
+	
+	nyears = niter / 12
+	years <- (1:nyears)
+	gdpyears <- (1:nyears)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:niter){
+		if (i %% 12 == 0){
+			accumulator <- accumulator + gdp[i]
+			gdpyears[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			}
+		else{
+			accumulator <- accumulator + gdp[i]
+			}
+	}
+	fname = "GDPYearly.png"
+	png(fname, width = 800, height = 800, pointsize=18)
+	plot(gdpyears~years, type="l", xlab = "Years", ylab=" GDP (Total Production Market Value)")
+	dev.off()
+	return(gdpyears)
+}
+
+plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector){
+	times <- (1:niter)
+	fsums <- (1:niter)
+	csums <- (1:niter)
+	gdp <- (1:niter)
+	
+	#Regular Firm productions
+	current_iter <- firmiters[1]
+	datalength <- length(firmvector)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:datalength){
+		if (firmiters[i] != current_iter){
+			fsums[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			current_iter <- firmiters[i]	
+		}
+		accumulator <- accumulator + firmvector[i]
+	}
+	fsums[ind] <- accumulator
+
+    #constructor Firm productions
+	current_iter <- cfirmiters[1]
+	datalength <- length(cfirmvector)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:datalength){
+		if (cfirmiters[i] != current_iter){
+			csums[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			current_iter <- cfirmiters[i]	
+		}
+		accumulator <- accumulator + cfirmvector[i]
+	}
+	csums[ind] <- accumulator
+	
+	for (i in 1:niter){
+		gdp[i] <- fsums[i] + csums[i]
+	}
+	fname = "GDPMonthly.png"
+	png(fname, width = 800, height = 800, pointsize=18)
+	plot(gdp~times, type="l", xlab = "Months", ylab=" GDP (Total Production Market Value)")
+	#lines(fsums~times, type = "o")
+	dev.off()
+	
+	nquarters = niter / 3
+	quarters <- (1:nquarters)
+	gdpquarters <- (1:nquarters)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:niter){
+		if (i %% 3 == 0){
+			accumulator <- accumulator + gdp[i]
+			gdpquarters[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			}
+		else{
+			accumulator <- accumulator + gdp[i]
+			}
+	}
+	fname = "GDPQuarterly.png"
+	png(fname, width = 800, height = 800, pointsize=18)
+	plot(gdpquarters~quarters, type="l", xlab = "Quarters", ylab=" GDP (Total Production Market Value)")
+	dev.off()
+	
+	nyears = niter / 12
+	years <- (1:nyears)
+	gdpyears <- (1:nyears)
+	accumulator <- 0
+	ind <- 1
+	for (i in 1:niter){
+		if (i %% 12 == 0){
+			accumulator <- accumulator + gdp[i]
+			gdpyears[ind] <- accumulator
+			ind <- ind + 1
+			accumulator <- 0
+			}
+		else{
+			accumulator <- accumulator + gdp[i]
+			}
+	}
+	fname = "GDPYearly.png"
+	png(fname, width = 800, height = 800, pointsize=18)
+	plot(gdpyears~years, type="l", xlab = "Years", ylab=" GDP (Total Production Market Value)")
+	dev.off()
+	return(gdpyears)
 }
 
 plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector, xlabel, ylabel, title, fname){
-	times <- (1:niter)
-	bankA <- (1:niter)
-	bankB <- (1:niter)
-	indA <- 1;
-	indB <- 1;
-	bmin <- min(memoryvector)
-	bmax <- max(memoryvector)
-	valrange <- (1:niter)
-	valrange[1] <- bmin
-	valrange[-1] <- bmax
-	datalength <- length(memoryvector)
-	for (i in 1:datalength){
-		if (idvector[i] == bank_1){
-			bankA[indA] <- memoryvector[i]
-			indA <- indA + 1	
-		}
-		else{
-			bankB[indB] <- memoryvector[i]
-			indB <- indB + 1
-			}
-	}
-	legA = paste("Bank ID = ", as.character(bank_1),  sep ='')
-	legB = paste("Bank ID = ", as.character(bank_2),  sep ='')
-	png(fname, width = 800, height = 800, pointsize=24)
-	plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
-	lines(bankA~times, type="l", col="red", lwd=3)
-	lines(bankB~times, type="l", col="blue", lwd=3)
-	legend("topright", c(legA,legB), lty = c(1,1), lwd = c(3,3), col = c("red", "blue"))
-	dev.off()
+        times <- (1:niter)
+        bankA <- (1:niter)
+        bankB <- (1:niter)
+        indA <- 1;
+        indB <- 1;
+        bmin <- min(memoryvector)
+        bmax <- max(memoryvector)
+        valrange <- (1:niter)
+        valrange[1] <- bmin
+        valrange[-1] <- bmax
+        datalength <- length(memoryvector)
+        for (i in 1:datalength){
+                if (idvector[i] == bank_1){
+                        bankA[indA] <- memoryvector[i]
+                        indA <- indA + 1        
+                }
+                else{
+                        bankB[indB] <- memoryvector[i]
+                        indB <- indB + 1
+                        }
+        }
+        legA = paste("Bank ID = ", as.character(bank_1),  sep ='')
+        legB = paste("Bank ID = ", as.character(bank_2),  sep ='')
+        png(fname, width = 800, height = 800, pointsize=16)
+        plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
+        lines(bankA~times, type="l", col="red", lwd=3)
+        lines(bankB~times, type="l", col="blue", lwd=3)
+        legend("topleft", c(legA,legB), lty = c(1,1), lwd = c(3,3), col = c("red", "blue"))
+        dev.off()
 }
-
+	
 
 ########## Single Run Anals #####
 
 data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data"
+output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
+setwd(output_dir)
+
 
 file = paste(data_dir, '/', "Government_snapshot.txt", sep ='')
 Government <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
@@ -276,8 +432,6 @@ FirmDividends <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/', "Constructor_Firm_Quarterly_Dividends.txt", sep ='')
 CFirmDividends <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
-output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
-setwd(output_dir)
 nWeeks <- length(Mall$IT_NO)
 nMonths <- length(REAgency$IT_NO)
 nQuarters <- length(Equityfund$IT_NO)
@@ -311,6 +465,7 @@ plot_time_series_point_file(nQuarters, Government$AVERAGE_WAGE, "Quarters", "Ave
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Dividends Received", "Equity Fund", "FundDividendsReceived.png")
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Dividends Retained", "Equity Fund", "FundDividendsRetained.png")
 plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Liquidity ", "Equity Fund", "FundLiquidity.png")
+plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Shares Recieved", "Equity Fund", "FundShares.png", c("Firms", "CFirms", "Banks"))
 
 #Banks
 plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$LOANS, "Quarters", "Loans to Firms", "Banks", "BanksLoans.png")
@@ -322,6 +477,7 @@ plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$INTERESTS_AC
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loan and Mortgage Writeoffs", "Banks", "BanksWriteoffs.png")
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
+plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_DIVIDENDS, "Quarters", "Dividends Sent to Fund", "Banks", "BanksTotalDividends.png")
 
 
 #plot_time_series_mean_file(nBanks, nQuarters, BankBalance$LOANS, "Quarters", "Loans to Firms (Mean)", "Banks", "Loans.png")
@@ -391,13 +547,79 @@ plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTI
 plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$SALES, "Months", "Sales (mean)", "Firms", "FirmsSales.png")
 plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "Months", "Sales (mean)", "Constructor Firms", "CFirmsSales.png")
 
+#### Validation - Begin ##########
 
 ##### Compute GDP #######
 cfirmvector <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE
 firmvector <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$AVERAGE_GOODS_PRICE
 #plot_gdp_to_file(nMonths, nFirms, nCFirms, firmvector, cfirmvector, "GDP.png")
-plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, "GDP.png")
+plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector)
 
+##### Compute Bankruptcy #######
+file = paste(data_dir, '/', "BankruptcyInspection.txt", sep ='')
+Bankruptcy <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+L <- Bankruptcy$Writeoff_Type == "Insolvency"
+Insolvencies <-Bankruptcy[L,]
+L <- Bankruptcy$Writeoff_Type == "Illiquidity"
+Illiquidities <-Bankruptcy[L,]
+L <- Bankruptcy$Writeoff_Type == "Mortgages"
+Mortgages <-Bankruptcy[L,]
+
+get_single_occurances <- function(dataf){
+	npoints <- length(dataf[["IT"]])
+	L <- (1:npoints)
+	L <- L >= 1
+	id_pre <- 0
+	it_pre <- 0
+	for (i in 1:npoints){
+		id <- dataf[["IT"]][i]
+		it <- dataf[["ID"]][i]
+		if (id == id_pre & it == it_pre){
+			L[i] <- FALSE
+			}
+		id_pre <- id
+		it_pre <- it
+	}
+	return(dataf[L,])
+}
+
+get_occurances_distro <- function(niter, itvector){
+	nquarters <- niter %/% 60
+	quarters <- rep(0, nquarters)
+	datalen <- length(itvector)
+	acc <- 0
+	ind <- 1
+	for (i in 1:datalen){
+		ind <- itvector[i] %/% 60 + 1
+		quarters[ind] = quarters[ind] + 1
+	}
+	return(quarters)
+}
+
+niter <- 3600
+nQuarters <- niter %/% 60
+freqinsolv <- rep(0, nQuarters)
+freqilliquid <- rep(0, nQuarters)
+freqmort <- rep(0, nQuarters)
+
+if (length(Insolvencies[["IT"]]) > 0) {
+	Insolvencies <- get_single_occurances(Insolvencies)
+	freqinsolv <- get_occurances_distro(niter, Insolvencies[["IT"]])
+}
+
+if (length(Mortgages[["IT"]]) > 0) {
+	Mortgages <- get_single_occurances(Mortgages)
+	freqmort <- get_occurances_distro(niter, Mortgages[["IT"]])
+}
+
+if (length(Illiquidities[["IT"]]) > 0) {
+	Illiquidities <- get_single_occurances(Illiquidities)
+	freqilliquid <- get_occurances_distro(niter, Illiquidities[["IT"]])
+}
+
+plot_time_series_multiline_point_file(nQuarters, freqmort, freqinsolv, freqilliquid, "Quarters", "Frequency", "Defaults", "Defaults.png", c("Mortgages", "Insolvencies", "Illiquidities"))
+
+####### Validation - End #########
 
 HouseholdQuarterly <- read.csv('../data/Household_Quarterly.txt', sep = " ", header = T, stringsAsFactors = F)
 HouseholdMonthlyFirst <- read.csv('../data/Household_Monthly_FirstDay.txt', sep = " ", header = T, stringsAsFactors = F)

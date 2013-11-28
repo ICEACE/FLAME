@@ -79,6 +79,7 @@ int bank_credit_compute_dividends()
     }
     else
     {
+        TOTAL_DIVIDENDS = 0;
         if (PRINT_DEBUG_MODE){
             printf("Total Asset of Bank = %d is Negative or Zero!!!\n", ID);
         }
@@ -130,6 +131,10 @@ int bank_credit_do_balance_sheet()
     TOTAL_ASSETS = LIQUIDITY + LOANS + MORTGAGES;
     EQUITY = TOTAL_ASSETS - DEPOSITS - CENTRALBANK_DEBT;
     
+    /* Added to give households as equal chance as firms at getting bank credits. 
+     */
+    LOANS_START = LOANS;
+    
     if (DATA_COLLECTION_MODE) {
         char * filename;
         FILE * file1;
@@ -156,23 +161,13 @@ int bank_credit_process_loan_requests_1()
     double risk_weighted_assets, amount;
     int firm;
     
-    /* Liquidity may need to be removed from equation!! */
-    risk_weighted_assets = LOANS + MORTGAGES + LIQUIDITY;
+    risk_weighted_assets = LOANS + MORTGAGES;
     
     START_LOAN_REQUEST_1_MESSAGE_LOOP
     amount = loan_request_1_message->amount;
     firm = loan_request_1_message->firm_id;
     
-    /* Code redundancy below is to prevent division by zero error. */
-    if (risk_weighted_assets == 0) {
-        LOANS += amount;
-        LIQUIDITY -= amount;
-        add_loan_acknowledge_1_message(ID, firm, amount);
-        if (PRINT_DEBUG_MODE){
-            printf("Bank ID = %d Loan Stage 1: Total Assets = 0, %f --> Firm ID = %d!\n", ID, amount, firm);
-        }
-    }
-    else if ((EQUITY / risk_weighted_assets) >= CAPITAL_ADEQUECY_RATIO) {
+    if (EQUITY >= CAPITAL_ADEQUECY_RATIO * risk_weighted_assets) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_1_message(ID, firm, amount);
@@ -201,23 +196,13 @@ int bank_credit_process_loan_requests_2()
     double risk_weighted_assets, amount;
     int firm;
     
-    /* Liquidity may need to be removed from equation!! */
-    risk_weighted_assets = LOANS + MORTGAGES + LIQUIDITY;
+    risk_weighted_assets = LOANS + MORTGAGES;
     
     START_LOAN_REQUEST_2_MESSAGE_LOOP
     amount = loan_request_2_message->amount;
     firm = loan_request_2_message->firm_id;
     
-    /* Code redundancy is to prevent division by zero error. */
-    if (risk_weighted_assets == 0) {
-        LOANS += amount;
-        LIQUIDITY -= amount;
-        add_loan_acknowledge_2_message(ID, firm, amount);
-        if (PRINT_DEBUG_MODE){
-            printf("Bank ID = %d Loan Stage 2: %f --> Firm ID = %d!\n", ID, amount, firm);
-        }
-    }
-    else if ((EQUITY / risk_weighted_assets) >= CAPITAL_ADEQUECY_RATIO) {
+    if (EQUITY >= CAPITAL_ADEQUECY_RATIO * risk_weighted_assets) {
         LOANS += amount;
         LIQUIDITY -= amount;
         add_loan_acknowledge_2_message(ID, firm, amount);
@@ -247,7 +232,6 @@ int bank_credit_recieve_loan_writeoffs()
     START_LOAN_WRITEOFF_MESSAGE_LOOP
     amount = loan_writeoff_message->amount;
     LOANS -= amount;
-    EQUITY -= amount;
     TOTAL_WRITEOFFS += amount;
     
     if (DATA_COLLECTION_MODE) {

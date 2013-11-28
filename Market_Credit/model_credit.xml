@@ -635,7 +635,12 @@
                 <variable>
                     <type>double</type>
                     <name>loans</name>
-                    <description>loans to firms.</description>
+                    <description>Loans to firms.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>loans_start</name>
+                    <description>Loans to firms at the start of the quarter.</description>
                 </variable>
                 <variable>
                     <type>double</type>

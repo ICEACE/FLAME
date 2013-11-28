@@ -170,7 +170,7 @@ int firm_credit_borrow_loans_1()
         printf("Firm ID = %d @ Loan Stage 1 received %f of loans. \n", ID, amount);
     }
     
-    if (amount == LIQUIDITY_NEED){
+    if (amount >= LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
         LIQUIDITY += amount;
         DEBT += amount;
@@ -301,7 +301,7 @@ int firm_credit_illiquidity_bankrupt()
         DEBT += new_amount;
         delta_amount = current_amount - new_amount;
         
-        if (delta_amount > 0) {
+        if (delta_amount > 0.1) {
             add_loan_writeoff_message(bank, delta_amount);
             if (WARNING_MODE) {
                 if (delta_amount < 0) {
@@ -451,7 +451,7 @@ int firm_credit_insolvency_bankruptcy()
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         amount = LOAN_LIST[i].amount;
-        if (amount > 0) {
+        if (amount > 0.1) {
             add_loan_writeoff_message(bank, amount);
             LOAN_LIST[i].amount = 0;
             

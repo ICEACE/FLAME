@@ -154,7 +154,7 @@ int reagency_housing_process()
 
         /* Risky asssets before the market has opened. */
         risk = banks_list.array[i].risky_assets;
-        /* Mortagages given so far at current round. */
+        /* Risk of bank is evalauted incrementally. */
         risk += banks_list.array[i].amount_mortgaged;
         
         if (equity < CAPITAL_ADEQUECY_RATIO * risk) {
@@ -173,7 +173,7 @@ int reagency_housing_process()
             mortgage_request = price;
         }
         
-        /* Risk is updated after the new requested mortgage. */
+        /* Risk of the bank is updated temporally/locally and evaluated including the new requested mortgage. */
         risk += mortgage_request;
         
         /* The bank cannot mortgage this buyer. But the bank may be able to credit
@@ -209,7 +209,7 @@ int reagency_housing_process()
         }
         remove_hbuyer(&buyers_list, 0);
         nsold++;
-        /* The risk of the bank is increased incrementally. */
+        /* The mortgage amount of the bank is increased incrementally. */
         banks_list.array[i].amount_mortgaged += mortgage_request;
     } while (1);
     

@@ -12,8 +12,9 @@
 int bank_housing_compute_capital_status()
 {
     double risk;
-    risk = MORTGAGES + LOANS + LIQUIDITY;
-    add_bank_reagency_credibility_message(ID,EQUITY,risk);
+    /* liquidity is removed from the risk */
+    risk = MORTGAGES + LOANS_START;
+    add_bank_reagency_credibility_message(ID,EQUITY, risk);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
