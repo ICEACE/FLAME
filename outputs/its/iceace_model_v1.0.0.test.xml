@@ -5,7 +5,7 @@
     <print_debug_mode>0</print_debug_mode>
     <warning_mode>0</warning_mode>
     <data_collection_mode>1</data_collection_mode>
-    <collect_household_data>0</collect_household_data>
+    <collect_household_data>1</collect_household_data>
     <collect_firm_data>1</collect_firm_data>
     <ratio_liquidity>1.0</ratio_liquidity>
     <consumption_adjustment_speed>0.1</consumption_adjustment_speed>
