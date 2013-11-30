@@ -25,7 +25,7 @@ int firm_production_produce_goods()
      Capital productivity is set to inf. This results in a production solely based on availability
      of labour.
      */
-    PRODUCTION_CURRENT = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
+    PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
     
     /* Update of the inventory available for sell is updated at the first day of the month.*/
     //INVENTORY += PRODUCTION_CURRENT;
@@ -105,7 +105,7 @@ int firm_production_plan()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        int needed = EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+        int needed = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
         if (needed < 1) {needed = 1;}
         strcpy(filename, "./outputs/data/Firm_Monthly.txt");
         file1 = fopen(filename,"a");

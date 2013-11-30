@@ -38,6 +38,24 @@ int household_init_employment()
             PREVIOUS_BENEFITS[i] = 1.5;
         }
     }
+    
+    /* Liquidity is 3 x initial awerage wage */
+    if (LIQUIDITY < 15) {
+        LIQUIDITY = 15;
+    }
+    
+    /*** Balancesheet Verification */
+    char * filename;
+    FILE * file1;
+    filename = malloc(100*sizeof(char));
+    filename[0]=0;
+    strcpy(filename, "./outputs/data/VV/Household_ID_Liquidity_Mortgages.txt");
+    file1 = fopen(filename,"a");
+    fprintf(file1,"%d %f %f\n", ID, LIQUIDITY, MORTGAGES);
+    fclose(file1);
+    free(filename);
+     
+
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -52,6 +70,7 @@ int household_init_balancesheet()
      */
     add_household_bank_init_mortgages_message(BANK_ID, MORTGAGES);
     add_household_bank_init_deposit_message(BANK_ID, LIQUIDITY);
+    
     
 	return 0; /* Returning zero means the agent is not removed */
 }

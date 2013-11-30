@@ -51,6 +51,9 @@ int bank_init_deposits()
     
     DEPOSITS = deposits_households + deposits_firms;
     
+    /* Initialization Check:
+    printf("Bank ID = %d, Deposits HH= %f, Firms = %f \n", ID, deposits_households, deposits_firms);
+    */
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -67,7 +70,27 @@ int bank_init_balancesheet()
     EQUITY = TOTAL_ASSETS * 0.1;
     CENTRALBANK_DEBT = TOTAL_ASSETS - DEPOSITS - EQUITY;
     
+    if (CENTRALBANK_DEBT < 0) {
+        LIQUIDITY += CENTRALBANK_DEBT;
+        CENTRALBANK_DEBT = 0;
+    }
+    
+    /* Simulation starts with credit markets and net earnings are computed after central bank debt but before interest collections.
+     Following initialization is done to prevent Banks with a negative earnings.
+     */
+    INTERESTS_ACCRUED = LOANS * ((INTEREST_RATE + 0.01) / 4);
+    INTERESTS_ACCRUED += MORTGAGES * ((INTEREST_RATE + 0.02) / 4);
+    LIQUIDITY += INTERESTS_ACCRUED;
+    INTERESTS_PAID = CENTRALBANK_DEBT * INTEREST_RATE / 4;
+    
+   
+    
     add_bank_centralbank_init_debt_message(CENTRALBANK_DEBT);
+    
+    /* Initialization Check
+    printf("Bank ID = %d, Loans = %f, Mortgages = %f, Deposits = %f, Liquidity =%f, Equity =%f, Debt = %f \n", ID, LOANS, MORTGAGES, DEPOSITS, LIQUIDITY, EQUITY, CENTRALBANK_DEBT);
+    printf("Bank ID = %d, Equity Ratio = %f \n", ID, EQUITY/(LOANS + MORTGAGES));
+    */
     
 	return 0; /* Returning zero means the agent is not removed */
 }

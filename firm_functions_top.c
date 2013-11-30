@@ -38,31 +38,34 @@ int firm_init_employment()
     
                                                                                
     if (ISCONSTRUCTOR == 0) {
-        PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY;
+        PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
         INVENTORY = 0;
         SALES = PRODUCTION_CURRENT;
         REVENUES = SALES * UNIT_GOODS_PRICE;
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - OPERATING_COSTS;
         LIQUIDITY = NET_EARNINGS;
-        PHYSICAL_CAPITAL = (int) ceil((TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
+        /* Liquidity is increased to boost bank deposits */
+        //LIQUIDITY += OPERATING_COSTS;
+        PHYSICAL_CAPITAL = ceil((TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
         CAPITAL_GOODS = PHYSICAL_CAPITAL;
         PHYSICAL_CAPITAL_CONSTRUCTION = 0;
         CAPITAL_PRODUCTIVITY_CONSTRUCTION = 0;
     } else {
-        PRODUCTION_CURRENT = NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION / 12;
+        PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION / 12);
         INVENTORY = PRODUCTION_CURRENT;
-        SALES = 0;
+        SALES = PRODUCTION_CURRENT;
         REVENUES = SALES * UNIT_HOUSE_PRICE;
         PHYSICAL_CAPITAL = 0;
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - OPERATING_COSTS;
         LIQUIDITY = NET_EARNINGS;
-        PHYSICAL_CAPITAL_CONSTRUCTION = (int) ceil((TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
+        /* Liquidity is increased to boost bank deposits */
+        //LIQUIDITY += OPERATING_COSTS;
+        PHYSICAL_CAPITAL_CONSTRUCTION = ceil((TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
         CAPITAL_GOODS = PHYSICAL_CAPITAL_CONSTRUCTION;
         CAPITAL_PRODUCTIVITY_CONSTRUCTION = LABOUR_PRODUCTIVITY_CONSTRUCTION * NO_EMPLOYEES / (0.7 * PHYSICAL_CAPITAL_CONSTRUCTION);
     }
-    
     
     if (PRINT_DEBUG_MODE) {
         printf("Firm %d --> Size = %d \n", ID, NO_EMPLOYEES);
@@ -84,12 +87,24 @@ int firm_init_balancesheet()
     
     add_firm_bank_init_deposit_message(BANK_ID, LIQUIDITY);
     
+    /*** Balancesheet Verification. */
+    char * filename;
+    FILE * file1;
+    filename = malloc(40*sizeof(char));
+    filename[0]=0;
+    strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
+    file1 = fopen(filename,"a+");
+    fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
+    fclose(file1);
+    free(filename);
+    
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
 /*
  * \fn: int firm_iterate()
- * \brief: 
+ * \brief:
  */
 int firm_iterate()
 {

@@ -1,36 +1,36 @@
 boxplot_time_series_distro_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
-	png(fname, width = 800, height = 800, pointsize=24)
+	png(fname, width = 1500, height = 800, pointsize=24)
 	times <- (1:niter)
 	values <- matrix(datavector, nrow = niter, ncol = nagents, byrow = T)
-	boxplot(values~times, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	boxplot(values~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
 boxplot_experiments_to_file <- function(niter, exps, xlabel, ylabel, title, fname){
-	png(fname, width = 800, height = 800, pointsize=24)
+	png(fname, width = 1500, height = 800, pointsize=24)
 	iters <- (1:niter)
-	boxplot(exps~iters, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	boxplot(exps~iters, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
 
 plot_mean_experiments_to_file <- function(niter, exps, xlabel, ylabel, title, fname){
-	png(fname, width = 800, height = 800, pointsize=24)
+	png(fname, width = 1500, height = 800, pointsize=24)
 	iters <- (1:niter)
-	plot(exps~iters, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	plot(exps~iters, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
 
 plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
-	png(fname, width = 800, height = 800, pointsize=24)
+	png(fname, width = 1500, height = 800, pointsize=24)
 	times <- (1:niter)
 	means <- (1:niter)
 	values <- matrix(datavector, nrow = niter, ncol = nagents, byrow = T)
 	for (i in 1:niter){
 		means[i] <- mean(values[i,])
 	}
-	plot(means~times, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	plot(means~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
@@ -54,25 +54,25 @@ plot_time_series_mean_file_v2 <- function(niter, itervector, memoryvector, xlabe
 		accumulator <- accumulator + memoryvector[i]
 	}
 	means[ind] <- accumulator / nvals
-	png(fname, width = 800, height = 800, pointsize=24)
-	plot(means~times, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	png(fname, width = 1500, height = 800, pointsize=24)
+	plot(means~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
 
 plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title, fname){
-	png(fname, width = 800, height = 800, pointsize=24)
+	png(fname, width = 1500, height = 800, pointsize=24)
 	times <- (1:niter)
-	plot(datavector~times, type="l", xlab = xlabel, ylab=ylabel, main = title)
+	plot(datavector~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
 	dev.off()
 }
 
 plot_time_series_multiline_point_file <- function(niter, v1, v2, v3=vector(), xlabel, ylabel, title, fname, legends){
 	times <- (1:niter)
-	valrange <- (1:niter)
+	valrange <- v1
 	valrange[1] <- min(c(v1,v2,v3))
 	valrange[-1] <- max(c(v1,v2,v3))
-	png(fname, width = 800, height = 800, pointsize=18)
+	png(fname, width = 1500, height = 800, pointsize=18)
 	plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
 	lines(v1~times, type="l", col="red", lwd=3)
 	lines(v2~times, type="l", col="blue", lwd=3)
@@ -150,26 +150,9 @@ get_means_set <- function(nexps, dataSet, memVar, nagents, niter){
 	return(as.matrix(meansSet))
 }
 
-plot_gdp_to_file <- function(niter, nFirms, nCFirms, firmvector, cfirmvector, fname){
-	times <- (1:niter)
-	fsums <- (1:niter)
-	csums <- (1:niter)
-	gdp <- (1:niter)
-	fvalues <- matrix(firmvector, nrow = niter, ncol = nFirms, byrow = T)
-	cvalues <- matrix(cfirmvector, nrow = niter, ncol = nCFirms, byrow = T)
-	for (i in 1:niter){
-		fsums[i] <- sum(fvalues[i,])
-		csums[i] <- sum(cvalues[i,])
-		gdp[i] <- fsums[i] + csums[i]
-	}
-	png(fname, width = 800, height = 800, pointsize=24)
-	plot(gdp~times, type="l", xlab = "Months", ylab=" GDP (Total Production Market Value)")
-	lines(fsums~times, type = "o")
-	dev.off()
-	return(gdp)
-}
 
-plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector){
+
+plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, gtype = "Nominal"){
 	times <- (1:niter)
 	fsums <- (1:niter)
 	csums <- (1:niter)
@@ -210,9 +193,11 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	for (i in 1:niter){
 		gdp[i] <- fsums[i] + csums[i]
 	}
-	fname = "GDPMonthly.png"
-	png(fname, width = 800, height = 800, pointsize=18)
-	plot(gdp~times, type="l", xlab = "Months", ylab=" GDP (Total Production Market Value)")
+	fname = paste("GDP_", gtype, "_Monthly.png", sep = "")
+	ylabtext = paste("GDP (Total Production Market Value - ", gtype, sep = "")
+	title = expression(beta ~ "=" ~ 0.3)
+	png(fname, width = 1500, height = 800, pointsize=18)
+	plot(gdp~times, type="l", col = "blue", lwd = 3, xlab = "Months", ylab=ylabtext, main = title)
 	#lines(fsums~times, type = "o")
 	dev.off()
 	
@@ -232,9 +217,9 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 			accumulator <- accumulator + gdp[i]
 			}
 	}
-	fname = "GDPQuarterly.png"
-	png(fname, width = 800, height = 800, pointsize=18)
-	plot(gdpquarters~quarters, type="l", xlab = "Quarters", ylab=" GDP (Total Production Market Value)")
+	fname = paste("GDP_", gtype, "_Quarterly.png", sep = "")
+	png(fname, width = 1500, height = 800, pointsize=18)
+	plot(gdpquarters~quarters, type="l", col = "blue", lwd = 3, xlab = "Quarters", ylab=ylabtext, main = title)
 	dev.off()
 	
 	nyears = niter / 12
@@ -253,104 +238,150 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 			accumulator <- accumulator + gdp[i]
 			}
 	}
-	fname = "GDPYearly.png"
-	png(fname, width = 800, height = 800, pointsize=18)
-	plot(gdpyears~years, type="l", xlab = "Years", ylab=" GDP (Total Production Market Value)")
+	
+	fname = paste("GDP_", gtype, "_Yearly.png", sep = "")
+	png(fname, width = 1500, height = 800, pointsize=18)
+	plot(gdpyears~years, type="l", col = "blue", lwd = 3, xlab = "Years", ylab=ylabtext, main = title)
 	dev.off()
 	return(gdpyears)
 }
 
-plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector){
+plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, Rfirmvector, Rcfirmvector){
 	times <- (1:niter)
 	fsums <- (1:niter)
 	csums <- (1:niter)
 	gdp <- (1:niter)
 	
+	Rfsums <- (1:niter)
+	Rcsums <- (1:niter)
+	Rgdp <- (1:niter)
+	
+	
 	#Regular Firm productions
 	current_iter <- firmiters[1]
 	datalength <- length(firmvector)
 	accumulator <- 0
+	Raccumulator <- 0
 	ind <- 1
 	for (i in 1:datalength){
 		if (firmiters[i] != current_iter){
 			fsums[ind] <- accumulator
+			Rfsums[ind] <- Raccumulator
 			ind <- ind + 1
 			accumulator <- 0
+			Raccumulator <- 0
 			current_iter <- firmiters[i]	
 		}
 		accumulator <- accumulator + firmvector[i]
+		Raccumulator <- Raccumulator + Rfirmvector[i]
 	}
 	fsums[ind] <- accumulator
+	Rfsums[ind] <- Raccumulator
 
     #constructor Firm productions
 	current_iter <- cfirmiters[1]
 	datalength <- length(cfirmvector)
 	accumulator <- 0
+	Raccumulator <- 0
 	ind <- 1
 	for (i in 1:datalength){
 		if (cfirmiters[i] != current_iter){
 			csums[ind] <- accumulator
+			Rcsums[ind] <- Raccumulator
 			ind <- ind + 1
 			accumulator <- 0
+			Raccumulator <- 0
 			current_iter <- cfirmiters[i]	
 		}
 		accumulator <- accumulator + cfirmvector[i]
+		Raccumulator <- Raccumulator + Rcfirmvector[i]
 	}
 	csums[ind] <- accumulator
+	Rcsums[ind] <- Raccumulator
 	
 	for (i in 1:niter){
 		gdp[i] <- fsums[i] + csums[i]
+		Rgdp[i] <- Rfsums[i] + Rcsums[i]
 	}
-	fname = "GDPMonthly.png"
-	png(fname, width = 800, height = 800, pointsize=18)
-	plot(gdp~times, type="l", xlab = "Months", ylab=" GDP (Total Production Market Value)")
-	#lines(fsums~times, type = "o")
+	fname = "GDP_Monthly.png"
+	ylabtext = "GDP - Growth of Housing Units and Consumption Goods Production"
+	title = expression(beta ~ "=" ~ 0.3)
+
+	png(fname, width = 1500, height = 800, pointsize=18)
+	valrange <- gdp
+	valrange[1] <- min(Rgdp)
+	plot(valrange~times, type="n", xlab = "Months", ylab=ylabtext, main = title)
+	lines(gdp~times, type="l", col = "red", lwd = 3)
+	lines(Rgdp~times, type = "l", col = "blue", lwd = 3)
+	legend("topleft", c("Nominal","Real"), lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
 	dev.off()
 	
 	nquarters = niter / 3
 	quarters <- (1:nquarters)
 	gdpquarters <- (1:nquarters)
+	Rgdpquarters <- (1:nquarters)
 	accumulator <- 0
+	Raccumulator <- 0
 	ind <- 1
 	for (i in 1:niter){
 		if (i %% 3 == 0){
 			accumulator <- accumulator + gdp[i]
+			Raccumulator <- Raccumulator + Rgdp[i]
 			gdpquarters[ind] <- accumulator
+			Rgdpquarters[ind] <- Raccumulator
 			ind <- ind + 1
 			accumulator <- 0
+			Raccumulator <- 0
 			}
 		else{
 			accumulator <- accumulator + gdp[i]
+			Raccumulator <- Raccumulator + Rgdp[i]
 			}
 	}
-	fname = "GDPQuarterly.png"
-	png(fname, width = 800, height = 800, pointsize=18)
-	plot(gdpquarters~quarters, type="l", xlab = "Quarters", ylab=" GDP (Total Production Market Value)")
+	fname = "GDP_Quarterly.png"
+	png(fname, width = 1500, height = 800, pointsize=18)
+	valrange <- gdpquarters
+	valrange[1] <- min(Rgdpquarters)
+	plot(valrange~quarters, type="n", xlab = "Quarters", ylab=ylabtext, main = title)
+	lines(gdpquarters~quarters, type="l", col = "red", lwd = 3)
+	lines(Rgdpquarters~quarters, type = "l", col = "blue", lwd = 3)
+	legend("topleft", c("Nominal","Real"), lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
 	dev.off()
 	
 	nyears = niter / 12
 	years <- (1:nyears)
 	gdpyears <- (1:nyears)
 	accumulator <- 0
+	Rgdpyears <- (1:nyears)
+	Raccumulator <- 0
 	ind <- 1
 	for (i in 1:niter){
 		if (i %% 12 == 0){
 			accumulator <- accumulator + gdp[i]
 			gdpyears[ind] <- accumulator
+			Raccumulator <- Raccumulator + Rgdp[i]
+			Rgdpyears[ind] <- Raccumulator
 			ind <- ind + 1
 			accumulator <- 0
+			Raccumulator <- 0
 			}
 		else{
 			accumulator <- accumulator + gdp[i]
+			Raccumulator <- Raccumulator + Rgdp[i]
 			}
 	}
-	fname = "GDPYearly.png"
-	png(fname, width = 800, height = 800, pointsize=18)
-	plot(gdpyears~years, type="l", xlab = "Years", ylab=" GDP (Total Production Market Value)")
+	
+	fname = "GDP_Yearly.png"
+	png(fname, width = 1500, height = 800, pointsize=18)
+	valrange <- gdpyears
+	valrange[1] <- min(Rgdpyears)
+	plot(valrange~years, type="n", xlab = "Years", ylab=ylabtext, main = title)
+	lines(gdpyears~years, type="l", col = "red", lwd = 3)
+	lines(Rgdpyears~years, type = "l", col = "blue", lwd = 3)
+	legend("topleft", c("Nominal","Real"), lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
 	dev.off()
 	return(gdpyears)
 }
-
 plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector, xlabel, ylabel, title, fname){
         times <- (1:niter)
         bankA <- (1:niter)
@@ -375,7 +406,7 @@ plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector
         }
         legA = paste("Bank ID = ", as.character(bank_1),  sep ='')
         legB = paste("Bank ID = ", as.character(bank_2),  sep ='')
-        png(fname, width = 800, height = 800, pointsize=16)
+        png(fname, width = 1500, height = 800, pointsize=16)
         plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
         lines(bankA~times, type="l", col="red", lwd=3)
         lines(bankB~times, type="l", col="blue", lwd=3)
@@ -552,8 +583,14 @@ plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "
 ##### Compute GDP #######
 cfirmvector <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE
 firmvector <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$AVERAGE_GOODS_PRICE
-#plot_gdp_to_file(nMonths, nFirms, nCFirms, firmvector, cfirmvector, "GDP.png")
-plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector)
+plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector)
+
+cfirmvector_real <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE[1]
+firmvector_real <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$AVERAGE_GOODS_PRICE[1]
+plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector_real, CFirmMonthly$IT_NO, cfirmvector_real, gtype = "Real")
+
+plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, firmvector_real, cfirmvector_real)
+
 
 ##### Compute Bankruptcy #######
 file = paste(data_dir, '/', "BankruptcyInspection.txt", sep ='')
@@ -815,4 +852,17 @@ plot_mean_experiments(nMonths, firmsize_mean)
 HouseholdQuarterlySet <- get_experiment_data_set(data_dir, "Household_Quarterly.txt")
 
 
+###### Initialization Check ######
+Firm_file = paste(data_dir, '/VV/', "Firm_ID_Liquidity_Loan.txt", sep ='')
+HH_file = paste(data_dir, '/VV/', "Household_ID_Liquidity_Mortgages.txt", sep ='')
+HH_init <- read.csv(HH_file, sep = " ", header = F, stringsAsFactors = F)
+Firm_init <- read.csv(Firm_file, sep = " ", header = F, stringsAsFactors = F)
+
+household_deposits <- sum(HH_init[[2]])
+firm_deposits <- sum(Firm_init[[2]])
+bank_deposits <- firm_deposits + household_deposits
+
+household_mortgages <- sum(HH_init[[3]])
+firm_loans <- sum(Firm_init[[3]])
+bank_risky <- household_mortgages + firm_loans
 

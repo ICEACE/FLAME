@@ -3,9 +3,9 @@
 <environment>
     <resume_mode>0</resume_mode>
     <print_debug_mode>0</print_debug_mode>
-    <warning_mode>0</warning_mode>
+    <warning_mode>1</warning_mode>
     <data_collection_mode>1</data_collection_mode>
-    <collect_household_data>1</collect_household_data>
+    <collect_household_data>0</collect_household_data>
     <collect_firm_data>1</collect_firm_data>
     <ratio_liquidity>1.0</ratio_liquidity>
     <consumption_adjustment_speed>0.1</consumption_adjustment_speed>
@@ -20,7 +20,7 @@
     <firms_minimum_equity_ratio>0.05</firms_minimum_equity_ratio>
     <firm_startup_leverage>4.0</firm_startup_leverage>
     <household_startup_leverage>1.0</household_startup_leverage>
-    <car_buffer_threshold>0.075</car_buffer_threshold>
+    <car_buffer_threshold>0.0075</car_buffer_threshold>
     <housing_market_entrance_prob>0.18</housing_market_entrance_prob>
     <fire_sale_threshold>0.6</fire_sale_threshold>
     <household_budget_constraint>0.3</household_budget_constraint>
@@ -939,7 +939,7 @@
   <day_of_month_to_act>1</day_of_month_to_act>
   <day_of_month_wages_paid>0</day_of_month_wages_paid>
   <unemployment_rate>0.1</unemployment_rate>
-  <inflation_rate>0.02</inflation_rate>
+  <inflation_rate>0.00</inflation_rate>
   <consumption_goods_prices>{0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056,0.0056}</consumption_goods_prices>
   <it_no>0</it_no>
 </xagent>
