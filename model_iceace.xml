@@ -418,9 +418,65 @@
             <functions>
                 <function>
                     <name>equityfund_init</name>
-                    <description>Notifies its id.</description>
+                    <description>Agent initilialization.</description>
                     <currentState>start</currentState>
-                    <nextState>EquityFundStart</nextState>
+                    <nextState>EquityFundLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>fund_centralbank_init_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>EquityFundLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>equityfund_iterate</name>
+                    <description>Notifies its id.</description>
+                    <currentState>EquityFundLoop</currentState>
+                    <nextState>EquityFundCredit</nextState>
+                </function>
+                <function>
+                    <name>equityfund_update_deposit</name>
+                    <description>Deposits/updates its liquidity at centralbank.</description>
+                    <currentState>EquityFundUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>fund_centralbank_update_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>EquityFundUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
                 </function>
             </functions>
         </xagent>
@@ -541,6 +597,9 @@
                         <output>
                             <messageName>bank_centralbank_init_debt</messageName>
                         </output>
+                        <output>
+                            <messageName>bank_centralbank_init_deposit</messageName>
+                        </output>
                     </outputs>
                 </function>
                 <function>
@@ -553,7 +612,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>BankUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankUpdateCentralbankDeposit</nextState>
                     <condition>
                         <not><lhs><time>
                             <period>weekly</period>
@@ -570,7 +629,7 @@
                     <name>bank_update_deposits</name>
                     <description>Deposits/updates its liquidity to bank.</description>
                     <currentState>BankUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankUpdateCentralbankDeposit</nextState>
                     <condition>
                         <lhs><time>
                             <period>weekly</period>
@@ -603,6 +662,35 @@
                         </input>
                     </inputs>
                 </function>
+                <function>
+                    <name>bank_update_centralbank_deposit</name>
+                    <description>Deposits/updates its liquidity at centralbank.</description>
+                    <currentState>BankUpdateCentralbankDeposit</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>bank_centralbank_update_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>BankUpdateCentralbankDeposit</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
+                </function>
             </functions>
         </xagent>
         <xagent>
@@ -623,9 +711,63 @@
             <functions>
                 <function>
                     <name>government_init</name>
-                    <description>Notifies its id.</description>
+                    <description>Agent runtime initilialization.</description>
                     <currentState>start</currentState>
-                    <nextState>GovernmentStart</nextState>
+                    <nextState>GovernmentLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                    <output>
+                        <messageName>gov_centralbank_init_deposit</messageName>
+                    </output>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>GovernmentLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>government_iterate</name>
+                    <description>Regular loop start point.</description>
+                    <currentState>GovernmentLoop</currentState>
+                    <nextState>GovernmentCredit</nextState>
+                </function>
+                <function>
+                    <name>government_update_deposit</name>
+                    <description>Deposits/updates its liquidity at centralbank.</description>
+                    <currentState>GovernmentUpdateDeposit</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>gov_centralbank_update_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the bank account updates.</description>
+                    <currentState>GovernmentUpdateDeposit</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
                 </function>
             </functions>
         </xagent>
@@ -696,6 +838,15 @@
                         <input>
                             <messageName>bank_centralbank_init_debt</messageName>
                         </input>
+                        <input>
+                            <messageName>bank_centralbank_init_deposit</messageName>
+                        </input>
+                        <input>
+                            <messageName>fund_centralbank_init_deposit</messageName>
+                        </input>
+                        <input>
+                            <messageName>gov_centralbank_init_deposit</messageName>
+                        </input>
                     </inputs>
                 </function>
                 <function>
@@ -703,6 +854,41 @@
                     <description>Resumes its regular iteration.</description>
                     <currentState>CentralBankLoop</currentState>
                     <nextState>CentralBankCredit</nextState>
+                </function>
+                <function>
+                    <name>centralbank_update_deposits</name>
+                    <description>Updates its liquidity</description>
+                    <currentState>CentralBankUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>bank_centralbank_update_deposit</messageName>
+                        </input>
+                        <input>
+                            <messageName>gov_centralbank_update_deposit</messageName>
+                        </input>
+                        <input>
+                            <messageName>fund_centralbank_update_deposit</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Skip the updates.</description>
+                    <currentState>CentralBankUpdateDeposits</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>1</phase>
+                        </time></not>
+                    </condition>
                 </function>
             </functions>
         </xagent>
@@ -938,9 +1124,92 @@
             <description>Bank informs its centralbank debt for initilialization.</description>
             <variables>
                 <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The deptor bank id.</description>
+                </variable>
+                <variable>
                     <type>double</type>
                     <name>amount</name>
                     <description>Amount of debt.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>bank_centralbank_init_deposit</name>
+            <description>Bank sends out its liquid money to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The depositor bank id.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>bank_centralbank_update_deposit</name>
+            <description>Bank sends out its liquid money to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>The depositor bank id.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        
+        <message>
+            <name>fund_centralbank_init_deposit</name>
+            <description>Fund sends out its liquid money to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>fund_centralbank_update_deposit</name>
+            <description>Fund sends out its liquid money to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        
+        <message>
+            <name>gov_centralbank_init_deposit</name>
+            <description>Government sends out its liquid money to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>gov_centralbank_update_deposit</name>
+            <description>Government sends out its liquid money to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquid money to be deposited.</description>
                 </variable>
             </variables>
         </message>

@@ -417,6 +417,7 @@ plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector
 
 ########## Single Run Anals #####
 
+# Importing Datasets ###
 data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data"
 output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
@@ -469,7 +470,6 @@ nQuarters <- length(Equityfund$IT_NO)
 nFirms = 12
 nCFirms = 3
 nBanks = length(BankIncome$ID) / nQuarters
-nIter <- nQuarters
 
 
 #MALL:
@@ -483,6 +483,18 @@ plot_time_series_point_file(nMonths, REAgency$TRANSACTION_QUANTITY, "Months", "N
 #Central Bank
 plot_time_series_point_file(nQuarters, Centralbank$INTEREST_RATE, "Quarters", "Interest Rate", "Central Bank", "CentralBankInterestRate.png")
 plot_time_series_point_file(nQuarters, Centralbank$INFLATION, "Quarters", "Inflation", "Central Bank", "CentralBankInflation.png")
+plot_time_series_point_file(nQuarters, Centralbank$REVENUES, "Quarters", "Interests Accrued", "Central Bank", "CentralBankRevenues.png")
+plot_time_series_point_file(nQuarters, Centralbank$FIAT_MONEY, "Quarters", "FIAT Money", "Central Bank", "CentralBankFiatMoney.png")
+plot_time_series_point_file(nQuarters, Centralbank$TOTAL_ASSETS, "Quarters", "Total Assets", "Central Bank", "CentralBankTotalAssets.png")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY, "Quarters", "Liquidity", "Central Bank", "CentralBankLiquidity.png")
+plot_time_series_point_file(nQuarters, Centralbank$LOANS_BANKS, "Quarters", "Bank Loans", "Central Bank", "CentralBankLoansBanks.png")
+plot_time_series_point_file(nQuarters, Centralbank$LOANS_GOVERNMENT, "Quarters", "Governement Loan", "Central Bank", "CentralBankLoansGovernment.png")
+plot_time_series_point_file(nQuarters, Centralbank$EQUITY, "Quarters", "Equity", "Central Bank", "CentralBankEquity.png")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_BANKS, "Quarters", "Bank Liquidity", "Central Bank", "CentralBankLiquidityBanks.png")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_GOVERNMENT, "Quarters", "Government Liquidity", "Central Bank", "CentralBankLiquidityGovernment.png")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_EQUITYFUND, "Quarters", "Equity Fund Liquidity", "Central Bank", "CentralBankLiquidityEquityFund.png")
+
+
 
 #Government
 plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_RATE, "Quarters", "Unemployment Rate", "", "GovernmentUnemploymentRate.png")
@@ -496,7 +508,7 @@ plot_time_series_point_file(nQuarters, Government$AVERAGE_WAGE, "Quarters", "Ave
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Dividends Received", "Equity Fund", "FundDividendsReceived.png")
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Dividends Retained", "Equity Fund", "FundDividendsRetained.png")
 plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Liquidity ", "Equity Fund", "FundLiquidity.png")
-plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Shares Recieved", "Equity Fund", "FundShares.png", c("Firms", "CFirms", "Banks"))
+plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Dividends Received", "Equity Fund", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"))
 
 #Banks
 plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$LOANS, "Quarters", "Loans to Firms", "Banks", "BanksLoans.png")
@@ -509,18 +521,6 @@ plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_WRITEO
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_DIVIDENDS, "Quarters", "Dividends Sent to Fund", "Banks", "BanksTotalDividends.png")
-
-
-#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$LOANS, "Quarters", "Loans to Firms (Mean)", "Banks", "Loans.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$MORTGAGES, "Quarters", "Mortgages to Households (Mean)", "Banks", "Mortgages.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms, HH (Mean)", "Banks", "Deposits.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt (Mean)", "Banks", "BanksDebt.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankBalance$EQUITY, "Quarters", "Equity (Mean)", "Banks", "BanksEquity.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_ACCRUED, "Months", "Interests Collected Mortgage + Loans (Mean)", "Banks", "BanksInterestsCollected.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loans + Mortgages Writeoffs (Mean)", "Banks", "BanksWriteoffs.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$INTERESTS_PAID, "Months", "Interests Paid (Mean)", "Banks", "BanksInterestsPaid.png")
-#plot_time_series_mean_file(nBanks, nQuarters, BankIncome$NET_EARNINGS, "Months", "Net Earnings (Mean)", "Banks", "BanksNetEarnings.png")
-
 
 #Firms
 plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$UNIT_GOODS_PRICE, "Quarters", "Price (mean)", "Firms", "FirmsUnitGoodPrices.png")
@@ -578,15 +578,20 @@ plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTI
 plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$SALES, "Months", "Sales (mean)", "Firms", "FirmsSales.png")
 plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "Months", "Sales (mean)", "Constructor Firms", "CFirmsSales.png")
 
+
+
+
+
+
 #### Validation - Begin ##########
 
 ##### Compute GDP #######
 cfirmvector <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE
-firmvector <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$AVERAGE_GOODS_PRICE
+firmvector <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$UNIT_GOODS_PRICE
 plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector)
 
 cfirmvector_real <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE[1]
-firmvector_real <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$AVERAGE_GOODS_PRICE[1]
+firmvector_real <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$UNIT_GOODS_PRICE[1]
 plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector_real, CFirmMonthly$IT_NO, cfirmvector_real, gtype = "Real")
 
 plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, firmvector_real, cfirmvector_real)
@@ -658,11 +663,15 @@ plot_time_series_multiline_point_file(nQuarters, freqmort, freqinsolv, freqilliq
 
 ####### Validation - End #########
 
+
+### Households ###
+
 HouseholdQuarterly <- read.csv('../data/Household_Quarterly.txt', sep = " ", header = T, stringsAsFactors = F)
 HouseholdMonthlyFirst <- read.csv('../data/Household_Monthly_FirstDay.txt', sep = " ", header = T, stringsAsFactors = F)
 HouseholdMonthlyLast <- read.csv('../data/Household_Monthly_LastDay.txt', sep = " ", header = T, stringsAsFactors = F)
 HouseholdWeekly <- read.csv('../data/Household_Weekly.txt', sep = " ", header = T, stringsAsFactors = F)
 nHouseholds = length(HouseholdQuarterly$"ID") / nQuarters
+
 
 #Household - Quarterly
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$TOTAL_ASSETS, "Quarters", "Total Assets (boxplot)", "Households", "HouseholdsTotalAssetsDistro.png")
@@ -865,4 +874,21 @@ bank_deposits <- firm_deposits + household_deposits
 household_mortgages <- sum(HH_init[[3]])
 firm_loans <- sum(Firm_init[[3]])
 bank_risky <- household_mortgages + firm_loans
+
+#### Flow of Housing Units - New sales VS Total owned ####
+HH241 <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
+HH000 <- nHouseholds * 5
+new <- sum(CFirmMonthly$SALES)
+(new + HH000) == HH241
+
+#### Flow of Consumption Goods - Sales VS Buys ####
+HH240 <- sum(tail(HouseholdWeekly$quantity_bought, 800 * 4))
+F240 <- sum(tail(FirmMonthly$SALES,12))
+HH240 == F240
+
+#### Loans - Firms VS Banks ###
+F4 <- sum(FirmBalance[37:48,]$DEBT)
+CF4 <- sum(CFirmBalance[10:12,]$DEBT)
+B5 <- sum(tail(BankBalance, 2)$LOANS)
+F4 + CF4 == B5
 

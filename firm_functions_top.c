@@ -30,7 +30,7 @@ int firm_init_employment()
     EMPLOYEES_NEEDED = NO_EMPLOYEES;
     LABOUR_COSTS = NO_EMPLOYEES * WAGE_OFFER;
     DEBT = (NO_EMPLOYEES * WAGE_OFFER * 0.2) / LOANS_INTEREST_RATE;
-    TOTAL_INTEREST_PAYMENTS = DEBT * LOANS_INTEREST_RATE / 4;
+    TOTAL_INTEREST_PAYMENTS = DEBT * (LOANS_INTEREST_RATE / 4);
     OPERATING_COSTS = LABOUR_COSTS + TOTAL_INTEREST_PAYMENTS;
     EQUITY = DEBT / FIRM_STARTUP_LEVERAGE;
     TOTAL_ASSETS = DEBT + EQUITY;
@@ -43,7 +43,7 @@ int firm_init_employment()
         SALES = PRODUCTION_CURRENT;
         REVENUES = SALES * UNIT_GOODS_PRICE;
         EBIT = REVENUES - LABOUR_COSTS;
-        NET_EARNINGS = REVENUES - OPERATING_COSTS;
+        NET_EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
         LIQUIDITY = NET_EARNINGS;
         /* Liquidity is increased to boost bank deposits */
         //LIQUIDITY += OPERATING_COSTS;
@@ -58,7 +58,7 @@ int firm_init_employment()
         REVENUES = SALES * UNIT_HOUSE_PRICE;
         PHYSICAL_CAPITAL = 0;
         EBIT = REVENUES - LABOUR_COSTS;
-        NET_EARNINGS = REVENUES - OPERATING_COSTS;
+        NET_EARNINGS = REVENUES - TOTAL_INTEREST_PAYMENTS;
         LIQUIDITY = NET_EARNINGS;
         /* Liquidity is increased to boost bank deposits */
         //LIQUIDITY += OPERATING_COSTS;
@@ -70,7 +70,7 @@ int firm_init_employment()
     if (PRINT_DEBUG_MODE) {
         printf("Firm %d --> Size = %d \n", ID, NO_EMPLOYEES);
     }
-
+    
         
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -157,8 +157,8 @@ int firm_iterate()
                 strcpy(filename, "./outputs/data/Firm_Monthly.txt");
                 file1 = fopen(filename,"w");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "WAGE_OFFER", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "SALES", "INVENTORY", "PRODUCTION_CURRENT", "PRODUCTION_PLAN", "AVERAGE_GOODS_PRICE");
-                //fprintf(file1,"%d %d %f %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, SALES, INVENTORY, PRODUCTION_CURRENT, PRODUCTION_PLAN, AVERAGE_GOODS_PRICE);
+                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "WAGE_OFFER", "NO_EMPLOYEES", "EMPLOYEES_NEEDED", "SALES", "INVENTORY", "PRODUCTION_CURRENT", "PRODUCTION_PLAN", "UNIT_GOODS_PRICE");
+                //fprintf(file1,"%d %d %f %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, SALES, INVENTORY, PRODUCTION_CURRENT, PRODUCTION_PLAN, UNIT_GOODS_PRICE);
                 fclose(file1);
                 
                 

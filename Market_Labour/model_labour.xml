@@ -660,7 +660,7 @@
                     <name>government_trace_unemployment_status</name>
                     <description>Makes a sensus on employment status.</description>
                     <currentState>GovernmentLabourStatus</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentUpdateDeposit</nextState>
                     <inputs>
                         <input>
                             <messageName>employment_status</messageName>
@@ -691,7 +691,7 @@
                     <name>idle</name>
                     <description>It is not the start of a month.</description>
                     <currentState>EFLabourMarket</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EquityFundUpdateDeposits</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -703,7 +703,7 @@
                     <name>equityfund_audit_dividends</name>
                     <description>Makes a sensus on size of dividends.</description>
                     <currentState>EFLabourMarket</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EquityFundUpdateDeposits</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>

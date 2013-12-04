@@ -9,6 +9,7 @@
  */
 int firm_production_skip()
 {
+    ISINSOLVENT = 0;
     EMPLOYEES_NEEDED = 1;
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -29,10 +30,12 @@ int firm_production_produce_goods()
     
     /* Update of the inventory available for sell is updated at the first day of the month.*/
     //INVENTORY += PRODUCTION_CURRENT;
-    if (PRODUCTION_CURRENT <= 0) {
-        PRODUCTION_CURRENT = 1;
+    
+    /*This is possible if and only if an insolvent firms owner/manager goes turnover.*/
+    if (NO_EMPLOYEES < 1) {
+        PRODUCTION_CURRENT = 1 * LABOUR_PRODUCTIVITY;
         if (WARNING_MODE) {
-        printf("Warning @firm_production_produce_goods(): Firm Id = %d, Production current is not positive!? = %d\n", ID, PRODUCTION_CURRENT);
+        printf("Warning @firm_production_produce_goods(): Firm Id = %d, has lost her only employee through employee turnover! \n", ID);
         }
     }
     
@@ -56,7 +59,6 @@ int firm_production_set_price()
     
     unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
     unit_cost_new += DEBT * LOANS_INTEREST_RATE / 12;
-    
     unit_cost_new = unit_cost_new / PRODUCTION_CURRENT;
    
     if (goods_to_sale != 0) {

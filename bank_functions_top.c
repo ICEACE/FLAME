@@ -85,7 +85,10 @@ int bank_init_balancesheet()
     
    
     
-    add_bank_centralbank_init_debt_message(CENTRALBANK_DEBT);
+    add_bank_centralbank_init_debt_message(ID,CENTRALBANK_DEBT);
+    
+    
+    add_bank_centralbank_init_deposit_message(ID,LIQUIDITY);
     
     /* Initialization Check
     printf("Bank ID = %d, Loans = %f, Mortgages = %f, Deposits = %f, Liquidity =%f, Equity =%f, Debt = %f \n", ID, LOANS, MORTGAGES, DEPOSITS, LIQUIDITY, EQUITY, CENTRALBANK_DEBT);
@@ -168,3 +171,17 @@ int bank_update_deposits()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+/*
+ * \fn: int bank_update_centralbank_deposit()
+ * \brief:
+ */
+int bank_update_centralbank_deposit()
+{
+    
+    add_bank_centralbank_update_deposit_message(ID, LIQUIDITY);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
+
+

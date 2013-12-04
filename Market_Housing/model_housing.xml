@@ -684,7 +684,7 @@
                     <name>idle</name>
                     <description>It is not the day of the month to act.</description>
                     <currentState>CentralBankHousing</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CentralBankUpdateDeposits</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -696,7 +696,7 @@
                     <name>centralbank_trace_housing_prices</name>
                     <description>It is the day of the month to act.</description>
                     <currentState>CentralBankHousing</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CentralBankUpdateDeposits</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>

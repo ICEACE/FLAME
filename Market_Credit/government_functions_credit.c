@@ -3,65 +3,6 @@
 
 
 
-/*
- * \fn: int government_update_fiscal_policy()
- * \brief:
- */
-int government_update_fiscal_policy()
-{
-    double balance;
-    double dTax;
-    double dBenefit;
-    
-    balance = LABOUR_TAX_INCOME + CAPITAL_TAX_INCOME;
-    balance -= GENERAL_BENEFITS + UNEMPLOYMENT_BENEFITS;
-    
-    if (balance < 0) {
-        dTax = RATIO_FISCAL_POLICY * 0.05;
-        dBenefit = (1- RATIO_FISCAL_POLICY) * 0.05;
-        LABOUR_TAX_RATE = LABOUR_TAX_RATE + dTax;
-        CAPITAL_TAX_RATE = CAPITAL_TAX_RATE + dTax;
-        GOV_GENERAL_BENEFIT_RATE = GOV_GENERAL_BENEFIT_RATE - dBenefit;
-    }
-    
-    // The increment portion (0.05) and threshold below (500) is picked from the model description.
-    // However, I suggest this be parameterized and be treated as one of policy parameters. bulent.
-    if (balance > 500){
-        dTax = (1 - RATIO_FISCAL_POLICY) * 0.05;
-        dBenefit =  RATIO_FISCAL_POLICY * 0.05;
-        LABOUR_TAX_RATE = LABOUR_TAX_RATE - dTax;
-        CAPITAL_TAX_RATE = CAPITAL_TAX_RATE - dTax;
-        GOV_GENERAL_BENEFIT_RATE = GOV_GENERAL_BENEFIT_RATE + dBenefit;
-    }
-    
-    if (CAPITAL_TAX_RATE > 0.5) {
-        CAPITAL_TAX_RATE = 0.5;
-    }
-    if (CAPITAL_TAX_RATE < 0.1) {
-        CAPITAL_TAX_RATE = 0.1;
-    }
-    
-    if (LABOUR_TAX_RATE > 0.5) {
-        LABOUR_TAX_RATE = 0.5;
-    }
-    if (LABOUR_TAX_RATE < 0.1) {
-        LABOUR_TAX_RATE = 0.1;
-    }
-    
-    if (GOV_GENERAL_BENEFIT_RATE > 0.4){
-        GOV_GENERAL_BENEFIT_RATE = 0.4;
-    }
-    
-    if (GOV_GENERAL_BENEFIT_RATE < 0){
-        GOV_GENERAL_BENEFIT_RATE = 0;
-    }
-
-    
-    add_labour_tax_rate_message(LABOUR_TAX_RATE);
-    add_capital_tax_rate_message(CAPITAL_TAX_RATE);
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
 
 /*
  * \fn: int government_collect_capital_tax()
@@ -134,7 +75,91 @@ int government_compute_income_statement()
  */
 int government_do_balance_sheet()
 {
+    double amount = 0;
+
+    if (LIQUIDITY < 0) {
+        amount = -1 * LIQUIDITY;
+        add_gov_centralbank_debt_request_message(amount);
+        DEBT += amount;
+        LIQUIDITY = 0;
+    }
+    
+    if (LIQUIDITY > 0) {
+        if (DEBT < LIQUIDITY) {
+            add_gov_centralbank_debt_payment_message(DEBT);
+            LIQUIDITY -= DEBT;
+            DEBT = 0;
+        } else {
+            add_gov_centralbank_debt_payment_message(LIQUIDITY);
+            DEBT -= LIQUIDITY;
+            LIQUIDITY = 0;
+        }
+    }
+    
     EQUITY = LIQUIDITY - DEBT;
+	
+    return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int government_update_fiscal_policy()
+ * \brief:
+ */
+int government_update_fiscal_policy()
+{
+    double balance;
+    double dTax;
+    double dBenefit;
+    
+    balance = EARNINGS - EXPENDITURES;
+    
+    
+    if (balance <= 0) {
+        dTax = RATIO_FISCAL_POLICY * 0.05;
+        dBenefit = (1- RATIO_FISCAL_POLICY) * 0.05;
+        LABOUR_TAX_RATE = LABOUR_TAX_RATE + dTax;
+        CAPITAL_TAX_RATE = CAPITAL_TAX_RATE + dTax;
+        GOV_GENERAL_BENEFIT_RATE = GOV_GENERAL_BENEFIT_RATE - dBenefit;
+    }
+    
+    /* The increment portion (0.05) and threshold below (500) is picked from the model description.
+     However, I suggest this be parameterized and be treated as one of policy parameters. bulent.
+     */
+    if (balance > 500){
+        dTax = (1 - RATIO_FISCAL_POLICY) * 0.05;
+        dBenefit =  RATIO_FISCAL_POLICY * 0.05;
+        LABOUR_TAX_RATE = LABOUR_TAX_RATE - dTax;
+        CAPITAL_TAX_RATE = CAPITAL_TAX_RATE - dTax;
+        GOV_GENERAL_BENEFIT_RATE = GOV_GENERAL_BENEFIT_RATE + dBenefit;
+    }
+    
+    if (CAPITAL_TAX_RATE > 0.5) {
+        CAPITAL_TAX_RATE = 0.5;
+    }
+    if (CAPITAL_TAX_RATE < 0.1) {
+        CAPITAL_TAX_RATE = 0.1;
+    }
+    
+    if (LABOUR_TAX_RATE > 0.5) {
+        LABOUR_TAX_RATE = 0.5;
+    }
+    if (LABOUR_TAX_RATE < 0.1) {
+        LABOUR_TAX_RATE = 0.1;
+    }
+    
+    if (GOV_GENERAL_BENEFIT_RATE > 0.4){
+        GOV_GENERAL_BENEFIT_RATE = 0.4;
+    }
+    
+    if (GOV_GENERAL_BENEFIT_RATE < 0){
+        GOV_GENERAL_BENEFIT_RATE = 0;
+    }
+    
+    
+    add_labour_tax_rate_message(LABOUR_TAX_RATE);
+    add_capital_tax_rate_message(CAPITAL_TAX_RATE);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

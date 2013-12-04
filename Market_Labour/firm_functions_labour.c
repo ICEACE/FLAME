@@ -102,7 +102,7 @@ int firm_labour_job_offer_stage1()
 /*
  * \fn: int firm_labour_update()
  * \brief: the firm recieves job resignation message.
- * Labour force status is updated. Messages addresed to this agent
+ * Labour force status is updated. Messages addressed to this agent
  * is filtered before hand.
  */
 int firm_labour_update()

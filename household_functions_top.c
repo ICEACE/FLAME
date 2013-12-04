@@ -94,8 +94,8 @@ int household_iterate()
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Household_Weekly.txt");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s\n","IT_NO", "ID", "LIQUIDITY", "WEEKLY_CONSUMPTION_BUDGET", "money_to_spend", "money_spent");
-                //fprintf(file1,"%d %d %f %f %f %f\n",IT_NO, ID, LIQUIDITY, WEEKLY_CONSUMPTION_BUDGET, 0.0, 0.0);
+                fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "LIQUIDITY", "WEEKLY_CONSUMPTION_BUDGET", "money_to_spend", "money_spent", "quantity_bought");
+                //fprintf(file1,"%d %d %f %f %f %f %d\n",IT_NO, ID, LIQUIDITY, WEEKLY_CONSUMPTION_BUDGET, 0.0, 0.0, 0);
                 fclose(file1);
                 
                 /* @\fn: household_housing_debt_writeoff() */

@@ -110,10 +110,10 @@ int bank_credit_do_balance_sheet()
         amount = -1 * LIQUIDITY;
         CENTRALBANK_DEBT += amount;
         LIQUIDITY = 0;
-        add_debt_request_message(ID, amount);
+        add_bank_centralbank_debt_request_message(ID, amount);
     }
     
-    if (LIQUIDITY > 0 && CENTRALBANK_DEBT > 0) {
+    if (LIQUIDITY > 0) {
         if (LIQUIDITY > CENTRALBANK_DEBT){
             amount = CENTRALBANK_DEBT;
             LIQUIDITY -= amount;

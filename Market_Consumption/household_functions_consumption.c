@@ -76,7 +76,7 @@ int household_consumption_recieve_goods()
 {
     double money_spent;
     double total_money_spent, money_to_spend;
-    int quantity_bought = 0;
+    int bought, quantity_bought;
     
     if (PRINT_DEBUG_MODE) {
         if (ID > 50 && ID < 60) {
@@ -86,11 +86,13 @@ int household_consumption_recieve_goods()
     
     money_to_spend = MALL_BUDGET;
     total_money_spent = 0;
+    quantity_bought = 0;
     START_BOUGHT_MESSAGE_LOOP
     money_spent = bought_message->money_spent;
-    quantity_bought = bought_message->received_quantity;
-    if (money_spent > 0 && quantity_bought > 0) {
+    bought = bought_message->received_quantity;
+    if (money_spent > 0 && bought > 0) {
         total_money_spent += money_spent;
+        quantity_bought += bought;
     }
 	FINISH_BOUGHT_MESSAGE_LOOP
     
@@ -111,7 +113,7 @@ int household_consumption_recieve_goods()
         strcpy(filename, "./outputs/data/Household_Weekly.txt");
         
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %d %f %f %f %f\n",IT_NO, ID, LIQUIDITY, WEEKLY_CONSUMPTION_BUDGET, money_to_spend, total_money_spent);
+        fprintf(file1,"%d %d %f %f %f %f %d\n",IT_NO, ID, LIQUIDITY, WEEKLY_CONSUMPTION_BUDGET, money_to_spend, total_money_spent, quantity_bought);
         fclose(file1);
         free(filename);
     }

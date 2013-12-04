@@ -55,8 +55,8 @@ int firm_credit_compute_income_statement()
      Costs (wages) and revenues (from sales) are updated incrementally.
      */
     
-    OPERATING_COSTS = LABOUR_COSTS;
-    EBIT = REVENUES - OPERATING_COSTS;
+    OPERATING_COSTS = LABOUR_COSTS + TOTAL_INTEREST_PAYMENTS;
+    EBIT = REVENUES - LABOUR_COSTS;
     NET_EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
 
     if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
@@ -473,17 +473,20 @@ int firm_credit_insolvency_bankruptcy()
     SALES = 0;
     REVENUES = 0;
     OPERATING_COSTS = 0;
-    /* Pysical capital kept the same.
+    LABOUR_COSTS = 0;
+    TOTAL_INTEREST_PAYMENTS = 0;
+    /* Physical capital etc are kept the same.
      */
     
     if (ISCONSTRUCTOR == 0) {
         INVENTORY = LABOUR_PRODUCTIVITY * 1;
         TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
         UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
+        /* UNIT_COST is inherited. */
     } else {
         INVENTORY = 0;
         TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
-        /* Constructor firms keep the avergae house prices */
+        /* Constructor firms keep the averega house prices, current projects, etc */
     }
     /* Getting initial loan */
     TOTAL_ASSETS += CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
@@ -491,6 +494,8 @@ int firm_credit_insolvency_bankruptcy()
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     LOAN_LIST[0].amount = DEBT;
     EQUITY = TOTAL_ASSETS - DEBT;
+    
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

@@ -767,7 +767,7 @@
                     <nextState>BankCreditRequest1</nextState>
                     <outputs>
                         <output>
-                            <messageName>debt_request</messageName>
+                            <messageName>bank_centralbank_debt_request</messageName>
                         </output>
                         <output>
                             <messageName>bank_centralbank_debt_payment</messageName>
@@ -923,6 +923,11 @@
                 </variable>
                 <variable>
                     <type>double</type>
+                    <name>liquidity_equityfund</name>
+                    <description>Liquidity kept for the fund.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
                     <name>total_assets</name>
                     <description>Central Bank total assets.</description>
                 </variable>
@@ -983,31 +988,49 @@
                         </input>
                     </inputs>
                 </function>
+                
                 <function>
                     <name>centralbank_process_debt_requests</name>
-                    <description>Central Bank balance recieves new debt requests and debts paid back.</description>
+                    <description>Central Bank receives new debt requests from banks and collects debt payments from banks.</description>
                     <currentState>CentralBankDebtRequests</currentState>
                     <nextState>CentralBankIncomeStatement</nextState>
                     <inputs>
                         <input>
-                            <messageName>debt_request</messageName>
+                            <messageName>bank_centralbank_debt_request</messageName>
                         </input>
                         <input>
                             <messageName>bank_centralbank_debt_payment</messageName>
                         </input>
                     </inputs>
                 </function>
+                
                 <function>
                     <name>centralbank_compute_income_statement</name>
                     <description>Central Bank computes income statement.</description>
                     <currentState>CentralBankIncomeStatement</currentState>
-                    <nextState>CentralBankBalanceSheet</nextState>
+                    <nextState>CentralBankGovernmentRequests</nextState>
                     <outputs>
                         <output>
                             <messageName>centralbank_government_profit</messageName>
                         </output>
                     </outputs>
                 </function>
+                
+                <function>
+                    <name>centralbank_process_government_requests</name>
+                    <description>Central Bank processes loan requests and loan payments from the government.</description>
+                    <currentState>CentralBankGovernmentRequests</currentState>
+                    <nextState>CentralBankBalanceSheet</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>gov_centralbank_debt_request</messageName>
+                        </input>
+                        <input>
+                            <messageName>gov_centralbank_debt_payment</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                
                 <function>
                     <name>centralbank_do_balance_sheet</name>
                     <description>Central Bank balance sheet accounting activities.</description>
@@ -1310,7 +1333,7 @@
                 <function>
                     <name>idle</name>
                     <description>It is not the start of a quarter.</description>
-                    <currentState>EquityFundStart</currentState>
+                    <currentState>EquityFundCredit</currentState>
                     <nextState>EFLabourMarket</nextState>
                     <condition>
                         <not><time>
@@ -1322,7 +1345,7 @@
                 <function>
                     <name>equityfund_credit_invest_illiquids</name>
                     <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
-                    <currentState>EquityFundStart</currentState>
+                    <currentState>EquityFundCredit</currentState>
                     <nextState>EFCreditDistributeShares</nextState>
                     <condition>
                         <time>
@@ -1494,7 +1517,7 @@
                 <function>
                     <name>idle</name>
                     <description>It is not the start of a quarter.</description>
-                    <currentState>GovernmentStart</currentState>
+                    <currentState>GovernmentCredit</currentState>
                     <nextState>GovernmentMonthly</nextState>
                     <condition>
                         <not><time>
@@ -1506,7 +1529,7 @@
                 <function>
                     <name>government_collect_capital_tax</name>
                     <description>It is the start of the quarter.</description>
-                    <currentState>GovernmentStart</currentState>
+                    <currentState>GovernmentCredit</currentState>
                     <nextState>GovernmentCentralbankProfits</nextState>
                     <condition>
                         <time>
@@ -1542,6 +1565,14 @@
                     <description>Government balance sheet accounting activities.</description>
                     <currentState>GovernmentBalanceSheet</currentState>
                     <nextState>GovernmentFiscalPolicy</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>gov_centralbank_debt_request</messageName>
+                        </output>
+                        <output>
+                            <messageName>gov_centralbank_debt_payment</messageName>
+                        </output>
+                    </outputs>
                 </function>
                 <function>
                     <name>government_update_fiscal_policy</name>
@@ -1697,8 +1728,8 @@
             </variables>
         </message>
         <message>
-            <name>debt_request</name>
-            <description>Debt request from the central bank.</description>
+            <name>bank_centralbank_debt_request</name>
+            <description>Debt request by bank from the central bank.</description>
             <variables>
                 <variable>
                     <type>int</type>
@@ -1918,6 +1949,28 @@
                     <type>double</type>
                     <name>amount</name>
                     <description>Amount of debt paid back.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>gov_centralbank_debt_request</name>
+            <description>Government requests debt from the centralbank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of liquidity needed.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>gov_centralbank_debt_payment</name>
+            <description>Government pays debt to centralbank.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>amount</name>
+                    <description>Amount of payment.</description>
                 </variable>
             </variables>
         </message>
