@@ -503,12 +503,17 @@ plot_time_series_point_file(nQuarters, Government$GOV_GENERAL_BENEFIT_RATE, "Qua
 plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_BENEFITS, "Quarters", "Unemployment Benefits", "", "GovernmentBenefitsUnemployment.png")
 plot_time_series_point_file(nQuarters, Government$GENERAL_BENEFITS, "Quarters", "General Benefits", "Government", "GovernmentBenefitsGeneral.png")
 plot_time_series_point_file(nQuarters, Government$AVERAGE_WAGE, "Quarters", "Average Wage", "", "GovernmentAverageWage.png")
+plot_time_series_point_file(nQuarters, Government$DEBT, "Quarters", "Amount", "Government Debt to Central Bank", "GovernmentDebt.png")
+plot_time_series_point_file(nQuarters, Government$CENTRALBANK_INCOME, "Quarters", "Amount", "Government Central Bank Incomes", "GovernmentCentralbankIncome.png")
+plot_time_series_point_file(nQuarters, Government$LIQUIDITY, "Quarters", "Amount", "Government Liquidity", "GovernmentLiquidity.png")
 
 #Equity Fund
-plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Dividends Received", "Equity Fund", "FundDividendsReceived.png")
-plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Dividends Retained", "Equity Fund", "FundDividendsRetained.png")
-plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Liquidity ", "Equity Fund", "FundLiquidity.png")
-plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Dividends Received", "Equity Fund", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"))
+plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Amount", "Equity Fund - Dividends Received", "FundDividendsReceived.png")
+plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Amount", "Equity Fund - Dividends Retained", "FundDividendsRetained.png")
+plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Amount", "Equity Fund - Liquidity", "FundLiquidity.png")
+plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_PAID, "Quarters", "Amount", "Equity Fund - Dividends Paid", "FundDividendsPaid.png")
+
+plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Amount", "Equity Fund - Dividends Received Components", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"))
 
 #Banks
 plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$LOANS, "Quarters", "Loans to Firms", "Banks", "BanksLoans.png")
@@ -521,6 +526,9 @@ plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_WRITEO
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
 plot_time_series_banks(nQuarters, BankIncome$ID, 21, 22, BankIncome$TOTAL_DIVIDENDS, "Quarters", "Dividends Sent to Fund", "Banks", "BanksTotalDividends.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, 21, 22, BankBalance$LIQUIDITY, "Quarters", "Amount", "Banks - Liquidity", "BanksLiquidity.png")
+
+
 
 #Firms
 plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$UNIT_GOODS_PRICE, "Quarters", "Price (mean)", "Firms", "FirmsUnitGoodPrices.png")

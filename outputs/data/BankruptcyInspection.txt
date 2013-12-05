@@ -5,9 +5,9 @@ IT ID Agent Writeoff_Type Bank Amount
 1 22 Bank Mortgages 22 153.410987
 241 3 Firm Insolvency 22 666.666667
 241 22 Bank Loans 22 666.666667
-541 2 Firm Insolvency 22 666.666667
-541 22 Bank Loans 22 666.666667
-2041 1 Firm Insolvency 21 1001.402107
-2041 21 Bank Loans 21 1001.402107
-2521 3 Firm Insolvency 22 1611.367240
-2521 22 Bank Loans 22 1611.367240
+361 2 Firm Insolvency 22 731.720106
+361 22 Bank Loans 22 731.720106
+721 1 Firm Insolvency 21 699.632563
+721 21 Bank Loans 21 699.632563
+1081 3 Firm Insolvency 22 641.093424
+1081 22 Bank Loans 22 641.093424

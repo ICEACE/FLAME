@@ -98,11 +98,11 @@ int household_labour_report_status()
 
 
 /*
- * \fn: int household_labour_recieve_wage()
+ * \fn: int household_labour_receive_wage()
  * \brief: An household updates its wage history and liquidity at the end
  * of the month.
  */
-int household_labour_recieve_wage()
+int household_labour_receive_wage()
 {
     if (MY_EMPLOYER_ID == 0) {
         WAGE = 0;

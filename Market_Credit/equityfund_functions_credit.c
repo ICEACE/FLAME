@@ -160,7 +160,7 @@ int equityfund_credit_compute_income_statement()
         strcpy(filename, "./outputs/data/EquityFund_snapshot.txt");
         
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
+        fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
         fclose(file1);
         free(filename);
     }

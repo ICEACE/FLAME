@@ -24,6 +24,8 @@ int bank_credit_compute_income_statement()
     /* No payment on principal amount of debt is considered here!
      The principal payment is done within balance sheet accounting.
      */
+    
+    //printf("Bank ID = %d at Income Statement, pre-liquidity = %f \n", ID, LIQUIDITY);
     INTERESTS_PAID = CENTRALBANK_DEBT * INTEREST_RATE / 4;
     LIQUIDITY -= INTERESTS_PAID;
     add_bank_centralbank_interest_payment_message(ID, INTERESTS_PAID);
@@ -49,6 +51,8 @@ int bank_credit_compute_income_statement()
     TOTAL_WRITEOFFS = 0;
     INTERESTS_PAID = 0;
     
+    //printf("Bank ID = %d at Income Statement, post-liquidity = %f \n", ID, LIQUIDITY);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -67,6 +71,8 @@ int bank_credit_compute_dividends()
     }
     /* determine if dividends retained.*/
     
+    //printf("Bank ID = %d at Computing Dividends, pre-liquidity = %f \n", ID, LIQUIDITY);
+    
     if (TOTAL_ASSETS > 0) {
         if ((EQUITY / TOTAL_ASSETS) < (CAPITAL_ADEQUECY_RATIO + CAR_BUFFER_THRESHOLD)){
             RETAINED_EARNINGS = NET_EARNINGS;
@@ -74,7 +80,7 @@ int bank_credit_compute_dividends()
         }
         else{
             RETAINED_EARNINGS = 0;
-            TOTAL_DIVIDENDS = NET_EARNINGS;;
+            TOTAL_DIVIDENDS = NET_EARNINGS;
         }
     }
     else
@@ -93,6 +99,8 @@ int bank_credit_compute_dividends()
         }
     }
     
+    //printf("Bank ID = %d at Computing Dividends, post-liquidity = %f \n", ID, LIQUIDITY);
+    
     return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -105,6 +113,8 @@ int bank_credit_compute_dividends()
 int bank_credit_do_balance_sheet()
 {
     double amount;
+    
+    //printf("Bank ID = %d at Balance Sheet, pre-liquidity = %f, CB Debt = %f \n", ID, LIQUIDITY, CENTRALBANK_DEBT);
     
     if (LIQUIDITY < 0) {
         amount = -1 * LIQUIDITY;
@@ -130,6 +140,9 @@ int bank_credit_do_balance_sheet()
        
     TOTAL_ASSETS = LIQUIDITY + LOANS + MORTGAGES;
     EQUITY = TOTAL_ASSETS - DEPOSITS - CENTRALBANK_DEBT;
+    
+    //printf("Bank ID = %d at Balance Sheet, post-liquidity = %f, CB Debt = %f \n", ID, LIQUIDITY, CENTRALBANK_DEBT);
+
     
     /* Added to give households as equal chance as firms at getting bank credits. 
      */
@@ -163,14 +176,16 @@ int bank_credit_process_loan_requests_1()
     
     risk_weighted_assets = LOANS + MORTGAGES;
     
-    START_LOAN_REQUEST_1_MESSAGE_LOOP
-    amount = loan_request_1_message->amount;
-    firm = loan_request_1_message->firm_id;
+    START_FIRM_BANK_LOAN_REQUEST_1_MESSAGE_LOOP
+    amount = firm_bank_loan_request_1_message->amount;
+    firm = firm_bank_loan_request_1_message->firm_id;
     
     if (EQUITY >= CAPITAL_ADEQUECY_RATIO * risk_weighted_assets) {
         LOANS += amount;
         LIQUIDITY -= amount;
-        add_loan_acknowledge_1_message(ID, firm, amount);
+        /*The firm is the banks customer and this customers deposit account is updated.*/
+        DEPOSITS += amount;
+        add_bank_firm_loan_acknowledge_1_message(ID, firm, amount);
         
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d!\n", ID, amount, firm);
@@ -181,7 +196,7 @@ int bank_credit_process_loan_requests_1()
             printf("Bank ID = %d at Loan Stage 1: denies a %f amount loan request from Firm ID = %d \n", ID, amount, firm);
         }
     }
-    FINISH_LOAN_REQUEST_1_MESSAGE_LOOP
+    FINISH_FIRM_BANK_LOAN_REQUEST_1_MESSAGE_LOOP
     
 
 	return 0; /* Returning zero means the agent is not removed */
@@ -198,14 +213,14 @@ int bank_credit_process_loan_requests_2()
     
     risk_weighted_assets = LOANS + MORTGAGES;
     
-    START_LOAN_REQUEST_2_MESSAGE_LOOP
-    amount = loan_request_2_message->amount;
-    firm = loan_request_2_message->firm_id;
+    START_FIRM_BANK_LOAN_REQUEST_2_MESSAGE_LOOP
+    amount = firm_bank_loan_request_2_message->amount;
+    firm = firm_bank_loan_request_2_message->firm_id;
     
     if (EQUITY >= CAPITAL_ADEQUECY_RATIO * risk_weighted_assets) {
         LOANS += amount;
         LIQUIDITY -= amount;
-        add_loan_acknowledge_2_message(ID, firm, amount);
+        add_bank_firm_loan_acknowledge_2_message(ID, firm, amount);
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d Loan Stage 2: %f --> Firm ID = %d!\n", ID, amount, firm);
         }
@@ -215,7 +230,7 @@ int bank_credit_process_loan_requests_2()
             printf("Bank ID = %d at Loan Stage 2: denies a %f amount loan request from Firm ID = %d \n", ID, amount, firm);
         }
     }
-    FINISH_LOAN_REQUEST_2_MESSAGE_LOOP
+    FINISH_FIRM_BANK_LOAN_REQUEST_2_MESSAGE_LOOP
 
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -228,6 +243,12 @@ int bank_credit_process_loan_requests_2()
 int bank_credit_recieve_loan_writeoffs()
 {
     double amount;
+    
+    START_FIRM_BANK_INSOLVENT_ACCOUNT_MESSAGE_LOOP
+    amount = firm_bank_insolvent_account_message->liquidity;
+    DEPOSITS -= amount;
+    FINISH_FIRM_BANK_INSOLVENT_ACCOUNT_MESSAGE_LOOP
+    
     
     START_LOAN_WRITEOFF_MESSAGE_LOOP
     amount = loan_writeoff_message->amount;
@@ -245,7 +266,6 @@ int bank_credit_recieve_loan_writeoffs()
         fclose(file1);
         free(filename);
     }
-    
     FINISH_LOAN_WRITEOFF_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -276,12 +296,17 @@ int bank_credit_recieve_new_entrant_loan_requests()
 int bank_credit_collect_loan_interests()
 {
     double amount;
+    int deposit_bank;
     
-    START_INTEREST_ON_LOAN_MESSAGE_LOOP
-    amount = interest_on_loan_message->amount;
+    START_FIRM_BANK_INTEREST_ON_LOAN_MESSAGE_LOOP
+    amount = firm_bank_interest_on_loan_message->amount;
+    deposit_bank = firm_bank_interest_on_loan_message->deposit_bank_id;
     LIQUIDITY += amount;
     INTERESTS_ACCRUED += amount;
-    FINISH_INTEREST_ON_LOAN_MESSAGE_LOOP
+    if (ID == deposit_bank) {
+        DEPOSITS -= amount;
+    }
+    FINISH_FIRM_BANK_INTEREST_ON_LOAN_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
 }

@@ -148,7 +148,7 @@ int firm_credit_check_liquidity_need()
 int firm_credit_demand_loans_1()
 {
     if (LIQUIDITY_NEED > 0){
-       add_loan_request_1_message(ID, BANK_ID, LIQUIDITY_NEED);
+       add_firm_bank_loan_request_1_message(ID, BANK_ID, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -162,9 +162,9 @@ int firm_credit_borrow_loans_1()
 {
     double amount = 0;
 
-    START_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
-    amount = loan_acknowledge_1_message->amount;
- 	FINISH_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
+    START_BANK_FIRM_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
+    amount = bank_firm_loan_acknowledge_1_message->amount;
+ 	FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
     
     if (PRINT_DEBUG_MODE){
         printf("Firm ID = %d @ Loan Stage 1 received %f of loans. \n", ID, amount);
@@ -177,9 +177,15 @@ int firm_credit_borrow_loans_1()
         LOAN_LIST[0].amount += amount;
         HASLOAN = 1;
     }
-    /* Shall we allow partial loans? */
+    /* Shall we allow partial loans?
+     If so at bank side partial loan should be processed.
+     */
     else{
-        add_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
+        LIQUIDITY += amount;
+        DEBT += amount;
+        LOAN_LIST[0].amount += amount;
+        LIQUIDITY_NEED -= amount;
+        add_firm_bank_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -193,9 +199,9 @@ int firm_credit_borrow_loans_2()
 {
     double amount = 0;
     
-    START_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
-    amount = loan_acknowledge_2_message->amount;
- 	FINISH_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
+    START_BANK_FIRM_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
+    amount = bank_firm_loan_acknowledge_2_message->amount;
+ 	FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
 
     if (PRINT_DEBUG_MODE){
         printf("Firm ID = %d @ Loan Stage 2 received %f of loans. \n", ID, amount);
@@ -343,7 +349,7 @@ int firm_credit_pay_interest_on_loans()
         bank = LOAN_LIST[i].bank_id;
         to_be_paid = LOAN_LIST[i].to_be_paid;
         LIQUIDITY -= to_be_paid;
-        add_interest_on_loan_message(bank, to_be_paid);
+        add_firm_bank_interest_on_loan_message(bank, to_be_paid, BANK_ID);
     }
 
  	return 0; /* Returning zero means the agent is not removed */
@@ -468,8 +474,11 @@ int firm_credit_insolvency_bankruptcy()
             }
         }
     }
-    DEBT = 0;
+    
+    add_firm_bank_insolvent_account_message(BANK_ID, LIQUIDITY);
     LIQUIDITY = 0;
+    
+    DEBT = 0;
     SALES = 0;
     REVENUES = 0;
     OPERATING_COSTS = 0;

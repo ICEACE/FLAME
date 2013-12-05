@@ -90,7 +90,7 @@ int bank_init_balancesheet()
     
     add_bank_centralbank_init_deposit_message(ID,LIQUIDITY);
     
-    /* Initialization Check
+    /* Initialization Check*
     printf("Bank ID = %d, Loans = %f, Mortgages = %f, Deposits = %f, Liquidity =%f, Equity =%f, Debt = %f \n", ID, LOANS, MORTGAGES, DEPOSITS, LIQUIDITY, EQUITY, CENTRALBANK_DEBT);
     printf("Bank ID = %d, Equity Ratio = %f \n", ID, EQUITY/(LOANS + MORTGAGES));
     */
@@ -147,6 +147,7 @@ int bank_update_deposits()
     double deposits_households = 0;
     double deposits_firms = 0;
     
+    //printf("Bank ID = %d, pre-liquidity = %f, pre-deposits = %f \n", ID, LIQUIDITY, DEPOSITS);
 
     START_HOUSEHOLD_BANK_UPDATE_DEPOSIT_MESSAGE_LOOP
     deposits_households += household_bank_update_deposit_message->amount;
@@ -164,6 +165,7 @@ int bank_update_deposits()
     DEPOSITS = current_deposit;
     LIQUIDITY += delta_deposit;
     
+    //printf("Bank ID = %d Deposits: From Firms = %f , from HH = %f, Total = %f, post-liquidity = %f \n", ID, deposits_firms, deposits_households, DEPOSITS, LIQUIDITY);
     
     if (PRINT_DEBUG_MODE) {
         printf("Bank ID = %d Deposits: From Firms = %f , from HH = %f, Total = %f \n", ID, deposits_firms, deposits_households, DEPOSITS);

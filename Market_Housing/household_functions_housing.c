@@ -13,7 +13,7 @@ int household_housing_market_role()
     
     quarterly_income = LABOUR_INCOME + CAPITAL_INCOME;
     
-    /* Checking the financial distress for the file sale case. */
+    /* Checking the financial distress for the fire sale case. */
     if (HOUSING_PAYMENT > FIRE_SALE_THRESHOLD * quarterly_income){
         if (HOUSING_UNITS == 0) { HMARKET_ROLE = 0; } else { HMARKET_ROLE  = 1;}
         return 0;

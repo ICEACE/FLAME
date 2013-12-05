@@ -309,7 +309,7 @@
                     </condition>
                 </function>
                 <function>
-                    <name>household_labour_recieve_wage</name>
+                    <name>household_labour_receive_wage</name>
                     <description>Recieves payment and update wage history.</description>
                     <currentState>HHLabourPayroll</currentState>
                     <nextState>HHLabourEmploymentStatus</nextState>

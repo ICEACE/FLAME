@@ -353,7 +353,7 @@
                     </condition>
                     <outputs>
                         <output>
-                            <messageName>loan_request_1</messageName>
+                            <messageName>firm_bank_loan_request_1</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -364,7 +364,7 @@
                     <nextState>FirmCreditLoanBorrow2</nextState>
                     <inputs>
                         <input>
-                            <messageName>loan_acknowledge_1</messageName>
+                            <messageName>bank_firm_loan_acknowledge_1</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -375,7 +375,7 @@
                     </inputs>
                     <outputs>
                         <output>
-                            <messageName>loan_request_2</messageName>
+                            <messageName>firm_bank_loan_request_2</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -410,7 +410,7 @@
                     </condition>
                     <inputs>
                         <input>
-                            <messageName>loan_acknowledge_2</messageName>
+                            <messageName>bank_firm_loan_acknowledge_2</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -539,7 +539,7 @@
                     <nextState>FirmCreditDividendPayments</nextState>
                     <outputs>
                         <output>
-                            <messageName>interest_on_loan</messageName>
+                            <messageName>firm_bank_interest_on_loan</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -612,6 +612,9 @@
                         </rhs>
                     </condition>
                     <outputs>
+                        <output>
+                            <messageName>firm_bank_insolvent_account</messageName>
+                        </output>
                         <output>
                             <messageName>new_entrant_loan</messageName>
                         </output>
@@ -781,7 +784,7 @@
                     <nextState>BankCreditRequest2</nextState>
                     <inputs>
                         <input>
-                            <messageName>loan_request_1</messageName>
+                            <messageName>firm_bank_loan_request_1</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -792,7 +795,7 @@
                     </inputs>
                     <outputs>
                         <output>
-                            <messageName>loan_acknowledge_1</messageName>
+                            <messageName>bank_firm_loan_acknowledge_1</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -803,12 +806,12 @@
                     <nextState>BankCreditLoanWriteOffs</nextState>
                     <inputs>
                         <input>
-                            <messageName>loan_request_2</messageName>
+                            <messageName>firm_bank_loan_request_2</messageName>
                         </input>
                     </inputs>
                     <outputs>
                         <output>
-                            <messageName>loan_acknowledge_2</messageName>
+                            <messageName>bank_firm_loan_acknowledge_2</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -820,6 +823,15 @@
                     <inputs>
                         <input>
                             <messageName>loan_writeoff</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
+                        </input>
+                        <input>
+                            <messageName>firm_bank_insolvent_account</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -853,7 +865,7 @@
                     <nextState>BankCreditCheckInterestRate</nextState>
                     <inputs>
                         <input>
-                            <messageName>interest_on_loan</messageName>
+                            <messageName>firm_bank_interest_on_loan</messageName>
                             <filter>
                                 <!-- checks self id. -->
                                 <lhs><value>a.id</value></lhs>
@@ -1644,7 +1656,7 @@
     </agents>
     <messages>
         <message>
-            <name>loan_request_1</name>
+            <name>firm_bank_loan_request_1</name>
             <description>The loan requested by a firm.</description>
             <variables>
                 <variable>
@@ -1665,7 +1677,7 @@
             </variables>
         </message>
         <message>
-            <name>loan_request_2</name>
+            <name>firm_bank_loan_request_2</name>
             <description>The loan requested by a firm.</description>
             <variables>
                 <variable>
@@ -1686,8 +1698,8 @@
             </variables>
         </message>
         <message>
-            <name>loan_acknowledge_1</name>
-            <description>The loan acknowledged by a firm.</description>
+            <name>bank_firm_loan_acknowledge_1</name>
+            <description>The loan that is acknowledged by a firms's own bank.</description>
             <variables>
                 <variable>
                     <type>int</type>
@@ -1707,8 +1719,8 @@
             </variables>
         </message>
         <message>
-            <name>loan_acknowledge_2</name>
-            <description>The loan acknowledged by a firm.</description>
+            <name>bank_firm_loan_acknowledge_2</name>
+            <description>The loan acknowledged for a firm by the other bank.</description>
             <variables>
                 <variable>
                     <type>int</type>
@@ -1852,7 +1864,7 @@
             </variables>
         </message>
         <message>
-            <name>interest_on_loan</name>
+            <name>firm_bank_interest_on_loan</name>
             <description>Quarterly interest that is paid by a firm.</description>
             <variables>
                 <variable>
@@ -1864,6 +1876,11 @@
                     <type>double</type>
                     <name>amount</name>
                     <description>The amount.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>deposit_bank_id</name>
+                    <description>The orginal bank of the firm.</description>
                 </variable>
             </variables>
         </message>
@@ -1880,6 +1897,22 @@
                     <type>double</type>
                     <name>amount</name>
                     <description></description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_bank_insolvent_account</name>
+            <description>Acount maintainance in case of insolvency.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>bank_id</name>
+                    <description>Bank ID of the account.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>liquidity</name>
+                    <description>Amount of liquidity</description>
                 </variable>
             </variables>
         </message>

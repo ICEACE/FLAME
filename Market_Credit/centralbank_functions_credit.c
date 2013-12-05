@@ -12,12 +12,15 @@ int centralbank_collect_interest_payments()
     double amount;
     INTERESTS_ACCRUED = 0;
     
+    //printf("Centalbank at interest paymements, pre-liquidity = %f\n", LIQUIDITY);
     START_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP
     amount = bank_centralbank_interest_payment_message->amount;
     INTERESTS_ACCRUED += amount;
     LIQUIDITY += amount;
+    LIQUIDITY_BANKS -= amount;
     FINISH_BANK_CENTRALBANK_INTEREST_PAYMENT_MESSAGE_LOOP
-
+    
+    //printf("Centalbank at interest paymements, post-liquidity = %f\n", LIQUIDITY);
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -29,17 +32,23 @@ int centralbank_process_debt_requests()
 {
     double amount;
     
+    //printf("Centalbank at debt requests, pre-liquidity = %f\n", LIQUIDITY);
+    
     START_BANK_CENTRALBANK_DEBT_REQUEST_MESSAGE_LOOP
     amount = bank_centralbank_debt_request_message->amount;
     LOANS_BANKS += amount;
     LIQUIDITY -= amount;
     FINISH_BANK_CENTRALBANK_DEBT_REQUEST_MESSAGE_LOOP
-
+    
+    
     START_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     amount = bank_centralbank_debt_payment_message->amount;
     LOANS_BANKS -= amount;
     LIQUIDITY += amount;
+    LIQUIDITY_BANKS -= amount;
     FINISH_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
+    
+    //printf("Centalbank at debt requests, post-liquidity = %f\n", LIQUIDITY);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -85,6 +94,7 @@ int centralbank_process_government_requests()
     amount = gov_centralbank_debt_payment_message->amount;
     LOANS_GOVERNMENT -= amount;
     LIQUIDITY += amount;
+    LIQUIDITY_GOVERNMENT -= amount;
     FINISH_GOV_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */
