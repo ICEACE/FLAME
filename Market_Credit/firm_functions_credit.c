@@ -349,7 +349,7 @@ int firm_credit_pay_interest_on_loans()
         bank = LOAN_LIST[i].bank_id;
         to_be_paid = LOAN_LIST[i].to_be_paid;
         LIQUIDITY -= to_be_paid;
-        add_firm_bank_interest_on_loan_message(bank, to_be_paid, BANK_ID);
+        add_firm_bank_interest_on_loan_message(bank, to_be_paid);
     }
 
  	return 0; /* Returning zero means the agent is not removed */

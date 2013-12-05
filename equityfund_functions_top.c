@@ -19,7 +19,7 @@ int equityfund_init()
         strcpy(filename, "./outputs/data/EquityFund_snapshot.txt");
         file1 = fopen(filename,"w");
         fprintf(file1,"%s %s %s %s %s %s %s %s\n","IT_NO", "DIVIDENDS_RECIEVED", "DIVIDENDS_PAID", "SHARE_FIRMS", "SHARE_CONSTRUCTION_FIRMS", "SHARE_BANKS", "DIVIDENDS_RETAINED", "LIQUIDITY");
-        //fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
+        //fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY_ACTUAL);
         fclose(file1);
         free(filename);
     }
@@ -49,7 +49,7 @@ int equityfund_iterate()
 int equityfund_update_deposit()
 {
     
-    add_fund_centralbank_update_deposit_message(LIQUIDITY);
+    add_fund_centralbank_update_deposit_message(LIQUIDITY_ACTUAL);
     
 	return 0; /* Returning zero means the agent is not removed */
 }

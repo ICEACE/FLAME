@@ -183,8 +183,6 @@ int bank_credit_process_loan_requests_1()
     if (EQUITY >= CAPITAL_ADEQUECY_RATIO * risk_weighted_assets) {
         LOANS += amount;
         LIQUIDITY -= amount;
-        /*The firm is the banks customer and this customers deposit account is updated.*/
-        DEPOSITS += amount;
         add_bank_firm_loan_acknowledge_1_message(ID, firm, amount);
         
         if (PRINT_DEBUG_MODE){
@@ -246,6 +244,7 @@ int bank_credit_recieve_loan_writeoffs()
     
     START_FIRM_BANK_INSOLVENT_ACCOUNT_MESSAGE_LOOP
     amount = firm_bank_insolvent_account_message->liquidity;
+    LIQUIDITY += amount;
     DEPOSITS -= amount;
     FINISH_FIRM_BANK_INSOLVENT_ACCOUNT_MESSAGE_LOOP
     
@@ -296,16 +295,11 @@ int bank_credit_recieve_new_entrant_loan_requests()
 int bank_credit_collect_loan_interests()
 {
     double amount;
-    int deposit_bank;
     
     START_FIRM_BANK_INTEREST_ON_LOAN_MESSAGE_LOOP
     amount = firm_bank_interest_on_loan_message->amount;
-    deposit_bank = firm_bank_interest_on_loan_message->deposit_bank_id;
     LIQUIDITY += amount;
     INTERESTS_ACCRUED += amount;
-    if (ID == deposit_bank) {
-        DEPOSITS -= amount;
-    }
     FINISH_FIRM_BANK_INTEREST_ON_LOAN_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */

@@ -1310,6 +1310,11 @@
                     <description>Liquidity.</description>
                 </variable>
                 <variable>
+                    <type>double</type>
+                    <name>liquidity_actual</name>
+                    <description>Liquidity after dividend payments</description>
+                </variable>
+                <variable>
                     <type>int</type>
                     <name>n_shares</name>
                     <description>Number of households(shares) to recieve liquid shares from firm net income.</description>
@@ -1876,11 +1881,6 @@
                     <type>double</type>
                     <name>amount</name>
                     <description>The amount.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>deposit_bank_id</name>
-                    <description>The orginal bank of the firm.</description>
                 </variable>
             </variables>
         </message>

@@ -20,20 +20,17 @@ int centralbank_init_balancesheet()
     LIQUIDITY_BANKS = 0;
     START_BANK_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     amount = bank_centralbank_init_deposit_message->amount;
-    LIQUIDITY += amount;
     LIQUIDITY_BANKS += amount;
     FINISH_BANK_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     
     START_GOV_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     amount = gov_centralbank_init_deposit_message->amount;
-    LIQUIDITY += amount;
     LIQUIDITY_GOVERNMENT = amount;
     FINISH_GOV_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     
    
     START_FUND_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     amount = fund_centralbank_init_deposit_message->amount;
-    LIQUIDITY += amount;
     LIQUIDITY_EQUITYFUND = amount;
     FINISH_FUND_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     
@@ -41,6 +38,7 @@ int centralbank_init_balancesheet()
     LOANS_GOVERNMENT = 0;
     TOTAL_WRITEOFFS = 0;
     
+    LIQUIDITY = LIQUIDITY_BANKS + LIQUIDITY_EQUITYFUND + LIQUIDITY_GOVERNMENT;
     TOTAL_ASSETS = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
     EQUITY = TOTAL_ASSETS - (LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND + LIQUIDITY_BANKS + FIAT_MONEY);
     

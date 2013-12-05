@@ -83,6 +83,8 @@ int equityfund_credit_distribute_shares()
         printf("Equity Fund: Shares %d, Dividends Paid = %f, Per Share = %f \n", N_SHARES, DIVIDENDS_PAID, per_share);
     }
     
+    LIQUIDITY_ACTUAL = LIQUIDITY;
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -160,7 +162,7 @@ int equityfund_credit_compute_income_statement()
         strcpy(filename, "./outputs/data/EquityFund_snapshot.txt");
         
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
+        fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY_ACTUAL);
         fclose(file1);
         free(filename);
     }
