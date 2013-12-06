@@ -884,10 +884,13 @@ firm_loans <- sum(Firm_init[[3]])
 bank_risky <- household_mortgages + firm_loans
 
 #### Flow of Housing Units - New sales VS Total owned ####
-HH241 <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
-HH000 <- nHouseholds * 5
-new <- sum(CFirmMonthly$SALES)
-(new + HH000) == HH241
+HHLast <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
+HHFirst <- sum(head(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
+new <- sum(CFirmMonthly$SALES) - sum(CFirmMonthly$SALES[1:3])
+HHLast
+HHFirst
+new
+HHLast - HHFirst
 
 #### Flow of Consumption Goods - Sales VS Buys ####
 HH240 <- sum(tail(HouseholdWeekly$quantity_bought, 800 * 4))
