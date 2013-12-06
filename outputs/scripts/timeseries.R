@@ -875,13 +875,24 @@ HH_file = paste(data_dir, '/VV/', "Household_ID_Liquidity_Mortgages.txt", sep ='
 HH_init <- read.csv(HH_file, sep = " ", header = F, stringsAsFactors = F)
 Firm_init <- read.csv(Firm_file, sep = " ", header = F, stringsAsFactors = F)
 
+## Initial Deposits #
 household_deposits <- sum(HH_init[[2]])
 firm_deposits <- sum(Firm_init[[2]])
 bank_deposits <- firm_deposits + household_deposits
+sum(BankBalance$DEPOSITS[1:2])
+bank_deposits
 
+### Initial Mortgages ##
 household_mortgages <- sum(HH_init[[3]])
+mortgages <- sum(BankBalance$MORTGAGES[1:2])
+mortgages
+household_mortgages
+
+### Initial Loans ##
 firm_loans <- sum(Firm_init[[3]])
-bank_risky <- household_mortgages + firm_loans
+loans <- sum(BankBalance$LOANS[1:2])
+loans
+firm_loans
 
 #### Flow of Housing Units - New sales VS Total owned ####
 HHLast <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
@@ -893,9 +904,20 @@ new
 HHLast - HHFirst
 
 #### Flow of Consumption Goods - Sales VS Buys ####
-HH240 <- sum(tail(HouseholdWeekly$quantity_bought, 800 * 4))
-F240 <- sum(tail(FirmMonthly$SALES,12))
-HH240 == F240
+HHLast <- tail(HouseholdWeekly, 800 * 8)
+head(HHLast)
+tail(HHLast)
+FirmLast <- tail(FirmMonthly,12)
+FirmLast
+HHPreLast <- sum(head(HHLast$quantity_bought, 800 * 4))
+FirmLast <- sum(tail(FirmLast$SALES,12))
+FirmLast
+HHPreLast
+
+#### Mortgages ####
+
+
+
 
 #### Loans - Firms VS Banks ###
 F4 <- sum(FirmBalance[37:48,]$DEBT)

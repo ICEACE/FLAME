@@ -8,6 +8,17 @@
  */
 int household_init_post_id()
 {
+    /*** Balancesheet Verification */
+    char * filename;
+    FILE * file1;
+    filename = malloc(100*sizeof(char));
+    filename[0]=0;
+    strcpy(filename, "./outputs/data/VV/Household_ID_Liquidity_Mortgages.txt");
+    file1 = fopen(filename,"w");
+    //fprintf(file1,"%d %f %f\n", ID, LIQUIDITY, MORTGAGES);
+    fclose(file1);
+    free(filename);
+    
     add_household_jpoffice_id_message(ID);
     
 	return 0; /* Returning zero means the agent is not removed */

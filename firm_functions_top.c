@@ -10,6 +10,17 @@ int firm_init_post_id()
 {
     add_firm_jpoffice_id_message(ID, ISCONSTRUCTOR);
     
+    /*** Balancesheet Verification. */
+    char * filename;
+    FILE * file1;
+    filename = malloc(40*sizeof(char));
+    filename[0]=0;
+    strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
+    file1 = fopen(filename,"w");
+    //fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
+    fclose(file1);
+    free(filename);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -93,7 +104,7 @@ int firm_init_balancesheet()
     filename = malloc(40*sizeof(char));
     filename[0]=0;
     strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
-    file1 = fopen(filename,"a+");
+    file1 = fopen(filename,"a");
     fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
     fclose(file1);
     free(filename);
