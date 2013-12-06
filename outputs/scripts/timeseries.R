@@ -725,7 +725,80 @@ plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$money_to_spend, 
 plot_time_series_mean_file(nHouseholds, nWeeks, HouseholdWeekly$money_spent, "Weeks", "Money Spent (mean)", "Households", "HouseholdsMoneySpentWeekly.png")
 
 
-########################## Experiments #######
+
+
+
+###### Initialization Check ######
+Firm_file = paste(data_dir, '/VV/', "Firm_ID_Liquidity_Loan.txt", sep ='')
+HH_file = paste(data_dir, '/VV/', "Household_ID_Liquidity_Mortgages.txt", sep ='')
+HH_init <- read.csv(HH_file, sep = " ", header = F, stringsAsFactors = F)
+Firm_init <- read.csv(Firm_file, sep = " ", header = F, stringsAsFactors = F)
+
+## Initial Deposits #
+household_deposits <- sum(HH_init[[2]])
+firm_deposits <- sum(Firm_init[[2]])
+bank_deposits <- firm_deposits + household_deposits
+sum(BankBalance$DEPOSITS[1:2])
+bank_deposits
+
+### Initial Mortgages ##
+HHMortgagesInit <- sum(HH_init[[3]])
+BankMortgagesInit <- sum(BankBalance$MORTGAGES[1:2])
+HHMortgagesInit - BankMortgagesInit
+
+### Initial Loans ##
+firm_loans <- sum(Firm_init[[3]])
+loans <- sum(BankBalance$LOANS[1:2])
+loans
+firm_loans
+
+###### Flow of Housing Units - New sales VS Total owned ####
+HHLast <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
+HHFirst <- sum(head(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
+new <- sum(CFirmMonthly$SALES) - sum(CFirmMonthly$SALES[1:3])
+HHLast
+HHFirst
+new
+HHLast - HHFirst
+
+###### Flow of Consumption Goods - Sales VS Buys ####
+HHLast <- tail(HouseholdWeekly, 800 * 8)
+head(HHLast)
+tail(HHLast)
+FirmLast <- tail(FirmMonthly,12)
+FirmLast
+HHPreLast <- sum(head(HHLast$quantity_bought, 800 * 4))
+FirmLast <- sum(tail(FirmLast$SALES,12))
+FirmLast
+HHPreLast
+
+#### Mortgages ####
+HHMortgagesFirst <- sum(head(HouseholdQuarterly$MORTGAGES, 800))
+BankMortgagesFirst <- sum(head(BankBalance$MORTGAGES,2))
+HHMortgagesFirst - HHMortgagesInit
+BankMortgagesFirst - HHMortgagesInit
+
+HHMortgagesSecond <- sum(HouseholdQuarterly[801:1600,]$MORTGAGES)
+BankMortgagesSecond <- sum(BankBalance[3:4,]$MORTGAGES)
+BankMortgagesSecond - HHMortgagesSecond
+
+
+head(tail(HouseholdQuarterly$MORTGAGES, 800))
+tail(BankBalance$MORTGAGES,2)
+sum(tail(BankBalance$MORTGAGES,2)) - sum(tail(HouseholdQuarterly$MORTGAGES, 800))
+
+
+#### Loans - Firms VS Banks ###
+F4 <- sum(FirmBalance[37:48,]$DEBT)
+CF4 <- sum(CFirmBalance[10:12,]$DEBT)
+B5 <- sum(tail(BankBalance, 2)$LOANS)
+F4 + CF4 == B5
+
+
+
+
+
+########################## Experiments : Based on 20 random seeds and full population run #######
 output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
 data_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/data/exps"
@@ -867,75 +940,3 @@ firmsize_mean <- get_mean_of_experiments(nMonths, firmsize_set)
 plot_mean_experiments(nMonths, firmsize_mean)
 
 HouseholdQuarterlySet <- get_experiment_data_set(data_dir, "Household_Quarterly.txt")
-
-
-###### Initialization Check ######
-Firm_file = paste(data_dir, '/VV/', "Firm_ID_Liquidity_Loan.txt", sep ='')
-HH_file = paste(data_dir, '/VV/', "Household_ID_Liquidity_Mortgages.txt", sep ='')
-HH_init <- read.csv(HH_file, sep = " ", header = F, stringsAsFactors = F)
-Firm_init <- read.csv(Firm_file, sep = " ", header = F, stringsAsFactors = F)
-
-## Initial Deposits #
-household_deposits <- sum(HH_init[[2]])
-firm_deposits <- sum(Firm_init[[2]])
-bank_deposits <- firm_deposits + household_deposits
-sum(BankBalance$DEPOSITS[1:2])
-bank_deposits
-
-### Initial Mortgages ##
-HHMortgagesInit <- sum(HH_init[[3]])
-BankMortgagesInit <- sum(BankBalance$MORTGAGES[1:2])
-HHMortgagesInit - BankMortgagesInit
-
-### Initial Loans ##
-firm_loans <- sum(Firm_init[[3]])
-loans <- sum(BankBalance$LOANS[1:2])
-loans
-firm_loans
-
-###### Flow of Housing Units - New sales VS Total owned ####
-HHLast <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
-HHFirst <- sum(head(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
-new <- sum(CFirmMonthly$SALES) - sum(CFirmMonthly$SALES[1:3])
-HHLast
-HHFirst
-new
-HHLast - HHFirst
-
-###### Flow of Consumption Goods - Sales VS Buys ####
-HHLast <- tail(HouseholdWeekly, 800 * 8)
-head(HHLast)
-tail(HHLast)
-FirmLast <- tail(FirmMonthly,12)
-FirmLast
-HHPreLast <- sum(head(HHLast$quantity_bought, 800 * 4))
-FirmLast <- sum(tail(FirmLast$SALES,12))
-FirmLast
-HHPreLast
-
-#### Mortgages ####
-HHMortgagesFirst <- sum(head(HouseholdQuarterly$MORTGAGES, 800))
-BankMortgagesFirst <- sum(head(BankBalance$MORTGAGES,2))
-HHMortgagesFirst - HHMortgagesInit
-BankMortgagesFirst - HHMortgagesInit
-
-HHMortgagesSecond <- sum(HouseholdQuarterly[801:1600,]$MORTGAGES)
-BankMortgagesSecond <- sum(BankBalance[3:4,]$MORTGAGES)
-BankMortgagesSecond - HHMortgagesSecond
-
-
-sum(head(HouseholdQuarterly$MORTGAGES, 800))
-BankMortgagesStart <- sum(head(BankBalance$MORTGAGES,2))
-HHMortgagesStart - HHMortgagesInit
-
-head(tail(HouseholdQuarterly$MORTGAGES, 800))
-tail(BankBalance$MORTGAGES,2)
-sum(tail(BankBalance$MORTGAGES,2)) - sum(tail(HouseholdQuarterly$MORTGAGES, 800))
-
-
-#### Loans - Firms VS Banks ###
-F4 <- sum(FirmBalance[37:48,]$DEBT)
-CF4 <- sum(CFirmBalance[10:12,]$DEBT)
-B5 <- sum(tail(BankBalance, 2)$LOANS)
-F4 + CF4 == B5
-
