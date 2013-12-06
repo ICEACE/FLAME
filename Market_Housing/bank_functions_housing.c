@@ -79,7 +79,6 @@ int bank_housing_recieve_mortgages()
     MORTGAGES -= principal;
     LIQUIDITY += principal + interest;
     /* Households gets mortgages from their own bank only. */
-    //DEPOSITS -= principal + interest;
     INTERESTS_ACCRUED += interest;
     
 	FINISH_MORTGAGE_PAYMENT_MESSAGE_LOOP

@@ -667,7 +667,7 @@ if (length(Illiquidities[["IT"]]) > 0) {
 	freqilliquid <- get_occurances_distro(niter, Illiquidities[["IT"]])
 }
 
-plot_time_series_multiline_point_file(nQuarters, freqmort, freqinsolv, freqilliquid, "Quarters", "Frequency", "Defaults", "Defaults.png", c("Mortgages", "Insolvencies", "Illiquidities"))
+plot_time_series_multiline_point_file(nQuarters, freqmort, freqinsolv, freqilliquid, "Quarters", "Frequency", "Defaults", "aWriteoffTypesAndFrequencies.png", c("Mortgages", "Insolvencies", "Illiquidities"))
 
 ####### Validation - End #########
 
