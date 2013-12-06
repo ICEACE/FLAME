@@ -425,12 +425,12 @@ int household_housing_debt_writeoff()
     init_mortgage(&mort);
     
     total_income = LABOUR_INCOME + CAPITAL_INCOME;
-    double new_mortgage = 0;
+    
     if (EXPECTED_HOUSING_PAYMENT > HOUSEHOLD_MORTGAGE_WRITEOFF_HIGH * total_income)
     {
         pre_mortgages = MORTGAGES;
-        new_mortgage = (HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income) / (MORTGAGES_INTEREST_RATE / 4.0);
-        writeoff = pre_mortgages - new_mortgage;
+        MORTGAGES = (HOUSEHOLD_MORTGAGE_WRITEOFF_LOW * total_income) / (MORTGAGES_INTEREST_RATE / 4.0);
+        writeoff = pre_mortgages - MORTGAGES;
         
         if (WARNING_MODE) {
             if (writeoff < 0 || MORTGAGES < 0) {

@@ -883,10 +883,9 @@ sum(BankBalance$DEPOSITS[1:2])
 bank_deposits
 
 ### Initial Mortgages ##
-household_mortgages <- sum(HH_init[[3]])
-mortgages <- sum(BankBalance$MORTGAGES[1:2])
-mortgages
-household_mortgages
+HHMortgagesInit <- sum(HH_init[[3]])
+BankMortgagesInit <- sum(BankBalance$MORTGAGES[1:2])
+HHMortgagesInit - BankMortgagesInit
 
 ### Initial Loans ##
 firm_loans <- sum(Firm_init[[3]])
@@ -894,7 +893,7 @@ loans <- sum(BankBalance$LOANS[1:2])
 loans
 firm_loans
 
-#### Flow of Housing Units - New sales VS Total owned ####
+###### Flow of Housing Units - New sales VS Total owned ####
 HHLast <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
 HHFirst <- sum(head(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
 new <- sum(CFirmMonthly$SALES) - sum(CFirmMonthly$SALES[1:3])
@@ -903,7 +902,7 @@ HHFirst
 new
 HHLast - HHFirst
 
-#### Flow of Consumption Goods - Sales VS Buys ####
+###### Flow of Consumption Goods - Sales VS Buys ####
 HHLast <- tail(HouseholdWeekly, 800 * 8)
 head(HHLast)
 tail(HHLast)
@@ -915,8 +914,23 @@ FirmLast
 HHPreLast
 
 #### Mortgages ####
+HHMortgagesFirst <- sum(head(HouseholdQuarterly$MORTGAGES, 800))
+BankMortgagesFirst <- sum(head(BankBalance$MORTGAGES,2))
+HHMortgagesFirst - HHMortgagesInit
+BankMortgagesFirst - HHMortgagesInit
+
+HHMortgagesSecond <- sum(HouseholdQuarterly[801:1600,]$MORTGAGES)
+BankMortgagesSecond <- sum(BankBalance[3:4,]$MORTGAGES)
+BankMortgagesSecond - HHMortgagesSecond
 
 
+sum(head(HouseholdQuarterly$MORTGAGES, 800))
+BankMortgagesStart <- sum(head(BankBalance$MORTGAGES,2))
+HHMortgagesStart - HHMortgagesInit
+
+head(tail(HouseholdQuarterly$MORTGAGES, 800))
+tail(BankBalance$MORTGAGES,2)
+sum(tail(BankBalance$MORTGAGES,2)) - sum(tail(HouseholdQuarterly$MORTGAGES, 800))
 
 
 #### Loans - Firms VS Banks ###
