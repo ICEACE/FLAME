@@ -752,6 +752,8 @@ loans <- sum(BankBalance$LOANS[1:2])
 loans
 firm_loans
 
+
+
 ###### Flow of Housing Units - New sales VS Total owned ####
 HHLast <- sum(tail(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
 HHFirst <- sum(head(HouseholdMonthlyFirst$HOUSING_UNITS, 800))
@@ -789,10 +791,18 @@ sum(tail(BankBalance$MORTGAGES,2)) - sum(tail(HouseholdQuarterly$MORTGAGES, 800)
 
 
 #### Loans - Firms VS Banks ###
-F4 <- sum(FirmBalance[37:48,]$DEBT)
-CF4 <- sum(CFirmBalance[10:12,]$DEBT)
-B5 <- sum(tail(BankBalance, 2)$LOANS)
-F4 + CF4 == B5
+Firm_file = paste(data_dir, '/VV/', "Firm_ITNO_ID_DEBT_BANK0LOAN_BANK1LOAN.txt", sep ='')
+FirmLoans <- read.csv(Firm_file, sep = " ", header = F, stringsAsFactors = F)
+BankBalance <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+
+BankLoansFirst <- sum(BankBalance[1:2,]$LOANS)
+BankLoansSecond <- sum(BankBalance[3:4,]$LOANS)
+BankLoansLast <- sum(tail(BankBalance, 2)$LOANS)
+FirmLoansFirst <- sum(FirmLoans[1:15,]$V3)
+FirmLoansSecond <- sum(FirmLoans[16:30,]$V3)
+FirmLoansLast <- sum(tail(FirmLoans, 15)$V3)
+
+
 
 
 

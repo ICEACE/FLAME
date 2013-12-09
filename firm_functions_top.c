@@ -11,15 +11,18 @@ int firm_init_post_id()
     add_firm_jpoffice_id_message(ID, ISCONSTRUCTOR);
     
     /*** Balancesheet Verification. */
-    char * filename;
-    FILE * file1;
-    filename = malloc(40*sizeof(char));
-    filename[0]=0;
-    strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
-    file1 = fopen(filename,"w");
-    //fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
-    fclose(file1);
-    free(filename);
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
+        file1 = fopen(filename,"w");
+        //fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
+        fclose(file1);
+        free(filename);
+    }
+    
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -99,15 +102,18 @@ int firm_init_balancesheet()
     add_firm_bank_init_deposit_message(BANK_ID, LIQUIDITY);
     
     /*** Balancesheet Verification. */
-    char * filename;
-    FILE * file1;
-    filename = malloc(40*sizeof(char));
-    filename[0]=0;
-    strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
-    file1 = fopen(filename,"a");
-    fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
-    fclose(file1);
-    free(filename);
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
+        fclose(file1);
+        free(filename);
+
+    }
     
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -125,6 +131,17 @@ int firm_iterate()
             char * filename;
             FILE * file1;
             filename = malloc(100*sizeof(char));
+            
+            /* @\fn: firm_credit_compute_income_statement() */
+            /*** Balancesheet Verification. */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/VV/Firm_ITNO_ID_DEBT_BANK0LOAN_BANK1LOAN.txt");
+            file1 = fopen(filename,"w");
+            //fprintf(file1,"%d %d %f %f %f\n",IT_NO, ID, DEBT, LOAN_LIST[0].amount, LOAN_LIST[1].amount);
+            fclose(file1);
+            /***/
+            
+            
             
             if (ISCONSTRUCTOR) {
                 /* @\fn: firm_production_construction_plan() */
@@ -199,10 +216,10 @@ int firm_iterate()
                 //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
                 fclose(file1);
             }
-            
             free(filename);
         }
     }
+    
     
     IT_NO++;
 	return 0; /* Returning zero means the agent is not removed */

@@ -50,7 +50,7 @@ int household_housing_check_wealth()
      */
     wealth = LIQUIDITY + HOUSING_VALUE;
     
-    if (wealth == 0){
+    if (fabs(wealth) <= 0.0001){
         EQUITY_RATIO = 0;
     } else {
         EQUITY_RATIO = EQUITY / wealth;
@@ -58,7 +58,7 @@ int household_housing_check_wealth()
     
     if (EQUITY_RATIO <= 0 ) {
         if (WARNING_MODE) {
-            printf("Warning @household_housing_check_wealth(): Household %d has a negative equity ratio = %f \n", ID, EQUITY_RATIO);
+            printf("Warning @household_housing_check_wealth(): Household %d has a negative equity_ratio = %f, Liquidity = %f, Housing Value = %f, Equity = %f \n", ID, EQUITY_RATIO, LIQUIDITY, HOUSING_VALUE, EQUITY);
         }
     }
     
@@ -79,12 +79,14 @@ int household_housing_enter_market()
     /* Cash rich households are allowed to use cash to finance housing.
      This needs to be checked with the model design.
      */
-    cash_allowance = 0.5 * HOUSING_PRICE;
+    cash_allowance = 0.9 * HOUSING_PRICE;
     if (LIQUIDITY > cash_allowance) {
         cash = LIQUIDITY - cash_allowance;
     } else {
         cash = 0;
     }
+    /* For the consistancy with MATLAB model, above option is by-passed.*/
+    cash = 0;
     add_buy_housing_message(ID, BANK_ID, cash, income, HOUSING_PAYMENT);
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -349,6 +351,7 @@ int household_housing_pay_mortgages()
     
     for (i = 0; i < size; i++) {
         mort = MORTGAGES_LIST.array[i];
+        if (mort.principal < 0.00001) { continue;}
         interest_paid = mort.quarterly_interest / 3;
         principal_paid = mort.quarterly_principal / 3;
         principal_left = mort.principal - principal_paid;
@@ -372,7 +375,7 @@ int household_housing_pay_mortgages()
         HOUSING_PAYMENT += MORTGAGE_COSTS[i];
     }
     
-    /* Finish off very little amount of mortgages. */
+    /* Finish off very little amount of mortgages.
     if (MORTGAGES < LIQUIDITY) {
         total_principal_paid = 0;
         for (i = 0; i < size; i++) {
@@ -387,6 +390,7 @@ int household_housing_pay_mortgages()
         HOUSING_PAYMENT += total_principal_paid;
         for (i = 0; i < size; i++) {remove_mortgage(&MORTGAGES_LIST, 0);}
     }
+    */
     
     free_mortgage(&mort);
 	return 0; /* Returning zero means the agent is not removed */

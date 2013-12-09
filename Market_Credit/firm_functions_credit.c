@@ -42,6 +42,7 @@ int firm_credit_compute_income_statement()
     int bank;
     double to_be_paid;
     
+    
     TOTAL_INTEREST_PAYMENTS = 0;
     
     for (int i = 0; i < 2; i++) {
@@ -73,6 +74,12 @@ int firm_credit_compute_income_statement()
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %f %f %f %f %f %f\n", IT_NO, ID, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
         }
+        
+        /*** Balancesheet Verification.
+        file1 = fopen(filename,"a");
+        fprintf("%d %d %f %f %f\n",IT_NO, ID, DEBT, LOAN_LIST[0].amount, LOAN_LIST[1].amount);
+         */
+        
         fclose(file1);
         free(filename);
     }
@@ -164,7 +171,10 @@ int firm_credit_borrow_loans_1()
 
     START_BANK_FIRM_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
     amount = bank_firm_loan_acknowledge_1_message->amount;
- 	FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
+    LIQUIDITY += amount;
+    DEBT += amount;
+    LOAN_LIST[0].amount += amount;
+    FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
     
     if (PRINT_DEBUG_MODE){
         printf("Firm ID = %d @ Loan Stage 1 received %f of loans. \n", ID, amount);
@@ -172,18 +182,12 @@ int firm_credit_borrow_loans_1()
     
     if (amount >= LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
-        LIQUIDITY += amount;
-        DEBT += amount;
-        LOAN_LIST[0].amount += amount;
         HASLOAN = 1;
     }
     /* Shall we allow partial loans?
      If so at bank side partial loan should be processed.
      */
     else{
-        LIQUIDITY += amount;
-        DEBT += amount;
-        LOAN_LIST[0].amount += amount;
         LIQUIDITY_NEED -= amount;
         add_firm_bank_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
     }
@@ -201,7 +205,10 @@ int firm_credit_borrow_loans_2()
     
     START_BANK_FIRM_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
     amount = bank_firm_loan_acknowledge_2_message->amount;
- 	FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
+    LIQUIDITY += amount;
+    DEBT += amount;
+    LOAN_LIST[1].amount += amount;
+    FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
 
     if (PRINT_DEBUG_MODE){
         printf("Firm ID = %d @ Loan Stage 2 received %f of loans. \n", ID, amount);
@@ -209,9 +216,6 @@ int firm_credit_borrow_loans_2()
 
     if (amount >= LIQUIDITY_NEED){
         LIQUIDITY_NEED = 0;
-        LIQUIDITY += amount;
-        DEBT += amount;
-        LOAN_LIST[1].amount += amount;
         HASLOAN = 1;
     }
     
@@ -231,12 +235,18 @@ int firm_credit_request_equityfund_investment()
     if (LIQUIDITY_NEED <= 0) {
         DIVIDENDS_TO_BE_PAID = 0;
         PLANNED_INVESTMENT_COSTS = 0;
-        LIQUIDITY_NEED = 0 ;}
-
-    if (LIQUIDITY_NEED > 0){
-        if (TOTAL_ASSETS == 0){ return 0;}
+        LIQUIDITY_NEED = 0 ;
+    }
+    else {
+        if (TOTAL_ASSETS == 0) {
+            if (DEBT <= 0) {
+                add_fund_request_message(ID, LIQUIDITY_NEED);
+            }
+        return 0;
+        }
+        
         if ((EQUITY / TOTAL_ASSETS) > FIRMS_MINIMUM_EQUITY_RATIO) {
-           add_fund_request_message(ID, LIQUIDITY_NEED); 
+            add_fund_request_message(ID, LIQUIDITY_NEED);
         }
     }
     
@@ -297,6 +307,8 @@ int firm_credit_illiquidity_bankrupt()
     else {
         ratio = 0;
     }
+    
+    if (ratio >= 1) { return 0;}
     
     DEBT = 0;
     for (int i = 0; i < 2; i++) {
@@ -411,9 +423,11 @@ int firm_credit_do_balance_sheet()
     
     EQUITY = TOTAL_ASSETS - DEBT;
     
-    if (EQUITY < 0) { ISINSOLVENT = 1; }
+    if (EQUITY < 0) {
+        ISINSOLVENT = 1; }
     
     if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
+        
         char * filename;
         FILE * file1;
         filename = malloc(100*sizeof(char));
@@ -457,7 +471,7 @@ int firm_credit_insolvency_bankruptcy()
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
         amount = LOAN_LIST[i].amount;
-        if (amount > 0.1) {
+        if (amount > 0) {
             add_loan_writeoff_message(bank, amount);
             LOAN_LIST[i].amount = 0;
             

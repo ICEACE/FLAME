@@ -40,32 +40,61 @@ int household_credit_update_mortgage_rates()
     int size, i;
     mortgage mort;
     init_mortgage(&mort);
-    double principle;
-    int quarters_left;
-    double new_quarterly_interest;
-    double new_quarterly_principal;
-    double annuity;
-    double d1, d2;
+    double principal;
     
     size = MORTGAGES_LIST.size;
+    i = 0;
+    while (i < size) {
+        mort = MORTGAGES_LIST.array[i];
+        principal = mort.principal;
+        
+        if (principal < 0.1) {
+            remove_mortgage(&MORTGAGES_LIST, i);
+            size--;
+            continue;
+        }
+        
+        if (mort.quarters_left == 0){
+            if (principal >= 0.1) {
+                MORTGAGES_LIST.array[i].quarters_left = 1;
+                if (WARNING_MODE) {
+                    printf("Warning @household_credit_update_mortgage_rates(): Mortgage life is over but the debt is not finished! Household = %d, The mortgage = %f\n", ID, principal);
+                }
+            }
+            else{
+                remove_mortgage(&MORTGAGES_LIST, i);
+                size--;
+                continue;
+            }
+        }
+        
+        i++;
+    }
     
     if (size == 0) {
         free_mortgage(&mort);
         return 0;
     }
     
+    int quarters_left;
+    double new_quarterly_interest;
+    double new_quarterly_principal;
+    double annuity;
+    double d1, d2;
+
+    
     EXPECTED_HOUSING_PAYMENT = 0;
     for (i = 0; i < size; i++) {
         mort = MORTGAGES_LIST.array[i];
-        principle = mort.principal;
+        principal = mort.principal;
         quarters_left = mort.quarters_left - 1;
         
         d1 = MORTGAGES_INTEREST_RATE/4;
         d2 = d1 * pow((1 + d1), quarters_left);
         annuity = 1/d1 - 1/d2;
         
-        new_quarterly_interest = principle * d1;
-        new_quarterly_principal = (principle / annuity) - new_quarterly_interest;
+        new_quarterly_interest = principal * d1;
+        new_quarterly_principal = (principal / annuity) - new_quarterly_interest;
         
         MORTGAGES_LIST.array[i].quarters_left = quarters_left;
         MORTGAGES_LIST.array[i].quarterly_interest = new_quarterly_interest;
