@@ -310,7 +310,7 @@
                 </function>
                 <function>
                     <name>household_labour_receive_wage</name>
-                    <description>Recieves payment and update wage history.</description>
+                    <description>Receives payment and update wage history.</description>
                     <currentState>HHLabourPayroll</currentState>
                     <nextState>HHLabourEmploymentStatus</nextState>
                     <condition>
@@ -319,6 +319,16 @@
                             <phase>a.day_of_month_wage_recieved</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>firm_household_wage_payment</messageName>
+                            <filter>
+                                <lhs><value>a.my_employer_id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.firm_id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
                 </function>
                 <function>
                     <name>household_labour_report_status</name>
@@ -571,6 +581,9 @@
                         </time>
                     </condition>
                     <outputs>
+                        <output>
+                            <messageName>firm_household_wage_payment</messageName>
+                        </output>
                         <output>
                             <messageName>labour_tax</messageName>
                         </output>
@@ -866,6 +879,22 @@
                     <type>int</type>
                     <name>nshares</name>
                     <description>Number of shares one own.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_household_wage_payment</name>
+            <description>Posted by the firm agent.</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>firm_id</name>
+                    <description>The firm id.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>wage</name>
+                    <description>Current wage offer by the firm.</description>
                 </variable>
             </variables>
         </message>

@@ -1228,11 +1228,6 @@
                     <description>Households updates annuity, principal and interest payment amounts.</description>
                     <currentState>HHCreditUpdateAnnuity</currentState>
                     <nextState>HHCreditCheckTaxRate</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>interest_rate</messageName>
-                        </input>
-                    </inputs>
                 </function>
                 <function>
                     <name>household_credit_check_tax_rate</name>

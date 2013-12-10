@@ -64,7 +64,10 @@ int firm_labour_fire()
  */
 int firm_labour_job_announcement_stage1()
 {
-    WAGE_OFFER = 1.01 * AVERAGE_WAGE;
+    if (WAGE_OFFER <= AVERAGE_WAGE) {
+        WAGE_OFFER = 1.01 * AVERAGE_WAGE;
+    }
+    
     for (int i = 0; i < VACANCIES; i++) {
         add_vacancy_stage1_message(ID, WAGE_OFFER);
     }
@@ -187,13 +190,16 @@ int firm_labour_pay_wages()
 {
     double payrolls;
     double labour_tax = 0;
+ 
+    add_firm_household_wage_payment_message(ID, WAGE_OFFER);
     
     payrolls = (double)(WAGE_OFFER * NO_EMPLOYEES);
     labour_tax = payrolls * LABOUR_TAX_RATE;
     add_labour_tax_message(labour_tax);
     LIQUIDITY -= payrolls;
     LABOUR_COSTS += payrolls;
-     
+    
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -222,13 +228,6 @@ int firm_labour_trace_wages(){
     } else {
         AVERAGE_WAGE = total_wages / (total - unemployed);
     }
-    
-    
-    //if (WAGE_OFFER < AVERAGE_WAGE) {
-    //    /* %1 increase */
-    //    WAGE_OFFER = WAGE_OFFER * 1.01;
-    //}
-
     
 	return 0; /* Returning zero means the agent is not removed */
 }

@@ -104,14 +104,16 @@ int household_labour_report_status()
  */
 int household_labour_receive_wage()
 {
-    if (MY_EMPLOYER_ID == 0) {
-        WAGE = 0;
-    }
-    else {
-        double net_wage = 0;
-        net_wage = WAGE * (1.0 - LABOUR_TAX_RATE);
-        LIQUIDITY += net_wage;
-    }
+    
+    WAGE = 0;
+    START_FIRM_HOUSEHOLD_WAGE_PAYMENT_MESSAGE_LOOP
+    WAGE = firm_household_wage_payment_message->wage;
+    FINISH_FIRM_HOUSEHOLD_WAGE_PAYMENT_MESSAGE_LOOP
+    
+    double net_wage = 0;
+    net_wage = WAGE * (1.0 - LABOUR_TAX_RATE);
+    LIQUIDITY += net_wage;
+    
     
     PREVIOUS_WAGES[2] = PREVIOUS_WAGES[1];
     PREVIOUS_WAGES[1] = PREVIOUS_WAGES[0];
