@@ -152,7 +152,7 @@ get_means_set <- function(nexps, dataSet, memVar, nagents, niter){
 
 
 
-plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, gtype = "Nominal"){
+plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, gtype = "Nominal", beta = "0.3"){
 	times <- (1:niter)
 	fsums <- (1:niter)
 	csums <- (1:niter)
@@ -195,7 +195,7 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	}
 	fname = paste("GDP_", gtype, "_Monthly.png", sep = "")
 	ylabtext = paste("GDP (Total Production Market Value - ", gtype, sep = "")
-	title = expression(beta ~ "=" ~ 0.3)
+	title = paste("Beta = ", beta, sep = "")
 	png(fname, width = 1500, height = 800, pointsize=18)
 	plot(gdp~times, type="l", col = "blue", lwd = 3, xlab = "Months", ylab=ylabtext, main = title)
 	#lines(fsums~times, type = "o")
@@ -246,7 +246,7 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	return(gdpyears)
 }
 
-plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, Rfirmvector, Rcfirmvector){
+plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, Rfirmvector, Rcfirmvector, beta = "0.3"){
 	times <- (1:niter)
 	fsums <- (1:niter)
 	csums <- (1:niter)
@@ -305,8 +305,8 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	}
 	fname = "GDP_Monthly.png"
 	ylabtext = "GDP - Growth of Housing Units and Consumption Goods Production"
-	title = expression(beta ~ "=" ~ 0.3)
-
+	title = paste("Beta = ", beta, sep = "")
+	
 	png(fname, width = 1500, height = 800, pointsize=18)
 	valrange <- gdp
 	valrange[1] <- min(Rgdp)
@@ -512,7 +512,7 @@ plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters"
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Amount", "Equity Fund - Dividends Retained", "FundDividendsRetained.png")
 plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Amount", "Equity Fund - Liquidity", "FundLiquidity.png")
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_PAID, "Quarters", "Amount", "Equity Fund - Dividends Paid", "FundDividendsPaid.png")
-
+beta = "0.6"
 plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Amount", "Equity Fund - Dividends Received Components", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"))
 
 #Banks
@@ -596,13 +596,13 @@ plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "
 ##### Compute GDP #######
 cfirmvector <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE
 firmvector <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$UNIT_GOODS_PRICE
-plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector)
+plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, gtype = "Nominal", beta = "0.6")
 
 cfirmvector_real <- CFirmMonthly$PRODUCTION_CURRENT * CFirmMonthly$UNIT_HOUSE_PRICE[1]
 firmvector_real <- FirmMonthly$PRODUCTION_CURRENT * FirmMonthly$UNIT_GOODS_PRICE[1]
-plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector_real, CFirmMonthly$IT_NO, cfirmvector_real, gtype = "Real")
+plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector_real, CFirmMonthly$IT_NO, cfirmvector_real, gtype = "Real", beta = "0.6")
 
-plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, firmvector_real, cfirmvector_real)
+plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, firmvector_real, cfirmvector_real, beta = "0.6")
 
 
 ##### Compute Bankruptcy #######

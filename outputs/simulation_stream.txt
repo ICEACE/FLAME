@@ -3616,4 +3616,4 @@ Iteration - 3597
 Iteration - 3598
 Iteration - 3599
 Iteration - 3600
-Execution time - 7:25:049 [mins:secs:msecs]
+Execution time - 0:55:608 [mins:secs:msecs]
