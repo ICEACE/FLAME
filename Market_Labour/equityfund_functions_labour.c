@@ -12,5 +12,6 @@ int equityfund_audit_dividends(){
     shares += employment_status_message->nshares;
     FINISH_EMPLOYMENT_STATUS_MESSAGE_LOOP
     N_SHARES = shares;
+    
 	return 0; /* Returning zero means the agent is not removed */
 }

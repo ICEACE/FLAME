@@ -58,7 +58,7 @@ int government_compute_income_statement()
         free(filename);
     }
     
-    /* These values can be kept longer to be able to implement long term government fiscal policy decisons.
+    /* These values can be kept longer to be able to implement long term government fiscal policy decisions.
      */
     CAPITAL_TAX_INCOME = 0;
     LABOUR_TAX_INCOME = 0;

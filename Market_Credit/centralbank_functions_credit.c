@@ -1,6 +1,54 @@
 #include "../header.h"
 #include "../centralbank_agent_header.h"
 
+/*
+ * \fn: int centralbank_set_interest_rate()
+ * \brief:
+ */
+int centralbank_set_interest_rate()
+{
+    double inflation, rcb, rcb_pre;
+    
+    if (CONSUMPTION_GOODS_PRICES[0] == 0) {
+        inflation = 0;
+    }
+    else {
+        inflation = (CONSUMPTION_GOODS_PRICES[11] - CONSUMPTION_GOODS_PRICES[0]) / CONSUMPTION_GOODS_PRICES[0];
+    }
+    
+    
+    // Taylors Rule:
+    rcb = inflation;
+    rcb += (inflation - INFLATION_TARGET) * 0.5;
+    rcb -=  UNEMPLOYMENT_RATE * 0.5;
+    
+    
+    /* This is added temporarily for experimentation. */
+    double  rcb_delta;
+    rcb_pre = INTEREST_RATE;
+    
+    rcb_delta = rcb - INTEREST_RATE;
+    
+    if (fabs(rcb_delta) > 0.01) {
+        if (rcb_delta > 0) {
+            rcb = rcb_pre + 0.01;
+        }
+        else{
+            rcb = rcb_pre - 0.01;
+        }
+    }
+    if (rcb > 0.15) {rcb = 0.15;}
+    /* experimentation end*/
+    
+    if (rcb < 0.005){rcb = 0.005;}
+    
+    INFLATION_RATE = inflation;
+    INTEREST_RATE = rcb;
+    
+    add_interest_rate_message(INTEREST_RATE);
+    
+	return 0; /* Returning zero means the agent is not removed */
+}
 
 
 /*
@@ -110,54 +158,6 @@ int centralbank_do_balance_sheet()
     liabilities = FIAT_MONEY + LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND;
     EQUITY = TOTAL_ASSETS - liabilities;
     
-	return 0; /* Returning zero means the agent is not removed */
-}
-
-
-/*
- * \fn: int centralbank_set_interest_rate()
- * \brief:
- */
-int centralbank_set_interest_rate()
-{
-    double inflation, rcb;
-    
-    if (CONSUMPTION_GOODS_PRICES[11] == 0) {
-        inflation = 0;
-    }
-    else {
-        inflation = (CONSUMPTION_GOODS_PRICES[0] - CONSUMPTION_GOODS_PRICES[11]) / CONSUMPTION_GOODS_PRICES[11];
-    }
-    
-    // Taylors Rule:
-    rcb = inflation;
-    rcb += (inflation - INFLATION_TARGET) * 0.5;
-    rcb -=  UNEMPLOYMENT_RATE * 0.5;
-    
-    
-    /* This is added temporarily for experimentation. */
-    double rcb_pre, rcb_delta;
-    rcb_pre = INTEREST_RATE;
-    rcb_delta = rcb - rcb_pre;
-    
-    if (fabs(rcb_delta) > 0.01) {
-        if (rcb_delta > 0) {
-            rcb += 0.01;
-        }
-        else{
-            rcb -= 0.01;
-        }
-    }
-    if (rcb > 0.15) {rcb = 0.15;}
-    /* experimentation end*/
-    
-    if (rcb < 0.005){rcb = 0.005;}
-    
-    INFLATION_RATE = inflation;
-    INTEREST_RATE = rcb;
-    
-    add_interest_rate_message(INTEREST_RATE);
-    
     if (DATA_COLLECTION_MODE) {
         char * filename;
         FILE * file1;
@@ -173,4 +173,6 @@ int centralbank_set_interest_rate()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+
 

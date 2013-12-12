@@ -807,6 +807,12 @@
                     <inputs>
                         <input>
                             <messageName>firm_bank_loan_request_2</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.bank_id</value></rhs>
+                            </filter>
                         </input>
                     </inputs>
                     <outputs>

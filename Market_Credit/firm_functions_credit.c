@@ -140,7 +140,7 @@ int firm_credit_check_liquidity_need()
     ISILLIQUID = 0;
     ISINSOLVENT = 0;
     
-    if (LIQUIDITY_NEED > 0) {
+    if (LIQUIDITY_NEED > 0.1) {
         ISLIQUIDSHORT = 1;
     }
     else{LIQUIDITY_NEED = 0;}
@@ -155,8 +155,12 @@ int firm_credit_check_liquidity_need()
 int firm_credit_demand_loans_1()
 {
     if (LIQUIDITY_NEED > 0){
-       add_firm_bank_loan_request_1_message(ID, BANK_ID, LIQUIDITY_NEED);
+        add_firm_bank_loan_request_1_message(ID, BANK_ID, LIQUIDITY_NEED);
+        //printf("Firm Stage 1: Firm ID = %d --> Bank ID = %d R = %f,  Current D = %f \n", ID, BANK_ID, LIQUIDITY_NEED, DEBT);
     }
+    
+    
+    
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -174,7 +178,10 @@ int firm_credit_borrow_loans_1()
     LIQUIDITY += amount;
     DEBT += amount;
     LOAN_LIST[0].amount += amount;
+    //printf("Firm ID = %d @ Loan Stage 1 received %f of loans. Updated Debt = %f \n", ID, amount, DEBT);
     FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_1_MESSAGE_LOOP
+    
+    
     
     if (PRINT_DEBUG_MODE){
         printf("Firm ID = %d @ Loan Stage 1 received %f of loans. \n", ID, amount);
@@ -190,6 +197,7 @@ int firm_credit_borrow_loans_1()
     else{
         LIQUIDITY_NEED -= amount;
         add_firm_bank_loan_request_2_message(ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED);
+        //printf("Firm Stage 2: Firm ID = %d --> Bank ID = %d R = %f,  Current D = %f \n", ID, LOAN_LIST[1].bank_id, LIQUIDITY_NEED, DEBT);
     }
     
 	return 0; /* Returning zero means the agent is not removed */
@@ -208,8 +216,10 @@ int firm_credit_borrow_loans_2()
     LIQUIDITY += amount;
     DEBT += amount;
     LOAN_LIST[1].amount += amount;
+    //printf("Firm ID = %d @ Loan Stage 2 received %f of loans. Updated Debt = %f \n", ID, amount, DEBT);
     FINISH_BANK_FIRM_LOAN_ACKNOWLEDGE_2_MESSAGE_LOOP
 
+    
     if (PRINT_DEBUG_MODE){
         printf("Firm ID = %d @ Loan Stage 2 received %f of loans. \n", ID, amount);
     }
@@ -326,6 +336,9 @@ int firm_credit_illiquidity_bankrupt()
                     printf("Warning @firm_credit_illiquidity_bankrupt(): The illiquid Firm ID = %d new loan request is higher than its existing loan to Bank ID = %d, The difference is = %f \n", ID, bank, delta_amount);
                 }
             }
+            
+            //printf("Illiquidity: Firm ID = %d, Bank = %d  Writeoff =  %f \n",ID,bank, delta_amount);
+            
             if (PRINT_DEBUG_MODE) {
                 printf("Firm ID = %d illiquidity bankrupt burden on Bank = %d is = %f \n",ID,bank, delta_amount);
             }
@@ -464,30 +477,13 @@ int firm_credit_insolvency_bankruptcy()
     int bank;
     double amount;
     
+    
+    //printf("Firm ID = %d is insolvent bankrupt!! Amount = %f \n", ID, DEBT);
+    
     if (PRINT_DEBUG_MODE) {
         printf("Firm ID = %d is insolvent bankrupt!! \n", ID);
     }
     
-    for (int i = 0; i < 2; i++) {
-        bank = LOAN_LIST[i].bank_id;
-        amount = LOAN_LIST[i].amount;
-        if (amount > 0) {
-            add_loan_writeoff_message(bank, amount);
-            LOAN_LIST[i].amount = 0;
-            
-            if (DATA_COLLECTION_MODE) {
-                char * filename;
-                FILE * file1;
-                filename = malloc(40*sizeof(char));
-                filename[0]=0;
-                strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
-                file1 = fopen(filename,"a");
-                fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Firm", "Insolvency", bank, amount);
-                fclose(file1);
-                free(filename);
-            }
-        }
-    }
     
     add_firm_bank_insolvent_account_message(BANK_ID, LIQUIDITY);
     LIQUIDITY = 0;
@@ -501,6 +497,7 @@ int firm_credit_insolvency_bankruptcy()
     /* Physical capital etc are kept the same.
      */
     
+    
     if (ISCONSTRUCTOR == 0) {
         INVENTORY = LABOUR_PRODUCTIVITY * 1;
         TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
@@ -511,10 +508,37 @@ int firm_credit_insolvency_bankruptcy()
         TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
         /* Constructor firms keep the averega house prices, current projects, etc */
     }
+    
+    for (int i = 0; i < 2; i++) {
+        bank = LOAN_LIST[i].bank_id;
+        amount = LOAN_LIST[i].amount;
+        if (amount > 0.001) {
+            add_loan_writeoff_message(bank, amount);
+            
+            //printf("Insolvency: Firm ID = %d, Bank = %d  Writeoff =  %f, Updated  \n",ID,bank, amount);
+            
+            if (DATA_COLLECTION_MODE) {
+                char * filename;
+                FILE * file1;
+                filename = malloc(40*sizeof(char));
+                filename[0]=0;
+                strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
+                file1 = fopen(filename,"a");
+                fprintf(file1,"%d %d %s %s %d %f\n",IT_NO, ID, "Firm", "Insolvency", bank, amount);
+                fclose(file1);
+                free(filename);
+            }
+        }
+        LOAN_LIST[i].amount = 0;
+    }
+    
     /* Getting initial loan */
     TOTAL_ASSETS += CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
     DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
+    
+    //printf("Newentrant Loan: Firm ID = %d, Bank = %d  New loan =  %f\n",ID,bank, DEBT);
+    
     LOAN_LIST[0].amount = DEBT;
     EQUITY = TOTAL_ASSETS - DEBT;
     

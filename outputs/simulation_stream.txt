@@ -17,6 +17,7 @@ output: type='snapshot' format='xml' location='./outputs/its/' period='1' phase=
 xdiv=0 ydiv=1
 Iteration - 1
 Warning @household_init_employment(): Wage and employment status doesn't match at the initialization! Household ID = 743, Wage = 0.000000, Employer = 12, Wage is set to 5.0 
+CB: infl = 0.000000, U= 0.100000, rcb_pre = 0.020000, rcb_delta = -0.080000, R = 0.010000 
 Iteration - 2
 Iteration - 3
 Iteration - 4
@@ -36,6 +37,8 @@ Iteration - 17
 Iteration - 18
 Iteration - 19
 Iteration - 20
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.152500
 Iteration - 21
 Iteration - 22
 Iteration - 23
@@ -56,6 +59,8 @@ Iteration - 37
 Iteration - 38
 Iteration - 39
 Iteration - 40
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.205000
 Iteration - 41
 Iteration - 42
 Iteration - 43
@@ -76,7 +81,10 @@ Iteration - 57
 Iteration - 58
 Iteration - 59
 Iteration - 60
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.170000
 Iteration - 61
+CB: infl = -0.003129, U= 0.170000, rcb_pre = 0.010000, rcb_delta = -0.109693, R = 0.005000 
 Iteration - 62
 Iteration - 63
 Iteration - 64
@@ -96,6 +104,8 @@ Iteration - 77
 Iteration - 78
 Iteration - 79
 Iteration - 80
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.161250
 Iteration - 81
 Iteration - 82
 Iteration - 83
@@ -116,6 +126,8 @@ Iteration - 97
 Iteration - 98
 Iteration - 99
 Iteration - 100
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.170000
 Iteration - 101
 Iteration - 102
 Iteration - 103
@@ -136,7 +148,10 @@ Iteration - 117
 Iteration - 118
 Iteration - 119
 Iteration - 120
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.137500
 Iteration - 121
+CB: infl = 0.014191, U= 0.137500, rcb_pre = 0.005000, rcb_delta = -0.062463, R = 0.005000 
 Iteration - 122
 Iteration - 123
 Iteration - 124
@@ -156,6 +171,8 @@ Iteration - 137
 Iteration - 138
 Iteration - 139
 Iteration - 140
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.120000
 Iteration - 141
 Iteration - 142
 Iteration - 143
@@ -176,6 +193,8 @@ Iteration - 157
 Iteration - 158
 Iteration - 159
 Iteration - 160
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.111250
 Iteration - 161
 Iteration - 162
 Iteration - 163
@@ -196,7 +215,10 @@ Iteration - 177
 Iteration - 178
 Iteration - 179
 Iteration - 180
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.087500
 Iteration - 181
+CB: infl = 0.028085, U= 0.087500, rcb_pre = 0.005000, rcb_delta = -0.016623, R = 0.005000 
 Iteration - 182
 Iteration - 183
 Iteration - 184
@@ -216,6 +238,8 @@ Iteration - 197
 Iteration - 198
 Iteration - 199
 Iteration - 200
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.091250
 Iteration - 201
 Iteration - 202
 Iteration - 203
@@ -236,6 +260,8 @@ Iteration - 217
 Iteration - 218
 Iteration - 219
 Iteration - 220
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.061250
 Iteration - 221
 Iteration - 222
 Iteration - 223
@@ -256,7 +282,10 @@ Iteration - 237
 Iteration - 238
 Iteration - 239
 Iteration - 240
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.053750
 Iteration - 241
+CB: infl = 0.055599, U= 0.053750, rcb_pre = 0.005000, rcb_delta = 0.041524, R = 0.015000 
 Iteration - 242
 Iteration - 243
 Iteration - 244
@@ -276,6 +305,8 @@ Iteration - 257
 Iteration - 258
 Iteration - 259
 Iteration - 260
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.057500
 Iteration - 261
 Iteration - 262
 Iteration - 263
@@ -296,6 +327,8 @@ Iteration - 277
 Iteration - 278
 Iteration - 279
 Iteration - 280
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.028750
 Iteration - 281
 Iteration - 282
 Iteration - 283
@@ -316,7 +349,10 @@ Iteration - 297
 Iteration - 298
 Iteration - 299
 Iteration - 300
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.001250
 Iteration - 301
+CB: infl = 0.066610, U= 0.001250, rcb_pre = 0.015000, rcb_delta = 0.074291, R = 0.025000 
 Iteration - 302
 Iteration - 303
 Iteration - 304
@@ -336,6 +372,8 @@ Iteration - 317
 Iteration - 318
 Iteration - 319
 Iteration - 320
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.005000
 Iteration - 321
 Iteration - 322
 Iteration - 323
@@ -356,6 +394,8 @@ Iteration - 337
 Iteration - 338
 Iteration - 339
 Iteration - 340
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 341
 Iteration - 342
 Iteration - 343
@@ -376,7 +416,10 @@ Iteration - 357
 Iteration - 358
 Iteration - 359
 Iteration - 360
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 361
+CB: infl = 0.077398, U= 0.000000, rcb_pre = 0.025000, rcb_delta = 0.081098, R = 0.035000 
 Iteration - 362
 Iteration - 363
 Iteration - 364
@@ -396,6 +439,8 @@ Iteration - 377
 Iteration - 378
 Iteration - 379
 Iteration - 380
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 381
 Iteration - 382
 Iteration - 383
@@ -416,6 +461,8 @@ Iteration - 397
 Iteration - 398
 Iteration - 399
 Iteration - 400
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 401
 Iteration - 402
 Iteration - 403
@@ -436,7 +483,10 @@ Iteration - 417
 Iteration - 418
 Iteration - 419
 Iteration - 420
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 421
+CB: infl = 0.075339, U= 0.000000, rcb_pre = 0.035000, rcb_delta = 0.068009, R = 0.045000 
 Iteration - 422
 Iteration - 423
 Iteration - 424
@@ -456,6 +506,8 @@ Iteration - 437
 Iteration - 438
 Iteration - 439
 Iteration - 440
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 441
 Iteration - 442
 Iteration - 443
@@ -476,6 +528,8 @@ Iteration - 457
 Iteration - 458
 Iteration - 459
 Iteration - 460
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 461
 Iteration - 462
 Iteration - 463
@@ -496,7 +550,10 @@ Iteration - 477
 Iteration - 478
 Iteration - 479
 Iteration - 480
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 481
+CB: infl = 0.081365, U= 0.000000, rcb_pre = 0.045000, rcb_delta = 0.067048, R = 0.055000 
 Iteration - 482
 Iteration - 483
 Iteration - 484
@@ -516,6 +573,8 @@ Iteration - 497
 Iteration - 498
 Iteration - 499
 Iteration - 500
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 501
 Iteration - 502
 Iteration - 503
@@ -536,6 +595,8 @@ Iteration - 517
 Iteration - 518
 Iteration - 519
 Iteration - 520
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 521
 Iteration - 522
 Iteration - 523
@@ -556,7 +617,10 @@ Iteration - 537
 Iteration - 538
 Iteration - 539
 Iteration - 540
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 541
+CB: infl = 0.074363, U= 0.000000, rcb_pre = 0.055000, rcb_delta = 0.046545, R = 0.065000 
 Iteration - 542
 Iteration - 543
 Iteration - 544
@@ -576,6 +640,8 @@ Iteration - 557
 Iteration - 558
 Iteration - 559
 Iteration - 560
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 561
 Iteration - 562
 Iteration - 563
@@ -596,6 +662,8 @@ Iteration - 577
 Iteration - 578
 Iteration - 579
 Iteration - 580
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 581
 Iteration - 582
 Iteration - 583
@@ -616,7 +684,10 @@ Iteration - 597
 Iteration - 598
 Iteration - 599
 Iteration - 600
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 601
+CB: infl = 0.081202, U= 0.000000, rcb_pre = 0.065000, rcb_delta = 0.046804, R = 0.075000 
 Iteration - 602
 Iteration - 603
 Iteration - 604
@@ -636,6 +707,8 @@ Iteration - 617
 Iteration - 618
 Iteration - 619
 Iteration - 620
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 621
 Iteration - 622
 Iteration - 623
@@ -656,6 +729,8 @@ Iteration - 637
 Iteration - 638
 Iteration - 639
 Iteration - 640
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 641
 Iteration - 642
 Iteration - 643
@@ -676,7 +751,10 @@ Iteration - 657
 Iteration - 658
 Iteration - 659
 Iteration - 660
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 661
+CB: infl = 0.072663, U= 0.000000, rcb_pre = 0.075000, rcb_delta = 0.023995, R = 0.085000 
 Iteration - 662
 Iteration - 663
 Iteration - 664
@@ -696,6 +774,8 @@ Iteration - 677
 Iteration - 678
 Iteration - 679
 Iteration - 680
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.061250
 Iteration - 681
 Iteration - 682
 Iteration - 683
@@ -716,6 +796,8 @@ Iteration - 697
 Iteration - 698
 Iteration - 699
 Iteration - 700
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.128750
 Iteration - 701
 Iteration - 702
 Iteration - 703
@@ -736,7 +818,10 @@ Iteration - 717
 Iteration - 718
 Iteration - 719
 Iteration - 720
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.207500
 Iteration - 721
+CB: infl = 0.073362, U= 0.207500, rcb_pre = 0.085000, rcb_delta = -0.088708, R = 0.075000 
 Iteration - 722
 Iteration - 723
 Iteration - 724
@@ -756,6 +841,8 @@ Iteration - 737
 Iteration - 738
 Iteration - 739
 Iteration - 740
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.238750
 Iteration - 741
 Iteration - 742
 Iteration - 743
@@ -776,6 +863,8 @@ Iteration - 757
 Iteration - 758
 Iteration - 759
 Iteration - 760
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.283750
 Iteration - 761
 Iteration - 762
 Iteration - 763
@@ -796,7 +885,10 @@ Iteration - 777
 Iteration - 778
 Iteration - 779
 Iteration - 780
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.266250
 Iteration - 781
+CB: infl = 0.053597, U= 0.266250, rcb_pre = 0.075000, rcb_delta = -0.137730, R = 0.065000 
 Iteration - 782
 Iteration - 783
 Iteration - 784
@@ -816,6 +908,8 @@ Iteration - 797
 Iteration - 798
 Iteration - 799
 Iteration - 800
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.221250
 Iteration - 801
 Iteration - 802
 Iteration - 803
@@ -836,6 +930,8 @@ Iteration - 817
 Iteration - 818
 Iteration - 819
 Iteration - 820
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.232500
 Iteration - 821
 Iteration - 822
 Iteration - 823
@@ -856,7 +952,10 @@ Iteration - 837
 Iteration - 838
 Iteration - 839
 Iteration - 840
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.202500
 Iteration - 841
+CB: infl = 0.047922, U= 0.202500, rcb_pre = 0.065000, rcb_delta = -0.104367, R = 0.055000 
 Iteration - 842
 Iteration - 843
 Iteration - 844
@@ -876,6 +975,8 @@ Iteration - 857
 Iteration - 858
 Iteration - 859
 Iteration - 860
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.190000
 Iteration - 861
 Iteration - 862
 Iteration - 863
@@ -896,6 +997,8 @@ Iteration - 877
 Iteration - 878
 Iteration - 879
 Iteration - 880
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.126250
 Iteration - 881
 Iteration - 882
 Iteration - 883
@@ -916,7 +1019,10 @@ Iteration - 897
 Iteration - 898
 Iteration - 899
 Iteration - 900
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.097500
 Iteration - 901
+CB: infl = 0.030857, U= 0.097500, rcb_pre = 0.055000, rcb_delta = -0.067464, R = 0.045000 
 Iteration - 902
 Iteration - 903
 Iteration - 904
@@ -936,6 +1042,8 @@ Iteration - 917
 Iteration - 918
 Iteration - 919
 Iteration - 920
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.087500
 Iteration - 921
 Iteration - 922
 Iteration - 923
@@ -956,6 +1064,8 @@ Iteration - 937
 Iteration - 938
 Iteration - 939
 Iteration - 940
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.071250
 Iteration - 941
 Iteration - 942
 Iteration - 943
@@ -976,7 +1086,10 @@ Iteration - 957
 Iteration - 958
 Iteration - 959
 Iteration - 960
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.051250
 Iteration - 961
+CB: infl = 0.041628, U= 0.051250, rcb_pre = 0.045000, rcb_delta = -0.018182, R = 0.035000 
 Iteration - 962
 Iteration - 963
 Iteration - 964
@@ -996,6 +1109,8 @@ Iteration - 977
 Iteration - 978
 Iteration - 979
 Iteration - 980
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.042500
 Iteration - 981
 Iteration - 982
 Iteration - 983
@@ -1016,6 +1131,8 @@ Iteration - 997
 Iteration - 998
 Iteration - 999
 Iteration - 1000
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.015000
 Iteration - 1001
 Iteration - 1002
 Iteration - 1003
@@ -1036,7 +1153,10 @@ Iteration - 1017
 Iteration - 1018
 Iteration - 1019
 Iteration - 1020
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1021
+CB: infl = 0.044361, U= 0.000000, rcb_pre = 0.035000, rcb_delta = 0.021542, R = 0.045000 
 Iteration - 1022
 Iteration - 1023
 Iteration - 1024
@@ -1056,6 +1176,8 @@ Iteration - 1037
 Iteration - 1038
 Iteration - 1039
 Iteration - 1040
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.002500
 Iteration - 1041
 Iteration - 1042
 Iteration - 1043
@@ -1076,6 +1198,8 @@ Iteration - 1057
 Iteration - 1058
 Iteration - 1059
 Iteration - 1060
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1061
 Iteration - 1062
 Iteration - 1063
@@ -1096,7 +1220,10 @@ Iteration - 1077
 Iteration - 1078
 Iteration - 1079
 Iteration - 1080
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1081
+CB: infl = 0.062579, U= 0.000000, rcb_pre = 0.045000, rcb_delta = 0.038868, R = 0.055000 
 Iteration - 1082
 Iteration - 1083
 Iteration - 1084
@@ -1116,6 +1243,8 @@ Iteration - 1097
 Iteration - 1098
 Iteration - 1099
 Iteration - 1100
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.002500
 Iteration - 1101
 Iteration - 1102
 Iteration - 1103
@@ -1136,6 +1265,8 @@ Iteration - 1117
 Iteration - 1118
 Iteration - 1119
 Iteration - 1120
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1121
 Iteration - 1122
 Iteration - 1123
@@ -1156,7 +1287,10 @@ Iteration - 1137
 Iteration - 1138
 Iteration - 1139
 Iteration - 1140
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1141
+CB: infl = 0.063893, U= 0.000000, rcb_pre = 0.055000, rcb_delta = 0.030840, R = 0.065000 
 Iteration - 1142
 Iteration - 1143
 Iteration - 1144
@@ -1176,6 +1310,8 @@ Iteration - 1157
 Iteration - 1158
 Iteration - 1159
 Iteration - 1160
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1161
 Iteration - 1162
 Iteration - 1163
@@ -1196,6 +1332,8 @@ Iteration - 1177
 Iteration - 1178
 Iteration - 1179
 Iteration - 1180
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1181
 Iteration - 1182
 Iteration - 1183
@@ -1216,7 +1354,10 @@ Iteration - 1197
 Iteration - 1198
 Iteration - 1199
 Iteration - 1200
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1201
+CB: infl = 0.081493, U= 0.000000, rcb_pre = 0.065000, rcb_delta = 0.047239, R = 0.075000 
 Iteration - 1202
 Iteration - 1203
 Iteration - 1204
@@ -1236,6 +1377,8 @@ Iteration - 1217
 Iteration - 1218
 Iteration - 1219
 Iteration - 1220
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.011250
 Iteration - 1221
 Iteration - 1222
 Iteration - 1223
@@ -1256,6 +1399,8 @@ Iteration - 1237
 Iteration - 1238
 Iteration - 1239
 Iteration - 1240
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1241
 Iteration - 1242
 Iteration - 1243
@@ -1276,7 +1421,10 @@ Iteration - 1257
 Iteration - 1258
 Iteration - 1259
 Iteration - 1260
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.040000
 Iteration - 1261
+CB: infl = 0.074571, U= 0.040000, rcb_pre = 0.075000, rcb_delta = 0.006857, R = 0.081857 
 Iteration - 1262
 Iteration - 1263
 Iteration - 1264
@@ -1296,6 +1444,8 @@ Iteration - 1277
 Iteration - 1278
 Iteration - 1279
 Iteration - 1280
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.030000
 Iteration - 1281
 Iteration - 1282
 Iteration - 1283
@@ -1316,6 +1466,8 @@ Iteration - 1297
 Iteration - 1298
 Iteration - 1299
 Iteration - 1300
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1301
 Iteration - 1302
 Iteration - 1303
@@ -1336,7 +1488,10 @@ Iteration - 1317
 Iteration - 1318
 Iteration - 1319
 Iteration - 1320
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.015000
 Iteration - 1321
+CB: infl = 0.070712, U= 0.015000, rcb_pre = 0.081857, rcb_delta = 0.006712, R = 0.088569 
 Iteration - 1322
 Iteration - 1323
 Iteration - 1324
@@ -1356,6 +1511,8 @@ Iteration - 1337
 Iteration - 1338
 Iteration - 1339
 Iteration - 1340
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1341
 Iteration - 1342
 Iteration - 1343
@@ -1376,6 +1533,8 @@ Iteration - 1357
 Iteration - 1358
 Iteration - 1359
 Iteration - 1360
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.048750
 Iteration - 1361
 Iteration - 1362
 Iteration - 1363
@@ -1396,7 +1555,10 @@ Iteration - 1377
 Iteration - 1378
 Iteration - 1379
 Iteration - 1380
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.070000
 Iteration - 1381
+CB: infl = 0.065394, U= 0.070000, rcb_pre = 0.088569, rcb_delta = -0.035478, R = 0.078569 
 Iteration - 1382
 Iteration - 1383
 Iteration - 1384
@@ -1416,6 +1578,8 @@ Iteration - 1397
 Iteration - 1398
 Iteration - 1399
 Iteration - 1400
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.085000
 Iteration - 1401
 Iteration - 1402
 Iteration - 1403
@@ -1436,6 +1600,8 @@ Iteration - 1417
 Iteration - 1418
 Iteration - 1419
 Iteration - 1420
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.108750
 Iteration - 1421
 Iteration - 1422
 Iteration - 1423
@@ -1456,7 +1622,10 @@ Iteration - 1437
 Iteration - 1438
 Iteration - 1439
 Iteration - 1440
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.116250
 Iteration - 1441
+CB: infl = 0.054554, U= 0.116250, rcb_pre = 0.078569, rcb_delta = -0.064863, R = 0.068569 
 Iteration - 1442
 Iteration - 1443
 Iteration - 1444
@@ -1476,6 +1645,8 @@ Iteration - 1457
 Iteration - 1458
 Iteration - 1459
 Iteration - 1460
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.061250
 Iteration - 1461
 Iteration - 1462
 Iteration - 1463
@@ -1496,6 +1667,8 @@ Iteration - 1477
 Iteration - 1478
 Iteration - 1479
 Iteration - 1480
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.027500
 Iteration - 1481
 Iteration - 1482
 Iteration - 1483
@@ -1516,7 +1689,10 @@ Iteration - 1497
 Iteration - 1498
 Iteration - 1499
 Iteration - 1500
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1501
+CB: infl = 0.049087, U= 0.000000, rcb_pre = 0.068569, rcb_delta = -0.004937, R = 0.063631 
 Iteration - 1502
 Iteration - 1503
 Iteration - 1504
@@ -1536,6 +1712,8 @@ Iteration - 1517
 Iteration - 1518
 Iteration - 1519
 Iteration - 1520
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.045000
 Iteration - 1521
 Iteration - 1522
 Iteration - 1523
@@ -1556,6 +1734,8 @@ Iteration - 1537
 Iteration - 1538
 Iteration - 1539
 Iteration - 1540
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1541
 Iteration - 1542
 Iteration - 1543
@@ -1576,7 +1756,10 @@ Iteration - 1557
 Iteration - 1558
 Iteration - 1559
 Iteration - 1560
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1561
+CB: infl = 0.049167, U= 0.000000, rcb_pre = 0.063631, rcb_delta = 0.000119, R = 0.063751 
 Iteration - 1562
 Iteration - 1563
 Iteration - 1564
@@ -1596,6 +1779,8 @@ Iteration - 1577
 Iteration - 1578
 Iteration - 1579
 Iteration - 1580
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1581
 Iteration - 1582
 Iteration - 1583
@@ -1616,6 +1801,8 @@ Iteration - 1597
 Iteration - 1598
 Iteration - 1599
 Iteration - 1600
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1601
 Iteration - 1602
 Iteration - 1603
@@ -1636,7 +1823,10 @@ Iteration - 1617
 Iteration - 1618
 Iteration - 1619
 Iteration - 1620
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1621
+CB: infl = 0.060779, U= 0.000000, rcb_pre = 0.063751, rcb_delta = 0.017419, R = 0.073751 
 Iteration - 1622
 Iteration - 1623
 Iteration - 1624
@@ -1656,6 +1846,8 @@ Iteration - 1637
 Iteration - 1638
 Iteration - 1639
 Iteration - 1640
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1641
 Iteration - 1642
 Iteration - 1643
@@ -1676,6 +1868,8 @@ Iteration - 1657
 Iteration - 1658
 Iteration - 1659
 Iteration - 1660
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1661
 Iteration - 1662
 Iteration - 1663
@@ -1696,7 +1890,10 @@ Iteration - 1677
 Iteration - 1678
 Iteration - 1679
 Iteration - 1680
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1681
+CB: infl = 0.072109, U= 0.000000, rcb_pre = 0.073751, rcb_delta = 0.024413, R = 0.083751 
 Iteration - 1682
 Iteration - 1683
 Iteration - 1684
@@ -1716,6 +1913,8 @@ Iteration - 1697
 Iteration - 1698
 Iteration - 1699
 Iteration - 1700
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.003750
 Iteration - 1701
 Iteration - 1702
 Iteration - 1703
@@ -1736,6 +1935,8 @@ Iteration - 1717
 Iteration - 1718
 Iteration - 1719
 Iteration - 1720
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.023750
 Iteration - 1721
 Iteration - 1722
 Iteration - 1723
@@ -1756,7 +1957,11 @@ Iteration - 1737
 Iteration - 1738
 Iteration - 1739
 Iteration - 1740
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 1741
+CB: infl = 0.073961, U= 0.000000, rcb_pre = 0.083751, rcb_delta = 0.017190, R = 0.093751 
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -1.945900, Mortgages = 332.163482 
 Iteration - 1742
 Iteration - 1743
 Iteration - 1744
@@ -1776,6 +1981,8 @@ Iteration - 1757
 Iteration - 1758
 Iteration - 1759
 Iteration - 1760
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.071250
 Iteration - 1761
 Iteration - 1762
 Iteration - 1763
@@ -1796,6 +2003,8 @@ Iteration - 1777
 Iteration - 1778
 Iteration - 1779
 Iteration - 1780
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.102500
 Iteration - 1781
 Iteration - 1782
 Iteration - 1783
@@ -1816,7 +2025,11 @@ Iteration - 1797
 Iteration - 1798
 Iteration - 1799
 Iteration - 1800
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.083750
 Iteration - 1801
+CB: infl = 0.067526, U= 0.083750, rcb_pre = 0.093751, rcb_delta = -0.044337, R = 0.083751 
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -9.592261, Mortgages = 331.993041 
 Iteration - 1802
 Iteration - 1803
 Iteration - 1804
@@ -1836,6 +2049,8 @@ Iteration - 1817
 Iteration - 1818
 Iteration - 1819
 Iteration - 1820
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.118750
 Iteration - 1821
 Iteration - 1822
 Iteration - 1823
@@ -1856,6 +2071,8 @@ Iteration - 1837
 Iteration - 1838
 Iteration - 1839
 Iteration - 1840
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.123750
 Iteration - 1841
 Iteration - 1842
 Iteration - 1843
@@ -1876,7 +2093,10 @@ Iteration - 1857
 Iteration - 1858
 Iteration - 1859
 Iteration - 1860
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.168750
 Iteration - 1861
+CB: infl = 0.055392, U= 0.168750, rcb_pre = 0.083751, rcb_delta = -0.095037, R = 0.073751 
 Iteration - 1862
 Iteration - 1863
 Iteration - 1864
@@ -1896,6 +2116,8 @@ Iteration - 1877
 Iteration - 1878
 Iteration - 1879
 Iteration - 1880
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.160000
 Iteration - 1881
 Iteration - 1882
 Iteration - 1883
@@ -1916,6 +2138,8 @@ Iteration - 1897
 Iteration - 1898
 Iteration - 1899
 Iteration - 1900
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.116250
 Iteration - 1901
 Iteration - 1902
 Iteration - 1903
@@ -1936,7 +2160,10 @@ Iteration - 1917
 Iteration - 1918
 Iteration - 1919
 Iteration - 1920
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.081250
 Iteration - 1921
+CB: infl = 0.046912, U= 0.081250, rcb_pre = 0.073751, rcb_delta = -0.054007, R = 0.063751 
 Iteration - 1922
 Iteration - 1923
 Iteration - 1924
@@ -1956,7 +2183,10 @@ Iteration - 1937
 Iteration - 1938
 Iteration - 1939
 Iteration - 1940
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.063750
 Iteration - 1941
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -19.185611, Mortgages = 341.558008 
 Iteration - 1942
 Iteration - 1943
 Iteration - 1944
@@ -1976,7 +2206,10 @@ Iteration - 1957
 Iteration - 1958
 Iteration - 1959
 Iteration - 1960
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.056250
 Iteration - 1961
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -19.185611, Mortgages = 341.433182 
 Iteration - 1962
 Iteration - 1963
 Iteration - 1964
@@ -1996,7 +2229,10 @@ Iteration - 1977
 Iteration - 1978
 Iteration - 1979
 Iteration - 1980
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.045000
 Iteration - 1981
+CB: infl = 0.042590, U= 0.045000, rcb_pre = 0.063751, rcb_delta = -0.032366, R = 0.053751 
 Iteration - 1982
 Iteration - 1983
 Iteration - 1984
@@ -2016,6 +2252,8 @@ Iteration - 1997
 Iteration - 1998
 Iteration - 1999
 Iteration - 2000
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.060000
 Iteration - 2001
 Iteration - 2002
 Iteration - 2003
@@ -2036,6 +2274,8 @@ Iteration - 2017
 Iteration - 2018
 Iteration - 2019
 Iteration - 2020
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.022500
 Iteration - 2021
 Iteration - 2022
 Iteration - 2023
@@ -2056,7 +2296,10 @@ Iteration - 2037
 Iteration - 2038
 Iteration - 2039
 Iteration - 2040
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2041
+CB: infl = 0.049123, U= 0.000000, rcb_pre = 0.053751, rcb_delta = 0.009935, R = 0.063685 
 Iteration - 2042
 Iteration - 2043
 Iteration - 2044
@@ -2076,6 +2319,8 @@ Iteration - 2057
 Iteration - 2058
 Iteration - 2059
 Iteration - 2060
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.005000
 Iteration - 2061
 Iteration - 2062
 Iteration - 2063
@@ -2096,6 +2341,8 @@ Iteration - 2077
 Iteration - 2078
 Iteration - 2079
 Iteration - 2080
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.026250
 Iteration - 2081
 Iteration - 2082
 Iteration - 2083
@@ -2116,7 +2363,10 @@ Iteration - 2097
 Iteration - 2098
 Iteration - 2099
 Iteration - 2100
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.075000
 Iteration - 2101
+CB: infl = 0.052035, U= 0.075000, rcb_pre = 0.063685, rcb_delta = -0.033133, R = 0.053685 
 Iteration - 2102
 Iteration - 2103
 Iteration - 2104
@@ -2136,7 +2386,10 @@ Iteration - 2117
 Iteration - 2118
 Iteration - 2119
 Iteration - 2120
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.180000
 Iteration - 2121
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -30.995707, Mortgages = 228.427456 
 Iteration - 2122
 Iteration - 2123
 Iteration - 2124
@@ -2156,7 +2409,10 @@ Iteration - 2137
 Iteration - 2138
 Iteration - 2139
 Iteration - 2140
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.156250
 Iteration - 2141
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -18.305720, Mortgages = 329.784628 
 Iteration - 2142
 Iteration - 2143
 Iteration - 2144
@@ -2176,7 +2432,10 @@ Iteration - 2157
 Iteration - 2158
 Iteration - 2159
 Iteration - 2160
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.161250
 Iteration - 2161
+CB: infl = 0.049872, U= 0.161250, rcb_pre = 0.053685, rcb_delta = -0.069503, R = 0.043685 
 Iteration - 2162
 Iteration - 2163
 Iteration - 2164
@@ -2196,6 +2455,8 @@ Iteration - 2177
 Iteration - 2178
 Iteration - 2179
 Iteration - 2180
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.128750
 Iteration - 2181
 Iteration - 2182
 Iteration - 2183
@@ -2216,6 +2477,8 @@ Iteration - 2197
 Iteration - 2198
 Iteration - 2199
 Iteration - 2200
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.101250
 Iteration - 2201
 Iteration - 2202
 Iteration - 2203
@@ -2236,7 +2499,10 @@ Iteration - 2217
 Iteration - 2218
 Iteration - 2219
 Iteration - 2220
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.105000
 Iteration - 2221
+CB: infl = 0.044792, U= 0.105000, rcb_pre = 0.043685, rcb_delta = -0.038997, R = 0.033685 
 Iteration - 2222
 Iteration - 2223
 Iteration - 2224
@@ -2256,6 +2522,8 @@ Iteration - 2237
 Iteration - 2238
 Iteration - 2239
 Iteration - 2240
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.111250
 Iteration - 2241
 Iteration - 2242
 Iteration - 2243
@@ -2276,7 +2544,10 @@ Iteration - 2257
 Iteration - 2258
 Iteration - 2259
 Iteration - 2260
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.063750
 Iteration - 2261
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -24.979566, Mortgages = 345.189282 
 Iteration - 2262
 Iteration - 2263
 Iteration - 2264
@@ -2296,7 +2567,11 @@ Iteration - 2277
 Iteration - 2278
 Iteration - 2279
 Iteration - 2280
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.035000
 Iteration - 2281
+CB: infl = 0.044322, U= 0.035000, rcb_pre = 0.033685, rcb_delta = 0.005297, R = 0.038982 
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -17.323810, Mortgages = 468.665600 
 Iteration - 2282
 Iteration - 2283
 Iteration - 2284
@@ -2316,6 +2591,8 @@ Iteration - 2297
 Iteration - 2298
 Iteration - 2299
 Iteration - 2300
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.030000
 Iteration - 2301
 Iteration - 2302
 Iteration - 2303
@@ -2336,7 +2613,10 @@ Iteration - 2317
 Iteration - 2318
 Iteration - 2319
 Iteration - 2320
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.022500
 Iteration - 2321
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -17.323810, Mortgages = 593.458178 
 Iteration - 2322
 Iteration - 2323
 Iteration - 2324
@@ -2356,7 +2636,11 @@ Iteration - 2337
 Iteration - 2338
 Iteration - 2339
 Iteration - 2340
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.006250
 Iteration - 2341
+CB: infl = 0.055007, U= 0.006250, rcb_pre = 0.038982, rcb_delta = 0.030403, R = 0.048982 
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -12.138524, Mortgages = 593.082559 
 Iteration - 2342
 Iteration - 2343
 Iteration - 2344
@@ -2376,6 +2660,8 @@ Iteration - 2357
 Iteration - 2358
 Iteration - 2359
 Iteration - 2360
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2361
 Iteration - 2362
 Iteration - 2363
@@ -2396,6 +2682,8 @@ Iteration - 2377
 Iteration - 2378
 Iteration - 2379
 Iteration - 2380
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2381
 Iteration - 2382
 Iteration - 2383
@@ -2416,7 +2704,10 @@ Iteration - 2397
 Iteration - 2398
 Iteration - 2399
 Iteration - 2400
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2401
+CB: infl = 0.069359, U= 0.000000, rcb_pre = 0.048982, rcb_delta = 0.045057, R = 0.058982 
 Iteration - 2402
 Iteration - 2403
 Iteration - 2404
@@ -2436,6 +2727,8 @@ Iteration - 2417
 Iteration - 2418
 Iteration - 2419
 Iteration - 2420
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.027500
 Iteration - 2421
 Iteration - 2422
 Iteration - 2423
@@ -2456,6 +2749,8 @@ Iteration - 2437
 Iteration - 2438
 Iteration - 2439
 Iteration - 2440
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2441
 Iteration - 2442
 Iteration - 2443
@@ -2476,7 +2771,10 @@ Iteration - 2457
 Iteration - 2458
 Iteration - 2459
 Iteration - 2460
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2461
+CB: infl = 0.074489, U= 0.000000, rcb_pre = 0.058982, rcb_delta = 0.042751, R = 0.068982 
 Iteration - 2462
 Iteration - 2463
 Iteration - 2464
@@ -2496,6 +2794,8 @@ Iteration - 2477
 Iteration - 2478
 Iteration - 2479
 Iteration - 2480
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2481
 Iteration - 2482
 Iteration - 2483
@@ -2516,6 +2816,8 @@ Iteration - 2497
 Iteration - 2498
 Iteration - 2499
 Iteration - 2500
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.008750
 Iteration - 2501
 Iteration - 2502
 Iteration - 2503
@@ -2536,7 +2838,11 @@ Iteration - 2517
 Iteration - 2518
 Iteration - 2519
 Iteration - 2520
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.032500
 Iteration - 2521
+CB: infl = 0.078041, U= 0.032500, rcb_pre = 0.068982, rcb_delta = 0.021829, R = 0.078982 
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -17.926915, Mortgages = 115.361028 
 Iteration - 2522
 Iteration - 2523
 Iteration - 2524
@@ -2556,6 +2862,8 @@ Iteration - 2537
 Iteration - 2538
 Iteration - 2539
 Iteration - 2540
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.050000
 Iteration - 2541
 Iteration - 2542
 Iteration - 2543
@@ -2576,6 +2884,8 @@ Iteration - 2557
 Iteration - 2558
 Iteration - 2559
 Iteration - 2560
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.118750
 Iteration - 2561
 Iteration - 2562
 Iteration - 2563
@@ -2596,7 +2906,10 @@ Iteration - 2577
 Iteration - 2578
 Iteration - 2579
 Iteration - 2580
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.191250
 Iteration - 2581
+CB: infl = 0.067579, U= 0.191250, rcb_pre = 0.078982, rcb_delta = -0.083239, R = 0.068982 
 Iteration - 2582
 Iteration - 2583
 Iteration - 2584
@@ -2616,6 +2929,8 @@ Iteration - 2597
 Iteration - 2598
 Iteration - 2599
 Iteration - 2600
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.215000
 Iteration - 2601
 Iteration - 2602
 Iteration - 2603
@@ -2636,6 +2951,8 @@ Iteration - 2617
 Iteration - 2618
 Iteration - 2619
 Iteration - 2620
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.163750
 Iteration - 2621
 Iteration - 2622
 Iteration - 2623
@@ -2656,7 +2973,12 @@ Iteration - 2637
 Iteration - 2638
 Iteration - 2639
 Iteration - 2640
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.176250
 Iteration - 2641
+CB: infl = 0.056927, U= 0.176250, rcb_pre = 0.068982, rcb_delta = -0.081717, R = 0.058982 
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -7.638314, Mortgages = 116.422525 
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -28.561679, Mortgages = 248.998290 
 Iteration - 2642
 Iteration - 2643
 Iteration - 2644
@@ -2676,6 +2998,8 @@ Iteration - 2657
 Iteration - 2658
 Iteration - 2659
 Iteration - 2660
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.191250
 Iteration - 2661
 Iteration - 2662
 Iteration - 2663
@@ -2696,6 +3020,8 @@ Iteration - 2677
 Iteration - 2678
 Iteration - 2679
 Iteration - 2680
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.131250
 Iteration - 2681
 Iteration - 2682
 Iteration - 2683
@@ -2716,7 +3042,10 @@ Iteration - 2697
 Iteration - 2698
 Iteration - 2699
 Iteration - 2700
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.113750
 Iteration - 2701
+CB: infl = 0.046513, U= 0.113750, rcb_pre = 0.058982, rcb_delta = -0.056088, R = 0.048982 
 Iteration - 2702
 Iteration - 2703
 Iteration - 2704
@@ -2736,7 +3065,10 @@ Iteration - 2717
 Iteration - 2718
 Iteration - 2719
 Iteration - 2720
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.112500
 Iteration - 2721
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -29.789031, Mortgages = 383.800797 
 Iteration - 2722
 Iteration - 2723
 Iteration - 2724
@@ -2756,6 +3088,8 @@ Iteration - 2737
 Iteration - 2738
 Iteration - 2739
 Iteration - 2740
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.087500
 Iteration - 2741
 Iteration - 2742
 Iteration - 2743
@@ -2776,7 +3110,12 @@ Iteration - 2757
 Iteration - 2758
 Iteration - 2759
 Iteration - 2760
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.082500
 Iteration - 2761
+CB: infl = 0.046070, U= 0.082500, rcb_pre = 0.048982, rcb_delta = -0.031127, R = 0.038982 
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -25.635993, Mortgages = 520.971980 
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -11.622385, Mortgages = 115.920643 
 Iteration - 2762
 Iteration - 2763
 Iteration - 2764
@@ -2796,6 +3135,8 @@ Iteration - 2777
 Iteration - 2778
 Iteration - 2779
 Iteration - 2780
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.091250
 Iteration - 2781
 Iteration - 2782
 Iteration - 2783
@@ -2816,7 +3157,10 @@ Iteration - 2797
 Iteration - 2798
 Iteration - 2799
 Iteration - 2800
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.025000
 Iteration - 2801
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -25.635993, Mortgages = 520.299840 
 Iteration - 2802
 Iteration - 2803
 Iteration - 2804
@@ -2836,7 +3180,11 @@ Iteration - 2817
 Iteration - 2818
 Iteration - 2819
 Iteration - 2820
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.016250
 Iteration - 2821
+CB: infl = 0.050313, U= 0.016250, rcb_pre = 0.038982, rcb_delta = 0.018362, R = 0.048982 
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -15.840957, Mortgages = 255.300594 
 Iteration - 2822
 Iteration - 2823
 Iteration - 2824
@@ -2856,6 +3204,8 @@ Iteration - 2837
 Iteration - 2838
 Iteration - 2839
 Iteration - 2840
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.022500
 Iteration - 2841
 Iteration - 2842
 Iteration - 2843
@@ -2876,7 +3226,10 @@ Iteration - 2857
 Iteration - 2858
 Iteration - 2859
 Iteration - 2860
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2861
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -13.408884, Mortgages = 519.426332 
 Iteration - 2862
 Iteration - 2863
 Iteration - 2864
@@ -2896,7 +3249,10 @@ Iteration - 2877
 Iteration - 2878
 Iteration - 2879
 Iteration - 2880
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 2881
+CB: infl = 0.065330, U= 0.000000, rcb_pre = 0.048982, rcb_delta = 0.039012, R = 0.058982 
 Iteration - 2882
 Iteration - 2883
 Iteration - 2884
@@ -2916,6 +3272,8 @@ Iteration - 2897
 Iteration - 2898
 Iteration - 2899
 Iteration - 2900
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.028750
 Iteration - 2901
 Iteration - 2902
 Iteration - 2903
@@ -2936,6 +3294,8 @@ Iteration - 2917
 Iteration - 2918
 Iteration - 2919
 Iteration - 2920
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.006250
 Iteration - 2921
 Iteration - 2922
 Iteration - 2923
@@ -2956,7 +3316,11 @@ Iteration - 2937
 Iteration - 2938
 Iteration - 2939
 Iteration - 2940
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.001250
 Iteration - 2941
+CB: infl = 0.064430, U= 0.001250, rcb_pre = 0.058982, rcb_delta = 0.027038, R = 0.068982 
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -5.509658, Mortgages = 518.513921 
 Iteration - 2942
 Iteration - 2943
 Iteration - 2944
@@ -2976,6 +3340,8 @@ Iteration - 2957
 Iteration - 2958
 Iteration - 2959
 Iteration - 2960
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.073750
 Iteration - 2961
 Iteration - 2962
 Iteration - 2963
@@ -2996,6 +3362,8 @@ Iteration - 2977
 Iteration - 2978
 Iteration - 2979
 Iteration - 2980
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.030000
 Iteration - 2981
 Iteration - 2982
 Iteration - 2983
@@ -3016,7 +3384,10 @@ Iteration - 2997
 Iteration - 2998
 Iteration - 2999
 Iteration - 3000
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.031250
 Iteration - 3001
+CB: infl = 0.065690, U= 0.031250, rcb_pre = 0.068982, rcb_delta = 0.003928, R = 0.072910 
 Iteration - 3002
 Iteration - 3003
 Iteration - 3004
@@ -3036,6 +3407,8 @@ Iteration - 3017
 Iteration - 3018
 Iteration - 3019
 Iteration - 3020
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.043750
 Iteration - 3021
 Iteration - 3022
 Iteration - 3023
@@ -3056,6 +3429,8 @@ Iteration - 3037
 Iteration - 3038
 Iteration - 3039
 Iteration - 3040
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.061250
 Iteration - 3041
 Iteration - 3042
 Iteration - 3043
@@ -3076,7 +3451,10 @@ Iteration - 3057
 Iteration - 3058
 Iteration - 3059
 Iteration - 3060
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.158750
 Iteration - 3061
+CB: infl = 0.053992, U= 0.158750, rcb_pre = 0.072910, rcb_delta = -0.081296, R = 0.062910 
 Iteration - 3062
 Iteration - 3063
 Iteration - 3064
@@ -3096,7 +3474,10 @@ Iteration - 3077
 Iteration - 3078
 Iteration - 3079
 Iteration - 3080
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.172500
 Iteration - 3081
+Warning @household_housing_check_wealth(): Household 782 has more mortgages than total assets. Equity = -2.823132, Mortgages = 517.316170 
 Iteration - 3082
 Iteration - 3083
 Iteration - 3084
@@ -3116,6 +3497,8 @@ Iteration - 3097
 Iteration - 3098
 Iteration - 3099
 Iteration - 3100
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.126250
 Iteration - 3101
 Iteration - 3102
 Iteration - 3103
@@ -3136,7 +3519,10 @@ Iteration - 3117
 Iteration - 3118
 Iteration - 3119
 Iteration - 3120
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.110000
 Iteration - 3121
+CB: infl = 0.048957, U= 0.110000, rcb_pre = 0.062910, rcb_delta = -0.054475, R = 0.052910 
 Iteration - 3122
 Iteration - 3123
 Iteration - 3124
@@ -3156,6 +3542,8 @@ Iteration - 3137
 Iteration - 3138
 Iteration - 3139
 Iteration - 3140
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.172500
 Iteration - 3141
 Iteration - 3142
 Iteration - 3143
@@ -3176,6 +3564,8 @@ Iteration - 3157
 Iteration - 3158
 Iteration - 3159
 Iteration - 3160
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.078750
 Iteration - 3161
 Iteration - 3162
 Iteration - 3163
@@ -3196,7 +3586,10 @@ Iteration - 3177
 Iteration - 3178
 Iteration - 3179
 Iteration - 3180
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.085000
 Iteration - 3181
+CB: infl = 0.046826, U= 0.085000, rcb_pre = 0.052910, rcb_delta = -0.035171, R = 0.042910 
 Iteration - 3182
 Iteration - 3183
 Iteration - 3184
@@ -3216,6 +3609,8 @@ Iteration - 3197
 Iteration - 3198
 Iteration - 3199
 Iteration - 3200
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.046250
 Iteration - 3201
 Iteration - 3202
 Iteration - 3203
@@ -3236,6 +3631,8 @@ Iteration - 3217
 Iteration - 3218
 Iteration - 3219
 Iteration - 3220
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.033750
 Iteration - 3221
 Iteration - 3222
 Iteration - 3223
@@ -3256,7 +3653,10 @@ Iteration - 3237
 Iteration - 3238
 Iteration - 3239
 Iteration - 3240
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.036250
 Iteration - 3241
+CB: infl = 0.053387, U= 0.036250, rcb_pre = 0.042910, rcb_delta = 0.009045, R = 0.051955 
 Iteration - 3242
 Iteration - 3243
 Iteration - 3244
@@ -3276,6 +3676,8 @@ Iteration - 3257
 Iteration - 3258
 Iteration - 3259
 Iteration - 3260
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 3261
 Iteration - 3262
 Iteration - 3263
@@ -3296,6 +3698,8 @@ Iteration - 3277
 Iteration - 3278
 Iteration - 3279
 Iteration - 3280
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 3281
 Iteration - 3282
 Iteration - 3283
@@ -3316,7 +3720,10 @@ Iteration - 3297
 Iteration - 3298
 Iteration - 3299
 Iteration - 3300
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 3301
+CB: infl = 0.066039, U= 0.000000, rcb_pre = 0.051955, rcb_delta = 0.037104, R = 0.061955 
 Iteration - 3302
 Iteration - 3303
 Iteration - 3304
@@ -3336,6 +3743,8 @@ Iteration - 3317
 Iteration - 3318
 Iteration - 3319
 Iteration - 3320
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.081250
 Iteration - 3321
 Iteration - 3322
 Iteration - 3323
@@ -3356,6 +3765,8 @@ Iteration - 3337
 Iteration - 3338
 Iteration - 3339
 Iteration - 3340
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.106250
 Iteration - 3341
 Iteration - 3342
 Iteration - 3343
@@ -3376,7 +3787,11 @@ Iteration - 3357
 Iteration - 3358
 Iteration - 3359
 Iteration - 3360
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.091250
 Iteration - 3361
+CB: infl = 0.065690, U= 0.091250, rcb_pre = 0.061955, rcb_delta = -0.019046, R = 0.051955 
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -18.640782, Mortgages = 113.198316 
 Iteration - 3362
 Iteration - 3363
 Iteration - 3364
@@ -3396,6 +3811,8 @@ Iteration - 3377
 Iteration - 3378
 Iteration - 3379
 Iteration - 3380
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.150000
 Iteration - 3381
 Iteration - 3382
 Iteration - 3383
@@ -3416,6 +3833,8 @@ Iteration - 3397
 Iteration - 3398
 Iteration - 3399
 Iteration - 3400
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.061250
 Iteration - 3401
 Iteration - 3402
 Iteration - 3403
@@ -3436,7 +3855,10 @@ Iteration - 3417
 Iteration - 3418
 Iteration - 3419
 Iteration - 3420
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.058750
 Iteration - 3421
+CB: infl = 0.061810, U= 0.058750, rcb_pre = 0.051955, rcb_delta = 0.001385, R = 0.053340 
 Iteration - 3422
 Iteration - 3423
 Iteration - 3424
@@ -3456,7 +3878,10 @@ Iteration - 3437
 Iteration - 3438
 Iteration - 3439
 Iteration - 3440
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.083750
 Iteration - 3441
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -16.570540, Mortgages = 275.947812 
 Iteration - 3442
 Iteration - 3443
 Iteration - 3444
@@ -3476,7 +3901,10 @@ Iteration - 3457
 Iteration - 3458
 Iteration - 3459
 Iteration - 3460
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.018750
 Iteration - 3461
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -16.570540, Mortgages = 442.435014 
 Iteration - 3462
 Iteration - 3463
 Iteration - 3464
@@ -3496,7 +3924,10 @@ Iteration - 3477
 Iteration - 3478
 Iteration - 3479
 Iteration - 3480
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.002500
 Iteration - 3481
+CB: infl = 0.057437, U= 0.002500, rcb_pre = 0.053340, rcb_delta = 0.021566, R = 0.063340 
 Iteration - 3482
 Iteration - 3483
 Iteration - 3484
@@ -3516,6 +3947,8 @@ Iteration - 3497
 Iteration - 3498
 Iteration - 3499
 Iteration - 3500
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.045000
 Iteration - 3501
 Iteration - 3502
 Iteration - 3503
@@ -3536,7 +3969,10 @@ Iteration - 3517
 Iteration - 3518
 Iteration - 3519
 Iteration - 3520
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
 Iteration - 3521
+Warning @household_housing_check_wealth(): Household 381 has more mortgages than total assets. Equity = -17.725352, Mortgages = 609.976937 
 Iteration - 3522
 Iteration - 3523
 Iteration - 3524
@@ -3556,7 +3992,10 @@ Iteration - 3537
 Iteration - 3538
 Iteration - 3539
 Iteration - 3540
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.023750
 Iteration - 3541
+CB: infl = 0.062724, U= 0.023750, rcb_pre = 0.063340, rcb_delta = 0.008871, R = 0.072210 
 Iteration - 3542
 Iteration - 3543
 Iteration - 3544
@@ -3576,6 +4015,8 @@ Iteration - 3557
 Iteration - 3558
 Iteration - 3559
 Iteration - 3560
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.046250
 Iteration - 3561
 Iteration - 3562
 Iteration - 3563
@@ -3596,6 +4037,8 @@ Iteration - 3577
 Iteration - 3578
 Iteration - 3579
 Iteration - 3580
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.007500
 Iteration - 3581
 Iteration - 3582
 Iteration - 3583
@@ -3616,4 +4059,6 @@ Iteration - 3597
 Iteration - 3598
 Iteration - 3599
 Iteration - 3600
-Execution time - 0:55:608 [mins:secs:msecs]
+Equity Fund N Share Holders = 800 
+Gov: Population Size = 800, U = 0.000000
+Execution time - 0:58:074 [mins:secs:msecs]

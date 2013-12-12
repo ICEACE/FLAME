@@ -50,7 +50,7 @@ int household_housing_check_wealth()
      */
     wealth = LIQUIDITY + HOUSING_VALUE;
     
-    if (fabs(wealth) <= 0.0001){
+    if (fabs(wealth) <= 0.01){
         EQUITY_RATIO = 0;
     } else {
         EQUITY_RATIO = EQUITY / wealth;
@@ -58,7 +58,7 @@ int household_housing_check_wealth()
     
     if (EQUITY_RATIO <= 0 ) {
         if (WARNING_MODE) {
-            printf("Warning @household_housing_check_wealth(): Household %d has a negative equity_ratio = %f, Liquidity = %f, Housing Value = %f, Equity = %f \n", ID, EQUITY_RATIO, LIQUIDITY, HOUSING_VALUE, EQUITY);
+            //printf("Warning @household_housing_check_wealth(): Household %d has more mortgages than total assets. Equity = %f, Mortgages = %f \n", ID, EQUITY, MORTGAGES);
         }
     }
     

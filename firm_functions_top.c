@@ -53,7 +53,7 @@ int firm_init_employment()
                                                                                
     if (ISCONSTRUCTOR == 0) {
         PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
-        INVENTORY = 0;
+        INVENTORY = (int) (PRODUCTION_CURRENT / 10);
         SALES = PRODUCTION_CURRENT;
         REVENUES = SALES * UNIT_GOODS_PRICE;
         EBIT = REVENUES - LABOUR_COSTS;
@@ -68,7 +68,7 @@ int firm_init_employment()
     } else {
         PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION / 12);
         INVENTORY = PRODUCTION_CURRENT;
-        SALES = PRODUCTION_CURRENT;
+        SALES = 0;
         REVENUES = SALES * UNIT_HOUSE_PRICE;
         PHYSICAL_CAPITAL = 0;
         EBIT = REVENUES - LABOUR_COSTS;
@@ -126,22 +126,13 @@ int firm_init_balancesheet()
 int firm_iterate()
 {
     if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
+        
         if (IT_NO == 0)
         {
+            
             char * filename;
             FILE * file1;
             filename = malloc(100*sizeof(char));
-            
-            /* @\fn: firm_credit_compute_income_statement() */
-            /*** Balancesheet Verification. */
-            filename[0]=0;
-            strcpy(filename, "./outputs/data/VV/Firm_ITNO_ID_DEBT_BANK0LOAN_BANK1LOAN.txt");
-            file1 = fopen(filename,"w");
-            //fprintf(file1,"%d %d %f %f %f\n",IT_NO, ID, DEBT, LOAN_LIST[0].amount, LOAN_LIST[1].amount);
-            fclose(file1);
-            /***/
-            
-            
             
             if (ISCONSTRUCTOR) {
                 /* @\fn: firm_production_construction_plan() */

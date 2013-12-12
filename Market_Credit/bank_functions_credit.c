@@ -185,11 +185,15 @@ int bank_credit_process_loan_requests_1()
         LIQUIDITY -= amount;
         add_bank_firm_loan_acknowledge_1_message(ID, firm, amount);
         
+        //printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d, Current Loans = %f \n", ID, amount, firm, LOANS);
+        
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d Loan Stage 1: %f --> Firm ID = %d!\n", ID, amount, firm);
         }
     }
     else {
+        //printf("Bank ID = %d at Loan Stage 1: Denies %f for Firm ID = %d, Current Loans = %f \n", ID, amount, firm, LOANS);
+        
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d at Loan Stage 1: denies a %f amount loan request from Firm ID = %d \n", ID, amount, firm);
         }
@@ -219,11 +223,18 @@ int bank_credit_process_loan_requests_2()
         LOANS += amount;
         LIQUIDITY -= amount;
         add_bank_firm_loan_acknowledge_2_message(ID, firm, amount);
+        
+        //printf("Bank ID = %d Loan Stage 2: %f --> Firm ID = %d, Current Loans = %f \n", ID, amount, firm, LOANS);
+        
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d Loan Stage 2: %f --> Firm ID = %d!\n", ID, amount, firm);
         }
     }
     else {
+        
+        
+        //printf("Bank ID = %d at Loan Stage 2: Denies %f for Firm ID = %d, Current Loans = %f \n", ID, amount, firm, LOANS);
+        
         if (PRINT_DEBUG_MODE){
             printf("Bank ID = %d at Loan Stage 2: denies a %f amount loan request from Firm ID = %d \n", ID, amount, firm);
         }
@@ -254,6 +265,9 @@ int bank_credit_recieve_loan_writeoffs()
     LOANS -= amount;
     TOTAL_WRITEOFFS += amount;
     
+    
+    //printf("Write off: Bank ID = %d, Amount = %f, Updated Loan = %f \n", ID, amount, LOANS);
+    
     if (DATA_COLLECTION_MODE) {
         char * filename;
         FILE * file1;
@@ -283,6 +297,8 @@ int bank_credit_recieve_new_entrant_loan_requests()
     amount = new_entrant_loan_message->amount;
     LOANS += amount;
     LIQUIDITY -= amount;
+    
+    //printf("New entrant: Bank ID = %d, Amount = %f, Updated Loan = %f \n", ID, amount, LOANS);
     FINISH_NEW_ENTRANT_LOAN_MESSAGE_LOOP
     
 	return 0; /* Returning zero means the agent is not removed */

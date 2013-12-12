@@ -56,7 +56,7 @@ int centralbank_iterate()
             char * filename;
             FILE * file1;
             
-            /* @/fn: centralbank_set_interest_rate() */
+            /* @/fn: centralbank_do_balance_sheet() */
             filename = malloc(40*sizeof(char));
             filename[0]=0;
             strcpy(filename, "./outputs/data/CentralBank_snapshot.txt");
