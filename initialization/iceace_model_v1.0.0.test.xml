@@ -23,7 +23,7 @@
     <car_buffer_threshold>0.0075</car_buffer_threshold>
     <housing_market_entrance_prob>0.18</housing_market_entrance_prob>
     <fire_sale_threshold>0.6</fire_sale_threshold>
-    <household_budget_constraint>0.3</household_budget_constraint>
+    <household_budget_constraint>0.20</household_budget_constraint>
     <capital_adequecy_ratio>0.085</capital_adequecy_ratio>
     <housing_price_up_rate>0.025</housing_price_up_rate>
     <housing_price_down_rate>0.05</housing_price_down_rate>
