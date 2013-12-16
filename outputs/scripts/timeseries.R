@@ -193,7 +193,7 @@ plot_gdp_to_file_v1(nMonths, FirmMonthly$IT_NO,firmvector_real, CFirmMonthly$IT_
 plot_gdp_to_file_v2(nMonths, FirmMonthly$IT_NO,firmvector, CFirmMonthly$IT_NO, cfirmvector, firmvector_real, cfirmvector_real, beta = "0.30")
 
 
-# Compute Bankruptcy #
+# Compute Bankruptcy Frequencies #
 file = paste(data_dir, '/', "BankruptcyInspection.txt", sep ='')
 Bankruptcy <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 L <- Bankruptcy$Writeoff_Type == "Insolvency"
@@ -232,6 +232,8 @@ plot_time_series_point_file(nQuarters, freqilliquid, "Quarters", "Frequency", "I
 
 plot_time_series_point_file(nQuarters, freqinsolv, "Quarters", "Frequency", "Insolvency Writeoffs", "aWriteoffInsolvency.png")
 
+
+# Compute Crediting Frequencies#
 
 ### Validation - End ###
 
