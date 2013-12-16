@@ -231,34 +231,24 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>FirmUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmCreditPolicyChecks</nextState>
                     <condition>
-                        <not><lhs><time>
-                            <period>weekly</period>
-                            <phase>a.day_of_week_to_act</phase>
-                        </time></lhs>
-                        <op>OR</op>
-                        <rhs><time>
+                        <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></rhs></not>
+                            <phase>0</phase>
+                        </time></not>
                     </condition>
                 </function>
                 <function>
                     <name>firm_update_bank_account</name>
                     <description>Deposits/updates its liquidity to bank.</description>
                     <currentState>FirmUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>FirmCreditPolicyChecks</nextState>
                     <condition>
-                        <lhs><time>
-                            <period>weekly</period>
-                            <phase>a.day_of_week_to_act</phase>
-                        </time></lhs>
-                        <op>OR</op>
-                        <rhs><time>
+                        <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></rhs>
+                            <phase>0</phase>
+                        </time><
                     </condition>
                     <outputs>
                         <output>
@@ -363,34 +353,24 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>HouseholdUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HHCreditPolicyChecks</nextState>
                     <condition>
-                        <not><lhs><time>
-                            <period>weekly</period>
-                            <phase>a.day_of_week_to_act</phase>
-                        </time></lhs>
-                        <op>OR</op>
-                        <rhs><time>
+                        <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></rhs></not>
+                            <phase>0</phase>
+                        </time></not>
                     </condition>
                 </function>
                 <function>
                     <name>household_update_bank_account</name>
                     <description>Deposits/updates its liquidity to bank.</description>
                     <currentState>HouseholdUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>HHCreditPolicyChecks</nextState>
                     <condition>
-                        <lhs><time>
-                            <period>weekly</period>
-                            <phase>a.day_of_week_to_act</phase>
-                        </time></lhs>
-                        <op>OR</op>
-                        <rhs><time>
+                        <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></rhs>
+                            <phase>0</phase>
+                        </time>
                     </condition>
                     <outputs>
                         <output>
@@ -453,11 +433,11 @@
                     <name>equityfund_update_deposit</name>
                     <description>Deposits/updates its liquidity at centralbank.</description>
                     <currentState>EquityFundUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EFCreditPolicyChecks</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time>
                     </condition>
                     <outputs>
@@ -470,11 +450,11 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>EquityFundUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EFCreditPolicyChecks</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -614,15 +594,10 @@
                     <currentState>BankUpdateDeposits</currentState>
                     <nextState>BankUpdateCentralbankDeposit</nextState>
                     <condition>
-                        <not><lhs><time>
-                            <period>weekly</period>
-                            <phase>a.day_of_week_to_act</phase>
-                        </time></lhs>
-                        <op>OR</op>
-                        <rhs><time>
+                        <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></rhs></not>
+                            <phase>0</phase>
+                        </time></not>
                     </condition>
                 </function>
                 <function>
@@ -631,15 +606,10 @@
                     <currentState>BankUpdateDeposits</currentState>
                     <nextState>BankUpdateCentralbankDeposit</nextState>
                     <condition>
-                        <lhs><time>
-                            <period>weekly</period>
-                            <phase>a.day_of_week_to_act</phase>
-                        </time></lhs>
-                        <op>OR</op>
-                        <rhs><time>
+                        <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
-                        </time></rhs>
+                            <phase>0</phase>
+                        </time>
                     </condition>
                     <inputs>
                         <input>
@@ -666,11 +636,11 @@
                     <name>bank_update_centralbank_deposit</name>
                     <description>Deposits/updates its liquidity at centralbank.</description>
                     <currentState>BankUpdateCentralbankDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankCreditPolicyChecks</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time>
                     </condition>
                     <outputs>
@@ -683,11 +653,11 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>BankUpdateCentralbankDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankCreditPolicyChecks</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -744,11 +714,11 @@
                     <name>government_update_deposit</name>
                     <description>Deposits/updates its liquidity at centralbank.</description>
                     <currentState>GovernmentUpdateDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentFiscalPolicy</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time>
                     </condition>
                     <outputs>
@@ -761,11 +731,11 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>GovernmentUpdateDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentFiscalPolicy</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -859,11 +829,11 @@
                     <name>centralbank_update_deposits</name>
                     <description>Updates its liquidity</description>
                     <currentState>CentralBankUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CentralBankPolicy</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time>
                     </condition>
                     <inputs>
@@ -882,11 +852,11 @@
                     <name>idle</name>
                     <description>Skip the updates.</description>
                     <currentState>CentralBankUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CentralBankPolicy</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -1017,7 +987,7 @@
                     <name>reagency_init</name>
                     <description>Notifies its id.</description>
                     <currentState>start</currentState>
-                    <nextState>REAgencyCreditMarket</nextState>
+                    <nextState>REAgencyHousingMarket</nextState>
                 </function>
             </functions>
         </xagent>

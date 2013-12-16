@@ -183,6 +183,7 @@ int bank_update_centralbank_deposit()
     
     add_bank_centralbank_update_deposit_message(ID, LIQUIDITY);
     
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

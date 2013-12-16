@@ -112,6 +112,9 @@ int government_update_fiscal_policy()
     double dTax;
     double dBenefit;
     
+    EARNINGS = CAPITAL_TAX_INCOME + LABOUR_TAX_INCOME + CENTRALBANK_INCOME;
+    EXPENDITURES = UNEMPLOYMENT_BENEFITS + GENERAL_BENEFITS;
+    
     balance = EARNINGS - EXPENDITURES;
     
     

@@ -115,25 +115,25 @@
             <functions>
                 <function>
                     <name>idle</name>
-                    <description>It is not the start of a quarter.</description>
-                    <currentState>REAgencyCreditMarket</currentState>
-                    <nextState>REAgencyHousingMarket</nextState>
+                    <description>It is not the end of a quarter.</description>
+                    <currentState>REAgencyCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time></not>
                     </condition>
                 </function>
                 <function>
                     <name>reagency_check_interest_rate</name>
                     <description>It checks interest rate.</description>
-                    <currentState>REAgencyCreditMarket</currentState>
-                    <nextState>REAgencyHousingMarket</nextState>
+                    <currentState>REAgencyCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
-                            <phase>1</phase>
+                            <phase>0</phase>
                         </time>
                     </condition>
                     <input>
@@ -558,30 +558,9 @@
                     <name>firm_credit_do_balance_sheet</name>
                     <description>Updating the balance sheet.</description>
                     <currentState>FirmCreditBalanceSheet</currentState>
-                    <nextState>FirmCreditCheckInterestRate</nextState>
-                </function>
-                <function>
-                    <name>firm_credit_check_interest_rate</name>
-                    <description>Firm checks quarterly interest rate.</description>
-                    <currentState>FirmCreditCheckInterestRate</currentState>
-                    <nextState>FirmCreditCheckTaxRate</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>interest_rate</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>firm_credit_check_tax_rate</name>
-                    <description>Firm checks quarterly tax rate.</description>
-                    <currentState>FirmCreditCheckTaxRate</currentState>
                     <nextState>FirmCreditInsolvencyCheck</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>labour_tax_rate</messageName>
-                        </input>
-                    </inputs>
                 </function>
+        
                 <function>
                     <name>idle</name>
                     <description>Firm is not insolvent. Keeps it regular activities.</description>
@@ -622,6 +601,48 @@
                             <messageName>loan_writeoff</messageName>
                         </output>
                     </outputs>
+                </function>
+                
+                
+                <function>
+                    <name>idle</name>
+                    <description>It is not time to act.</description>
+                    <currentState>FirmCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_credit_check_interest_rate</name>
+                    <description>Firm checks quarterly interest rate.</description>
+                    <currentState>FirmCreditPolicyChecks</currentState>
+                    <nextState>FirmCreditCheckTaxRate</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>firm_credit_check_tax_rate</name>
+                    <description>Firm checks quarterly tax rate.</description>
+                    <currentState>FirmCreditCheckTaxRate</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>labour_tax_rate</messageName>
+                        </input>
+                    </inputs>
                 </function>
             </functions>
         </xagent>
@@ -868,7 +889,7 @@
                     <name>bank_credit_collect_loan_interests</name>
                     <description>Bank evaluates first loan requests.</description>
                     <currentState>BankCreditLoanInterests</currentState>
-                    <nextState>BankCreditCheckInterestRate</nextState>
+                    <nextState>BankHousingMarket</nextState>
                     <inputs>
                         <input>
                             <messageName>firm_bank_interest_on_loan</messageName>
@@ -881,11 +902,31 @@
                         </input>
                     </inputs>
                 </function>
+                
+                
+                <function>
+                    <name>idle</name>
+                    <description>It is not time to act.</description>
+                    <currentState>BankCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
                 <function>
                     <name>bank_credit_check_interest_rate</name>
                     <description>Bank checks centralbank ineterest rate.</description>
-                    <currentState>BankCreditCheckInterestRate</currentState>
-                    <nextState>BankHousingMarket</nextState>
+                    <currentState>BankCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time><
+                    </condition>
                     <inputs>
                         <input>
                             <messageName>interest_rate</messageName>
@@ -981,7 +1022,7 @@
                     <name>idle</name>
                     <description>It is not time to act.</description>
                     <currentState>CentralBankCredit</currentState>
-                    <nextState>CentralBankLabour</nextState>
+                    <nextState>CentralBankConsumption</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -1053,19 +1094,39 @@
                     <name>centralbank_do_balance_sheet</name>
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankBalanceSheet</currentState>
-                    <nextState>CentralBankInterestRate</nextState>
+                    <nextState>CentralBankConsumption</nextState>
+                </function>
+                
+                <function>
+                    <name>idle</name>
+                    <description>It is not time to act.</description>
+                    <currentState>CentralBankPolicy</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
                 </function>
                 <function>
                     <name>centralbank_set_interest_rate</name>
                     <description>Central bank sets the interest rate.</description>
-                    <currentState>CentralBankInterestRate</currentState>
-                    <nextState>CentralBankLabour</nextState>
+                    <currentState>CentralBankPolicy</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
                     <outputs>
                         <output>
                             <messageName>interest_rate</messageName>
                         </output>
                     </outputs>
                 </function>
+                
             </functions>
         </xagent>
         <xagent>
@@ -1216,36 +1277,9 @@
                     <name>household_credit_do_balance_sheet</name>
                     <description>Computing the balance sheet.</description>
                     <currentState>HHCreditBalanceSheet</currentState>
-                    <nextState>HHCreditCheckInterestRate</nextState>
-                </function>
-                <function>
-                    <name>household_credit_check_interest_rate</name>
-                    <description>Households check the interest rate which is set by CB.</description>
-                    <currentState>HHCreditCheckInterestRate</currentState>
-                    <nextState>HHCreditUpdateAnnuity</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>interest_rate</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>household_credit_update_mortgage_rates</name>
-                    <description>Households updates annuity, principal and interest payment amounts.</description>
-                    <currentState>HHCreditUpdateAnnuity</currentState>
-                    <nextState>HHCreditCheckTaxRate</nextState>
-                </function>
-                <function>
-                    <name>household_credit_check_tax_rate</name>
-                    <description>Households check the tax rate which is set by government.</description>
-                    <currentState>HHCreditCheckTaxRate</currentState>
                     <nextState>HHCreditMonthly</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>labour_tax_rate</messageName>
-                        </input>
-                    </inputs>
                 </function>
+    
                 <function>
                     <name>idle</name>
                     <description>It is not the end of the month.</description>
@@ -1278,6 +1312,56 @@
                         </input>
                     </inputs>
                 </function>
+                
+                
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of a quarter.</description>
+                    <currentState>HHCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>household_credit_check_interest_rate</name>
+                    <description>Households check the interest rate which is set by CB.</description>
+                    <currentState>HHCreditPolicyChecks</currentState>
+                    <nextState>HHCreditUpdateAnnuity</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>interest_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>household_credit_update_mortgage_rates</name>
+                    <description>Households updates annuity, principal and interest payment amounts.</description>
+                    <currentState>HHCreditUpdateAnnuity</currentState>
+                    <nextState>HHCreditCheckTaxRate</nextState>
+                </function>
+                <function>
+                    <name>household_credit_check_tax_rate</name>
+                    <description>Households check the tax rate which is set by government.</description>
+                    <currentState>HHCreditCheckTaxRate</currentState>
+                    <nextState>end</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>labour_tax_rate</messageName>
+                        </input>
+                    </inputs>
+                </function>
+
+
             </functions>
         </xagent>
         <xagent>
@@ -1429,19 +1513,40 @@
                     <name>equityfund_credit_do_balance_sheet</name>
                     <description>Equity fund balance sheet accounting activities.</description>
                     <currentState>EFCreditBalanceSheet</currentState>
-                    <nextState>EFCreditCheckTaxRate</nextState>
+                    <nextState>EFLabourMarket</nextState>
+                </function>
+                
+                
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of a quarter.</description>
+                    <currentState>EFCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
                 </function>
                 <function>
                     <name>equityfund_credit_check_tax_rate</name>
-                    <description>Firm checks quarterly tax rate.</description>
-                    <currentState>EFCreditCheckTaxRate</currentState>
-                    <nextState>EFLabourMarket</nextState>
+                    <description>Equity fund checks quarterly tax rate.</description>
+                    <currentState>EFCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
                     <inputs>
                         <input>
                             <messageName>capital_tax_rate</messageName>
                         </input>
                     </inputs>
                 </function>
+                
             </functions>
         </xagent>
         <xagent>
@@ -1582,27 +1687,13 @@
                     <name>government_do_balance_sheet</name>
                     <description>Government balance sheet accounting activities.</description>
                     <currentState>GovernmentBalanceSheet</currentState>
-                    <nextState>GovernmentFiscalPolicy</nextState>
+                    <nextState>GovernmentMonthly</nextState>
                     <outputs>
                         <output>
                             <messageName>gov_centralbank_debt_request</messageName>
                         </output>
                         <output>
                             <messageName>gov_centralbank_debt_payment</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>government_update_fiscal_policy</name>
-                    <description>Government sets tax rate, general benefits and unemployment benefits</description>
-                    <currentState>GovernmentFiscalPolicy</currentState>
-                    <nextState>GovernmentMonthly</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>capital_tax_rate</messageName>
-                        </output>
-                        <output>
-                            <messageName>labour_tax_rate</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -1657,6 +1748,40 @@
                         </input>
                     </inputs>
                 </function>
+                
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of a quarter.</description>
+                    <currentState>GovernmentFiscalPolicy</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>government_update_fiscal_policy</name>
+                    <description>Government sets tax rate, general benefits and unemployment benefits</description>
+                    <currentState>GovernmentFiscalPolicy</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>capital_tax_rate</messageName>
+                        </output>
+                        <output>
+                            <messageName>labour_tax_rate</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                
             </functions>
         </xagent>
     </agents>
