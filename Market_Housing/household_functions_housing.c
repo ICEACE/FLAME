@@ -153,7 +153,7 @@ int household_housing_sell()
     
     price = HOUSING_PRICE * (1 + price_difference);
     
-    add_sell_housing_message(ID, price, 1);
+    add_sell_housing_message(ID, price, 1, HMARKET_ROLE);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -173,7 +173,7 @@ int household_housing_fire_sell()
     price = HOUSING_PRICE * (1 - price_difference);
     
     if (price > 0) {
-        add_sell_housing_message(ID, price, 1);
+        add_sell_housing_message(ID, price, 1, HMARKET_ROLE);
     }
         
 	return 0; /* Returning zero means the agent is not removed */

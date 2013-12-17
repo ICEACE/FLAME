@@ -15,7 +15,7 @@ int firm_housing_enter_market()
     while (i <= INVENTORY) {
         price_difference = (((double)random_int(0, 100)) / 100.0) * HOUSING_PRICE_UP_RATE;
         price = UNIT_HOUSE_PRICE * (1 + price_difference);
-        add_sell_housing_message(ID, price, 1);
+        add_sell_housing_message(ID, price, 1, 0);
         i++;
     }
     

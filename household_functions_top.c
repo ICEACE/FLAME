@@ -13,7 +13,7 @@ int household_init_post_id()
     FILE * file1;
     filename = malloc(100*sizeof(char));
     filename[0]=0;
-    strcpy(filename, "./outputs/data/VV/Household_ID_Liquidity_Mortgages.txt");
+    strcpy(filename, "./outputs/data/Household_ID_Liquidity_Mortgages.txt");
     file1 = fopen(filename,"w");
     //fprintf(file1,"%d %f %f\n", ID, LIQUIDITY, MORTGAGES);
     fclose(file1);
@@ -60,7 +60,7 @@ int household_init_employment()
     FILE * file1;
     filename = malloc(100*sizeof(char));
     filename[0]=0;
-    strcpy(filename, "./outputs/data/VV/Household_ID_Liquidity_Mortgages.txt");
+    strcpy(filename, "./outputs/data/Household_ID_Liquidity_Mortgages.txt");
     file1 = fopen(filename,"a");
     fprintf(file1,"%d %f %f\n", ID, LIQUIDITY, MORTGAGES);
     fclose(file1);

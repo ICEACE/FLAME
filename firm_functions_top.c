@@ -16,7 +16,7 @@ int firm_init_post_id()
         FILE * file1;
         filename = malloc(40*sizeof(char));
         filename[0]=0;
-        strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
+        strcpy(filename, "./outputs/data/Firm_ID_Liquidity_Loan.txt");
         file1 = fopen(filename,"w");
         //fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
         fclose(file1);
@@ -107,7 +107,7 @@ int firm_init_balancesheet()
         FILE * file1;
         filename = malloc(40*sizeof(char));
         filename[0]=0;
-        strcpy(filename, "./outputs/data/VV/Firm_ID_Liquidity_Loan.txt");
+        strcpy(filename, "./outputs/data/Firm_ID_Liquidity_Loan.txt");
         file1 = fopen(filename,"a");
         fprintf(file1,"%d %f %f\n",ID, LIQUIDITY, DEBT);
         fclose(file1);

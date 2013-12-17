@@ -27,13 +27,26 @@ int reagency_housing_process()
     
  
     /* Collect sellers */
-    int id;
+    int id, type;
     double price, quantity;
+    int fire_seller_attempts = 0;
+    int regular_seller_attempts = 0;
+    int firm_seller_attempts = 0;
     START_SELL_HOUSING_MESSAGE_LOOP
+    type = sell_housing_message->type;
+    if (type == 0){firm_seller_attempts++;}
+    else if (type == 2){regular_seller_attempts++;}
+    else if (type == 1){fire_seller_attempts++;}
+    else {
+        if (WARNING_MODE) {
+            printf("Warning @reagency_housing_process(): Unidentifed seller type is dtected! \n");
+        }
+        type = -1;
+    }
     id = sell_housing_message->seller_id;
     price = sell_housing_message->price;
     quantity = sell_housing_message->quantity;
-    add_hseller(&sellers_list, id, price, quantity);
+    add_hseller(&sellers_list, id, price, quantity, type);
 	FINISH_SELL_HOUSING_MESSAGE_LOOP
     
     /* Queue the households */
@@ -89,6 +102,9 @@ int reagency_housing_process()
     int nsold = 0;
     int transaction_quantity = 0;
     double transaction_volume = 0;
+    int fire_sales = 0;
+    int regular_sales = 0;
+    int firm_sales = 0;
     do {
         if (sellers_list.size == 0 ){break;}
         if (buyers_list.size == 0 ){break;}
@@ -96,6 +112,7 @@ int reagency_housing_process()
         quantity = sellers_list.array[0].quantity;
         id = sellers_list.array[0].seller_id;
         price = sellers_list.array[0].price;
+        type = sellers_list.array[0].type;
         
         if (nsold == quantity){
             add_sold_housing_message(id, nsold, price);
@@ -103,6 +120,9 @@ int reagency_housing_process()
             transaction_quantity += nsold;
             transaction_volume += nsold * price;
             nsold = 0;
+            if (type == 0) { firm_sales++;}
+            if (type == 2) { regular_sales++;}
+            if (type == 1) { fire_sales++;}
             continue;
         }
         id = buyers_list.array[0].buyer_id;
@@ -215,9 +235,13 @@ int reagency_housing_process()
     
     if (nsold > 0 && sellers_list.size > 0) {
         id = sellers_list.array[0].seller_id;
+        type = sellers_list.array[0].type;
         add_sold_housing_message(id, nsold, price);
         transaction_quantity += nsold;
         transaction_volume += nsold * price;
+        if (type == 0) { firm_sales++;}
+        if (type == 2) { regular_sales++;}
+        if (type == 1) { fire_sales++;}
     }
     
   
@@ -229,7 +253,22 @@ int reagency_housing_process()
     if (transaction_quantity > 0) {
         HOUSING_TRANSACTIONS.avg_price = transaction_volume / transaction_quantity;
     }
+    
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(40*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/REAgency_sales.txt");
         
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %d %d %d %d %d\n",IT_NO, fire_seller_attempts, regular_seller_attempts, firm_seller_attempts, fire_sales, regular_sales, firm_sales);
+        fclose(file1);
+        free(filename);
+    }
+    
+    
     /* Garbage Collection */
     free_hseller_array(&sellers_list);
     free_hbuyer_array(&buyers_list);
