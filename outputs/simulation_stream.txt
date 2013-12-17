@@ -10,9 +10,9 @@ Debug mode enabled
 Iterations: 3600
 Using output frequency of: 3600
 xml: Geometric partitioning
-Reading initial data file: ./outputs/its/iceace_model_v1.0.0.test.xml
-Reading environment data from: ./outputs/its/iceace_model_v1.0.0.test.xml
-Reading agent data from: ./outputs/its/iceace_model_v1.0.0.test.xml
+Reading initial data file: ./outputs/its/0.xml
+Reading environment data from: ./outputs/its/0.xml
+Reading agent data from: ./outputs/its/0.xml
 output: type='snapshot' format='xml' location='./outputs/its/' period='1' phase='0'
 xdiv=0 ydiv=1
 Iteration - 1
@@ -3615,4 +3615,4 @@ Iteration - 3597
 Iteration - 3598
 Iteration - 3599
 Iteration - 3600
-Execution time - 7:42:987 [mins:secs:msecs]
+Execution time - 7:13:241 [mins:secs:msecs]
