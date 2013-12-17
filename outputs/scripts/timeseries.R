@@ -1,4 +1,4 @@
-### Init workspace  ###
+### Init Workspace  ###
 
 rm(list = ls())
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/LibAnals.R", echo = TRUE)
@@ -67,113 +67,113 @@ plot_time_series_point_file(nMonths, REAgency$AVG_HOUSING_PRICE, "Months", "Aver
 plot_time_series_point_file(nMonths, REAgency$TRANSACTION_QUANTITY, "Months", "Number of Housing Transactions", "Real Estate Market", "REAgencyTransactionVolumeHouses.png")
 
 #Central Bank
-plot_time_series_point_file(nQuarters, Centralbank$INTEREST_RATE, "Quarters", "Interest Rate", "Central Bank", "CentralBankInterestRate.png")
-plot_time_series_point_file(nQuarters, Centralbank$INFLATION, "Quarters", "Inflation", "Central Bank", "CentralBankInflation.png")
-plot_time_series_point_file(nQuarters, Centralbank$REVENUES, "Quarters", "Interests Accrued", "Central Bank", "CentralBankRevenues.png")
-plot_time_series_point_file(nQuarters, Centralbank$FIAT_MONEY, "Quarters", "FIAT Money", "Central Bank", "CentralBankFiatMoney.png")
-plot_time_series_point_file(nQuarters, Centralbank$TOTAL_ASSETS, "Quarters", "Total Assets", "Central Bank", "CentralBankTotalAssets.png")
-plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY, "Quarters", "Liquidity", "Central Bank", "CentralBankLiquidity.png")
-plot_time_series_point_file(nQuarters, Centralbank$LOANS_BANKS, "Quarters", "Bank Loans", "Central Bank", "CentralBankLoansBanks.png")
-plot_time_series_point_file(nQuarters, Centralbank$LOANS_GOVERNMENT, "Quarters", "Governement Loan", "Central Bank", "CentralBankLoansGovernment.png")
-plot_time_series_point_file(nQuarters, Centralbank$EQUITY, "Quarters", "Equity", "Central Bank", "CentralBankEquity.png")
-plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_BANKS, "Quarters", "Bank Liquidity", "Central Bank", "CentralBankLiquidityBanks.png")
-plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_GOVERNMENT, "Quarters", "Government Liquidity", "Central Bank", "CentralBankLiquidityGovernment.png")
-plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_EQUITYFUND, "Quarters", "Equity Fund Liquidity", "Central Bank", "CentralBankLiquidityEquityFund.png")
+plot_time_series_point_file(nQuarters, Centralbank$INTEREST_RATE, "Quarters", "Interest Rate", "Central Bank", "CentralBankInterestRate.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$INFLATION, "Quarters", "Inflation", "Central Bank", "CentralBankInflation.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$REVENUES, "Quarters", "Interests Accrued", "Central Bank", "CentralBankRevenues.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$FIAT_MONEY, "Quarters", "FIAT Money", "Central Bank", "CentralBankFiatMoney.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$TOTAL_ASSETS, "Quarters", "Total Assets", "Central Bank", "CentralBankTotalAssets.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY, "Quarters", "Liquidity", "Central Bank", "CentralBankLiquidity.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$LOANS_BANKS, "Quarters", "Bank Loans", "Central Bank", "CentralBankLoansBanks.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$LOANS_GOVERNMENT, "Quarters", "Governement Loan", "Central Bank", "CentralBankLoansGovernment.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$EQUITY, "Quarters", "Equity", "Central Bank", "CentralBankEquity.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_BANKS, "Quarters", "Bank Liquidity", "Central Bank", "CentralBankLiquidityBanks.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_GOVERNMENT, "Quarters", "Government Liquidity", "Central Bank", "CentralBankLiquidityGovernment.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_EQUITYFUND, "Quarters", "Equity Fund Liquidity", "Central Bank", "CentralBankLiquidityEquityFund.png", isgrid = TRUE, ltype = "o")
 
 
 
 #Government
-plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_RATE, "Quarters", "Unemployment Rate", "", "GovernmentUnemploymentRate.png")
-plot_time_series_point_file(nQuarters, Government$LABOUR_TAX_RATE, "Quarters", "Tax Rate (labour/Capital)", "Government", "GovernmentTaxRate.png")
-plot_time_series_point_file(nQuarters, Government$GOV_GENERAL_BENEFIT_RATE, "Quarters", "General Benefits Rate", "Government", "GovernmentBenefitsRate.png")
-plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_BENEFITS, "Quarters", "Unemployment Benefits", "", "GovernmentBenefitsUnemployment.png")
-plot_time_series_point_file(nQuarters, Government$GENERAL_BENEFITS, "Quarters", "General Benefits", "Government", "GovernmentBenefitsGeneral.png")
-plot_time_series_point_file(nQuarters, Government$AVERAGE_WAGE, "Quarters", "Average Wage", "", "GovernmentAverageWage.png")
-plot_time_series_point_file(nQuarters, Government$DEBT, "Quarters", "Amount", "Government Debt to Central Bank", "GovernmentDebt.png")
-plot_time_series_point_file(nQuarters, Government$CENTRALBANK_INCOME, "Quarters", "Amount", "Government Central Bank Incomes", "GovernmentCentralbankIncome.png")
-plot_time_series_point_file(nQuarters, Government$LIQUIDITY, "Quarters", "Amount", "Government Liquidity", "GovernmentLiquidity.png")
+plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_RATE, "Quarters", "Unemployment Rate", "Government", "GovernmentUnemploymentRate.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$LABOUR_TAX_RATE, "Quarters", "Tax Rate (labour/Capital)", "Government", "GovernmentTaxRate.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$GOV_GENERAL_BENEFIT_RATE, "Quarters", "General Benefits Rate", "Government", "GovernmentBenefitsRate.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$UNEMPLOYMENT_BENEFITS, "Quarters", "Unemployment Benefits", "", "GovernmentBenefitsUnemployment.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$GENERAL_BENEFITS, "Quarters", "General Benefits", "Government", "GovernmentBenefitsGeneral.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$AVERAGE_WAGE, "Quarters", "Average Wage", "", "GovernmentAverageWage.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$DEBT, "Quarters", "Amount", "Government Debt to Central Bank", "GovernmentDebt.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$CENTRALBANK_INCOME, "Quarters", "Amount", "Government Central Bank Incomes", "GovernmentCentralbankIncome.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Government$LIQUIDITY, "Quarters", "Amount", "Government Liquidity", "GovernmentLiquidity.png", isgrid = TRUE, ltype = "o")
 
 #Equity Fund
-plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Amount", "Equity Fund - Dividends Received", "FundDividendsReceived.png")
-plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Amount", "Equity Fund - Dividends Retained", "FundDividendsRetained.png")
-plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Amount", "Equity Fund - Liquidity", "FundLiquidity.png")
-plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_PAID, "Quarters", "Amount", "Equity Fund - Dividends Paid", "FundDividendsPaid.png")
-beta = "0.6"
+plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Amount", "Equity Fund - Dividends Received", "FundDividendsReceived.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters", "Amount", "Equity Fund - Dividends Retained", "FundDividendsRetained.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Amount", "Equity Fund - Liquidity", "FundLiquidity.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_PAID, "Quarters", "Amount", "Equity Fund - Dividends Paid", "FundDividendsPaid.png", isgrid = TRUE, ltype = "o")
+
 plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, Equityfund$SHARE_BANKS, "Quarters", "Amount", "Equity Fund - Dividends Received Components", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"))
 
 #Banks
 bankA = 21
 bankB = 22
 
-plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$LOANS, "Quarters", "Loans to Firms", "Banks", "BanksLoans.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$MORTGAGES, "Quarters", "Mortgages to Households", "Banks", "BanksMortgages.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms and Households", "Banks", "BanksDeposits.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt", "Banks", "BanksDebt.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$EQUITY, "Quarters", "Equity", "Banks", "BanksEquity.png")
-plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$INTERESTS_ACCRUED, "Quarters", "Interests Collected on Mortgages and Loans", "Banks", "BanksInterestsCollected.png")
-plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loan and Mortgage Writeoffs", "Banks", "BanksWriteoffs.png")
-plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png")
-plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png")
-plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$TOTAL_DIVIDENDS, "Quarters", "Dividends Sent to Fund", "Banks", "BanksTotalDividends.png")
-plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$LIQUIDITY, "Quarters", "Amount", "Banks - Liquidity", "BanksLiquidity.png")
+plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$LOANS, "Quarters", "Loans to Firms", "Banks", "BanksLoans.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$MORTGAGES, "Quarters", "Mortgages to Households", "Banks", "BanksMortgages.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$DEPOSITS, "Quarters", "Deposits from Firms and Households", "Banks", "BanksDeposits.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$CENTRALBANK_DEBT, "Quarters", "Central Bank Debt", "Banks", "BanksDebt.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$EQUITY, "Quarters", "Equity", "Banks", "BanksEquity.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$INTERESTS_ACCRUED, "Quarters", "Interests Collected on Mortgages and Loans", "Banks", "BanksInterestsCollected.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$TOTAL_WRITEOFFS, "Quarters", "Total Loan and Mortgage Writeoffs", "Banks", "BanksWriteoffs.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$INTERESTS_PAID, "Quarters", "Interests Paid to Central Bank", "Banks", "BanksInterestsPaid.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$NET_EARNINGS, "Quarters", "Net Earnings", "Banks", "BanksNetEarnings.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankIncome$ID, bankA, bankB, BankIncome$TOTAL_DIVIDENDS, "Quarters", "Dividends Sent to Fund", "Banks", "BanksTotalDividends.png", isgrid = TRUE, ltype = "o")
+plot_time_series_banks(nQuarters, BankBalance$ID, bankA, bankB, BankBalance$LIQUIDITY, "Quarters", "Amount", "Banks - Liquidity", "BanksLiquidity.png", isgrid = TRUE, ltype = "o")
 
 
 
 #Firms
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$UNIT_GOODS_PRICE, "Quarters", "Price (mean)", "Firms", "FirmsUnitGoodPrices.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$UNIT_HOUSE_PRICE, "Quarters", "Price (mean)", "Constructor Firms", "CFirmsUnitHousePrices.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$UNIT_GOODS_PRICE, "Quarters", "Price (mean)", "Firms", "FirmsUnitGoodPrices.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$UNIT_HOUSE_PRICE, "Quarters", "Price (mean)", "Constructor Firms", "CFirmsUnitHousePrices.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$REVENUES, "Quarters", "Sale Revenues (mean)", "Firms", "FirmsRevenues.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$REVENUES, "Quarters", "Sale Revenues (mean)", "Constructor Firms", "CFirmsRevenues.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$REVENUES, "Quarters", "Sale Revenues (mean)", "Firms", "FirmsRevenues.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$REVENUES, "Quarters", "Sale Revenues (mean)", "Constructor Firms", "CFirmsRevenues.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$LABOUR_COSTS, "Quarters", "Labour Costs (mean)", "Firms", "FirmsLabourCosts.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$LABOUR_COSTS, "Quarters", "Labour Costs (mean)", "Constructor Firms", "CFirmsLabourCosts.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$LABOUR_COSTS, "Quarters", "Labour Costs (mean)", "Firms", "FirmsLabourCosts.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$LABOUR_COSTS, "Quarters", "Labour Costs (mean)", "Constructor Firms", "CFirmsLabourCosts.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$TOTAL_INTEREST_PAYMENTS, "Quarters", "Loan Interest Payments (mean)", "Firms", "FirmsInterestPayments.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$TOTAL_INTEREST_PAYMENTS, "Quarters", "Loan Interest Payments (mean)", "Constructor Firms", "CFirmsInterestPayments.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$TOTAL_INTEREST_PAYMENTS, "Quarters", "Loan Interest Payments (mean)", "Firms", "FirmsInterestPayments.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$TOTAL_INTEREST_PAYMENTS, "Quarters", "Loan Interest Payments (mean)", "Constructor Firms", "CFirmsInterestPayments.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$NET_EARNINGS, "Quarters", "Net Earnings (mean)", "Firms", "FirmsNetEarnings.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$NET_EARNINGS, "Quarters", "Net Earnings (mean)", "Constructor Firms", "CFirmsNetEarnings.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$NET_EARNINGS, "Quarters", "Net Earnings (mean)", "Firms", "FirmsNetEarnings.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$NET_EARNINGS, "Quarters", "Net Earnings (mean)", "Constructor Firms", "CFirmsNetEarnings.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$EBIT, "Quarters", "EBIT (mean)", "Firms", "FirmsEBIT.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$EBIT, "Quarters", "EBIT (mean)", "Constructor Firms", "CFirmsEBIT.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmIncome$EBIT, "Quarters", "EBIT (mean)", "Firms", "FirmsEBIT.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmIncome$EBIT, "Quarters", "EBIT (mean)", "Constructor Firms", "CFirmsEBIT.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Firms", "FirmsTotalAssets.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Constructor Firms", "CFirmsTotalAssets.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Firms", "FirmsTotalAssets.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Constructor Firms", "CFirmsTotalAssets.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$LIQUIDITY, "Quarters", "Liquidity (mean)", "Firms", "FirmsLiquidity.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$LIQUIDITY, "Quarters", "Liquidity (mean)", "Constructor Firms", "CFirmsLiquidity.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$LIQUIDITY, "Quarters", "Liquidity (mean)", "Firms", "FirmsLiquidity.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$LIQUIDITY, "Quarters", "Liquidity (mean)", "Constructor Firms", "CFirmsLiquidity.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$DEBT, "Quarters", "Debt (mean)", "Firms", "FirmsDebt.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$DEBT, "Quarters", "Debt (mean)", "Constructor Firms", "CFirmsDebt.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$DEBT, "Quarters", "Debt (mean)", "Firms", "FirmsDebt.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$DEBT, "Quarters", "Debt (mean)", "Constructor Firms", "CFirmsDebt.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$EQUITY, "Quarters", "Equity (mean)", "Firms", "FirmsEquity.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$EQUITY, "Quarters", "Equity (mean)", "Constructor Firms", "CFirmsEquity.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$EQUITY, "Quarters", "Equity (mean)", "Firms", "FirmsEquity.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$EQUITY, "Quarters", "Equity (mean)", "Constructor Firms", "CFirmsEquity.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Firms", "FirmsCapitalGoods.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Constructor Firms", "CFirmsCapitalGoods.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Firms", "FirmsCapitalGoods.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$CAPITAL_GOODS, "Quarters", "Capital Goods (mean)", "Constructor Firms", "CFirmsCapitalGoods.png", isgrid = TRUE, ispoint = TRUE)
 
-plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$PHYSICAL_CAPITAL, "Quarters", "Physical Capital (mean)", "Firms", "FirmsPhysicalCapital.png")
-plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$PHYSICAL_CAPITAL_CONSTRUCTION, "Quarters", "Construction Physical Capital (mean)", "Constructor Firms", "CFirmsPhysicalCapital.png")
+plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$PHYSICAL_CAPITAL, "Quarters", "Physical Capital (mean)", "Firms", "FirmsPhysicalCapital.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$PHYSICAL_CAPITAL_CONSTRUCTION, "Quarters", "Construction Physical Capital (mean)", "Constructor Firms", "CFirmsPhysicalCapital.png", isgrid = TRUE, ispoint = TRUE)
 
 
-plot_time_series_mean_file_v2(nQuarters, FirmDividends$IT_NO, FirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Firms", "FirmsDividendsPaid.png")
-plot_time_series_mean_file_v2(nQuarters, CFirmDividends$IT_NO, CFirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Constructor Firms", "CFirmsDividendsPaid.png")
+plot_time_series_mean_file_v2(nQuarters, FirmDividends$IT_NO, FirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Firms", "FirmsDividendsPaid.png", ispoint = TRUE)
+plot_time_series_mean_file_v2(nQuarters, CFirmDividends$IT_NO, CFirmDividends$DIVIDENDS_PAID, "Quarters", "Dividends Paid (mean)", "Constructor Firms", "CFirmsDividendsPaid.png", ispoint = TRUE)
 
-plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Firms", "FirmsEmployeeSize.png")
-plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Constructor Firms", "CFirmsEmployeeSize.png")
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Firms", "FirmsEmployeeSize.png", ispoint = TRUE)
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$NO_EMPLOYEES, "Months", "No Employees (mean)", "Constructor Firms", "CFirmsEmployeeSize.png", ispoint = TRUE)
 
-plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Firms", "FirmsInventory.png")
-plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Constructor Firms", "CFirmsInventory.png")
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Firms", "FirmsInventory.png", ispoint = TRUE)
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$INVENTORY, "Months", "Inventory (mean)", "Constructor Firms", "CFirmsInventory.png", ispoint = TRUE)
 
-plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Firms", "FirmsProductionPlan.png")
-plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Constructor Firms", "CFirmsProductionPlan.png")
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Firms", "FirmsProductionPlan.png", ispoint = TRUE)
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTION_PLAN, "Months", "Production Plan (mean)", "Constructor Firms", "CFirmsProductionPlan.png", ispoint = TRUE)
 
-plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Firms", "FirmsProductionCurrent.png")
-plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Constructor Firms", "CFirmsProductionCurrent.png")
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Firms", "FirmsProductionCurrent.png", ispoint = TRUE)
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$PRODUCTION_CURRENT, "Months", "Production Current (mean)", "Constructor Firms", "CFirmsProductionCurrent.png", ispoint = TRUE)
 
-plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$SALES, "Months", "Sales (mean)", "Firms", "FirmsSales.png")
-plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "Months", "Sales (mean)", "Constructor Firms", "CFirmsSales.png")
+plot_time_series_mean_file_v2(nMonths, FirmMonthly$IT_NO, FirmMonthly$SALES, "Months", "Sales (mean)", "Firms", "FirmsSales.png", ispoint = TRUE)
+plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "Months", "Sales (mean)", "Constructor Firms", "CFirmsSales.png", ispoint = TRUE)
 
 
 
@@ -224,16 +224,30 @@ if (length(Illiquidities[["IT"]]) > 0) {
 	freqilliquid <- get_occurances_distro(niter, Illiquidities[["IT"]])
 }
 
-plot_time_series_multiline_point_file(nQuarters, freqmort, freqinsolv, freqilliquid, "Quarters", "Frequency", "Defaults", "aWriteoffTypesAndFrequencies.png", c("Mortgages", "Insolvencies", "Illiquidities"))
+plot_time_series_multiline_point_file(nQuarters, freqmort, freqinsolv, freqilliquid, "Quarters", "Frequency", "Defaults", "aWriteoffTypesAndFrequencies.png", c("Mortgages", "Insolvencies", "Illiquidities"), isgrid = T, ptype = "h")
 
-plot_time_series_point_file(nQuarters, freqmort, "Quarters", "Frequency", "Mortgage Writeoffs", "aWriteoffMortgages.png")
+plot_time_series_point_file(nQuarters, freqmort, "Quarters", "Frequency", "Mortgage Writeoffs", "aWriteoffMortgages.png", isgrid = T, ltype = "h", ispoint = T)
 
-plot_time_series_point_file(nQuarters, freqilliquid, "Quarters", "Frequency", "Illiquidity Writeoffs", "aWriteoffIlliquidity.png")
+plot_time_series_point_file(nQuarters, freqilliquid, "Quarters", "Frequency", "Illiquidity Writeoffs", "aWriteoffIlliquidity.png", isgrid = T, ltype = "h", ispoint = T)
 
-plot_time_series_point_file(nQuarters, freqinsolv, "Quarters", "Frequency", "Insolvency Writeoffs", "aWriteoffInsolvency.png")
+plot_time_series_point_file(nQuarters, freqinsolv, "Quarters", "Frequency", "Insolvency Writeoffs", "aWriteoffInsolvency.png", isgrid = T, ltype = "h", ispoint = T)
 
 
-# Compute Crediting Frequencies#
+## Compute Crediting Frequencies ##
+
+# Regular Firms #
+Fneed <- get_aggregate_values(FirmBalance$IT_NO, FirmBalance$ISLIQUIDSHORT)
+Floan <- get_aggregate_values(FirmBalance$IT_NO, FirmBalance$HASLOAN)
+Finvest <- get_aggregate_values(FirmBalance$IT_NO, FirmBalance$HASINVESTMENT)
+plot_time_series_multiline_point_file(nQuarters, Fneed, Floan, Finvest, "Quarters", "Frequencies", "Regular Firm Liquidity Needs vs Bank Loans and Fund Investments", "aFirmCreditFrequencies.png", c("Liquidity Shortage", "Loans", "Investment"), legposn = "topright", ptype = "h")
+
+#Constructor Firms #
+cFneed <- get_aggregate_values(CFirmBalance$IT_NO, CFirmBalance$ISLIQUIDSHORT)
+cFloan <- get_aggregate_values(CFirmBalance$IT_NO, CFirmBalance$HASLOAN)
+cFinvest <- get_aggregate_values(CFirmBalance$IT_NO, CFirmBalance$HASINVESTMENT)
+plot_time_series_multiline_point_file(nQuarters, cFneed, cFloan, cFinvest, "Quarters", "Frequencies", "Constructor Firm Liquidity Needs vs Bank Loans and Fund Investments", "aCFirmCreditFrequencies.png", c("Liquidity Shortage", "Loans", "Investment"), legposn = "topright", ptype = "h")
+
+
 
 ### Validation - End ###
 
@@ -249,40 +263,40 @@ nHouseholds = length(HouseholdQuarterly$"ID") / nQuarters
 
 #Household - Quarterly
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$TOTAL_ASSETS, "Quarters", "Total Assets (boxplot)", "Households", "HouseholdsTotalAssetsDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$TOTAL_ASSETS, "Quarters", "Total Assests (mean)", "Households", "HouseholdsTotalAssetsMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$TOTAL_ASSETS, "Quarters", "Total Assests (mean)", "Households", "HouseholdsTotalAssetsMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (boxplot)", "Households", "HouseholdsHousingValueDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (mean)", "Households", "HouseholdsHousingValueMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_VALUE, "Quarters", "Housing Value (mean)", "Households", "HouseholdsHousingValueMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Household Liquidity (boxplot)", "Households", "HouseholdsLiquidityQuarterlyDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Household Liquidity (mean)", "Households", "HouseholdsLiquidityQuarterlyMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$LIQUIDITY, "Quarters", "Household Liquidity (mean)", "Households", "HouseholdsLiquidityQuarterlyMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$EQUITY, "Quarters", "Equity (boxplot)", "Households", "HouseholdsEquityDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$EQUITY, "Quarters", "Equity (mean)", "Households", "HouseholdsEquityMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$EQUITY, "Quarters", "Equity (mean)", "Households", "HouseholdsEquityMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$MORTGAGES, "Quarters", "Mortgages (boxplot)", "Households", "HouseholdsMortgagesDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$MORTGAGES, "Quarters", "Mortgages (mean)", "Households", "HouseholdsMortgagesMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$MORTGAGES, "Quarters", "Mortgages (mean)", "Households", "HouseholdsMortgagesMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$LABOUR_INCOME, "Quarters", "Labour Income (boxplot)", "Households", "HouseholdsLabourIncomeDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$LABOUR_INCOME, "Quarters", "Labour Income (mean)", "Households", "HouseholdsLabourIncomeMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$LABOUR_INCOME, "Quarters", "Labour Income (mean)", "Households", "HouseholdsLabourIncomeMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (boxplot)", "Households", "HouseholdsCapitalIncomeDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (mean)", "Households", "HouseholdsCapitalIncomeMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$CAPITAL_INCOME, "Quarters", "Capital Income (mean)", "Households", "HouseholdsCapitalIncomeMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (boxplot)", "Households", "HouseholdsHousingPaymentDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (mean)", "Households", "HouseholdsHousingPaymentMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PAYMENT, "Quarters", "Housing Payment (mean)", "Households", "HouseholdsHousingPaymentMean.png", isgrid = TRUE, ispoint = TRUE)
 
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (boxplot)", "Households", "HouseholdsBenefitsDistro.png")
-plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (mean)", "Households", "HouseholdsBenefitsMean.png")
+plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (mean)", "Households", "HouseholdsBenefitsMean.png", isgrid = TRUE, ispoint = TRUE)
 
 
 #Household - Monthly
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$LIQUIDITY, "Months", "Liquidity (mean)", "Households", "HouseholdsLiquidityMonthly.png")
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGES, "Months", "Mortgages (mean)", "Households", "HouseholdsMortgagesMonthly.png")
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGE_COST, "Months", "Mortgage Costs (mean)", "Households", "HouseholdsMortgageCostsMonthly.png")
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_UNITS, "Months", "Housing Units (mean)", "Households", "HouseholdsHousingUnitsMonthly.png")
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_VALUE, "Months", "Housing Value (mean)", "Households", "HouseholdsHousingValuesMonthly.png")
-plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$EQUITY_RATIO, "Months", "Eqquity Ratio (mean)", "Households", "HouseholdsEquityRatioMonthly.png")
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$LIQUIDITY, "Months", "Liquidity (mean)", "Households", "HouseholdsLiquidityMonthly.png", ispoint = TRUE)
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGES, "Months", "Mortgages (mean)", "Households", "HouseholdsMortgagesMonthly.png", ispoint = TRUE)
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$MORTGAGE_COST, "Months", "Mortgage Costs (mean)", "Households", "HouseholdsMortgageCostsMonthly.png", ispoint = TRUE)
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_UNITS, "Months", "Housing Units (mean)", "Households", "HouseholdsHousingUnitsMonthly.png", ispoint = TRUE)
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$HOUSING_VALUE, "Months", "Housing Value (mean)", "Households", "HouseholdsHousingValuesMonthly.png", ispoint = TRUE)
+plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$EQUITY_RATIO, "Months", "Eqquity Ratio (mean)", "Households", "HouseholdsEquityRatioMonthly.png", ispoint = TRUE)
 
 
 #Household - Weekly

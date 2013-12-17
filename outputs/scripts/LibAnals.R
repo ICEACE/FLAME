@@ -22,7 +22,7 @@ plot_mean_experiments_to_file <- function(niter, exps, xlabel, ylabel, title, fn
 }
 
 
-plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname){
+plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabel, title, fname, isgrid = FALSE, ispoint = FALSE){
 	png(fname, width = 1500, height = 800, pointsize=24)
 	times <- (1:niter)
 	means <- (1:niter)
@@ -30,11 +30,18 @@ plot_time_series_mean_file <- function(nagents, niter, datavector, xlabel, ylabe
 	for (i in 1:niter){
 		means[i] <- mean(values[i,])
 	}
-	plot(means~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
+	plot(means~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
+	if (isgrid){
+		abline(v = times, h = means, col = "lightgray", lty = "dotted", lwd = 2)	
+	}
+	lines(means~times, type="l", col = "blue", lwd = 3)
+	if (ispoint){
+		points(means~times, pch = 16, col = "blue")
+	}
 	dev.off()
 }
 
-plot_time_series_mean_file_v2 <- function(niter, itervector, memoryvector, xlabel, ylabel, title, fname){
+plot_time_series_mean_file_v2 <- function(niter, itervector, memoryvector, xlabel, ylabel, title, fname, isgrid = FALSE, ispoint = FALSE){
 	times <- (1:niter)
 	means <- (1:niter)
 	current_iter <- itervector[1]
@@ -55,33 +62,58 @@ plot_time_series_mean_file_v2 <- function(niter, itervector, memoryvector, xlabe
 	}
 	means[ind] <- accumulator / nvals
 	png(fname, width = 1500, height = 800, pointsize=24)
-	plot(means~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
+	plot(means~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
+	if (isgrid){
+		abline(v = times, h = means, col = "lightgray", lty = "dotted", lwd = 3)	
+	}
+	lines(means~times, type="l", col = "blue", lwd = 3)
+	if (ispoint){
+		points(means~times,  col = "blue", pch = 16)
+	}
 	dev.off()
 }
 
 
-plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title, fname){
+plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title, fname, isgrid = FALSE, ltype = "l", ispoint = F){
 	png(fname, width = 1500, height = 800, pointsize=24)
 	times <- (1:niter)
-	plot(datavector~times, type="l", col = "blue", lwd = 3, xlab = xlabel, ylab=ylabel, main = title)
+	plot(datavector~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
+	if (isgrid){
+		abline(v = times, h = datavector, col = "lightgray", lty = "dotted", lwd = 2)
+		}
+	lines(datavector~times, type=ltype, col = "blue", lwd = 2)
+	if (ispoint){
+		points(datavector~times,  col = "blue", pch = 16)
+	}
 	dev.off()
 }
 
-plot_time_series_multiline_point_file <- function(niter, v1, v2, v3=vector(), xlabel, ylabel, title, fname, legends){
+plot_time_series_multiline_point_file <- function(niter, v1, v2, v3=vector(), xlabel, ylabel, title, fname, legends, legposn = "topleft", isgrid = FALSE, ptype = "l"){
 	times <- (1:niter)
 	valrange <- v1
-	valrange[1] <- min(c(v1,v2,v3))
-	valrange[-1] <- max(c(v1,v2,v3))
+	minval <- floor(min(c(v1,v2,v3)))
+	valrange[1] <- minval
+	maxval <- ceiling(max(c(v1,v2,v3)))
+	valrange[-1] <- maxval
 	png(fname, width = 1500, height = 800, pointsize=18)
 	plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
-	lines(v1~times, type="l", col="red", lwd=3)
-	lines(v2~times, type="l", col="blue", lwd=3)
+	if (isgrid){
+		#grid(nx = niter, ny = ceiling(maxval), col = "lightgray", lty = "dotted", lwd = 2)
+		abline(v = times, h = (minval:maxval), col = "lightgray", lty = "dotted", lwd = 2)
+		}
+	lines(v1~times, type=ptype, col="red", lwd=3)
+	lines(v2~times, type=ptype, col="blue", lwd=3)
 	if (length(v3) > 1){
-		lines(v3~times, type="l", col="black", lwd=3)	
-		legend("topleft", legends, lty = c(1,1,1), lwd = c(2,2,2), col = c("red", "blue", "black"))
+		lines(v3~times, type=ptype, col="black", lwd=3)	
+		legend(legposn, legends, lty = c(1,1,1), lwd = c(3,3,3), col = c("red", "blue", "black"))
+		points(v1~times)
+		points(v2~times)
+		points(v3~times)
 	}
 	else{
-		legend("topleft", legends, lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
+		legend(legposn, legends, lty = c(1,1), lwd = c(3,3), col = c("red", "blue"))
+		points(v1~times)
+		points(v2~times)
 		}
 	dev.off()
 }
@@ -197,8 +229,10 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	ylabtext = paste("GDP (Total Production Market Value - ", gtype, sep = "")
 	title = paste("Beta = ", beta, sep = "")
 	png(fname, width = 1500, height = 800, pointsize=18)
-	plot(gdp~times, type="l", col = "blue", lwd = 3, xlab = "Months", ylab=ylabtext, main = title)
-	#lines(fsums~times, type = "o")
+	plot(gdp~times, type="n", xlab = "Months", ylab=ylabtext, main = title)
+	abline(v = times, h = gdp, col = "lightgray", lty = "dotted", lwd = 1)
+	lines(gdp~times, type="l", col = "blue", lwd = 3)
+	points(gdp~times,  col = "blue", pch = 16)
 	dev.off()
 	
 	nquarters = niter / 3
@@ -219,8 +253,12 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	}
 	fname = paste("GDP_", gtype, "_Quarterly.png", sep = "")
 	png(fname, width = 1500, height = 800, pointsize=18)
-	plot(gdpquarters~quarters, type="l", col = "blue", lwd = 3, xlab = "Quarters", ylab=ylabtext, main = title)
+	plot(gdpquarters~quarters, type="n", xlab = "Quarters", ylab=ylabtext, main = title)
+	abline(v = quarters, h = gdpquarters, col = "lightgray", lty = "dotted", lwd = 2)
+	lines(gdpquarters~quarters, type="l", col = "blue", lwd = 3)
+	points(gdpquarters~quarters,  col = "blue", pch = 16)
 	dev.off()
+
 	
 	nyears = niter / 12
 	years <- (1:nyears)
@@ -241,7 +279,10 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	
 	fname = paste("GDP_", gtype, "_Yearly.png", sep = "")
 	png(fname, width = 1500, height = 800, pointsize=18)
-	plot(gdpyears~years, type="l", col = "blue", lwd = 3, xlab = "Years", ylab=ylabtext, main = title)
+	plot(gdpyears~years, type="n", xlab = "Years", ylab=ylabtext, main = title)
+	abline(v = years, h = gdpyears, col = "lightgray", lty = "dotted", lwd = 3)
+	lines(gdpyears~years, type="l", col = "blue", lwd = 3)
+	points(gdpyears~years,  col = "blue", pch = 16)
 	dev.off()
 	return(gdpyears)
 }
@@ -311,8 +352,10 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	valrange <- gdp
 	valrange[1] <- min(Rgdp)
 	plot(valrange~times, type="n", xlab = "Months", ylab=ylabtext, main = title)
-	lines(gdp~times, type="l", col = "red", lwd = 3)
-	lines(Rgdp~times, type = "l", col = "blue", lwd = 3)
+	abline(v = times, h = gdp, col = "lightgray", lty = "dotted", lwd = 1)
+	abline(v = times, h = Rgdp, col = "lightgray", lty = "dotted", lwd = 1)
+	lines(gdp~times, type="o", col = "red", lwd = 3)
+	lines(Rgdp~times, type = "o", col = "blue", lwd = 3)
 	legend("topleft", c("Nominal","Real"), lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
 	dev.off()
 	
@@ -343,8 +386,10 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	valrange <- gdpquarters
 	valrange[1] <- min(Rgdpquarters)
 	plot(valrange~quarters, type="n", xlab = "Quarters", ylab=ylabtext, main = title)
-	lines(gdpquarters~quarters, type="l", col = "red", lwd = 3)
-	lines(Rgdpquarters~quarters, type = "l", col = "blue", lwd = 3)
+	abline(v = quarters, h = gdpquarters, col = "lightgray", lty = "dotted", lwd = 2)
+	abline(v = quarters, h = Rgdpquarters, col = "lightgray", lty = "dotted", lwd = 2)
+	lines(gdpquarters~quarters, type="o", col = "red", lwd = 3)
+	lines(Rgdpquarters~quarters, type = "o", col = "blue", lwd = 3)
 	legend("topleft", c("Nominal","Real"), lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
 	dev.off()
 	
@@ -376,13 +421,16 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	valrange <- gdpyears
 	valrange[1] <- min(Rgdpyears)
 	plot(valrange~years, type="n", xlab = "Years", ylab=ylabtext, main = title)
-	lines(gdpyears~years, type="l", col = "red", lwd = 3)
-	lines(Rgdpyears~years, type = "l", col = "blue", lwd = 3)
+	abline(v = times, h = gdpyears, col = "lightgray", lty = "dotted", lwd = 3)
+	abline(v = times, h = Rgdpyears, col = "lightgray", lty = "dotted", lwd = 3)
+	lines(gdpyears~years, type="o", col = "red", lwd = 3)
+	lines(Rgdpyears~years, type = "o", col = "blue", lwd = 3)
 	legend("topleft", c("Nominal","Real"), lty = c(1,1), lwd = c(2,2), col = c("red", "blue"))
 	dev.off()
 	return(gdpyears)
 }
-plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector, xlabel, ylabel, title, fname){
+
+plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector, xlabel, ylabel, title, fname, isgrid = FALSE, ltype = "l"){
         times <- (1:niter)
         bankA <- (1:niter)
         bankB <- (1:niter)
@@ -408,8 +456,12 @@ plot_time_series_banks <- function(niter, idvector, bank_1, bank_2, memoryvector
         legB = paste("Bank ID = ", as.character(bank_2),  sep ='')
         png(fname, width = 1500, height = 800, pointsize=16)
         plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
-        lines(bankA~times, type="l", col="red", lwd=3)
-        lines(bankB~times, type="l", col="blue", lwd=3)
+        if (isgrid){
+        	abline(v = times, h = bankA, col = "lightgray", lty = "dotted", lwd = 2)
+        	abline(v = times, h = bankB, col = "lightgray", lty = "dotted", lwd = 2)
+		}
+        lines(bankA~times, type=ltype, col="red", lwd=3)
+        lines(bankB~times, type=ltype, col="blue", lwd=3)
         legend("topleft", c(legA,legB), lty = c(1,1), lwd = c(3,3), col = c("red", "blue"))
         dev.off()
 }
