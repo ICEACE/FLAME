@@ -129,7 +129,7 @@ int government_update_fiscal_policy()
     /* The increment portion (0.05) and threshold below (500) is picked from the model description.
      However, I suggest this be parameterized and be treated as one of policy parameters. bulent.
      */
-    if (balance > 500){
+    if (balance > POPULATION_SIZE/16){
         dTax = (1 - RATIO_FISCAL_POLICY) * 0.05;
         dBenefit =  RATIO_FISCAL_POLICY * 0.05;
         LABOUR_TAX_RATE = LABOUR_TAX_RATE - dTax;
