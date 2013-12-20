@@ -14,7 +14,7 @@
     <production_markup>0.1</production_markup>
     <price_markup>0.1</price_markup>
     <firm_memory_persistance>0.9</firm_memory_persistance>
-    <ratio_fiscal_policy>0.9</ratio_fiscal_policy>
+    <ratio_fiscal_policy>0.5</ratio_fiscal_policy>
     <ratio_capitalist_households>1.0</ratio_capitalist_households>
     <inflation_target>0.02</inflation_target>
     <firms_minimum_equity_ratio>0.05</firms_minimum_equity_ratio>
