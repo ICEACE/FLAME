@@ -11,7 +11,7 @@ sed 's|data_household = 1|data_household = 1|' ./outputs/scripts/plot00.R > ./ou
 rm ./outputs/scripts/plot0.R
 rm ./outputs/scripts/plot00.R
 
-./main 3600 ./outputs/its/0.xml -f 3600 > ./outputs/simulation_stream.txt
+./main 3600 ./outputs/its/0.xml -f 3600
 
 rm ./outputs/plots/*.png
 
@@ -39,7 +39,7 @@ sed 's|data_household = 1|data_household = 1|' ./outputs/scripts/plot00.R > ./ou
 rm ./outputs/scripts/plot0.R
 rm ./outputs/scripts/plot00.R
 
-./main 3600 ./outputs/its/0.xml -f 3600 > ./outputs/simulation_stream.txt
+./main 3600 ./outputs/its/0.xml -f 3600
 
 
 Rscript ./outputs/scripts/plot.R
@@ -66,7 +66,7 @@ sed 's|data_household = 1|data_household = 1|' ./outputs/scripts/plot00.R > ./ou
 rm ./outputs/scripts/plot0.R
 rm ./outputs/scripts/plot00.R
 
-./main 3600 ./outputs/its/0.xml -f 3600 > ./outputs/simulation_stream.txt
+./main 3600 ./outputs/its/0.xml -f 3600
 
 
 Rscript ./outputs/scripts/plot.R
@@ -93,7 +93,7 @@ sed 's|data_household = 1|data_household = 1|' ./outputs/scripts/plot00.R > ./ou
 rm ./outputs/scripts/plot0.R
 rm ./outputs/scripts/plot00.R
 
-./main 3600 ./outputs/its/0.xml -f 3600 > ./outputs/simulation_stream.txt
+./main 3600 ./outputs/its/0.xml -f 3600 
 
 
 Rscript ./outputs/scripts/plot.R
