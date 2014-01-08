@@ -57,13 +57,21 @@ int centralbank_iterate()
             FILE * file1;
             
             /* @/fn: centralbank_do_balance_sheet() */
-            filename = malloc(40*sizeof(char));
+            filename = malloc(100*sizeof(char));
             filename[0]=0;
             strcpy(filename, "./outputs/data/CentralBank_snapshot.txt");
             file1 = fopen(filename,"w");
             fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "INTEREST_RATE", "INFLATION_RATE", "REVENUES", "TOTAL_COSTS", "NET_EARNINGS", "TOTAL_ASSETS", "LIQUIDITY", "LOANS_BANKS", "LOANS_GOVERNMENT", "EQUITY","FIAT_MONEY", "LIQUIDITY_BANKS", "LIQUIDITY_GOVERNMENT", "LIQUIDITY_EQUITYFUND");
             //fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, INTEREST_RATE, INFLATION_RATE, REVENUES, TOTAL_COSTS, NET_EARNINGS, TOTAL_ASSETS, LIQUIDITY, LOANS_BANKS, LOANS_GOVERNMENT, EQUITY,FIAT_MONEY, LIQUIDITY_BANKS, LIQUIDITY_GOVERNMENT, LIQUIDITY_EQUITYFUND);
             fclose(file1);
+            
+            /* @\fn: centralbank_credit_set_interest_rate() */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/ICEACE_identity_cb.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s\n","IT_NO", "LIQUIDITY_GOVERNMENT");
+            fclose(file1);
+            
             free(filename);
         }
         

@@ -12,6 +12,20 @@ int bank_credit_check_interest_rate()
     INTEREST_RATE = interest_rate_message->rate;
 	FINISH_INTEREST_RATE_MESSAGE_LOOP
     
+    char * filename;
+    FILE * file1;
+    filename = malloc(40*sizeof(char));
+    
+    filename[0]=0;
+    strcpy(filename, "./outputs/data/ICEACE_identity_bank.txt");
+    file1 = fopen(filename,"a");
+    double current_equity = 0;
+    current_equity = LIQUIDITY + LOANS + MORTGAGES - DEPOSITS - CENTRALBANK_DEBT;
+    fprintf(file1,"%d %d %f %f %f %f %f\n",IT_NO, ID, LOANS, MORTGAGES, DEPOSITS, current_equity, INTERESTS_PAID);
+    
+    fclose(file1);
+    free(filename);
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -26,6 +40,7 @@ int bank_credit_compute_income_statement()
      */
     
     //printf("Bank ID = %d at Income Statement, pre-liquidity = %f \n", ID, LIQUIDITY);
+    INTERESTS_PAID = 0;
     INTERESTS_PAID = CENTRALBANK_DEBT * INTEREST_RATE / 4;
     LIQUIDITY -= INTERESTS_PAID;
     add_bank_centralbank_interest_payment_message(ID, INTERESTS_PAID);
@@ -49,7 +64,6 @@ int bank_credit_compute_income_statement()
     
     INTERESTS_ACCRUED = 0;
     TOTAL_WRITEOFFS = 0;
-    INTERESTS_PAID = 0;
     
     //printf("Bank ID = %d at Income Statement, post-liquidity = %f \n", ID, LIQUIDITY);
     

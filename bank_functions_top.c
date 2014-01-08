@@ -129,6 +129,14 @@ int bank_iterate()
             //fprintf(file1,"%d %d %f %f %f %f %f %f %f\n",IT_NO, ID, TOTAL_ASSETS, LIQUIDITY, LOANS, MORTGAGES, DEPOSITS, CENTRALBANK_DEBT, EQUITY);
             fclose(file1);
             
+            
+            /* @\fn: bank_credit_check_interest_rate() */
+            filename[0]=0;
+            strcpy(filename, "./outputs/data/ICEACE_identity_bank.txt");
+            file1 = fopen(filename,"w");
+            fprintf(file1,"%s %s %s %s %s %s %s\n","IT_NO", "ID", "LOANS", "MORTGAGES", "DEPOSITS", "EQUITY", "INTERESTS_PAID");
+            fclose(file1);
+            
             free(filename);
         }
     }

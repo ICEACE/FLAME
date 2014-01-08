@@ -49,6 +49,20 @@ int centralbank_set_interest_rate()
     
     add_interest_rate_message(INTEREST_RATE);
     
+    
+    char * filename;
+    FILE * file1;
+    
+    filename = malloc(100*sizeof(char));
+    filename[0]=0;
+    strcpy(filename, "./outputs/data/ICEACE_identity_cb.txt");
+    file1 = fopen(filename,"a");
+    fprintf(file1,"%d %f\n",IT_NO, LIQUIDITY_GOVERNMENT);
+    fclose(file1);
+    
+    free(filename);
+
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 

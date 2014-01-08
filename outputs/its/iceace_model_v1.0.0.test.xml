@@ -5,8 +5,8 @@
     <print_debug_mode>0</print_debug_mode>
     <warning_mode>0</warning_mode>
     <data_collection_mode>1</data_collection_mode>
-    <collect_household_data>1</collect_household_data>
-    <collect_firm_data>1</collect_firm_data>
+    <collect_household_data>0</collect_household_data>
+    <collect_firm_data>0</collect_firm_data>
     <ratio_liquidity>1.0</ratio_liquidity>
     <consumption_adjustment_speed>0.1</consumption_adjustment_speed>
     <wealth_effect>0.07</wealth_effect>
@@ -23,7 +23,7 @@
     <car_buffer_threshold>0.0075</car_buffer_threshold>
     <housing_market_entrance_prob>0.18</housing_market_entrance_prob>
     <fire_sale_threshold>0.6</fire_sale_threshold>
-    <household_budget_constraint>0.30</household_budget_constraint>
+    <household_budget_constraint>0.40</household_budget_constraint>
     <capital_adequecy_ratio>0.085</capital_adequecy_ratio>
     <housing_price_up_rate>0.025</housing_price_up_rate>
     <housing_price_down_rate>0.05</housing_price_down_rate>
