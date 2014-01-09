@@ -1052,7 +1052,7 @@
                     <name>centralbank_process_debt_requests</name>
                     <description>Central Bank receives new debt requests from banks and collects debt payments from banks.</description>
                     <currentState>CentralBankDebtRequests</currentState>
-                    <nextState>CentralBankIncomeStatement</nextState>
+                    <nextState>CentralBankConsumption</nextState>
                     <inputs>
                         <input>
                             <messageName>bank_centralbank_debt_request</messageName>
@@ -1064,10 +1064,28 @@
                 </function>
                 
                 <function>
+                    <name>idle</name>
+                    <description>It is not time to act.</description>
+                    <currentState>CentralBankPolicy</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
                     <name>centralbank_compute_income_statement</name>
                     <description>Central Bank computes income statement.</description>
-                    <currentState>CentralBankIncomeStatement</currentState>
+                    <currentState>CentralBankPolicy</currentState>
                     <nextState>CentralBankGovernmentRequests</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
                     <outputs>
                         <output>
                             <messageName>centralbank_government_profit</messageName>
@@ -1094,32 +1112,14 @@
                     <name>centralbank_do_balance_sheet</name>
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankBalanceSheet</currentState>
-                    <nextState>CentralBankConsumption</nextState>
+                    <nextState>CentralBankUpdateInterestRate</nextState>
                 </function>
                 
                 <function>
-                    <name>idle</name>
-                    <description>It is not time to act.</description>
-                    <currentState>CentralBankPolicy</currentState>
-                    <nextState>end</nextState>
-                    <condition>
-                        <not><time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time></not>
-                    </condition>
-                </function>
-                <function>
                     <name>centralbank_set_interest_rate</name>
                     <description>Central bank sets the interest rate.</description>
-                    <currentState>CentralBankPolicy</currentState>
+                    <currentState>CentralBankUpdateInterestRate</currentState>
                     <nextState>end</nextState>
-                    <condition>
-                        <time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time>
-                    </condition>
                     <outputs>
                         <output>
                             <messageName>interest_rate</messageName>
@@ -1653,7 +1653,7 @@
                     <name>government_collect_capital_tax</name>
                     <description>It is the start of the quarter.</description>
                     <currentState>GovernmentCredit</currentState>
-                    <nextState>GovernmentCentralbankProfits</nextState>
+                    <nextState>GovernmentMonthly</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -1665,37 +1665,6 @@
                             <messageName>capital_tax</messageName>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>government_collect_centralbank_profit</name>
-                    <description>The government collects net profit from the centralbank.</description>
-                    <currentState>GovernmentCentralbankProfits</currentState>
-                    <nextState>GovernmentIncomeStatement</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>centralbank_government_profit</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>government_compute_income_statement</name>
-                    <description>Government computes its income statement.</description>
-                    <currentState>GovernmentIncomeStatement</currentState>
-                    <nextState>GovernmentBalanceSheet</nextState>
-                </function>
-                <function>
-                    <name>government_do_balance_sheet</name>
-                    <description>Government balance sheet accounting activities.</description>
-                    <currentState>GovernmentBalanceSheet</currentState>
-                    <nextState>GovernmentMonthly</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>gov_centralbank_debt_request</messageName>
-                        </output>
-                        <output>
-                            <messageName>gov_centralbank_debt_payment</messageName>
-                        </output>
-                    </outputs>
                 </function>
                 <function>
                     <name>idle</name>
@@ -1762,16 +1731,47 @@
                     </condition>
                 </function>
                 <function>
-                    <name>government_update_fiscal_policy</name>
-                    <description>Government sets tax rate, general benefits and unemployment benefits</description>
+                    <name>government_collect_centralbank_profit</name>
+                    <description>The government collects net profit from the centralbank.</description>
                     <currentState>GovernmentFiscalPolicy</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentIncomeStatement</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>0</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>centralbank_government_profit</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>government_compute_income_statement</name>
+                    <description>Government computes its income statement.</description>
+                    <currentState>GovernmentIncomeStatement</currentState>
+                    <nextState>GovernmentBalanceSheet</nextState>
+                </function>
+                <function>
+                    <name>government_do_balance_sheet</name>
+                    <description>Government balance sheet accounting activities.</description>
+                    <currentState>GovernmentBalanceSheet</currentState>
+                    <nextState>GovernmentUpdatePolicy</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>gov_centralbank_debt_request</messageName>
+                        </output>
+                        <output>
+                            <messageName>gov_centralbank_debt_payment</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>government_update_fiscal_policy</name>
+                    <description>Government sets tax rate, general benefits and unemployment benefits</description>
+                    <currentState>GovernmentUpdatePolicy</currentState>
+                    <nextState>end</nextState>
                     <outputs>
                         <output>
                             <messageName>capital_tax_rate</messageName>

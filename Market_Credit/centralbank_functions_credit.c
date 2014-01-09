@@ -131,7 +131,7 @@ int centralbank_compute_income_statement()
     NET_EARNINGS = REVENUES - TOTAL_COSTS;
     if (NET_EARNINGS > 0) {
         add_centralbank_government_profit_message(NET_EARNINGS);
-        LIQUIDITY_GOVERNMENT += NET_EARNINGS;
+        LIQUIDITY -= NET_EARNINGS;
     }
     
 	return 0; /* Returning zero means the agent is not removed */
