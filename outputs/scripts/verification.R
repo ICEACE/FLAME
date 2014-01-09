@@ -116,13 +116,13 @@ difference_cum <- credit_money - right_side_cum
 
 plot_time_series_multiline_point_file(length(loans), loans, mortgages, "Quarters", "Total", "ICEACE Identity - Credit Money", "IceaceIdentity_LeftSide.png", c("Loans", "Mortgages"), isgrid = F, ispoint = F)
 
-plot_time_series_multiline_point_file(length(depositsPrivate), depositsPrivate, depositsPublic, v3 = equity, v4 = ICB, "Quarters", "Amount", "Deposits, Banks' Equity and Interests paid by Banks to CB", "IceaceIdentity_RightSide.png", c("Deposits Private Sector", "Deposits Government", "Banks' Equity", "Interests Paid Quarterly"), isgrid = F, ispoint = F)
+plot_time_series_multiline_point_file(length(depositsPrivate), depositsPrivate, depositsPublic, "Quarters", "Amount", "Deposits, Banks' Equity and Interests paid by Banks to CB", "IceaceIdentity_RightSide.png", c("Deposits Private Sector", "Deposits Government", "Banks' Equity", "Interests Paid Quarterly"), v3 = equity, v4 = ICB, isgrid = F, ispoint = F)
 
-plot_time_series_multiline_point_file(length(credit_money), credit_money, right_side, v3 = difference, "Quarters", "Total", "ICEACE Identity", "IceaceIdentity.png", c("Loans + Mortgages", "Private Deposits + Gov. Deposits + Banks' Equity - Quarterly Interests Paid to Central Bank", "The difference"), isgrid = F, ispoint = F)
+plot_time_series_multiline_point_file(length(credit_money), credit_money, right_side, "Quarters", "Total", "ICEACE Identity", "IceaceIdentity.png", c("Loans + Mortgages", "Private Deposits + Gov. Deposits + Banks' Equity - Quarterly Interests Paid to Central Bank", "The difference"), v3 = difference, isgrid = F, ispoint = F)
 
-plot_time_series_multiline_point_file(length(depositsPrivate), depositsPrivate, depositsPublic, v3 = equity, v4 = cumsum(ICB), "Quarters", "Amount", "Deposits, Banks' Equity and Interests paid by Banks to CB", "IceaceIdentity_RightSideCum.png", c("Deposits Private Sector", "Deposits Government", "Banks' Equity", "Interests Paid Cumulative"), isgrid = F, ispoint = F)
+plot_time_series_multiline_point_file(length(depositsPrivate), depositsPrivate, depositsPublic, "Quarters", "Amount", "Deposits, Banks' Equity and Interests paid by Banks to CB", "IceaceIdentity_RightSideCum.png", c("Deposits Private Sector", "Deposits Government", "Banks' Equity", "Interests Paid Cumulative"), v3 = equity, v4 = cumsum(ICB), isgrid = F, ispoint = F)
 
-plot_time_series_multiline_point_file(length(credit_money), credit_money,right_side_cum, v3 = difference_cum, "Quarters", "Total", "ICEACE Identity", "IceaceIdentityCum.png", c("Loans + Mortgages", "Private Deposits + Gov. Deposits + Banks' Equity - Interests Paid Cumulative to Central Bank", "The difference"), isgrid = F, ispoint = F)
+plot_time_series_multiline_point_file(length(credit_money), credit_money,right_side_cum, "Quarters", "Total", "ICEACE Identity", "IceaceIdentityCum.png", c("Loans + Mortgages", "Private Deposits + Gov. Deposits + Banks' Equity - Interests Paid Cumulative to Central Bank", "The difference"), v3 = difference_cum, isgrid = F, ispoint = F)
 
 
 

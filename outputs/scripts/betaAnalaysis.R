@@ -20,14 +20,14 @@ unemployemnt0.40 <- Government0.40$UNEMPLOYMENT_RATE
 unemployemnt0.30 <- Government0.30$UNEMPLOYMENT_RATE
 unemployemnt0.25 <- Government0.25$UNEMPLOYMENT_RATE
 unemployemnt0.20 <- Government0.20$UNEMPLOYMENT_RATE
-plot_time_series_multiline_point_file(length(unemployemnt0.20), unemployemnt0.20, unemployemnt0.25, v3 = unemployemnt0.30, v4 = unemployemnt0.40, "Quarters", "Rate", "Unemployment Rates", "Unemployment.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(unemployemnt0.20), unemployemnt0.20, unemployemnt0.25, "Quarters", "Rate", "Unemployment Rates", "Unemployment.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = unemployemnt0.30, v4 = unemployemnt0.40, isgrid = T, ispoint = F)
 
 # Wages:
 wages0.40 <- Government0.40$AVERAGE_WAGE
 wages0.30 <- Government0.30$AVERAGE_WAGE
 wages0.25 <- Government0.25$AVERAGE_WAGE
 wages0.20 <- Government0.20$AVERAGE_WAGE
-plot_time_series_multiline_point_file(length(wages0.20), wages0.20, wages0.25, v3 = wages0.30, v4 = wages0.40, "Quarters", "Rate", "Average Wages", "Wages.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(wages0.20), wages0.20, wages0.25, "Quarters", "Rate", "Average Wages", "Wages.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = wages0.30, v4 = wages0.40, isgrid = T, ispoint = F)
 
 
 # Interest Rates:
@@ -89,7 +89,7 @@ nhousingprices0.25 <- REAgency0.25$AVG_HOUSING_PRICE
 nhousingprices0.30 <- REAgency0.30$AVG_HOUSING_PRICE
 nhousingprices0.40 <- REAgency0.40$AVG_HOUSING_PRICE
 
-plot_time_series_multiline_point_file(length(nhousingprices0.20), nhousingprices0.20, nhousingprices0.25,  "Months", "Average Prices", "Average Housing Unit Prices (Nominal)", "AvgHousingPricesNominal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F, v3 = nhousingprices0.30, v4 = nhousingprices0.40,)
+plot_time_series_multiline_point_file(length(nhousingprices0.20), nhousingprices0.20, nhousingprices0.25,  "Months", "Average Prices", "Average Housing Unit Prices (Nominal)", "AvgHousingPricesNominal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F, v3 = nhousingprices0.30, v4 = nhousingprices0.40)
 
 # Real -
 L <- 1:length(goodsprices0.20)
@@ -163,7 +163,7 @@ privatedebt0.25 <- mortgages0.25 + loans0.25
 privatedebt0.30 <- mortgages0.30 + loans0.30
 privatedebt0.40 <- mortgages0.40 + loans0.40
 
-plot_time_series_multiline_point_file(length(privatedebt0.20), privatedebt0.20, privatedebt0.25, v3 = privatedebt0.30, v4 = privatedebt0.40, "Quarters", "Total Amount", "Private Sector Debt", "PrivateSectorDebt.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+plot_time_series_multiline_point_file(length(privatedebt0.20), privatedebt0.20, privatedebt0.25,  "Quarters", "Total Amount", "Private Sector Debt", "PrivateSectorDebt.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = privatedebt0.30, v4 = privatedebt0.40, isgrid = F, ispoint=F)
 
 #GDP Nominal:
 nMonths <- length(Government0.20$IT_NO) * 3
@@ -230,9 +230,9 @@ CFirmMonthly0.40$Real <- CFirmMonthly0.40$PRODUCTION_CURRENT * CFirmMonthly0.40$
 gdpnominal0.40 <- get_aggregate_values_v2(FirmMonthly0.40$IT_NO, FirmMonthly0.40$Nominal, nMonths) + get_aggregate_values_v2(CFirmMonthly0.40$IT_NO, CFirmMonthly0.40$Nominal, nMonths)
 gdpreal0.40 <- get_aggregate_values_v2(FirmMonthly0.40$IT_NO, FirmMonthly0.40$Real, nMonths) + get_aggregate_values_v2(CFirmMonthly0.40$IT_NO, CFirmMonthly0.40$Real, nMonths)
 
-plot_time_series_multiline_point_file(length(gdpnominal0.20), gdpnominal0.20, gdpnominal0.25, v3 = gdpnominal0.30, v4 = gdpnominal0.40, "Months", "Total Goods and Housing Units", "GDP - Nominal", "GDP_Nominal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+plot_time_series_multiline_point_file(length(gdpnominal0.20), gdpnominal0.20, gdpnominal0.25, "Months", "Total Goods and Housing Units", "GDP - Nominal", "GDP_Nominal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = gdpnominal0.30, v4 = gdpnominal0.40, isgrid = F, ispoint=F)
 
-plot_time_series_multiline_point_file(length(gdpreal0.20), gdpreal0.20, gdpreal0.25, v3 = gdpreal0.30, v4 = gdpreal0.40, "Months", "Total Goods and Housing Units", "GDP - Real", "GDP_Real.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+plot_time_series_multiline_point_file(length(gdpreal0.20), gdpreal0.20, gdpreal0.25, "Months", "Total Goods and Housing Units", "GDP - Real", "GDP_Real.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = gdpreal0.30, v4 = gdpreal0.40, isgrid = F, ispoint=F)
 
 
 data_household = 1
@@ -256,5 +256,5 @@ if (data_household){
 	housingpayment0.30 <- get_means(nHouseholds, nQuarters, Household0.30$HOUSING_PAYMENT)
 	housingpayment0.40 <- get_means(nHouseholds, nQuarters, Household0.40$HOUSING_PAYMENT)
 	
-	plot_time_series_multiline_point_file(length(housingpayment0.20), housingpayment0.20, housingpayment0.25, v3 = housingpayment0.30, v4 = housingpayment0.40, "Quarters", "Mean Housing Payments", "Households's Mean Housing Payments", "HousingPayment.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+	plot_time_series_multiline_point_file(length(housingpayment0.20), housingpayment0.20, housingpayment0.25,  "Quarters", "Mean Housing Payments", "Households's Mean Housing Payments", "HousingPayment.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = housingpayment0.30, v4 = housingpayment0.40, isgrid = F, ispoint=F)
 	}
