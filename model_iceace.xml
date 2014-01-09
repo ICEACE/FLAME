@@ -433,7 +433,7 @@
                     <name>equityfund_update_deposit</name>
                     <description>Deposits/updates its liquidity at centralbank.</description>
                     <currentState>EquityFundUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EFCreditPolicyChecks</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -450,7 +450,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>EquityFundUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>EFCreditPolicyChecks</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -592,7 +592,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>BankUpdateDeposits</currentState>
-                    <nextState>BankCreditPolicyChecks</nextState>
+                    <nextState>BankUpdateCentralbankDeposit</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -604,7 +604,7 @@
                     <name>bank_update_deposits</name>
                     <description>Deposits/updates its liquidity to bank.</description>
                     <currentState>BankUpdateDeposits</currentState>
-                    <nextState>BankCreditPolicyChecks</nextState>
+                    <nextState>BankUpdateCentralbankDeposit</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -636,7 +636,7 @@
                     <name>bank_update_centralbank_deposit</name>
                     <description>Deposits/updates its liquidity at centralbank.</description>
                     <currentState>BankUpdateCentralbankDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankCreditPolicyChecks</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -653,7 +653,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>BankUpdateCentralbankDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>BankCreditPolicyChecks</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -714,7 +714,7 @@
                     <name>government_update_deposit</name>
                     <description>Deposits/updates its liquidity at centralbank.</description>
                     <currentState>GovernmentUpdateDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentFiscalPolicy</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -731,7 +731,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>GovernmentUpdateDeposit</currentState>
-                    <nextState>end</nextState>
+                    <nextState>GovernmentFiscalPolicy</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -829,7 +829,7 @@
                     <name>centralbank_update_deposits</name>
                     <description>Updates its liquidity</description>
                     <currentState>CentralBankUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CentralBankPolicy</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -852,7 +852,7 @@
                     <name>idle</name>
                     <description>Skip the updates.</description>
                     <currentState>CentralBankUpdateDeposits</currentState>
-                    <nextState>end</nextState>
+                    <nextState>CentralBankPolicy</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>

@@ -908,7 +908,7 @@
                     <name>idle</name>
                     <description>It is not time to act.</description>
                     <currentState>BankCreditPolicyChecks</currentState>
-                    <nextState>BankUpdateCentralbankDeposit</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -920,7 +920,7 @@
                     <name>bank_credit_check_interest_rate</name>
                     <description>Bank checks centralbank ineterest rate.</description>
                     <currentState>BankCreditPolicyChecks</currentState>
-                    <nextState>BankUpdateCentralbankDeposit</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -1101,7 +1101,7 @@
                     <name>idle</name>
                     <description>It is not time to act.</description>
                     <currentState>CentralBankPolicy</currentState>
-                    <nextState>CentralBankUpdateDeposits</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -1113,7 +1113,7 @@
                     <name>centralbank_set_interest_rate</name>
                     <description>Central bank sets the interest rate.</description>
                     <currentState>CentralBankPolicy</currentState>
-                    <nextState>CentralBankUpdateDeposits</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -1521,7 +1521,7 @@
                     <name>idle</name>
                     <description>It is not the end of a quarter.</description>
                     <currentState>EFCreditPolicyChecks</currentState>
-                    <nextState>EquityFundUpdateDeposits</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -1533,7 +1533,7 @@
                     <name>equityfund_credit_check_tax_rate</name>
                     <description>Equity fund checks quarterly tax rate.</description>
                     <currentState>EFCreditPolicyChecks</currentState>
-                    <nextState>EquityFundUpdateDeposits</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -1701,7 +1701,7 @@
                     <name>idle</name>
                     <description>It is not the end of a month.</description>
                     <currentState>GovernmentMonthly</currentState>
-                    <nextState>GovernmentFiscalPolicy</nextState>
+                    <nextState>GovernmentUpdateDeposit</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -1753,7 +1753,7 @@
                     <name>idle</name>
                     <description>It is not the end of a quarter.</description>
                     <currentState>GovernmentFiscalPolicy</currentState>
-                    <nextState>GovernmentUpdateDeposit</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -1765,7 +1765,7 @@
                     <name>government_update_fiscal_policy</name>
                     <description>Government sets tax rate, general benefits and unemployment benefits</description>
                     <currentState>GovernmentFiscalPolicy</currentState>
-                    <nextState>GovernmentUpdateDeposit</nextState>
+                    <nextState>end</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
