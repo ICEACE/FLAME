@@ -39,4 +39,4 @@ plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RETAINED, "Quarters"
 plot_time_series_point_file(nQuarters, Equityfund$LIQUIDITY, "Quarters", "Amount", "Equity Fund - Liquidity", "FundLiquidity.png", isgrid = TRUE, ltype = "o")
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_PAID, "Quarters", "Amount", "Equity Fund - Dividends Paid", "FundDividendsPaid.png", isgrid = TRUE, ltype = "o")
 
-plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, v3 = Equityfund$SHARE_BANKS, "Quarters", "Amount", "Equity Fund - Dividends Received Components", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"))
+plot_time_series_multiline_point_file(nQuarters, Equityfund$SHARE_FIRMS, Equityfund$SHARE_CONSTRUCTION_FIRMS, "Quarters", "Amount", "Equity Fund - Dividends Received Components", "FundDividendsReceivedParts.png", c("Firms", "CFirms", "Banks"), v3 = Equityfund$SHARE_BANKS, isgrid = FALSE)

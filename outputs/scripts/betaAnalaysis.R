@@ -45,14 +45,14 @@ interestrate0.20 <- Centralbank0.20$INTEREST_RATE
 interestrate0.25 <- Centralbank0.25$INTEREST_RATE
 interestrate0.30 <- Centralbank0.30$INTEREST_RATE
 interestrate0.40 <- Centralbank0.40$INTEREST_RATE
-plot_time_series_multiline_point_file(length(interestrate0.20), interestrate0.20, interestrate0.25, v3 = interestrate0.30, v4 = interestrate0.40, "Quarters", "Rate", "Central Bank Interest Rates", "InterestRate.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(interestrate0.20), interestrate0.20, "Quarters", "Rate", "Central Bank Interest Rates", "InterestRate.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), interestrate0.25, v3 = interestrate0.30, v4 = interestrate0.40, isgrid = T, ispoint = F)
 
 # Inflations: 
 inflation0.20 <- Centralbank0.20$INFLATION_RATE
 inflation0.25 <- Centralbank0.25$INFLATION_RATE
 inflation0.30 <- Centralbank0.30$INFLATION_RATE
 inflation0.40 <- Centralbank0.40$INFLATION_RATE
-plot_time_series_multiline_point_file(length(inflation0.20), inflation0.20, inflation0.25, v3 = inflation0.30, v4 = inflation0.40, "Quarters", "Rate", "Inflation Rates", "Inflation.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(inflation0.20), inflation0.20, inflation0.25,  "Quarters", "Rate", "Inflation Rates", "Inflation.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = inflation0.30, v4 = inflation0.40, isgrid = T, ispoint = F)
 
 
 # Goods Prices
@@ -70,7 +70,7 @@ goodsprices0.20 <- Mall0.20$AVG_GOODS_PRICE
 goodsprices0.25 <- Mall0.25$AVG_GOODS_PRICE
 goodsprices0.30 <- Mall0.30$AVG_GOODS_PRICE
 goodsprices0.40 <- Mall0.40$AVG_GOODS_PRICE
-plot_time_series_multiline_point_file(length(goodsprices0.20), goodsprices0.20, goodsprices0.25, v3 = goodsprices0.30, v4 = goodsprices0.40, "Weeks", "Unit Price", "Average Goods Prices (realized)", "AvgGoodsPrices.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint = F)
+plot_time_series_multiline_point_file(length(goodsprices0.20), goodsprices0.20, goodsprices0.25, "Weeks", "Unit Price", "Average Goods Prices (realized)", "AvgGoodsPrices.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = goodsprices0.30, v4 = goodsprices0.40, isgrid = F, ispoint = F)
 
 # Housing Prices:
 
@@ -89,7 +89,7 @@ nhousingprices0.25 <- REAgency0.25$AVG_HOUSING_PRICE
 nhousingprices0.30 <- REAgency0.30$AVG_HOUSING_PRICE
 nhousingprices0.40 <- REAgency0.40$AVG_HOUSING_PRICE
 
-plot_time_series_multiline_point_file(length(nhousingprices0.20), nhousingprices0.20, nhousingprices0.25, v3 = nhousingprices0.30, v4 = nhousingprices0.40, "Months", "Average Prices", "Average Housing Unit Prices (Nominal)", "AvgHousingPricesNominal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(nhousingprices0.20), nhousingprices0.20, nhousingprices0.25,  "Months", "Average Prices", "Average Housing Unit Prices (Nominal)", "AvgHousingPricesNominal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F, v3 = nhousingprices0.30, v4 = nhousingprices0.40,)
 
 # Real -
 L <- 1:length(goodsprices0.20)
@@ -111,7 +111,7 @@ rhousingprices0.30 <- nhousingprices0.30 / cpi0.30
 rhousingprices0.40 <- nhousingprices0.40 / cpi0.40
 
 
-plot_time_series_multiline_point_file(length(rhousingprices0.20), rhousingprices0.20, rhousingprices0.25, v3 = rhousingprices0.30, v4 = rhousingprices0.40, "Months", "Price Indices", "Housing Unit Price Indices", "AvgHousingPricesReal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), legposn = "bottomright", isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(rhousingprices0.20), rhousingprices0.20, rhousingprices0.25,  "Months", "Price Indices", "Housing Unit Price Indices", "AvgHousingPricesReal.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = rhousingprices0.30, v4 = rhousingprices0.40, legposn = "bottomright", isgrid = T, ispoint = F)
 
 
 # Capital Income:
@@ -129,7 +129,7 @@ dividendspaid0.25 <- Equityfund0.25$DIVIDENDS_PAID
 dividendspaid0.30 <- Equityfund0.30$DIVIDENDS_PAID
 dividendspaid0.40 <- Equityfund0.40$DIVIDENDS_PAID
 
-plot_time_series_multiline_point_file(length(dividendspaid0.20), dividendspaid0.20, dividendspaid0.25, v3 = dividendspaid0.30, v4 = dividendspaid0.40, "Quarters", "Amount", "Dividends Paid", "DividendsPaid.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+plot_time_series_multiline_point_file(length(dividendspaid0.20), dividendspaid0.20, dividendspaid0.25,  "Quarters", "Amount", "Dividends Paid", "DividendsPaid.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = dividendspaid0.30, v4 = dividendspaid0.40, isgrid = F, ispoint=F)
 
 # Loans:
 file = paste(data_dir, '/0.20/', "Bank_BalanceSheet.txt", sep ='')
@@ -146,7 +146,7 @@ loans0.25 <- get_aggregate_values(BankBalance0.25$IT_NO, BankBalance0.25$LOANS)
 loans0.30 <- get_aggregate_values(BankBalance0.30$IT_NO, BankBalance0.30$LOANS)
 loans0.40 <- get_aggregate_values(BankBalance0.40$IT_NO, BankBalance0.40$LOANS)
 
-plot_time_series_multiline_point_file(length(loans0.20), loans0.20, loans0.25, v3 = loans0.30, v4 = loans0.40, "Quarters", "Total Amount", "Loans to Firms", "Loans.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+plot_time_series_multiline_point_file(length(loans0.20), loans0.20, loans0.25, "Quarters", "Total Amount", "Loans to Firms", "Loans.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = loans0.30, v4 = loans0.40, isgrid = F, ispoint=F)
 
 
 # Mortgages:
@@ -155,7 +155,7 @@ mortgages0.25 <- get_aggregate_values(BankBalance0.25$IT_NO, BankBalance0.25$MOR
 mortgages0.30 <- get_aggregate_values(BankBalance0.30$IT_NO, BankBalance0.30$MORTGAGES)
 mortgages0.40 <- get_aggregate_values(BankBalance0.40$IT_NO, BankBalance0.40$MORTGAGES)
 
-plot_time_series_multiline_point_file(length(mortgages0.20), mortgages0.20, mortgages0.25, v3 = mortgages0.30, v4 = mortgages0.40, "Quarters", "Total Amount", "Mortgages to Households", "Mortgages.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint=F)
+plot_time_series_multiline_point_file(length(mortgages0.20), mortgages0.20, mortgages0.25,  "Quarters", "Total Amount", "Mortgages to Households", "Mortgages.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = mortgages0.30, v4 = mortgages0.40, isgrid = F, ispoint=F)
 
 # Private Sector Debt:
 privatedebt0.20 <- mortgages0.20 + loans0.20
