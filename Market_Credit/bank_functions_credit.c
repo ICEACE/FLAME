@@ -87,19 +87,34 @@ int bank_credit_compute_dividends()
     
     //printf("Bank ID = %d at Computing Dividends, pre-liquidity = %f \n", ID, LIQUIDITY);
     
-    if (TOTAL_ASSETS > 0) {
-        if ((EQUITY / TOTAL_ASSETS) < (CAPITAL_ADEQUECY_RATIO + CAR_BUFFER_THRESHOLD)){
-            RETAINED_EARNINGS = NET_EARNINGS;
-            TOTAL_DIVIDENDS = 0;
+    double risky_assets;
+    risky_assets = LOANS + MORTGAGES;
+    if (risky_assets > 0) {
+        double threshold;
+        threshold = CAPITAL_ADEQUECY_RATIO + CAR_BUFFER_THRESHOLD;
+        if (EQUITY / risky_assets < threshold){
+            /* instead of keeping whole earnings a portion of earnings
+             that is large enough to satisfy equity ratio is to be used.
+            */
+            double needed;
+            needed = threshold * risky_assets - EQUITY;
+            if (needed < NET_EARNINGS) {
+                RETAINED_EARNINGS = needed;
+                TOTAL_DIVIDENDS = NET_EARNINGS - needed;
+            }
+            else {
+                RETAINED_EARNINGS = NET_EARNINGS;
+                TOTAL_DIVIDENDS = 0;
+            }
         }
-        else{
+        else {
             RETAINED_EARNINGS = 0;
             TOTAL_DIVIDENDS = NET_EARNINGS;
         }
     }
-    else
-    {
-        TOTAL_DIVIDENDS = 0;
+    else {
+        RETAINED_EARNINGS = 0;
+        TOTAL_DIVIDENDS = NET_EARNINGS;
         if (PRINT_DEBUG_MODE){
             printf("Total Asset of Bank = %d is Negative or Zero!!!\n", ID);
         }

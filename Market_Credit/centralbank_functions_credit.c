@@ -29,16 +29,17 @@ int centralbank_set_interest_rate()
     
     rcb_delta = rcb - INTEREST_RATE;
     
-    if (fabs(rcb_delta) > 0.01) {
+    if (fabs(rcb_delta) > 0.025) {
         if (rcb_delta > 0) {
-            rcb = rcb_pre + 0.01;
+            rcb = rcb_pre + 0.025;
         }
         else{
-            rcb = rcb_pre - 0.01;
+            rcb = rcb_pre - 0.025;
         }
     }
-    if (rcb > 0.15) {rcb = 0.15;}
-    /* experimentation end*/
+    if (rcb > 0.25) {rcb = 0.25;}
+    
+     /* experimentation end */
     
     if (rcb < 0.005){rcb = 0.005;}
     

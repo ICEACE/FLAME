@@ -45,7 +45,7 @@ interestrate0.20 <- Centralbank0.20$INTEREST_RATE
 interestrate0.25 <- Centralbank0.25$INTEREST_RATE
 interestrate0.30 <- Centralbank0.30$INTEREST_RATE
 interestrate0.40 <- Centralbank0.40$INTEREST_RATE
-plot_time_series_multiline_point_file(length(interestrate0.20), interestrate0.20, "Quarters", "Rate", "Central Bank Interest Rates", "InterestRate.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), interestrate0.25, v3 = interestrate0.30, v4 = interestrate0.40, isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(interestrate0.20), interestrate0.20, interestrate0.25, "Quarters", "Rate", "Central Bank Interest Rates", "InterestRate.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"),  v3 = interestrate0.30, v4 = interestrate0.40, isgrid = T, ispoint = F)
 
 # Inflations: 
 inflation0.20 <- Centralbank0.20$INFLATION_RATE
