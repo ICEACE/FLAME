@@ -28,6 +28,16 @@ plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$HOUSING_PA
 boxplot_time_series_distro_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (boxplot)", "Households", "HouseholdsBenefitsDistro.png")
 plot_time_series_mean_file(nHouseholds, nQuarters, HouseholdQuarterly$BENEFITS, "Quarters", "Total Benefits (mean)", "Households", "HouseholdsBenefitsMean.png", isgrid = TRUE, ispoint = TRUE)
 
+total_income <- HouseholdQuarterly$LABOUR_INCOME + HouseholdQuarterly$CAPITAL_INCOME
+mean_income <- get_means(nHouseholds, nQuarters, total_income)
+median_income <- get_medians(nHouseholds, nQuarters, total_income)
+mean_payment <- get_means(nHouseholds, nQuarters,HouseholdQuarterly$HOUSING_PAYMENT)
+median_payment <- get_medians(nHouseholds, nQuarters,HouseholdQuarterly$HOUSING_PAYMENT)
+ratio_mean <- mean_payment / mean_income
+ratio_median <- median_payment / median_income
+
+plot_time_series_multiline_point_file(nQuarters, ratio_mean, ratio_median,  "Quarters", "Ratio", "Housing Payment to Total Income Ratio", "HouseholdsRatioPayment.png", c("Mean", "Median"), isgrid = T, ptype = "o")
+
 
 #Household - Monthly
 plot_time_series_mean_file(nHouseholds, nMonths, HouseholdMonthlyFirst$LIQUIDITY, "Months", "Liquidity (mean)", "Households", "HouseholdsLiquidityMonthly.png", ispoint = TRUE)

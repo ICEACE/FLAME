@@ -41,3 +41,5 @@ if (data_household){
 # Compute Housing Market Activities#
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeHousing.R", echo = T)
 
+source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/identityCheck.R", echo = T)
+

@@ -88,14 +88,21 @@ plot_time_series_point_file <- function(niter, datavector, xlabel, ylabel, title
 	dev.off()
 }
 
-plot_time_series_multiline_point_file <- function(niter, v1, v2, xlabel, ylabel, title, fname, legends, v3=vector(), v4 =vector(), legposn = "topleft", isgrid = FALSE, ptype = "l", ispoint = T){
+plot_time_series_multiline_point_file <- function(niter, v1, v2, xlabel, ylabel, title, fname, legends, v3=vector(), v4 =vector(), legposn = "topleft", isgrid = FALSE, ptype = "l", ispoint = T, maxv = FALSE, minv = FALSE){
 	times <- (1:niter)
 	valrange <- v1
 	#minval <- floor(min(c(v1,v2,v3,v4)))
 	minval <- min(c(v1,v2,v3,v4))
+	if (minv){
+		minval <- min(c(minval, minv))
+	}
 	valrange[1] <- minval
 	#maxval <- ceiling(max(c(v1,v2,v3,v4)))
 	maxval <- max(c(v1,v2,v3,v4))
+	if (maxv){
+		maxval <- max(c(maxval, maxv))
+	}
+
 	valrange[-1] <- maxval
 	png(fname, width = 1500, height = 800, pointsize=18)
 	plot(valrange~times, type="n", xlab = xlabel, ylab=ylabel, main = title)
@@ -184,6 +191,16 @@ get_means <- function(nagents, niter, datavector){
 		means[i] <- mean(values[i,])
 	}
 	return(means)
+}
+
+get_medians <- function(nagents, niter, datavector){
+	times <- (1:niter)
+	medians <- (1:niter)
+	values <- matrix(datavector, nrow = niter, ncol = nagents, byrow = T)
+	for (i in 1:niter){
+		medians[i] <- median(values[i,])
+	}
+	return(medians)
 }
 
 get_means_set <- function(nexps, dataSet, memVar, nagents, niter){

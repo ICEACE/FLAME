@@ -32,6 +32,9 @@ plot_time_series_point_file(nQuarters, Government$CENTRALBANK_INCOME, "Quarters"
 plot_time_series_point_file(nQuarters, Government$LIQUIDITY, "Quarters", "Amount", "Government Liquidity", "GovernmentLiquidity.png", isgrid = TRUE, ltype = "o")
 plot_time_series_multiline_point_file(nQuarters, Government$LABOUR_TAX_RATE, Government$GOV_GENERAL_BENEFIT_RATE, "Quarters", "Rates", "Government - Fiscal Policy Rates", "GovernmentRates.png", c("Tax Rates", "Benefit Rates"), isgrid = TRUE)
 
+balance <- Government$EARNINGS - Government$EXPENDITURES
+plot_time_series_multiline_point_file(nQuarters, Government$EARNINGS, Government$EXPENDITURES, "Quarters", "Total", "Government Expenditures Vs Earnings", "GovernmentBalance.png", c("Earnings", "Expenditures", "Deficit"), v3 = balance, isgrid = F, ispoint = T)
+
 
 #Equity Fund
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Amount", "Equity Fund - Dividends Received", "FundDividendsReceived.png", isgrid = TRUE, ltype = "o")
