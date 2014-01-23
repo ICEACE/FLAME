@@ -35,7 +35,7 @@ balance0.20 <- Government0.20$EARNINGS - Government0.20$EXPENDITURES
 balance0.50 <- Government0.50$EARNINGS - Government0.50$EXPENDITURES
 balance0.30 <- Government0.30$EARNINGS - Government0.30$EXPENDITURES
 balance0.40 <- Government0.40$EARNINGS - Government0.40$EXPENDITURES
-plot_time_series_multiline_point_file(length(balance0.20), balance0.20, balance0.50, "Quarters", "Amount", "Government Deficit (Earnings - Expenditures)", "GovernmentDeficit.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"), v3 = balance0.30, v4 = balance0.40, isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(balance0.20), balance0.20, balance0.50, "Quarters", "Amount", "Government Deficit (Earnings - Expenditures)", "GovernmentDeficit.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"), v3 = balance0.30, v4 = balance0.40, isgrid = F, ispoint = F)
 
 
 # Interest Rates:
@@ -53,14 +53,14 @@ interestrate0.20 <- Centralbank0.20$INTEREST_RATE
 interestrate0.50 <- Centralbank0.50$INTEREST_RATE
 interestrate0.30 <- Centralbank0.30$INTEREST_RATE
 interestrate0.40 <- Centralbank0.40$INTEREST_RATE
-plot_time_series_multiline_point_file(length(interestrate0.20), interestrate0.20, interestrate0.50, "Quarters", "Rate", "Central Bank Interest Rates", "InterestRate.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"),  v3 = interestrate0.30, v4 = interestrate0.40, isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(interestrate0.20), interestrate0.20, interestrate0.50, "Quarters", "Rate", "Central Bank Interest Rates", "InterestRate.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"),  v3 = interestrate0.30, v4 = interestrate0.40, isgrid = F, ispoint = F)
 
 # Inflations: 
 inflation0.20 <- Centralbank0.20$INFLATION_RATE
 inflation0.50 <- Centralbank0.50$INFLATION_RATE
 inflation0.30 <- Centralbank0.30$INFLATION_RATE
 inflation0.40 <- Centralbank0.40$INFLATION_RATE
-plot_time_series_multiline_point_file(length(inflation0.20), inflation0.20, inflation0.50,  "Quarters", "Rate", "Inflation Rates", "Inflation.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"), v3 = inflation0.30, v4 = inflation0.40, isgrid = T, ispoint = F)
+plot_time_series_multiline_point_file(length(inflation0.20), inflation0.20, inflation0.50,  "Quarters", "Rate", "Inflation Rates", "Inflation.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"), v3 = inflation0.30, v4 = inflation0.40, isgrid = F, ispoint = F)
 
 
 # Goods Prices
@@ -97,7 +97,7 @@ nhousingprices0.50 <- REAgency0.50$AVG_HOUSING_PRICE
 nhousingprices0.30 <- REAgency0.30$AVG_HOUSING_PRICE
 nhousingprices0.40 <- REAgency0.40$AVG_HOUSING_PRICE
 
-plot_time_series_multiline_point_file(length(nhousingprices0.20), nhousingprices0.20, nhousingprices0.50,  "Months", "Average Prices", "Average Housing Unit Prices (Nominal)", "AvgHousingPricesNominal.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"), isgrid = T, ispoint = F, v3 = nhousingprices0.30, v4 = nhousingprices0.40)
+plot_time_series_multiline_point_file(length(nhousingprices0.20), nhousingprices0.20, nhousingprices0.50,  "Months", "Average Prices", "Average Housing Unit Prices (Nominal)", "AvgHousingPricesNominal.png", c("beta = 0.20", "beta = 0.50", "beta = 0.30", "beta = 0.40"), isgrid = F, ispoint = F, v3 = nhousingprices0.30, v4 = nhousingprices0.40)
 
 # Real -
 L <- 1:length(goodsprices0.20)

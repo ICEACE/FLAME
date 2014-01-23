@@ -34,7 +34,7 @@ plot_time_series_multiline_point_file(nQuarters, Government$LABOUR_TAX_RATE, Gov
 
 balance <- Government$EARNINGS - Government$EXPENDITURES
 plot_time_series_multiline_point_file(nQuarters, Government$EARNINGS, Government$EXPENDITURES, "Quarters", "Total", "Government Expenditures Vs Earnings", "GovernmentBalance.png", c("Earnings", "Expenditures", "Deficit"), v3 = balance, isgrid = F, ispoint = T)
-
+plot_time_series_multiline_point_file(nQuarters, Centralbank$INFLATION, Centralbank$INTEREST_RATE, "Quarters", "Rates", "Inflation, Interest Rate, and Unemployment", "aRates.png", c("Inflation", "Interest", "Unemployment"), v3 = Government$UNEMPLOYMENT_RATE, isgrid = FALSE)
 
 #Equity Fund
 plot_time_series_point_file(nQuarters, Equityfund$DIVIDENDS_RECIEVED, "Quarters", "Amount", "Equity Fund - Dividends Received", "FundDividendsReceived.png", isgrid = TRUE, ltype = "o")
