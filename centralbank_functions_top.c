@@ -15,7 +15,7 @@ int centralbank_init_balancesheet()
     LOANS_BANKS += bank_centralbank_init_debt_message->amount;
     FINISH_BANK_CENTRALBANK_INIT_DEBT_MESSAGE_LOOP
     
-    LIQUIDITY = 0;
+    
     
     LIQUIDITY_BANKS = 0;
     START_BANK_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
@@ -34,14 +34,18 @@ int centralbank_init_balancesheet()
     LIQUIDITY_EQUITYFUND = amount;
     FINISH_FUND_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
     
-    
+    LIQUIDITY = 0;
     EQUITY = 0;
     LOANS_GOVERNMENT = 0;
     TOTAL_WRITEOFFS = 0;
+
     
-    LIQUIDITY = LIQUIDITY_BANKS + LIQUIDITY_EQUITYFUND + LIQUIDITY_GOVERNMENT;
+    //LIQUIDITY = LIQUIDITY_BANKS + LIQUIDITY_EQUITYFUND + LIQUIDITY_GOVERNMENT;
+    // this is total deposits.
     TOTAL_ASSETS = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
     /* Centralbank FIAT MONEY thus is equal to initial bank loans. */
+    /* if total assets goes to zero fiat money should be killed.
+     
     FIAT_MONEY = TOTAL_ASSETS - (LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND + LIQUIDITY_BANKS + EQUITY);
     
     

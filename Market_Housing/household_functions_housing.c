@@ -78,15 +78,16 @@ int household_housing_enter_market()
     
     /* Cash rich households are allowed to use cash to finance housing.
      This needs to be checked with the model design.
-     */
+     
     cash_allowance = 0.9 * HOUSING_PRICE;
     if (LIQUIDITY > cash_allowance) {
         cash = LIQUIDITY - cash_allowance;
     } else {
         cash = 0;
     }
-    /* For the consistancy with MATLAB model, above option is by-passed.*/
-    cash = 0;
+    */
+    
+    cash = LIQUIDITY;
     add_buy_housing_message(ID, BANK_ID, cash, income, HOUSING_PAYMENT);
     
 	return 0; /* Returning zero means the agent is not removed */

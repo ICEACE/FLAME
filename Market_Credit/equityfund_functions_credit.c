@@ -34,14 +34,14 @@ int equityfund_credit_invest_illiquids()
         printf("Equity Fund: Liquidity = %f, Liquidity request = %f from Firm ID = %d. \n",LIQUIDITY, request, firm_id);
     }
     
-    if (LIQUIDITY > request) {
-        add_fund_request_ack_message(firm_id, request);
-        if (PRINT_DEBUG_MODE) {
-            printf("Firm ID = %d receives investment from Equity Fund. \n", firm_id);
-        }
-        LIQUIDITY -= request;
-        FIRM_INVESTMENT += request;
+    //if (request <= DIVIDENDS_RECIEVED - FIRM_INVESTMENT ) {
+    add_fund_request_ack_message(firm_id, request);
+    if (PRINT_DEBUG_MODE) {
+        printf("Firm ID = %d receives investment from Equity Fund. \n", firm_id);
     }
+    LIQUIDITY -= request;
+    FIRM_INVESTMENT += request;
+    //}
     FINISH_FUND_REQUEST_MESSAGE_LOOP
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -55,17 +55,16 @@ int equityfund_credit_distribute_shares()
 {
     double per_share = 0;
     
-    DIVIDENDS_PAID = DIVIDENDS_RECIEVED - FIRM_INVESTMENT;
+    //DIVIDENDS_PAID = DIVIDENDS_RECIEVED - DIVIDENDS_RETAINED;
     
-    if (DIVIDENDS_PAID < 0) {
-        if (PRINT_DEBUG_MODE) {
-            printf("Equity Fund Reports: No shares for Households, Dividends Received = %f, Firm Investment = %f \n", DIVIDENDS_RECIEVED, FIRM_INVESTMENT);
-        }
+    if (LIQUIDITY <= 0 ) {
         DIVIDENDS_PAID = 0;
         add_household_share_message(per_share);
         add_capital_tax_message(DIVIDENDS_PAID * CAPITAL_TAX_RATE);
         return 0;
     }
+    
+    DIVIDENDS_PAID = LIQUIDITY;
     
     if (N_SHARES > 0) {
         per_share = DIVIDENDS_PAID / N_SHARES;
@@ -82,8 +81,6 @@ int equityfund_credit_distribute_shares()
     if (PRINT_DEBUG_MODE) {
         printf("Equity Fund: Shares %d, Dividends Paid = %f, Per Share = %f \n", N_SHARES, DIVIDENDS_PAID, per_share);
     }
-    
-    LIQUIDITY_ACTUAL = LIQUIDITY;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -151,8 +148,9 @@ int equityfund_credit_collect_bank_shares()
 int equityfund_credit_compute_income_statement()
 {
     DIVIDENDS_RECIEVED = SHARE_BANKS + SHARE_FIRMS + SHARE_CONSTRUCTION_FIRMS;
-    DIVIDENDS_RETAINED = FIRM_INVESTMENT;
-    /* DIVIDENDS_PAID is computed while shares are sent to fund.*/
+    DIVIDENDS_RETAINED = DIVIDENDS_RECIEVED - DIVIDENDS_PAID;
+    /* DIVIDENDS_PAID is computed while shares are sent to fund.
+     */
     
     if (DATA_COLLECTION_MODE) {
         char * filename;
@@ -162,7 +160,7 @@ int equityfund_credit_compute_income_statement()
         strcpy(filename, "./outputs/data/EquityFund_snapshot.txt");
         
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY_ACTUAL);
+        fprintf(file1,"%d %f %f %f %f %f %f %f\n",IT_NO, DIVIDENDS_RECIEVED, DIVIDENDS_PAID, SHARE_FIRMS, SHARE_CONSTRUCTION_FIRMS, SHARE_BANKS, DIVIDENDS_RETAINED, LIQUIDITY);
         fclose(file1);
         free(filename);
     }
