@@ -151,8 +151,8 @@ int government_update_fiscal_policy()
         LABOUR_TAX_RATE = 0.1;
     }
     
-    if (GOV_GENERAL_BENEFIT_RATE > 0.4){
-        GOV_GENERAL_BENEFIT_RATE = 0.4;
+    if (GOV_GENERAL_BENEFIT_RATE > 0.5){
+        GOV_GENERAL_BENEFIT_RATE = 0.5;
     }
     
     if (GOV_GENERAL_BENEFIT_RATE < 0){
