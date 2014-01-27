@@ -321,7 +321,6 @@ iliquidityBanks0.25 <- Centralbank0.25$LIQUIDITY_BANKS
 icredit_Centralbank0.25 <- iloans0.25 + imortgages0.25
 right_sideOne0.25 <- idepositsPrivate0.25 + iequity0.25 + idepositsPublic0.25
 differenceOne0.25 <- icredit_Centralbank0.25 - right_sideOne0.25
-differenceTwo0.25 <- iloans0.25 - iliquidityBanks0.25
 
 moneysources <- Centralbank0.25$LOANS_BANK + Centralbank0.25$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.25$LIQUIDITY_BANKS + Centralbank0.25$LIQUIDITY_GOVERNMENT + Centralbank0.25$LIQUIDITY_EQUITYFUND
@@ -337,7 +336,6 @@ iliquidityBanks0.30 <- Centralbank0.30$LIQUIDITY_BANKS
 icredit_Centralbank0.30 <- iloans0.30 + imortgages0.30
 right_sideOne0.30 <- idepositsPrivate0.30 + iequity0.30 + idepositsPublic0.30
 differenceOne0.30 <- icredit_Centralbank0.30 - right_sideOne0.30
-differenceTwo0.30 <- iloans0.30 - iliquidityBanks0.30
 
 moneysources <- Centralbank0.30$LOANS_BANK + Centralbank0.30$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.30$LIQUIDITY_BANKS + Centralbank0.30$LIQUIDITY_GOVERNMENT + Centralbank0.30$LIQUIDITY_EQUITYFUND
@@ -352,7 +350,7 @@ iliquidityBanks0.40 <- Centralbank0.40$LIQUIDITY_BANKS
 icredit_Centralbank0.40 <- iloans0.40 + imortgages0.40
 right_sideOne0.40 <- idepositsPrivate0.40 + iequity0.40 + idepositsPublic0.40
 differenceOne0.40 <- icredit_Centralbank0.40 - right_sideOne0.40
-differenceTwo0.40 <- iloans0.40 - iliquidityBanks0.40
+
 
 moneysources <- Centralbank0.40$LOANS_BANK + Centralbank0.40$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.40$LIQUIDITY_BANKS + Centralbank0.40$LIQUIDITY_GOVERNMENT + Centralbank0.40$LIQUIDITY_EQUITYFUND
