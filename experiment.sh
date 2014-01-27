@@ -23,9 +23,9 @@ rm ./outputs/scripts/plot.R
 rm ./outputs/data/0.20/*.txt
 mv ./outputs/data/*.txt ./outputs/data/0.20/
 
-git add ./outputs/plots/0.20/*.png
-git commit -a -m "Adding plots for beta = 0.2"
-git push origin master
+#git add ./outputs/plots/0.20/*.png
+#git commit -a -m "Adding plots for beta = 0.2"
+#git push origin master
 
 
 # Beta = 0.25 #############
@@ -50,9 +50,9 @@ rm ./outputs/scripts/plot.R
 rm ./outputs/data/0.25/*.txt
 mv ./outputs/data/*.txt ./outputs/data/0.25/
 
-git add ./outputs/plots/0.25/*.png
-git commit -a -m "Adding plots for beta = 0.25"
-git push origin master
+#git add ./outputs/plots/0.25/*.png
+#git commit -a -m "Adding plots for beta = 0.25"
+#git push origin master
 
 
 # Beta = 0.4 #############
@@ -77,9 +77,9 @@ rm ./outputs/scripts/plot.R
 rm ./outputs/data/0.40/*.txt
 mv ./outputs/data/*.txt ./outputs/data/0.40/
 
-git add ./outputs/plots/0.40/*.png
-git commit -a -m "Adding plots for beta = 0.4"
-git push origin master
+#git add ./outputs/plots/0.40/*.png
+#git commit -a -m "Adding plots for beta = 0.4"
+#git push origin master
 
 
 # Beta = 0.3 #############
@@ -105,9 +105,9 @@ rm ./outputs/scripts/plot.R
 rm ./outputs/data/0.30/*.txt
 mv ./outputs/data/*.txt ./outputs/data/0.30/
 
-git add ./outputs/plots/0.30/*.png
-git commit -a -m "Adding plots for beta = 0.3"
-git push origin master
+#git add ./outputs/plots/0.30/*.png
+#git commit -a -m "Adding plots for beta = 0.3"
+#git push origin master
 
 
 
@@ -117,7 +117,7 @@ sed 's|data_household = 1|data_household = 1|' ./outputs/scripts/betaAnalaysis.R
 Rscript ./outputs/scripts/plot.R
 rm ./outputs/scripts/plot.R
 
-git add ./outputs/plots/*.png
-git commit -a -m "Adding overall plots on analyses of Beta effects"
-git push origin master
+#git add ./outputs/plots/*.png
+#git commit -a -m "Adding overall plots on analyses of Beta effects"
+#git push origin master
 
