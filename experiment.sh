@@ -97,6 +97,7 @@ rm ./outputs/scripts/plot00.R
 
 
 Rscript ./outputs/scripts/plot.R
+git add ./outputs/plots/0.30/*
 rm ./outputs/plots/0.30/*.png
 mv ./outputs/plots/*.png ./outputs/plots/0.30/
 rm ./outputs/scripts/plot.R
