@@ -309,7 +309,7 @@ differenceOne0.20 <- icredit_Centralbank0.20 - right_sideOne0.20
 
 moneysources <- Centralbank0.20$LOANS_BANK + Centralbank0.20$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.20$LIQUIDITY_BANKS + Centralbank0.20$LIQUIDITY_GOVERNMENT + Centralbank0.20$LIQUIDITY_EQUITYFUND
-differenceTwo <- moneysources - moneylocations
+differenceTwo0.20 <- moneysources - moneylocations
 
 
 iloans0.25 <- get_aggregate_values(banksData0.25$IT_NO, banksData0.25$LOANS)
@@ -324,7 +324,7 @@ differenceOne0.25 <- icredit_Centralbank0.25 - right_sideOne0.25
 
 moneysources <- Centralbank0.25$LOANS_BANK + Centralbank0.25$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.25$LIQUIDITY_BANKS + Centralbank0.25$LIQUIDITY_GOVERNMENT + Centralbank0.25$LIQUIDITY_EQUITYFUND
-differenceTwo <- moneysources - moneylocations
+differenceTwo0.25 <- moneysources - moneylocations
 
 
 iloans0.30 <- get_aggregate_values(banksData0.30$IT_NO, banksData0.30$LOANS)
@@ -339,7 +339,7 @@ differenceOne0.30 <- icredit_Centralbank0.30 - right_sideOne0.30
 
 moneysources <- Centralbank0.30$LOANS_BANK + Centralbank0.30$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.30$LIQUIDITY_BANKS + Centralbank0.30$LIQUIDITY_GOVERNMENT + Centralbank0.30$LIQUIDITY_EQUITYFUND
-differenceTwo <- moneysources - moneylocations
+differenceTwo0.30 <- moneysources - moneylocations
 
 iloans0.40 <- get_aggregate_values(banksData0.40$IT_NO, banksData0.40$LOANS)
 imortgages0.40 <- get_aggregate_values(banksData0.40$IT_NO, banksData0.40$MORTGAGES)
@@ -354,7 +354,7 @@ differenceOne0.40 <- icredit_Centralbank0.40 - right_sideOne0.40
 
 moneysources <- Centralbank0.40$LOANS_BANK + Centralbank0.40$LOANS_GOVERNMENT
 moneylocations <- Centralbank0.40$LIQUIDITY_BANKS + Centralbank0.40$LIQUIDITY_GOVERNMENT + Centralbank0.40$LIQUIDITY_EQUITYFUND
-differenceTwo <- moneysources - moneylocations
+differenceTwo0.40 <- moneysources - moneylocations
 
 minval <- min(c(right_sideOne0.20, right_sideOne0.25, right_sideOne0.30, right_sideOne0.40))
 maxval <- max(c(icredit_Centralbank0.20,icredit_Centralbank0.25,icredit_Centralbank0.30, icredit_Centralbank0.40))
