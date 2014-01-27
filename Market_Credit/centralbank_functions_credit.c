@@ -88,14 +88,14 @@ int centralbank_process_debt_requests()
     START_BANK_CENTRALBANK_DEBT_REQUEST_MESSAGE_LOOP
     amount = bank_centralbank_debt_request_message->amount;
     LOANS_BANKS += amount;
-    LIQUIDITY -= amount;
+    //LIQUIDITY -= amount;
     FINISH_BANK_CENTRALBANK_DEBT_REQUEST_MESSAGE_LOOP
     
     
     START_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     amount = bank_centralbank_debt_payment_message->amount;
     LOANS_BANKS -= amount;
-    LIQUIDITY += amount;
+    //LIQUIDITY += amount;
     FINISH_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     
     LIQUIDITY_BANKS = 0;
@@ -142,13 +142,13 @@ int centralbank_process_government_requests()
     START_GOV_CENTRALBANK_DEBT_REQUEST_MESSAGE_LOOP
     amount = gov_centralbank_debt_request_message->amount;
     LOANS_GOVERNMENT += amount;
-    LIQUIDITY  -= amount;
+    //LIQUIDITY  -= amount;
     FINISH_GOV_CENTRALBANK_DEBT_REQUEST_MESSAGE_LOOP
     
     START_GOV_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     amount = gov_centralbank_debt_payment_message->amount;
     LOANS_GOVERNMENT -= amount;
-    LIQUIDITY += amount;
+    //LIQUIDITY += amount;
     FINISH_GOV_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     
     LIQUIDITY_GOVERNMENT = 0;
@@ -181,8 +181,8 @@ int centralbank_do_balance_sheet()
     if (FIAT_MONEY < 0) {
         LIQUIDITY = -1 * FIAT_MONEY;
         FIAT_MONEY = 0;
-        
     }
+    
     liabilities = FIAT_MONEY + deposits;
     TOTAL_ASSETS = loans + LIQUIDITY;
     EQUITY = TOTAL_ASSETS - liabilities;
