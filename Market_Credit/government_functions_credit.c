@@ -97,6 +97,8 @@ int government_do_balance_sheet()
     }
     
     EQUITY = LIQUIDITY - DEBT;
+    
+    add_gov_centralbank_update_deposit_message(LIQUIDITY);
 	
     return 0; /* Returning zero means the agent is not removed */
 }

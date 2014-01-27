@@ -72,13 +72,14 @@ int household_housing_check_wealth()
  */
 int household_housing_enter_market()
 {
-    double income, cash, cash_allowance;
+    double income, cash;
     
     income = LABOUR_INCOME + CAPITAL_INCOME;
     
     /* Cash rich households are allowed to use cash to finance housing.
      This needs to be checked with the model design.
      
+    double cash_allowance;
     cash_allowance = 0.9 * HOUSING_PRICE;
     if (LIQUIDITY > cash_allowance) {
         cash = LIQUIDITY - cash_allowance;

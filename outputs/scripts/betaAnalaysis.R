@@ -285,7 +285,7 @@ if (data_household){
 	plot_time_series_multiline_point_file(length(housingpayment0.20), ratiopayment0.20, ratiopayment0.25,  "Quarters", "Ratios", "Households's Housing Payments Ratio to their Total Income Level (mean)", "HousingPaymentRatio.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = ratiopayment0.30, v4 = ratiopayment0.40, isgrid = F, ispoint=F)
 	}
 	
-# Identity Compariosons:
+# Identity Comparisons:
 file = paste(data_dir, '/0.20/', "ICEACE_identity_bank.txt", sep ='')
 banksData0.20 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/0.25/', "ICEACE_identity_bank.txt", sep ='')
@@ -295,72 +295,71 @@ banksData0.30 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/0.40/', "ICEACE_identity_bank.txt", sep ='')
 banksData0.40 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
-file = paste(data_dir, '/0.20/', "ICEACE_identity_cb.txt", sep ='')
-money0.20 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
-file = paste(data_dir, '/0.25/', "ICEACE_identity_cb.txt", sep ='')
-money0.25 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
-file = paste(data_dir, '/0.30/', "ICEACE_identity_cb.txt", sep ='')
-money0.30 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
-file = paste(data_dir, '/0.40/', "ICEACE_identity_cb.txt", sep ='')
-money0.40 <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+
 
 iloans0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$LOANS)
 imortgages0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$MORTGAGES)
 idepositsPrivate0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$DEPOSITS)
 iequity0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$EQUITY)
-idepositsPublic0.20 <- money0.20$LIQUIDITY_GOVERNMENT
+idepositsPublic0.20 <- Centralbank0.20$LIQUIDITY_GOVERNMENT
 iliquidityBanks0.20 <- Centralbank0.20$LIQUIDITY_BANKS
-icredit_money0.20 <- iloans0.20 + imortgages0.20
+icredit_Centralbank0.20 <- iloans0.20 + imortgages0.20
 right_sideOne0.20 <- idepositsPrivate0.20 + iequity0.20 + idepositsPublic0.20
-differenceOne0.20 <- icredit_money0.20 - right_sideOne0.20
-differenceTwo0.20 <- iloans0.20 - iliquidityBanks0.20
+differenceOne0.20 <- icredit_Centralbank0.20 - right_sideOne0.20
 
-iloans0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$LOANS)
-imortgages0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$MORTGAGES)
-idepositsPrivate0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$DEPOSITS)
-iequity0.20 <- get_aggregate_values(banksData0.20$IT_NO, banksData0.20$EQUITY)
-idepositsPublic0.20 <- money0.20$LIQUIDITY_GOVERNMENT
-iliquidityBanks0.20 <- Centralbank0.20$LIQUIDITY_BANKS
-icredit_money0.20 <- iloans0.20 + imortgages0.20
-right_sideOne0.20 <- idepositsPrivate0.20 + iequity0.20 + idepositsPublic0.20
-differenceOne0.20 <- icredit_money0.20 - right_sideOne0.20
-differenceTwo0.20 <- iloans0.20 - iliquidityBanks0.20
+moneysources <- Centralbank0.20$LOANS_BANK + Centralbank0.20$LOANS_GOVERNMENT
+moneylocations <- Centralbank0.20$LIQUIDITY_BANKS + Centralbank0.20$LIQUIDITY_GOVERNMENT + Centralbank0.20$LIQUIDITY_EQUITYFUND
+differenceTwo <- moneysources - moneylocations
+
 
 iloans0.25 <- get_aggregate_values(banksData0.25$IT_NO, banksData0.25$LOANS)
 imortgages0.25 <- get_aggregate_values(banksData0.25$IT_NO, banksData0.25$MORTGAGES)
 idepositsPrivate0.25 <- get_aggregate_values(banksData0.25$IT_NO, banksData0.25$DEPOSITS)
 iequity0.25 <- get_aggregate_values(banksData0.25$IT_NO, banksData0.25$EQUITY)
-idepositsPublic0.25 <- money0.25$LIQUIDITY_GOVERNMENT
+idepositsPublic0.25 <- Centralbank0.25$LIQUIDITY_GOVERNMENT
 iliquidityBanks0.25 <- Centralbank0.25$LIQUIDITY_BANKS
-icredit_money0.25 <- iloans0.25 + imortgages0.25
+icredit_Centralbank0.25 <- iloans0.25 + imortgages0.25
 right_sideOne0.25 <- idepositsPrivate0.25 + iequity0.25 + idepositsPublic0.25
-differenceOne0.25 <- icredit_money0.25 - right_sideOne0.25
+differenceOne0.25 <- icredit_Centralbank0.25 - right_sideOne0.25
 differenceTwo0.25 <- iloans0.25 - iliquidityBanks0.25
+
+moneysources <- Centralbank0.25$LOANS_BANK + Centralbank0.25$LOANS_GOVERNMENT
+moneylocations <- Centralbank0.25$LIQUIDITY_BANKS + Centralbank0.25$LIQUIDITY_GOVERNMENT + Centralbank0.25$LIQUIDITY_EQUITYFUND
+differenceTwo <- moneysources - moneylocations
+
 
 iloans0.30 <- get_aggregate_values(banksData0.30$IT_NO, banksData0.30$LOANS)
 imortgages0.30 <- get_aggregate_values(banksData0.30$IT_NO, banksData0.30$MORTGAGES)
 idepositsPrivate0.30 <- get_aggregate_values(banksData0.30$IT_NO, banksData0.30$DEPOSITS)
 iequity0.30 <- get_aggregate_values(banksData0.30$IT_NO, banksData0.30$EQUITY)
-idepositsPublic0.30 <- money0.30$LIQUIDITY_GOVERNMENT
+idepositsPublic0.30 <- Centralbank0.30$LIQUIDITY_GOVERNMENT
 iliquidityBanks0.30 <- Centralbank0.30$LIQUIDITY_BANKS
-icredit_money0.30 <- iloans0.30 + imortgages0.30
+icredit_Centralbank0.30 <- iloans0.30 + imortgages0.30
 right_sideOne0.30 <- idepositsPrivate0.30 + iequity0.30 + idepositsPublic0.30
-differenceOne0.30 <- icredit_money0.30 - right_sideOne0.30
+differenceOne0.30 <- icredit_Centralbank0.30 - right_sideOne0.30
 differenceTwo0.30 <- iloans0.30 - iliquidityBanks0.30
+
+moneysources <- Centralbank0.30$LOANS_BANK + Centralbank0.30$LOANS_GOVERNMENT
+moneylocations <- Centralbank0.30$LIQUIDITY_BANKS + Centralbank0.30$LIQUIDITY_GOVERNMENT + Centralbank0.30$LIQUIDITY_EQUITYFUND
+differenceTwo <- moneysources - moneylocations
 
 iloans0.40 <- get_aggregate_values(banksData0.40$IT_NO, banksData0.40$LOANS)
 imortgages0.40 <- get_aggregate_values(banksData0.40$IT_NO, banksData0.40$MORTGAGES)
 idepositsPrivate0.40 <- get_aggregate_values(banksData0.40$IT_NO, banksData0.40$DEPOSITS)
 iequity0.40 <- get_aggregate_values(banksData0.40$IT_NO, banksData0.40$EQUITY)
-idepositsPublic0.40 <- money0.40$LIQUIDITY_GOVERNMENT
+idepositsPublic0.40 <- Centralbank0.40$LIQUIDITY_GOVERNMENT
 iliquidityBanks0.40 <- Centralbank0.40$LIQUIDITY_BANKS
-icredit_money0.40 <- iloans0.40 + imortgages0.40
+icredit_Centralbank0.40 <- iloans0.40 + imortgages0.40
 right_sideOne0.40 <- idepositsPrivate0.40 + iequity0.40 + idepositsPublic0.40
-differenceOne0.40 <- icredit_money0.40 - right_sideOne0.40
+differenceOne0.40 <- icredit_Centralbank0.40 - right_sideOne0.40
 differenceTwo0.40 <- iloans0.40 - iliquidityBanks0.40
 
+moneysources <- Centralbank0.40$LOANS_BANK + Centralbank0.40$LOANS_GOVERNMENT
+moneylocations <- Centralbank0.40$LIQUIDITY_BANKS + Centralbank0.40$LIQUIDITY_GOVERNMENT + Centralbank0.40$LIQUIDITY_EQUITYFUND
+differenceTwo <- moneysources - moneylocations
+
 minval <- min(c(right_sideOne0.20, right_sideOne0.25, right_sideOne0.30, right_sideOne0.40))
-maxval <- max(c(icredit_money0.20,icredit_money0.25,icredit_money0.30, icredit_money0.40))
+maxval <- max(c(icredit_Centralbank0.20,icredit_Centralbank0.25,icredit_Centralbank0.30, icredit_Centralbank0.40))
 
 plot_time_series_multiline_point_file(length(differenceOne0.20), differenceOne0.20, differenceOne0.25,  "Quarters", "Amount", "Iceace Identity I", "IceaceIdentityI.png", c("beta = 0.20", "beta = 0.25", "beta = 0.30", "beta = 0.40"), v3 = differenceOne0.30, v4 = differenceOne0.40, isgrid = F, ispoint=F, maxv = maxval, minv = minval)
 

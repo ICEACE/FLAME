@@ -166,7 +166,9 @@ int bank_credit_do_balance_sheet()
             add_bank_centralbank_debt_payment_message(ID, amount);
         }
     }
-       
+    
+    add_bank_centralbank_update_deposit_message(ID, LIQUIDITY);
+    
     TOTAL_ASSETS = LIQUIDITY + LOANS + MORTGAGES;
     EQUITY = TOTAL_ASSETS - DEPOSITS - CENTRALBANK_DEBT;
     

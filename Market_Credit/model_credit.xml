@@ -796,6 +796,9 @@
                         <output>
                             <messageName>bank_centralbank_debt_payment</messageName>
                         </output>
+                        <output>
+                            <messageName>bank_centralbank_update_deposit</messageName>
+                        </output>
                     </outputs>
                 </function>
                 <function>
@@ -1060,6 +1063,9 @@
                         <input>
                             <messageName>bank_centralbank_debt_payment</messageName>
                         </input>
+                        <input>
+                            <messageName>bank_centralbank_update_deposit</messageName>
+                        </input>
                     </inputs>
                 </function>
                 
@@ -1105,6 +1111,9 @@
                         <input>
                             <messageName>gov_centralbank_debt_payment</messageName>
                         </input>
+                        <input>
+                            <messageName>gov_centralbank_update_deposit</messageName>
+                        </input>
                     </inputs>
                 </function>
                 
@@ -1113,6 +1122,11 @@
                     <description>Central Bank balance sheet accounting activities.</description>
                     <currentState>CentralBankBalanceSheet</currentState>
                     <nextState>CentralBankUpdateInterestRate</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>fund_centralbank_update_deposit</messageName>
+                        </input>
+                    </inputs>
                 </function>
                 
                 <function>
@@ -1395,11 +1409,6 @@
                     <description>Liquidity.</description>
                 </variable>
                 <variable>
-                    <type>double</type>
-                    <name>liquidity_actual</name>
-                    <description>Liquidity after dividend payments</description>
-                </variable>
-                <variable>
                     <type>int</type>
                     <name>n_shares</name>
                     <description>Number of households(shares) to recieve liquid shares from firm net income.</description>
@@ -1448,7 +1457,7 @@
                     <name>equityfund_credit_invest_illiquids</name>
                     <description>The equity fund invests certain firms to resolve their liquidity problem.</description>
                     <currentState>EquityFundCredit</currentState>
-                    <nextState>EFCreditDistributeShares</nextState>
+                    <nextState>EFCreditShareCollectionBanks</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
@@ -1468,20 +1477,6 @@
                     </outputs>
                 </function>
                 <function>
-                    <name>equityfund_credit_distribute_shares</name>
-                    <description>At the end of a quarter net income per household is distributed.</description>
-                    <currentState>EFCreditDistributeShares</currentState>
-                    <nextState>EFCreditShareCollectionBanks</nextState>
-                    <outputs>
-                        <output>
-                            <messageName>household_share</messageName>
-                        </output>
-                        <output>
-                            <messageName>capital_tax</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
                     <name>equityfund_credit_collect_bank_shares</name>
                     <description>At the end of a quarter collect net income from the banks in the market.</description>
                     <currentState>EFCreditShareCollectionBanks</currentState>
@@ -1496,7 +1491,7 @@
                     <name>equityfund_credit_collect_firm_shares</name>
                     <description>At the end of a quarter collect net income from the firms in the market.</description>
                     <currentState>EFCreditShareCollectionFirms</currentState>
-                    <nextState>EFCreditIncomeStatement</nextState>
+                    <nextState>EFCreditDistributeShares</nextState>
                     <inputs>
                         <input>
                             <messageName>firm_net_profit</messageName>
@@ -1504,23 +1499,24 @@
                     </inputs>
                 </function>
                 <function>
-                    <name>equityfund_credit_compute_income_statement</name>
-                    <description>Equity Fund computes the income statement.</description>
-                    <currentState>EFCreditIncomeStatement</currentState>
-                    <nextState>EFCreditBalanceSheet</nextState>
-                </function>
-                <function>
-                    <name>equityfund_credit_do_balance_sheet</name>
-                    <description>Equity fund balance sheet accounting activities.</description>
-                    <currentState>EFCreditBalanceSheet</currentState>
+                    <name>equityfund_credit_distribute_shares</name>
+                    <description>At the end of a quarter net income per household is distributed.</description>
+                    <currentState>EFCreditDistributeShares</currentState>
                     <nextState>EFLabourMarket</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>household_share</messageName>
+                        </output>
+                        <output>
+                            <messageName>capital_tax</messageName>
+                        </output>
+                    </outputs>
                 </function>
-                
                 
                 <function>
                     <name>idle</name>
                     <description>It is not the end of a quarter.</description>
-                    <currentState>EFCreditPolicyChecks</currentState>
+                    <currentState>EFCreditIncomeStatement</currentState>
                     <nextState>end</nextState>
                     <condition>
                         <not><time>
@@ -1530,16 +1526,33 @@
                     </condition>
                 </function>
                 <function>
-                    <name>equityfund_credit_check_tax_rate</name>
-                    <description>Equity fund checks quarterly tax rate.</description>
-                    <currentState>EFCreditPolicyChecks</currentState>
-                    <nextState>end</nextState>
+                    <name>equityfund_credit_compute_income_statement</name>
+                    <description>Equity Fund computes the income statement.</description>
+                    <currentState>EFCreditIncomeStatement</currentState>
+                    <nextState>EFCreditBalanceSheet</nextState>
                     <condition>
                         <time>
                             <period>quarterly</period>
                             <phase>0</phase>
                         </time>
                     </condition>
+                </function>
+                <function>
+                    <name>equityfund_credit_do_balance_sheet</name>
+                    <description>Equity fund balance sheet accounting activities.</description>
+                    <currentState>EFCreditBalanceSheet</currentState>
+                    <nextState>EFCreditPolicyChecks</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>fund_centralbank_update_deposit</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>equityfund_credit_check_tax_rate</name>
+                    <description>Equity fund checks quarterly tax rate.</description>
+                    <currentState>EFCreditPolicyChecks</currentState>
+                    <nextState>end</nextState>
                     <inputs>
                         <input>
                             <messageName>capital_tax_rate</messageName>
@@ -1670,7 +1683,7 @@
                     <name>idle</name>
                     <description>It is not the end of a month.</description>
                     <currentState>GovernmentMonthly</currentState>
-                    <nextState>GovernmentUpdateDeposit</nextState>
+                    <nextState>GovernmentFiscalPolicy</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -1764,6 +1777,9 @@
                         </output>
                         <output>
                             <messageName>gov_centralbank_debt_payment</messageName>
+                        </output>
+                        <output>
+                            <messageName>gov_centralbank_update_deposit</messageName>
                         </output>
                     </outputs>
                 </function>

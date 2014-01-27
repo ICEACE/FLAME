@@ -51,19 +51,6 @@ int centralbank_set_interest_rate()
     add_interest_rate_message(INTEREST_RATE);
     
     
-    char * filename;
-    FILE * file1;
-    
-    filename = malloc(100*sizeof(char));
-    filename[0]=0;
-    strcpy(filename, "./outputs/data/ICEACE_identity_cb.txt");
-    file1 = fopen(filename,"a");
-    fprintf(file1,"%d %f\n",IT_NO, LIQUIDITY_GOVERNMENT);
-    fclose(file1);
-    
-    free(filename);
-
-    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -110,6 +97,11 @@ int centralbank_process_debt_requests()
     LOANS_BANKS -= amount;
     LIQUIDITY += amount;
     FINISH_BANK_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
+    
+    LIQUIDITY_BANKS = 0;
+    START_BANK_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
+    LIQUIDITY_BANKS += bank_centralbank_update_deposit_message->amount;
+    FINISH_BANK_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
     
     //printf("Centalbank at debt requests, post-liquidity = %f\n", LIQUIDITY);
     
@@ -159,6 +151,11 @@ int centralbank_process_government_requests()
     LIQUIDITY += amount;
     FINISH_GOV_CENTRALBANK_DEBT_PAYMENT_MESSAGE_LOOP
     
+    LIQUIDITY_GOVERNMENT = 0;
+    START_GOV_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
+    LIQUIDITY_GOVERNMENT = gov_centralbank_update_deposit_message->amount;
+    FINISH_GOV_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -169,10 +166,25 @@ int centralbank_process_government_requests()
  */
 int centralbank_do_balance_sheet()
 {
-    double liabilities;
+    LIQUIDITY_EQUITYFUND = 0;
+    START_FUND_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
+    LIQUIDITY_EQUITYFUND = fund_centralbank_update_deposit_message->amount;
+    FINISH_FUND_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
+    /* Equity Fund liquidity is disregarded. */
+    LIQUIDITY_EQUITYFUND = 0;
     
-    TOTAL_ASSETS = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
-    liabilities = FIAT_MONEY + LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND;
+    double deposits, liabilities, loans;
+    
+    loans = LOANS_BANKS + LOANS_GOVERNMENT;
+    deposits = LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND;
+    FIAT_MONEY = loans - deposits;
+    if (FIAT_MONEY < 0) {
+        LIQUIDITY = -1 * FIAT_MONEY;
+        FIAT_MONEY = 0;
+        
+    }
+    liabilities = FIAT_MONEY + deposits;
+    TOTAL_ASSETS = loans + LIQUIDITY;
     EQUITY = TOTAL_ASSETS - liabilities;
     
     if (DATA_COLLECTION_MODE) {

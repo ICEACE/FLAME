@@ -33,21 +33,27 @@ int centralbank_init_balancesheet()
     amount = fund_centralbank_init_deposit_message->amount;
     LIQUIDITY_EQUITYFUND = amount;
     FINISH_FUND_CENTRALBANK_INIT_DEPOSIT_MESSAGE_LOOP
+    /* Equity Fund liquidity is disregarded. */
+    LIQUIDITY_EQUITYFUND = 0;
     
     LIQUIDITY = 0;
     EQUITY = 0;
     LOANS_GOVERNMENT = 0;
     TOTAL_WRITEOFFS = 0;
 
-    
-    //LIQUIDITY = LIQUIDITY_BANKS + LIQUIDITY_EQUITYFUND + LIQUIDITY_GOVERNMENT;
-    // this is total deposits.
-    TOTAL_ASSETS = LIQUIDITY + LOANS_BANKS + LOANS_GOVERNMENT;
-    /* Centralbank FIAT MONEY thus is equal to initial bank loans. */
-    /* if total assets goes to zero fiat money should be killed.
-     
-    FIAT_MONEY = TOTAL_ASSETS - (LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND + LIQUIDITY_BANKS + EQUITY);
-    
+    double loans, deposits, liabilities;
+    loans = LOANS_BANKS + LOANS_GOVERNMENT;
+    deposits = LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND;
+    /* Fiat money in this case equal to firms total loans minus private sector deposits. */
+    FIAT_MONEY = loans - deposits;
+    if (FIAT_MONEY < 0) {
+        LIQUIDITY = -1 * FIAT_MONEY;
+        FIAT_MONEY = 0;
+        
+    }
+    liabilities = FIAT_MONEY + deposits;
+    TOTAL_ASSETS = loans + LIQUIDITY;
+    EQUITY = TOTAL_ASSETS - liabilities;
     
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -71,14 +77,6 @@ int centralbank_iterate()
             fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "INTEREST_RATE", "INFLATION_RATE", "REVENUES", "TOTAL_COSTS", "NET_EARNINGS", "TOTAL_ASSETS", "LIQUIDITY", "LOANS_BANKS", "LOANS_GOVERNMENT", "EQUITY","FIAT_MONEY", "LIQUIDITY_BANKS", "LIQUIDITY_GOVERNMENT", "LIQUIDITY_EQUITYFUND");
             //fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, INTEREST_RATE, INFLATION_RATE, REVENUES, TOTAL_COSTS, NET_EARNINGS, TOTAL_ASSETS, LIQUIDITY, LOANS_BANKS, LOANS_GOVERNMENT, EQUITY,FIAT_MONEY, LIQUIDITY_BANKS, LIQUIDITY_GOVERNMENT, LIQUIDITY_EQUITYFUND);
             fclose(file1);
-            
-            /* @\fn: centralbank_credit_set_interest_rate() */
-            filename[0]=0;
-            strcpy(filename, "./outputs/data/ICEACE_identity_cb.txt");
-            file1 = fopen(filename,"w");
-            fprintf(file1,"%s %s\n","IT_NO", "LIQUIDITY_GOVERNMENT");
-            fclose(file1);
-            
             free(filename);
         }
         
@@ -127,6 +125,7 @@ int centralbank_update_deposits()
     START_FUND_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
     LIQUIDITY_EQUITYFUND = fund_centralbank_update_deposit_message->amount;
     FINISH_FUND_CENTRALBANK_UPDATE_DEPOSIT_MESSAGE_LOOP
+    
     
     post = LIQUIDITY_BANKS + LIQUIDITY_EQUITYFUND + LIQUIDITY_GOVERNMENT;
     

@@ -429,35 +429,6 @@
                     <currentState>EquityFundLoop</currentState>
                     <nextState>EquityFundCredit</nextState>
                 </function>
-                <function>
-                    <name>equityfund_update_deposit</name>
-                    <description>Deposits/updates its liquidity at centralbank.</description>
-                    <currentState>EquityFundUpdateDeposits</currentState>
-                    <nextState>EFCreditPolicyChecks</nextState>
-                    <condition>
-                        <time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time>
-                    </condition>
-                    <outputs>
-                        <output>
-                            <messageName>fund_centralbank_update_deposit</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>Skip the bank account updates.</description>
-                    <currentState>EquityFundUpdateDeposits</currentState>
-                    <nextState>EFCreditPolicyChecks</nextState>
-                    <condition>
-                        <not><time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time></not>
-                    </condition>
-                </function>
             </functions>
         </xagent>
         <xagent>
@@ -592,7 +563,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>BankUpdateDeposits</currentState>
-                    <nextState>BankUpdateCentralbankDeposit</nextState>
+                    <nextState>BankCreditPolicyChecks</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -604,7 +575,7 @@
                     <name>bank_update_deposits</name>
                     <description>Deposits/updates its liquidity to bank.</description>
                     <currentState>BankUpdateDeposits</currentState>
-                    <nextState>BankUpdateCentralbankDeposit</nextState>
+                    <nextState>BankCreditPolicyChecks</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -631,35 +602,6 @@
                             </filter>
                         </input>
                     </inputs>
-                </function>
-                <function>
-                    <name>bank_update_centralbank_deposit</name>
-                    <description>Deposits/updates its liquidity at centralbank.</description>
-                    <currentState>BankUpdateCentralbankDeposit</currentState>
-                    <nextState>BankCreditPolicyChecks</nextState>
-                    <condition>
-                        <time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time>
-                    </condition>
-                    <outputs>
-                        <output>
-                            <messageName>bank_centralbank_update_deposit</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>Skip the bank account updates.</description>
-                    <currentState>BankUpdateCentralbankDeposit</currentState>
-                    <nextState>BankCreditPolicyChecks</nextState>
-                    <condition>
-                        <not><time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time></not>
-                    </condition>
                 </function>
             </functions>
         </xagent>
@@ -709,35 +651,6 @@
                     <description>Regular loop start point.</description>
                     <currentState>GovernmentLoop</currentState>
                     <nextState>GovernmentCredit</nextState>
-                </function>
-                <function>
-                    <name>government_update_deposit</name>
-                    <description>Deposits/updates its liquidity at centralbank.</description>
-                    <currentState>GovernmentUpdateDeposit</currentState>
-                    <nextState>GovernmentFiscalPolicy</nextState>
-                    <condition>
-                        <time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time>
-                    </condition>
-                    <outputs>
-                        <output>
-                            <messageName>gov_centralbank_update_deposit</messageName>
-                        </output>
-                    </outputs>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>Skip the bank account updates.</description>
-                    <currentState>GovernmentUpdateDeposit</currentState>
-                    <nextState>GovernmentFiscalPolicy</nextState>
-                    <condition>
-                        <not><time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time></not>
-                    </condition>
                 </function>
             </functions>
         </xagent>
@@ -824,41 +737,6 @@
                     <description>Resumes its regular iteration.</description>
                     <currentState>CentralBankLoop</currentState>
                     <nextState>CentralBankCredit</nextState>
-                </function>
-                <function>
-                    <name>centralbank_update_deposits</name>
-                    <description>Updates its liquidity</description>
-                    <currentState>CentralBankUpdateDeposits</currentState>
-                    <nextState>CentralBankPolicy</nextState>
-                    <condition>
-                        <time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time>
-                    </condition>
-                    <inputs>
-                        <input>
-                            <messageName>bank_centralbank_update_deposit</messageName>
-                        </input>
-                        <input>
-                            <messageName>gov_centralbank_update_deposit</messageName>
-                        </input>
-                        <input>
-                            <messageName>fund_centralbank_update_deposit</messageName>
-                        </input>
-                    </inputs>
-                </function>
-                <function>
-                    <name>idle</name>
-                    <description>Skip the updates.</description>
-                    <currentState>CentralBankUpdateDeposits</currentState>
-                    <nextState>CentralBankPolicy</nextState>
-                    <condition>
-                        <not><time>
-                            <period>quarterly</period>
-                            <phase>0</phase>
-                        </time></not>
-                    </condition>
                 </function>
             </functions>
         </xagent>

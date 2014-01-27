@@ -41,15 +41,3 @@ int equityfund_iterate()
 	return 0; /* Returning zero means the agent is not removed */
 }
 
-
-/*
- * \fn: int equityfund_update_deposit()
- * \brief:
- */
-int equityfund_update_deposit()
-{
-    
-    add_fund_centralbank_update_deposit_message(LIQUIDITY_ACTUAL);
-    
-	return 0; /* Returning zero means the agent is not removed */
-}
