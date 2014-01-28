@@ -1,0 +1,258 @@
+<xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    <!-- Model descriptions  -->
+    <name>ICEACE</name>
+    <version>'Version 1.1, 17/04/2012</version>
+    <description> Export Market. ICEACE export activities.</description>
+    <environment>
+        <constants/>
+        <functionFiles>
+        <!-- List of C files that hold agent functions -->
+            <file>firm_functions_export.c</file>
+            <file>foreignsector_functions_export.c</file>
+            <file>centralbank_functions_export.c</file>
+        </functionFiles>
+        <dataTypes/>
+    </environment>
+	<!-- List of agents -->
+    <agents>        
+        <xagent>
+            <name>firm</name>
+            <description>Export firm agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory/>                
+            <!-- List of agent functions -->
+            <function>
+                    <name>idle</name>
+                    <description>Handles if the firm is not an export firm.</description>
+                    <currentState>FirmExportStart</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.firmtype</value>
+                        </lhs>
+                        <op>NEQ</op>
+                        <rhs>
+                            <value>2</value>
+                        </rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Works when the firm is an export firm.</description>
+                    <currentState>FirmExportStart</currentState>
+                    <nextState>FirmExportMarket</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.firmtype</value>
+                        </lhs>
+                        <op>EQ</op>
+                        <rhs>
+                            <value>2</value>
+                        </rhs>
+                    </condition>
+                </function>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the month to sell.</description>
+                    <currentState>FirmExportMarket</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_export_sell</name>
+                    <description>A firm ships its goods to foreign sector.</description>
+                    <currentState>FirmExportMarket</currentState>
+                    <nextState>FirmExportReceiveSales</nextState>
+                        <condition>
+                            <time>
+                                <period>monthly</period>
+                                <phase>a.day_of_month_to_act</phase>
+                            </time>
+                        </condition>
+                    <outputs>
+                        <output>
+                            <messageName>firm_foreignsector_amount</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_export_receive_sales</name>
+                    <description>A firm recieves sales revenues through the central bank.</description>
+                    <currentState>FirmExportReceiveSales</currentState>
+                    <nextState>FirmHousingStart</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>centralbank_firm_revenues</messageName>
+                            <filter>
+                                <!-- checks self id. -->
+                                <lhs><value>a.id</value></lhs>
+                                <op>EQ</op>
+                                <rhs><value>m.id</value></rhs>
+                            </filter>
+                        </input>
+                    </inputs>
+                </function>                
+        </xagent>
+        <xagent>
+            <name>centralbank</name>
+            <description>A Central Bank agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory/>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>centralbank_export_transactions</name>
+                    <description>central bank processes fx transactions between foreign sector and export firms</description>
+                    <currentState>CentralBankExport</currentState>
+                    <nextState>CentralBankHousing</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>foreignsector_centralbank_revenues</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>centralbank_firm_revenues</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of month.</description>
+                    <currentState>CentralBankExport</currentState>
+                    <nextState>CentralBankHousing</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>foreignsector</name>
+            <description>Foreign sector agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>xgoods_unit_price</name>
+                    <description>Unit price of export goods</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>foreignsector_export_buy</name>
+                    <description>Firm sells export goods to foreign sector</description>
+                    <currentState>ForeignSectorExportsStart</currentState>
+                    <nextState>ForeignSectorExportsPricing</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>firm_foreignsector_amount</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of month.</description>
+                    <currentState>ForeignSectorExportsStart</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>foreignsector_export_pricing</name>
+                    <description>foreign sector pricing of export goods from export firms</description>
+                    <currentState>ForeignSectorExportsPricing</currentState>
+                    <nextState>ForeignSectorExportsPayment</nextState>
+                </function>
+                <function>
+                    <name>foreignsector_export_pay</name>
+                    <description>foreign sector payment for export goods from export firms to central bank</description>
+                    <currentState>ForeignSectorExportsPayment</currentState>
+                    <nextState>end</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>foreignsector_centralbank_revenues</messageName>
+                        </output>
+                    </outputs>
+                </function>
+            </functions>
+        </xagent>
+    </agents>
+    <messages>
+        <message>
+            <name>firm_foreignsector_amount</name>
+            <description>amount of goods sold from export firm to foreign sector</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Export firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>amount</name>
+                    <description>Amount of export goods.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>centralbank_firm_revenues</name>
+            <description>revenues from export sales</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Export firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>revenues</name>
+                    <description>Amount of revenues received from exports.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>foreignsector_centralbank_revenues</name>
+            <description>FX revenues from export sales</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Export firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>fx_revenues</name>
+                    <description>Amount of FX revenues received from exports.</description>
+                </variable>
+            </variables>
+        </message>        
+    </messages>
+</xmodel>

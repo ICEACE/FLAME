@@ -8,9 +8,9 @@
 int firm_consumption_supply()
 {
     
-    if (ISCONSTRUCTOR == 1) {
-        return 0;
-    }
+    //if (ISCONSTRUCTOR == 1) {
+    //    return 0;
+    //}
     
     if (UNIT_GOODS_PRICE == 0) {
         return 0;

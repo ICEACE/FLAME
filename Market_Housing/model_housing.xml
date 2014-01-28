@@ -163,11 +163,11 @@
                     <nextState>FirmLabourPayWages</nextState>
                     <condition>
                         <lhs>
-                            <value>a.isconstructor</value>
+                            <value>a.firmtype</value>
                         </lhs>
-                        <op>EQ</op>
+                        <op>NEQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                 </function>
@@ -178,11 +178,11 @@
                     <nextState>FirmHousingMarket</nextState>
                     <condition>
                         <lhs>
-                            <value>a.isconstructor</value>
+                            <value>a.firmtype</value>
                         </lhs>
-                        <op>NEQ</op>
+                        <op>EQ</op>
                         <rhs>
-                            <value>0</value>
+                            <value>1</value>
                         </rhs>
                     </condition>
                 </function>

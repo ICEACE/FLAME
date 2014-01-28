@@ -25,6 +25,10 @@
             <file>Market_Housing/model_housing.xml</file>
             <enabled>true</enabled>
         </model>
+        <model>
+            <file>Market_Export/model_export.xml</file>
+            <enabled>true</enabled>
+        </model>
     </models>
     <environment>
         <constants>
@@ -71,6 +75,7 @@
             <file>jpoffice_functions_top.c</file>
             <file>mall_functions_top.c</file>
             <file>reagency_functions_top.c</file>
+            <file>foreignsector_functions_top.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -137,8 +142,8 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>isconstructor</name>
-                    <description>Identifies if the firm is a constractor firm or not.</description>
+                    <name>firmtype</name>
+                    <description>Identifies the firm type. 0 regular firm, 1 constructor firm, 2 export firm</description>
                 </variable>
                 <variable>
                     <type>int</type>
@@ -737,6 +742,57 @@
                     <description>Resumes its regular iteration.</description>
                     <currentState>CentralBankLoop</currentState>
                     <nextState>CentralBankCredit</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>foreignsector</name>
+            <description>Foreign sector agent.</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_act</name>
+                    <description>Activation day.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>foreignsector_init</name>
+                    <description>Agent runtime initilialization.</description>
+                    <currentState>start</currentState>
+                    <nextState>ForeignsectorLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Proceeding with regular agent loop.</description>
+                    <currentState>start</currentState>
+                    <nextState>ForeignsectorLoop</nextState>
+                    <condition>
+                        <lhs><value>a.it_no</value></lhs>
+                        <op>NEQ</op>
+                        <rhs><value>0</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>foreignsector_iterate</name>
+                    <description>Regular loop start point.</description>
+                    <currentState>ForeignsectorLoop</currentState>
+                    <nextState>ForeignSectorExportsStart</nextState>
                 </function>
             </functions>
         </xagent>

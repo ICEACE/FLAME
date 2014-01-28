@@ -264,12 +264,42 @@
                 </variable>
             </memory>
             <!-- List of agent functions -->
+            <function>
+                    <name>idle</name>
+                    <description>Handles if the firm is not a regular firm.</description>
+                    <currentState>FirmConsumptionStart</currentState>
+                    <nextState>FirmExportStart</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.firmtype</value>
+                        </lhs>
+                        <op>NEQ</op>
+                        <rhs>
+                            <value>0</value>
+                        </rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Works when the firm is a constructor.</description>
+                    <currentState>FirmConsumptionStart</currentState>
+                    <nextState>FirmConsumptionMarket</nextState>
+                    <condition>
+                        <lhs>
+                            <value>a.firmtype</value>
+                        </lhs>
+                        <op>EQ</op>
+                        <rhs>
+                            <value>0</value>
+                        </rhs>
+                    </condition>
+                </function>
             <functions>
                 <function>
                     <name>idle</name>
                     <description>It is not the day of the week to sell.</description>
-                    <currentState>FirmConsumptionStart</currentState>
-                    <nextState>FirmHousingStart</nextState>
+                    <currentState>FirmConsumptionMarket</currentState>
+                    <nextState>FirmExportStart</nextState>
                     <condition>
                         <not><time>
                             <period>weekly</period>
@@ -280,7 +310,7 @@
                 <function>
                     <name>firm_consumption_supply</name>
                     <description>A firm ships its goods to malls.</description>
-                    <currentState>FirmConsumptionStart</currentState>
+                    <currentState>FirmConsumptionMarket</currentState>
                     <nextState>FirmReceiveSales</nextState>
                         <condition>
                             <time>
@@ -315,7 +345,7 @@
                     <name>firm_consumption_update_market_price</name>
                     <description>Firm checks goods prices.</description>
                     <currentState>FirmConsumptionPrice</currentState>
-                    <nextState>FirmHousingStart</nextState>
+                    <nextState>FirmExportStart</nextState>
                     <inputs>
                         <input>
                             <messageName>goods_transactions_summary</messageName>
@@ -380,7 +410,7 @@
                     <name>idle</name>
                     <description>It is not the end of month.</description>
                     <currentState>CentralBankConsumptionPrices</currentState>
-                    <nextState>CentralBankHousing</nextState>
+                    <nextState>CentralBankExport</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -392,7 +422,7 @@
                     <name>centralbank_update_price_indices</name>
                     <description>The central bank computes monthly price average.</description>
                     <currentState>CentralBankConsumptionPrices</currentState>
-                    <nextState>CentralBankHousing</nextState>
+                    <nextState>CentralBankExport</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>

@@ -1,0 +1,1593 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[table]{xcolor}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{boxedminipage}
+\usepackage{lscape}
+\usepackage{minitoc}
+\usepackage{epsfig,psfrag,graphicx,verbatim}
+\usepackage{natbib}
+\usepackage{booktabs, longtable}
+\usepackage{url}
+\usepackage{makeidx}
+
+%% Define a new 'code' style for the url package that will use a sans serif font.
+\makeatletter
+\def\url@codestyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\sffamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{code}
+
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23cm}
+\title{ICEACE Reference Manual}
+\author{Author names to add}
+\date{\today}
+
+\makeindex
+
+\begin{document}
+\rowcolors[]{2}{lightgray!40}{yellow!25} %% color table rows with alternating colors
+\maketitle
+\tableofcontents
+\clearpage
+
+\section{ICEACE FLAME Implementation}
+
+\subsection{firm}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for firm agent.}}
+\label{Table: firm Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{bank_id}} \index{\url{bank_id}} & \parbox{10cm}{Primary bank of a firm.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{isconstructor}} \index{\url{isconstructor}} & \parbox{10cm}{Identifies if the firm is a constractor firm or not.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{The day of the month to act at production and labour.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{isinsolvent}} \index{\url{isinsolvent}} & \parbox{10cm}{The variable indicates if the firm is a replacement of an insolvent producer.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_week_to_act}} \index{\url{day_of_week_to_act}} & \parbox{10cm}{Day of the week to act for consumption.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{average_goods_price}} \index{\url{average_goods_price}} & \parbox{10cm}{Average goods price in the market.} \\
+\midrule
+\parbox{5cm}{\url{int_array} \url{employees}} \index{\url{employees}} & \parbox{10cm}{Holds employee ids} \\
+\midrule
+\parbox{5cm}{\url{double} \url{wage_offer}} \index{\url{wage_offer}} & \parbox{10cm}{Monthly wage offer.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{average_wage}} \index{\url{average_wage}} & \parbox{10cm}{Average wage in the market.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{no_employees}} \index{\url{no_employees}} & \parbox{10cm}{Number of employees} \\
+\midrule
+\parbox{5cm}{\url{int} \url{vacancies}} \index{\url{vacancies}} & \parbox{10cm}{Number of vacancies} \\
+\midrule
+\parbox{5cm}{\url{int} \url{employees_needed}} \index{\url{employees_needed}} & \parbox{10cm}{Number of workers a firm needs for next production} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_wages_paid}} \index{\url{day_of_month_wages_paid}} & \parbox{10cm}{The day of the month wages paid.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_productivity}} \index{\url{labour_productivity}} & \parbox{10cm}{Productivity of a unit labour.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{production_current}} \index{\url{production_current}} & \parbox{10cm}{Total number of goods produced in current month.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{expected_sales}} \index{\url{expected_sales}} & \parbox{10cm}{An estimate of production for incoming period.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{production_plan}} \index{\url{production_plan}} & \parbox{10cm}{Production plan for next month.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{unit_goods_price}} \index{\url{unit_goods_price}} & \parbox{10cm}{Price of a unit of goods produced by a firm.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{unit_cost}} \index{\url{unit_cost}} & \parbox{10cm}{Unit production cost of a consumption good.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_production_completed}} \index{\url{day_of_month_production_completed}} & \parbox{10cm}{The day of the month amount of production is computed.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{unit_house_price}} \index{\url{unit_house_price}} & \parbox{10cm}{Unit price of an house.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_productivity_construction}} \index{\url{labour_productivity_construction}} & \parbox{10cm}{Productivity of a unit labour in construction sector.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{capital_productivity_construction}} \index{\url{capital_productivity_construction}} & \parbox{10cm}{Capital productivity in construction sector.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{physical_capital_construction}} \index{\url{physical_capital_construction}} & \parbox{10cm}{Physical capital owned by a construction firm in units.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{physical_capital}} \index{\url{physical_capital}} & \parbox{10cm}{Physical capital owned by a regular firm in units.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{projects}} \index{\url{projects}} & \parbox{10cm}{Holds projects under construction. Indices denote number of months left for completion.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{loans_interest_rate}} \index{\url{loans_interest_rate}} & \parbox{10cm}{Rate of interest paid by firms to banks for the loans.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{debt}} \index{\url{debt}} & \parbox{10cm}{Total debt of the firm.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{inventory}} \index{\url{inventory}} & \parbox{10cm}{Unsold inventory from previous month.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{sales}} \index{\url{sales}} & \parbox{10cm}{Total number of sales within a month.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{revenues}} \index{\url{revenues}} & \parbox{10cm}{Total revenue from sales. It is offset quarterly.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_assets}} \index{\url{total_assets}} & \parbox{10cm}{Total assets of a firm.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{operating_costs}} \index{\url{operating_costs}} & \parbox{10cm}{Total operation costs.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_costs}} \index{\url{labour_costs}} & \parbox{10cm}{Total labour costs.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_interest_payments}} \index{\url{total_interest_payments}} & \parbox{10cm}{Total ineterests paid on a quarterly  basis for the bank loans.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{dividends_paid}} \index{\url{dividends_paid}} & \parbox{10cm}{Amount of dividends paid to share holders via Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{dividends_to_be_paid}} \index{\url{dividends_to_be_paid}} & \parbox{10cm}{Amount of dividends to be paid based on previous quarter operation.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{retained_earnings}} \index{\url{retained_earnings}} & \parbox{10cm}{Amount of dividends retained by the firm.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{net_earnings}} \index{\url{net_earnings}} & \parbox{10cm}{Quarterly profit after ineterest payments.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{ebit}} \index{\url{ebit}} & \parbox{10cm}{Firm earnings before ineterest and taxes.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity}} \index{\url{equity}} & \parbox{10cm}{Firm equity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity}} \index{\url{liquidity}} & \parbox{10cm}{Liquidity.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{capital_goods}} \index{\url{capital_goods}} & \parbox{10cm}{Capital goods in units.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{capital_goods_price}} \index{\url{capital_goods_price}} & \parbox{10cm}{Unit price for capital goods.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{isliquidshort}} \index{\url{isliquidshort}} & \parbox{10cm}{The variable holds wheather a firm had any liquidity need in the latest quarter.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{hasloan}} \index{\url{hasloan}} & \parbox{10cm}{The variable holds wheather a firm been credited by a bank for the loan that was requested.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{hasinvestment}} \index{\url{hasinvestment}} & \parbox{10cm}{The variable holds wheather a firm has recieved investment from the fund for its liquidity need.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{isilliquid}} \index{\url{isilliquid}} & \parbox{10cm}{Flag 0 or 1. Tells whether the firm ended up in illiquidity bankruptcy.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{planned_investment_costs}} \index{\url{planned_investment_costs}} & \parbox{10cm}{Amount of investment to be made.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity_need}} \index{\url{liquidity_need}} & \parbox{10cm}{The variable holds wheather a firm needs liquidity to pay debt and dividends.} \\
+\midrule
+\parbox{5cm}{\url{loan} \url{loan_list}} \index{\url{loan_list}} & \parbox{10cm}{Holds loans owed to each bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_tax_rate}} \index{\url{labour_tax_rate}} & \parbox{10cm}{Tax rate to be used to pay labour tax.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{delta_housing_price}} \index{\url{delta_housing_price}} & \parbox{10cm}{Monthly change on average housing prices.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for firm agent.}}
+\label{Table: firm Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Agent initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{firm_init_post_id}} \index{\url{firm_init_post_id}} & \parbox{10cm}{Firm posts its Id for employment initilialization.} \\
+\midrule
+\parbox{5cm}{\url{firm_init_employment}} \index{\url{firm_init_employment}} & \parbox{10cm}{Firm recieves its list of employees.} \\
+\midrule
+\parbox{5cm}{\url{firm_init_balancesheet}} \index{\url{firm_init_balancesheet}} & \parbox{10cm}{Synchronizing the mortgage debt and deposit with respective banks.} \\
+\midrule
+\parbox{5cm}{\url{firm_iterate}} \index{\url{firm_iterate}} & \parbox{10cm}{Resumes with its regular iteration loop.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Skip the bank account updates.} \\
+\midrule
+\parbox{5cm}{\url{firm_update_bank_account}} \index{\url{firm_update_bank_account}} & \parbox{10cm}{Deposits/updates its liquidity to bank.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the week to sell.} \\
+\midrule
+\parbox{5cm}{\url{firm_consumption_supply}} \index{\url{firm_consumption_supply}} & \parbox{10cm}{A firm ships its goods to malls.} \\
+\midrule
+\parbox{5cm}{\url{firm_consumption_receive_sales}} \index{\url{firm_consumption_receive_sales}} & \parbox{10cm}{A firm recieves goods unsold and sales liquidity from the mall.} \\
+\midrule
+\parbox{5cm}{\url{firm_consumption_update_market_price}} \index{\url{firm_consumption_update_market_price}} & \parbox{10cm}{Firm checks goods prices.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Labour hiring is not active.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_workforce_needed}} \index{\url{firm_labour_workforce_needed}} & \parbox{10cm}{The firm computes required number of employees needed for incoming month.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Firm does nothing} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_fire}} \index{\url{firm_labour_fire}} & \parbox{10cm}{The firm decides to fire if employee needed is below number of employees it does have.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_job_announcement_stage1}} \index{\url{firm_labour_job_announcement_stage1}} & \parbox{10cm}{The agent posts available positions.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_job_offer_stage1}} \index{\url{firm_labour_job_offer_stage1}} & \parbox{10cm}{The agent takes job matches done by jpoffice.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_update}} \index{\url{firm_labour_update}} & \parbox{10cm}{The agent updates labour status. In case of resignments.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_job_announcement_stage2}} \index{\url{firm_labour_job_announcement_stage2}} & \parbox{10cm}{The agent posts unfilled positions.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The agent has no vacant positions} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_job_offer_stage2}} \index{\url{firm_labour_job_offer_stage2}} & \parbox{10cm}{The agent completes the job placement.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Does nothing at the point when it is not last day of the month.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_pay_wages}} \index{\url{firm_labour_pay_wages}} & \parbox{10cm}{Pay wages and update liquidity.} \\
+\midrule
+\parbox{5cm}{\url{firm_labour_trace_wages}} \index{\url{firm_labour_trace_wages}} & \parbox{10cm}{Firm checks wage in the market and updates its wage offer.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of month or the first day of the month.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The state serves to check the activity cases.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_skip}} \index{\url{firm_production_skip}} & \parbox{10cm}{The firm is new entrant has initialized with an employee and an inventory.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The firm is a new entrant due to insolvency of inherited firm.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Sets a producer role.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Set the constructor role.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_produce_goods}} \index{\url{firm_production_produce_goods}} & \parbox{10cm}{Firm audits number of items produced. Updates inventory accordingly.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_set_price}} \index{\url{firm_production_set_price}} & \parbox{10cm}{Firm sets price of goods produced.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_plan}} \index{\url{firm_production_plan}} & \parbox{10cm}{Firm determines number of items to be produced for the next period.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_compute_labour_demand}} \index{\url{firm_production_compute_labour_demand}} & \parbox{10cm}{Firm determines required number of labourers for current production plan.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_construct_houses}} \index{\url{firm_production_construct_houses}} & \parbox{10cm}{Firm releases number of items produced. Updates project status accordingly.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_construction_plan}} \index{\url{firm_production_construction_plan}} & \parbox{10cm}{Firm sets the construction project plan.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_construction_labour_demand}} \index{\url{firm_production_construction_labour_demand}} & \parbox{10cm}{Firm determines required number of labourers for current construction plan.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_compute_income_statement}} \index{\url{firm_credit_compute_income_statement}} & \parbox{10cm}{computing firm balance sheet.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_investment_decisions}} \index{\url{firm_credit_investment_decisions}} & \parbox{10cm}{computing firm balance sheet.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_compute_dividends}} \index{\url{firm_credit_compute_dividends}} & \parbox{10cm}{computing dividends to be paid.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_check_liquidity_need}} \index{\url{firm_credit_check_liquidity_need}} & \parbox{10cm}{Firm checks if it needs liquidity to pay loans and dividends.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Firm does not need loans.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_demand_loans_1}} \index{\url{firm_credit_demand_loans_1}} & \parbox{10cm}{Firm computes loan demand and places a demand if it needs and if it is allowed to do so.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_borrow_loans_1}} \index{\url{firm_credit_borrow_loans_1}} & \parbox{10cm}{Firm checks whether first loan request is accepted. When not, places another request to another bank.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The firm has gotten loan.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_borrow_loans_2}} \index{\url{firm_credit_borrow_loans_2}} & \parbox{10cm}{Firm checks weather second loan request is accepted.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The firm has gotten loan in the second trial.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_request_equityfund_investment}} \index{\url{firm_credit_request_equityfund_investment}} & \parbox{10cm}{The firm checks its illiquidity state. It places a request for investment from Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The firm checks for decision by Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_check_equityfund_investment}} \index{\url{firm_credit_check_equityfund_investment}} & \parbox{10cm}{The firm checks for decision by Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The firm has the investment goes paying loans.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_illiquidity_bankrupt}} \index{\url{firm_credit_illiquidity_bankrupt}} & \parbox{10cm}{Firm cannot recieve fund goes illiquidity.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_pay_interest_on_loans}} \index{\url{firm_credit_pay_interest_on_loans}} & \parbox{10cm}{Each quarter firm sends out intterest on the loans it has.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_pay_dividends}} \index{\url{firm_credit_pay_dividends}} & \parbox{10cm}{At the end of a quarter, a firm sends net profit to the equity fund.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_do_balance_sheet}} \index{\url{firm_credit_do_balance_sheet}} & \parbox{10cm}{Updating the balance sheet.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Firm is not insolvent. Keeps it regular activities.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_insolvency_bankruptcy}} \index{\url{firm_credit_insolvency_bankruptcy}} & \parbox{10cm}{The firm checks its illiquidity state, checking the deal with Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not time to act.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_check_interest_rate}} \index{\url{firm_credit_check_interest_rate}} & \parbox{10cm}{Firm checks quarterly interest rate.} \\
+\midrule
+\parbox{5cm}{\url{firm_credit_check_tax_rate}} \index{\url{firm_credit_check_tax_rate}} & \parbox{10cm}{Firm checks quarterly tax rate.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Handles if the firm is not a constructor.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Works when the firm is a constructor.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the first day of the month.} \\
+\midrule
+\parbox{5cm}{\url{firm_housing_enter_market}} \index{\url{firm_housing_enter_market}} & \parbox{10cm}{Firm goes to market when it has housing units to sell.} \\
+\midrule
+\parbox{5cm}{\url{firm_housing_collect_sale_revenues}} \index{\url{firm_housing_collect_sale_revenues}} & \parbox{10cm}{Firm collects sale revenues.} \\
+\midrule
+\parbox{5cm}{\url{firm_housing_update_market_price}} \index{\url{firm_housing_update_market_price}} & \parbox{10cm}{Firm checks housing prices.} \\
+\end{longtable}
+
+\subsection{household}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for household agent.}}
+\label{Table: household Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{bank_id}} \index{\url{bank_id}} & \parbox{10cm}{The ID of the bank an household has. Household applies to her bank for mortgage and deposits.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_week_to_act}} \index{\url{day_of_week_to_act}} & \parbox{10cm}{Day of the week to act for consumption.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{weekly_consumption_budget}} \index{\url{weekly_consumption_budget}} & \parbox{10cm}{Regualr weekly consumption budget computed for the quarter.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{mall_budget}} \index{\url{mall_budget}} & \parbox{10cm}{Consumption budget that can be spent for the week.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{my_employer_id}} \index{\url{my_employer_id}} & \parbox{10cm}{Employer ID of an household. A 0 means unemployed.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{wage}} \index{\url{wage}} & \parbox{10cm}{Current wage earned.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{government_benefits}} \index{\url{government_benefits}} & \parbox{10cm}{General benefit plus unemployment benefit recieved from the government.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{The day of the month to act for seeking a job.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_wage_recieved}} \index{\url{day_of_month_wage_recieved}} & \parbox{10cm}{The day of the month to wage recieved.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{mortgages_interest_rate}} \index{\url{mortgages_interest_rate}} & \parbox{10cm}{Rate of interest set by the central bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_tax_rate}} \index{\url{labour_tax_rate}} & \parbox{10cm}{Rate of tax set by the government.} \\
+\midrule
+\parbox{5cm}{\url{mortgage_array} \url{mortgages_list}} \index{\url{mortgages_list}} & \parbox{10cm}{List of mortgages debted by households.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{mortgages}} \index{\url{mortgages}} & \parbox{10cm}{Total mortgage.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{housing_payment}} \index{\url{housing_payment}} & \parbox{10cm}{Holds total mortgage payment done within the last quarter.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity}} \index{\url{equity}} & \parbox{10cm}{Household equity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{housing_price}} \index{\url{housing_price}} & \parbox{10cm}{Market value of a unit housing.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{housing_units}} \index{\url{housing_units}} & \parbox{10cm}{Number of housing units owned by a household.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{n_shares}} \index{\url{n_shares}} & \parbox{10cm}{Number of shares an household owns.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity}} \index{\url{liquidity}} & \parbox{10cm}{Liquidity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{capital_income}} \index{\url{capital_income}} & \parbox{10cm}{Equity fund shares recieved quarterly.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{previous_wages}} \index{\url{previous_wages}} & \parbox{10cm}{Holds wages earned in three previous months.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{previous_benefits}} \index{\url{previous_benefits}} & \parbox{10cm}{Holds benefits from the govenment in three previous months.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_income}} \index{\url{labour_income}} & \parbox{10cm}{Labour income for last 3 months.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_assets}} \index{\url{total_assets}} & \parbox{10cm}{Total assets owned by an household.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{housing_value}} \index{\url{housing_value}} & \parbox{10cm}{Monetary value of housing units owned by an household.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{expected_housing_payment}} \index{\url{expected_housing_payment}} & \parbox{10cm}{It keeps payment amount for the incoming quarter.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{hmarket_role}} \index{\url{hmarket_role}} & \parbox{10cm}{The variable sets households market role.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity_ratio}} \index{\url{equity_ratio}} & \parbox{10cm}{Current equity ratio of an household} \\
+\midrule
+\parbox{5cm}{\url{double} \url{minimum_equity_ratio}} \index{\url{minimum_equity_ratio}} & \parbox{10cm}{Minimum equity ratio required for a household to apply for mortgage.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{mortgage_costs}} \index{\url{mortgage_costs}} & \parbox{10cm}{Holds mortgage costs, principal plus ineterests paid for last three months.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{delta_housing_value}} \index{\url{delta_housing_value}} & \parbox{10cm}{Value change on housing value on a monthly basis.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for household agent.}}
+\label{Table: household Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Agent initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{household_init_post_id}} \index{\url{household_init_post_id}} & \parbox{10cm}{Household posts its Id for employment initilialization.} \\
+\midrule
+\parbox{5cm}{\url{household_init_employment}} \index{\url{household_init_employment}} & \parbox{10cm}{Household recieves agent Id of his employer.} \\
+\midrule
+\parbox{5cm}{\url{household_init_balancesheet}} \index{\url{household_init_balancesheet}} & \parbox{10cm}{Synchronizing the mortgage debt and deposit with respective banks.} \\
+\midrule
+\parbox{5cm}{\url{household_iterate}} \index{\url{household_iterate}} & \parbox{10cm}{Resumes its regular iteration.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Skip the bank account updates.} \\
+\midrule
+\parbox{5cm}{\url{household_update_bank_account}} \index{\url{household_update_bank_account}} & \parbox{10cm}{Deposits/updates its liquidity to bank.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the first day of the month to compute monthly consumption.} \\
+\midrule
+\parbox{5cm}{\url{household_consumption_compute_budget}} \index{\url{household_consumption_compute_budget}} & \parbox{10cm}{It is the first day of the month, time to compute monthly consumption.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the week to shop.} \\
+\midrule
+\parbox{5cm}{\url{household_consumption_demand}} \index{\url{household_consumption_demand}} & \parbox{10cm}{A household demands a consumption amounted to the available budget he/she has.} \\
+\midrule
+\parbox{5cm}{\url{household_consumption_recieve_goods}} \index{\url{household_consumption_recieve_goods}} & \parbox{10cm}{A household recieves goods bought from the mall.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Job searching is not active.} \\
+\midrule
+\parbox{5cm}{\url{household_labour_check_fired}} \index{\url{household_labour_check_fired}} & \parbox{10cm}{Household checks layout status.} \\
+\midrule
+\parbox{5cm}{\url{household_labour_reemployment_application}} \index{\url{household_labour_reemployment_application}} & \parbox{10cm}{Stage 01 of job applications. Already employed households apply with a turnover probability} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Stage 01 of job applications. Unemployed households skip this stage} \\
+\midrule
+\parbox{5cm}{\url{household_labour_turnover}} \index{\url{household_labour_turnover}} & \parbox{10cm}{A job turnover.} \\
+\midrule
+\parbox{5cm}{\url{household_labour_employment_application}} \index{\url{household_labour_employment_application}} & \parbox{10cm}{Stage 02 of job market. Unemployed households apply.} \\
+\midrule
+\parbox{5cm}{\url{household_labour_employment}} \index{\url{household_labour_employment}} & \parbox{10cm}{A new employment.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Does nothing at the point when it is not last day of the month.} \\
+\midrule
+\parbox{5cm}{\url{household_labour_receive_wage}} \index{\url{household_labour_receive_wage}} & \parbox{10cm}{Receives payment and update wage history.} \\
+\midrule
+\parbox{5cm}{\url{household_labour_report_status}} \index{\url{household_labour_report_status}} & \parbox{10cm}{Sends out its employment status.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is the start of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{The household does not own any shares of firms.} \\
+\midrule
+\parbox{5cm}{\url{household_credit_collect_shares}} \index{\url{household_credit_collect_shares}} & \parbox{10cm}{At the end of a quarter household recieves shares from the firms via Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{household_credit_do_balance_sheet}} \index{\url{household_credit_do_balance_sheet}} & \parbox{10cm}{Computing the balance sheet.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of the month.} \\
+\midrule
+\parbox{5cm}{\url{household_credit_collect_benefits}} \index{\url{household_credit_collect_benefits}} & \parbox{10cm}{Collect general transfer benefits and/or unemployment benefit from the government.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{household_credit_check_interest_rate}} \index{\url{household_credit_check_interest_rate}} & \parbox{10cm}{Households check the interest rate which is set by CB.} \\
+\midrule
+\parbox{5cm}{\url{household_credit_update_mortgage_rates}} \index{\url{household_credit_update_mortgage_rates}} & \parbox{10cm}{Households updates annuity, principal and interest payment amounts.} \\
+\midrule
+\parbox{5cm}{\url{household_credit_check_tax_rate}} \index{\url{household_credit_check_tax_rate}} & \parbox{10cm}{Households check the tax rate which is set by government.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the first day of the month.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_market_role}} \index{\url{household_housing_market_role}} & \parbox{10cm}{Sets the households market role in real estate for the current month.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Household is not active at the market.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_check_wealth}} \index{\url{household_housing_check_wealth}} & \parbox{10cm}{Households attempts to the market with regular buyer role.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_sell}} \index{\url{household_housing_sell}} & \parbox{10cm}{Households enters the market with regular seller role.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_fire_sell}} \index{\url{household_housing_fire_sell}} & \parbox{10cm}{Household enters the market with a fire seller role.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_collect_sale_revenue}} \index{\url{household_housing_collect_sale_revenue}} & \parbox{10cm}{Household collects sale revenue and if he is a fire seller pays mortgage with it.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Household does not have enough equity to buy.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_enter_market}} \index{\url{household_housing_enter_market}} & \parbox{10cm}{Household goes to the market.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_buy}} \index{\url{household_housing_buy}} & \parbox{10cm}{Household updates her assets based on the result he gets from housing market.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_update_market_price}} \index{\url{household_housing_update_market_price}} & \parbox{10cm}{Household checks new avg housing market price.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_pay_mortgages}} \index{\url{household_housing_pay_mortgages}} & \parbox{10cm}{Household sends out mortgage payments.} \\
+\midrule
+\parbox{5cm}{\url{household_housing_debt_writeoff}} \index{\url{household_housing_debt_writeoff}} & \parbox{10cm}{When debt of household drops below a certain threshold its earnings, the debt is written off.} \\
+\end{longtable}
+
+\subsection{equityfund}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for equityfund agent.}}
+\label{Table: equityfund Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{Activation day for the shareholder audition.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_wages_paid}} \index{\url{day_of_month_wages_paid}} & \parbox{10cm}{Activation day for the shareholder audition.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{share_firms}} \index{\url{share_firms}} & \parbox{10cm}{Shares owned by regular firms.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{share_construction_firms}} \index{\url{share_construction_firms}} & \parbox{10cm}{Shares owned by constructor firms.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{share_banks}} \index{\url{share_banks}} & \parbox{10cm}{Shares owned by banks.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity}} \index{\url{equity}} & \parbox{10cm}{Firm equity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity}} \index{\url{liquidity}} & \parbox{10cm}{Liquidity.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{n_shares}} \index{\url{n_shares}} & \parbox{10cm}{Number of households(shares) to recieve liquid shares from firm net income.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{dividends_recieved}} \index{\url{dividends_recieved}} & \parbox{10cm}{Total amount dividends recieved from firms and banks} \\
+\midrule
+\parbox{5cm}{\url{double} \url{dividends_retained}} \index{\url{dividends_retained}} & \parbox{10cm}{Total amount of dividends retained.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{dividends_paid}} \index{\url{dividends_paid}} & \parbox{10cm}{Total amount of dividends distributed to shareholders.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{firm_investment}} \index{\url{firm_investment}} & \parbox{10cm}{Total amount of liquidity used for firms with liquidity needs.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{capital_tax_rate}} \index{\url{capital_tax_rate}} & \parbox{10cm}{Tax rate used at determining amount of tax on dividends.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for equityfund agent.}}
+\label{Table: equityfund Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{equityfund_init}} \index{\url{equityfund_init}} & \parbox{10cm}{Agent initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_iterate}} \index{\url{equityfund_iterate}} & \parbox{10cm}{Notifies its id.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a month.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_audit_dividends}} \index{\url{equityfund_audit_dividends}} & \parbox{10cm}{Makes a sensus on size of dividends.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_invest_illiquids}} \index{\url{equityfund_credit_invest_illiquids}} & \parbox{10cm}{The equity fund invests certain firms to resolve their liquidity problem.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_collect_bank_shares}} \index{\url{equityfund_credit_collect_bank_shares}} & \parbox{10cm}{At the end of a quarter collect net income from the banks in the market.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_collect_firm_shares}} \index{\url{equityfund_credit_collect_firm_shares}} & \parbox{10cm}{At the end of a quarter collect net income from the firms in the market.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_distribute_shares}} \index{\url{equityfund_credit_distribute_shares}} & \parbox{10cm}{At the end of a quarter net income per household is distributed.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_compute_income_statement}} \index{\url{equityfund_credit_compute_income_statement}} & \parbox{10cm}{Equity Fund computes the income statement.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_do_balance_sheet}} \index{\url{equityfund_credit_do_balance_sheet}} & \parbox{10cm}{Equity fund balance sheet accounting activities.} \\
+\midrule
+\parbox{5cm}{\url{equityfund_credit_check_tax_rate}} \index{\url{equityfund_credit_check_tax_rate}} & \parbox{10cm}{Equity fund checks quarterly tax rate.} \\
+\end{longtable}
+
+\subsection{bank}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for bank agent.}}
+\label{Table: bank Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{Activation day.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_week_to_act}} \index{\url{day_of_week_to_act}} & \parbox{10cm}{Day of the week to act.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_assets}} \index{\url{total_assets}} & \parbox{10cm}{Total assets of the banks.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{loans}} \index{\url{loans}} & \parbox{10cm}{Loans to firms.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{loans_start}} \index{\url{loans_start}} & \parbox{10cm}{Loans to firms at the start of the quarter.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{mortgages}} \index{\url{mortgages}} & \parbox{10cm}{Mortgages to households.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{deposits}} \index{\url{deposits}} & \parbox{10cm}{Deposits recieved from private sector.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{centralbank_debt}} \index{\url{centralbank_debt}} & \parbox{10cm}{Debt to central bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity}} \index{\url{equity}} & \parbox{10cm}{Firm equity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity}} \index{\url{liquidity}} & \parbox{10cm}{Liquidity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{revenues}} \index{\url{revenues}} & \parbox{10cm}{Revenues of the bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_writeoffs}} \index{\url{total_writeoffs}} & \parbox{10cm}{Total of writeoff loss a bank has.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{interest_rate}} \index{\url{interest_rate}} & \parbox{10cm}{Rate of interest set by central bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{interests_accrued}} \index{\url{interests_accrued}} & \parbox{10cm}{Total interest a bank has collected from loans and mortgages.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{interests_paid}} \index{\url{interests_paid}} & \parbox{10cm}{Total interest a bank has paid to for its central bank debts.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{dividends_paid}} \index{\url{dividends_paid}} & \parbox{10cm}{Amount of dividends paid to share holders via Equity Fund.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_dividends}} \index{\url{total_dividends}} & \parbox{10cm}{Amount of dividends banks have to distribute.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{retained_earnings}} \index{\url{retained_earnings}} & \parbox{10cm}{Retained earnings in the case of capital inadequecy.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{net_earnings}} \index{\url{net_earnings}} & \parbox{10cm}{Earnings from interests minus costs.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_costs}} \index{\url{total_costs}} & \parbox{10cm}{Total costs of banks. It is interest paid to CB and writeoffs recieved.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for bank agent.}}
+\label{Table: bank Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Agent initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{bank_init_loans}} \index{\url{bank_init_loans}} & \parbox{10cm}{Gathers loans from firms.} \\
+\midrule
+\parbox{5cm}{\url{bank_init_mortgages}} \index{\url{bank_init_mortgages}} & \parbox{10cm}{Gather mortgages from households.} \\
+\midrule
+\parbox{5cm}{\url{bank_init_deposits}} \index{\url{bank_init_deposits}} & \parbox{10cm}{Gather deposits from firms and households.} \\
+\midrule
+\parbox{5cm}{\url{bank_init_balancesheet}} \index{\url{bank_init_balancesheet}} & \parbox{10cm}{Bank initializes total assets, equity, debt to central bank and liquidity.} \\
+\midrule
+\parbox{5cm}{\url{bank_iterate}} \index{\url{bank_iterate}} & \parbox{10cm}{Bank resumes its iterative functions.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Skip the bank account updates.} \\
+\midrule
+\parbox{5cm}{\url{bank_update_deposits}} \index{\url{bank_update_deposits}} & \parbox{10cm}{Deposits/updates its liquidity to bank.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_compute_income_statement}} \index{\url{bank_credit_compute_income_statement}} & \parbox{10cm}{Bank computes income statement.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_compute_dividends}} \index{\url{bank_credit_compute_dividends}} & \parbox{10cm}{Bank evaluates loan requests firstly. } \\
+\midrule
+\parbox{5cm}{\url{bank_credit_do_balance_sheet}} \index{\url{bank_credit_do_balance_sheet}} & \parbox{10cm}{Bank balance sheet accounting activities.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_process_loan_requests_1}} \index{\url{bank_credit_process_loan_requests_1}} & \parbox{10cm}{Bank evaluates first loan requests.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_process_loan_requests_2}} \index{\url{bank_credit_process_loan_requests_2}} & \parbox{10cm}{Bank evaluates first loan requests.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_recieve_loan_writeoffs}} \index{\url{bank_credit_recieve_loan_writeoffs}} & \parbox{10cm}{Bank updates its loss.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_recieve_new_entrant_loan_requests}} \index{\url{bank_credit_recieve_new_entrant_loan_requests}} & \parbox{10cm}{Bank recieve request for new entrant requests.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_collect_loan_interests}} \index{\url{bank_credit_collect_loan_interests}} & \parbox{10cm}{Bank evaluates first loan requests.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not time to act.} \\
+\midrule
+\parbox{5cm}{\url{bank_credit_check_interest_rate}} \index{\url{bank_credit_check_interest_rate}} & \parbox{10cm}{Bank checks centralbank ineterest rate.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the first day of the month.} \\
+\midrule
+\parbox{5cm}{\url{bank_housing_compute_capital_status}} \index{\url{bank_housing_compute_capital_status}} & \parbox{10cm}{Bank computes its crediting status.} \\
+\midrule
+\parbox{5cm}{\url{bank_housing_deliver_mortages}} \index{\url{bank_housing_deliver_mortages}} & \parbox{10cm}{Bank collects mortage requests from real estate agency.} \\
+\midrule
+\parbox{5cm}{\url{bank_housing_recieve_mortgage_principals}} \index{\url{bank_housing_recieve_mortgage_principals}} & \parbox{10cm}{Bank collects mortage debt principal payments from households.} \\
+\midrule
+\parbox{5cm}{\url{bank_housing_recieve_mortgages}} \index{\url{bank_housing_recieve_mortgages}} & \parbox{10cm}{Bank collects regular mortgage payments from households.} \\
+\midrule
+\parbox{5cm}{\url{bank_housing_debt_writeoff}} \index{\url{bank_housing_debt_writeoff}} & \parbox{10cm}{Bank recieves mortgage written off.} \\
+\end{longtable}
+
+\subsection{government}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for government agent.}}
+\label{Table: government Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{average_wage}} \index{\url{average_wage}} & \parbox{10cm}{Average wage for employed households.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{unemployment_rate}} \index{\url{unemployment_rate}} & \parbox{10cm}{The unemployment rate} \\
+\midrule
+\parbox{5cm}{\url{int} \url{population_size}} \index{\url{population_size}} & \parbox{10cm}{Number of households.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{debt}} \index{\url{debt}} & \parbox{10cm}{Debt to central bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity}} \index{\url{equity}} & \parbox{10cm}{Government equity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity}} \index{\url{liquidity}} & \parbox{10cm}{Government liquidity.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{Day of the month to act.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_wages_paid}} \index{\url{day_of_month_wages_paid}} & \parbox{10cm}{The day of month wages paid. It is the end of month.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{capital_tax_rate}} \index{\url{capital_tax_rate}} & \parbox{10cm}{Government rate on capital income.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_tax_rate}} \index{\url{labour_tax_rate}} & \parbox{10cm}{Government rate on labour income.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{labour_tax_income}} \index{\url{labour_tax_income}} & \parbox{10cm}{Collected amount of labour tax.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{capital_tax_income}} \index{\url{capital_tax_income}} & \parbox{10cm}{Collected amount of capital tax.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{gov_general_benefit_rate}} \index{\url{gov_general_benefit_rate}} & \parbox{10cm}{Rate of general benefits to distribute to all housholds.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{gov_unemployment_rate}} \index{\url{gov_unemployment_rate}} & \parbox{10cm}{Rate of unemployment benefit with respect to average wage.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{general_benefits}} \index{\url{general_benefits}} & \parbox{10cm}{Amount of general benefits distributed to households.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{unemployment_benefits}} \index{\url{unemployment_benefits}} & \parbox{10cm}{Amount of unemployment benefits distributed by the government.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{earnings}} \index{\url{earnings}} & \parbox{10cm}{Government earnings from taxes.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{centralbank_income}} \index{\url{centralbank_income}} & \parbox{10cm}{Quarterly collected amount of profits from centralbank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{expenditures}} \index{\url{expenditures}} & \parbox{10cm}{Government expenditures on unemployment and general benefit payments.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for government agent.}}
+\label{Table: government Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{government_init}} \index{\url{government_init}} & \parbox{10cm}{Agent runtime initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{government_iterate}} \index{\url{government_iterate}} & \parbox{10cm}{Regular loop start point.} \\
+\midrule
+\parbox{5cm}{\url{government_trace_unemployment_status}} \index{\url{government_trace_unemployment_status}} & \parbox{10cm}{Makes a sensus on employment status.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{government_collect_capital_tax}} \index{\url{government_collect_capital_tax}} & \parbox{10cm}{It is the start of the quarter.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of a month.} \\
+\midrule
+\parbox{5cm}{\url{government_distribute_general_benefits}} \index{\url{government_distribute_general_benefits}} & \parbox{10cm}{It distributes general benefits.} \\
+\midrule
+\parbox{5cm}{\url{government_distribute_unemployment_benefits}} \index{\url{government_distribute_unemployment_benefits}} & \parbox{10cm}{It distributes unemployment benefits.} \\
+\midrule
+\parbox{5cm}{\url{government_collect_labour_tax}} \index{\url{government_collect_labour_tax}} & \parbox{10cm}{Labour tax is collected} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{government_collect_centralbank_profit}} \index{\url{government_collect_centralbank_profit}} & \parbox{10cm}{The government collects net profit from the centralbank.} \\
+\midrule
+\parbox{5cm}{\url{government_compute_income_statement}} \index{\url{government_compute_income_statement}} & \parbox{10cm}{Government computes its income statement.} \\
+\midrule
+\parbox{5cm}{\url{government_do_balance_sheet}} \index{\url{government_do_balance_sheet}} & \parbox{10cm}{Government balance sheet accounting activities.} \\
+\midrule
+\parbox{5cm}{\url{government_update_fiscal_policy}} \index{\url{government_update_fiscal_policy}} & \parbox{10cm}{Government sets tax rate, general benefits and unemployment benefits} \\
+\end{longtable}
+
+\subsection{centralbank}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for centralbank agent.}}
+\label{Table: centralbank Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{Day of the month to act.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{unemployment_rate}} \index{\url{unemployment_rate}} & \parbox{10cm}{Unemployment rate. It is updated monthly.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{inflation_rate}} \index{\url{inflation_rate}} & \parbox{10cm}{inflation rate. It is updated quarterly.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{consumption_goods_prices}} \index{\url{consumption_goods_prices}} & \parbox{10cm}{Unemployment rate. It is updated monthly} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_week_to_act}} \index{\url{day_of_week_to_act}} & \parbox{10cm}{Day of the week to act.} \\
+\midrule
+\parbox{5cm}{\url{transaction} \url{goods}} \index{\url{goods}} & \parbox{10cm}{Weakly transaction summary at the market.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{weekly_price_averages}} \index{\url{weekly_price_averages}} & \parbox{10cm}{Weakly price averages at the market.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_wages_paid}} \index{\url{day_of_month_wages_paid}} & \parbox{10cm}{The day of the month wages paid.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{interest_rate}} \index{\url{interest_rate}} & \parbox{10cm}{Rate of interest set by central bank.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity}} \index{\url{liquidity}} & \parbox{10cm}{Central Bank liquidity} \\
+\midrule
+\parbox{5cm}{\url{double} \url{loans_banks}} \index{\url{loans_banks}} & \parbox{10cm}{loans to firms.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{loans_government}} \index{\url{loans_government}} & \parbox{10cm}{loans to the government.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{fiat_money}} \index{\url{fiat_money}} & \parbox{10cm}{Outstanding fiat money.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{equity}} \index{\url{equity}} & \parbox{10cm}{Firm equity.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity_banks}} \index{\url{liquidity_banks}} & \parbox{10cm}{Liquidity kept for banks.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity_government}} \index{\url{liquidity_government}} & \parbox{10cm}{Liquidity kept for the government.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{liquidity_equityfund}} \index{\url{liquidity_equityfund}} & \parbox{10cm}{Liquidity kept for the fund.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_assets}} \index{\url{total_assets}} & \parbox{10cm}{Central Bank total assets.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_writeoffs}} \index{\url{total_writeoffs}} & \parbox{10cm}{Central Bank loss due to bank bailouts.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{interests_accrued}} \index{\url{interests_accrued}} & \parbox{10cm}{Amount of interest collected from banks and government.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{revenues}} \index{\url{revenues}} & \parbox{10cm}{Central Bank revenues.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{net_earnings}} \index{\url{net_earnings}} & \parbox{10cm}{Central Bank net earnings.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{total_costs}} \index{\url{total_costs}} & \parbox{10cm}{Central Bank total costs.} \\
+\midrule
+\parbox{5cm}{\url{transaction} \url{houses}} \index{\url{houses}} & \parbox{10cm}{Monthly transaction summary at the market.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for centralbank agent.}}
+\label{Table: centralbank Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Agent initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_init_balancesheet}} \index{\url{centralbank_init_balancesheet}} & \parbox{10cm}{Synchronizing the bank debts.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_iterate}} \index{\url{centralbank_iterate}} & \parbox{10cm}{Resumes its regular iteration.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the week to act.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_trace_goods_prices}} \index{\url{centralbank_trace_goods_prices}} & \parbox{10cm}{It is the day of the week to act.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of month.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_update_price_indices}} \index{\url{centralbank_update_price_indices}} & \parbox{10cm}{The central bank computes monthly price average.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the month to act.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_trace_unemployment_status}} \index{\url{centralbank_trace_unemployment_status}} & \parbox{10cm}{Makes a sensus on employment status.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not time to act.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_collect_interest_payments}} \index{\url{centralbank_collect_interest_payments}} & \parbox{10cm}{Central Bank collects interest payments from banks.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_process_debt_requests}} \index{\url{centralbank_process_debt_requests}} & \parbox{10cm}{Central Bank receives new debt requests from banks and collects debt payments from banks.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not time to act.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_compute_income_statement}} \index{\url{centralbank_compute_income_statement}} & \parbox{10cm}{Central Bank computes income statement.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_process_government_requests}} \index{\url{centralbank_process_government_requests}} & \parbox{10cm}{Central Bank processes loan requests and loan payments from the government.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_do_balance_sheet}} \index{\url{centralbank_do_balance_sheet}} & \parbox{10cm}{Central Bank balance sheet accounting activities.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_set_interest_rate}} \index{\url{centralbank_set_interest_rate}} & \parbox{10cm}{Central bank sets the interest rate.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the month to act.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_trace_housing_prices}} \index{\url{centralbank_trace_housing_prices}} & \parbox{10cm}{It is the day of the month to act.} \\
+\end{longtable}
+
+\subsection{jpoffice}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for jpoffice agent.}}
+\label{Table: jpoffice Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{The day of mont to perform job matching.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for jpoffice agent.}}
+\label{Table: jpoffice Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Agent initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{jpoffice_init_employment}} \index{\url{jpoffice_init_employment}} & \parbox{10cm}{Job placement office collects household and firm ids and forms network of initial employment.} \\
+\midrule
+\parbox{5cm}{\url{jpoffice_iterate}} \index{\url{jpoffice_iterate}} & \parbox{10cm}{Notifies its id.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Job matching is not active.} \\
+\midrule
+\parbox{5cm}{\url{jpoffice_labour_stage1}} \index{\url{jpoffice_labour_stage1}} & \parbox{10cm}{Collecting vacancies and job applications. Vacancies and turnover applications are matched.} \\
+\midrule
+\parbox{5cm}{\url{jpoffice_labour_stage2}} \index{\url{jpoffice_labour_stage2}} & \parbox{10cm}{Second stage job matching.} \\
+\end{longtable}
+
+\subsection{mall}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for mall agent.}}
+\label{Table: mall Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_week_to_act}} \index{\url{day_of_week_to_act}} & \parbox{10cm}{Day of the week to act for consumption.} \\
+\midrule
+\parbox{5cm}{\url{transaction} \url{goods_transactions}} \index{\url{goods_transactions}} & \parbox{10cm}{Weakly transaction summary at the market.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for mall agent.}}
+\label{Table: mall Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{mall_init}} \index{\url{mall_init}} & \parbox{10cm}{Notifies its id.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the week to shop.} \\
+\midrule
+\parbox{5cm}{\url{mall_consumption_shopping}} \index{\url{mall_consumption_shopping}} & \parbox{10cm}{Mall collecting supplies from the firms, demands from the households.} \\
+\midrule
+\parbox{5cm}{\url{mall_consumption_summary}} \index{\url{mall_consumption_summary}} & \parbox{10cm}{The agent reports summary of transactions.} \\
+\end{longtable}
+
+\subsection{reagency}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for reagency agent.}}
+\label{Table: reagency Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{Activation day.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{mortgages_interest_rate}} \index{\url{mortgages_interest_rate}} & \parbox{10cm}{Rate of interest set by central bank.} \\
+\midrule
+\parbox{5cm}{\url{transaction} \url{housing_transactions}} \index{\url{housing_transactions}} & \parbox{10cm}{Monthly transaction summary at the market.} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for reagency agent.}}
+\label{Table: reagency Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{reagency_init}} \index{\url{reagency_init}} & \parbox{10cm}{Notifies its id.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of a quarter.} \\
+\midrule
+\parbox{5cm}{\url{reagency_check_interest_rate}} \index{\url{reagency_check_interest_rate}} & \parbox{10cm}{It checks interest rate.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the first day of the month.} \\
+\midrule
+\parbox{5cm}{\url{reagency_housing_process}} \index{\url{reagency_housing_process}} & \parbox{10cm}{The agent collects requests and does the matchings.} \\
+\midrule
+\parbox{5cm}{\url{reagency_housing_summary}} \index{\url{reagency_housing_summary}} & \parbox{10cm}{The agent reports summary of transactions.} \\
+\end{longtable}
+\subsection{Messages}
+See Table \ref{Table: Messages}.\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of messages.}}
+\label{Table: Messages}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\url{firm_bank_init_loans} & \parbox{10cm}{Firm sends out its initialized loan info to bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank from which initial loan has gotten. }\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of loan.}\\
+\midrule
+\url{firm_bank_init_deposit} & \parbox{10cm}{Firm sends out its liquid money to bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank where liquid money to be deposited.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{firm_bank_update_deposit} & \parbox{10cm}{Firm sends out its liquid money to bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank where liquid money to be deposited.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{household_bank_init_mortgages} & \parbox{10cm}{Household sends out its initialized amount of mortgage info to its bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank from which initial mortgage has been acquired.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of mortgage.}\\
+\midrule
+\url{household_bank_init_deposit} & \parbox{10cm}{Household sends out its liquid money to bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank where liquid money to be deposited.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{household_bank_update_deposit} & \parbox{10cm}{Household sends out its liquid money to bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank where liquid money to be deposited.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{bank_centralbank_init_debt} & \parbox{10cm}{Bank informs its centralbank debt for initilialization.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The deptor bank id.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of debt.}\\
+\midrule
+\url{bank_centralbank_init_deposit} & \parbox{10cm}{Bank sends out its liquid money to centralbank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The depositor bank id.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{bank_centralbank_update_deposit} & \parbox{10cm}{Bank sends out its liquid money to centralbank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The depositor bank id.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{fund_centralbank_init_deposit} & \parbox{10cm}{Fund sends out its liquid money to centralbank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{fund_centralbank_update_deposit} & \parbox{10cm}{Fund sends out its liquid money to centralbank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{gov_centralbank_init_deposit} & \parbox{10cm}{Government sends out its liquid money to centralbank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{gov_centralbank_update_deposit} & \parbox{10cm}{Government sends out its liquid money to centralbank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquid money to be deposited.}\\
+\midrule
+\url{interest_rate} & \parbox{10cm}{The interest rate sent by the central bank.}\\
+    \url{double} \url{rate} \index{\url{rate}} & \parbox{10cm}{The rate.}\\
+\midrule
+\url{capital_tax_rate} & \parbox{10cm}{Government tax rate on capital income.}\\
+    \url{double} \url{value} \index{\url{value}} & \parbox{10cm}{Rate of the tax.}\\
+\midrule
+\url{labour_tax_rate} & \parbox{10cm}{Government tax rate on labour income.}\\
+    \url{double} \url{value} \index{\url{value}} & \parbox{10cm}{Rate of the tax.}\\
+\midrule
+\url{household_jpoffice_id} & \parbox{10cm}{Household notifies his/her id.}\\
+    \url{int} \url{household_id} \index{\url{household_id}} & \parbox{10cm}{The agent id.}\\
+\midrule
+\url{jpoffice_household_employer} & \parbox{10cm}{Firm notifies its id.}\\
+    \url{int} \url{household_id} \index{\url{household_id}} & \parbox{10cm}{The agent id.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{The agent id.}\\
+\midrule
+\url{firm_jpoffice_id} & \parbox{10cm}{Firm notifies its id.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The agent id.}\\
+    \url{int} \url{isconstructor} \index{\url{isconstructor}} & \parbox{10cm}{Firm type.}\\
+\midrule
+\url{jpoffice_firm_employee} & \parbox{10cm}{Firm notifies its id.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The agent id.}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{The agent id.}\\
+\midrule
+\url{buy} & \parbox{10cm}{Weekly household consumption information.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Household agent ID.}\\
+    \url{double} \url{budget} \index{\url{budget}} & \parbox{10cm}{Amount of liquid money to spend.}\\
+\midrule
+\url{bought} & \parbox{10cm}{Consumption summary.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Household agent ID.}\\
+    \url{double} \url{money_spent} \index{\url{money_spent}} & \parbox{10cm}{Amount of liquid money that was spent.}\\
+    \url{int} \url{received_quantity} \index{\url{received_quantity}} & \parbox{10cm}{Number of goods bought.}\\
+\midrule
+\url{sell} & \parbox{10cm}{Information on items to be sold at the mall.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Firm agent ID.}\\
+    \url{double} \url{price} \index{\url{price}} & \parbox{10cm}{Unit price of goods to be sold.}\\
+    \url{int} \url{inventory} \index{\url{inventory}} & \parbox{10cm}{Number of items to be sold.}\\
+\midrule
+\url{sold} & \parbox{10cm}{Sales summary.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Firm agent ID.}\\
+    \url{int} \url{sold_quantities} \index{\url{sold_quantities}} & \parbox{10cm}{Number of sold quantities.}\\
+\midrule
+\url{goods_transactions_summary} & \parbox{10cm}{Weakly sent out transaction summary.}\\
+    \url{int} \url{quantity} \index{\url{quantity}} & \parbox{10cm}{Number of goods sold out.}\\
+    \url{double} \url{avg_price} \index{\url{avg_price}} & \parbox{10cm}{Weakly avg price.}\\
+\midrule
+\url{fired} & \parbox{10cm}{Sent by a firm to notify an employee who is fired.}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{Employee ID who has been fired.}\\
+\midrule
+\url{vacancy_stage1} & \parbox{10cm}{Sent by a Firm to post a vacancy.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{Firm agent ID who posts a new position.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Amount of salary to be offered.}\\
+\midrule
+\url{job_application_stage2} & \parbox{10cm}{Sent by an household to apply a posted vacancy.}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{Household agent ID who seeks employment.}\\
+\midrule
+\url{job_application_stage1} & \parbox{10cm}{Sent by an household to notifie jpoffice}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{Household agent ID who applies for a new job.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Current amount of wage earned by the applicant.}\\
+\midrule
+\url{job_match_stage1} & \parbox{10cm}{Sent by a firm informing a filled position.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{Firm agent ID that has filled a post.}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{Household agent ID who has been offered a position.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Amount of salary that is offered.}\\
+\midrule
+\url{job_change} & \parbox{10cm}{Sent by a worker to notify a resigned position.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{Firm agent ID of the position held.}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{Household aent ID who is changing the job.}\\
+\midrule
+\url{vacancy_stage2} & \parbox{10cm}{Sent by a Firm to post unfilled vacancy.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{Firm agent ID who posts unfilled position.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Amount of salary to be offered.}\\
+\midrule
+\url{job_match_stage2} & \parbox{10cm}{Sent by a firm informing a filled position.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{Firm agent ID that has filled a post.}\\
+    \url{int} \url{employee_id} \index{\url{employee_id}} & \parbox{10cm}{Household agent ID who has been offered a position.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Amount of salary that is offered.}\\
+\midrule
+\url{employment_status} & \parbox{10cm}{Sent by a household to report his/her employment status.}\\
+    \url{int} \url{employer_id} \index{\url{employer_id}} & \parbox{10cm}{The employer. O stands for unemployed case.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Current wage of an household.}\\
+    \url{int} \url{nshares} \index{\url{nshares}} & \parbox{10cm}{Number of shares one own.}\\
+\midrule
+\url{firm_household_wage_payment} & \parbox{10cm}{Posted by the firm agent.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The firm id.}\\
+    \url{double} \url{wage} \index{\url{wage}} & \parbox{10cm}{Current wage offer by the firm.}\\
+\midrule
+\url{firm_bank_loan_request_1} & \parbox{10cm}{The loan requested by a firm.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The firm.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{The amount.}\\
+\midrule
+\url{firm_bank_loan_request_2} & \parbox{10cm}{The loan requested by a firm.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The firm.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{The amount.}\\
+\midrule
+\url{bank_firm_loan_acknowledge_1} & \parbox{10cm}{The loan that is acknowledged by a firms's own bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The firm.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{The amount.}\\
+\midrule
+\url{bank_firm_loan_acknowledge_2} & \parbox{10cm}{The loan acknowledged for a firm by the other bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The firm.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{The amount.}\\
+\midrule
+\url{bank_centralbank_debt_request} & \parbox{10cm}{Debt request by bank from the central bank.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank id}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{amount requested}\\
+\midrule
+\url{household_share} & \parbox{10cm}{Shares are sent to households.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Share per household.}\\
+\midrule
+\url{capital_tax} & \parbox{10cm}{Tax on capital earnings of households.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Total capital tax sent by household.}\\
+\midrule
+\url{labour_tax} & \parbox{10cm}{Tax on wage earning of households.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Total wage taxes sent to government by househols.}\\
+\midrule
+\url{unemployment_benefit} & \parbox{10cm}{Total unemployment benefit sent to households.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{}\\
+\midrule
+\url{general_benefit} & \parbox{10cm}{general benefit sent to households.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{}\\
+\midrule
+\url{fund_request} & \parbox{10cm}{Amount of the liquidity requested from Equity Fund.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{}\\
+\midrule
+\url{fund_request_ack} & \parbox{10cm}{Amount of the liquidity requested is confirmed by Equity Fund.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{}\\
+\midrule
+\url{new_entrant_loan} & \parbox{10cm}{The loan requested by the new entrant, that replaces the insolvent one.}\\
+    \url{int} \url{firm_id} \index{\url{firm_id}} & \parbox{10cm}{The firm.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{The amount.}\\
+\midrule
+\url{firm_bank_interest_on_loan} & \parbox{10cm}{Quarterly interest that is paid by a firm.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{The bank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{The amount.}\\
+\midrule
+\url{loan_writeoff} & \parbox{10cm}{Amount of loan of a firm that is written off.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Agent ID of the bank to receive.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{}\\
+\midrule
+\url{firm_bank_insolvent_account} & \parbox{10cm}{Acount maintainance in case of insolvency.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Bank ID of the account.}\\
+    \url{double} \url{liquidity} \index{\url{liquidity}} & \parbox{10cm}{Amount of liquidity}\\
+\midrule
+\url{firm_net_profit} & \parbox{10cm}{Net income send to Equity Fund.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Firm agent ID.}\\
+    \url{int} \url{isconstructor} \index{\url{isconstructor}} & \parbox{10cm}{Flag to label whether the income is recieved from a constructor firm.}\\
+    \url{double} \url{net_income} \index{\url{net_income}} & \parbox{10cm}{Net income to be distributed.}\\
+\midrule
+\url{bank_net_profit} & \parbox{10cm}{Net income send to Equity Fund.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Bank Agent ID.}\\
+    \url{double} \url{net_income} \index{\url{net_income}} & \parbox{10cm}{Net income to be distributed.}\\
+\midrule
+\url{bank_centralbank_interest_payment} & \parbox{10cm}{Interest paid by bank to centralbank.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Bank Agent ID.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of interest payment.}\\
+\midrule
+\url{bank_centralbank_debt_payment} & \parbox{10cm}{Debt paid by bank to centralbank.}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Bank Agent ID.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of debt paid back.}\\
+\midrule
+\url{gov_centralbank_debt_request} & \parbox{10cm}{Government requests debt from the centralbank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of liquidity needed.}\\
+\midrule
+\url{gov_centralbank_debt_payment} & \parbox{10cm}{Government pays debt to centralbank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of payment.}\\
+\midrule
+\url{centralbank_government_profit} & \parbox{10cm}{Amount of profit transfered to the government. }\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of debt paid back.}\\
+\midrule
+\url{housing_price} & \parbox{10cm}{Sent real estate agency at the end of market.}\\
+    \url{double} \url{price} \index{\url{price}} & \parbox{10cm}{Average unit price of housing for the month.}\\
+\midrule
+\url{buy_housing} & \parbox{10cm}{Sent by a household.}\\
+    \url{int} \url{buyer_id} \index{\url{buyer_id}} & \parbox{10cm}{Household ID, the buyer.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Bank ID of the buyer. Used in case mortgage is needed.}\\
+    \url{double} \url{liquidity} \index{\url{liquidity}} & \parbox{10cm}{Amount of liquidity an household have at the time to buy housing.}\\
+    \url{double} \url{quarterly_income} \index{\url{quarterly_income}} & \parbox{10cm}{Quarterly net income, labour and capital, an household makes.}\\
+    \url{double} \url{quarterly_mortgage_paid} \index{\url{quarterly_mortgage_paid}} & \parbox{10cm}{Quarterly mortgage payments being done by an household.}\\
+\midrule
+\url{sell_housing} & \parbox{10cm}{Sent either by a constructor firm or an household.}\\
+    \url{int} \url{seller_id} \index{\url{seller_id}} & \parbox{10cm}{Agent ID of the seller.}\\
+    \url{double} \url{price} \index{\url{price}} & \parbox{10cm}{Unit price of housing.}\\
+    \url{int} \url{quantity} \index{\url{quantity}} & \parbox{10cm}{Quantity of housing units to sell. Households are allowed to sell maximum of 1 unit.}\\
+    \url{int} \url{type} \index{\url{type}} & \parbox{10cm}{Seller Roles: 1 fire seller; 2 regular seller; 0 firm seller.}\\
+\midrule
+\url{bought_housing} & \parbox{10cm}{Sent to an household.}\\
+    \url{int} \url{buyer_id} \index{\url{buyer_id}} & \parbox{10cm}{Agent ID of the household who has bought one unit of housing.}\\
+    \url{double} \url{liquidity_spent} \index{\url{liquidity_spent}} & \parbox{10cm}{Amount of liquid money used to buy a unit of housing.}\\
+    \url{double} \url{mortgage_used} \index{\url{mortgage_used}} & \parbox{10cm}{Amount of mortgage used from the bank.}\\
+    \url{double} \url{annuity} \index{\url{annuity}} & \parbox{10cm}{Annuity of the housing unit bought.}\\
+\midrule
+\url{sold_housing} & \parbox{10cm}{Sent either to a constructor firm or to an household.}\\
+    \url{int} \url{seller_id} \index{\url{seller_id}} & \parbox{10cm}{Agent ID of the seller.}\\
+    \url{int} \url{quantity_sold} \index{\url{quantity_sold}} & \parbox{10cm}{Quantity of housing units that has been sold.}\\
+    \url{double} \url{price_sold} \index{\url{price_sold}} & \parbox{10cm}{Unit price of each sale.}\\
+\midrule
+\url{bank_reagency_credibility} & \parbox{10cm}{Posted by a bank. It shows total amount of mortgage a bank can provide for the market.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Agent ID of the bank.}\\
+    \url{double} \url{equity} \index{\url{equity}} & \parbox{10cm}{Equity owned by bank.}\\
+    \url{double} \url{risky_assets} \index{\url{risky_assets}} & \parbox{10cm}{Amount of risky assets owned by the bank.}\\
+\midrule
+\url{mortgage_requests} & \parbox{10cm}{Posted by a bank. It shows total amount of mortgage a bank can provide for the market.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Agent ID of the bank.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of mortgage given out by the bank.}\\
+\midrule
+\url{mortgage_payment_from_sale} & \parbox{10cm}{Amount of mortgage principal mortgage paid by a household to a bank after a fire sale.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Agent ID of the bank to receive.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of mortgage paid to a bank by an household.}\\
+\midrule
+\url{mortgage_payment} & \parbox{10cm}{Regular mortage payments.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Agent ID of the bank to receive.}\\
+    \url{double} \url{interest} \index{\url{interest}} & \parbox{10cm}{Amount of mortgage interest.}\\
+    \url{double} \url{principal} \index{\url{principal}} & \parbox{10cm}{Amount of mortgage principal.}\\
+\midrule
+\url{mortgage_writeoff} & \parbox{10cm}{Amount of mortgage of a household that is written off.}\\
+    \url{int} \url{bank_id} \index{\url{bank_id}} & \parbox{10cm}{Agent ID of the bank to receive.}\\
+    \url{double} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of mortgage interest.}\\
+\midrule
+\url{housing_transactions_summary} & \parbox{10cm}{Monthly transaction summary.}\\
+    \url{int} \url{quantity} \index{\url{quantity}} & \parbox{10cm}{Number of housing units sold out.}\\
+    \url{double} \url{avg_price} \index{\url{avg_price}} & \parbox{10cm}{Monthly avg price..}\\
+\end{longtable}
+\subsection{Constants}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of constants.}}
+\label{Table: constants}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\url{int} \url{resume_mode} \index{\url{resume_mode}} & \parbox{10cm}{Flag, 0 or 1.  To re-start a simulation from a snapshot , it needs to be set to 1.}\\
+\url{int} \url{print_debug_mode} \index{\url{print_debug_mode}} & \parbox{10cm}{Flag, 0 or 1.  To record simulation process stages and selected states for debugging purposes, it needs to be set to 1.}\\
+\url{int} \url{warning_mode} \index{\url{warning_mode}} & \parbox{10cm}{Flag, 0 or 1.  To record unexpected states, this needs to be set to 1.}\\
+\url{int} \url{data_collection_mode} \index{\url{data_collection_mode}} & \parbox{10cm}{Flag, 0 or 1. To record simulation data, it needs to be set to 1.}\\
+\url{int} \url{collect_household_data} \index{\url{collect_household_data}} & \parbox{10cm}{Flag, 0 or 1. To record household simulation data, it needs to be set to 1.}\\
+\url{int} \url{collect_firm_data} \index{\url{collect_firm_data}} & \parbox{10cm}{Flag, 0 or 1. To record firm simulation data, it needs to be set to 1.}\\
+\url{double} \url{ratio_liquidity} \index{\url{ratio_liquidity}} & \parbox{10cm}{Ratio of liquidity to monthly disposable income.}\\
+\url{double} \url{consumption_adjustment_speed} \index{\url{consumption_adjustment_speed}} & \parbox{10cm}{The consumption adjustment speed.}\\
+\url{double} \url{wealth_effect} \index{\url{wealth_effect}} & \parbox{10cm}{A rate of influence from housing market to regular economy. Used by Household agents.}\\
+\url{double} \url{turnover_probability} \index{\url{turnover_probability}} & \parbox{10cm}{A probability of a uniform distribution that determines turnover rate.}\\
+\url{double} \url{production_markup} \index{\url{production_markup}} & \parbox{10cm}{Rate of increase in production by firms.}\\
+\url{double} \url{price_markup} \index{\url{price_markup}} & \parbox{10cm}{Rate of increase set by firms on prices.}\\
+\url{double} \url{firm_memory_persistance} \index{\url{firm_memory_persistance}} & \parbox{10cm}{A parameter holding to what extend firms previous sale history play on final production decision.}\\
+\url{double} \url{ratio_fiscal_policy} \index{\url{ratio_fiscal_policy}} & \parbox{10cm}{Ratio of tax vs benefits to balance government deficit.}\\
+\url{double} \url{ratio_capitalist_households} \index{\url{ratio_capitalist_households}} & \parbox{10cm}{It is the rate of households owning firm shares.}\\
+\url{double} \url{inflation_target} \index{\url{inflation_target}} & \parbox{10cm}{It is used by central bank to compute monthly inflation.}\\
+\url{double} \url{firms_minimum_equity_ratio} \index{\url{firms_minimum_equity_ratio}} & \parbox{10cm}{The paramter is used by funding agency to check equity requirement to invest in a firm.}\\
+\url{double} \url{firm_startup_leverage} \index{\url{firm_startup_leverage}} & \parbox{10cm}{Firms' starting leverage'.}\\
+\url{double} \url{household_startup_leverage} \index{\url{household_startup_leverage}} & \parbox{10cm}{Households' starting leverage'.}\\
+\url{double} \url{car_buffer_threshold} \index{\url{car_buffer_threshold}} & \parbox{10cm}{Allowable ratio of risky assets owned by bank for crediting.}\\
+\url{double} \url{housing_market_entrance_prob} \index{\url{housing_market_entrance_prob}} & \parbox{10cm}{Entrance probability of an household agent. It determines the chance for an household to be active at housing market.}\\
+\url{double} \url{fire_sale_threshold} \index{\url{fire_sale_threshold}} & \parbox{10cm}{The ratio of debt payments to income, which is inspected at a fire sale decision.}\\
+\url{double} \url{household_budget_constraint} \index{\url{household_budget_constraint}} & \parbox{10cm}{Budget constraint applied by banks for the mortgage applications.}\\
+\url{double} \url{capital_adequecy_ratio} \index{\url{capital_adequecy_ratio}} & \parbox{10cm}{Allowable ratio of risky assets owned by bank for crediting.}\\
+\url{double} \url{housing_price_up_rate} \index{\url{housing_price_up_rate}} & \parbox{10cm}{Allowable percentage increase in housing price.}\\
+\url{double} \url{housing_price_down_rate} \index{\url{housing_price_down_rate}} & \parbox{10cm}{Allowable percentage decrease on a fire sale case by an household.}\\
+\url{double} \url{household_mortgage_writeoff_high} \index{\url{household_mortgage_writeoff_high}} & \parbox{10cm}{Household budget threshold for mortgage write-off}\\
+\url{double} \url{household_mortgage_writeoff_low} \index{\url{household_mortgage_writeoff_low}} & \parbox{10cm}{Household budget ratio for mortgage write-off}\\
+\end{longtable}
+\subsection{Datatypes}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of attributes for ADTs.}}
+\label{Table: datatypes}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\url{transaction} \index{\url{transaction}} & \parbox{10cm}{A generic transaction data structure.} \\
+    \url{int} \url{quantity} & \parbox{8cm}{Number of items within a period.}\\
+    \url{double} \url{avg_price} & \parbox{8cm}{Average price on overall transactions.}\\
+\midrule
+\url{buyer} \index{\url{buyer}} & \parbox{10cm}{Consumer data.} \\
+    \url{int} \url{id} & \parbox{8cm}{Id of the household agent.}\\
+    \url{double} \url{budget} & \parbox{8cm}{Consumption budget to go.}\\
+\midrule
+\url{seller} \index{\url{seller}} & \parbox{10cm}{Seller data.} \\
+    \url{int} \url{id} & \parbox{8cm}{Id of the firm agent.}\\
+    \url{double} \url{price} & \parbox{8cm}{Unit price of goods to be sold.}\\
+    \url{int} \url{inventory} & \parbox{8cm}{Number of items available for sale.}\\
+    \url{double} \url{inv_price} & \parbox{8cm}{Inverse of price. It is used to decrease computation time at the mall.}\\
+\midrule
+\url{vacancy} \index{\url{vacancy}} & \parbox{10cm}{Firm vacancy information.} \\
+    \url{int} \url{id} & \parbox{8cm}{Id of the firm agent.}\\
+    \url{double} \url{wage} & \parbox{8cm}{Wage offered by the firm that holds the vacancy.}\\
+\midrule
+\url{employee} \index{\url{employee}} & \parbox{10cm}{Job applicant data.} \\
+    \url{int} \url{id} & \parbox{8cm}{Id of the household agent.}\\
+    \url{double} \url{wage} & \parbox{8cm}{Current wage of the job applicant.}\\
+\midrule
+\url{mortgage} \index{\url{mortgage}} & \parbox{10cm}{Household mortgage information.} \\
+    \url{int} \url{bank_id} & \parbox{8cm}{Id of the bank from which mortgage is acquired.}\\
+    \url{double} \url{principal} & \parbox{8cm}{Principal amount left}\\
+    \url{int} \url{quarters_left} & \parbox{8cm}{Number of quarters left for the mortgage.}\\
+    \url{double} \url{quarterly_interest} & \parbox{8cm}{Amount of interest to be paid within the current quarter.}\\
+    \url{double} \url{quarterly_principal} & \parbox{8cm}{Amount of principal to be paid within the current quarter.}\\
+\midrule
+\url{loan} \index{\url{loan}} & \parbox{10cm}{Used by firm to hold loans they owe to each bank.} \\
+    \url{int} \url{bank_id} & \parbox{8cm}{Id of the bank from which loan is acquired.}\\
+    \url{double} \url{amount} & \parbox{8cm}{The amount requested so far.}\\
+    \url{double} \url{to_be_paid} & \parbox{8cm}{The amount to be paid.}\\
+\midrule
+\url{hbuyer} \index{\url{hbuyer}} & \parbox{10cm}{Buyer data at housing market.} \\
+    \url{int} \url{buyer_id} & \parbox{8cm}{Household ID, the buyer.}\\
+    \url{int} \url{bank_id} & \parbox{8cm}{Bank ID of the buyer. Used in case mortgage is needed.}\\
+    \url{double} \url{liquidity} & \parbox{8cm}{Amount of liquidity an household have at the time to buy housing.}\\
+    \url{double} \url{quarterly_income} & \parbox{8cm}{Quarterly net income, labour and capital, an household makes.}\\
+    \url{double} \url{quarterly_mortgage_paid} & \parbox{8cm}{Quarterly mortgage payments being done by an household.}\\
+\midrule
+\url{hseller} \index{\url{hseller}} & \parbox{10cm}{Seller data at housing market. Sent either by a constructor firm or an household.} \\
+    \url{int} \url{seller_id} & \parbox{8cm}{Agent ID of the seller.}\\
+    \url{double} \url{price} & \parbox{8cm}{Unit price of housing.}\\
+    \url{int} \url{quantity} & \parbox{8cm}{Quantity of housing units to sell. Households are allowed to sell maximum of 1 unit.}\\
+    \url{int} \url{type} & \parbox{8cm}{Seller Roles: 1 fire seller; 2 regular seller; 0 firm seller.}\\
+\midrule
+\url{hbank} \index{\url{hbank}} & \parbox{10cm}{Mortgaging data regarding the banks at the housing market.} \\
+    \url{int} \url{id} & \parbox{8cm}{Agent ID of the bank.}\\
+    \url{double} \url{equity} & \parbox{8cm}{Equity owned by bank.}\\
+    \url{double} \url{risky_assets} & \parbox{8cm}{Amount of risky assets owned by the bank.}\\
+    \url{double} \url{amount_mortgaged} & \parbox{8cm}{Amount of mortgage given out by the bank.}\\
+\end{longtable}
+
+\printindex
+
+\end{document}
