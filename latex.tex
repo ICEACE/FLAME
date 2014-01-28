@@ -65,7 +65,7 @@
 \midrule
 \parbox{5cm}{\url{int} \url{bank_id}} \index{\url{bank_id}} & \parbox{10cm}{Primary bank of a firm.} \\
 \midrule
-\parbox{5cm}{\url{int} \url{isconstructor}} \index{\url{isconstructor}} & \parbox{10cm}{Identifies if the firm is a constractor firm or not.} \\
+\parbox{5cm}{\url{int} \url{firmtype}} \index{\url{firmtype}} & \parbox{10cm}{Identifies the firm type. 0 regular firm, 1 constructor firm, 2 export firm} \\
 \midrule
 \parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{The day of the month to act at production and labour.} \\
 \midrule
@@ -205,6 +205,10 @@
 \midrule
 \parbox{5cm}{\url{firm_update_bank_account}} \index{\url{firm_update_bank_account}} & \parbox{10cm}{Deposits/updates its liquidity to bank.} \\
 \midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Handles if the firm is not a regular firm.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Works when the firm is a constructor.} \\
+\midrule
 \parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the week to sell.} \\
 \midrule
 \parbox{5cm}{\url{firm_consumption_supply}} \index{\url{firm_consumption_supply}} & \parbox{10cm}{A firm ships its goods to malls.} \\
@@ -251,6 +255,8 @@
 \midrule
 \parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Set the constructor role.} \\
 \midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Set the exporter role.} \\
+\midrule
 \parbox{5cm}{\url{firm_production_produce_goods}} \index{\url{firm_production_produce_goods}} & \parbox{10cm}{Firm audits number of items produced. Updates inventory accordingly.} \\
 \midrule
 \parbox{5cm}{\url{firm_production_set_price}} \index{\url{firm_production_set_price}} & \parbox{10cm}{Firm sets price of goods produced.} \\
@@ -264,6 +270,12 @@
 \parbox{5cm}{\url{firm_production_construction_plan}} \index{\url{firm_production_construction_plan}} & \parbox{10cm}{Firm sets the construction project plan.} \\
 \midrule
 \parbox{5cm}{\url{firm_production_construction_labour_demand}} \index{\url{firm_production_construction_labour_demand}} & \parbox{10cm}{Firm determines required number of labourers for current construction plan.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_export_goods}} \index{\url{firm_production_export_goods}} & \parbox{10cm}{Firm ships export goods to foreign sector} \\
+\midrule
+\parbox{5cm}{\url{firm_production_export_plan}} \index{\url{firm_production_export_plan}} & \parbox{10cm}{Firm export plan.} \\
+\midrule
+\parbox{5cm}{\url{firm_production_export_labour_demand}} \index{\url{firm_production_export_labour_demand}} & \parbox{10cm}{Firm determines required number of labourers for current export plan.} \\
 \midrule
 \parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the start of a quarter.} \\
 \midrule
@@ -324,6 +336,16 @@
 \parbox{5cm}{\url{firm_housing_collect_sale_revenues}} \index{\url{firm_housing_collect_sale_revenues}} & \parbox{10cm}{Firm collects sale revenues.} \\
 \midrule
 \parbox{5cm}{\url{firm_housing_update_market_price}} \index{\url{firm_housing_update_market_price}} & \parbox{10cm}{Firm checks housing prices.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Handles if the firm is not an export firm.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Works when the firm is an export firm.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the month to sell.} \\
+\midrule
+\parbox{5cm}{\url{firm_export_sell}} \index{\url{firm_export_sell}} & \parbox{10cm}{A firm ships its goods to foreign sector.} \\
+\midrule
+\parbox{5cm}{\url{firm_export_receive_sales}} \index{\url{firm_export_receive_sales}} & \parbox{10cm}{A firm recieves sales revenues through the central bank.} \\
 \end{longtable}
 
 \subsection{household}
@@ -997,6 +1019,71 @@
 \parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the day of the month to act.} \\
 \midrule
 \parbox{5cm}{\url{centralbank_trace_housing_prices}} \index{\url{centralbank_trace_housing_prices}} & \parbox{10cm}{It is the day of the month to act.} \\
+\midrule
+\parbox{5cm}{\url{centralbank_export_transactions}} \index{\url{centralbank_export_transactions}} & \parbox{10cm}{central bank processes fx transactions between foreign sector and export firms} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of month.} \\
+\end{longtable}
+
+\subsection{foreignsector}
+
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of memory variables for foreignsector agent.}}
+\label{Table: foreignsector Memory}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{int} \url{id}} \index{\url{id}} & \parbox{10cm}{Agent ID.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{it_no}} \index{\url{it_no}} & \parbox{10cm}{Current iteration. Incremented daily bais.} \\
+\midrule
+\parbox{5cm}{\url{int} \url{day_of_month_to_act}} \index{\url{day_of_month_to_act}} & \parbox{10cm}{Activation day.} \\
+\midrule
+\parbox{5cm}{\url{double} \url{xgoods_unit_price}} \index{\url{xgoods_unit_price}} & \parbox{10cm}{Unit price of export goods} \\
+\end{longtable}
+\begin{longtable}[H!]{ll}
+\caption{{\bfseries List of functions for foreignsector agent.}}
+\label{Table: foreignsector Functions}\\
+\toprule 
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endfirsthead
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\bfseries Name & \bfseries Description \\ \hline 
+\midrule
+\endhead
+\multicolumn{2}{r}{{\emph{Continued on next page}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\midrule
+\parbox{5cm}{\url{foreignsector_init}} \index{\url{foreignsector_init}} & \parbox{10cm}{Agent runtime initilialization.} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{Proceeding with regular agent loop.} \\
+\midrule
+\parbox{5cm}{\url{foreignsector_iterate}} \index{\url{foreignsector_iterate}} & \parbox{10cm}{Regular loop start point.} \\
+\midrule
+\parbox{5cm}{\url{foreignsector_export_buy}} \index{\url{foreignsector_export_buy}} & \parbox{10cm}{Firm sells export goods to foreign sector} \\
+\midrule
+\parbox{5cm}{\url{idle}} \index{\url{idle}} & \parbox{10cm}{It is not the end of month.} \\
+\midrule
+\parbox{5cm}{\url{foreignsector_export_pricing}} \index{\url{foreignsector_export_pricing}} & \parbox{10cm}{foreign sector pricing of export goods from export firms} \\
+\midrule
+\parbox{5cm}{\url{foreignsector_export_pay}} \index{\url{foreignsector_export_pay}} & \parbox{10cm}{foreign sector payment for export goods from export firms to central bank} \\
 \end{longtable}
 
 \subsection{jpoffice}
@@ -1468,6 +1555,18 @@ See Table \ref{Table: Messages}.\begin{longtable}[H!]{ll}
 \url{housing_transactions_summary} & \parbox{10cm}{Monthly transaction summary.}\\
     \url{int} \url{quantity} \index{\url{quantity}} & \parbox{10cm}{Number of housing units sold out.}\\
     \url{double} \url{avg_price} \index{\url{avg_price}} & \parbox{10cm}{Monthly avg price..}\\
+\midrule
+\url{firm_foreignsector_amount} & \parbox{10cm}{amount of goods sold from export firm to foreign sector}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Export firm agent ID.}\\
+    \url{int} \url{amount} \index{\url{amount}} & \parbox{10cm}{Amount of export goods.}\\
+\midrule
+\url{centralbank_firm_revenues} & \parbox{10cm}{revenues from export sales}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Export firm agent ID.}\\
+    \url{double} \url{revenues} \index{\url{revenues}} & \parbox{10cm}{Amount of revenues received from exports.}\\
+\midrule
+\url{foreignsector_centralbank_revenues} & \parbox{10cm}{FX revenues from export sales}\\
+    \url{int} \url{id} \index{\url{id}} & \parbox{10cm}{Export firm agent ID.}\\
+    \url{double} \url{fx_revenues} \index{\url{fx_revenues}} & \parbox{10cm}{Amount of FX revenues received from exports.}\\
 \end{longtable}
 \subsection{Constants}
 \begin{longtable}[H!]{ll}

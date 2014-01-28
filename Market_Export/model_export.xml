@@ -98,7 +98,8 @@
                             </filter>
                         </input>
                     </inputs>
-                </function>                
+                </function>
+            </functions>               
         </xagent>
         <xagent>
             <name>centralbank</name>

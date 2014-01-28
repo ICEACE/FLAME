@@ -9,9 +9,9 @@
 /** \def BANK_ID
  * \brief Direct access to bank_id of firm agent memory variable. */
 #define BANK_ID (current_xmachine_firm->bank_id)
-/** \def ISCONSTRUCTOR
- * \brief Direct access to isconstructor of firm agent memory variable. */
-#define ISCONSTRUCTOR (current_xmachine_firm->isconstructor)
+/** \def FIRMTYPE
+ * \brief Direct access to firmtype of firm agent memory variable. */
+#define FIRMTYPE (current_xmachine_firm->firmtype)
 /** \def DAY_OF_MONTH_TO_ACT
  * \brief Direct access to day_of_month_to_act of firm agent memory variable. */
 #define DAY_OF_MONTH_TO_ACT (current_xmachine_firm->day_of_month_to_act)

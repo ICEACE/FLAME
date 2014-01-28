@@ -2,9 +2,9 @@ digraph communication_graph {
 	rankdir=BT;
 	size="8,5;"
 	layer_0 [ color="#ff0000" label="layer 0"];
-	equityfund_equityfund_init_start_EquityFundLoop [ shape = rect label="equityfund_equityfund_init_start_EquityFundLoop [-33]" ];
+	equityfund_equityfund_init_start_EquityFundLoop [ shape = rect label="equityfund_equityfund_init_start_EquityFundLoop [-35]" ];
 	equityfund_equityfund_init_start_EquityFundLoop -> layer_0;
-	government_government_init_start_GovernmentLoop [ shape = rect label="government_government_init_start_GovernmentLoop [-37]" ];
+	government_government_init_start_GovernmentLoop [ shape = rect label="government_government_init_start_GovernmentLoop [-39]" ];
 	government_government_init_start_GovernmentLoop -> equityfund_equityfund_init_start_EquityFundLoop;
 	reagency_reagency_init_start_REAgencyHousingMarket [ shape = rect label="reagency_reagency_init_start_REAgencyHousingMarket [0]" ];
 	reagency_reagency_init_start_REAgencyHousingMarket -> government_government_init_start_GovernmentLoop;
@@ -14,8 +14,12 @@ digraph communication_graph {
 	jpoffice_idle_start_JPOfficeLoop -> mall_mall_init_start_MallConsumptionMarket;
 	jpoffice_idle_start_JPOfficeInitEmployment [ shape = rect label="jpoffice_idle_start_JPOfficeInitEmployment [0]" ];
 	jpoffice_idle_start_JPOfficeInitEmployment -> jpoffice_idle_start_JPOfficeLoop;
+	foreignsector_idle_start_ForeignsectorLoop [ shape = rect label="foreignsector_idle_start_ForeignsectorLoop [0]" ];
+	foreignsector_idle_start_ForeignsectorLoop -> jpoffice_idle_start_JPOfficeInitEmployment;
+	foreignsector_foreignsector_init_start_ForeignsectorLoop [ shape = rect label="foreignsector_foreignsector_init_start_ForeignsectorLoop [0]" ];
+	foreignsector_foreignsector_init_start_ForeignsectorLoop -> foreignsector_idle_start_ForeignsectorLoop;
 	centralbank_idle_start_CentralBankLoop [ shape = rect label="centralbank_idle_start_CentralBankLoop [0]" ];
-	centralbank_idle_start_CentralBankLoop -> jpoffice_idle_start_JPOfficeInitEmployment;
+	centralbank_idle_start_CentralBankLoop -> foreignsector_foreignsector_init_start_ForeignsectorLoop;
 	centralbank_idle_start_CentralBankInitBalanceSheet [ shape = rect label="centralbank_idle_start_CentralBankInitBalanceSheet [0]" ];
 	centralbank_idle_start_CentralBankInitBalanceSheet -> centralbank_idle_start_CentralBankLoop;
 	government_idle_start_GovernmentLoop [ shape = rect label="government_idle_start_GovernmentLoop [0]" ];
@@ -44,25 +48,29 @@ digraph communication_graph {
 	reagency_idle_REAgencyHousingMarket_REAgencyCreditPolicyChecks -> household_household_init_post_id_HouseholdInitPostId_HouseholdInitEmployment;
 	mall_idle_MallConsumptionMarket_end [ shape = rect label="mall_idle_MallConsumptionMarket_end [0]" ];
 	mall_idle_MallConsumptionMarket_end -> reagency_idle_REAgencyHousingMarket_REAgencyCreditPolicyChecks;
+	foreignsector_foreignsector_iterate_ForeignsectorLoop_ForeignSectorExportsStart [ shape = rect label="foreignsector_foreignsector_iterate_ForeignsectorLoop_ForeignSectorExportsStart [0]" ];
+	foreignsector_foreignsector_iterate_ForeignsectorLoop_ForeignSectorExportsStart -> mall_idle_MallConsumptionMarket_end;
 	government_government_iterate_GovernmentLoop_GovernmentCredit [ shape = rect label="government_government_iterate_GovernmentLoop_GovernmentCredit [0]" ];
-	government_government_iterate_GovernmentLoop_GovernmentCredit -> mall_idle_MallConsumptionMarket_end;
+	government_government_iterate_GovernmentLoop_GovernmentCredit -> foreignsector_foreignsector_iterate_ForeignsectorLoop_ForeignSectorExportsStart;
 	equityfund_equityfund_iterate_EquityFundLoop_EquityFundCredit [ shape = rect label="equityfund_equityfund_iterate_EquityFundLoop_EquityFundCredit [0]" ];
 	equityfund_equityfund_iterate_EquityFundLoop_EquityFundCredit -> government_government_iterate_GovernmentLoop_GovernmentCredit;
 	layer_2 [ color="#ff0000" label="layer 2"];
 	layer_2 ->equityfund_equityfund_iterate_EquityFundLoop_EquityFundCredit;
-	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop [ shape = rect label="jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop [-9]" ];
+	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop [ shape = rect label="jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop [-11]" ];
 	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop -> layer_2;
+	foreignsector_idle_ForeignSectorExportsStart_end [ shape = rect label="foreignsector_idle_ForeignSectorExportsStart_end [0]" ];
+	foreignsector_idle_ForeignSectorExportsStart_end -> jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop;
 	government_idle_GovernmentCredit_GovernmentMonthly [ shape = rect label="government_idle_GovernmentCredit_GovernmentMonthly [0]" ];
-	government_idle_GovernmentCredit_GovernmentMonthly -> jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop;
+	government_idle_GovernmentCredit_GovernmentMonthly -> foreignsector_idle_ForeignSectorExportsStart_end;
 	equityfund_idle_EquityFundCredit_EFLabourMarket [ shape = rect label="equityfund_idle_EquityFundCredit_EFLabourMarket [0]" ];
 	equityfund_idle_EquityFundCredit_EFLabourMarket -> government_idle_GovernmentCredit_GovernmentMonthly;
 	layer_3 [ color="#ff0000" label="layer 3"];
 	layer_3 ->equityfund_idle_EquityFundCredit_EFLabourMarket;
 	jpoffice_jpoffice_iterate_JPOfficeLoop_JPOLabourMarket [ shape = rect label="jpoffice_jpoffice_iterate_JPOfficeLoop_JPOLabourMarket [0]" ];
 	jpoffice_jpoffice_iterate_JPOfficeLoop_JPOLabourMarket -> layer_3;
-	firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet [ shape = rect label="firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet [5]" ];
+	firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet [ shape = rect label="firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet [6]" ];
 	firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet -> jpoffice_jpoffice_iterate_JPOfficeLoop_JPOLabourMarket;
-	household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet [ shape = rect label="household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet [4]" ];
+	household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet [ shape = rect label="household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet [5]" ];
 	household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet -> firm_firm_init_employment_FirmInitEmployment_FirmInitBalanceSheet;
 	layer_4 [ color="#ff0000" label="layer 4"];
 	layer_4 ->household_household_init_employment_HouseholdInitEmployment_HouseholdInitBalanceSheet;
@@ -112,7 +120,7 @@ digraph communication_graph {
 	bank_bank_iterate_BankLoop_BankCreditStart -> layer_9;
 	firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus [ shape = rect label="firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus [0]" ];
 	firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus -> bank_bank_iterate_BankLoop_BankCreditStart;
-	centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop [ shape = rect label="centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop [74]" ];
+	centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop [ shape = rect label="centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop [78]" ];
 	centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop -> firm_firm_credit_check_liquidity_need_FirmCreditLiquidityNeed_FirmCreditStatus;
 	layer_10 [ color="#ff0000" label="layer 10"];
 	layer_10 ->centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop;
@@ -222,7 +230,7 @@ digraph communication_graph {
 	government_government_collect_capital_tax_GovernmentCredit_GovernmentMonthly -> household_household_credit_collect_shares_HHCreditIsCapitalist_HHCreditBalanceSheet;
 	layer_26 [ color="#ff0000" label="layer 26"];
 	layer_26 ->government_government_collect_capital_tax_GovernmentCredit_GovernmentMonthly;
-	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits [ shape = rect label="government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits [-13]" ];
+	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits [ shape = rect label="government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits [-14]" ];
 	government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits -> layer_26;
 	government_idle_GovernmentMonthly_GovernmentFiscalPolicy [ shape = rect label="government_idle_GovernmentMonthly_GovernmentFiscalPolicy [0]" ];
 	government_idle_GovernmentMonthly_GovernmentFiscalPolicy -> government_government_distribute_general_benefits_GovernmentMonthly_GovernmentUnemploymentBenefits;
@@ -236,38 +244,46 @@ digraph communication_graph {
 	bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests -> firm_firm_production_skip_FirmProductionSkip_FirmLabourStart;
 	layer_27 [ color="#ff0000" label="layer 27"];
 	layer_27 ->bank_bank_credit_recieve_new_entrant_loan_requests_BankCreditNewEntrants_BankCreditLoanInterests;
-	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax [ shape = rect label="government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax [-7]" ];
+	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax [ shape = rect label="government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax [-8]" ];
 	government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax -> layer_27;
 	household_idle_HHCreditMonthly_HHLabourStart [ shape = rect label="household_idle_HHCreditMonthly_HHLabourStart [0]" ];
 	household_idle_HHCreditMonthly_HHLabourStart -> government_government_distribute_unemployment_benefits_GovernmentUnemploymentBenefits_GovernmentLabourTax;
+	firm_idle_FirmProductionRoleCheck_FirmProductionExport [ shape = rect label="firm_idle_FirmProductionRoleCheck_FirmProductionExport [0]" ];
+	firm_idle_FirmProductionRoleCheck_FirmProductionExport -> household_idle_HHCreditMonthly_HHLabourStart;
 	firm_idle_FirmProductionRoleCheck_FirmProductionConstructor [ shape = rect label="firm_idle_FirmProductionRoleCheck_FirmProductionConstructor [0]" ];
-	firm_idle_FirmProductionRoleCheck_FirmProductionConstructor -> household_idle_HHCreditMonthly_HHLabourStart;
+	firm_idle_FirmProductionRoleCheck_FirmProductionConstructor -> firm_idle_FirmProductionRoleCheck_FirmProductionExport;
 	firm_idle_FirmProductionRoleCheck_FirmProductionRegular [ shape = rect label="firm_idle_FirmProductionRoleCheck_FirmProductionRegular [0]" ];
 	firm_idle_FirmProductionRoleCheck_FirmProductionRegular -> firm_idle_FirmProductionRoleCheck_FirmProductionConstructor;
 	bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket [ shape = rect label="bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket [20]" ];
 	bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket -> firm_idle_FirmProductionRoleCheck_FirmProductionRegular;
 	layer_28 [ color="#ff0000" label="layer 28"];
 	layer_28 ->bank_bank_credit_collect_loan_interests_BankCreditLoanInterests_BankHousingMarket;
-	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting [ shape = rect label="bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting [-56]" ];
+	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting [ shape = rect label="bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting [-71]" ];
 	bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting -> layer_28;
 	bank_idle_BankHousingMarket_BankUpdateDeposits [ shape = rect label="bank_idle_BankHousingMarket_BankUpdateDeposits [0]" ];
 	bank_idle_BankHousingMarket_BankUpdateDeposits -> bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting;
+	firm_firm_production_export_plan_FirmProductionExport_FirmExportLabourDemand [ shape = rect label="firm_firm_production_export_plan_FirmProductionExport_FirmExportLabourDemand [0]" ];
+	firm_firm_production_export_plan_FirmProductionExport_FirmExportLabourDemand -> bank_idle_BankHousingMarket_BankUpdateDeposits;
+	firm_firm_production_export_goods_FirmProductionExport_FirmLabourStart [ shape = rect label="firm_firm_production_export_goods_FirmProductionExport_FirmLabourStart [0]" ];
+	firm_firm_production_export_goods_FirmProductionExport_FirmLabourStart -> firm_firm_production_export_plan_FirmProductionExport_FirmExportLabourDemand;
 	firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand [ shape = rect label="firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand [0]" ];
-	firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand -> bank_idle_BankHousingMarket_BankUpdateDeposits;
+	firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand -> firm_firm_production_export_goods_FirmProductionExport_FirmLabourStart;
 	firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart [ shape = rect label="firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart [0]" ];
 	firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart -> firm_firm_production_construction_plan_FirmProductionConstructor_FirmConstructionLabourDemand;
 	firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning [ shape = rect label="firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning [0]" ];
 	firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning -> firm_firm_production_construct_houses_FirmProductionConstructor_FirmLabourStart;
 	firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart [ shape = rect label="firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart [0]" ];
 	firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart -> firm_firm_production_set_price_FirmProductionRegular_FirmProductionPlanning;
-	household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [ shape = rect label="household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [20]" ];
+	household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [ shape = rect label="household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart [22]" ];
 	household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart -> firm_firm_production_produce_goods_FirmProductionRegular_FirmLabourStart;
 	layer_29 [ color="#ff0000" label="layer 29"];
 	layer_29 ->household_household_credit_collect_benefits_HHCreditMonthly_HHLabourStart;
 	household_idle_HHLabourStart_HHConsumptionStart [ shape = rect label="household_idle_HHLabourStart_HHConsumptionStart [0]" ];
 	household_idle_HHLabourStart_HHConsumptionStart -> layer_29;
+	firm_firm_production_export_labour_demand_FirmExportLabourDemand_FirmLabourStart [ shape = rect label="firm_firm_production_export_labour_demand_FirmExportLabourDemand_FirmLabourStart [0]" ];
+	firm_firm_production_export_labour_demand_FirmExportLabourDemand_FirmLabourStart -> household_idle_HHLabourStart_HHConsumptionStart;
 	firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart [ shape = rect label="firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart [0]" ];
-	firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart -> household_idle_HHLabourStart_HHConsumptionStart;
+	firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart -> firm_firm_production_export_labour_demand_FirmExportLabourDemand_FirmLabourStart;
 	firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand [ shape = rect label="firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand [0]" ];
 	firm_firm_production_plan_FirmProductionPlanning_FirmProductionLabourDemand -> firm_firm_production_construction_labour_demand_FirmConstructionLabourDemand_FirmLabourStart;
 	layer_30 [ color="#ff0000" label="layer 30"];
@@ -332,22 +348,26 @@ digraph communication_graph {
 	household_household_labour_employment_HHLabourStage1Placement_HHConsumptionStart -> firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmConsumptionStart;
 	layer_41 [ color="#ff0000" label="layer 41"];
 	layer_41 ->household_household_labour_employment_HHLabourStage1Placement_HHConsumptionStart;
-	firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales [ shape = rect label="firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales [-4]" ];
-	firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales -> layer_41;
 	household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly [ shape = rect label="household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly [0]" ];
-	household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly -> firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales;
+	household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly -> layer_41;
 	household_idle_HHConsumptionStart_HHConsumptionWeekly [ shape = rect label="household_idle_HHConsumptionStart_HHConsumptionWeekly [0]" ];
 	household_idle_HHConsumptionStart_HHConsumptionWeekly -> household_household_consumption_compute_budget_HHConsumptionStart_HHConsumptionWeekly;
-	firm_idle_FirmConsumptionStart_FirmHousingStart [ shape = rect label="firm_idle_FirmConsumptionStart_FirmHousingStart [0]" ];
-	firm_idle_FirmConsumptionStart_FirmHousingStart -> household_idle_HHConsumptionStart_HHConsumptionWeekly;
+	firm_idle_FirmConsumptionStart_FirmConsumptionMarket [ shape = rect label="firm_idle_FirmConsumptionStart_FirmConsumptionMarket [0]" ];
+	firm_idle_FirmConsumptionStart_FirmConsumptionMarket -> household_idle_HHConsumptionStart_HHConsumptionWeekly;
+	firm_idle_FirmConsumptionStart_FirmExportStart [ shape = rect label="firm_idle_FirmConsumptionStart_FirmExportStart [0]" ];
+	firm_idle_FirmConsumptionStart_FirmExportStart -> firm_idle_FirmConsumptionStart_FirmConsumptionMarket;
 	layer_42 [ color="#ff0000" label="layer 42"];
-	layer_42 ->firm_idle_FirmConsumptionStart_FirmHousingStart;
-	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods [ shape = rect label="household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods [-2]" ];
-	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods -> layer_42;
+	layer_42 ->firm_idle_FirmConsumptionStart_FirmExportStart;
+	firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales [ shape = rect label="firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales [-2]" ];
+	firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales -> layer_42;
+	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods [ shape = rect label="household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods [-4]" ];
+	household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods -> firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales;
 	household_idle_HHConsumptionWeekly_HHHousingStart [ shape = rect label="household_idle_HHConsumptionWeekly_HHHousingStart [0]" ];
 	household_idle_HHConsumptionWeekly_HHHousingStart -> household_household_consumption_demand_HHConsumptionWeekly_HHConsumptionRecieveGoods;
+	firm_idle_FirmConsumptionMarket_FirmExportStart [ shape = rect label="firm_idle_FirmConsumptionMarket_FirmExportStart [0]" ];
+	firm_idle_FirmConsumptionMarket_FirmExportStart -> household_idle_HHConsumptionWeekly_HHHousingStart;
 	layer_43 [ color="#ff0000" label="layer 43"];
-	layer_43 ->household_idle_HHConsumptionWeekly_HHHousingStart;
+	layer_43 ->firm_idle_FirmConsumptionMarket_FirmExportStart;
 	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ shape = rect label="mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [6]" ];
 	mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary -> layer_43;
 	layer_44 [ color="#ff0000" label="layer 44"];
@@ -364,48 +384,82 @@ digraph communication_graph {
 	household_household_housing_market_role_HHHousingStart_HHHousingRole -> layer_45;
 	household_idle_HHHousingStart_HHLabourPayroll [ shape = rect label="household_idle_HHHousingStart_HHLabourPayroll [0]" ];
 	household_idle_HHHousingStart_HHLabourPayroll -> household_household_housing_market_role_HHHousingStart_HHHousingRole;
-	firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart [ shape = rect label="firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart [6]" ];
-	firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart -> household_idle_HHHousingStart_HHLabourPayroll;
+	firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmExportStart [ shape = rect label="firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmExportStart [6]" ];
+	firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmExportStart -> household_idle_HHHousingStart_HHLabourPayroll;
 	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankConsumptionPrices [ shape = rect label="centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankConsumptionPrices [3]" ];
-	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankConsumptionPrices -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart;
+	centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankConsumptionPrices -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmExportStart;
 	layer_46 [ color="#ff0000" label="layer 46"];
 	layer_46 ->centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankConsumptionPrices;
-	household_household_housing_sell_HHHousingRole_HHHousingRevenue [ shape = rect label="household_household_housing_sell_HHHousingRole_HHHousingRevenue [-10]" ];
+	household_household_housing_sell_HHHousingRole_HHHousingRevenue [ shape = rect label="household_household_housing_sell_HHHousingRole_HHHousingRevenue [-20]" ];
 	household_household_housing_sell_HHHousingRole_HHHousingRevenue -> layer_46;
-	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue [ shape = rect label="household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue [-11]" ];
+	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue [ shape = rect label="household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue [-21]" ];
 	household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue -> household_household_housing_sell_HHHousingRole_HHHousingRevenue;
-	centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankHousing [ shape = rect label="centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankHousing [0]" ];
-	centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankHousing -> household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue;
-	centralbank_idle_CentralBankConsumptionPrices_CentralBankHousing [ shape = rect label="centralbank_idle_CentralBankConsumptionPrices_CentralBankHousing [0]" ];
-	centralbank_idle_CentralBankConsumptionPrices_CentralBankHousing -> centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankHousing;
+	centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankExport [ shape = rect label="centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankExport [0]" ];
+	centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankExport -> household_household_housing_fire_sell_HHHousingRole_HHHousingRevenue;
+	centralbank_idle_CentralBankConsumptionPrices_CentralBankExport [ shape = rect label="centralbank_idle_CentralBankConsumptionPrices_CentralBankExport [0]" ];
+	centralbank_idle_CentralBankConsumptionPrices_CentralBankExport -> centralbank_centralbank_update_price_indices_CentralBankConsumptionPrices_CentralBankExport;
 	household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth [ shape = rect label="household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth [0]" ];
-	household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth -> centralbank_idle_CentralBankConsumptionPrices_CentralBankHousing;
+	household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth -> centralbank_idle_CentralBankConsumptionPrices_CentralBankExport;
 	household_idle_HHHousingRole_HHHousingPrice [ shape = rect label="household_idle_HHHousingRole_HHHousingPrice [0]" ];
 	household_idle_HHHousingRole_HHHousingPrice -> household_household_housing_check_wealth_HHHousingRole_HHHousingCheckWealth;
+	firm_idle_FirmExportStart_FirmExportMarket [ shape = rect label="firm_idle_FirmExportStart_FirmExportMarket [0]" ];
+	firm_idle_FirmExportStart_FirmExportMarket -> household_idle_HHHousingRole_HHHousingPrice;
+	firm_idle_FirmExportStart_FirmHousingStart [ shape = rect label="firm_idle_FirmExportStart_FirmHousingStart [0]" ];
+	firm_idle_FirmExportStart_FirmHousingStart -> firm_idle_FirmExportStart_FirmExportMarket;
+	layer_47 [ color="#ff0000" label="layer 47"];
+	layer_47 ->firm_idle_FirmExportStart_FirmHousingStart;
+	firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales [ shape = rect label="firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales [-2]" ];
+	firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales -> layer_47;
+	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain [ shape = rect label="household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain [-14]" ];
+	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain -> firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales;
+	centralbank_idle_CentralBankExport_CentralBankHousing [ shape = rect label="centralbank_idle_CentralBankExport_CentralBankHousing [0]" ];
+	centralbank_idle_CentralBankExport_CentralBankHousing -> household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain;
+	household_idle_HHHousingCheckWealth_HHHousingPrice [ shape = rect label="household_idle_HHHousingCheckWealth_HHHousingPrice [0]" ];
+	household_idle_HHHousingCheckWealth_HHHousingPrice -> centralbank_idle_CentralBankExport_CentralBankHousing;
+	firm_idle_FirmExportMarket_FirmHousingStart [ shape = rect label="firm_idle_FirmExportMarket_FirmHousingStart [0]" ];
+	firm_idle_FirmExportMarket_FirmHousingStart -> household_idle_HHHousingCheckWealth_HHHousingPrice;
+	layer_48 [ color="#ff0000" label="layer 48"];
+	layer_48 ->firm_idle_FirmExportMarket_FirmHousingStart;
+	foreignsector_foreignsector_export_buy_ForeignSectorExportsStart_ForeignSectorExportsPricing [ shape = rect label="foreignsector_foreignsector_export_buy_ForeignSectorExportsStart_ForeignSectorExportsPricing [2]" ];
+	foreignsector_foreignsector_export_buy_ForeignSectorExportsStart_ForeignSectorExportsPricing -> layer_48;
+	layer_49 [ color="#ff0000" label="layer 49"];
+	layer_49 ->foreignsector_foreignsector_export_buy_ForeignSectorExportsStart_ForeignSectorExportsPricing;
+	foreignsector_foreignsector_export_pricing_ForeignSectorExportsPricing_ForeignSectorExportsPayment [ shape = rect label="foreignsector_foreignsector_export_pricing_ForeignSectorExportsPricing_ForeignSectorExportsPayment [0]" ];
+	foreignsector_foreignsector_export_pricing_ForeignSectorExportsPricing_ForeignSectorExportsPayment -> layer_49;
+	layer_50 [ color="#ff0000" label="layer 50"];
+	layer_50 ->foreignsector_foreignsector_export_pricing_ForeignSectorExportsPricing_ForeignSectorExportsPayment;
+	foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end [ shape = rect label="foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end [-1]" ];
+	foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end -> layer_50;
+	layer_51 [ color="#ff0000" label="layer 51"];
+	layer_51 ->foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end;
+	centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing [ shape = rect label="centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing [-2]" ];
+	centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing -> layer_51;
+	layer_52 [ color="#ff0000" label="layer 52"];
+	layer_52 ->centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing;
+	centralbank_idle_CentralBankHousing_CentralBankLabour [ shape = rect label="centralbank_idle_CentralBankHousing_CentralBankLabour [0]" ];
+	centralbank_idle_CentralBankHousing_CentralBankLabour -> layer_52;
+	firm_firm_export_receive_sales_FirmExportReceiveSales_FirmHousingStart [ shape = rect label="firm_firm_export_receive_sales_FirmExportReceiveSales_FirmHousingStart [2]" ];
+	firm_firm_export_receive_sales_FirmExportReceiveSales_FirmHousingStart -> centralbank_idle_CentralBankHousing_CentralBankLabour;
+	layer_53 [ color="#ff0000" label="layer 53"];
+	layer_53 ->firm_firm_export_receive_sales_FirmExportReceiveSales_FirmHousingStart;
 	firm_idle_FirmHousingStart_FirmHousingMarket [ shape = rect label="firm_idle_FirmHousingStart_FirmHousingMarket [0]" ];
-	firm_idle_FirmHousingStart_FirmHousingMarket -> household_idle_HHHousingRole_HHHousingPrice;
+	firm_idle_FirmHousingStart_FirmHousingMarket -> layer_53;
 	firm_idle_FirmHousingStart_FirmLabourPayWages [ shape = rect label="firm_idle_FirmHousingStart_FirmLabourPayWages [0]" ];
 	firm_idle_FirmHousingStart_FirmLabourPayWages -> firm_idle_FirmHousingStart_FirmHousingMarket;
-	layer_47 [ color="#ff0000" label="layer 47"];
-	layer_47 ->firm_idle_FirmHousingStart_FirmLabourPayWages;
+	layer_54 [ color="#ff0000" label="layer 54"];
+	layer_54 ->firm_idle_FirmHousingStart_FirmLabourPayWages;
 	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell [ shape = rect label="firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell [-2]" ];
-	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> layer_47;
-	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain [ shape = rect label="household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain [-4]" ];
-	household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain -> firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell;
-	centralbank_idle_CentralBankHousing_CentralBankLabour [ shape = rect label="centralbank_idle_CentralBankHousing_CentralBankLabour [0]" ];
-	centralbank_idle_CentralBankHousing_CentralBankLabour -> household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain;
-	household_idle_HHHousingCheckWealth_HHHousingPrice [ shape = rect label="household_idle_HHHousingCheckWealth_HHHousingPrice [0]" ];
-	household_idle_HHHousingCheckWealth_HHHousingPrice -> centralbank_idle_CentralBankHousing_CentralBankLabour;
+	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> layer_54;
 	firm_idle_FirmHousingMarket_FirmLabourPayWages [ shape = rect label="firm_idle_FirmHousingMarket_FirmLabourPayWages [0]" ];
-	firm_idle_FirmHousingMarket_FirmLabourPayWages -> household_idle_HHHousingCheckWealth_HHHousingPrice;
-	layer_48 [ color="#ff0000" label="layer 48"];
-	layer_48 ->firm_idle_FirmHousingMarket_FirmLabourPayWages;
-	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ shape = rect label="reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [62]" ];
-	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> layer_48;
-	layer_49 [ color="#ff0000" label="layer 49"];
-	layer_49 ->reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary;
+	firm_idle_FirmHousingMarket_FirmLabourPayWages -> firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell;
+	layer_55 [ color="#ff0000" label="layer 55"];
+	layer_55 ->firm_idle_FirmHousingMarket_FirmLabourPayWages;
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [ shape = rect label="reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary [87]" ];
+	reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary -> layer_55;
+	layer_56 [ color="#ff0000" label="layer 56"];
+	layer_56 ->reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary;
 	reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks [ shape = rect label="reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks [-14]" ];
-	reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks -> layer_49;
+	reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks -> layer_56;
 	household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [ shape = rect label="household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice [0]" ];
 	household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice -> reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks;
 	firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice [ shape = rect label="firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice [5]" ];
@@ -414,10 +468,10 @@ digraph communication_graph {
 	household_household_housing_buy_HHHousingBargain_HHHousingPrice -> firm_firm_housing_collect_sale_revenues_FirmHousingSell_FirmHousingPrice;
 	bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales [ shape = rect label="bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales [2]" ];
 	bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales -> household_household_housing_buy_HHHousingBargain_HHHousingPrice;
-	layer_50 [ color="#ff0000" label="layer 50"];
-	layer_50 ->bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales;
+	layer_57 [ color="#ff0000" label="layer 57"];
+	layer_57 ->bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales;
 	reagency_idle_REAgencyCreditPolicyChecks_end [ shape = rect label="reagency_idle_REAgencyCreditPolicyChecks_end [0]" ];
-	reagency_idle_REAgencyCreditPolicyChecks_end -> layer_50;
+	reagency_idle_REAgencyCreditPolicyChecks_end -> layer_57;
 	firm_firm_housing_update_market_price_FirmHousingPrice_FirmLabourPayWages [ shape = rect label="firm_firm_housing_update_market_price_FirmHousingPrice_FirmLabourPayWages [9]" ];
 	firm_firm_housing_update_market_price_FirmHousingPrice_FirmLabourPayWages -> reagency_idle_REAgencyCreditPolicyChecks_end;
 	household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments [ shape = rect label="household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments [8]" ];
@@ -426,42 +480,42 @@ digraph communication_graph {
 	centralbank_centralbank_trace_housing_prices_CentralBankHousing_CentralBankLabour -> household_household_housing_update_market_price_HHHousingPrice_HHHousingPayments;
 	bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages [ shape = rect label="bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages [4]" ];
 	bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages -> centralbank_centralbank_trace_housing_prices_CentralBankHousing_CentralBankLabour;
-	layer_51 [ color="#ff0000" label="layer 51"];
-	layer_51 ->bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages;
+	layer_58 [ color="#ff0000" label="layer 58"];
+	layer_58 ->bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages;
 	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff [ shape = rect label="household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff [-4]" ];
-	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff -> layer_51;
+	household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff -> layer_58;
 	firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment [ shape = rect label="firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment [-8]" ];
 	firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment -> household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff;
 	centralbank_idle_CentralBankLabour_CentralBankPolicy [ shape = rect label="centralbank_idle_CentralBankLabour_CentralBankPolicy [0]" ];
 	centralbank_idle_CentralBankLabour_CentralBankPolicy -> firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment;
 	firm_idle_FirmLabourPayWages_FirmUpdateDeposits [ shape = rect label="firm_idle_FirmLabourPayWages_FirmUpdateDeposits [0]" ];
 	firm_idle_FirmLabourPayWages_FirmUpdateDeposits -> centralbank_idle_CentralBankLabour_CentralBankPolicy;
-	layer_52 [ color="#ff0000" label="layer 52"];
-	layer_52 ->firm_idle_FirmLabourPayWages_FirmUpdateDeposits;
+	layer_59 [ color="#ff0000" label="layer 59"];
+	layer_59 ->firm_idle_FirmLabourPayWages_FirmUpdateDeposits;
 	household_household_housing_debt_writeoff_HHHousingWriteOff_HHLabourPayroll [ shape = rect label="household_household_housing_debt_writeoff_HHHousingWriteOff_HHLabourPayroll [-1]" ];
-	household_household_housing_debt_writeoff_HHHousingWriteOff_HHLabourPayroll -> layer_52;
+	household_household_housing_debt_writeoff_HHHousingWriteOff_HHLabourPayroll -> layer_59;
 	bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff [ shape = rect label="bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff [4]" ];
 	bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff -> household_household_housing_debt_writeoff_HHHousingWriteOff_HHLabourPayroll;
 	government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus [ shape = rect label="government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus [2]" ];
 	government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus -> bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff;
-	layer_53 [ color="#ff0000" label="layer 53"];
-	layer_53 ->government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus;
+	layer_60 [ color="#ff0000" label="layer 60"];
+	layer_60 ->government_government_collect_labour_tax_GovernmentLabourTax_GovernmentLabourStatus;
 	household_idle_HHLabourPayroll_HouseholdUpdateDeposits [ shape = rect label="household_idle_HHLabourPayroll_HouseholdUpdateDeposits [0]" ];
-	household_idle_HHLabourPayroll_HouseholdUpdateDeposits -> layer_53;
+	household_idle_HHLabourPayroll_HouseholdUpdateDeposits -> layer_60;
 	household_household_labour_receive_wage_HHLabourPayroll_HHLabourEmploymentStatus [ shape = rect label="household_household_labour_receive_wage_HHLabourPayroll_HHLabourEmploymentStatus [6]" ];
 	household_household_labour_receive_wage_HHLabourPayroll_HHLabourEmploymentStatus -> household_idle_HHLabourPayroll_HouseholdUpdateDeposits;
 	bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits [ shape = rect label="bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits [1]" ];
 	bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits -> household_household_labour_receive_wage_HHLabourPayroll_HHLabourEmploymentStatus;
-	layer_54 [ color="#ff0000" label="layer 54"];
-	layer_54 ->bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits;
+	layer_61 [ color="#ff0000" label="layer 61"];
+	layer_61 ->bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits;
 	household_household_labour_report_status_HHLabourEmploymentStatus_HouseholdUpdateDeposits [ shape = rect label="household_household_labour_report_status_HHLabourEmploymentStatus_HouseholdUpdateDeposits [-1]" ];
-	household_household_labour_report_status_HHLabourEmploymentStatus_HouseholdUpdateDeposits -> layer_54;
+	household_household_labour_report_status_HHLabourEmploymentStatus_HouseholdUpdateDeposits -> layer_61;
 	bank_idle_BankUpdateDeposits_BankCreditPolicyChecks [ shape = rect label="bank_idle_BankUpdateDeposits_BankCreditPolicyChecks [0]" ];
 	bank_idle_BankUpdateDeposits_BankCreditPolicyChecks -> household_household_labour_report_status_HHLabourEmploymentStatus_HouseholdUpdateDeposits;
-	layer_55 [ color="#ff0000" label="layer 55"];
-	layer_55 ->bank_idle_BankUpdateDeposits_BankCreditPolicyChecks;
+	layer_62 [ color="#ff0000" label="layer 62"];
+	layer_62 ->bank_idle_BankUpdateDeposits_BankCreditPolicyChecks;
 	household_household_update_bank_account_HouseholdUpdateDeposits_HHCreditPolicyChecks [ shape = rect label="household_household_update_bank_account_HouseholdUpdateDeposits_HHCreditPolicyChecks [-12]" ];
-	household_household_update_bank_account_HouseholdUpdateDeposits_HHCreditPolicyChecks -> layer_55;
+	household_household_update_bank_account_HouseholdUpdateDeposits_HHCreditPolicyChecks -> layer_62;
 	household_idle_HouseholdUpdateDeposits_HHCreditPolicyChecks [ shape = rect label="household_idle_HouseholdUpdateDeposits_HHCreditPolicyChecks [0]" ];
 	household_idle_HouseholdUpdateDeposits_HHCreditPolicyChecks -> household_household_update_bank_account_HouseholdUpdateDeposits_HHCreditPolicyChecks;
 	firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmUpdateDeposits [ shape = rect label="firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmUpdateDeposits [6]" ];
@@ -472,10 +526,10 @@ digraph communication_graph {
 	government_government_trace_unemployment_status_GovernmentLabourStatus_GovernmentFiscalPolicy -> equityfund_equityfund_audit_dividends_EFLabourMarket_EFCreditIncomeStatement;
 	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPolicy [ shape = rect label="centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPolicy [1]" ];
 	centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPolicy -> government_government_trace_unemployment_status_GovernmentLabourStatus_GovernmentFiscalPolicy;
-	layer_56 [ color="#ff0000" label="layer 56"];
-	layer_56 ->centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPolicy;
+	layer_63 [ color="#ff0000" label="layer 63"];
+	layer_63 ->centralbank_centralbank_trace_unemployment_status_CentralBankLabour_CentralBankPolicy;
 	firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks [ shape = rect label="firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks [-3]" ];
-	firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks -> layer_56;
+	firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks -> layer_63;
 	centralbank_centralbank_compute_income_statement_CentralBankPolicy_CentralBankGovernmentRequests [ shape = rect label="centralbank_centralbank_compute_income_statement_CentralBankPolicy_CentralBankGovernmentRequests [-8]" ];
 	centralbank_centralbank_compute_income_statement_CentralBankPolicy_CentralBankGovernmentRequests -> firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks;
 	centralbank_idle_CentralBankPolicy_end [ shape = rect label="centralbank_idle_CentralBankPolicy_end [0]" ];
@@ -490,62 +544,62 @@ digraph communication_graph {
 	household_idle_HHCreditPolicyChecks_end -> equityfund_idle_EFCreditIncomeStatement_end;
 	firm_idle_FirmUpdateDeposits_FirmCreditPolicyChecks [ shape = rect label="firm_idle_FirmUpdateDeposits_FirmCreditPolicyChecks [0]" ];
 	firm_idle_FirmUpdateDeposits_FirmCreditPolicyChecks -> household_idle_HHCreditPolicyChecks_end;
-	layer_57 [ color="#ff0000" label="layer 57"];
-	layer_57 ->firm_idle_FirmUpdateDeposits_FirmCreditPolicyChecks;
+	layer_64 [ color="#ff0000" label="layer 64"];
+	layer_64 ->firm_idle_FirmUpdateDeposits_FirmCreditPolicyChecks;
 	equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditPolicyChecks [ shape = rect label="equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditPolicyChecks [-7]" ];
-	equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditPolicyChecks -> layer_57;
+	equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditPolicyChecks -> layer_64;
 	firm_idle_FirmCreditPolicyChecks_end [ shape = rect label="firm_idle_FirmCreditPolicyChecks_end [0]" ];
 	firm_idle_FirmCreditPolicyChecks_end -> equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditPolicyChecks;
 	bank_bank_update_deposits_BankUpdateDeposits_BankCreditPolicyChecks [ shape = rect label="bank_bank_update_deposits_BankUpdateDeposits_BankCreditPolicyChecks [15]" ];
 	bank_bank_update_deposits_BankUpdateDeposits_BankCreditPolicyChecks -> firm_idle_FirmCreditPolicyChecks_end;
 	government_government_collect_centralbank_profit_GovernmentFiscalPolicy_GovernmentIncomeStatement [ shape = rect label="government_government_collect_centralbank_profit_GovernmentFiscalPolicy_GovernmentIncomeStatement [8]" ];
 	government_government_collect_centralbank_profit_GovernmentFiscalPolicy_GovernmentIncomeStatement -> bank_bank_update_deposits_BankUpdateDeposits_BankCreditPolicyChecks;
-	layer_58 [ color="#ff0000" label="layer 58"];
-	layer_58 ->government_government_collect_centralbank_profit_GovernmentFiscalPolicy_GovernmentIncomeStatement;
+	layer_65 [ color="#ff0000" label="layer 65"];
+	layer_65 ->government_government_collect_centralbank_profit_GovernmentFiscalPolicy_GovernmentIncomeStatement;
 	government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet [ shape = rect label="government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet [0]" ];
-	government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet -> layer_58;
+	government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet -> layer_65;
 	bank_idle_BankCreditPolicyChecks_end [ shape = rect label="bank_idle_BankCreditPolicyChecks_end [0]" ];
 	bank_idle_BankCreditPolicyChecks_end -> government_government_compute_income_statement_GovernmentIncomeStatement_GovernmentBalanceSheet;
-	layer_59 [ color="#ff0000" label="layer 59"];
-	layer_59 ->bank_idle_BankCreditPolicyChecks_end;
+	layer_66 [ color="#ff0000" label="layer 66"];
+	layer_66 ->bank_idle_BankCreditPolicyChecks_end;
 	government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy [ shape = rect label="government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy [-3]" ];
-	government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy -> layer_59;
-	layer_60 [ color="#ff0000" label="layer 60"];
-	layer_60 ->government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy;
+	government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy -> layer_66;
+	layer_67 [ color="#ff0000" label="layer 67"];
+	layer_67 ->government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy;
 	government_government_update_fiscal_policy_GovernmentUpdatePolicy_end [ shape = rect label="government_government_update_fiscal_policy_GovernmentUpdatePolicy_end [-11]" ];
-	government_government_update_fiscal_policy_GovernmentUpdatePolicy_end -> layer_60;
+	government_government_update_fiscal_policy_GovernmentUpdatePolicy_end -> layer_67;
 	centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet [ shape = rect label="centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet [3]" ];
 	centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet -> government_government_update_fiscal_policy_GovernmentUpdatePolicy_end;
-	layer_61 [ color="#ff0000" label="layer 61"];
-	layer_61 ->centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet;
+	layer_68 [ color="#ff0000" label="layer 68"];
+	layer_68 ->centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet;
 	centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankUpdateInterestRate [ shape = rect label="centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankUpdateInterestRate [7]" ];
-	centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankUpdateInterestRate -> layer_61;
+	centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankUpdateInterestRate -> layer_68;
 	equityfund_equityfund_credit_check_tax_rate_EFCreditPolicyChecks_end [ shape = rect label="equityfund_equityfund_credit_check_tax_rate_EFCreditPolicyChecks_end [2]" ];
 	equityfund_equityfund_credit_check_tax_rate_EFCreditPolicyChecks_end -> centralbank_centralbank_do_balance_sheet_CentralBankBalanceSheet_CentralBankUpdateInterestRate;
-	layer_62 [ color="#ff0000" label="layer 62"];
-	layer_62 ->equityfund_equityfund_credit_check_tax_rate_EFCreditPolicyChecks_end;
+	layer_69 [ color="#ff0000" label="layer 69"];
+	layer_69 ->equityfund_equityfund_credit_check_tax_rate_EFCreditPolicyChecks_end;
 	centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end [ shape = rect label="centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end [-1]" ];
-	centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end -> layer_62;
-	layer_63 [ color="#ff0000" label="layer 63"];
-	layer_63 ->centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end;
+	centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end -> layer_69;
+	layer_70 [ color="#ff0000" label="layer 70"];
+	layer_70 ->centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end;
 	firm_firm_credit_check_interest_rate_FirmCreditPolicyChecks_FirmCreditCheckTaxRate [ shape = rect label="firm_firm_credit_check_interest_rate_FirmCreditPolicyChecks_FirmCreditCheckTaxRate [4]" ];
-	firm_firm_credit_check_interest_rate_FirmCreditPolicyChecks_FirmCreditCheckTaxRate -> layer_63;
+	firm_firm_credit_check_interest_rate_FirmCreditPolicyChecks_FirmCreditCheckTaxRate -> layer_70;
 	household_household_credit_check_interest_rate_HHCreditPolicyChecks_HHCreditUpdateAnnuity [ shape = rect label="household_household_credit_check_interest_rate_HHCreditPolicyChecks_HHCreditUpdateAnnuity [3]" ];
 	household_household_credit_check_interest_rate_HHCreditPolicyChecks_HHCreditUpdateAnnuity -> firm_firm_credit_check_interest_rate_FirmCreditPolicyChecks_FirmCreditCheckTaxRate;
 	bank_bank_credit_check_interest_rate_BankCreditPolicyChecks_end [ shape = rect label="bank_bank_credit_check_interest_rate_BankCreditPolicyChecks_end [2]" ];
 	bank_bank_credit_check_interest_rate_BankCreditPolicyChecks_end -> household_household_credit_check_interest_rate_HHCreditPolicyChecks_HHCreditUpdateAnnuity;
 	reagency_reagency_check_interest_rate_REAgencyCreditPolicyChecks_end [ shape = rect label="reagency_reagency_check_interest_rate_REAgencyCreditPolicyChecks_end [1]" ];
 	reagency_reagency_check_interest_rate_REAgencyCreditPolicyChecks_end -> bank_bank_credit_check_interest_rate_BankCreditPolicyChecks_end;
-	layer_64 [ color="#ff0000" label="layer 64"];
-	layer_64 ->reagency_reagency_check_interest_rate_REAgencyCreditPolicyChecks_end;
+	layer_71 [ color="#ff0000" label="layer 71"];
+	layer_71 ->reagency_reagency_check_interest_rate_REAgencyCreditPolicyChecks_end;
 	household_household_credit_update_mortgage_rates_HHCreditUpdateAnnuity_HHCreditCheckTaxRate [ shape = rect label="household_household_credit_update_mortgage_rates_HHCreditUpdateAnnuity_HHCreditCheckTaxRate [0]" ];
-	household_household_credit_update_mortgage_rates_HHCreditUpdateAnnuity_HHCreditCheckTaxRate -> layer_64;
+	household_household_credit_update_mortgage_rates_HHCreditUpdateAnnuity_HHCreditCheckTaxRate -> layer_71;
 	firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_end [ shape = rect label="firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_end [9]" ];
 	firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_end -> household_household_credit_update_mortgage_rates_HHCreditUpdateAnnuity_HHCreditCheckTaxRate;
-	layer_65 [ color="#ff0000" label="layer 65"];
-	layer_65 ->firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_end;
+	layer_72 [ color="#ff0000" label="layer 72"];
+	layer_72 ->firm_firm_credit_check_tax_rate_FirmCreditCheckTaxRate_end;
 	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_end [ shape = rect label="household_household_credit_check_tax_rate_HHCreditCheckTaxRate_end [10]" ];
-	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_end -> layer_65;
+	household_household_credit_check_tax_rate_HHCreditCheckTaxRate_end -> layer_72;
 	firm_bank_init_loans_message [ label = "firm_bank_init_loans" color="#00ff00" shape = parallelogram];
 	firm_bank_init_loans_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
 	firm_bank_init_loans_message_sync_start_0 -> firm_bank_init_loans_message [ color="#00ff00" label="firm_bank_init_loans_5"];
@@ -566,7 +620,7 @@ digraph communication_graph {
 	{ rank=same; bank_bank_init_deposits_BankInitDeposits_BankInitBalanceSheet; firm_bank_init_deposit_message_sync_end_0; }
 	firm_bank_update_deposit_message [ label = "firm_bank_update_deposit" color="#00ff00" shape = parallelogram];
 	firm_bank_update_deposit_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	firm_bank_update_deposit_message_sync_start_0 -> firm_bank_update_deposit_message [ color="#00ff00" label="firm_bank_update_deposit_57"];
+	firm_bank_update_deposit_message_sync_start_0 -> firm_bank_update_deposit_message [ color="#00ff00" label="firm_bank_update_deposit_64"];
 	{ rank=same; firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks; firm_bank_update_deposit_message_sync_start_0; }
 	firm_bank_update_deposit_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	firm_bank_update_deposit_message_sync_end_0 -> firm_bank_update_deposit_message_sync_start_0 [ color="#00ff00" ];
@@ -593,7 +647,7 @@ digraph communication_graph {
 	{ rank=same; bank_bank_init_deposits_BankInitDeposits_BankInitBalanceSheet; household_bank_init_deposit_message_sync_end_0; }
 	household_bank_update_deposit_message [ label = "household_bank_update_deposit" color="#00ff00" shape = parallelogram];
 	household_bank_update_deposit_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	household_bank_update_deposit_message_sync_start_0 -> household_bank_update_deposit_message [ color="#00ff00" label="household_bank_update_deposit_57"];
+	household_bank_update_deposit_message_sync_start_0 -> household_bank_update_deposit_message [ color="#00ff00" label="household_bank_update_deposit_64"];
 	{ rank=same; household_household_update_bank_account_HouseholdUpdateDeposits_HHCreditPolicyChecks; household_bank_update_deposit_message_sync_start_0; }
 	household_bank_update_deposit_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	household_bank_update_deposit_message_sync_end_0 -> household_bank_update_deposit_message_sync_start_0 [ color="#00ff00" ];
@@ -638,7 +692,7 @@ digraph communication_graph {
 	{ rank=same; centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop; fund_centralbank_init_deposit_message_sync_end_0; }
 	fund_centralbank_update_deposit_message [ label = "fund_centralbank_update_deposit" color="#00ff00" shape = parallelogram];
 	fund_centralbank_update_deposit_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	fund_centralbank_update_deposit_message_sync_start_0 -> fund_centralbank_update_deposit_message [ color="#00ff00" label="fund_centralbank_update_deposit_61"];
+	fund_centralbank_update_deposit_message_sync_start_0 -> fund_centralbank_update_deposit_message [ color="#00ff00" label="fund_centralbank_update_deposit_68"];
 	{ rank=same; equityfund_equityfund_credit_do_balance_sheet_EFCreditBalanceSheet_EFCreditPolicyChecks; fund_centralbank_update_deposit_message_sync_start_0; }
 	fund_centralbank_update_deposit_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	fund_centralbank_update_deposit_message_sync_end_0 -> fund_centralbank_update_deposit_message_sync_start_0 [ color="#00ff00" ];
@@ -656,7 +710,7 @@ digraph communication_graph {
 	{ rank=same; centralbank_centralbank_init_balancesheet_CentralBankInitBalanceSheet_CentralBankLoop; gov_centralbank_init_deposit_message_sync_end_0; }
 	gov_centralbank_update_deposit_message [ label = "gov_centralbank_update_deposit" color="#00ff00" shape = parallelogram];
 	gov_centralbank_update_deposit_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	gov_centralbank_update_deposit_message_sync_start_0 -> gov_centralbank_update_deposit_message [ color="#00ff00" label="gov_centralbank_update_deposit_60"];
+	gov_centralbank_update_deposit_message_sync_start_0 -> gov_centralbank_update_deposit_message [ color="#00ff00" label="gov_centralbank_update_deposit_67"];
 	{ rank=same; government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy; gov_centralbank_update_deposit_message_sync_start_0; }
 	gov_centralbank_update_deposit_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	gov_centralbank_update_deposit_message_sync_end_0 -> gov_centralbank_update_deposit_message_sync_start_0 [ color="#00ff00" ];
@@ -665,7 +719,7 @@ digraph communication_graph {
 	{ rank=same; centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet; gov_centralbank_update_deposit_message_sync_end_0; }
 	interest_rate_message [ label = "interest_rate" color="#00ff00" shape = parallelogram];
 	interest_rate_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	interest_rate_message_sync_start_0 -> interest_rate_message [ color="#00ff00" label="interest_rate_63"];
+	interest_rate_message_sync_start_0 -> interest_rate_message [ color="#00ff00" label="interest_rate_70"];
 	{ rank=same; centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end; interest_rate_message_sync_start_0; }
 	interest_rate_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	interest_rate_message_sync_end_0 -> interest_rate_message_sync_start_0 [ color="#00ff00" ];
@@ -677,7 +731,7 @@ digraph communication_graph {
 	{ rank=same; firm_firm_credit_check_interest_rate_FirmCreditPolicyChecks_FirmCreditCheckTaxRate; interest_rate_message_sync_end_0; }
 	capital_tax_rate_message [ label = "capital_tax_rate" color="#00ff00" shape = parallelogram];
 	capital_tax_rate_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	capital_tax_rate_message_sync_start_0 -> capital_tax_rate_message [ color="#00ff00" label="capital_tax_rate_61"];
+	capital_tax_rate_message_sync_start_0 -> capital_tax_rate_message [ color="#00ff00" label="capital_tax_rate_68"];
 	{ rank=same; government_government_update_fiscal_policy_GovernmentUpdatePolicy_end; capital_tax_rate_message_sync_start_0; }
 	capital_tax_rate_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	capital_tax_rate_message_sync_end_0 -> capital_tax_rate_message_sync_start_0 [ color="#00ff00" ];
@@ -686,7 +740,7 @@ digraph communication_graph {
 	{ rank=same; equityfund_equityfund_credit_check_tax_rate_EFCreditPolicyChecks_end; capital_tax_rate_message_sync_end_0; }
 	labour_tax_rate_message [ label = "labour_tax_rate" color="#00ff00" shape = parallelogram];
 	labour_tax_rate_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	labour_tax_rate_message_sync_start_0 -> labour_tax_rate_message [ color="#00ff00" label="labour_tax_rate_64"];
+	labour_tax_rate_message_sync_start_0 -> labour_tax_rate_message [ color="#00ff00" label="labour_tax_rate_71"];
 	{ rank=same; government_government_update_fiscal_policy_GovernmentUpdatePolicy_end; labour_tax_rate_message_sync_start_0; }
 	labour_tax_rate_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	labour_tax_rate_message_sync_end_0 -> labour_tax_rate_message_sync_start_0 [ color="#00ff00" ];
@@ -751,11 +805,11 @@ digraph communication_graph {
 	sell_message [ label = "sell" color="#00ff00" shape = parallelogram];
 	sell_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
 	sell_message_sync_start_0 -> sell_message [ color="#00ff00" label="sell_43"];
-	{ rank=same; firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales; sell_message_sync_start_0; }
+	{ rank=same; firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales; sell_message_sync_start_0; }
 	sell_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	sell_message_sync_end_0 -> sell_message_sync_start_0 [ color="#00ff00" ];
 	sell_message_sync_end_0 -> mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary [ color="#00ff00" constraint=false ];
-	sell_message_sync_start_0 -> firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales [ color="#00ff00", constraint=false, style=dashed ];
+	sell_message_sync_start_0 -> firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales [ color="#00ff00", constraint=false, style=dashed ];
 	{ rank=same; mall_mall_consumption_shopping_MallConsumptionMarket_MallConsumptionSummary; sell_message_sync_end_0; }
 	sold_message [ label = "sold" color="#00ff00" shape = parallelogram];
 	sold_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
@@ -772,10 +826,10 @@ digraph communication_graph {
 	{ rank=same; mall_mall_consumption_summary_MallConsumptionSummary_end; goods_transactions_summary_message_sync_start_0; }
 	goods_transactions_summary_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	goods_transactions_summary_message_sync_end_0 -> goods_transactions_summary_message_sync_start_0 [ color="#00ff00" ];
-	goods_transactions_summary_message_sync_end_0 -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart [ color="#00ff00" constraint=false ];
+	goods_transactions_summary_message_sync_end_0 -> firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmExportStart [ color="#00ff00" constraint=false ];
 	goods_transactions_summary_message_sync_end_0 -> centralbank_centralbank_trace_goods_prices_CentralBankConsumption_CentralBankConsumptionPrices [ color="#00ff00" constraint=false ];
 	goods_transactions_summary_message_sync_start_0 -> mall_mall_consumption_summary_MallConsumptionSummary_end [ color="#00ff00", constraint=false, style=dashed ];
-	{ rank=same; firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmHousingStart; goods_transactions_summary_message_sync_end_0; }
+	{ rank=same; firm_firm_consumption_update_market_price_FirmConsumptionPrice_FirmExportStart; goods_transactions_summary_message_sync_end_0; }
 	fired_message [ label = "fired" color="#00ff00" shape = parallelogram];
 	fired_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
 	fired_message_sync_start_0 -> fired_message [ color="#00ff00" label="fired_33"];
@@ -852,7 +906,7 @@ digraph communication_graph {
 	{ rank=same; firm_firm_labour_job_offer_stage2_FirmLabourStage2End_FirmConsumptionStart; job_match_stage2_message_sync_end_0; }
 	employment_status_message [ label = "employment_status" color="#00ff00" shape = parallelogram];
 	employment_status_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	employment_status_message_sync_start_0 -> employment_status_message [ color="#00ff00" label="employment_status_55"];
+	employment_status_message_sync_start_0 -> employment_status_message [ color="#00ff00" label="employment_status_62"];
 	{ rank=same; household_household_labour_report_status_HHLabourEmploymentStatus_HouseholdUpdateDeposits; employment_status_message_sync_start_0; }
 	employment_status_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	employment_status_message_sync_end_0 -> employment_status_message_sync_start_0 [ color="#00ff00" ];
@@ -864,7 +918,7 @@ digraph communication_graph {
 	{ rank=same; firm_firm_labour_trace_wages_FirmLabourWageAdjustment_FirmUpdateDeposits; employment_status_message_sync_end_0; }
 	firm_household_wage_payment_message [ label = "firm_household_wage_payment" color="#00ff00" shape = parallelogram];
 	firm_household_wage_payment_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	firm_household_wage_payment_message_sync_start_0 -> firm_household_wage_payment_message [ color="#00ff00" label="firm_household_wage_payment_53"];
+	firm_household_wage_payment_message_sync_start_0 -> firm_household_wage_payment_message [ color="#00ff00" label="firm_household_wage_payment_60"];
 	{ rank=same; firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment; firm_household_wage_payment_message_sync_start_0; }
 	firm_household_wage_payment_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	firm_household_wage_payment_message_sync_end_0 -> firm_household_wage_payment_message_sync_start_0 [ color="#00ff00" ];
@@ -936,7 +990,7 @@ digraph communication_graph {
 	{ rank=same; government_government_collect_capital_tax_GovernmentCredit_GovernmentMonthly; capital_tax_message_sync_end_0; }
 	labour_tax_message [ label = "labour_tax" color="#00ff00" shape = parallelogram];
 	labour_tax_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	labour_tax_message_sync_start_0 -> labour_tax_message [ color="#00ff00" label="labour_tax_52"];
+	labour_tax_message_sync_start_0 -> labour_tax_message [ color="#00ff00" label="labour_tax_59"];
 	{ rank=same; firm_firm_labour_pay_wages_FirmLabourPayWages_FirmLabourWageAdjustment; labour_tax_message_sync_start_0; }
 	labour_tax_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	labour_tax_message_sync_end_0 -> labour_tax_message_sync_start_0 [ color="#00ff00" ];
@@ -1054,7 +1108,7 @@ digraph communication_graph {
 	{ rank=same; centralbank_centralbank_process_debt_requests_CentralBankDebtRequests_CentralBankConsumption; bank_centralbank_debt_payment_message_sync_end_0; }
 	gov_centralbank_debt_request_message [ label = "gov_centralbank_debt_request" color="#00ff00" shape = parallelogram];
 	gov_centralbank_debt_request_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	gov_centralbank_debt_request_message_sync_start_0 -> gov_centralbank_debt_request_message [ color="#00ff00" label="gov_centralbank_debt_request_60"];
+	gov_centralbank_debt_request_message_sync_start_0 -> gov_centralbank_debt_request_message [ color="#00ff00" label="gov_centralbank_debt_request_67"];
 	{ rank=same; government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy; gov_centralbank_debt_request_message_sync_start_0; }
 	gov_centralbank_debt_request_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	gov_centralbank_debt_request_message_sync_end_0 -> gov_centralbank_debt_request_message_sync_start_0 [ color="#00ff00" ];
@@ -1063,7 +1117,7 @@ digraph communication_graph {
 	{ rank=same; centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet; gov_centralbank_debt_request_message_sync_end_0; }
 	gov_centralbank_debt_payment_message [ label = "gov_centralbank_debt_payment" color="#00ff00" shape = parallelogram];
 	gov_centralbank_debt_payment_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	gov_centralbank_debt_payment_message_sync_start_0 -> gov_centralbank_debt_payment_message [ color="#00ff00" label="gov_centralbank_debt_payment_60"];
+	gov_centralbank_debt_payment_message_sync_start_0 -> gov_centralbank_debt_payment_message [ color="#00ff00" label="gov_centralbank_debt_payment_67"];
 	{ rank=same; government_government_do_balance_sheet_GovernmentBalanceSheet_GovernmentUpdatePolicy; gov_centralbank_debt_payment_message_sync_start_0; }
 	gov_centralbank_debt_payment_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	gov_centralbank_debt_payment_message_sync_end_0 -> gov_centralbank_debt_payment_message_sync_start_0 [ color="#00ff00" ];
@@ -1072,7 +1126,7 @@ digraph communication_graph {
 	{ rank=same; centralbank_centralbank_process_government_requests_CentralBankGovernmentRequests_CentralBankBalanceSheet; gov_centralbank_debt_payment_message_sync_end_0; }
 	centralbank_government_profit_message [ label = "centralbank_government_profit" color="#00ff00" shape = parallelogram];
 	centralbank_government_profit_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	centralbank_government_profit_message_sync_start_0 -> centralbank_government_profit_message [ color="#00ff00" label="centralbank_government_profit_57"];
+	centralbank_government_profit_message_sync_start_0 -> centralbank_government_profit_message [ color="#00ff00" label="centralbank_government_profit_64"];
 	{ rank=same; centralbank_centralbank_compute_income_statement_CentralBankPolicy_CentralBankGovernmentRequests; centralbank_government_profit_message_sync_start_0; }
 	centralbank_government_profit_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	centralbank_government_profit_message_sync_end_0 -> centralbank_government_profit_message_sync_start_0 [ color="#00ff00" ];
@@ -1081,7 +1135,7 @@ digraph communication_graph {
 	{ rank=same; government_government_collect_centralbank_profit_GovernmentFiscalPolicy_GovernmentIncomeStatement; centralbank_government_profit_message_sync_end_0; }
 	housing_price_message [ label = "housing_price" color="#00ff00" shape = parallelogram];
 	housing_price_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	housing_price_message_sync_start_0 -> housing_price_message [ color="#00ff00" label="housing_price_50"];
+	housing_price_message_sync_start_0 -> housing_price_message [ color="#00ff00" label="housing_price_57"];
 	{ rank=same; reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks; housing_price_message_sync_start_0; }
 	housing_price_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	housing_price_message_sync_end_0 -> housing_price_message_sync_start_0 [ color="#00ff00" ];
@@ -1091,7 +1145,7 @@ digraph communication_graph {
 	{ rank=same; firm_firm_housing_update_market_price_FirmHousingPrice_FirmLabourPayWages; housing_price_message_sync_end_0; }
 	buy_housing_message [ label = "buy_housing" color="#00ff00" shape = parallelogram];
 	buy_housing_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	buy_housing_message_sync_start_0 -> buy_housing_message [ color="#00ff00" label="buy_housing_48"];
+	buy_housing_message_sync_start_0 -> buy_housing_message [ color="#00ff00" label="buy_housing_55"];
 	{ rank=same; household_household_housing_enter_market_HHHousingCheckWealth_HHHousingBargain; buy_housing_message_sync_start_0; }
 	buy_housing_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	buy_housing_message_sync_end_0 -> buy_housing_message_sync_start_0 [ color="#00ff00" ];
@@ -1100,7 +1154,7 @@ digraph communication_graph {
 	{ rank=same; reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; buy_housing_message_sync_end_0; }
 	sell_housing_message [ label = "sell_housing" color="#00ff00" shape = parallelogram];
 	sell_housing_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	sell_housing_message_sync_start_0 -> sell_housing_message [ color="#00ff00" label="sell_housing_48"];
+	sell_housing_message_sync_start_0 -> sell_housing_message [ color="#00ff00" label="sell_housing_55"];
 	{ rank=same; firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell; sell_housing_message_sync_start_0; }
 	sell_housing_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	sell_housing_message_sync_end_0 -> sell_housing_message_sync_start_0 [ color="#00ff00" ];
@@ -1111,7 +1165,7 @@ digraph communication_graph {
 	{ rank=same; reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; sell_housing_message_sync_end_0; }
 	bought_housing_message [ label = "bought_housing" color="#00ff00" shape = parallelogram];
 	bought_housing_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	bought_housing_message_sync_start_0 -> bought_housing_message [ color="#00ff00" label="bought_housing_49"];
+	bought_housing_message_sync_start_0 -> bought_housing_message [ color="#00ff00" label="bought_housing_56"];
 	{ rank=same; reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; bought_housing_message_sync_start_0; }
 	bought_housing_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	bought_housing_message_sync_end_0 -> bought_housing_message_sync_start_0 [ color="#00ff00" ];
@@ -1120,7 +1174,7 @@ digraph communication_graph {
 	{ rank=same; household_household_housing_buy_HHHousingBargain_HHHousingPrice; bought_housing_message_sync_end_0; }
 	sold_housing_message [ label = "sold_housing" color="#00ff00" shape = parallelogram];
 	sold_housing_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	sold_housing_message_sync_start_0 -> sold_housing_message [ color="#00ff00" label="sold_housing_49"];
+	sold_housing_message_sync_start_0 -> sold_housing_message [ color="#00ff00" label="sold_housing_56"];
 	{ rank=same; reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; sold_housing_message_sync_start_0; }
 	sold_housing_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	sold_housing_message_sync_end_0 -> sold_housing_message_sync_start_0 [ color="#00ff00" ];
@@ -1130,7 +1184,7 @@ digraph communication_graph {
 	{ rank=same; household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice; sold_housing_message_sync_end_0; }
 	bank_reagency_credibility_message [ label = "bank_reagency_credibility" color="#00ff00" shape = parallelogram];
 	bank_reagency_credibility_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	bank_reagency_credibility_message_sync_start_0 -> bank_reagency_credibility_message [ color="#00ff00" label="bank_reagency_credibility_48"];
+	bank_reagency_credibility_message_sync_start_0 -> bank_reagency_credibility_message [ color="#00ff00" label="bank_reagency_credibility_55"];
 	{ rank=same; bank_bank_housing_compute_capital_status_BankHousingMarket_BankHousingCrediting; bank_reagency_credibility_message_sync_start_0; }
 	bank_reagency_credibility_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	bank_reagency_credibility_message_sync_end_0 -> bank_reagency_credibility_message_sync_start_0 [ color="#00ff00" ];
@@ -1139,7 +1193,7 @@ digraph communication_graph {
 	{ rank=same; reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; bank_reagency_credibility_message_sync_end_0; }
 	mortgage_requests_message [ label = "mortgage_requests" color="#00ff00" shape = parallelogram];
 	mortgage_requests_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	mortgage_requests_message_sync_start_0 -> mortgage_requests_message [ color="#00ff00" label="mortgage_requests_49"];
+	mortgage_requests_message_sync_start_0 -> mortgage_requests_message [ color="#00ff00" label="mortgage_requests_56"];
 	{ rank=same; reagency_reagency_housing_process_REAgencyHousingMarket_REAgencyHousingSummary; mortgage_requests_message_sync_start_0; }
 	mortgage_requests_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	mortgage_requests_message_sync_end_0 -> mortgage_requests_message_sync_start_0 [ color="#00ff00" ];
@@ -1148,7 +1202,7 @@ digraph communication_graph {
 	{ rank=same; bank_bank_housing_deliver_mortages_BankHousingCrediting_BankHousingSales; mortgage_requests_message_sync_end_0; }
 	mortgage_payment_from_sale_message [ label = "mortgage_payment_from_sale" color="#00ff00" shape = parallelogram];
 	mortgage_payment_from_sale_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	mortgage_payment_from_sale_message_sync_start_0 -> mortgage_payment_from_sale_message [ color="#00ff00" label="mortgage_payment_from_sale_50"];
+	mortgage_payment_from_sale_message_sync_start_0 -> mortgage_payment_from_sale_message [ color="#00ff00" label="mortgage_payment_from_sale_57"];
 	{ rank=same; household_household_housing_collect_sale_revenue_HHHousingRevenue_HHHousingPrice; mortgage_payment_from_sale_message_sync_start_0; }
 	mortgage_payment_from_sale_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	mortgage_payment_from_sale_message_sync_end_0 -> mortgage_payment_from_sale_message_sync_start_0 [ color="#00ff00" ];
@@ -1157,7 +1211,7 @@ digraph communication_graph {
 	{ rank=same; bank_bank_housing_recieve_mortgage_principals_BankHousingSales_BankHousingMortgages; mortgage_payment_from_sale_message_sync_end_0; }
 	mortgage_payment_message [ label = "mortgage_payment" color="#00ff00" shape = parallelogram];
 	mortgage_payment_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	mortgage_payment_message_sync_start_0 -> mortgage_payment_message [ color="#00ff00" label="mortgage_payment_52"];
+	mortgage_payment_message_sync_start_0 -> mortgage_payment_message [ color="#00ff00" label="mortgage_payment_59"];
 	{ rank=same; household_household_housing_pay_mortgages_HHHousingPayments_HHHousingWriteOff; mortgage_payment_message_sync_start_0; }
 	mortgage_payment_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	mortgage_payment_message_sync_end_0 -> mortgage_payment_message_sync_start_0 [ color="#00ff00" ];
@@ -1166,7 +1220,7 @@ digraph communication_graph {
 	{ rank=same; bank_bank_housing_recieve_mortgages_BankHousingMortgages_BankHousingWriteOff; mortgage_payment_message_sync_end_0; }
 	mortgage_writeoff_message [ label = "mortgage_writeoff" color="#00ff00" shape = parallelogram];
 	mortgage_writeoff_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	mortgage_writeoff_message_sync_start_0 -> mortgage_writeoff_message [ color="#00ff00" label="mortgage_writeoff_53"];
+	mortgage_writeoff_message_sync_start_0 -> mortgage_writeoff_message [ color="#00ff00" label="mortgage_writeoff_60"];
 	{ rank=same; household_household_housing_debt_writeoff_HHHousingWriteOff_HHLabourPayroll; mortgage_writeoff_message_sync_start_0; }
 	mortgage_writeoff_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	mortgage_writeoff_message_sync_end_0 -> mortgage_writeoff_message_sync_start_0 [ color="#00ff00" ];
@@ -1175,18 +1229,45 @@ digraph communication_graph {
 	{ rank=same; bank_bank_housing_debt_writeoff_BankHousingWriteOff_BankUpdateDeposits; mortgage_writeoff_message_sync_end_0; }
 	housing_transactions_summary_message [ label = "housing_transactions_summary" color="#00ff00" shape = parallelogram];
 	housing_transactions_summary_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
-	housing_transactions_summary_message_sync_start_0 -> housing_transactions_summary_message [ color="#00ff00" label="housing_transactions_summary_50"];
+	housing_transactions_summary_message_sync_start_0 -> housing_transactions_summary_message [ color="#00ff00" label="housing_transactions_summary_57"];
 	{ rank=same; reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks; housing_transactions_summary_message_sync_start_0; }
 	housing_transactions_summary_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
 	housing_transactions_summary_message_sync_end_0 -> housing_transactions_summary_message_sync_start_0 [ color="#00ff00" ];
 	housing_transactions_summary_message_sync_end_0 -> centralbank_centralbank_trace_housing_prices_CentralBankHousing_CentralBankLabour [ color="#00ff00" constraint=false ];
 	housing_transactions_summary_message_sync_start_0 -> reagency_reagency_housing_summary_REAgencyHousingSummary_REAgencyCreditPolicyChecks [ color="#00ff00", constraint=false, style=dashed ];
 	{ rank=same; centralbank_centralbank_trace_housing_prices_CentralBankHousing_CentralBankLabour; housing_transactions_summary_message_sync_end_0; }
+	firm_foreignsector_amount_message [ label = "firm_foreignsector_amount" color="#00ff00" shape = parallelogram];
+	firm_foreignsector_amount_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	firm_foreignsector_amount_message_sync_start_0 -> firm_foreignsector_amount_message [ color="#00ff00" label="firm_foreignsector_amount_48"];
+	{ rank=same; firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales; firm_foreignsector_amount_message_sync_start_0; }
+	firm_foreignsector_amount_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	firm_foreignsector_amount_message_sync_end_0 -> firm_foreignsector_amount_message_sync_start_0 [ color="#00ff00" ];
+	firm_foreignsector_amount_message_sync_end_0 -> foreignsector_foreignsector_export_buy_ForeignSectorExportsStart_ForeignSectorExportsPricing [ color="#00ff00" constraint=false ];
+	firm_foreignsector_amount_message_sync_start_0 -> firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; foreignsector_foreignsector_export_buy_ForeignSectorExportsStart_ForeignSectorExportsPricing; firm_foreignsector_amount_message_sync_end_0; }
+	centralbank_firm_revenues_message [ label = "centralbank_firm_revenues" color="#00ff00" shape = parallelogram];
+	centralbank_firm_revenues_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	centralbank_firm_revenues_message_sync_start_0 -> centralbank_firm_revenues_message [ color="#00ff00" label="centralbank_firm_revenues_52"];
+	{ rank=same; centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing; centralbank_firm_revenues_message_sync_start_0; }
+	centralbank_firm_revenues_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	centralbank_firm_revenues_message_sync_end_0 -> centralbank_firm_revenues_message_sync_start_0 [ color="#00ff00" ];
+	centralbank_firm_revenues_message_sync_end_0 -> firm_firm_export_receive_sales_FirmExportReceiveSales_FirmHousingStart [ color="#00ff00" constraint=false ];
+	centralbank_firm_revenues_message_sync_start_0 -> centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; firm_firm_export_receive_sales_FirmExportReceiveSales_FirmHousingStart; centralbank_firm_revenues_message_sync_end_0; }
+	foreignsector_centralbank_revenues_message [ label = "foreignsector_centralbank_revenues" color="#00ff00" shape = parallelogram];
+	foreignsector_centralbank_revenues_message_sync_start_0 [ label = "start" color="#00ff00" shape = parallelogram];
+	foreignsector_centralbank_revenues_message_sync_start_0 -> foreignsector_centralbank_revenues_message [ color="#00ff00" label="foreignsector_centralbank_revenues_51"];
+	{ rank=same; foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end; foreignsector_centralbank_revenues_message_sync_start_0; }
+	foreignsector_centralbank_revenues_message_sync_end_0 [ label = "end" color="#00ff00" shape = parallelogram];
+	foreignsector_centralbank_revenues_message_sync_end_0 -> foreignsector_centralbank_revenues_message_sync_start_0 [ color="#00ff00" ];
+	foreignsector_centralbank_revenues_message_sync_end_0 -> centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing [ color="#00ff00" constraint=false ];
+	foreignsector_centralbank_revenues_message_sync_start_0 -> foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end [ color="#00ff00", constraint=false, style=dashed ];
+	{ rank=same; centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing; foreignsector_centralbank_revenues_message_sync_end_0; }
 	firm_firm_init_post_id_FirmInitPostId_FirmInitEmployment -> firm_jpoffice_id_message [ color="#00ff00" constraint=false ];
 	firm_firm_init_balancesheet_FirmInitBalanceSheet_FirmLoop -> firm_bank_init_loans_message [ color="#00ff00" constraint=false ];
 	firm_firm_init_balancesheet_FirmInitBalanceSheet_FirmLoop -> firm_bank_init_deposit_message [ color="#00ff00" constraint=false ];
 	firm_firm_update_bank_account_FirmUpdateDeposits_FirmCreditPolicyChecks -> firm_bank_update_deposit_message [ color="#00ff00" constraint=false ];
-	firm_firm_consumption_supply_FirmConsumptionStart_FirmReceiveSales -> sell_message [ color="#00ff00" constraint=false ];
+	firm_firm_consumption_supply_FirmConsumptionMarket_FirmReceiveSales -> sell_message [ color="#00ff00" constraint=false ];
 	firm_firm_labour_fire_FirmLabourStage1_FirmLabourStage1End -> fired_message [ color="#00ff00" constraint=false ];
 	firm_firm_labour_job_announcement_stage1_FirmLabourStage1_FirmLabourStage1Application -> vacancy_stage1_message [ color="#00ff00" constraint=false ];
 	firm_firm_labour_job_announcement_stage2_FirmLabourStage2_FirmLabourStage2End -> vacancy_stage2_message [ color="#00ff00" constraint=false ];
@@ -1202,6 +1283,7 @@ digraph communication_graph {
 	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart -> new_entrant_loan_message [ color="#00ff00" constraint=false ];
 	firm_firm_credit_insolvency_bankruptcy_FirmCreditInsolvencyCheck_FirmProductionStart -> loan_writeoff_message [ color="#00ff00" constraint=false ];
 	firm_firm_housing_enter_market_FirmHousingMarket_FirmHousingSell -> sell_housing_message [ color="#00ff00" constraint=false ];
+	firm_firm_export_sell_FirmExportMarket_FirmExportReceiveSales -> firm_foreignsector_amount_message [ color="#00ff00" constraint=false ];
 	household_household_init_post_id_HouseholdInitPostId_HouseholdInitEmployment -> household_jpoffice_id_message [ color="#00ff00" constraint=false ];
 	household_household_init_balancesheet_HouseholdInitBalanceSheet_HouseholdLoop -> household_bank_init_mortgages_message [ color="#00ff00" constraint=false ];
 	household_household_init_balancesheet_HouseholdInitBalanceSheet_HouseholdLoop -> household_bank_init_deposit_message [ color="#00ff00" constraint=false ];
@@ -1242,6 +1324,8 @@ digraph communication_graph {
 	government_government_update_fiscal_policy_GovernmentUpdatePolicy_end -> labour_tax_rate_message [ color="#00ff00" constraint=false ];
 	centralbank_centralbank_compute_income_statement_CentralBankPolicy_CentralBankGovernmentRequests -> centralbank_government_profit_message [ color="#00ff00" constraint=false ];
 	centralbank_centralbank_set_interest_rate_CentralBankUpdateInterestRate_end -> interest_rate_message [ color="#00ff00" constraint=false ];
+	centralbank_centralbank_export_transactions_CentralBankExport_CentralBankHousing -> centralbank_firm_revenues_message [ color="#00ff00" constraint=false ];
+	foreignsector_foreignsector_export_pay_ForeignSectorExportsPayment_end -> foreignsector_centralbank_revenues_message [ color="#00ff00" constraint=false ];
 	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop -> jpoffice_household_employer_message [ color="#00ff00" constraint=false ];
 	jpoffice_jpoffice_init_employment_JPOfficeInitEmployment_JPOfficeLoop -> jpoffice_firm_employee_message [ color="#00ff00" constraint=false ];
 	jpoffice_jpoffice_labour_stage1_JPOLabourMarket_JPOLabourStage2 -> job_match_stage1_message [ color="#00ff00" constraint=false ];

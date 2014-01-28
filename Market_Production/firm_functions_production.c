@@ -301,7 +301,7 @@ int firm_production_construction_labour_demand()
 }
 
 /*
- * Constructor Firm Roles:
+ * Export Firm Roles:
  */
 
 
