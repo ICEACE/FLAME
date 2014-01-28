@@ -8,7 +8,7 @@
  */
 int firm_init_post_id()
 {
-    add_firm_jpoffice_id_message(ID, ISCONSTRUCTOR);
+    add_firm_jpoffice_id_message(ID, FIRMTYPE);
     
     /*** Balancesheet Verification. */
     if (DATA_COLLECTION_MODE) {
@@ -51,7 +51,7 @@ int firm_init_employment()
     LOAN_LIST[0].amount = DEBT;
     
                                                                                
-    if (ISCONSTRUCTOR == 0) {
+    if (FIRMTYPE == 0) {
         PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
         INVENTORY = (int) (PRODUCTION_CURRENT / 10);
         SALES = PRODUCTION_CURRENT;
@@ -65,7 +65,7 @@ int firm_init_employment()
         CAPITAL_GOODS = PHYSICAL_CAPITAL;
         PHYSICAL_CAPITAL_CONSTRUCTION = 0;
         CAPITAL_PRODUCTIVITY_CONSTRUCTION = 0;
-    } else {
+    } else if (FIRMTYPE == 1) {
         PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION / 12);
         INVENTORY = PRODUCTION_CURRENT;
         SALES = 0;
@@ -79,7 +79,8 @@ int firm_init_employment()
         PHYSICAL_CAPITAL_CONSTRUCTION = ceil((TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
         CAPITAL_GOODS = PHYSICAL_CAPITAL_CONSTRUCTION;
         CAPITAL_PRODUCTIVITY_CONSTRUCTION = LABOUR_PRODUCTIVITY_CONSTRUCTION * NO_EMPLOYEES / (0.7 * PHYSICAL_CAPITAL_CONSTRUCTION);
-    }
+    } else {}
+
     
     if (PRINT_DEBUG_MODE) {
         printf("Firm %d --> Size = %d \n", ID, NO_EMPLOYEES);
@@ -134,7 +135,7 @@ int firm_iterate()
             FILE * file1;
             filename = malloc(100*sizeof(char));
             
-            if (ISCONSTRUCTOR) {
+            if (FIRMTYPE == 1) {
                 /* @\fn: firm_production_construction_plan() */
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
@@ -169,8 +170,7 @@ int firm_iterate()
                 //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT, EQUITY);
                 fclose(file1);
             }
-            else
-            {
+            else if (FIRMTYPE == 0) {
                 /* @\fn: firm_production_plan() */
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Firm_Monthly.txt");
@@ -206,6 +206,8 @@ int firm_iterate()
                 
                 //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
                 fclose(file1);
+            } else 
+            {/* data collection for export firms */
             }
             free(filename);
         }

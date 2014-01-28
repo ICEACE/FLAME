@@ -50,9 +50,11 @@ int jpoffice_init_employment()
     firm_type = firm_jpoffice_id_message->isconstructor;
     if (firm_type == 0) {
         add_int(&regular_firm_list, firm_id);
-    } else {
+    } else if (firm_type == 1){
         add_int(&constructor_firm_list, firm_id);
-    }
+    } else 
+    {}
+
 	FINISH_FIRM_JPOFFICE_ID_MESSAGE_LOOP
     
     nrfirms = regular_firm_list.size;
