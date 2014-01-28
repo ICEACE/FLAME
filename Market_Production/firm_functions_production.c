@@ -299,3 +299,44 @@ int firm_production_construction_labour_demand()
     
 	return 0; /* Returning zero means the agent is not removed */
 }
+
+/*
+ * Constructor Firm Roles:
+ */
+
+
+/*
+ * \fn: int firm_production_export_goods()
+ * \brief: Firm ships goods for export to foreign sector.
+ */
+int firm_production_export_goods()
+{
+    
+    
+    return 0; /* Returning zero means the agent is not removed */
+}
+
+
+/*
+ * \fn: int firm_production_export_plan()
+ * \brief: Firm determines number of units to be exported for the next period.
+ */
+int firm_production_export_plan()
+{
+    
+    return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: firm_production_export_labour_demand()
+ * \brief: Firm determines required number of workers for current
+ * export plan.
+ */
+int firm_production_export_labour_demand()
+{
+    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    
+    if (EMPLOYEES_NEEDED < 1) {EMPLOYEES_NEEDED = 1;}
+    
+    return 0; /* Returning zero means the agent is not removed */
+}

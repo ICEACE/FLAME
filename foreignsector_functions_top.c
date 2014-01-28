@@ -1,22 +1,26 @@
 #include "header.h"
-#include "centralbank_agent_header.h"
+#include "foreignsector_agent_header.h"
 
 
 
 
 /*
- * \fn: int centralbank_iterate()
- * \brief: 
+ * \fn: int foreignsector_init()
+ * \brief: Agent runtime initilialization.
  */
-int centralbank_iterate()
+int foreignsector_init()
 {
-    if (DATA_COLLECTION_MODE) {
-        
-    }
     
-    IT_NO++;
 	return 0; /* Returning zero means the agent is not removed */
 }
 
-
+/*
+ * \fn: int foreignsector_iterate()
+ * \brief: Regular loop start point.
+ */
+int foreignsector_iterate()
+{
+    IT_NO++;
+	return 0; /* Returning zero means the agent is not removed */
+}
 

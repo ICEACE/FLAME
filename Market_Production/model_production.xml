@@ -166,7 +166,7 @@
                     <currentState>FirmProductionRoleCheck</currentState>
                     <nextState>FirmProductionRegular</nextState>
                     <condition>
-                        <lhs><value>a.isconstructor</value></lhs>
+                        <lhs><value>a.firmtype</value></lhs>
                         <op>EQ</op>
                         <rhs><value>0</value></rhs>
                     </condition>
@@ -177,9 +177,20 @@
                     <currentState>FirmProductionRoleCheck</currentState>
                     <nextState>FirmProductionConstructor</nextState>
                     <condition>
-                        <lhs><value>a.isconstructor</value></lhs>
-                        <op>NEQ</op>
-                        <rhs><value>0</value></rhs>
+                        <lhs><value>a.firmtype</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>1</value></rhs>
+                    </condition>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Set the exporter role.</description>
+                    <currentState>FirmProductionRoleCheck</currentState>
+                    <nextState>FirmProductionExport</nextState>
+                    <condition>
+                        <lhs><value>a.firmtype</value></lhs>
+                        <op>EQ</op>
+                        <rhs><value>2</value></rhs>
                     </condition>
                 </function>
                 <!-- Regular firm specific functions. -->
@@ -248,6 +259,37 @@
                     <name>firm_production_construction_labour_demand</name>
                     <description>Firm determines required number of labourers for current construction plan.</description>
                     <currentState>FirmConstructionLabourDemand</currentState>
+                    <nextState>FirmLabourStart</nextState>
+                </function>
+                <!-- Export firm specific functions. -->
+                <function>
+                    <name>firm_production_export_goods</name>
+                    <description>Firm ships export goods to foreign sector</description>
+                    <currentState>FirmProductionExport</currentState>
+                    <nextState>FirmLabourStart</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_production_completed</phase>
+                        </time>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_production_export_plan</name>
+                    <description>Firm export plan.</description>
+                    <currentState>FirmProductionExport</currentState>
+                    <nextState>FirmExportLabourDemand</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_act</phase>
+                        </time>
+                    </condition>
+                </function>
+                <function>
+                    <name>firm_production_export_labour_demand</name>
+                    <description>Firm determines required number of labourers for current export plan.</description>
+                    <currentState>FirmExportLabourDemand</currentState>
                     <nextState>FirmLabourStart</nextState>
                 </function>
             </functions>
