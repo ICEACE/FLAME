@@ -65,15 +65,16 @@ int firm_credit_compute_income_statement()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        if (ISCONSTRUCTOR) {
+        if (FIRMTYPE == 1) {
             strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_IncomeStatement.txt");
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %f %f %f %f %f %f\n", IT_NO, ID, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
-        } else {
+        } else if (FIRMTYPE == 0) {
             strcpy(filename, "./outputs/data/Firm_Quarterly_IncomeStatement.txt");
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %f %f %f %f %f %f\n", IT_NO, ID, REVENUES, OPERATING_COSTS, LABOUR_COSTS, TOTAL_INTEREST_PAYMENTS, EBIT, NET_EARNINGS);
-        }
+        } else
+        {}
         
         /*** Balancesheet Verification.
         file1 = fopen(filename,"a");
@@ -391,7 +392,7 @@ int firm_credit_pay_dividends()
     DIVIDENDS_PAID = DIVIDENDS_TO_BE_PAID;
     
     if (DIVIDENDS_PAID > 0) {
-        add_firm_net_profit_message(ID, ISCONSTRUCTOR, DIVIDENDS_PAID);
+        add_firm_net_profit_message(ID, FIRMTYPE, DIVIDENDS_PAID);
         LIQUIDITY -= DIVIDENDS_PAID;
     }
     
@@ -400,15 +401,16 @@ int firm_credit_pay_dividends()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        if (ISCONSTRUCTOR) {
+        if (FIRMTYPE == 1) {
             strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_Dividends.txt");
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
-        } else {
+        } else if (FIRMTYPE == 0) {
             strcpy(filename, "./outputs/data/Firm_Quarterly_Dividends.txt");
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %f %f\n", IT_NO, ID, DIVIDENDS_PAID, DIVIDENDS_TO_BE_PAID);
-        }
+        } else 
+        {}
         fclose(file1);
         free(filename);
     }
@@ -426,13 +428,14 @@ int firm_credit_pay_dividends()
 int firm_credit_do_balance_sheet()
 {
     
-    if (ISCONSTRUCTOR) {
+    if (FIRMTYPE == 1) {
         TOTAL_ASSETS  = INVENTORY * UNIT_HOUSE_PRICE;
         TOTAL_ASSETS += LIQUIDITY + PHYSICAL_CAPITAL_CONSTRUCTION * CAPITAL_GOODS_PRICE;
-    } else {
+    } else if (FIRMTYPE == 0) {
         TOTAL_ASSETS = INVENTORY * UNIT_GOODS_PRICE;
         TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
-    }
+    } else
+    {}
     
     EQUITY = TOTAL_ASSETS - DEBT;
     
@@ -445,15 +448,16 @@ int firm_credit_do_balance_sheet()
         FILE * file1;
         filename = malloc(100*sizeof(char));
         filename[0]=0;
-        if (ISCONSTRUCTOR) {
+        if (FIRMTYPE == 1) {
             strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT, EQUITY);
-        } else {
+        } else if (FIRMTYPE == 0) {
             strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
             fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
-        }
+        } else
+        {}
         fclose(file1);
         free(filename);
     }
@@ -498,16 +502,17 @@ int firm_credit_insolvency_bankruptcy()
      */
     
     
-    if (ISCONSTRUCTOR == 0) {
+    if (FIRMTYPE == 0) {
         INVENTORY = LABOUR_PRODUCTIVITY * 1;
         TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
         UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
         /* UNIT_COST is inherited. */
-    } else {
+    } else if (FIRMTYPE == 1) {
         INVENTORY = 0;
         TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
         /* Constructor firms keep the averega house prices, current projects, etc */
-    }
+    } else
+    {}
     
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
