@@ -263,7 +263,7 @@
                 </function>
                 <!-- Export firm specific functions. -->
                 <function>
-                    <name>firm_production_export_goods</name>
+                    <name>firm_production_produce_export_goods</name>
                     <description>Firm ships export goods to foreign sector</description>
                     <currentState>FirmProductionExport</currentState>
                     <nextState>FirmLabourStart</nextState>

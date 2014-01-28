@@ -309,10 +309,20 @@ int firm_production_construction_labour_demand()
  * \fn: int firm_production_export_goods()
  * \brief: Firm ships goods for export to foreign sector.
  */
-int firm_production_export_goods()
+int firm_production_produce_export_goods()
 {
-    
-    
+    PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
+        
+    /*This is possible if and only if an insolvent firms owner/manager goes turnover.*/
+    if (NO_EMPLOYEES < 1) {
+        PRODUCTION_CURRENT = 1 * LABOUR_PRODUCTIVITY;
+        if (WARNING_MODE) {
+        printf("Warning @firm_production_produce_goods(): Firm Id = %d, has lost her only employee through employee turnover! \n", ID);
+        }
+    }
+
+    INVENTORY += PRODUCTION_CURRENT;
+
     return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -323,7 +333,11 @@ int firm_production_export_goods()
  */
 int firm_production_export_plan()
 {
-    
+    int quota;
+    quota = random_int(9500, 10500);
+
+    PRODUCTION_PLAN = quota;
+
     return 0; /* Returning zero means the agent is not removed */
 }
 
