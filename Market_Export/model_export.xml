@@ -12,7 +12,24 @@
             <file>foreignsector_functions_export.c</file>
             <file>centralbank_functions_export.c</file>
         </functionFiles>
-        <dataTypes/>
+        <dataTypes>
+            <dataType>
+                <name>export</name>
+                <description>Export seller data.</description>
+                <variables>
+                    <variable>
+                        <type>int</type>
+                        <name>id</name>
+                        <description>Id of the export firm agent.</description>
+                    </variable>
+                    <variable>
+                        <type>int</type>
+                        <name>amount</name>
+                        <description>Amount of goods to be exported.</description>
+                    </variable>
+                </variables>
+            </dataType>
+        </dataTypes>
     </environment>
 	<!-- List of agents -->
     <agents>        
@@ -105,7 +122,9 @@
             <name>centralbank</name>
             <description>A Central Bank agent.</description>
             <!-- Agent memory holding a list of variables -->
-            <memory/>
+            <memory>
+                
+            </memory>
             <!-- List of agent functions -->
             <functions>
                 <function>
@@ -153,6 +172,21 @@
                     <type>double</type>
                     <name>xgoods_unit_price</name>
                     <description>Unit price of export goods</description>
+                </variable>
+                <variable>
+                    <type>export_array</type>
+                    <name>export_list</name>
+                    <description>List of goods to be exported</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>exports</name>
+                    <description>total value of exports in fx currency</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>imports</name>
+                    <description>total value of imports in fx currency</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->

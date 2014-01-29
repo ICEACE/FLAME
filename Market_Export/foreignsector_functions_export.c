@@ -6,8 +6,14 @@
  * \brief: foreign sector buys export goods from export firms
  */
 int foreignsector_export_buy()
-{
+{	
+	int amount
 
+	START_FIRM_FOREIGNSECTOR_AMOUNT_MESSAGE_LOOP
+    amount = firm_foreignsector_amount_message->amount;
+    id = firm_foreignsector_amount_message->id;
+    add_export(&EXPORT_LIST,id,amount);
+ 	FINISH_FIRM_FOREIGNSECTOR_AMOUNT_MESSAGE_LOOP
 
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -18,7 +24,11 @@ int foreignsector_export_buy()
  */
 int foreignsector_export_pricing()
 {
+	double delta_price, price_change_range;
 
+	price_change_range = XGOODS_UNIT_PRICE*EXPORT_PRICE_CHANGE_RATE;
+	delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
+	XGOODS_UNIT_PRICE = XGOODS_UNIT_PRICE + delta_price;
 
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -29,7 +39,13 @@ int foreignsector_export_pricing()
  */
 int foreignsector_export_pay()
 {
-
-
+	double payment;
+	int id;
+	for (int i = 0; i < &EXPORT_LIST.size; i++) {
+        payment = EXPORT_LIST.array[i].amount*XGOODS_UNIT_PRICE;
+        id = EXPORT_LIST.array[i].id;
+        add_foreignsector_centralbank_revenues_message(id,payment);
+        EXPORTS += payment;
+    }
 	return 0; /* Returning zero means the agent is not removed */
 }
