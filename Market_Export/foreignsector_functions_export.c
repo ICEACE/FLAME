@@ -1,5 +1,7 @@
 #include "../header.h"
 #include "../foreignsector_agent_header.h"
+#include "../library_header.h"
+#include <math.h>
 
 /*
  * \fn: int foreignsector_export_buy()
@@ -7,7 +9,7 @@
  */
 int foreignsector_export_buy()
 {	
-	int amount
+	int amount, id;
 
 	START_FIRM_FOREIGNSECTOR_AMOUNT_MESSAGE_LOOP
     amount = firm_foreignsector_amount_message->amount;

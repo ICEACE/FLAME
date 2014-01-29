@@ -5,7 +5,13 @@
     <version>'Version 1.1, 17/04/2012</version>
     <description> Export Market. ICEACE export activities.</description>
     <environment>
-        <constants/>
+        <constants>
+            <variable>
+                <type>double</type>
+                <name>export_price_change_rate</name>
+                <description>Rate of change allowed on export goods.</description>
+            </variable>
+        </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
             <file>firm_functions_export.c</file>

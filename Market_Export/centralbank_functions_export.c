@@ -1,6 +1,7 @@
 #include "../header.h"
 #include "../centralbank_agent_header.h"
 
+
 /*
  * \fn: int centralbank_export_transactions()
  * \brief: central bank processes fx transactions between foreign sector and export firms
@@ -8,6 +9,7 @@
 int centralbank_export_transactions()
 {
 	double fx_revenues, revenues;
+    int id;
 
 	START_FOREIGNSECTOR_CENTRALBANK_REVENUES_MESSAGE_LOOP
     fx_revenues = foreignsector_centralbank_revenues_message->fx_revenues;
