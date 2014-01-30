@@ -641,9 +641,11 @@
                         <op>EQ</op>
                         <rhs><value>0</value></rhs>
                     </condition>
-                    <output>
-                        <messageName>gov_centralbank_init_deposit</messageName>
-                    </output>
+                    <outputs>
+                        <output>
+                            <messageName>gov_centralbank_init_deposit</messageName>
+                        </output>
+                    </outputs>
                 </function>
                 <function>
                     <name>idle</name>
@@ -918,7 +920,7 @@
                 <variable>
                     <type>int</type>
                     <name>it_no</name>
-                    <description>Current iteration. Incremented daily bais.</description>   
+                    <description>Current iteration. Incremented daily bais.</description>
                 </variable>
             </memory>
             <functions>
