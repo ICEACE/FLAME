@@ -43,7 +43,7 @@ int foreignsector_export_pay()
 {
 	double payment;
 	int id;
-	for (int i = 0; i < &EXPORT_LIST.size; i++) {
+	for (int i = 0; i < EXPORT_LIST.size; i++) {
         payment = EXPORT_LIST.array[i].amount*UNIT_XGOODS_PRICE;
         id = EXPORT_LIST.array[i].id;
         add_foreignsector_centralbank_revenues_message(id,payment);

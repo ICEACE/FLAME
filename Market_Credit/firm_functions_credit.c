@@ -517,7 +517,7 @@ int firm_credit_insolvency_bankruptcy()
         /* UNIT_COST is inherited. */
     } else if (FIRMTYPE == 1) {
         INVENTORY = 0;
-        TOTAL_ASSETS = CAPITAL_PRODUCTIVITY_CONSTRUCTION * 1 + LIQUIDITY;
+        TOTAL_ASSETS = CAPITAL_PRODUCTIVITY * 1 + LIQUIDITY;
         /* Constructor firms keep the averega house prices, current projects, etc */
     } else
     {}
