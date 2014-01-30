@@ -45,7 +45,8 @@
             <!-- Agent memory holding a list of variables -->
             <memory/>                
             <!-- List of agent functions -->
-            <function>
+            <functions>
+                <function>
                     <name>idle</name>
                     <description>Handles if the firm is not an export firm.</description>
                     <currentState>FirmExportStart</currentState>
@@ -75,7 +76,6 @@
                         </rhs>
                     </condition>
                 </function>
-            <functions>
                 <function>
                     <name>idle</name>
                     <description>It is not the day of the month to sell.</description>
