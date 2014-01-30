@@ -258,7 +258,7 @@
                         <time>
                             <period>monthly</period>
                             <phase>0</phase>
-                        </time><
+                        </time>
                     </condition>
                     <outputs>
                         <output>
@@ -918,7 +918,7 @@
                 <variable>
                     <type>int</type>
                     <name>it_no</name>
-                    <description>Current iteration. Incremented daily bais.</description>
+                    <description>Current iteration. Incremented daily bais.</description>   
                 </variable>
             </memory>
             <functions>

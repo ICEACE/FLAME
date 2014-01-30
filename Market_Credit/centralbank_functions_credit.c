@@ -179,12 +179,16 @@ int centralbank_do_balance_sheet()
     deposits = LIQUIDITY_BANKS + LIQUIDITY_GOVERNMENT + LIQUIDITY_EQUITYFUND;
     FIAT_MONEY = loans - deposits;
     if (FIAT_MONEY < 0) {
-        LIQUIDITY = -1 * FIAT_MONEY;
+        LIQUIDITY += -1 * FIAT_MONEY;
         FIAT_MONEY = 0;
     }
-    
+    /* Accounting for negative liquidity due to exports */
+    if (LIQUIDITY < 0) {
+        FIAT_MONEY += -1 * LIQUIDITY;
+        LIQUIDITY = 0;
+    }
     liabilities = FIAT_MONEY + deposits;
-    TOTAL_ASSETS = loans + LIQUIDITY;
+    TOTAL_ASSETS = loans + LIQUIDITY + FX_LIQUIDITY * EXCHANGE_RATE;
     EQUITY = TOTAL_ASSETS - liabilities;
     
     if (DATA_COLLECTION_MODE) {
@@ -195,7 +199,7 @@ int centralbank_do_balance_sheet()
         strcpy(filename, "./outputs/data/CentralBank_snapshot.txt");
         
         file1 = fopen(filename,"a");
-        fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, INTEREST_RATE, INFLATION_RATE, REVENUES, TOTAL_COSTS, NET_EARNINGS, TOTAL_ASSETS, LIQUIDITY, LOANS_BANKS, LOANS_GOVERNMENT, EQUITY,FIAT_MONEY, LIQUIDITY_BANKS, LIQUIDITY_GOVERNMENT, LIQUIDITY_EQUITYFUND);
+        fprintf(file1,"%d %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f\n",IT_NO, INTEREST_RATE, INFLATION_RATE, REVENUES, TOTAL_COSTS, NET_EARNINGS, TOTAL_ASSETS, LIQUIDITY, FX_LIQUIDITY, EXCHANGE_RATE, LOANS_BANKS, LOANS_GOVERNMENT, EQUITY,FIAT_MONEY, LIQUIDITY_BANKS, LIQUIDITY_GOVERNMENT, LIQUIDITY_EQUITYFUND);
         fclose(file1);
         free(filename);
     }

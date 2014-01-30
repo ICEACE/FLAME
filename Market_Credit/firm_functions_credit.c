@@ -499,9 +499,7 @@ int firm_credit_insolvency_bankruptcy()
     
     add_firm_bank_insolvent_account_message(BANK_ID, LIQUIDITY);
     LIQUIDITY = 0;
-    
     DEBT = 0;
-    SALES = 0;
     REVENUES = 0;
     OPERATING_COSTS = 0;
     LABOUR_COSTS = 0;
@@ -514,13 +512,18 @@ int firm_credit_insolvency_bankruptcy()
         INVENTORY = LABOUR_PRODUCTIVITY * 1;
         TOTAL_ASSETS = INVENTORY * AVERAGE_GOODS_PRICE + LIQUIDITY;
         UNIT_GOODS_PRICE = AVERAGE_GOODS_PRICE;
+        SALES = 0;
         /* UNIT_COST is inherited. */
     } else if (FIRMTYPE == 1) {
         INVENTORY = 0;
         TOTAL_ASSETS = CAPITAL_PRODUCTIVITY * 1 + LIQUIDITY;
+        SALES = 0;
         /* Constructor firms keep the averega house prices, current projects, etc */
-    } else
-    {}
+    } else {
+        INVENTORY = 0;
+        TOTAL_ASSETS = LIQUIDITY;
+        /* Export firms only inherit the capital goods and previous quota (SALES)*/
+    }
     
     for (int i = 0; i < 2; i++) {
         bank = LOAN_LIST[i].bank_id;
