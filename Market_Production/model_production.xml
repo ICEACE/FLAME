@@ -36,6 +36,11 @@
             <!-- Agent memory holding a list of variables -->
             <memory>
                 <variable>
+                    <type>int</type>
+                    <name>day_of_month_production_completed</name>
+                    <description>The day of the month amount of production is computed.</description>
+                </variable>
+                <variable>
                     <type>double</type>
                     <name>labour_productivity</name>
                     <description>Productivity of a unit labour.</description>
@@ -62,40 +67,35 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>unit_cost</name>
-                    <description>Unit production cost of a consumption good.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
-                    <name>day_of_month_production_completed</name>
-                    <description>The day of the month amount of production is computed.</description>
-                </variable>
-                <!-- Constructor firm specific memory variables. -->
-                <variable>
-                    <type>double</type>
                     <name>unit_house_price</name>
                     <description>Unit price of an house.</description>
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>labour_productivity_construction</name>
-                    <description>Productivity of a unit labour in construction sector.</description>
+                    <name>unit_xgoods_price</name>
+                    <description>Unit price of export goods</description>
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>capital_productivity_construction</name>
-                    <description>Capital productivity in construction sector.</description>
+                    <name>capital_goods_price</name>
+                    <description>Unit price for capital goods.</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unit_cost</name>
+                    <description>Unit production cost of a consumption good.</description>
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>physical_capital_construction</name>
-                    <description>Physical capital owned by a construction firm in units.</description>
+                    <name>capital_goods</name>
+                    <description>Capital goods in units.</description>
                 </variable>
                 <variable>
-                    <type>int</type>
-                    <name>physical_capital</name>
-                    <description>Physical capital owned by a regular firm in units.</description>
+                    <type>double</type>
+                    <name>capital_productivity</name>
+                    <description>Capital productivity of firms.</description>
                 </variable>
+                <!-- Constructor firm specific memory variables. -->
                 <variable>
                     <type>int</type>
                     <name>projects[12]</name>

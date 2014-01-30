@@ -229,16 +229,6 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>capital_goods</name>
-                    <description>Capital goods in units.</description>
-                </variable>
-                <variable>
-                    <type>double</type>
-                    <name>capital_goods_price</name>
-                    <description>Unit price for capital goods.</description>
-                </variable>
-                <variable>
-                    <type>int</type>
                     <name>isliquidshort</name>
                     <description>The variable holds wheather a firm had any liquidity need in the latest quarter.</description>
                 </variable>

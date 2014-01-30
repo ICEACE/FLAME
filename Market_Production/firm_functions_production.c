@@ -164,8 +164,8 @@ int firm_production_construct_houses()
     int capital, labour, units_to_produce;
     
     
-    labour = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY_CONSTRUCTION);
-    capital = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * PHYSICAL_CAPITAL_CONSTRUCTION);
+    labour = (int)(NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
+    capital = (int) (CAPITAL_PRODUCTIVITY * CAPITAL_GOODS);
     
     /* Lentoif production function: */
     units_to_produce = min_int(labour, capital);
@@ -242,7 +242,7 @@ int firm_production_construction_plan()
     }
     
     
-    maxsize = (int) (CAPITAL_PRODUCTIVITY_CONSTRUCTION * PHYSICAL_CAPITAL_CONSTRUCTION);
+    maxsize = (int) (CAPITAL_PRODUCTIVITY * CAPITAL_GOODS);
     
     
     /* Some conditions are added to the model! Needs to be double chekced.*/
@@ -270,7 +270,7 @@ int firm_production_construction_plan()
         filename = malloc(100*sizeof(char));
         filename[0]=0;
         
-        int needed = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+        int needed = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
         if (needed < 1) {needed = 1;}
         strcpy(filename, "./outputs/data/Constructor_Firm_Monthly.txt");
         file1 = fopen(filename,"a");
@@ -293,7 +293,7 @@ int firm_production_construction_plan()
  */
 int firm_production_construction_labour_demand()
 {
-    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
     
     if (EMPLOYEES_NEEDED < 1) {EMPLOYEES_NEEDED = 1;}
     
@@ -334,9 +334,37 @@ int firm_production_produce_export_goods()
 int firm_production_export_plan()
 {
     int quota;
-    quota = random_int(9500, 10500);
+    double min_quota, max_quota;
+    /* change rate and min and max values can be parameterized */
+    double quota_change_rate = 0.2;
+    min_quota = 50000/N_EXPORTFIRMS;
+    max_quota = 100000/N_EXPORTFIRMS;
 
+    quota = SALES + SALES * (((double)random_int(-100, 100)) / 100.0)*quota_change_rate;
+
+    if (quota < min_quota) {
+        quota = min_quota;
+    }
+    if (quota > max_quota) {
+        quota = max_quota;
+    }
+    
     PRODUCTION_PLAN = quota;
+
+    if (DATA_COLLECTION_MODE && COLLECT_FIRM_DATA) {
+        char * filename;
+        FILE * file1;
+        filename = malloc(100*sizeof(char));
+        filename[0]=0;
+        int needed = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
+        if (needed < 1) {needed = 1;}
+        strcpy(filename, "./outputs/data/Export_Firm_Monthly.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %d %f %d %d %d %d %d %d %f\n",IT_NO, ID, WAGE_OFFER, NO_EMPLOYEES, EMPLOYEES_NEEDED, SALES, INVENTORY, PRODUCTION_CURRENT, PRODUCTION_PLAN, UNIT_XGOODS_PRICE);
+        
+        fclose(file1);
+        free(filename);
+    }
 
     return 0; /* Returning zero means the agent is not removed */
 }
@@ -348,7 +376,7 @@ int firm_production_export_plan()
  */
 int firm_production_export_labour_demand()
 {
-    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY_CONSTRUCTION);
+    EMPLOYEES_NEEDED = ceil(PRODUCTION_PLAN / LABOUR_PRODUCTIVITY);
     
     if (EMPLOYEES_NEEDED < 1) {EMPLOYEES_NEEDED = 1;}
     

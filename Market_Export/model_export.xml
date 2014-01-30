@@ -176,7 +176,7 @@
             <memory>
                 <variable>
                     <type>double</type>
-                    <name>xgoods_unit_price</name>
+                    <name>unit_xgoods_price</name>
                     <description>Unit price of export goods</description>
                 </variable>
                 <variable>

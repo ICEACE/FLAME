@@ -62,6 +62,11 @@
                 <name>collect_firm_data</name>
                 <description>Flag, 0 or 1. To record firm simulation data, it needs to be set to 1.</description>
             </variable>
+            <variable>
+                <type>int</type>
+                <name>n_exportfirms</name>
+                <description>Number of export firms</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->

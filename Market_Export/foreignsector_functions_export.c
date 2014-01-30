@@ -28,9 +28,9 @@ int foreignsector_export_pricing()
 {
 	double delta_price, price_change_range;
 
-	price_change_range = XGOODS_UNIT_PRICE*EXPORT_PRICE_CHANGE_RATE;
+	price_change_range = UNIT_XGOODS_PRICE*EXPORT_PRICE_CHANGE_RATE;
 	delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
-	XGOODS_UNIT_PRICE = XGOODS_UNIT_PRICE + delta_price;
+	UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
 
 	return 0; /* Returning zero means the agent is not removed */
 }
@@ -44,7 +44,7 @@ int foreignsector_export_pay()
 	double payment;
 	int id;
 	for (int i = 0; i < &EXPORT_LIST.size; i++) {
-        payment = EXPORT_LIST.array[i].amount*XGOODS_UNIT_PRICE;
+        payment = EXPORT_LIST.array[i].amount*UNIT_XGOODS_PRICE;
         id = EXPORT_LIST.array[i].id;
         add_foreignsector_centralbank_revenues_message(id,payment);
         EXPORTS += payment;

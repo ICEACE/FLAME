@@ -14,10 +14,11 @@ int jpoffice_init_employment()
     int_array household_list;
     int_array regular_firm_list;
     int_array constructor_firm_list;
+    int_array export_firm_list;
     
     int firm_type, firm_id, household_id;
-    int nhouseholds, nrfirms, ncfirms;
-    int constructor_firm_size, employment_size;
+    int nhouseholds, nrfirms, ncfirms, nefirms;
+    int constructor_firm_size, export_firm_size, employment_size;
     int nemployed = 0;
     int i,j;
     
@@ -25,7 +26,7 @@ int jpoffice_init_employment()
     init_int_array(&household_list);
     init_int_array(&regular_firm_list);
     init_int_array(&constructor_firm_list);
-    
+    init_int_array(&export_firm_list);
     
     /* Collect household IDs */
     START_HOUSEHOLD_JPOFFICE_ID_MESSAGE_LOOP
@@ -41,6 +42,7 @@ int jpoffice_init_employment()
         free_int_array(&household_list);
         free_int_array(&regular_firm_list);
         free_int_array(&constructor_firm_list);
+        free_int_array(&export_firm_list);
         return 0;
     }
     
@@ -49,23 +51,27 @@ int jpoffice_init_employment()
     firm_id = firm_jpoffice_id_message->firm_id;
     firm_type = firm_jpoffice_id_message->isconstructor;
     if (firm_type == 0) {
-        add_int(&regular_firm_list, firm_id);
-    } else if (firm_type == 1){
-        add_int(&constructor_firm_list, firm_id);
-    } else 
-    {}
+        add_int(&regular_firm_list, firm_id); }
+    else if (firm_type == 1){
+        add_int(&constructor_firm_list, firm_id); }
+    else {
+       add_int(&export_firm_list, firm_id);
+    }
 
 	FINISH_FIRM_JPOFFICE_ID_MESSAGE_LOOP
     
     nrfirms = regular_firm_list.size;
     ncfirms = constructor_firm_list.size;
+    nefirms = export_firm_list.size;
     
     /* employment ratio is 0.9
      * number of employees at construction sector is 7.5% of population.
      * These 2 values should be added to jpoffice memory for parameterization!!
      */
     constructor_firm_size = (int) (nhouseholds * 0.075 / ncfirms);
+    export_firm_size = (int) (nhouseholds * 0.065 / nefirms);
     employment_size = (int) (nhouseholds * 0.9);
+
     
     if (PRINT_DEBUG_MODE) {
         printf("nRFirms: %d nCFirms: %d, nHH: %d\n", nrfirms, ncfirms, nhouseholds);
@@ -81,6 +87,7 @@ int jpoffice_init_employment()
             free_int_array(&household_list);
             free_int_array(&regular_firm_list);
             free_int_array(&constructor_firm_list);
+            free_int_array(&export_firm_list);
             return 0;
         }
         firm_id = constructor_firm_list.array[i];
@@ -100,9 +107,30 @@ int jpoffice_init_employment()
             free_int_array(&household_list);
             free_int_array(&regular_firm_list);
             free_int_array(&constructor_firm_list);
+            free_int_array(&export_firm_list);
             return 0;
         }
         firm_id = regular_firm_list.array[i];
+        household_id = household_list.array[0];
+        add_jpoffice_household_employer_message(household_id, firm_id);
+        add_jpoffice_firm_employee_message(firm_id, household_id);
+        remove_int(&household_list, 0);
+        nemployed++;
+    }
+
+    /* Each export firm is assigned one employee */
+    for (i = 0; i < nefirms; i++) {
+        if (nemployed > employment_size) {
+            if (WARNING_MODE) {
+                printf("Warning @jpoffice_init_employment(): There are more firms then employable number of households.\n");
+            }
+            free_int_array(&household_list);
+            free_int_array(&regular_firm_list);
+            free_int_array(&constructor_firm_list);
+            free_int_array(&export_firm_list);
+            return 0;
+        }
+        firm_id = export_firm_list.array[i];
         household_id = household_list.array[0];
         add_jpoffice_household_employer_message(household_id, firm_id);
         add_jpoffice_firm_employee_message(firm_id, household_id);
@@ -121,6 +149,7 @@ int jpoffice_init_employment()
                 free_int_array(&household_list);
                 free_int_array(&regular_firm_list);
                 free_int_array(&constructor_firm_list);
+                free_int_array(&export_firm_list);
                 return 0;
             }
             household_id = household_list.array[0];
@@ -132,6 +161,29 @@ int jpoffice_init_employment()
         remove_int(&constructor_firm_list, 0);
     }
     
+    /* Each export firm is assigned additional constant employees */
+    for (i = 0; i < nefirms; i++) {
+        firm_id = export_firm_list.array[0];
+        for (j = 1; j < export_firm_size; j++) {
+            if (nemployed > employment_size) {
+                if (WARNING_MODE) {
+                   printf("Warning @jpoffice_init_employment(): Household shortage is observed at assigning additional labour to constructor firms.\n");
+                }
+                free_int_array(&household_list);
+                free_int_array(&regular_firm_list);
+                free_int_array(&constructor_firm_list);
+                free_int_array(&export_firm_list);
+                return 0;
+            }
+            household_id = household_list.array[0];
+            add_jpoffice_household_employer_message(household_id, firm_id);
+            add_jpoffice_firm_employee_message(firm_id, household_id);
+            remove_int(&household_list, 0);
+            nemployed++;
+        }
+        remove_int(&export_firm_list, 0);
+    }
+
     /* Rest of households are assigned to firms randomly.
      * If a normal or a scale-free distribution for firm size to be opted,
      * it should be implemented hereby.
@@ -158,6 +210,7 @@ int jpoffice_init_employment()
     free_int_array(&household_list);
     free_int_array(&regular_firm_list);
     free_int_array(&constructor_firm_list);
+    free_int_array(&export_firm_list);
     
 	return 0; /* Returning zero means the agent is not removed */
 }
