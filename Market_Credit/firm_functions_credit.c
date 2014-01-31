@@ -439,7 +439,7 @@ int firm_credit_do_balance_sheet()
     } else if (FIRMTYPE == 0) {
         TOTAL_ASSETS = INVENTORY * UNIT_GOODS_PRICE;
     } else {
-        TOTAL_ASSETS = INVENTORY * UNIT_XGOODS_PRICE;
+        TOTAL_ASSETS = 0;
     }
     TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
     EQUITY = TOTAL_ASSETS - DEBT;

@@ -49,5 +49,13 @@ int foreignsector_export_pay()
         add_foreignsector_centralbank_revenues_message(id,payment);
         EXPORTS += payment;
     }
+    
+    int size = EXPORT_LIST.size;
+    while (size > 0) {
+    remove_export(&EXPORT_LIST,0);
+        size = EXPORT_LIST.size;
+    }
+    
+    
 	return 0; /* Returning zero means the agent is not removed */
 }

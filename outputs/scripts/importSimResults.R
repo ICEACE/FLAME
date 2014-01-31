@@ -25,27 +25,37 @@ file = paste(data_dir, '/', "Firm_Monthly.txt", sep ='')
 FirmMonthly <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/', "Constructor_Firm_Monthly.txt", sep ='')
 CFirmMonthly <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+file = paste(data_dir, '/', "Export_Firm_Monthly.txt", sep ='')
+EFirmMonthly <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
 file = paste(data_dir, '/', "Firm_Quarterly_BalanceSheet.txt", sep ='')
 FirmBalance <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/', "Constructor_Firm_Quarterly_BalanceSheet.txt", sep ='')
 CFirmBalance <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+file = paste(data_dir, '/', "Export_Firm_Quarterly_BalanceSheet.txt", sep ='')
+EFirmBalance <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
 file = paste(data_dir, '/', "Firm_Quarterly_IncomeStatement.txt", sep ='')
 FirmIncome <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/', "Constructor_Firm_Quarterly_IncomeStatement.txt", sep ='')
 CFirmIncome <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+file = paste(data_dir, '/', "Export_Firm_Quarterly_IncomeStatement.txt", sep ='')
+EFirmIncome <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
 file = paste(data_dir, '/', "Firm_Quarterly_Dividends.txt", sep ='')
 FirmDividends <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/', "Constructor_Firm_Quarterly_Dividends.txt", sep ='')
 CFirmDividends <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+file = paste(data_dir, '/', "Export_Firm_Quarterly_Dividends.txt", sep ='')
+EFirmDividends <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
 nWeeks <- length(Mall$IT_NO)
 nMonths <- length(REAgency$IT_NO)
 nQuarters <- length(Equityfund$IT_NO)
 nFirms = length(FirmIncome$ID) / nQuarters
 nCFirms = length(CFirmIncome$ID) / nQuarters
+nEFirms = length(EFirmIncome$ID) / nQuarters
+
 nBanks = length(BankIncome$ID) / nQuarters
 
 if (data_household){

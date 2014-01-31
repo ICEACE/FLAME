@@ -139,10 +139,10 @@
                     <currentState>CentralBankExport</currentState>
                     <nextState>CentralBankHousing</nextState>
                     <condition>
-                        <not><time>
+                        <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_to_act</phase>
-                        </time></not>
+                        </time>
                     </condition>
                     <inputs>
                         <input>
@@ -203,10 +203,10 @@
                     <currentState>ForeignSectorExportsStart</currentState>
                     <nextState>ForeignSectorExportsPricing</nextState>
                     <condition>
-                        <not><time>
+                        <time>
                             <period>monthly</period>
                             <phase>a.day_of_month_to_act</phase>
-                        </time></not>
+                        </time>
                     </condition>
                     <inputs>
                         <input>

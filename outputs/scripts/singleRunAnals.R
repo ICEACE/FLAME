@@ -6,7 +6,7 @@ output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
 
 # Import Datasets #
-data_household = 1
+data_household = 0
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/importSimResults.R", echo = T)
 
 # Plotting Mall, Real Estate, Government, Central Bank and Equity Fund Vars #
@@ -14,8 +14,8 @@ source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotAgen
 
 
 # Plot Bank Vars #
-bankA = 156
-bankB = 157
+bankA =823
+bankB = 824
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotBanksVars.R", echo = T)
 
 # Plot Firm Vars #
