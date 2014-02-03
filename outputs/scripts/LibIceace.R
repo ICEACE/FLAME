@@ -321,14 +321,16 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	return(gdpyears)
 }
 
-plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, Rfirmvector, Rcfirmvector, beta = "0.3"){
+plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, Rfirmvector, Rcfirmvector, efirmiters = vector(), efirmvector = vector(), Refirmvector = vector(), beta = "0.3"){
 	times <- (1:niter)
 	fsums <- rep(0,niter)
 	csums <- rep(0,niter)
+	esums <- rep(0,niter)
 	gdp <- rep(0,niter)
 	
 	Rfsums <- rep(0,niter)
 	Rcsums <- rep(0,niter)
+	Resums <- rep(0,niter)
 	Rgdp <- rep(0,niter)
 	
 	
@@ -353,7 +355,7 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	fsums[ind] <- accumulator
 	Rfsums[ind] <- Raccumulator
 
-    #constructor Firm productions
+    #Constructor Firm productions
 	current_iter <- cfirmiters[1]
 	datalength <- length(cfirmvector)
 	accumulator <- 0
@@ -374,12 +376,35 @@ plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	csums[ind] <- accumulator
 	Rcsums[ind] <- Raccumulator
 	
+	
+	#Exporter Firm productions
+	current_iter <- efirmiters[1]
+	datalength <- length(efirmvector)
+	accumulator <- 0
+	Raccumulator <- 0
+	ind <- 1
+	for (i in 1:datalength){
+		if (efirmiters[i] != current_iter){
+			esums[ind] <- accumulator
+			Resums[ind] <- Raccumulator
+			ind <- ind + 1
+			accumulator <- 0
+			Raccumulator <- 0
+			current_iter <- efirmiters[i]	
+		}
+		accumulator <- accumulator + efirmvector[i]
+		Raccumulator <- Raccumulator + Refirmvector[i]
+	}
+	esums[ind] <- accumulator
+	Resums[ind] <- Raccumulator
+	
+	#### Totals ####
 	for (i in 1:niter){
-		gdp[i] <- fsums[i] + csums[i]
-		Rgdp[i] <- Rfsums[i] + Rcsums[i]
+		gdp[i] <- fsums[i] + csums[i] + esums[i]
+		Rgdp[i] <- Rfsums[i] + Rcsums[i] + Resums[i]
 	}
 	fname = "aGDP_Monthly.png"
-	ylabtext = "GDP - Growth of Housing Units and Consumption Goods Production"
+	ylabtext = "GDP - Growth of Housing Units, Consumption Goods Production and Exports"
 	title = paste("Beta = ", beta, sep = "")
 	
 	png(fname, width = 1500, height = 800, pointsize=18)
