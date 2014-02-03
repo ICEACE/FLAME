@@ -622,7 +622,7 @@
                     <name>idle</name>
                     <description>It is not the day of the month to act.</description>
                     <currentState>CentralBankLabour</currentState>
-                    <nextState>CentralBankPolicy</nextState>
+                    <nextState>CentralBankExchangeRate</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -634,7 +634,7 @@
                     <name>centralbank_trace_unemployment_status</name>
                     <description>Makes a sensus on employment status.</description>
                     <currentState>CentralBankLabour</currentState>
-                    <nextState>CentralBankPolicy</nextState>
+                    <nextState>CentralBankExchangeRate</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>

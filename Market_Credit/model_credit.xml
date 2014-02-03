@@ -1012,7 +1012,7 @@
                 <variable>
                     <type>double</type>
                     <name>exchange_rate</name>
-                    <description>foreign currency exchange rate</description>
+                    <description>Foreign currency exchange rate</description>
                 </variable>
                 <variable>
                     <type>double</type>
@@ -1026,7 +1026,7 @@
                     <name>idle</name>
                     <description>It is not time to act.</description>
                     <currentState>CentralBankCredit</currentState>
-                    <nextState>CentralBankConsumption</nextState>
+                    <nextState>CentralBankImports</nextState>
                     <condition>
                         <not><time>
                             <period>quarterly</period>
@@ -1056,7 +1056,7 @@
                     <name>centralbank_process_debt_requests</name>
                     <description>Central Bank receives new debt requests from banks and collects debt payments from banks.</description>
                     <currentState>CentralBankDebtRequests</currentState>
-                    <nextState>CentralBankConsumption</nextState>
+                    <nextState>CentralBankImports</nextState>
                     <inputs>
                         <input>
                             <messageName>bank_centralbank_debt_request</messageName>

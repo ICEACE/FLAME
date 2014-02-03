@@ -681,6 +681,16 @@
                     <description>Day of the month to act.</description>
                 </variable>
                 <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_import</name>
+                    <description>Day of the month to import.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_export</name>
+                    <description>Day of the month to export.</description>
+                </variable>
+                <variable>
                     <type>double</type>
                     <name>unemployment_rate</name>
                     <description>Unemployment rate. It is updated monthly.</description>
@@ -768,7 +778,12 @@
                 </variable>
                 <variable>
                     <type>int</type>
-                    <name>day_of_month_to_act</name>
+                    <name>day_of_month_to_export</name>
+                    <description>Activation day.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_month_to_import</name>
                     <description>Activation day.</description>
                 </variable>
             </memory>

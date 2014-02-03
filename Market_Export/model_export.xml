@@ -20,18 +20,18 @@
         </functionFiles>
         <dataTypes>
             <dataType>
-                <name>export</name>
-                <description>Export seller data.</description>
+                <name>xtransaction</name>
+                <description>Generic data type for foreign sector imports and exports</description>
                 <variables>
                     <variable>
                         <type>int</type>
                         <name>id</name>
-                        <description>Id of the export firm agent.</description>
+                        <description>Id of the import/export firm agent.</description>
                     </variable>
                     <variable>
                         <type>int</type>
                         <name>amount</name>
-                        <description>Amount of goods to be exported.</description>
+                        <description>Amount of goods to be imported/exported.</description>
                     </variable>
                 </variables>
             </dataType>
@@ -41,11 +41,62 @@
     <agents>        
         <xagent>
             <name>firm</name>
-            <description>Export firm agent.</description>
+            <description>Firm agent</description>
             <!-- Agent memory holding a list of variables -->
-            <memory/>                
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>exchange_rate</name>
+                    <description>Foreign currency exchange rate</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unit_xgoods_price</name>
+                    <description>Export unit goods price</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unit_raw_price</name>
+                    <description>Raw material unit goods price</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unit_cgoods_price</name>
+                    <description>Capital unit goods price</description>
+                </variable>
+            </memory>               
             <!-- List of agent functions -->
             <functions>
+                <!-- Import related functions and state transitions -->
+                <function>
+                    <name>firm_export_import_rawmaterials</name>
+                    <description>Firm imports raw materials</description>
+                    <currentState>FirmProductionRegular</currentState>
+                    <nextState>FirmImportCapitalGoods</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_production_completed</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>firm_foreignsector_rawmaterials</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>firm_export_import_capitalgoods</name>
+                    <description>Firm imports capital goods</description>
+                    <currentState>FirmImportCapitalGoods</currentState>
+                    <nextState>FirmProductionCompletion</nextState>
+                    <outputs>
+                        <output>
+                            <messageName>firm_foreignsector_capitalgoods</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <!-- Export related functions and state transitions -->
                 <function>
                     <name>idle</name>
                     <description>Handles if the firm is not an export firm.</description>
@@ -101,7 +152,7 @@
                         </condition>
                     <outputs>
                         <output>
-                            <messageName>firm_foreignsector_amount</messageName>
+                            <messageName>firm_foreignsector_xgoods</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -122,26 +173,91 @@
                         </input>
                     </inputs>
                 </function>
+                <!-- Price and exchange rate communication -->
+                <function>
+                    <name>firm_export_check_pricesandrates</name>
+                    <description>Firm receives exchange rate from Central bank and prices from foreign sector.</description>
+                    <currentState>FirmForeignMarketChecks</currentState>
+                    <nextState>FirmCreditPolicyChecks</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>centralbank_firm_exchangerate</messageName>
+                        </input>
+                        <input>
+                            <messageName>foreignsector_firm_prices</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Not the last day of the month</description>
+                    <currentState>FirmForeignMarketChecks</currentState>
+                    <nextState>FirmCreditPolicyChecks</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
             </functions>               
         </xagent>
         <xagent>
             <name>centralbank</name>
             <description>A Central Bank agent.</description>
             <!-- Agent memory holding a list of variables -->
-            <memory>
-                
-            </memory>
+            <memory/>
             <!-- List of agent functions -->
             <functions>
+                <!-- Central bank import related functions -->
+                <function>
+                    <name>centralbank_import_transactions</name>
+                    <description>Central bank updates foreign currency reserves due to imports</description>
+                    <currentState>CentralBankImport</currentState>
+                    <nextState>CentralBankComsumption</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_import</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>foreignsector_centralbank_rawcosts</messageName>
+                        </input>
+                        <input>
+                            <messageName>foreignsector_centralbank_cgoodscosts</messageName>
+                        </input>
+                    </inputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of month.</description>
+                    <currentState>CentralBankImport</currentState>
+                    <nextState>CentralBankComsumption</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_import</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <!-- Central bank export related functions -->
                 <function>
                     <name>centralbank_export_transactions</name>
-                    <description>central bank processes fx transactions between foreign sector and export firms</description>
+                    <description>Central bank processes fx transactions between foreign sector and export firms</description>
                     <currentState>CentralBankExport</currentState>
                     <nextState>CentralBankHousing</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_to_export</phase>
                         </time>
                     </condition>
                     <inputs>
@@ -149,11 +265,6 @@
                             <messageName>foreignsector_centralbank_revenues</messageName>
                         </input>
                     </inputs>
-                    <outputs>
-                        <output>
-                            <messageName>centralbank_firm_revenues</messageName>
-                        </output>
-                    </outputs>
                 </function>
                 <function>
                     <name>idle</name>
@@ -163,7 +274,37 @@
                     <condition>
                         <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_to_export</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <!-- Central bank exchange rate related functions -->
+                <function>
+                    <name>centralbank_set_exchangerate</name>
+                    <description>Central bank sets exchange rates</description>
+                    <currentState>CentralBankExchangeRate</currentState>
+                    <nextState>CentralBankPolicy</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>centralbank_firm_exchangerate</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Not the last day of the month</description>
+                    <currentState>CentralBankExchangeRate</currentState>
+                    <nextState>CentralBankPolicy</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>0</phase>
                         </time></not>
                     </condition>
                 </function>
@@ -180,7 +321,7 @@
                     <description>Unit price of export goods</description>
                 </variable>
                 <variable>
-                    <type>export_array</type>
+                    <type>xtransaction_array</type>
                     <name>export_list</name>
                     <description>List of goods to be exported</description>
                 </variable>
@@ -195,22 +336,73 @@
                     <description>total value of imports in fx currency</description>
                 </variable>
             </memory>
-            <!-- List of agent functions -->
             <functions>
+                <!-- List of foreig sector functions regarding raw material imports. -->
                 <function>
-                    <name>foreignsector_export_buy</name>
-                    <description>Firm sells export goods to foreign sector</description>
-                    <currentState>ForeignSectorExportsStart</currentState>
-                    <nextState>ForeignSectorExportsPricing</nextState>
+                    <name>idle</name>
+                    <description>It is not the end of month.</description>
+                    <currentState>ForeignSectorImportsStart</currentState>
+                    <nextState>ForeignSectorExportsStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_import</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>foreignsector_export_sell_rawmaterials</name>
+                    <description>Foreign sector sells raw materials to firms</description>
+                    <currentState>ForeignSectorImportsStart</currentState>
+                    <nextState>ForeignSectorImportsCapitalGoods</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_to_import</phase>
                         </time>
                     </condition>
                     <inputs>
                         <input>
-                            <messageName>firm_foreignsector_amount</messageName>
+                            <messageName>firm_foreignsector_raw</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>foreignsector_centralbank_rawcosts</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>foreignsector_export_sell_capitalgoods</name>
+                    <description>Foreign sector sells capital goods to firms</description>
+                    <currentState>ForeignSectorImportsCapitalGoods</currentState>
+                    <nextState>ForeignSectorExportsStart</nextState>
+                    <inputs>
+                        <input>
+                            <messageName>firm_foreignsector_cgoods</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>foreignsector_centralbank_cgoodscosts</messageName>
+                        </output>
+                    </outputs>
+                </function>             
+                <!-- List of foreig sector functions regarding export activities. -->
+                <function>
+                    <name>foreignsector_export_buy</name>
+                    <description>Firm sells export goods to foreign sector</description>
+                    <currentState>ForeignSectorExportsStart</currentState>
+                    <nextState>ForeignSectorExportsPayment</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_to_export</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>firm_foreignsector_xgoods</messageName>
                         </input>
                     </inputs>
                 </function>
@@ -218,38 +410,94 @@
                     <name>idle</name>
                     <description>It is not the end of month.</description>
                     <currentState>ForeignSectorExportsStart</currentState>
-                    <nextState>end</nextState>
+                    <nextState>ForeignsectorPricing</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
-                            <phase>a.day_of_month_to_act</phase>
+                            <phase>a.day_of_month_to_export</phase>
                         </time></not>
                     </condition>
-                </function>
-                <function>
-                    <name>foreignsector_export_pricing</name>
-                    <description>foreign sector pricing of export goods from export firms</description>
-                    <currentState>ForeignSectorExportsPricing</currentState>
-                    <nextState>ForeignSectorExportsPayment</nextState>
                 </function>
                 <function>
                     <name>foreignsector_export_pay</name>
                     <description>foreign sector payment for export goods from export firms to central bank</description>
                     <currentState>ForeignSectorExportsPayment</currentState>
-                    <nextState>end</nextState>
+                    <nextState>ForeignsectorPricing</nextState>
                     <outputs>
                         <output>
                             <messageName>foreignsector_centralbank_revenues</messageName>
                         </output>
                     </outputs>
                 </function>
+                <!-- List of foreig sector functions regarding pricing activities. -->
+                <function>
+                    <name>foreignsector_set_prices</name>
+                    <description>Foreign sector sets prices</description>
+                    <currentState>ForeignsectorPricing</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                    <outputs>
+                        <output>
+                            <messageName>foreignsector_firm_prices</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>idle</name>
+                    <description>Not the last day of the month</description>
+                    <currentState>ForeignsectorPricing</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
             </functions>
         </xagent>
     </agents>
     <messages>
         <message>
-            <name>firm_foreignsector_amount</name>
-            <description>amount of goods sold from export firm to foreign sector</description>
+            <name>centralbank_firm_exchangerate</name>
+            <description>Exchange rate.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>rate</name>
+                    <description>Exchange rate</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>foreignsector_firm_prices</name>
+            <description>Prices.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>xgoods</name>
+                    <description>Xgoods price</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>rawmaterial</name>
+                    <description>Raw material price</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>cgoods</name>
+                    <description>Capital goods price</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_foreignsector_xgoods</name>
+            <description>Amount of goods sold from export firm to foreign sector</description>
             <variables>
                 <variable>
                     <type>int</type>
@@ -264,8 +512,24 @@
             </variables>
         </message>
         <message>
-            <name>centralbank_firm_revenues</name>
-            <description>revenues from export sales</description>
+            <name>firm_foreignsector_rawmaterials</name>
+            <description>Amount of raw material bought from foreign sector</description>
+            <variables>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Importing firm agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>amount</name>
+                    <description>Amount of raw materials.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>firm_foreignsector_capitalgoods</name>
+            <description>Amount of capital goods bought from foreign sector</description>
             <variables>
                 <variable>
                     <type>int</type>
@@ -273,9 +537,9 @@
                     <description>Export firm agent ID.</description>
                 </variable>
                 <variable>
-                    <type>double</type>
-                    <name>revenues</name>
-                    <description>Amount of revenues received from exports.</description>
+                    <type>int</type>
+                    <name>amount</name>
+                    <description>Amount of capital goods.</description>
                 </variable>
             </variables>
         </message>
@@ -294,6 +558,28 @@
                     <description>Amount of FX revenues received from exports.</description>
                 </variable>
             </variables>
-        </message>        
+        </message>
+        <message>
+            <name>foreignsector_centralbank_rawcosts</name>
+            <description>FX costs of raw material imports</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>fx_costs</name>
+                    <description>Amount of FX costs due to raw material imports.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>foreignsector_centralbank_cgoodscosts</name>
+            <description>FX costs of capital goods imports</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>fx_costs</name>
+                    <description>Amount of FX costs of capital goods imports.</description>
+                </variable>
+            </variables>
+        </message>              
     </messages>
 </xmodel>

@@ -197,14 +197,8 @@
                 <function>
                     <name>firm_production_produce_goods</name>
                     <description>Firm audits number of items produced. Updates inventory accordingly.</description>
-                    <currentState>FirmProductionRegular</currentState>
+                    <currentState>FirmProductionCompletion</currentState>
                     <nextState>FirmLabourStart</nextState>
-                    <condition>
-                        <time>
-                            <period>monthly</period>
-                            <phase>a.day_of_month_production_completed</phase>
-                        </time>
-                    </condition>
                 </function>
                 <function>
                     <name>firm_production_set_price</name>

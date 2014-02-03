@@ -3,6 +3,29 @@
 #include "../library_header.h"
 #include <math.h>
 
+
+/*
+ * \fn: int foreignsector_export_sell_rawmaterials()
+ * \brief: Foreign sector sells raw materials to firms.
+ */
+int foreignsector_export_sell_rawmaterials()
+{   
+   
+
+    return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int foreignsector_export_sell_capitalgoods()
+ * \brief: Foreign sector sells capital goods to firms.
+ */
+int foreignsector_export_sell_capitalgoods()
+{   
+   
+
+    return 0; /* Returning zero means the agent is not removed */
+}
+
 /*
  * \fn: int foreignsector_export_buy()
  * \brief: foreign sector buys export goods from export firms
@@ -11,29 +34,15 @@ int foreignsector_export_buy()
 {	
 	int amount, id;
 
-	START_FIRM_FOREIGNSECTOR_AMOUNT_MESSAGE_LOOP
-    amount = firm_foreignsector_amount_message->amount;
-    id = firm_foreignsector_amount_message->id;
-    add_export(&EXPORT_LIST,id,amount);
- 	FINISH_FIRM_FOREIGNSECTOR_AMOUNT_MESSAGE_LOOP
+	START_FIRM_FOREIGNSECTOR_XGOODS_MESSAGE_LOOP
+    amount = firm_foreignsector_xgoods_message->amount;
+    id = firm_foreignsector_xgoods_message->id;
+    add_xtransaction(&EXPORT_LIST,id,amount);
+ 	FINISH_FIRM_FOREIGNSECTOR_XGOODS_MESSAGE_LOOP
 
 	return 0; /* Returning zero means the agent is not removed */
 }
 
-/*
- * \fn: int foreignsector_export_pricing()
- * \brief: foreign sector pricing of export goods from export firms
- */
-int foreignsector_export_pricing()
-{
-	double delta_price, price_change_range;
-
-	price_change_range = UNIT_XGOODS_PRICE*EXPORT_PRICE_CHANGE_RATE;
-	delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
-	UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
-
-	return 0; /* Returning zero means the agent is not removed */
-}
 
 /*
  * \fn: int foreignsector_export_pay()
@@ -52,10 +61,24 @@ int foreignsector_export_pay()
     
     int size = EXPORT_LIST.size;
     while (size > 0) {
-    remove_export(&EXPORT_LIST,0);
+    remove_xtransaction(&EXPORT_LIST,0);
         size = EXPORT_LIST.size;
     }
     
-    
 	return 0; /* Returning zero means the agent is not removed */
+}
+
+/*
+ * \fn: int foreignsector_set_prices()
+ * \brief: Foreign sector sets prices
+ */
+int foreignsector_set_prices()
+{
+    double delta_price, price_change_range;
+    /* the price range for export goods is fixed in time, currency exchange rate will however change in time */
+    price_change_range = 0.0006*EXPORT_PRICE_CHANGE_RATE;
+    delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
+    UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
+
+    return 0; /* Returning zero means the agent is not removed */
 }

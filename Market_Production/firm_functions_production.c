@@ -336,11 +336,11 @@ int firm_production_export_plan()
     int quota;
     double min_quota, max_quota;
     /* change rate and min and max values can be parameterized */
-    double quota_change_rate = 0.2;
     min_quota = 50000/N_EXPORTFIRMS;
     max_quota = 100000/N_EXPORTFIRMS;
+    double quota_change_range = 0.2 * (max_quota - min_quota);
 
-    quota = SALES + SALES * (((double)random_int(-100, 100)) / 100.0)*quota_change_rate;
+    quota = SALES + (((double)random_int(-100, 100)) / 100.0)*quota_change_range;
 
     if (quota < min_quota) {
         quota = min_quota;
