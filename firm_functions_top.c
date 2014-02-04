@@ -59,7 +59,7 @@ int firm_init_employment()
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = EBIT - TOTAL_INTEREST_PAYMENTS;
         LIQUIDITY = NET_EARNINGS;
-        CAPITAL_GOODS = ceil((TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
+        CAPITAL_GOODS = ceil((TOTAL_ASSETS - UNIT_GOODS_PRICE * INVENTORY - LIQUIDITY)/(UNIT_CGOODS_PRICE * EXCHANGE_RATE));
     } else if (FIRMTYPE == 1) {
         PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY / 12);
         INVENTORY = PRODUCTION_CURRENT;
@@ -68,7 +68,7 @@ int firm_init_employment()
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - TOTAL_INTEREST_PAYMENTS;
         LIQUIDITY = NET_EARNINGS;
-        CAPITAL_GOODS = ceil((TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
+        CAPITAL_GOODS = ceil((TOTAL_ASSETS - UNIT_HOUSE_PRICE * INVENTORY - LIQUIDITY)/(UNIT_CGOODS_PRICE * EXCHANGE_RATE));
         CAPITAL_PRODUCTIVITY = LABOUR_PRODUCTIVITY * NO_EMPLOYEES / (0.7 * CAPITAL_GOODS);
     } else{
         PRODUCTION_CURRENT = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
@@ -78,7 +78,7 @@ int firm_init_employment()
         EBIT = REVENUES - LABOUR_COSTS;
         NET_EARNINGS = REVENUES - TOTAL_INTEREST_PAYMENTS;
         LIQUIDITY = NET_EARNINGS;
-        CAPITAL_GOODS = ceil((TOTAL_ASSETS - UNIT_XGOODS_PRICE * INVENTORY - LIQUIDITY)/CAPITAL_GOODS_PRICE);
+        CAPITAL_GOODS = ceil((TOTAL_ASSETS - UNIT_XGOODS_PRICE * INVENTORY - LIQUIDITY)/(UNIT_CGOODS_PRICE * EXCHANGE_RATE));
     }
 
     
@@ -166,8 +166,8 @@ int firm_iterate()
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_BalanceSheet.txt");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISLIQUIDSHORT", "HASLOAN", "HASINVESTMENT", "LIQUIDITY_NEED", "ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_HOUSE_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "DEBT", "EQUITY");
-                //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT, EQUITY);
+                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISLIQUIDSHORT", "HASLOAN", "HASINVESTMENT", "LIQUIDITY_NEED", "ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_HOUSE_PRICE", "UNIT_CGOODS_PRICE", "CAPITAL_GOODS", "DEBT", "EQUITY");
+                //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, UNIT_CGOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL_CONSTRUCTION, DEBT, EQUITY);
                 fclose(file1);
             }
             else if (FIRMTYPE == 0) {
@@ -202,9 +202,9 @@ int firm_iterate()
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISLIQUIDSHORT", "HASLOAN", "HASINVESTMENT", "LIQUIDITY_NEED","ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_GOODS_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "DEBT", "EQUITY");
+                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISLIQUIDSHORT", "HASLOAN", "HASINVESTMENT", "LIQUIDITY_NEED","ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_GOODS_PRICE", "UNIT_CGOODS_PRICE", "CAPITAL_GOODS", "DEBT", "EQUITY");
                 
-                //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
+                //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_CGOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
                 fclose(file1);
             } else {
                 /* @\fn: firm_production_plan() */
@@ -238,9 +238,9 @@ int firm_iterate()
                 filename[0]=0;
                 strcpy(filename, "./outputs/data/Export_Firm_Quarterly_BalanceSheet.txt");
                 file1 = fopen(filename,"w");
-                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISLIQUIDSHORT", "HASLOAN", "HASINVESTMENT", "LIQUIDITY_NEED","ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_XGOODS_PRICE", "CAPITAL_GOODS_PRICE", "CAPITAL_GOODS", "DEBT", "EQUITY");
+                fprintf(file1,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n","IT_NO", "ID", "ISLIQUIDSHORT", "HASLOAN", "HASINVESTMENT", "LIQUIDITY_NEED","ISINSOLVENT", "ISILLIQUID", "TOTAL_ASSETS", "LIQUIDITY", "INVENTORY", "UNIT_XGOODS_PRICE", "UNIT_CGOODS_PRICE", "CAPITAL_GOODS", "DEBT", "EQUITY");
                 
-                //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
+                //fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_CGOODS_PRICE, CAPITAL_GOODS, PHYSICAL_CAPITAL, DEBT, EQUITY);
                 fclose(file1);
             }
             free(filename);

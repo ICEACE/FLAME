@@ -441,7 +441,7 @@ int firm_credit_do_balance_sheet()
     } else {
         TOTAL_ASSETS = 0;
     }
-    TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
+    TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
     EQUITY = TOTAL_ASSETS - DEBT;
     
     if (EQUITY < 0) {
@@ -456,15 +456,15 @@ int firm_credit_do_balance_sheet()
         if (FIRMTYPE == 1) {
             strcpy(filename, "./outputs/data/Constructor_Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, DEBT, EQUITY);
+            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_HOUSE_PRICE, UNIT_CGOODS_PRICE * EXCHANGE_RATE, CAPITAL_GOODS, DEBT, EQUITY);
         } else if (FIRMTYPE == 0) {
             strcpy(filename, "./outputs/data/Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, DEBT, EQUITY);
+            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_GOODS_PRICE, UNIT_CGOODS_PRICE * EXCHANGE_RATE, CAPITAL_GOODS, DEBT, EQUITY);
         } else {
             strcpy(filename, "./outputs/data/Export_Firm_Quarterly_BalanceSheet.txt");
             file1 = fopen(filename,"a");
-            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_XGOODS_PRICE, CAPITAL_GOODS_PRICE, CAPITAL_GOODS, DEBT, EQUITY);
+            fprintf(file1,"%d %d %d %d %d %f %d %d %f %f %d %f %f %d %f %f\n",IT_NO, ID, ISLIQUIDSHORT, HASLOAN, HASINVESTMENT, LIQUIDITY_NEED, ISINSOLVENT, ISILLIQUID, TOTAL_ASSETS, LIQUIDITY, INVENTORY, UNIT_XGOODS_PRICE, UNIT_CGOODS_PRICE * EXCHANGE_RATE, CAPITAL_GOODS, DEBT, EQUITY);
         }
         fclose(file1);
         free(filename);
@@ -549,7 +549,7 @@ int firm_credit_insolvency_bankruptcy()
     }
     
     /* Getting initial loan */
-    TOTAL_ASSETS += CAPITAL_GOODS * CAPITAL_GOODS_PRICE;
+    TOTAL_ASSETS += CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
     DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     
