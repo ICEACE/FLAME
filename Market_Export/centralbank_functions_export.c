@@ -8,8 +8,21 @@
  */
 int centralbank_import_transactions()
 {
-   
+    double fx_costs = 0;
+    double costs = 0;
 
+    START_FOREIGNSECTOR_CENTRALBANK_RAWCOSTS_MESSAGE_LOOP
+    fx_costs += foreignsector_centralbank_rawcosts_message->fx_costs;
+    FINISH_FOREIGNSECTOR_CENTRALBANK_RAWCOSTS_MESSAGE_LOOP
+
+    START_FOREIGNSECTOR_CENTRALBANK_CGOODSCOSTS_MESSAGE_LOOP
+    fx_costs += foreignsector_centralbank_cgoodscosts_message->fx_costs;
+    FINISH_FOREIGNSECTOR_CENTRALBANK_CGOODSCOSTS_MESSAGE_LOOP
+
+    costs = fx_costs * EXCHANGE_RATE;
+    FX_LIQUIDITY -= fx_costs;
+    LIQUIDITY += costs;
+    MONTHLY_IMPORT_COSTS = costs;
     return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -29,9 +42,9 @@ int centralbank_export_transactions()
     revenues = fx_revenues*EXCHANGE_RATE;
     //add_centralbank_firm_revenues_message(id,revenues);
     FX_LIQUIDITY += fx_revenues;
-    LIQUIDITY -= revenues; 
+    LIQUIDITY -= revenues;
+    MONTHLY_EXPORT_REVENUES += revenues;
  	FINISH_FOREIGNSECTOR_CENTRALBANK_REVENUES_MESSAGE_LOOP
-
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -42,7 +55,12 @@ int centralbank_export_transactions()
  */
 int centralbank_set_exchangerate()
 {
-   
+    EXCHANGE_RATE = MONTHLY_EXPORT_REVENUES / MONTHLY_IMPORT_COSTS;
+    
+    add_centralbank_firm_exchangerate_message(EXCHANGE_RATE);
+
+    MONTHLY_EXPORT_REVENUES = 0;
+    MONTHLY_IMPORT_COSTS = 0;
 
     return 0; /* Returning zero means the agent is not removed */
 }

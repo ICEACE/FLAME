@@ -9,8 +9,18 @@
  * \brief: Foreign sector sells raw materials to firms.
  */
 int foreignsector_export_sell_rawmaterials()
-{   
-   
+{
+    int amount = 0;
+    double costs;
+
+    START_FIRM_FOREIGNSECTOR_RAWMATERIALS_MESSAGE_LOOP
+    amount += firm_foreignsector_rawmaterials_message->amount;
+    FINISH_FIRM_FOREIGNSECTOR_RAWMATERIALS_MESSAGE_LOOP
+
+    costs = amount * UNIT_RAW_PRICE;
+    IMPORTS += costs;
+
+    add_foreignsector_centralbank_rawcosts_message(costs);
 
     return 0; /* Returning zero means the agent is not removed */
 }
@@ -21,7 +31,17 @@ int foreignsector_export_sell_rawmaterials()
  */
 int foreignsector_export_sell_capitalgoods()
 {   
-   
+    int amount = 0;
+    double costs;
+
+    START_FIRM_FOREIGNSECTOR_CGOODS_MESSAGE_LOOP
+    amount += firm_foreignsector_cgoods_message->amount;
+    FINISH_FIRM_FOREIGNSECTOR_CGOODS_MESSAGE_LOOP
+
+    costs = amount * UNIT_CGOODS_PRICE;
+    IMPORTS += costs;
+
+    add_foreignsector_centralbank_cgoodscosts_message(costs);
 
     return 0; /* Returning zero means the agent is not removed */
 }
@@ -79,6 +99,12 @@ int foreignsector_set_prices()
     price_change_range = 0.0006*EXPORT_PRICE_CHANGE_RATE;
     delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
     UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
+
+    UNIT_RAW_PRICE = 0.00006;
+
+    UNIT_CGOODS_PRICE = 0.06;
+
+    add_foreignsector_firm_prices(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
 
     return 0; /* Returning zero means the agent is not removed */
 }

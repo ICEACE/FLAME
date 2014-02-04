@@ -59,6 +59,7 @@ int firm_production_set_price()
     
     unit_cost_new = WAGE_OFFER * (double)NO_EMPLOYEES;
     unit_cost_new += DEBT * LOANS_INTEREST_RATE / 12;
+    unit_cost_new += RAWMATERIAL_COSTS + CGOODS_COSTS;
     unit_cost_new = unit_cost_new / PRODUCTION_CURRENT;
    
     if (goods_to_sale != 0) {

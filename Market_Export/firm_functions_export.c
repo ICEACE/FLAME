@@ -9,7 +9,26 @@
  */
 int firm_export_import_rawmaterials()
 {
+    int amount;
     
+    if (FIRMTYPE == 1) {
+        int capital, labour;
+    
+        labour = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY);
+        capital = (int) (CAPITAL_PRODUCTIVITY * CAPITAL_GOODS);
+    
+        /* Construction firms need 4000 units of raw material to advance one house one month forward*/
+        amount = min_int(labour, capital)*4000;
+    }
+    else {
+        /* Regular firms and  need 3 units of raw material to produce one unit of goods */
+        amount = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY * 3);
+    }
+    RAWMATERIAL_COSTS = amount * UNIT_RAW_PRICE * EXCHANGE_RATE;
+    LIQUIDITY -= RAWMATERIAL_COSTS;
+
+    add_firm_foreignsector_rawmaterials_message(ID,amount);
+
     return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -19,6 +38,16 @@ int firm_export_import_rawmaterials()
  */
 int firm_export_import_capitalgoods()
 {
+    int depreciated_cgoods;
+    int amount;
+
+    depreciated_cgoods = (int) (CAPITAL_GOODS * DEPRECIATION_RATE);
+    amount = depreciated_cgoods + CAPITAL_GOODS_INVESTMENT;
+
+    CGOODS_COSTS = amount * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
+    LIQUIDITY -= CGOODS_COSTS;
+
+    add_firm_foreignsector_cgoods_message(ID,amount);
     
     return 0; /* Returning zero means the agent is not removed */
 }
@@ -63,7 +92,17 @@ int firm_export_receive_sales()
  */
 int firm_export_check_pricesandrates()
 {
-    
+
+    START_FOREIGNSECTOR_FIRM_PRICES_MESSAGE_LOOP
+    UNIT_XGOODS_PRICE = foreignsector_firm_prices_message->xgoods;
+    UNIT_RAW_PRICE = foreignsector_firm_prices_message->rawmarterial;
+    UNIT_CGOODS_PRICE = foreignsector_firm_prices_message->cgoods;
+    FINISH_FOREIGNSECTOR_FIRM_PRICES_MESSAGE_LOOP
+
+    START_CENTRALBANK_FIRM_EXCAHNGERATE_MESSAGE_LOOP
+    EXCHANGE_RATE = centralbank_firm_exchangerate_message->rate; 
+    FINISH_CENTRALBANK_FIRM_EXCAHNGERATE_MESSAGE_LOOP
+
     return 0; /* Returning zero means the agent is not removed */
 }
 

@@ -11,6 +11,11 @@
                 <name>export_price_change_rate</name>
                 <description>Rate of change allowed on export goods.</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>depreciation_rate</name>
+                <description>Capital goods monthly depreciation rate.</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
@@ -63,6 +68,21 @@
                     <type>double</type>
                     <name>unit_cgoods_price</name>
                     <description>Capital unit goods price</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>capital_goods_investment</name>
+                    <description>Units of investment in capital goods</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>cgoods_costs</name>
+                    <description>Value of capital goods investment</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>rawmaterial_costs</name>
+                    <description>Value of raw material imports</description>
                 </variable>
             </memory>               
             <!-- List of agent functions -->
@@ -213,7 +233,18 @@
             <name>centralbank</name>
             <description>A Central Bank agent.</description>
             <!-- Agent memory holding a list of variables -->
-            <memory/>
+            <memory>
+                <variable>
+                    <type>double</type>
+                    <name>monthly_export_revenues</name>
+                    <description>Value of monthly exports</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>monthly_import_costs</name>
+                    <description>Value of monthly imports</description>
+                </variable>
+            </memory>
             <!-- List of agent functions -->
             <functions>
                 <!-- Central bank import related functions -->
