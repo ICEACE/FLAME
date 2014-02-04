@@ -353,6 +353,16 @@
                     <description>Unit price of export goods</description>
                 </variable>
                 <variable>
+                    <type>double</type>
+                    <name>unit_raw_price</name>
+                    <description>Unit price of raw materials</description>
+                </variable>
+                <variable>
+                    <type>double</type>
+                    <name>unit_cgoods_price</name>
+                    <description>Unit price of capital goods.</description>
+                </variable>
+                <variable>
                     <type>xtransaction_array</type>
                     <name>export_list</name>
                     <description>List of goods to be exported</description>

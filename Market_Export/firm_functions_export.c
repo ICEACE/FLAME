@@ -95,13 +95,13 @@ int firm_export_check_pricesandrates()
 
     START_FOREIGNSECTOR_FIRM_PRICES_MESSAGE_LOOP
     UNIT_XGOODS_PRICE = foreignsector_firm_prices_message->xgoods;
-    UNIT_RAW_PRICE = foreignsector_firm_prices_message->rawmarterial;
+    UNIT_RAW_PRICE = foreignsector_firm_prices_message->rawmaterial;
     UNIT_CGOODS_PRICE = foreignsector_firm_prices_message->cgoods;
     FINISH_FOREIGNSECTOR_FIRM_PRICES_MESSAGE_LOOP
 
-    START_CENTRALBANK_FIRM_EXCAHNGERATE_MESSAGE_LOOP
+    START_CENTRALBANK_FIRM_EXCHANGERATE_MESSAGE_LOOP
     EXCHANGE_RATE = centralbank_firm_exchangerate_message->rate; 
-    FINISH_CENTRALBANK_FIRM_EXCAHNGERATE_MESSAGE_LOOP
+    FINISH_CENTRALBANK_FIRM_EXCHANGERATE_MESSAGE_LOOP
 
     return 0; /* Returning zero means the agent is not removed */
 }

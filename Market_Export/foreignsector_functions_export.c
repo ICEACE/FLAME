@@ -104,7 +104,7 @@ int foreignsector_set_prices()
 
     UNIT_CGOODS_PRICE = 0.06;
 
-    add_foreignsector_firm_prices(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
+    add_foreignsector_firm_prices_message(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
 
     return 0; /* Returning zero means the agent is not removed */
 }
