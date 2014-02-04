@@ -72,11 +72,6 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>unit_xgoods_price</name>
-                    <description>Unit price of export goods</description>
-                </variable>
-                <variable>
-                    <type>double</type>
                     <name>capital_goods_price</name>
                     <description>Unit price for capital goods.</description>
                 </variable>

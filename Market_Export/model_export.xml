@@ -92,7 +92,7 @@
                     <nextState>FirmProductionCompletion</nextState>
                     <outputs>
                         <output>
-                            <messageName>firm_foreignsector_capitalgoods</messageName>
+                            <messageName>firm_foreignsector_cgoods</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -161,17 +161,6 @@
                     <description>A firm recieves sales revenues through the central bank.</description>
                     <currentState>FirmExportReceiveSales</currentState>
                     <nextState>FirmHousingStart</nextState>
-                    <inputs>
-                        <input>
-                            <messageName>centralbank_firm_revenues</messageName>
-                            <filter>
-                                <!-- checks self id. -->
-                                <lhs><value>a.id</value></lhs>
-                                <op>EQ</op>
-                                <rhs><value>m.id</value></rhs>
-                            </filter>
-                        </input>
-                    </inputs>
                 </function>
                 <!-- Price and exchange rate communication -->
                 <function>
@@ -219,8 +208,8 @@
                 <function>
                     <name>centralbank_import_transactions</name>
                     <description>Central bank updates foreign currency reserves due to imports</description>
-                    <currentState>CentralBankImport</currentState>
-                    <nextState>CentralBankComsumption</nextState>
+                    <currentState>CentralBankImports</currentState>
+                    <nextState>CentralBankConsumption</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -239,8 +228,8 @@
                 <function>
                     <name>idle</name>
                     <description>It is not the end of month.</description>
-                    <currentState>CentralBankImport</currentState>
-                    <nextState>CentralBankComsumption</nextState>
+                    <currentState>CentralBankImports</currentState>
+                    <nextState>CentralBankConsumption</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -363,7 +352,7 @@
                     </condition>
                     <inputs>
                         <input>
-                            <messageName>firm_foreignsector_raw</messageName>
+                            <messageName>firm_foreignsector_rawmaterials</messageName>
                         </input>
                     </inputs>
                     <outputs>
@@ -528,7 +517,7 @@
             </variables>
         </message>
         <message>
-            <name>firm_foreignsector_capitalgoods</name>
+            <name>firm_foreignsector_cgoods</name>
             <description>Amount of capital goods bought from foreign sector</description>
             <variables>
                 <variable>

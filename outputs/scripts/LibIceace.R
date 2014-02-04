@@ -218,12 +218,32 @@ get_means_set <- function(nexps, dataSet, memVar, nagents, niter){
 
 
 
-plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, gtype = "Nominal", beta = "0.3"){
+plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, efirmiters = vector(), efirmvector = vector(), gtype = "Nominal", beta = "0.3"){
 	times <- (1:niter)
 	fsums <- (1:niter)
 	csums <- (1:niter)
+	esums <- (1:niter)
 	gdp <- (1:niter)
 	
+	compute_parts <- function(niter, iters, fvector) {
+		sums <- (1:niter)
+		current_iter <- iters[1]
+		datalength <- length(fvector)
+		accumulator <- 0
+		ind <- 1
+		for (i in 1:datalength){
+			if (iters[i] != current_iter){
+				sums[ind] <- accumulator
+				ind <- ind + 1
+				accumulator <- 0
+				current_iter <- iters[i]
+				}
+			accumulator <- accumulator + fvector[i]
+			}
+		sums[ind] <- accumulator
+		return(sums)	
+	}
+		
 	#Regular Firm productions
 	current_iter <- firmiters[1]
 	datalength <- length(firmvector)
@@ -240,7 +260,8 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	}
 	fsums[ind] <- accumulator
 
-    #constructor Firm productions
+	
+	#Constructor Firm productions
 	current_iter <- cfirmiters[1]
 	datalength <- length(cfirmvector)
 	accumulator <- 0
@@ -257,8 +278,16 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	csums[ind] <- accumulator
 	
 	for (i in 1:niter){
-		gdp[i] <- fsums[i] + csums[i]
+			gdp[i] <- fsums[i] + csums[i]
+		}
+			
+	if (length(efirmiters) > 1){
+		esums <- compute_parts(niter, efirmiters, efirmvector)
+		for (i in 1:niter){
+			gdp[i] <- gdp[i] + esums[i]
+			}
 	}
+	
 	fname = paste("aGDP_", gtype, "_Monthly.png", sep = "")
 	ylabtext = paste("GDP (Total Production Market Value - ", gtype, sep = "")
 	title = paste("Beta = ", beta, sep = "")

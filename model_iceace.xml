@@ -241,7 +241,7 @@
                     <name>idle</name>
                     <description>Skip the bank account updates.</description>
                     <currentState>FirmUpdateDeposits</currentState>
-                    <nextState>FirmCreditPolicyChecks</nextState>
+                    <nextState>FirmForeignMarketChecks</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -253,7 +253,7 @@
                     <name>firm_update_bank_account</name>
                     <description>Deposits/updates its liquidity to bank.</description>
                     <currentState>FirmUpdateDeposits</currentState>
-                    <nextState>FirmCreditPolicyChecks</nextState>
+                    <nextState>FirmForeignMarketChecks</nextState>
                     <condition>
                         <time>
                             <period>monthly</period>
@@ -814,7 +814,7 @@
                     <name>foreignsector_iterate</name>
                     <description>Regular loop start point.</description>
                     <currentState>ForeignsectorLoop</currentState>
-                    <nextState>ForeignSectorExportsStart</nextState>
+                    <nextState>ForeignSectorImportsStart</nextState>
                 </function>
             </functions>
         </xagent>
