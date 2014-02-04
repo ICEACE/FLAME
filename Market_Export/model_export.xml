@@ -69,9 +69,21 @@
             <functions>
                 <!-- Import related functions and state transitions -->
                 <function>
+                    <name>idle</name>
+                    <description>It is not the last day of the month.</description>
+                    <currentState>FirmImportRawMaterials</currentState>
+                    <nextState>FirmProductionRoleCheck</nextState>
+                    <condition>
+                        <not><time>
+                            <period>monthly</period>
+                            <phase>a.day_of_month_production_completed</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
                     <name>firm_export_import_rawmaterials</name>
                     <description>Firm imports raw materials</description>
-                    <currentState>FirmProductionRegular</currentState>
+                    <currentState>FirmImportRawMaterials</currentState>
                     <nextState>FirmImportCapitalGoods</nextState>
                     <condition>
                         <time>
@@ -89,7 +101,7 @@
                     <name>firm_export_import_capitalgoods</name>
                     <description>Firm imports capital goods</description>
                     <currentState>FirmImportCapitalGoods</currentState>
-                    <nextState>FirmProductionCompletion</nextState>
+                    <nextState>FirmProductionRoleCheck</nextState>
                     <outputs>
                         <output>
                             <messageName>firm_foreignsector_cgoods</messageName>
