@@ -55,7 +55,7 @@ plot_time_series_mean_file_v2(nMonths, CFirmMonthly$IT_NO, CFirmMonthly$SALES, "
 
 #### Export Firms ###
 
-plot_time_series_mean_file(nEFirms, nQuarters, EFirmBalance$UNIT_XGOODS_PRICE, "Quarters", "Price (mean)", "Exporter Firms", "EFirmsUnitHousePrices.png", isgrid = TRUE, ispoint = TRUE)
+plot_time_series_mean_file(nEFirms, nQuarters, EFirmBalance$UNIT_XGOODS_PRICE, "Quarters", "Price (mean)", "Exporter Firms", "EFirmsUnitXGoodsPrices.png", isgrid = TRUE, ispoint = TRUE)
 
 plot_time_series_mean_file(nEFirms, nQuarters, EFirmBalance$TOTAL_ASSETS, "Quarters", "Total Assets (mean)", "Exporter Firms", "EFirmsTotalAssets.png", isgrid = TRUE, ispoint = TRUE)
 
