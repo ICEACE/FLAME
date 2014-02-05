@@ -72,6 +72,29 @@ int mall_consumption_shopping()
     }
 	FINISH_BUY_MESSAGE_LOOP
     
+
+    /* 
+    Consumption by Foreign Sector.
+    This can be due to, for instance, tourism.
+     */
+    int total_fx_sold = 0;
+    double total_fx_volume = 0;
+    int fxsize, fxamount, fxfirm_id;
+
+    fxsize = sellers_list.size;
+
+    for (int j = 0; j < fxsize; ++j)
+    {
+        fxamount = (int) (FIRM_EXPORT_RATIO * sellers_list.array[j].inventory);
+        fxfirm_id = sellers_list.array[j].id;
+        fxprice = sellers_list.array[j].price;
+        sellers_list.array[i].inventory -= fxamount;
+        add_sold_message(fxfirm_id, fxamount);
+        total_fx_sold += fxamount;
+        total_fx_volume += fxamount * fxprice;
+    }
+    add_mall_centralbank_goods_message(total_fx_volume);
+
     /* Do the matching *
      * Input assumptions:
      * sellers are sorted ascendingly by price.
@@ -87,9 +110,11 @@ int mall_consumption_shopping()
     
     /* Identifiers below are used to hold weekly transaction summary.
      */
-    int total_sold = 0;
-    double total_volume = 0;
+    int total_sold = total_fx_sold;
+    double total_volume = total_fx_volume;
     int transaction_occured;
+
+
     do {
         
         if (sellers_list.size == 0 || buyers_list.size == 0) {break;}

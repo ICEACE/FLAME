@@ -21,6 +21,11 @@
                 <name>wealth_effect</name>
                 <description>A rate of influence from housing market to regular economy. Used by Household agents.</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>firm_export_ratio</name>
+                <description>Ratio of regular goods exported by regular firms to foreign sector.</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
@@ -28,6 +33,7 @@
             <file>firm_functions_consumption.c</file>
             <file>mall_functions_consumption.c</file>
             <file>centralbank_functions_consumption.c</file>
+            <file>foreignsector_functions_consumption.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -136,6 +142,9 @@
                         </output>
                         <output>
                             <messageName>bought</messageName>
+                        </output>
+                        <output>
+                            <messageName>mall_centralbank_goods</messageName>
                         </output>
                     </outputs>
                 </function>
@@ -390,16 +399,32 @@
                     </condition>
                 </function>
                 <function>
-                    <name>centralbank_trace_goods_prices</name>
-                    <description>It is the day of the week to act.</description>
+                    <name>centralbank_trace_goods_exported</name>
+                    <description>Centralbank traces goods exported by regular firms to foreign sector.</description>
                     <currentState>CentralBankConsumption</currentState>
-                    <nextState>CentralBankConsumptionPrices</nextState>
+                    <nextState>CentralBankConsumptionWeeklyPrices</nextState>
                     <condition>
                         <time>
                             <period>weekly</period>
                             <phase>a.day_of_week_to_act</phase>
                         </time>
                     </condition>
+                    <inputs>
+                        <input>
+                            <messageName>mall_centralbank_goods</messageName>
+                        </input>
+                    </inputs>
+                    <outputs>
+                        <output>
+                            <messageName>centralbank_foreignsector_goods</messageName>
+                        </output>
+                    </outputs>
+                </function>
+                <function>
+                    <name>centralbank_trace_goods_prices</name>
+                    <description>It is the day of the week to act.</description>
+                    <currentState>CentralBankConsumptionWeeklyPrices</currentState>
+                    <nextState>CentralBankConsumptionPrices</nextState>
                     <inputs>
                         <input>
                             <messageName>goods_transactions_summary</messageName>
@@ -429,6 +454,50 @@
                             <phase>0</phase>
                         </time>
                     </condition>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>foreignsector</name>
+            <description>A foreign sector agent.</description>
+            <!-- Agent memory holding a list of variables -->
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>day_of_week_to_act</name>
+                    <description>Day of the week to act.</description>
+                </variable>
+            </memory>
+            <!-- List of agent functions -->
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the day of the week to act.</description>
+                    <currentState>ForeignSectorConsumption</currentState>
+                    <nextState>ForeignSectorExportsStart</nextState>
+                    <condition>
+                        <not><time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>foreignsector_consumption_buy_goods</name>
+                    <description>Foreign sector consumption of locally produced goods.</description>
+                    <currentState>ForeignSectorConsumption</currentState>
+                    <nextState>ForeignSectorExportsStart</nextState>
+                    <condition>
+                        <time>
+                            <period>weekly</period>
+                            <phase>a.day_of_week_to_act</phase>
+                        </time>
+                    </condition>
+                    <inputs>
+                        <input>
+                            <messageName>centralbank_foreignsector_goods</messageName>
+                        </input>
+                    </inputs>
                 </function>
             </functions>
         </xagent>
@@ -521,6 +590,28 @@
                     <type>double</type>
                     <name>avg_price</name>
                     <description>Weakly avg price.</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>mall_centralbank_goods</name>
+            <description>Total transaction volume of regular consumption goods sold to foreign market.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>volume</name>
+                    <description>Transaction volume in local currency</description>
+                </variable>
+            </variables>
+        </message>
+        <message>
+            <name>centralbank_foreignsector_goods</name>
+            <description>Total transaction volume of regular consumption goods sold to foreign market in foreign currency.</description>
+            <variables>
+                <variable>
+                    <type>double</type>
+                    <name>fx_revenues</name>
+                    <description>Transaction volume in foreign currency</description>
                 </variable>
             </variables>
         </message>
