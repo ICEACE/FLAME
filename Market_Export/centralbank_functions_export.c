@@ -59,7 +59,7 @@ int centralbank_set_exchangerate()
         EXCHANGE_RATE = EXCHANGE_RATE;
     }
     else {
-        EXCHANGE_RATE = MONTHLY_EXPORT_REVENUES / MONTHLY_IMPORT_COSTS;
+        EXCHANGE_RATE = EXCHANGE_RATE * 0.9 +  (MONTHLY_EXPORT_REVENUES / MONTHLY_IMPORT_COSTS) * 0.1;
     }
     add_centralbank_firm_exchangerate_message(EXCHANGE_RATE);
 

@@ -22,10 +22,6 @@ source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotBank
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotFirmsVars.R", echo = T)
 
 
-# Compute GDP #
-betaval = "0.30"
-source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeGDPs.R", echo = T)
-
 # Compute Writeoff Cases #
 niter = 3600
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeWriteoffs.R", echo = T)
@@ -33,13 +29,19 @@ source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeW
 # Compute Crediting Frequencies #
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeCreditings.R", echo = T)
 
+
+# Compute Housing Market Activities#
+source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeHousing.R", echo = T)
+
 # Plot Household Vars #
 if (data_household){
 	source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotHouseholdVars.R", echo = T)
 	}
 
-# Compute Housing Market Activities#
-source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeHousing.R", echo = T)
 
+# Compute GDP #
+betaval = "0.30"
+source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeGDPs.R", echo = T)
+
+# Identity Checks
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/identityCheck.R", echo = T)
-
