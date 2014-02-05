@@ -100,11 +100,11 @@ int foreignsector_set_prices()
     delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
     UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
 
-    UNIT_XGOODS_PRICE = 0.00078;
+    UNIT_XGOODS_PRICE = 0.0078;
 
-    UNIT_RAW_PRICE = 0.000078;
+    UNIT_RAW_PRICE = 0.00078;
 
-    UNIT_CGOODS_PRICE = 0.078;
+    UNIT_CGOODS_PRICE = 0.78;
 
     add_foreignsector_firm_prices_message(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
 
