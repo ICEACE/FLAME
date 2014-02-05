@@ -76,7 +76,7 @@ int firm_export_sell()
 int firm_export_receive_sales()
 {
 
-    REVENUES = SALES * EXCHANGE_RATE;
+    REVENUES = SALES * UNIT_XGOODS_PRICE * EXCHANGE_RATE;
     LIQUIDITY += REVENUES;
     //START_CENTRALBANK_FIRM_REVENUES_MESSAGE_LOOP
     //REVENUES += centralbank_firm_revenues_message->revenues;
