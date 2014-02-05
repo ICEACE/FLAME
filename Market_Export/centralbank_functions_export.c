@@ -55,8 +55,12 @@ int centralbank_export_transactions()
  */
 int centralbank_set_exchangerate()
 {
-    EXCHANGE_RATE = MONTHLY_EXPORT_REVENUES / MONTHLY_IMPORT_COSTS;
-    
+    if (MONTHLY_IMPORT_COSTS == 0 || MONTHLY_EXPORT_REVENUES == 0){
+        EXCHANGE_RATE = EXCHANGE_RATE;
+    }
+    else {
+        EXCHANGE_RATE = MONTHLY_EXPORT_REVENUES / MONTHLY_IMPORT_COSTS;
+    }
     add_centralbank_firm_exchangerate_message(EXCHANGE_RATE);
 
     MONTHLY_EXPORT_REVENUES = 0;

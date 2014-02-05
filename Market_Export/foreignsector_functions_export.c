@@ -96,13 +96,15 @@ int foreignsector_set_prices()
 {
     double delta_price, price_change_range;
     /* the price range for export goods is fixed in time, currency exchange rate will however change in time */
-    price_change_range = 0.0006*EXPORT_PRICE_CHANGE_RATE;
+    price_change_range = 0.000078;
     delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
     UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
 
-    UNIT_RAW_PRICE = 0.00006;
+    UNIT_XGOODS_PRICE = 0.00078;
 
-    UNIT_CGOODS_PRICE = 0.06;
+    UNIT_RAW_PRICE = 0.000078;
+
+    UNIT_CGOODS_PRICE = 0.078;
 
     add_foreignsector_firm_prices_message(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
 
