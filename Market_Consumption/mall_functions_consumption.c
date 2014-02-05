@@ -80,6 +80,7 @@ int mall_consumption_shopping()
     int total_fx_sold = 0;
     double total_fx_volume = 0;
     int fxsize, fxamount, fxfirm_id;
+    double fxprice;
 
     fxsize = sellers_list.size;
 
@@ -88,7 +89,7 @@ int mall_consumption_shopping()
         fxamount = (int) (FIRM_EXPORT_RATIO * sellers_list.array[j].inventory);
         fxfirm_id = sellers_list.array[j].id;
         fxprice = sellers_list.array[j].price;
-        sellers_list.array[i].inventory -= fxamount;
+        sellers_list.array[j].inventory -= fxamount;
         add_sold_message(fxfirm_id, fxamount);
         total_fx_sold += fxamount;
         total_fx_volume += fxamount * fxprice;

@@ -2,8 +2,6 @@
 #include "../centralbank_agent_header.h"
 
 
-<name></name>
- 
 /*
  * \fn: int centralbank_trace_goods_exported()
  * \brief: Centralbank traces goods exported by regular firms to foreign sector.
@@ -21,7 +19,7 @@ int centralbank_trace_goods_exported()
     FX_LIQUIDITY += fx_revenues;
     LIQUIDITY -= fxgoods_volume;
 
-    add_centralbank_foreignsector_goods(fx_revenues);
+    add_centralbank_foreignsector_goods_message(fx_revenues);
 
     
     return 0; /* Returning zero means the agent is not removed */

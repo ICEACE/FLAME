@@ -31,6 +31,7 @@
 <household_mortgage_writeoff_high>0.7</household_mortgage_writeoff_high>
 <household_mortgage_writeoff_low>0.5</household_mortgage_writeoff_low>
 <export_price_change_rate>0.05</export_price_change_rate>
+<firm_export_ratio>0.1</firm_export_ratio>
 </environment>
 <xagent>
 <name>firm</name>

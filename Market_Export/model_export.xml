@@ -384,7 +384,7 @@
                     <name>idle</name>
                     <description>It is not the end of month.</description>
                     <currentState>ForeignSectorImportsStart</currentState>
-                    <nextState>ForeignSectorExportsStart</nextState>
+                    <nextState>ForeignSectorConsumption</nextState>
                     <condition>
                         <not><time>
                             <period>monthly</period>
@@ -418,7 +418,7 @@
                     <name>foreignsector_export_sell_capitalgoods</name>
                     <description>Foreign sector sells capital goods to firms</description>
                     <currentState>ForeignSectorImportsCapitalGoods</currentState>
-                    <nextState>ForeignSectorExportsStart</nextState>
+                    <nextState>ForeignSectorConsumption</nextState>
                     <inputs>
                         <input>
                             <messageName>firm_foreignsector_cgoods</messageName>
