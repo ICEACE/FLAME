@@ -100,7 +100,7 @@ int foreignsector_set_prices()
     delta_price = (((double)random_int(-100, 100)) / 100.0)*price_change_range;
     UNIT_XGOODS_PRICE = UNIT_XGOODS_PRICE + delta_price;
 
-    UNIT_XGOODS_PRICE = 0.0078 * 4;
+    UNIT_XGOODS_PRICE = 0.0078 * 2;
 
     UNIT_RAW_PRICE = 0.00078;
 
