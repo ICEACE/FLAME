@@ -20,6 +20,9 @@ plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_BANKS, "Quarters", 
 plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_GOVERNMENT, "Quarters", "Government Liquidity", "Central Bank", "CentralBankLiquidityGovernment.png", isgrid = TRUE, ltype = "o")
 plot_time_series_point_file(nQuarters, Centralbank$LIQUIDITY_EQUITYFUND, "Quarters", "Equity Fund Liquidity", "Central Bank", "CentralBankLiquidityEquityFund.png", isgrid = TRUE, ltype = "o")
 
+plot_time_series_point_file(nQuarters, Centralbank$EXCHANGE_RATE, "Quarters", "Exchange Rate", "Central Bank", "CentralBankExchangeRate.png", isgrid = TRUE, ltype = "o")
+plot_time_series_point_file(nQuarters, Centralbank$FX_LIQUIDITY, "Quarters", "FX Liquidity", "Central Bank", "CentralBankFXLiquidity.png", isgrid = TRUE, ltype = "o")
+
 
 
 #Government
