@@ -14,8 +14,8 @@ source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotAgen
 
 
 # Plot Bank Vars #
-bankA =823
-bankB = 824
+bankA =22
+bankB = 23
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotBanksVars.R", echo = T)
 
 # Plot Firm Vars #
