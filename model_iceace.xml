@@ -67,6 +67,11 @@
                 <name>n_exportfirms</name>
                 <description>Number of export firms</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>exchange_rate_reference</name>
+                <description>Initial exchange rate</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->

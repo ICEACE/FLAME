@@ -441,7 +441,8 @@ int firm_credit_do_balance_sheet()
     } else {
         TOTAL_ASSETS = 0;
     }
-    TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
+    /* Capital goods are valued using the initial Exchange Rate */
+    TOTAL_ASSETS += LIQUIDITY + CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE_REFERENCE;
     EQUITY = TOTAL_ASSETS - DEBT;
     
     if (EQUITY < 0) {
