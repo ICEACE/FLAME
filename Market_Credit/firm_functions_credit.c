@@ -504,6 +504,8 @@ int firm_credit_insolvency_bankruptcy()
     OPERATING_COSTS = 0;
     LABOUR_COSTS = 0;
     TOTAL_INTEREST_PAYMENTS = 0;
+    RAWMATERIAL_COSTS = 0;
+    CGOODS_COSTS = 0;
     /* Physical capital etc are kept the same.
      */
     
@@ -550,7 +552,9 @@ int firm_credit_insolvency_bankruptcy()
     
     /* Getting initial loan */
     TOTAL_ASSETS += CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
-    DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
+    //DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
+    /* There is one single employee at the firm after becoming insolvent */
+    DEBT = (1 * WAGE_OFFER * 0.2) / LOANS_INTEREST_RATE;
     add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     
     //printf("Newentrant Loan: Firm ID = %d, Bank = %d  New loan =  %f\n",ID,bank, DEBT);
