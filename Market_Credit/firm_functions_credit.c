@@ -553,7 +553,7 @@ int firm_credit_insolvency_bankruptcy()
     
     
     /* Getting initial loan */
-    TOTAL_ASSETS += CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
+    TOTAL_ASSETS += CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE_REFERENCE;
     //DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
     /* There is one single employee at the firm after becoming insolvent */
     
