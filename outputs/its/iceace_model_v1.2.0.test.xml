@@ -19,7 +19,7 @@
 <ratio_capitalist_households>1.0</ratio_capitalist_households>
 <inflation_target>0.02</inflation_target>
 <firms_minimum_equity_ratio>0.05</firms_minimum_equity_ratio>
-<firm_startup_leverage>4.0</firm_startup_leverage>
+<firm_startup_leverage>2.0</firm_startup_leverage>
 <household_startup_leverage>1.0</household_startup_leverage>
 <car_buffer_threshold>0.0075</car_buffer_threshold>
 <housing_market_entrance_prob>0.18</housing_market_entrance_prob>
@@ -85,7 +85,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -148,7 +148,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -211,7 +211,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -274,7 +274,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -337,7 +337,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -400,7 +400,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -463,7 +463,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -526,7 +526,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -589,7 +589,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -652,7 +652,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -715,7 +715,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -778,7 +778,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -841,7 +841,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -904,7 +904,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
@@ -967,7 +967,7 @@
   <exchange_rate>0.5</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
-  <unit_cgoods_price>0.39</unit_cgoods_price>
+  <unit_cgoods_price>0.78</unit_cgoods_price>
   <capital_goods_investment>0</capital_goods_investment>
   <cgoods_costs>0.0</cgoods_costs>
   <rawmaterial_costs>0.0</rawmaterial_costs>
