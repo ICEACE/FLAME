@@ -104,7 +104,7 @@ int foreignsector_set_prices()
 
     UNIT_RAW_PRICE = 0.00078;
 
-    UNIT_CGOODS_PRICE = 0.78;
+    UNIT_CGOODS_PRICE = 0.78 / 2;
 
     add_foreignsector_firm_prices_message(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
 
