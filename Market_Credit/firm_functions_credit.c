@@ -551,18 +551,16 @@ int firm_credit_insolvency_bankruptcy()
         LOAN_LIST[i].amount = 0;
     }
     
+    
     /* Getting initial loan */
     TOTAL_ASSETS += CAPITAL_GOODS * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
     //DEBT = TOTAL_ASSETS / (1 + FIRM_STARTUP_LEVERAGE);
     /* There is one single employee at the firm after becoming insolvent */
+    
     DEBT = (1 * WAGE_OFFER * 0.2) / LOANS_INTEREST_RATE;
-    add_new_entrant_loan_message(ID, BANK_ID, DEBT);
-    
-    //printf("Newentrant Loan: Firm ID = %d, Bank = %d  New loan =  %f\n",ID,bank, DEBT);
-    
     LOAN_LIST[0].amount = DEBT;
+    add_new_entrant_loan_message(ID, BANK_ID, DEBT);
     EQUITY = TOTAL_ASSETS - DEBT;
-    
     
 	return 0; /* Returning zero means the agent is not removed */
 }
