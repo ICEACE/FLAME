@@ -51,6 +51,7 @@ int firm_consumption_receive_sales()
     SALES += quantity_sold;
     LIQUIDITY += weekly_sales_income;
     REVENUES += weekly_sales_income;
+
     
     if (PRINT_DEBUG_MODE) {
         printf("Firm ID = %d Quantity Sold = %d Weekly Revenue = %f\n", ID, quantity_sold, weekly_sales_income);

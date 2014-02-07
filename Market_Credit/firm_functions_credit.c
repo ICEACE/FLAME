@@ -30,6 +30,7 @@ int firm_credit_check_tax_rate()
     LABOUR_TAX_RATE = labour_tax_rate_message->value;
 	FINISH_LABOUR_TAX_RATE_MESSAGE_LOOP
     
+    
 	return 0; /* Returning zero means the agent is not removed */
 }
 
@@ -136,6 +137,8 @@ int firm_credit_check_liquidity_need()
 {
   
     LIQUIDITY_NEED = DIVIDENDS_TO_BE_PAID + TOTAL_INTEREST_PAYMENTS + PLANNED_INVESTMENT_COSTS - LIQUIDITY;
+    
+    //printf("At Start of the Quarter: Firm ID = %d, Liquidity: %f, Liquidity Need: %f\n", ID, LIQUIDITY, LIQUIDITY_NEED);
     
     /*The variable is used for statistics as state variables. */
     ISLIQUIDSHORT = 0;
