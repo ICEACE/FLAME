@@ -24,7 +24,7 @@ int firm_export_import_rawmaterials()
         /* Regular firms and  need 3 units of raw material to produce one unit of goods */
         amount = (int) (NO_EMPLOYEES * LABOUR_PRODUCTIVITY * 3);
     }
-    RAWMATERIAL_COSTS = amount * UNIT_RAW_PRICE * EXCHANGE_RATE;
+    RAWMATERIAL_COSTS += amount * UNIT_RAW_PRICE * EXCHANGE_RATE;
     LIQUIDITY -= RAWMATERIAL_COSTS;
 
     add_firm_foreignsector_rawmaterials_message(ID,amount);
@@ -44,7 +44,7 @@ int firm_export_import_capitalgoods()
     depreciated_cgoods = (int) (CAPITAL_GOODS * DEPRECIATION_RATE);
     amount = depreciated_cgoods + CAPITAL_GOODS_INVESTMENT;
 
-    CGOODS_COSTS = amount * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
+    CGOODS_COSTS += amount * UNIT_CGOODS_PRICE * EXCHANGE_RATE;
     LIQUIDITY -= CGOODS_COSTS;
 
     add_firm_foreignsector_cgoods_message(ID,amount);
@@ -76,7 +76,7 @@ int firm_export_sell()
 int firm_export_receive_sales()
 {
 
-    REVENUES = SALES * UNIT_XGOODS_PRICE * EXCHANGE_RATE;
+    REVENUES += SALES * UNIT_XGOODS_PRICE * EXCHANGE_RATE;
     LIQUIDITY += REVENUES;
     //START_CENTRALBANK_FIRM_REVENUES_MESSAGE_LOOP
     //REVENUES += centralbank_firm_revenues_message->revenues;
