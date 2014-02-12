@@ -129,7 +129,8 @@ int household_housing_buy()
         
         quarterly_interest = mortgage_used * MORTGAGES_INTEREST_RATE / 4;
         quarterly_principal = (mortgage_used / annuity) - quarterly_interest;
-        /* Adding to mortgages array. */
+        /* Adding to mortgages array and updating expected houising payment*/
+        EXPECTED_HOUSING_PAYMENT += quarterly_interest + quarterly_principal;
         add_mortgage(&MORTGAGES_LIST, BANK_ID, mortgage_used, 160, quarterly_interest, quarterly_principal);
         MORTGAGES += mortgage_used;
         if (PRINT_DEBUG_MODE) {
@@ -234,6 +235,9 @@ int household_housing_collect_sale_revenue()
     if (HMARKET_ROLE == 2){
         ind = MORTGAGES_LIST.size - 1;
         mort = MORTGAGES_LIST.array[ind];
+        
+        EXPECTED_HOUSING_PAYMENT -= mort.quarterly_interest + mort.quarterly_principal;
+        
         if (mort.principal <= sale_price){
             add_mortgage_payment_from_sale_message(BANK_ID, mort.principal);
             MORTGAGES -= mort.principal;
@@ -256,6 +260,9 @@ int household_housing_collect_sale_revenue()
             MORTGAGES_LIST.array[ind].principal = new_principle;
             MORTGAGES_LIST.array[ind].quarterly_interest = new_quarterly_interest;
             MORTGAGES_LIST.array[ind].quarterly_principal = new_quarterly_principal;
+            
+            EXPECTED_HOUSING_PAYMENT += new_quarterly_interest + new_quarterly_principal;
+            
             if (PRINT_DEBUG_MODE) {
                 printf("Regular Seller = %d has decreased a mortgage debt by a = %f amount. \n", ID, sale_price);
             }
@@ -275,6 +282,7 @@ int household_housing_collect_sale_revenue()
         /* pays the newest mortgage first! */
         ind = MORTGAGES_LIST.size - 1;
         mort = MORTGAGES_LIST.array[ind];
+        EXPECTED_HOUSING_PAYMENT -= mort.quarterly_interest + mort.quarterly_principal;
         
         if (mort.principal <= sale_price){
             MORTGAGES -= mort.principal;
@@ -301,6 +309,7 @@ int household_housing_collect_sale_revenue()
             MORTGAGES_LIST.array[ind].principal = new_principle;
             MORTGAGES_LIST.array[ind].quarterly_interest = new_quarterly_interest;
             MORTGAGES_LIST.array[ind].quarterly_principal = new_quarterly_principal;
+            EXPECTED_HOUSING_PAYMENT += new_quarterly_interest + new_quarterly_principal;
             sale_price = 0;
         }
     }

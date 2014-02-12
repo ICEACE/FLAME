@@ -12,16 +12,16 @@
 
 
 # sequence of model compilation and simulation run
-cp ../initialization/instances/iceace_model_v1.0.0.xml ./initialization/iceace_model_v1.0.0.xml
-cp ../initialization/popfiles/iceace_model_v1.0.0.pop ./initialization/iceace_model_v1.0.0.pop
+cp /Users/bulent/iceace/FLAME/initialization/instances/iceace_model_v2.0.0.xml /Users/bulent/iceace/FLAME/initialization/iceace_model_v2.0.0.xml
+cp /Users/bulent/iceace/FLAME/initialization/popfiles/iceace_model_v2.0.0.pop /Users/bulent/iceace/FLAME/initialization/iceace_model_v2.0.0.pop
 
-cp ./initialization/iceace_model_v1.0.0.xml ./outputs/its/0.xml
-../xparser-0.17.0/xparser model_iceace.xml
-cp ./stategraph_colour.dot ./docs/
+cp /Users/bulent/iceace/FLAME/initialization/iceace_model_v2.0.0.xml /Users/bulent/iceace/FLAME/outputs/its/0.xml
+/Users/bulent/iceace/xparser-0.17.0/xparser model_iceace.xml
+cp /Users/bulent/iceace/FLAME/stategraph_colour.dot ./docs/
 dot -Tpdf ./stategraph_colour.dot -o ./docs/stategraph_colour.pdf
 make LIBMBOARD_DIR=/Users/bulent/Documents/AWorkspace/iceace/libmbdir
 ./main 65 ./outputs/its/0.xml -f 1 > ./outputs/simulation_stream.txt
-../html/updatewebpage.sh
+/Users/bulent/iceace/FLAME/html/updatewebpage.sh
 make vclean
 
 ### To run the analysis script:

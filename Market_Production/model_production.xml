@@ -72,11 +72,6 @@
                 </variable>
                 <variable>
                     <type>double</type>
-                    <name>capital_goods_price</name>
-                    <description>Unit price for capital goods.</description>
-                </variable>
-                <variable>
-                    <type>double</type>
                     <name>unit_cost</name>
                     <description>Unit production cost of a consumption good.</description>
                 </variable>

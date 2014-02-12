@@ -62,7 +62,7 @@
                 <variable>
                     <type>double</type>
                     <name>unit_cgoods_price</name>
-                    <description>Capital unit goods price</description>
+                    <description>Unit capital goods price</description>
                 </variable>
                 <variable>
                     <type>int</type>
