@@ -97,6 +97,11 @@
                     <name>goods_transactions</name>
                     <description>Weakly transaction summary at the market.</description>
                 </variable>
+                <variable>
+                    <type>double</type>
+                    <name>demand_tourism</name>
+                    <description>Weakly consumption demand by foreign sector in local currency.</description>
+                </variable>
             </memory>
             <!-- List of agent functions -->
             <functions>

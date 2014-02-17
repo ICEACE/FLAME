@@ -52,8 +52,6 @@ int mall_consumption_shopping()
     
 	FINISH_SELL_MESSAGE_LOOP
     
-    //printf("IT_NO = %d, Mall max = %f , min = %f\n", IT_NO, max_price, min_price);
-    
     
     /* Queue the households */
     int hh_id;
@@ -79,11 +77,15 @@ int mall_consumption_shopping()
      */
     int total_fx_sold = 0;
     double total_fx_volume = 0;
-    int fxsize, fxamount, fxfirm_id;
+    int fxsize, fxamount, fxinventory, fxfirm_id, j;
     double fxprice;
-
     fxsize = sellers_list.size;
 
+    /*
+     Following mechanism simulates the case when a certain ratio
+     of produced goods are consumed by foreign sector.
+     */
+    /*
     for (int j = 0; j < fxsize; ++j)
     {
         fxamount = (int) (FIRM_EXPORT_RATIO * sellers_list.array[j].inventory);
@@ -94,6 +96,42 @@ int mall_consumption_shopping()
         total_fx_sold += fxamount;
         total_fx_volume += fxamount * fxprice;
     }
+    */
+    
+    /*
+     Following algorith simulates when a certain transaction volume is taken
+     place due to foreign sector consumtion in local markets.
+     */
+    
+    /* to be dtermined !!!! */
+    DEMAND_TOURISM = 100000;
+    do {
+        if (fxsize == 0) {break;}
+        if (total_fx_volume < DEMAND_TOURISM) {break;}
+        j = 0;
+        while (j < fxsize) {
+            if (total_fx_volume < DEMAND_TOURISM) {break;}
+            fxinventory = sellers_list.array[j].inventory;
+            if (inventory <= 0){
+                remove_seller(&sellers_list, j);
+                continue;
+            }
+            fxfirm_id = sellers_list.array[j].id;
+            fxprice = sellers_list.array[j].price;
+            fxamount = (int) (FIRM_EXPORT_RATIO * fxinventory);
+            /* This case should not occure in any proper initilizations. */
+            if (fxamount < fxinventory) {
+                fxamount = fxinventory;
+            }
+            sellers_list.array[j].inventory -= fxamount;
+            add_sold_message(fxfirm_id, fxamount);
+            total_fx_sold += fxamount;
+            total_fx_volume += fxamount * fxprice;
+            j++;
+        }
+        fxsize = sellers_list.size;
+    } while (1);
+    
     add_mall_centralbank_goods_message(total_fx_volume);
 
     /* Do the matching *
