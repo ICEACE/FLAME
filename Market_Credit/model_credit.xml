@@ -48,6 +48,7 @@
             <file>household_functions_credit.c</file>
             <file>government_functions_credit.c</file>
             <file>bank_functions_credit.c</file>
+            <file>badbank_functions_credit.c</file>
             <file>centralbank_functions_credit.c</file>
             <file>equityfund_functions_credit.c</file>
             <file>reagency_functions_credit.c</file>
@@ -1141,9 +1142,9 @@
                         </output>
                     </outputs>
                 </function>
-                
             </functions>
         </xagent>
+        
         <xagent>
             <name>household</name>
             <description>The household agent at credit market.</description>
@@ -1799,6 +1800,37 @@
                     </outputs>
                 </function>
                 
+            </functions>
+        </xagent>
+        <xagent>
+            <name>badbank</name>
+            <description>The bad bank</description>
+            <memory/>
+            <functions>
+                <function>
+                    <name>idle</name>
+                    <description>It is not the end of a quarter.</description>
+                    <currentState>BadbankCreditMarket</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <not><time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time></not>
+                    </condition>
+                </function>
+                <function>
+                    <name>badbank_credit_requests</name>
+                    <description>Bad bank activities.</description>
+                    <currentState>BadbankCreditMarket</currentState>
+                    <nextState>end</nextState>
+                    <condition>
+                        <time>
+                            <period>quarterly</period>
+                            <phase>0</phase>
+                        </time>
+                    </condition>
+                </function>
             </functions>
         </xagent>
     </agents>

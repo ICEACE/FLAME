@@ -26,6 +26,11 @@
                 <name>firm_export_ratio</name>
                 <description>Ratio of regular goods exported by regular firms to foreign sector.</description>
             </variable>
+            <variable>
+                <type>double</type>
+                <name>export_growth_rate</name>
+                <description>Yearly growth rate of exports of regular consumption goods to foreign sector.</description>
+            </variable>
         </constants>
         <functionFiles>
         <!-- List of C files that hold agent functions -->
@@ -100,7 +105,7 @@
                 <variable>
                     <type>double</type>
                     <name>demand_tourism</name>
-                    <description>Weakly consumption demand by foreign sector in local currency.</description>
+                    <description>Weekly consumption demand by foreign sector in foreign currency.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->

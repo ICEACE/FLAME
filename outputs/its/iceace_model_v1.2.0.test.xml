@@ -32,6 +32,7 @@
 <household_mortgage_writeoff_low>0.5</household_mortgage_writeoff_low>
 <export_price_change_rate>0.05</export_price_change_rate>
 <firm_export_ratio>0.1</firm_export_ratio>
+<export_growth_rate>0.01</export_growth_rate>
 <exchange_rate_reference>0.5</exchange_rate_reference>
 </environment>
 <xagent>
@@ -1045,6 +1046,11 @@
   <it_no>0</it_no>
 </xagent>
 <xagent>
+    <name>badbank</name>
+    <id>825</id>
+    <it_no>0</it_no>
+</xagent>
+<xagent>
 <name>reagency</name>
   <mortgages_interest_rate>0.04</mortgages_interest_rate>
   <housing_transactions>{0,100.0}</housing_transactions>
@@ -1058,6 +1064,7 @@
   <goods_transactions>{0,0.0078}</goods_transactions>
   <id>20</id>
   <it_no>0</it_no>
+  <demand_tourism>100</demand_tourism>
 </xagent>
 <xagent>
 <name>foreignsector</name>

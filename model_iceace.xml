@@ -86,6 +86,7 @@
             <file>mall_functions_top.c</file>
             <file>reagency_functions_top.c</file>
             <file>foreignsector_functions_top.c</file>
+            <file>badbank_functions_top.c</file>
         </functionFiles>
         <dataTypes>
             <dataType>
@@ -896,6 +897,30 @@
                     <description>Notifies its id.</description>
                     <currentState>JPOfficeLoop</currentState>
                     <nextState>JPOLabourMarket</nextState>
+                </function>
+            </functions>
+        </xagent>
+        <xagent>
+            <name>badbank</name>
+            <description>The bad bank</description>
+            <memory>
+                <variable>
+                    <type>int</type>
+                    <name>id</name>
+                    <description>Agent ID.</description>
+                </variable>
+                <variable>
+                    <type>int</type>
+                    <name>it_no</name>
+                    <description>Current iteration. Incremented daily bais.</description>
+                </variable>
+            </memory>
+            <functions>
+                <function>
+                    <name>badbank_init</name>
+                    <description>Initialization state.</description>
+                    <currentState>start</currentState>
+                    <nextState>BadbankCreditMarket</nextState>
                 </function>
             </functions>
         </xagent>

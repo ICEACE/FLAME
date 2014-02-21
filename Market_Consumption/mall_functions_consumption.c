@@ -103,8 +103,11 @@ int mall_consumption_shopping()
      place due to foreign sector consumtion in local markets.
      */
     
-    /* to be dtermined !!!! */
-    DEMAND_TOURISM = 100000;
+    /* It should be noted that the growth of demand via following equation is not linear!
+     */
+     
+    DEMAND_TOURISM = (1 + EXPORT_GROWTH_RATE / 48) * DEMAND_TOURISM;
+    
     do {
         if (fxsize == 0) {break;}
         if (total_fx_volume < DEMAND_TOURISM) {break;}
