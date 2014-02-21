@@ -110,13 +110,14 @@ int mall_consumption_shopping()
     
     do {
         if (fxsize == 0) {break;}
-        if (total_fx_volume < DEMAND_TOURISM) {break;}
+        if (total_fx_volume >= DEMAND_TOURISM) {break;}
         j = 0;
         while (j < fxsize) {
-            if (total_fx_volume < DEMAND_TOURISM) {break;}
+            if (total_fx_volume >= DEMAND_TOURISM) {break;}
             fxinventory = sellers_list.array[j].inventory;
             if (inventory <= 0){
                 remove_seller(&sellers_list, j);
+                fxsize = sellers_list.size;
                 continue;
             }
             fxfirm_id = sellers_list.array[j].id;
@@ -132,7 +133,6 @@ int mall_consumption_shopping()
             total_fx_volume += fxamount * fxprice;
             j++;
         }
-        fxsize = sellers_list.size;
     } while (1);
     
     add_mall_centralbank_goods_message(total_fx_volume);
