@@ -2,10 +2,10 @@
 #include "../badbank_agent_header.h"
 
 /*
- * \fn: int dummy function
+ * \fn: int badbank_credit_requests function
  * \brief:
  */
-int badbank_credit_dummy()
+int badbank_credit_requests()
 {
 
 

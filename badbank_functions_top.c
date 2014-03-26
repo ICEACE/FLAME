@@ -7,7 +7,7 @@
  * \fn: int equityfund_init()
  * \brief: completes runtime initializations.
  */
-int equityfund_init()
+int badbank_init()
 {
     if (DATA_COLLECTION_MODE) {
         char * filename;
