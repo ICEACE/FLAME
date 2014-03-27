@@ -74,7 +74,7 @@ dot -Tpdf ../process_order_graph.dot -o ./doxy/process_order_graph.pdf
 git commit -a -m "Adding state graph pdf files."
 git push origin gh-pages
 
-sed 's|Author names to add|Bulent Ozel - bulent.ozel@gmail.com|' ../latex.tex > ../newlatex.tex
+sed 's|Author names to add|Bulent Ozel - bulent.ozel@gmail.com|' ./latex.tex > ./newlatex.tex
 mv ../newlatex.tex ../latex.tex
 #do twice for the table of contents.
 pdflatex ../latex.tex
