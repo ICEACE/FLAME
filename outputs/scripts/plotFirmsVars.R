@@ -1,4 +1,4 @@
-#Firms
+# Regular and Cunstructor Firms
 plot_time_series_mean_file(nFirms, nQuarters, FirmBalance$UNIT_GOODS_PRICE, "Quarters", "Price (mean)", "Firms", "FirmsUnitGoodPrices.png", isgrid = TRUE, ispoint = TRUE)
 plot_time_series_mean_file(nCFirms, nQuarters, CFirmBalance$UNIT_HOUSE_PRICE, "Quarters", "Price (mean)", "Constructor Firms", "CFirmsUnitHousePrices.png", isgrid = TRUE, ispoint = TRUE)
 

@@ -6,11 +6,11 @@ output_dir = "/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/plots/"
 setwd(output_dir)
 
 # Import Datasets #
-data_household = 1
+data_household = 0
 source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/importSimResults.R", echo = T)
 
-# Plotting Mall, Real Estate, Government, Central Bank and Equity Fund Vars #
-source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotAgentVars.R", echo = T)
+# Plotting Mall, Real Estate, Government, Central Bank, Foreign Sector and Equity Fund Vars #
+source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotMacroVars.R", echo = T)
 
 
 # Plot Bank Vars #
@@ -37,7 +37,6 @@ source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/computeH
 if (data_household){
 	source("/Users/bulent/Documents/AWorkspace/iceace/FLAME/outputs/scripts/plotHouseholdVars.R", echo = T)
 	}
-
 
 # Compute GDP #
 betaval = "0.30"

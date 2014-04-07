@@ -107,6 +107,20 @@ int foreignsector_set_prices()
     UNIT_CGOODS_PRICE = 0.78;
 
     add_foreignsector_firm_prices_message(UNIT_XGOODS_PRICE,UNIT_RAW_PRICE,UNIT_CGOODS_PRICE);
+    
+    if (DATA_COLLECTION_MODE) {
+        char * filename;
+        FILE * file1;
+        
+        /* @/fn: foreignsector_set_prices() */
+        filename = malloc(100*sizeof(char));
+        filename[0]=0;
+        strcpy(filename, "./outputs/data/ForeignSector_Monthly.txt");
+        file1 = fopen(filename,"a");
+        fprintf(file1,"%d %f %f\n",IT_NO, EXPORTS, IMPORTS);
+        fclose(file1);
+        free(filename);
+    }
 
     return 0; /* Returning zero means the agent is not removed */
 }

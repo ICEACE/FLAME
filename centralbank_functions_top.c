@@ -84,7 +84,7 @@ int centralbank_iterate()
             FILE * file1;
             
             /* @/fn: () */
-            filename = malloc(40*sizeof(char));
+            filename = malloc(100*sizeof(char));
             filename[0]=0;
             strcpy(filename, "./outputs/data/BankruptcyInspection.txt");
             file1 = fopen(filename,"w");

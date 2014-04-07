@@ -6,6 +6,9 @@ Government <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 file = paste(data_dir, '/', "CentralBank_snapshot.txt", sep ='')
 Centralbank <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 
+file = paste(data_dir, '/', "ForeignSector_Monthly.txt", sep ='')
+ForeignsectorMonthly <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
+
 file = paste(data_dir, '/', "EquityFund_snapshot.txt", sep ='')
 Equityfund <- read.csv(file, sep = " ", header = T, stringsAsFactors = F)
 

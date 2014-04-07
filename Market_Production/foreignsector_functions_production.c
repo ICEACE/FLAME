@@ -52,7 +52,7 @@ int foreignsector_export_pay()
     
     int size = EXPORT_LIST.size;
     while (size > 0) {
-    remove_export(&EXPORT_LIST,0);
+        remove_export(&EXPORT_LIST,0);
         size = EXPORT_LIST.size;
     }
     
