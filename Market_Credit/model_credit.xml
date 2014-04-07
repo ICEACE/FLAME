@@ -1018,7 +1018,7 @@
                 <variable>
                     <type>double</type>
                     <name>fx_liquidity</name>
-                    <description>liquidity in foreign currency</description>
+                    <description>Foreign currency reserve of the centralbank.</description>
                 </variable>
             </memory>
             <!-- List of agent functions -->

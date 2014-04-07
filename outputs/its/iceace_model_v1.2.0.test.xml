@@ -5,7 +5,7 @@
 <print_debug_mode>0</print_debug_mode>
 <warning_mode>1</warning_mode>
 <data_collection_mode>1</data_collection_mode>
-<collect_household_data>0</collect_household_data>
+<collect_household_data>1</collect_household_data>
 <collect_firm_data>1</collect_firm_data>
 <n_exportfirms>1</n_exportfirms>
 <ratio_liquidity>1.0</ratio_liquidity>
@@ -1064,7 +1064,7 @@
   <goods_transactions>{0,0.0078}</goods_transactions>
   <id>20</id>
   <it_no>0</it_no>
-  <demand_tourism>100</demand_tourism>
+  <demand_tourism>75</demand_tourism>
 </xagent>
 <xagent>
 <name>foreignsector</name>

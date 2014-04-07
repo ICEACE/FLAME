@@ -99,14 +99,19 @@ int mall_consumption_shopping()
     */
     
     /*
-     Following algorith simulates when a certain transaction volume is taken
+     Following algorithm simulates when a certain transaction volume is taken
      place due to foreign sector consumtion in local markets.
      */
     
     /* It should be noted that the growth of demand via following equation is not linear!
      */
-     
-    DEMAND_TOURISM = (1 + EXPORT_GROWTH_RATE / 48) * DEMAND_TOURISM;
+    
+    if (IT_NO == 5) {
+        DEMAND_TOURISM = 75;
+    } else {
+        DEMAND_TOURISM = (1 + EXPORT_GROWTH_RATE / 48) * DEMAND_TOURISM;
+    }
+    
     
     do {
         if (fxsize == 0) {break;}
@@ -115,17 +120,18 @@ int mall_consumption_shopping()
         while (j < fxsize) {
             if (total_fx_volume >= DEMAND_TOURISM) {break;}
             fxinventory = sellers_list.array[j].inventory;
-            if (inventory <= 0){
+            if (fxinventory <= 0){
                 remove_seller(&sellers_list, j);
                 fxsize = sellers_list.size;
                 continue;
             }
+            
             fxfirm_id = sellers_list.array[j].id;
             fxprice = sellers_list.array[j].price;
-            fxamount = (int) (FIRM_EXPORT_RATIO * fxinventory);
-            /* This case should not occure in any proper initilizations. */
-            if (fxamount < fxinventory) {
-                fxamount = fxinventory;
+            if (fxinventory <= 100) {
+                fxamount = 1;
+            } else {
+                fxamount = (int) (FIRM_EXPORT_RATIO * fxinventory);
             }
             sellers_list.array[j].inventory -= fxamount;
             add_sold_message(fxfirm_id, fxamount);
