@@ -1,6 +1,7 @@
-FLAME
-=====
-A Multi-agent Implementation of ICEACE Model in FLAME. 
+Iceace Model 1.2.0
+==================
+
+A Multi-agent Implementation of ICEACE Model in FLAME. This developmental version addresses interaction with foreign sector.
 
 Software License
 ================
