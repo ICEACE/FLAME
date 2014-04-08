@@ -31,31 +31,31 @@ mv -f ../docs/html/* ./doxy/
 
 # For new files:
 git add ./doxy/*.map
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 git add ./doxy/*.md5
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 git add ./doxy/*.png
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 git add ./doxy/*.html
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 git add ./doxy/*.js
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 git add ./doxy/*
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 git add ./doxy/*.map
-git commit -m "Design documents are updated, reflecting the integrated implementation."
+git commit -m "Design documents are updated, reflecting a complete model of a closed economy calibrated for Iceland."
 git push origin gh-pages
 
 
@@ -68,14 +68,15 @@ git push origin gh-pages
 
 # Insertion of pdf and state diagrams:
 #
-dot -Tpdf ../stategraph.dot -o ./doxy/stategraph.pdf
+#dot -Tpdf ../stategraph.dot -o ./doxy/stategraph.pdf
 dot -Tpdf ../stategraph_colour.dot -o ./doxy/stategraph_colour.pdf
-dot -Tpdf ../process_order_graph.dot -o ./doxy/process_order_graph.pdf
-git commit -a -m "Adding state graph pdf files."
+#dot -Tpdf ../process_order_graph.dot -o ./doxy/process_order_graph.pdf
+git commit -a -m "Adding state graph to list of pdf files."
 git push origin gh-pages
 
+cp ../../IceaceModel1.0/latex.tex ./
 sed 's|Author names to add|Bulent Ozel - bulent.ozel@gmail.com|' ./latex.tex > ./newlatex.tex
-mv ../newlatex.tex ../latex.tex
+mv ./newlatex.tex ./latex.tex
 #do twice for the table of contents.
 pdflatex ../latex.tex
 pdflatex ../latex.tex
@@ -85,12 +86,11 @@ git add ./doxy/*.pdf
 git commit -a -m "Adding model manual file."
 git push origin gh-pages
 
-cp ./doxy/stategraph.pdf ../docs/
-cp ./doxy/stategraph_colour.pdf ../docs/
-cp ./doxy/summary.pdf ../docs/
-cp ./doxy/process_order_graph.pdf ../docs/
-cd ..
-git commit -a -m "Design documents are updated, reflecting a newer implementation."
-git push origin master
-
-cd ./html
+#cp ./doxy/stategraph.pdf ../docs/
+#cp ./doxy/stategraph_colour.pdf ../docs/
+#cp ./doxy/summary.pdf ../docs/
+#cp ./doxy/process_order_graph.pdf ../docs/
+#cd ..
+#git commit -a -m "Design documents are updated, reflecting a newer implementation."
+#git push origin master
+#cd ./html
