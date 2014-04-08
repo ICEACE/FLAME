@@ -1,6 +1,0 @@
-<map id="copy_hbank" name="copy_hbank">
-<area shape="rect" id="node2" href="$memory_8c.html#a9a82a14ef7a21873c3ae53dfa558f0e8" title="copy_hbank_static_array" alt="" coords="147,5,317,33"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a7373f17a9238c7dba4d1d98ac6bd7b04" title="Remove an hbank from a dynamic hbank array." alt="" coords="177,57,287,85"/>
-<area shape="rect" id="node4" href="$reagency__functions__housing_8c.html#a296f9213f938eba77b8190a19c9815d9" title="reagency_housing_process" alt="" coords="365,57,550,85"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="598,57,648,85"/>
-</map>

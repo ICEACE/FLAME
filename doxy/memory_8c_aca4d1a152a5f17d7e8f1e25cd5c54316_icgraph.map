@@ -1,8 +1,0 @@
-<map id="free_loan_static_array" name="free_loan_static_array">
-<area shape="rect" id="node2" href="$memory_8c.html#a9cbca1b922b77ab5533d30c4b1cf35ce" title="free_firm_agent" alt="" coords="213,5,328,33"/>
-<area shape="rect" id="node7" href="$memory_8c.html#a99e42d160be2f9cc3d08dfc73bb3ff30" title="unittest_free_firm\l_agent" alt="" coords="208,57,333,101"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="835,6,885,34"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a7721ab7a5ccc966ee44ebd2635ec0183" title="free_firm_agents" alt="" coords="382,31,503,59"/>
-<area shape="rect" id="node5" href="$memory_8c.html#a71a58d5746770621880907688097afef" title="Free the currently being used X&#45;machine list." alt="" coords="553,31,661,59"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a43fbd55a657aed5abc0320648ddd92f7" title="Add a node to the node list." alt="" coords="710,31,786,59"/>
-</map>

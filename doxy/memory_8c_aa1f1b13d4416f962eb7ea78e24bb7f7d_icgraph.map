@@ -1,8 +1,0 @@
-<map id="init_hbank" name="init_hbank">
-<area shape="rect" id="node2" href="$memory_8c.html#a5500103130ce727da816b3531cf3bb23" title="init_hbank_static_array" alt="" coords="137,5,295,33"/>
-<area shape="rect" id="node3" href="$memory_8c.html#a194587db3e53d5439e902ee02b2a298f" title="Add an hbank to the dynamic hbank array." alt="" coords="172,57,260,85"/>
-<area shape="rect" id="node4" href="$reagency__functions__housing_8c.html#a296f9213f938eba77b8190a19c9815d9" title="reagency_housing_process" alt="" coords="344,5,528,33"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a428105e8aad1f90acd4b47d9132689c1" title="copy_hbank_array" alt="" coords="370,57,502,85"/>
-<area shape="rect" id="node7" href="$xml_8c.html#a0dc445cd19e9752b97c2c64e21dc795e" title="read_hbank_dynamic\l_array" alt="" coords="362,109,510,153"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="576,5,626,33"/>
-</map>

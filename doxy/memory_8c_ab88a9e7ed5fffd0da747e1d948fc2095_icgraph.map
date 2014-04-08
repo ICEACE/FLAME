@@ -1,7 +1,0 @@
-<map id="add_centralbank_agent_internal" name="add_centralbank_agent_internal">
-<area shape="rect" id="node2" href="$memory_8c.html#a00a66d50721c54a6327d2989fa1a2d0a" title="transition_centralbank\l_agent" alt="" coords="427,5,579,49"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a22fc7f568830d784464a373b68d1addf" title="add_centralbank_agent" alt="" coords="217,53,378,81"/>
-<area shape="rect" id="node5" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="242,105,352,133"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="627,49,677,77"/>
-<area shape="rect" id="node6" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="446,83,560,111"/>
-</map>

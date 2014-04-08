@@ -1,8 +1,0 @@
-<map id="init_hseller" name="init_hseller">
-<area shape="rect" id="node2" href="$memory_8c.html#a551364955471beb3f32f490bba54498a" title="init_hseller_static\l_array" alt="" coords="140,5,263,49"/>
-<area shape="rect" id="node3" href="$memory_8c.html#aaafb0d30b694ef43a322706e60ad3bc9" title="Add an hseller to the dynamic hseller array." alt="" coords="156,73,246,101"/>
-<area shape="rect" id="node4" href="$reagency__functions__housing_8c.html#a296f9213f938eba77b8190a19c9815d9" title="reagency_housing_process" alt="" coords="312,21,496,49"/>
-<area shape="rect" id="node6" href="$memory_8c.html#a8e3c6a4be3a846a91954ad853e43ad56" title="copy_hseller_array" alt="" coords="337,73,471,101"/>
-<area shape="rect" id="node7" href="$xml_8c.html#a7c041dd53c4fd475e6c95741a89fff36" title="read_hseller_dynamic\l_array" alt="" coords="328,125,480,169"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="544,21,594,49"/>
-</map>

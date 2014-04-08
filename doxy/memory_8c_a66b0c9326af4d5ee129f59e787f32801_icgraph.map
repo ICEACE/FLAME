@@ -1,7 +1,0 @@
-<map id="add_firm_agent_internal" name="add_firm_agent_internal">
-<area shape="rect" id="node2" href="$memory_8c.html#a58c748aa58c732276e7b120a23730b07" title="transition_firm_agent" alt="" coords="382,5,528,33"/>
-<area shape="rect" id="node4" href="$memory_8c.html#a035262bc4caf9af0f05e17ec80dbdd57" title="add_firm_agent" alt="" coords="219,43,333,71"/>
-<area shape="rect" id="node5" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="221,95,331,123"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="576,38,626,66"/>
-<area shape="rect" id="node6" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="398,70,512,98"/>
-</map>
