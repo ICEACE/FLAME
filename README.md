@@ -1,11 +1,10 @@
 FLAME
 =====
-
 A Multi-agent Implementation of ICEACE Model in FLAME. 
 
 Software License
 ================
-FLAME implementation of ICEACE project is developed by Bulent Ozel (bulent.ozel@gmail.com).
+FLAME implementation of ICEACE project is developed and maintained by Bulent Ozel (bulent.ozel@gmail.com). Other contributors are Einar Jon Erlingsson and Marco Raberto.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
 
@@ -15,7 +14,6 @@ You should have received a copy of the GNU General Public License along with thi
 
 Project Summary
 ===============
-
 ICEACE (Financial instability, credit rationing and business cycles in an agent-based model: the case of Iceland)
 is funded by The Icelandic Research Fund 2011.
 
@@ -35,22 +33,18 @@ It serves as the major multi-agent platform for the implementation of ICEACE mod
 
 Repository Files
 ================
-
-This root folder holds model description (model_vn.n.n.xml file) and agent functions.
+This root folder holds model description (model_iceace file) and top level agent functions.
 It needs to parsed with xparser and compiled afterwards in order to run the model on a local machine.
 
-model_vn.n.n.xml: model descriptions.
+model_aname.xml: Top level model descriptions.
 
 agentname_functions_context.c : Describes an agent behaviour within a context, i.e., market.
 
-changelog.txt: holds information on major changes.
+./Market_Amarketname: Folder containing market model and market specific agent functions at Amarketname.
 
-./Market_Amarketname: folder containing market model and market specific agent functions at Amarketname.
+./docs: The folder containing implementation related documents.
 
-./docs: a folder containing implementation related documents.
+./initialization: The folder containing various initial populations.
 
-./outputs: holds sample outputs of latest version.
-
-./outputs/0.xml : holds initial states of described model.
-
+./outputs: Holds sample outputs of data, scripts, snapshots of iterations, and plots.
 
