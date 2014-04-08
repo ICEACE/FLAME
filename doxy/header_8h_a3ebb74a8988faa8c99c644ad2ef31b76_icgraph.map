@@ -1,0 +1,10 @@
+<map id="init_int_array" name="init_int_array">
+<area shape="rect" id="node2" href="$jpoffice__functions__top_8c.html#aaa86bddbfb0a3ea4fda1391377215673" title="jpoffice_init_employment" alt="" coords="525,5,693,33"/>
+<area shape="rect" id="node4" href="$jpoffice__functions__labour_8c.html#a771b31f035e2421babf8d595fcbd7685" title="jpoffice_labour_stage2" alt="" coords="321,57,476,85"/>
+<area shape="rect" id="node5" href="$memory_8c.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="158,109,266,137"/>
+<area shape="rect" id="node9" href="$memory_8c.html#a8e6d54d0ec1d72929af15fa3cb0c5d7c" title="unittest_init_firm\l_agent" alt="" coords="153,161,271,205"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="742,57,792,85"/>
+<area shape="rect" id="node6" href="$memory_8c.html#a255f0f293460232674d0a5169ce3a96f" title="add_firm_agent" alt="" coords="342,109,456,137"/>
+<area shape="rect" id="node7" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="344,161,454,189"/>
+<area shape="rect" id="node8" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="552,134,666,162"/>
+</map>

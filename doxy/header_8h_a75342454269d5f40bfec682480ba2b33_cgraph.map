@@ -1,0 +1,5 @@
+<map id="firm_credit_insolvency_bankruptcy" name="firm_credit_insolvency_bankruptcy">
+<area shape="rect" id="node2" href="$header_8h.html#aec7fb921e813bfc9e4f80fcb5cb6ceee" title="Add firm_bank_insolvent_account message by calling internal and processing." alt="" coords="218,5,387,49"/>
+<area shape="rect" id="node3" href="$header_8h.html#a8ed3e5728f9647e79bbb11ff0ce31a2d" title="Add loan_writeoff message by calling internal and processing." alt="" coords="209,73,397,101"/>
+<area shape="rect" id="node4" href="$header_8h.html#aaf2856dbf4cbef0250a15e0d79c3ad21" title="Add new_entrant_loan message by calling internal and processing." alt="" coords="224,125,381,169"/>
+</map>

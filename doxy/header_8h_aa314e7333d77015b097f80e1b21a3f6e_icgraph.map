@@ -1,0 +1,8 @@
+<map id="init_buyer" name="init_buyer">
+<area shape="rect" id="node2" href="$memory_8c.html#a22e0ed01ee42c7114a6f00e0e1282d41" title="init_buyer_static_array" alt="" coords="134,5,290,33"/>
+<area shape="rect" id="node3" href="$memory_8c.html#afb60b2d609c66caf78217b70d68edebf" title="Add an buyer to the dynamic buyer array." alt="" coords="170,57,254,85"/>
+<area shape="rect" id="node4" href="$mall__functions__consumption_8c.html#ad20ef1bc7b3ee683eb03be6c79f13bf6" title="mall_consumption_shopping" alt="" coords="340,5,530,33"/>
+<area shape="rect" id="node6" href="$memory_8c.html#af2890cdaea58ef305b8b8cfcd07e009a" title="copy_buyer_array" alt="" coords="371,57,499,85"/>
+<area shape="rect" id="node7" href="$xml_8c.html#a6c2c6b9abe29cc413a1dcac0a128cee8" title="read_buyer_dynamic\l_array" alt="" coords="362,109,508,153"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="579,5,629,33"/>
+</map>

@@ -1,0 +1,43 @@
+<map id="readinitialstates" name="readinitialstates">
+<area shape="rect" id="node2" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="189,725,299,753"/>
+<area shape="rect" id="node40" href="$xml_8c.html#a919e919f850b5b5c7ebae3dfafe3eb34" title="readEnvironmentXML" alt="" coords="169,777,319,805"/>
+<area shape="rect" id="node41" href="$header_8h.html#a830d01a8fcc3028182baf9675a486e6b" title="add_FLAME_output" alt="" coords="174,829,314,857"/>
+<area shape="rect" id="node42" href="$xml_8c.html#ad6bd93c47fa8ca72ec882cceb268ccdd" title="Check that a directory exists." alt="" coords="168,881,320,909"/>
+<area shape="rect" id="node3" href="$header_8h.html#a66b0c9326af4d5ee129f59e787f32801" title="add_firm_agent_internal" alt="" coords="372,5,537,33"/>
+<area shape="rect" id="node4" href="$header_8h.html#aaf4f6c17d41a4a8712e9fb157c77ff82" title="partition_data" alt="" coords="404,57,506,85"/>
+<area shape="rect" id="node5" href="$header_8h.html#a3a0d3544ade8d4b945f113069be33f7b" title="add_household_agent\l_internal" alt="" coords="378,109,531,153"/>
+<area shape="rect" id="node6" href="$header_8h.html#a97c7b4f3c2e26062caad9df9a6a333d2" title="add_equityfund_agent\l_internal" alt="" coords="378,177,531,221"/>
+<area shape="rect" id="node7" href="$header_8h.html#a40b8de66bb1090312eb94112a367282e" title="add_bank_agent_internal" alt="" coords="369,245,541,273"/>
+<area shape="rect" id="node8" href="$header_8h.html#af81893da3c728571add52dfb9a4375f4" title="add_government_agent\l_internal" alt="" coords="374,297,536,341"/>
+<area shape="rect" id="node9" href="$header_8h.html#ab88a9e7ed5fffd0da747e1d948fc2095" title="add_centralbank_agent\l_internal" alt="" coords="374,365,535,409"/>
+<area shape="rect" id="node10" href="$header_8h.html#ae45d5af77ecb5f71bf064b5e80b97982" title="add_jpoffice_agent\l_internal" alt="" coords="388,433,522,477"/>
+<area shape="rect" id="node11" href="$header_8h.html#a08347b7c1d882e2222f47d9177f605c2" title="add_mall_agent_internal" alt="" coords="371,501,538,529"/>
+<area shape="rect" id="node12" href="$header_8h.html#af6a5a1e77b5348e2e33ce11e240b7ff5" title="add_reagency_agent\l_internal" alt="" coords="381,553,528,597"/>
+<area shape="rect" id="node13" href="$header_8h.html#a29595c6c09343768a304ffb7842421ad" title="init_firm_agent" alt="" coords="400,621,509,649"/>
+<area shape="rect" id="node18" href="$header_8h.html#a21f30ed8179c46c537a9337a27a76585" title="init_household_agent" alt="" coords="381,673,529,701"/>
+<area shape="rect" id="node21" href="$header_8h.html#ababcb65f8bd00140a627c050563e1041" title="init_equityfund_agent" alt="" coords="381,725,529,753"/>
+<area shape="rect" id="node22" href="$header_8h.html#a976482fde08b57c104de6108a5f95d96" title="init_bank_agent" alt="" coords="397,777,512,805"/>
+<area shape="rect" id="node23" href="$header_8h.html#a6269d28b1db3c47c9fb83d6697bab849" title="init_government_agent" alt="" coords="376,829,533,857"/>
+<area shape="rect" id="node24" href="$header_8h.html#a36bdb944cce8f7619d59b908de96bcf3" title="init_centralbank_agent" alt="" coords="377,881,532,909"/>
+<area shape="rect" id="node26" href="$header_8h.html#aeec7d7d9f891fea208f5987822ad1188" title="init_jpoffice_agent" alt="" coords="390,933,519,961"/>
+<area shape="rect" id="node27" href="$header_8h.html#a3eb12873555479f24e7c9274d02463e8" title="init_mall_agent" alt="" coords="399,985,510,1013"/>
+<area shape="rect" id="node28" href="$header_8h.html#a75c74079067b886411fed1de567159bb" title="init_reagency_agent" alt="" coords="384,1037,525,1065"/>
+<area shape="rect" id="node29" href="$header_8h.html#a1d8ef105c0340c6900a5962ccaf6b079" title="read_int_dynamic_array" alt="" coords="372,1089,537,1117"/>
+<area shape="rect" id="node31" href="$header_8h.html#a2d84564aa78f71be8f2747f05b48d05b" title="read_int_static_array" alt="" coords="382,1141,528,1169"/>
+<area shape="rect" id="node32" href="$header_8h.html#a96f8c91c8fd63033b02b8ffdeda5e19a" title="read_loan_static_array" alt="" coords="376,1193,533,1221"/>
+<area shape="rect" id="node34" href="$header_8h.html#a7d54f951072743d59c55565251c5897d" title="read_mortgage_dynamic\l_array" alt="" coords="370,1245,539,1289"/>
+<area shape="rect" id="node38" href="$header_8h.html#a31ea65e20044956338d735e548fde6e6" title="read_double_static\l_array" alt="" coords="388,1313,522,1357"/>
+<area shape="rect" id="node39" href="$header_8h.html#a2df0b1ee42048ce10817b21a8caeac8d" title="read_transaction" alt="" coords="394,1381,515,1409"/>
+<area shape="rect" id="node14" href="$header_8h.html#a3ebb74a8988faa8c99c644ad2ef31b76" title="init_int_array" alt="" coords="614,543,712,571"/>
+<area shape="rect" id="node15" href="$header_8h.html#ab34a53adeefe5f404ed168c88cb5e641" title="init_int_static_array" alt="" coords="595,595,731,623"/>
+<area shape="rect" id="node16" href="$header_8h.html#ab1ec0a7d69b22bee0e4b460e81b4ccb6" title="init_loan_static_array" alt="" coords="589,647,736,675"/>
+<area shape="rect" id="node17" href="$header_8h.html#a353b8126116f828c8b80185188d33fe8" title="init_loan" alt="" coords="800,647,872,675"/>
+<area shape="rect" id="node19" href="$header_8h.html#a50831baca30260be805d7a2504fd2e9f" title="init_mortgage_array" alt="" coords="593,699,733,727"/>
+<area shape="rect" id="node20" href="$header_8h.html#a791167cb5dbb250ad0a36abee965669d" title="init_double_static\l_array" alt="" coords="600,813,725,857"/>
+<area shape="rect" id="node25" href="$header_8h.html#a34793a45065281dbd53aafce970f578a" title="init_transaction" alt="" coords="607,985,718,1013"/>
+<area shape="rect" id="node30" href="$header_8h.html#ad1b44fa492c208202cb8ea61603aa72b" title="Add an integer to the dynamic integer array." alt="" coords="630,1089,695,1117"/>
+<area shape="rect" id="node33" href="$header_8h.html#a6f3d14873f3b814ba1ebfa890aa955ba" title="read_loan" alt="" coords="622,1193,703,1221"/>
+<area shape="rect" id="node35" href="$header_8h.html#a1fd34e57476a81283f3944c2b73ae448" title="Add an mortgage to the dynamic mortgage array." alt="" coords="609,1249,716,1277"/>
+<area shape="rect" id="node37" href="$header_8h.html#a30bd74261ed7ca544505bce8f1f9808c" title="read_mortgage" alt="" coords="607,1301,719,1329"/>
+<area shape="rect" id="node36" href="$header_8h.html#ac0ed31e21f5a3468552e24d3556b0661" title="init_mortgage" alt="" coords="785,1249,887,1277"/>
+</map>

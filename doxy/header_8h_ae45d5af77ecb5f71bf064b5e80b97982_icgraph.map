@@ -1,0 +1,7 @@
+<map id="add_jpoffice_agent_internal" name="add_jpoffice_agent_internal">
+<area shape="rect" id="node2" href="$memory_8c.html#a3a1b0c0937ce87d2eade6c21e2ef9e36" title="transition_jpoffice\l_agent" alt="" coords="373,5,499,49"/>
+<area shape="rect" id="node4" href="$memory_8c.html#a2d24163ef656c9d25b63db4ba97241eb" title="Add jpoffice X&#45;machine to the current being used X&#45;machine list." alt="" coords="190,53,324,81"/>
+<area shape="rect" id="node5" href="$xml_8c.html#a26da9dc7d094c644db6e44b9f183f7fe" title="readAgentXML" alt="" coords="202,105,312,133"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="547,49,597,77"/>
+<area shape="rect" id="node6" href="$xml_8c.html#acdf3e0e87f4574e3f9a3e9ede6841849" title="readinitialstates" alt="" coords="379,83,493,111"/>
+</map>

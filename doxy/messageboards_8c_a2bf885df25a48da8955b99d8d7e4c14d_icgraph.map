@@ -1,0 +1,5 @@
+<map id="add_bank_centralbank_update_deposit_message" name="add_bank_centralbank_update_deposit_message">
+<area shape="rect" id="node2" href="$bank__functions__top_8c.html#ae7e6decbf218db31612ad560e2e31140" title="bank_update_centralbank\l_deposit" alt="" coords="235,5,410,49"/>
+<area shape="rect" id="node3" href="$bank__functions__credit_8c.html#ae2ab3d13f1009ea98324e7379b94d552" title="bank_credit_do_balance\l_sheet" alt="" coords="239,73,406,117"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main program loop." alt="" coords="459,81,509,109"/>
+</map>

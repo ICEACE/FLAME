@@ -1,0 +1,8 @@
+<map id="household_housing_debt_writeoff" name="household_housing_debt_writeoff">
+<area shape="rect" id="node2" href="$header_8h.html#a832128364a612e6e6492aea76a45e041" title="Remove an mortgage from a dynamic mortgage array." alt="" coords="238,57,367,85"/>
+<area shape="rect" id="node5" href="$header_8h.html#a1fd34e57476a81283f3944c2b73ae448" title="Add an mortgage to the dynamic mortgage array." alt="" coords="249,109,356,137"/>
+<area shape="rect" id="node7" href="$header_8h.html#ac4162af5dfe7eaa0ecfb6812a1217667" title="Add mortgage_writeoff message by calling internal and processing." alt="" coords="224,161,381,205"/>
+<area shape="rect" id="node3" href="$header_8h.html#ac46e454953af25854fe14e2f135cf1ee" title="free_mortgage" alt="" coords="433,5,541,33"/>
+<area shape="rect" id="node4" href="$header_8h.html#ab21293b20ff60acc578cc5420b92da46" title="copy_mortgage" alt="" coords="430,57,543,85"/>
+<area shape="rect" id="node6" href="$header_8h.html#ac0ed31e21f5a3468552e24d3556b0661" title="init_mortgage" alt="" coords="436,109,538,137"/>
+</map>

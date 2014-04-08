@@ -1,0 +1,4 @@
+<map id="firm_init_balancesheet" name="firm_init_balancesheet">
+<area shape="rect" id="node2" href="$header_8h.html#a5077c417ea6281735808fea7f4abcfcf" title="Add firm_bank_init_loans message by calling internal and processing." alt="" coords="208,5,342,49"/>
+<area shape="rect" id="node3" href="$header_8h.html#ad535912f8bf13466f13193fc0062c31a" title="Add firm_bank_init_deposit message by calling internal and processing." alt="" coords="208,73,342,117"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="household_housing_fire_sell" name="household_housing_fire_sell">
+<area shape="rect" id="node2" href="$library__functions_8c.html#ad7954e6a1b9ea073c7bc894dc5af85a9" title="Returns an integer between and including min and max." alt="" coords="295,5,383,33"/>
+<area shape="rect" id="node3" href="$header_8h.html#a0dddc7215675dce75b863c24b00f8ad7" title="Add sell_housing message by calling internal and processing." alt="" coords="245,57,432,85"/>
+</map>

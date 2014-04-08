@@ -1,0 +1,6 @@
+<map id="household_housing_collect_sale_revenue" name="household_housing_collect_sale_revenue">
+<area shape="rect" id="node2" href="$header_8h.html#a0634a4cd3073884dbea0c2ac0365d1c5" title="Add mortgage_payment_from_sale message by calling internal and processing." alt="" coords="237,5,403,49"/>
+<area shape="rect" id="node3" href="$header_8h.html#a832128364a612e6e6492aea76a45e041" title="Remove an mortgage from a dynamic mortgage array." alt="" coords="255,73,385,101"/>
+<area shape="rect" id="node4" href="$header_8h.html#ac46e454953af25854fe14e2f135cf1ee" title="free_mortgage" alt="" coords="454,46,562,74"/>
+<area shape="rect" id="node5" href="$header_8h.html#ab21293b20ff60acc578cc5420b92da46" title="copy_mortgage" alt="" coords="451,98,565,126"/>
+</map>

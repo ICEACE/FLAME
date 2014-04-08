@@ -1,0 +1,4 @@
+<map id="household_init_balancesheet" name="household_init_balancesheet">
+<area shape="rect" id="node2" href="$header_8h.html#a53caaed5f72c7a40ed1755287f4068e4" title="Add household_bank_init_mortgages message by calling internal and processing." alt="" coords="248,5,426,49"/>
+<area shape="rect" id="node3" href="$header_8h.html#af6dbe23c19fef659f6ca1949c6f43413" title="Add household_bank_init_deposit message by calling internal and processing." alt="" coords="258,73,416,117"/>
+</map>

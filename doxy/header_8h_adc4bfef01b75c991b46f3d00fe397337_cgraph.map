@@ -1,0 +1,4 @@
+<map id="bank_init_balancesheet" name="bank_init_balancesheet">
+<area shape="rect" id="node2" href="$header_8h.html#a51ddfe651988b42c54d3ab20d3c01d6a" title="Add bank_centralbank_init_debt message by calling internal and processing." alt="" coords="217,5,373,49"/>
+<area shape="rect" id="node3" href="$header_8h.html#a59b66d77a9144164e85649e6b1ca8157" title="Add bank_centralbank_init_deposit message by calling internal and processing." alt="" coords="216,73,374,117"/>
+</map>
