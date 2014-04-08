@@ -1,9 +1,9 @@
 <xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    xsi:noNamespaceSchemaLocation="http://flame.ac.uk/schema/xmml_v2.xsd">
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.1.1, 06/05/2013</version>
-    <description>'Credit Market. The market has regular firm as well as sepcialized construction firm, households, banks, central bank and government agents.</description>
+    <version>Version 1.2.0, 08/04/2014, Authors: Bulent Ozel, Einar Jon Erlingsson</version>
+    <description>Credit Market. The market has regular firm as well as sepcialized construction firm, households, banks, central bank and government agents.</description>
     <environment>
         <constants>
             <variable>

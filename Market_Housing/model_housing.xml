@@ -1,9 +1,9 @@
 <xmodel version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation='http://flame.ac.uk/schema/xmml_v2.xsd'>
+    xsi:noNamespaceSchemaLocation="http://flame.ac.uk/schema/xmml_v2.xsd">
     <!-- Model descriptions  -->
     <name>ICEACE</name>
-    <version>Version 0.1.5, 06/05/2013</version>
-    <description>'Housing Market.</description>
+    <version>Version 1.2.0, 08/04/2014, Authors: Bulent Ozel, Einar Jon Erlingsson</version>
+    <description>Housing Market.</description>
     <environment>
         <constants>
             <variable>
