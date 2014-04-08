@@ -347,7 +347,7 @@ plot_gdp_to_file_v1 <- function(niter, firmiters, firmvector, cfirmiters, cfirmv
 	lines(gdpyears~years, type="l", col = "blue", lwd = 3)
 	points(gdpyears~years,  col = "blue", pch = 16)
 	dev.off()
-	return(gdpyears)
+	return(gdp)
 }
 
 plot_gdp_to_file_v2 <- function(niter, firmiters, firmvector, cfirmiters, cfirmvector, Rfirmvector, Rcfirmvector, efirmiters = vector(), efirmvector = vector(), Refirmvector = vector(), beta = "0.3"){

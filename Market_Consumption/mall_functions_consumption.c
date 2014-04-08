@@ -68,6 +68,7 @@ int mall_consumption_shopping()
     double total_fx_volume = 0;
     int fxsize, fxamount, fxinventory, fxfirm_id, j;
     double fxprice;
+    
     fxsize = sellers_list.size;
 
     /*
@@ -96,7 +97,7 @@ int mall_consumption_shopping()
      */
     
     if (IT_NO == 5) {
-        DEMAND_TOURISM = 75;
+        DEMAND_TOURISM = 50;
     } else {
         DEMAND_TOURISM = (1 + EXPORT_GROWTH_RATE / 48) * DEMAND_TOURISM;
     }
