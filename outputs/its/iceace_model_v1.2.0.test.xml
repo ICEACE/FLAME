@@ -33,7 +33,7 @@
 <export_price_change_rate>0.05</export_price_change_rate>
 <firm_export_ratio>0.01</firm_export_ratio>
 <export_growth_rate>0.01</export_growth_rate>
-<exchange_rate_reference>0.5</exchange_rate_reference>
+<exchange_rate_reference>1.0</exchange_rate_reference>
 </environment>
 <xagent>
 <name>firm</name>
@@ -83,7 +83,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -146,7 +146,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -209,7 +209,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -272,7 +272,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -335,7 +335,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -398,7 +398,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -461,7 +461,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -524,7 +524,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -587,7 +587,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -650,7 +650,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -713,7 +713,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -776,7 +776,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -839,7 +839,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -902,7 +902,7 @@
   <loan_list>{{22,0.0,0.0},{23,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -965,7 +965,7 @@
   <loan_list>{{23,0.0,0.0},{22,0.0,0.0}}</loan_list>
   <labour_tax_rate>0.2</labour_tax_rate>
   <delta_housing_price>0.0</delta_housing_price>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <unit_xgoods_price>0.0156</unit_xgoods_price>
   <unit_raw_price>0.00078</unit_raw_price>
   <unit_cgoods_price>0.78</unit_cgoods_price>
@@ -1031,7 +1031,7 @@
   <revenues>0.0</revenues>
   <net_earnings>0.0</net_earnings>
   <total_costs>0.0</total_costs>
-  <exchange_rate>0.5</exchange_rate>
+  <exchange_rate>1.0</exchange_rate>
   <fx_liquidity>0.0</fx_liquidity>
   <houses>{0,100.0}</houses>
   <monthly_export_revenues>0.0</monthly_export_revenues>
